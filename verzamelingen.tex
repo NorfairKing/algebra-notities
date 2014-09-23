@@ -72,6 +72,134 @@ de
   \[ A \subset B \Leftrightarrow A \subseteq B \wedge a \neq B \]
 \end{de}
 
+\begin{de}
+  De \emph{universele verzameling} $U$ is de verzameling van alle mogelijke elementen waarvan sprake is.
+\end{de}
+
+\begin{st}
+  Elke verzameling $A$ is een deelverzameling van het universum $U$.
+  \[ A \subseteq U \]
+  \begin{proof}
+    Inderdaad. Kies een willekeurige verzameling $A$. 
+    Elk element van $A$ zit ook in $U$.
+    \[
+    \forall x:\ x \in A \Rightarrow x \in U
+    \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  De \emph{lege verzameling} $\emptyset$ is de verzameling die geen enkel element bevat.
+\end{de}
+
+\begin{st}
+  De lege verzameling $\emptyset$ is een deelverzameling van elke verzameling.
+  \begin{proof}
+    Inderdaad. Kies een willekeurige verzameling $A$.
+    Elk element van $\emptyset$ (geen enkel element) zit ook in $A$.
+    \[
+    \forall x:\ x \in \emptyset \Rightarrow x \in A
+    \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Een \emph{singleton} is een verzameling met precies \'e\'en element.
+\end{de}
+
+\begin{de}
+  De \emph{unie} $A \cup B$ \emph{van twee verzamelingen} $A$ en $B$ is de verzameling die zowel de elementen van $A$ als de elementen van $B$ bevat.
+  \[ A \cup B = \{ x\ |\ x \in A \vee x \in B\} \]
+\end{de}
+
+\begin{ei}
+  De \emph{unie is commutatief}.
+  \[ A \cup B = B \cup A \]
+  \begin{proof}
+    Dit volgt rechtstreeks uit de symmetrie van ``$\vee$''.
+    \[ \{ x\ |\ x \in A \vee x \in B\} = \{ x\ |\ x \in B \vee x \in A\} \]
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  De \emph{unie is idempotent}
+  \[ A \cup A = A \]
+  \TODO{ bewijs }
+\end{ei}
+
+\begin{st}
+  Elke verzameling $A$ is een deelverzameling van elke unie $A \cup B$ van die verzameling met een andere verzameling $B$.
+  \[ A \subseteq A \cup B \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  \[ A \subseteq B \Leftrightarrow A \cup B = B \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  De \emph{doorsnede} $A \cap B$ \emph{van twee verzamelingen} $A$ en $B$ is de verzamling die enkel de elementen bevat die zowel in $A$ als in $B$ zitten.
+\end{de}
+
+\begin{ei}
+  De \emph{doorsnede is commutatief}.
+  \[ A \cap B = B \cap A \]
+  \begin{proof}
+    Dit volgt rechtstreeks uit de symmetrie van ``$\wedge$''.
+    \[ \{ x\ |\ x \in A \wedge x \in B\} = \{ x\ |\ x \in B \wedge x \in A\} \]
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  De \emph{doorsnede is idempotent}
+  \[ A \cap A = A \]
+  \TODO{ bewijs }
+\end{ei} 
+
+\begin{st}
+  De doorsnede $A \cap B$ is een deelverzameling van $A$.
+  \[ A \cap B \subseteq A \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  \[ A \subseteq B \Leftrightarrow A \cap B = A \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Twee verzamelingen $A$ en $B$ zijn disjunct als en slechts als ze geen gemeenschappelijke elementen hebben.
+  \[ A \cap B = \emptyset \]
+\end{de}
+
+\begin{st}
+  De \emph{absorptiewet}.
+  \begin{itemize}
+  \item \[ A \cup ( A \cap B ) \]
+  \item \[ A \cap ( A \cup B ) \]
+  \end{itemize}
+  \TODO{ bewijs }
+\end{st}
+
+
+\begin{de}
+  Het complement van een verzameling $A$ ten opzichte van de universele verzameling $U$ is de verzameling van alle elementen die niet in $A$ zitten, maar wel in $U$.
+  \[ A^{c} = \{ x\ |\ x \not\in A \} \]
+  Andere notaties voor het complement zijn $A'$, $\overline{A}$. 
+\end{de}
+
+\begin{st}
+  De \emph{wetten von De Morgan}.
+  \begin{itemize}
+  \item \[ (A \cup B)^{c} = A^{c} \cap B^{c} \]
+  \item \[ (A \cap B)^{c} = A^{c} \cup B^{c} \]
+  \end{itemize}
+  \TODO{ bewijs }
+\end{st}
+
+
+
 
 
 \end{document}
