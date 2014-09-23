@@ -1,0 +1,77 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Verzamelingen}
+\label{cha:verzamelingen}
+
+\begin{de}
+  Een \emph{verzameling} is een geheel van onderling verschillende, ongeordende objecten. Deze objecten noemt men de elementen van de verzameling.
+de 
+\end{de}
+
+\begin{de}
+  Een \emph{formele beschrijving} van een verzameling met behulp van een predikaat $p$ ziet er als volgt uit.
+  \[ \{x\ |\ p(x)\} \]
+  Dit is de verzameling van all elementen die aan het predikaat $p$ voldoen.
+\end{de}
+
+\begin{de}
+  Twee verzamelingen $A$ en $B$ zijn \emph{gelijk} als en slechts als ze dezelfde elementen bevatten. 
+  \[ A = B \Leftrightarrow \forall x:\ x \in A \Leftrightarrow x \in B \]
+\end{de}
+
+\begin{st}
+  \emph{Transitiviteit van '$=$':} Gegeven drie willekeurige verzamelingen $A$, $B$ en $C$.
+  \[ A = B \wedge B = C \Rightarrow A = C \]
+  \begin{proof}
+    \[
+    \begin{array}{cll}
+      A = B \wedge B = C &\Leftrightarrow (\forall x:\ x \in A \Leftrightarrow x \in B) \wedge (\forall x:\ x \in B \Leftrightarrow x \in C) &\\
+      &\Rightarrow \forall x:\ ((x \in A \Leftrightarrow x \in B) \wedge (x \in B \Leftrightarrow x \in C)) &\\
+      &\Leftrightarrow \forall x:\ (x \in A \Leftrightarrow x \in C) &\Leftrightarrow  A = C\\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Een verzameling $A$ is \emph{een deelverzameling} van een verzameling $B$ als en slechts als $B$ alle elementen van $A$ bevat.
+  \[ A \subseteq B \Leftrightarrow \forall x:\ x \in A \Rightarrow x \in B\]
+\end{de}
+
+\begin{st}
+  \emph{Anti-symmetrie van '$\subseteq$':} Gegeven twee willekeurige verzamelingen $A$ en $B$.
+  \[ A \subseteq B \wedge B \subseteq A  \Leftrightarrow A = B \]
+  \begin{proof}
+    \[
+    \begin{array}{cll}
+      A \subseteq B \wedge B \subseteq A &\Leftrightarrow (\forall x:\ x \in A \Rightarrow x \in B) \wedge (\forall x:\ x \in B \Rightarrow x \in A) &\\
+      & \Leftrightarrow \forall x:\ ((x \in A \Rightarrow x \in B) \wedge (x \in B \Rightarrow x \in A)) &\\
+      & \Leftrightarrow \forall x:\ x \in A \Leftrightarrow x \in B &\Leftrightarrow A = B  \\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \emph{Transitiviteit van '$\subseteq$':} Gegeven drie willekeurige verzamelingen $A$, $B$ en $C$.
+  \[ A \subseteq B \wedge B \subseteq C  \Leftrightarrow A \subseteq C \]
+  \begin{proof}
+    \[
+    \begin{array}{cll}
+      A \subseteq B \wedge B \subseteq C &\Leftrightarrow (\forall x:\ x \in A \Rightarrow x \in B) \wedge (\forall x:\ x \in B \Rightarrow x \in C) &\\
+      & \Rightarrow \forall x:\ ((x \in A \Rightarrow x \in B) \wedge (x \in B \Rightarrow x \in C)) &\\
+      & \Leftrightarrow \forall x:\ x \in A \Rightarrow x \in C &\Leftrightarrow A \subseteq C  \\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Een verzameling $A$ is een \emph{strikte deelverzameling} van een verzameling $B$ als en slechts als $A$ een deelverzameling is van $B$ en niet gelijk is aan $B$.
+  \[ A \subset B \Leftrightarrow A \subseteq B \wedge a \neq B \]
+\end{de}
+
+
+
+\end{document}
