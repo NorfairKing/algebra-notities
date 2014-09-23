@@ -1,4 +1,4 @@
-* TEMPLATE notities
+* Algebra notities
 
 ** Bijdragen
 Dit boek is een open-source project.
