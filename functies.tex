@@ -1,8 +1,58 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
-\chapter{Functies}
-\label{cha:functies}
+\chapter{Functies en afbeeldingen}
+\label{cha:functies-en-afbeeldingen}
 
+\begin{de}
+  Een \emph{functie} $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een relatie tussen $A$ en $B$ die 1-waardig is.
+  \begin{enumerate}
+  \item $f \in A \subseteq B$ ($f$ is een relatie van $A$ naar $B$.)
+  \item $(x,y_{1}) \in f \wedge (x,y_{2}) \in f \Rightarrow y_{1} = y_{2}$ ($f$ is 1-waardig.)
+  \end{enumerate}
+\end{de}
+
+\begin{de}
+  Wanneer er geen koppel $(x,y)$ in $f$ bestaat zeggen we dat de functie $f$ ongedefini\"eerd is in $x$.
+\end{de}
+
+\begin{de}
+  Een \emph{afbeelding} $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een functie die overal gedefini\"eerd is.
+  \[ \forall x \in A,\ \exists y \in B: (x,y) \in f \]
+\end{de}
+
+\begin{de}
+  Wanneer we over fucties spreken noteren we vaak $f(x) = y$ in plaats van $x f y$ of $(x,y) \in f$.
+\end{de}
+
+\begin{de}
+  In $y = f(x)$ noemen we $x$ het argument en $y$ het beeld van $x$ onder $f$.
+\end{de}
+
+\begin{st}
+  Zij $f$ een functie van $A$ naar $B$: $f: A \rightarrow B$, dan geldt:
+  \[ \forall x \in A\]
+  \TODO{bewijs}
+\end{st}
+
+\begin{de}
+  Zij $f: A \rightarrow A$ een functie van $A$ naar zichzelf.
+  We noemen $x$ een \emph{vast punt} van $f$ als $f$ $x$ op zichzelf afbeeldt.
+  \[ f(x) = x \]
+\end{de}
+
+\begin{de}
+  Zij $f: A \rightarrow A$ een functie van $A$ naar zichzelf.
+  We noemen een deelverzameling $X$ van $A$ een \emph{invariante of stabiele deelverzameling} voor $f$ als $f$ alle elementen van $X$ op zichzelf afbeeldt.
+  \[ f(X) \subseteq X \]
+\end{de}
+
+\section{Jecties}
+\label{sec:jecties}
+
+\begin{de}
+  Een afbeelding $f: A \rightarrow B$ is $injectief$ als ze voor verschillende argumenten nooit hetzelfde beeld geeft.
+  \[ f(x_{1}) = f(x_{2}) \Rightarrow x_{1}= x_{2} \]
+\end{de}
 
 \end{document}
