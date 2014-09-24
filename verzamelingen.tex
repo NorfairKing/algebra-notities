@@ -1,0 +1,343 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Verzamelingen}
+\label{cha:verzamelingen}
+
+\section{Basisbegrippen}
+\label{sec:basisbegrippen}
+
+\begin{de}
+  Een \emph{verzameling} is een geheel van onderling verschillende, ongeordende objecten. Deze objecten noemt men de elementen van de verzameling.
+de 
+\end{de}
+
+\begin{de}
+  Een \emph{formele beschrijving} van een verzameling met behulp van een predikaat $p$ ziet er als volgt uit.
+  \[ \{x\ |\ p(x)\} \]
+  Dit is de verzameling van all elementen die aan het predikaat $p$ voldoen.
+\end{de}
+
+\begin{de}
+  Twee verzamelingen $A$ en $B$ zijn \emph{gelijk} als en slechts als ze dezelfde elementen bevatten. 
+  \[ A = B \Leftrightarrow \forall x:\ x \in A \Leftrightarrow x \in B \]
+\end{de}
+
+\begin{st}
+  \emph{Transitiviteit van '$=$':} Gegeven drie willekeurige verzamelingen $A$, $B$ en $C$.
+  \[ A = B \wedge B = C \Rightarrow A = C \]
+  \begin{proof}
+    \[
+    \begin{array}{cll}
+      A = B \wedge B = C &\Leftrightarrow (\forall x:\ x \in A \Leftrightarrow x \in B) \wedge (\forall x:\ x \in B \Leftrightarrow x \in C) &\\
+      &\Rightarrow \forall x:\ ((x \in A \Leftrightarrow x \in B) \wedge (x \in B \Leftrightarrow x \in C)) &\\
+      &\Leftrightarrow \forall x:\ (x \in A \Leftrightarrow x \in C) &\Leftrightarrow  A = C\\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Een verzameling $A$ is \emph{een deelverzameling} van een verzameling $B$ als en slechts als $B$ alle elementen van $A$ bevat.
+  \[ A \subseteq B \Leftrightarrow \forall x:\ x \in A \Rightarrow x \in B\]
+\end{de}
+
+\begin{st}
+  \emph{Anti-symmetrie van '$\subseteq$':} Gegeven twee willekeurige verzamelingen $A$ en $B$.
+  \[ A \subseteq B \wedge B \subseteq A  \Leftrightarrow A = B \]
+  \begin{proof}
+    \[
+    \begin{array}{cll}
+      A \subseteq B \wedge B \subseteq A &\Leftrightarrow (\forall x:\ x \in A \Rightarrow x \in B) \wedge (\forall x:\ x \in B \Rightarrow x \in A) &\\
+      & \Leftrightarrow \forall x:\ ((x \in A \Rightarrow x \in B) \wedge (x \in B \Rightarrow x \in A)) &\\
+      & \Leftrightarrow \forall x:\ x \in A \Leftrightarrow x \in B &\Leftrightarrow A = B  \\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \emph{Transitiviteit van '$\subseteq$':} Gegeven drie willekeurige verzamelingen $A$, $B$ en $C$.
+  \[ A \subseteq B \wedge B \subseteq C  \Leftrightarrow A \subseteq C \]
+  \begin{proof}
+    \[
+    \begin{array}{cll}
+      A \subseteq B \wedge B \subseteq C &\Leftrightarrow (\forall x:\ x \in A \Rightarrow x \in B) \wedge (\forall x:\ x \in B \Rightarrow x \in C) &\\
+      & \Rightarrow \forall x:\ ((x \in A \Rightarrow x \in B) \wedge (x \in B \Rightarrow x \in C)) &\\
+      & \Leftrightarrow \forall x:\ x \in A \Rightarrow x \in C &\Leftrightarrow A \subseteq C  \\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Een verzameling $A$ is een \emph{strikte deelverzameling} van een verzameling $B$ als en slechts als $A$ een deelverzameling is van $B$ en niet gelijk is aan $B$.
+  \[ A \subset B \Leftrightarrow A \subseteq B \wedge a \neq B \]
+\end{de}
+
+\begin{de}
+  De \emph{universele verzameling} $U$ is de verzameling van alle mogelijke elementen waarvan sprake is.
+\end{de}
+
+\begin{st}
+  Elke verzameling $A$ is een deelverzameling van het universum $U$.
+  \[ A \subseteq U \]
+  \begin{proof}
+    Inderdaad. Kies een willekeurige verzameling $A$. 
+    Elk element van $A$ zit ook in $U$.
+    \[
+    \forall x:\ x \in A \Rightarrow x \in U
+    \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  De \emph{lege verzameling} $\emptyset$ is de verzameling die geen enkel element bevat.
+\end{de}
+
+\begin{st}
+  De lege verzameling $\emptyset$ is een deelverzameling van elke verzameling.
+  \begin{proof}
+    Inderdaad. Kies een willekeurige verzameling $A$.
+    Elk element van $\emptyset$ (geen enkel element) zit ook in $A$.
+    \[
+    \forall x:\ x \in \emptyset \Rightarrow x \in A
+    \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Een \emph{singleton} is een verzameling met precies \'e\'en element.
+\end{de}
+
+\section{De algebra van verzamelingen}
+\label{sec:de-algebra-van-verzamelingen}
+
+\begin{de}
+  De \emph{unie} $A \cup B$ \emph{van twee verzamelingen} $A$ en $B$ is de verzameling die zowel de elementen van $A$ als de elementen van $B$ bevat.
+  \[ A \cup B = \{ x\ |\ x \in A \vee x \in B\} \]
+\end{de}
+
+\begin{ei}
+  De \emph{unie is commutatief}.
+  \[ A \cup B = B \cup A \]
+  \begin{proof}
+    Dit volgt rechtstreeks uit de symmetrie van ``$\vee$''.
+    \[ \{ x\ |\ x \in A \vee x \in B\} = \{ x\ |\ x \in B \vee x \in A\} \]
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  De \emph{unie is idempotent}
+  \[ A \cup A = A \]
+  \TODO{ bewijs }
+\end{ei}
+
+\begin{st}
+  Elke verzameling $A$ is een deelverzameling van elke unie $A \cup B$ van die verzameling met een andere verzameling $B$.
+  \[ A \subseteq A \cup B \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  \[ A \subseteq B \Leftrightarrow A \cup B = B \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De unie is \emph{associatief}
+  \[ A \cup (B \cup C) = (A \cup B) \cup C \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{identiteitswet voor de unie}.
+  \[ A \cup \emptyset = A \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{nulwet voor de unie}
+  \[ A \cup U = U \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{complementaire wet voor de unie}
+  \[ A \cup A^{c} = U \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  De \emph{doorsnede} $A \cap B$ \emph{van twee verzamelingen} $A$ en $B$ is de verzamling die enkel de elementen bevat die zowel in $A$ als in $B$ zitten.
+\end{de}
+
+\begin{ei}
+  De \emph{doorsnede is commutatief}.
+  \[ A \cap B = B \cap A \]
+  \begin{proof}
+    Dit volgt rechtstreeks uit de symmetrie van ``$\wedge$''.
+    \[ \{ x\ |\ x \in A \wedge x \in B\} = \{ x\ |\ x \in B \wedge x \in A\} \]
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  De \emph{doorsnede is idempotent}
+  \[ A \cap A = A \]
+  \TODO{ bewijs }
+\end{ei} 
+
+\begin{st}
+  De doorsnede $A \cap B$ is een deelverzameling van $A$.
+  \[ A \cap B \subseteq A \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  \[ A \subseteq B \Leftrightarrow A \cap B = A \]
+  \TODO{ bewijs }
+\end{st}
+
+
+\begin{st}
+  De \emph{identiteitswet voor de doorsnede}.
+  \[ A \cap U = A \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{nulwet voor de doorsnede}
+  \[ A \cap \emptyset = \emptyset \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{complementaire wet voor de doorsnede}
+  \[ A \cap A^{c} = \emptyset \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Twee verzamelingen $A$ en $B$ zijn disjunct als en slechts als ze geen gemeenschappelijke elementen hebben.
+  \[ A \cap B = \emptyset \]
+\end{de}
+
+\begin{st}
+  De \emph{absorptiewet}.
+  \begin{itemize}
+  \item \[ A \cup ( A \cap B ) = A\]
+  \item \[ A \cap ( A \cup B ) = A\]
+  \end{itemize}
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{doorsnede is distributief ten opzichte van de unie}.
+  \[ A \cap ( B \cup C ) = (A \cap B) \cup (A \cap C) \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{unie is distributief ten opzichte van de doorsnede}.
+  \[ A \cup ( B \cap C ) = (A \cup B) \cap (A \cup C) \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Het \emph{complement} van een verzameling $A$ ten opzichte van de universele verzameling $U$ is de verzameling van alle elementen die niet in $A$ zitten, maar wel in $U$.
+  \[ A^{c} = \{ x\ |\ x \not\in A \} \]
+  Andere notaties voor het complement zijn $A'$, $\overline{A}$. 
+\end{de}
+
+\begin{st}
+  De \emph{wetten von De Morgan}.
+  \begin{itemize}
+  \item \[ (A \cup B)^{c} = A^{c} \cap B^{c} \]
+  \item \[ (A \cap B)^{c} = A^{c} \cup B^{c} \]
+  \end{itemize}
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Het \emph{verschil} van een verzameling $A$ met een andere verzameling $B$ is de verzameling van alle elementen van $A$ die niet in $B$ zitten.
+  \[ A \setminus B = \left\{ x | x \in A \wedge x \not\in B \right\} \]
+\end{de}
+
+\begin{st}
+  Het verschil van twee verzamelingen kan worden herschreven als de doorsnede met het complement.
+  \[ A \setminus B = A \cap B^{c} \]
+  \TODO{ bewijs }
+\end{st}
+
+
+\begin{de}
+  Het \emph{symmetrisch verschil} van twee verzamelingen $A$ en $B$ is de verzameling van alle elementen die in precies \'e\'en van de twee verzamelingen zit.
+  \[ A \Delta B = \left\{ x | (x \in A \wedge x \not\in B) \vee (x \in B \wedge x \not\in A) \right\} \]
+\end{de}
+
+\begin{st}
+  Het symmetrisch verschil van twee verzamelingen kan worden herschreven als de unie van de twee verschillen.
+  \[ A \Delta B = (A \setminus B) \cup (B \setminus A) \]
+\end{st}
+
+\begin{de}
+  De \emph{verzameling van alle deelverzamelingen} van een verzameling $A$ wordt genoteerd als $\mathcal P(A)$ of $2^{A}$.
+  \[ \mathcal P(A) = \left\{ S\ |\ S \in A \right\} \]
+\end{de}
+
+\section{Koppels en het carthesisch product}
+\label{sec:koppels-en-het-carthesisch-product}
+
+\begin{de}
+  Een \emph{geordend paar} of \emph{een koppel} zijn twee elementen die in een bepaalde volgorde samen horen.
+  \[ (a,b) \]
+\end{de}
+
+\begin{de}
+  De \emph{gelijkheid tussen koppels} is zo gedifineerd dat de overeenkomstige elementen gelijk zijn.
+  \[ (a,b) = (c,d) \Leftrightarrow (a = c \wedge b = c) \] 
+\end{de}
+
+\begin{de}
+  Het \emph{Carthesisch product} $A \times B$ van twee verzamelingen $A$ en $B$ is de verzameling der koppels $(x,y)$ met $x \in A$ en $y \in B$
+  \[ A \times B = \left\{ (x,y) \ |\ x \in A \wedge y \in B \right\} \]
+\end{de}
+
+\begin{st}
+  Het \emph{Carthesisch product is distributief ten opzichte van de unie}.
+  \[ A \times (B \cup C) = (A \times B) \cup (A \times C) \] 
+  \TODO{ bewijs }
+\end{st}
+\begin{st}
+  Het \emph{Carthesisch product is distributief ten opzichte van de doorsnede}.
+  \[ A \times (B \cap C) = (A \times B) \cap (A \times C) \] 
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $A$, $B$, $C$ en $D$ verzamelingen, dan geldt volgende gelijkheid.
+  \[ (A \times B) \cap (C \times D) = (A \cap C) \times (B \cap D) \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Het \emph{Carthesisch product van een verzameling $A$ met zichzelf} wordt wel eens als $A^{2}$ genoteerd.
+  \[ A^{2} = A \times A \]
+\end{de}
+
+\begin{de}
+  Een \emph{$n$-koppel of $n$-tal} zijn $n$ elementen die in een bepaalde volgorde voorkomen.
+  \[ (a_{1}, a_{2}, \ldots, a_{n}) \]
+\end{de}
+
+\begin{de}
+  Het \emph{$n$-voudig Carthesis product} tussen $n$ verzamelingen is de verzameling van alle $n$-tallen over die verzamelingen.
+  \[ A_{1} \times A_{2} \times \ldots \times A_{n} = \left\{ (a_{1}, a_{2}, \ldots, a_{n}) \ |\ a_{i} \in A_{i} \right\}\]
+\end{de}
+
+\begin{de}
+  Het \emph{$n$-voudig Carthesis product van een verzameling $A$ met zichzelf} wordt als $A^{n}$ genoteerd.
+  \[ A^{n} = A \times A \times \ldots \times A\]
+\end{de}
+
+\end{document}

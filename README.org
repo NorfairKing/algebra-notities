@@ -8,11 +8,11 @@ Toevoegingen, verbeteringen en commentaar zijn welkom in de vorm van pull reques
 ** Compilatie
 
 De lezer wordt uitgenodigd om het boek zelf te compileren.
-U zal [[latexmk][http://www.ctan.org/pkg/latexmk/]] nodig hebben om de makefile te gebruiken.
+U zal [[http://www.ctan.org/pkg/latexmk/][latexmk]] nodig hebben om de makefile te gebruiken.
 Zonder latexmk kan u ook de assets compileren met 'make assets' en de pdf zelf compileren met een latex compiler naar keuze.
 
 Er is ook voor cloud compilatie gezorgd zodat u de pdf niet zelf hoeft te compileren.
-U kan de pdf [[https://www.sharelatex.com/github/repos/NorfairKing/algebra-notities][hier]] downloaden.
+U kan de pdf [[https://www.sharelatex.com/github/repos/NorfairKing/algebra-notities/builds/latest/output.pdf][hier]] downloaden.
 
 #+CAPTION: pdf build status
 #+NAME:   fig:buildstatus
