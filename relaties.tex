@@ -4,5 +4,81 @@
 \chapter{Relaties}
 \label{cha:relaties}
 
+\begin{de}
+  Een (binaire) \emph{relatie} $R$ is een verzameling koppels $(x,y)$.
+  Wanneer $(x,y)$ een koppel is in $R$ noteren we $x R y$.
+\end{de}
+
+\begin{de}
+  De \emph{inverse $R^{-1}$ van een relatie} $R$ is de volgende relatie:
+  \[ R^{-1} = \left\{ (x,y)\ |\ (y,x) \in R \right\} \]
+\end{de}
+
+\begin{st}
+  De inverse van de inverse van een relatie is opnieuw de originele verzameling.
+  \[ R^{-1^{-1}} = R \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  De \emph{samenstelling $S \circ R$ van twee relaties} $R$ en $S$ (lees: ``$S$ na $R$'') is de volgende relatie.
+  \[ \left\{ (x,y) \ |\ (\exists z) ((x,z) \in R \wedge (z,y) \in S) \right\} \]
+\end{de}
+
+\begin{st}
+  De \emph{samenstelling van relaties is associatief}.
+  \[ (T \circ S) \circ R = T \circ (S \circ R) \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{inverse van een verzameling is distributief ten opzichte van de samenstelling van relaties}.
+  \[ (S \circ R)^{-1} = R^{-1} \circ S^{-1} \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Zij $R$ een relatie. Het \emph{domein} (domain) is als volgt gedefinieerd.
+  \[ dom R = \left\{ x \ |\ (\exists y)(x,y) \in R \right\} \]
+\end{de}
+
+\begin{de}
+  Zij $R$ een relatie. Het \emph{beeld} (range) is als volgt gedefinieerd.
+  \[ ran R = \left\{ y \ |\ (\exists xi)(x,y) \in R \right\} \]
+\end{de}
+
+\begin{st}
+  Het domein van een relatie is het beeld van zijn inverse.
+  \[ dom R = ran R^{-1} \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Het beeld van een relatie is het domein van zijn inverse.
+  \[ ran R = dom R^{-1} \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Domein na samenstelling:
+  \[ dom (R \circ S) \subseteq dom S \]
+  \TODO{ bewijs }
+\end{st}
+ 
+\begin{st}
+  Beeld na samenstelling:
+  \[ ran (R \circ S) \subseteq ran R \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Domein na samenstelling (2):
+  \[ ran S \subseteq dom R \Rightarrow dom(R \circ S) = dom S \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Een $n$-aire relatie is, analoog aan een binaire relatie, een verzameling $n$-tallen.
+\end{de}
 
 \end{document}
