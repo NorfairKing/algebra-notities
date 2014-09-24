@@ -4,6 +4,9 @@
 \chapter{Verzamelingen}
 \label{cha:verzamelingen}
 
+\section{Basisbegrippen}
+\label{sec:basisbegrippen}
+
 \begin{de}
   Een \emph{verzameling} is een geheel van onderling verschillende, ongeordende objecten. Deze objecten noemt men de elementen van de verzameling.
 de 
@@ -107,6 +110,9 @@ de
   Een \emph{singleton} is een verzameling met precies \'e\'en element.
 \end{de}
 
+\section{De algebra van verzamelingen}
+\label{sec:de-algebra-van-verzamelingen}
+
 \begin{de}
   De \emph{unie} $A \cup B$ \emph{van twee verzamelingen} $A$ en $B$ is de verzameling die zowel de elementen van $A$ als de elementen van $B$ bevat.
   \[ A \cup B = \{ x\ |\ x \in A \vee x \in B\} \]
@@ -135,6 +141,30 @@ de
 
 \begin{st}
   \[ A \subseteq B \Leftrightarrow A \cup B = B \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De unie is \emph{associatief}
+  \[ A \cup (B \cup C) = (A \cup B) \cup C \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{identiteitswet voor de unie}.
+  \[ A \cup \emptyset = A \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{nulwet voor de unie}
+  \[ A \cup U = U \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{complementaire wet voor de unie}
+  \[ A \cup A^{c} = U \]
   \TODO{ bewijs }
 \end{st}
 
@@ -168,6 +198,25 @@ de
   \TODO{ bewijs }
 \end{st}
 
+
+\begin{st}
+  De \emph{identiteitswet voor de doorsnede}.
+  \[ A \cap U = A \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{nulwet voor de doorsnede}
+  \[ A \cap \emptyset = \emptyset \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{complementaire wet voor de doorsnede}
+  \[ A \cap A^{c} = \emptyset \]
+  \TODO{ bewijs }
+\end{st}
+
 \begin{de}
   Twee verzamelingen $A$ en $B$ zijn disjunct als en slechts als ze geen gemeenschappelijke elementen hebben.
   \[ A \cap B = \emptyset \]
@@ -176,15 +225,26 @@ de
 \begin{st}
   De \emph{absorptiewet}.
   \begin{itemize}
-  \item \[ A \cup ( A \cap B ) \]
-  \item \[ A \cap ( A \cup B ) \]
+  \item \[ A \cup ( A \cap B ) = A\]
+  \item \[ A \cap ( A \cup B ) = A\]
   \end{itemize}
   \TODO{ bewijs }
 \end{st}
 
+\begin{st}
+  De \emph{doorsnede is distributief ten opzichte van de unie}.
+  \[ A \cap ( B \cup C ) = (A \cap B) \cup (A \cap C) \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De \emph{unie is distributief ten opzichte van de doorsnede}.
+  \[ A \cup ( B \cap C ) = (A \cup B) \cap (A \cup C) \]
+  \TODO{ bewijs }
+\end{st}
 
 \begin{de}
-  Het complement van een verzameling $A$ ten opzichte van de universele verzameling $U$ is de verzameling van alle elementen die niet in $A$ zitten, maar wel in $U$.
+  Het \emph{complement} van een verzameling $A$ ten opzichte van de universele verzameling $U$ is de verzameling van alle elementen die niet in $A$ zitten, maar wel in $U$.
   \[ A^{c} = \{ x\ |\ x \not\in A \} \]
   Andere notaties voor het complement zijn $A'$, $\overline{A}$. 
 \end{de}
@@ -198,8 +258,43 @@ de
   \TODO{ bewijs }
 \end{st}
 
+\begin{de}
+  Het \emph{verschil} van een verzameling $A$ met een andere verzameling $B$ is de verzameling van alle elementen van $A$ die niet in $B$ zitten.
+  \[ A \setminus B = \left\{ x | x \in A \wedge x \not\in B \right\} \]
+\end{de}
+
+\begin{st}
+  Het verschil van twee verzamelingen kan worden herschreven als de doorsnede met het complement.
+  \[ A \setminus B = A \cap B^{c} \]
+  \TODO{ bewijs }
+\end{st}
 
 
+\begin{de}
+  Het \emph{symmetrisch verschil} van twee verzamelingen $A$ en $B$ is de verzameling van alle elementen die in precies \'e\'en van de twee verzamelingen zit.
+  \[ A \Delta B = \left\{ x | (x \in A \wedge x \not\in B) \vee (x \in B \wedge x \not\in A) \right\} \]
+\end{de}
 
+\begin{st}
+  Het symmetrisch verschil van twee verzamelingen kan worden herschreven als de unie van de twee verschillen.
+  \[ A \Delta B = (A \setminus B) \cup (B \setminus A) \]
+\end{st}
+
+\begin{de}
+  De \emph{verzameling van alle deelverzamelingen} van een verzameling $A$ wordt genoteerd als $\mathcal P(A)$ of $2^{A}$.
+  \[ \mathcal P(A) = \left\{ S\ |\ S \in A \right\} \]
+\end{de}
+
+\section{Koppels en het carthesisch product}
+\label{sec:koppels-en-het-carthesisch-product}
+
+\begin{de}
+  Een \emph{geordend paar} of \emph{een koppel} zijn twee elementen die in een bepaalde volgorde samen horen.
+\end{de}
+
+\begin{de}
+  De \emph{gelijkheid tussen koppels} is zo gedifineerd dat de overeenkomstige elementen gelijk zijn.
+  \[ (a,b) = (c,d) \Leftrightarrow (a = c \wedge b = c) \] 
+\end{de}
 
 \end{document}
