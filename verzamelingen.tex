@@ -290,11 +290,54 @@ de
 
 \begin{de}
   Een \emph{geordend paar} of \emph{een koppel} zijn twee elementen die in een bepaalde volgorde samen horen.
+  \[ (a,b) \]
 \end{de}
 
 \begin{de}
   De \emph{gelijkheid tussen koppels} is zo gedifineerd dat de overeenkomstige elementen gelijk zijn.
   \[ (a,b) = (c,d) \Leftrightarrow (a = c \wedge b = c) \] 
+\end{de}
+
+\begin{de}
+  Het \emph{Carthesisch product} $A \times B$ van twee verzamelingen $A$ en $B$ is de verzameling der koppels $(x,y)$ met $x \in A$ en $y \in B$
+  \[ A \times B = \left\{ (x,y) \ |\ x \in A \wedge y \in B \right\} \]
+\end{de}
+
+\begin{st}
+  Het \emph{Carthesisch product is distributief ten opzichte van de unie}.
+  \[ A \times (B \cup C) = (A \times B) \cup (A \times C) \] 
+  \TODO{ bewijs }
+\end{st}
+\begin{st}
+  Het \emph{Carthesisch product is distributief ten opzichte van de doorsnede}.
+  \[ A \times (B \cap C) = (A \times B) \cap (A \times C) \] 
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $A$, $B$, $C$ en $D$ verzamelingen, dan geldt volgende gelijkheid.
+  \[ (A \times B) \cap (C \times D) = (A \cap C) \times (B \cap D) \]
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Het \emph{Carthesisch product van een verzameling $A$ met zichzelf} wordt wel eens als $A^{2}$ genoteerd.
+  \[ A^{2} = A \times A \]
+\end{de}
+
+\begin{de}
+  Een \emph{$n$-koppel of $n$-tal} zijn $n$ elementen die in een bepaalde volgorde voorkomen.
+  \[ (a_{1}, a_{2}, \ldots, a_{n}) \]
+\end{de}
+
+\begin{de}
+  Het \emph{$n$-voudig Carthesis product} tussen $n$ verzamelingen is de verzameling van alle $n$-tallen over die verzamelingen.
+  \[ A_{1} \times A_{2} \times \ldots \times A_{n} = \left\{ (a_{1}, a_{2}, \ldots, a_{n}) \ |\ a_{i} \in A_{i} \right\}\]
+\end{de}
+
+\begin{de}
+  Het \emph{$n$-voudig Carthesis product van een verzameling $A$ met zichzelf} wordt als $A^{n}$ genoteerd.
+  \[ A^{n} = A \times A \times \ldots \times A\]
 \end{de}
 
 \end{document}
