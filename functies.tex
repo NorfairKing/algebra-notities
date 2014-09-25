@@ -13,6 +13,13 @@
 \end{de}
 
 \begin{de}
+  De \emph{definitie van een functie} ziet er als volgt uit:
+  \[ f: A \rightarrow B: a \mapsto b \]
+  Hier noemen we $B$ het codomein van $f$.
+  We lezen: ``$f$ is een functie van $A$ naar $B$ die $a$ afbeeldt op $b$.''
+\end{de}
+
+\begin{de}
   Wanneer er geen koppel $(x,y)$ in $f$ bestaat zeggen we dat de functie $f$ ongedefini\"eerd is in $x$.
 \end{de}
 
@@ -30,9 +37,18 @@
 \end{de}
 
 \begin{st}
-  Zij $f$ een functie van $A$ naar $B$: $f: A \rightarrow B$, dan geldt:
-  \[ \forall x \in A\]
-  \TODO{bewijs}
+  Zij $f$ en $g$ functies van $A$ naar $B$: $f: A \rightarrow B$, dan geldt:
+  \[ \forall x \in A: f = g \Leftrightarrow f(x) = g(x) \]
+  
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als de verzamelingen $f$ en $g$ gelijk zijn is het beeld van elke $x$ inderdaad hetzelfde onder $f$ als onder $g$.
+    \item $\Leftarrow$\\
+      Geldt er voor koppel $(x,y_{1}) \in f$ en $(x,y_{2})$ dat $y_{1}$ gelijk is aan $y_{2}$, dan moeten $f$ en $g$ wel dezelfde verzameling zij.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -51,8 +67,50 @@
 \label{sec:jecties}
 
 \begin{de}
-  Een afbeelding $f: A \rightarrow B$ is $injectief$ als ze voor verschillende argumenten nooit hetzelfde beeld geeft.
-  \[ f(x_{1}) = f(x_{2}) \Rightarrow x_{1}= x_{2} \]
+  Een functie $f: A \rightarrow B$ is \emph{injectief} als ze voor verschillende argumenten nooit hetzelfde beeld geeft.
+  \[ \forall x_{1},x_{2} \in A:\ f(x_{1}) = f(x_{2}) \Rightarrow x_{1}= x_{2} \]
+\clarify{ is dit enkel gedefinieerd voor afbeeldingen of ook voor functies? }
+\end{de}
+
+\begin{de}
+  Een functie $f: A \rightarrow B$ is \emph{surjectief} als elk element in het codomein $B$ een beeld is van een element uit $A$.
+  \[ \forall y \in B:\ \exists x \in A:\ y = f(x) \]
+  \clarify{ is dit enkel gedefinieerd voor afbeeldingen of ook voor functies? }
+\end{de}
+
+\begin{de}
+  Een functie $f: A \rightarrow B$ is \emph{bijectief} als het een injectie en een surjectie is.
+\end{de}
+
+\begin{de}
+  Een functie $f: A \rightarrow A$ van een verzameling naar zichzelf noemen we een transformatie.
+  \clarify{ functie of afbeelding ? }
+\end{de}
+
+\begin{de}
+  Een bijectieve functie van een eindige verzameling naar zichzelf noemen we een permutatie.
+  \clarify{ functie of afbeelding ? }
+\end{de}
+
+\begin{de}
+  Een bijectieve functie van een eindige verzameling $A$ naar een eindige verzameling $B$ noemen we een substitutie. 
+  \clarify{ functie of afbeelding ? }
+\end{de}
+
+\begin{de}
+  De \emph{identieke transformatie} $id_{A}$ van een verzameling $A$ is de afbeelding die elk element op zichzelf afbeeldt.
+  \[ id_{A}: A \rightarrow A \text{ met } \forall x \in A: f(x) = x \]
+\end{de}
+
+\begin{de}
+  De \emph{inlassing} $i_{AB}$ van $A$ in $B$ met $A \subseteq B$ beeldt elk element ook op zichzelf af, maar heeft een ander codomein.
+  \[ i_{AB}: A \rightarrow B \text{ met } \forall x \in A: f(x) = x \]
+\end{de}
+
+\begin{de}
+  Een \emph{constante functie} $f$ beeldt elk argument af op \'e\'enzelfde beeld $b$.
+  \[ f: A \rightarrow B \text{ met } \forall x \in dom f: f(x) = b \]
+  \clarify{ functie of afbeelding ? }
 \end{de}
 
 \end{document}
