@@ -5,9 +5,9 @@
 \label{cha:functies-en-afbeeldingen}
 
 \begin{de}
-  Een \emph{functie} $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een relatie tussen $A$ en $B$ die 1-waardig is.
+  Een (partiele) \emph{functie} $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een relatie tussen $A$ en $B$ die 1-waardig is.
   \begin{enumerate}
-  \item $f \in A \subseteq B$ ($f$ is een relatie van $A$ naar $B$.)
+  \item $f \in A \times B$ ($f$ is een relatie van $A$ naar $B$.)
   \item $(x,y_{1}) \in f \wedge (x,y_{2}) \in f \Rightarrow y_{1} = y_{2}$ ($f$ is 1-waardig.)
   \end{enumerate}
 \end{de}
@@ -15,31 +15,44 @@
 \begin{de}
   De \emph{definitie van een functie} ziet er als volgt uit:
   \[ f: A \rightarrow B: a \mapsto b \]
-  Hier noemen we $B$ het codomein van $f$.
+  Hier noemen we $B$ het codomein van $f$ en er geldt $dom f \subseteq A$.
   We lezen: ``$f$ is een functie van $A$ naar $B$ die $a$ afbeeldt op $b$.''
 \end{de}
 
 \begin{de}
-  Wanneer er geen koppel $(x,y)$ in $f$ bestaat zeggen we dat de functie $f$ ongedefini\"eerd is in $x$.
+  Wanneer er geen koppel $(x,y)$ in $f$ bestaat zeggen we dat de functie $f$ \emph{ongedefinieerd} is in $x$.
 \end{de}
 
 \begin{de}
-  Een \emph{afbeelding} $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een functie die overal gedefini\"eerd is.
+  Wanneer we over functies spreken gebruiken we soms de volgende afkorting. Zij $f$ een functie $f: A \rightarrow B$ en $C \subseteq A$ een verzameling.
+  \[ f(C) = \{ f(c)\ |\ c \in C \} \] 
+\end{de}
+
+\begin{de}
+  Zij $f$ een functie: $f: A \rightarrow B$. 
+  In $y = f(x)$ noemen we $x$ het \emph{argument} en $y$ het \emph{beeld} van $x$ onder $f$.
+\end{de}
+
+\begin{de}
+  Een \emph{afbeelding} (of volledige functie) $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een functie die overal gedefini\"eerd is.
   \[ \forall x \in A,\ \exists y \in B: (x,y) \in f \]
+\end{de} 
+ 
+\begin{de}
+  De \emph{definitie van een afbeelding} ziet er als volgt uit:
+  \[ f: A \rightarrow B: a \mapsto b \]
+  Hier noemen we $B$ het codomein van $f$ en $A$ het domein van $f$.
+  We lezen: ``$f$ is een functie afbeelding van $A$ op $B$ die $a$ afbeeldt op $b$.''
+\end{de} 
+ 
+\begin{de}
+  Wanneer we over afbeeldingen spreken noteren we vaak $f(x) = y$ in plaats van $x f y$ of $(x,y) \in f$.
 \end{de}
 
-\begin{de}
-  Wanneer we over fucties spreken noteren we vaak $f(x) = y$ in plaats van $x f y$ of $(x,y) \in f$.
-\end{de}
-
-\begin{de}
-  In $y = f(x)$ noemen we $x$ het argument en $y$ het beeld van $x$ onder $f$.
-\end{de}
 
 \begin{st}
   Zij $f$ en $g$ functies van $A$ naar $B$: $f: A \rightarrow B$, dan geldt:
-  \[ \forall x \in A: f = g \Leftrightarrow f(x) = g(x) \]
-  
+  \[ \forall x \in A: f = g \Leftrightarrow f(x) = g(x) \]  
   \begin{proof}
     Bewijs van een equivalentie.
     \begin{itemize}
@@ -59,7 +72,7 @@
 
 \begin{de}
   Zij $f: A \rightarrow A$ een functie van $A$ naar zichzelf.
-  We noemen een deelverzameling $X$ van $A$ een \emph{invariante of stabiele deelverzameling} voor $f$ als $f$ alle elementen van $X$ op zichzelf afbeeldt.
+  We noemen een deelverzameling $X$ van $A$ een \emph{invariante of stabiele deelverzameling} voor $f$ als $f$ $X$ op een deelverzameling van zichzelf afbeeldt.
   \[ f(X) \subseteq X \]
 \end{de}
 
@@ -67,38 +80,33 @@
 \label{sec:jecties}
 
 \begin{de}
-  Een functie $f: A \rightarrow B$ is \emph{injectief} als ze voor verschillende argumenten nooit hetzelfde beeld geeft.
+  Een afbeelding $f: A \rightarrow B$ is \emph{injectief} (een injectie) als ze voor verschillende argumenten nooit hetzelfde beeld geeft.
   \[ \forall x_{1},x_{2} \in A:\ f(x_{1}) = f(x_{2}) \Rightarrow x_{1}= x_{2} \]
-\clarify{ is dit enkel gedefinieerd voor afbeeldingen of ook voor functies? }
 \end{de}
 
 \begin{de}
-  Een functie $f: A \rightarrow B$ is \emph{surjectief} als elk element in het codomein $B$ een beeld is van een element uit $A$.
+  Een afbeelding $f: A \rightarrow B$ is \emph{surjectief} (een surjectie) als elk element in het codomein $B$ een beeld is van een element uit $A$.
   \[ \forall y \in B:\ \exists x \in A:\ y = f(x) \]
-  \clarify{ is dit enkel gedefinieerd voor afbeeldingen of ook voor functies? }
 \end{de}
 
 \begin{de}
-  Een functie $f: A \rightarrow B$ is \emph{bijectief} als het een injectie en een surjectie is.
+  Een afbeelding $f: A \rightarrow B$ is \emph{bijectief} (een bijectie) als het een injectie en een surjectie is.
 \end{de}
 
 \begin{de}
-  Een functie $f: A \rightarrow A$ van een verzameling naar zichzelf noemen we een transformatie.
-  \clarify{ functie of afbeelding ? }
+  Een afbeelding $f: A \rightarrow A$ van een verzameling op zichzelf noemen we een transformatie.
 \end{de}
 
 \begin{de}
-  Een bijectieve functie van een eindige verzameling naar zichzelf noemen we een permutatie.
-  \clarify{ functie of afbeelding ? }
+  Een bijectieve afbeelding van een eindige verzameling naar zichzelf noemen we een permutatie.
 \end{de}
 
 \begin{de}
   Een bijectieve functie van een eindige verzameling $A$ naar een eindige verzameling $B$ noemen we een substitutie. 
-  \clarify{ functie of afbeelding ? }
 \end{de}
 
 \begin{de}
-  De \emph{identieke transformatie} $id_{A}$ van een verzameling $A$ is de afbeelding die elk element op zichzelf afbeeldt.
+  De \emph{identieke transformatie} $id_{A}$ van een verzameling $A$ is de (bijectieve) afbeelding die elk element op zichzelf afbeeldt.
   \[ id_{A}: A \rightarrow A \text{ met } \forall x \in A: f(x) = x \]
 \end{de}
 
@@ -108,9 +116,64 @@
 \end{de}
 
 \begin{de}
-  Een \emph{constante functie} $f$ beeldt elk argument af op \'e\'enzelfde beeld $b$.
+  Een \emph{constante afbeelding} $f$ beeldt elk argument af op \'e\'enzelfde beeld $b$.
   \[ f: A \rightarrow B \text{ met } \forall x \in dom f: f(x) = b \]
-  \clarify{ functie of afbeelding ? }
 \end{de}
+
+\begin{de}
+  De karacteristieke afbeelding van $A$ in $C$ is gedefinieerd voor $A \subseteq C$ in $B = \{0,1\}$ als volgt:
+  \[
+  E_{A}: C \rightarrow B:
+  \left \lbrace
+    \begin{array}{cc}
+      x \mapsto 1 \text{ als } x \in A\\
+      x \mapsto 0 &\text{ als } x \not\in A\\
+    \end{array}
+  \right \rbrace
+  \]
+\end{de}
+
+\begin{de}
+  De \emph{beperking} van $f$ tot $C$ is gedefinieerd  voor $f: A \rightarrow B$ en $C \in A$ als volgt:
+  \[ F_{C}: C \rightarrow B: x \mapsto f(x), \forall x \in C\]
+  Een functie, beperkt tot haar domein is een afbeelding.
+\end{de}
+
+\begin{st}
+  Zij $f: A \rightarrow B$ en $g: B \rightarrow C$ twee afbeeldingen, dan is de samenstelling $g \circ f$ ervan ook een afbeelding.
+
+  \begin{proof}
+    Inderdaad, $z = (g \circ f)(x) = g(f(x))$ en zowel $f(x)$ en $g(f(x))$ zijn goed gedefinieerd omdat $f$ en $g$ afbeeldingen zijn. 
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $f$ en $g$ injecties, dan is hun samenstelling $g \circ f$ ook een injectie.
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $f$ en $g$ surjectie, dan is hun samenstelling $g \circ f$ ook een surjectie.
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $f$ en $g$ bijectie, dan is hun samenstelling $g \circ f$ ook een bijectie.
+\TODO{bewijs}
+\end{st}
+
+\begin{de}
+  Een functie $f: A \rightarrow B$ is \emph{inverteerbaar} als en slechts als $f^{-1}: B \rightarrow A$ ook een functie is. $f^{-1}$ noemen we dan de inverse functie.
+\end{de}
+
+\begin{de}
+  Een afbeelding $f: A \rightarrow B$ is \emph{inverteerbaar} als en slechts als $f^{-1}: B \rightarrow A$ ook een afbeelding is. $f^{-1}$ noemen we dan de inverse afbeelding.
+\end{de}
+
+\begin{st}
+  Een afbeelding is inverteerbaar als en slechts als ze bijectief is.
+\TODO{bewijs}
+\end{st}
+
 
 \end{document}
