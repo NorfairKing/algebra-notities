@@ -4,5 +4,158 @@
 \chapter{Groepen}
 \label{cha:groepen}
 
+\begin{de}
+  Een \emph{halfgroep} of \emph{mono\"ide} $G,*$ bestaat uit een (niet-lege) verzameling $G$ en een interne afbeelding $*$ (De bewerking).
+  \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
+  De bewerking $*$ voldoet aan de volgende voorwaarden.
+  \begin{itemize}
+  \item De bewerking $*$ is \emph{associatief}:
+    \[ \forall x, y, z \in G: (x*y)*z = x*(y*z) \] 
+  \item Er bestaat een \emph{neutraal element} $e \in G$ voor de bewerking $*$.
+    \[ \forall x \in G: x*e = e = e*x \]
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  \label{de:groep}
+  Een \emph{groep} $G,*$ bestaat uit een (niet-lege) verzameling $G$ en een interne afbeelding $*$ (De bewerking).
+  \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
+  De bewerking $*$ voldoet aan de volgende voorwaarden.
+  \begin{itemize}
+  \item De bewerking $*$ is \emph{associatief}:
+    \[ \forall x, y, z \in G: (x*y)*z = x*(y*z) \] 
+  \item Er bestaat een \emph{neutraal element} $e \in G$ voor de bewerking $*$.
+    \[ \forall x \in G: x*e = e = e*x \]
+  \item Elk element $x \in G$ heeft een \emph{inverse} met betrekking tot de bewerking $*$: $x'$
+    \[ x * x' = e = x' * x \]
+  \end{itemize}
+\end{de}
+
+\begin{st}
+  \label{st:groep-uniek-neutraal-element}
+  Het neutraal element van een groep $e_{G}$ is uniek.
+  
+  \begin{proof}
+    Bewijs uit het ongerijmde.\\
+    Stel dat er twee verschillende neutrale elementen $e$ en $f$ voor een groep $G$ zijn.
+    \[ e = e * f = f \]
+    De neutrale elementen zijn dan gelijk. Contradictie.
+  \end{proof}
+\end{st}
+
+
+\begin{st}
+  \label{st:groep-uniek-invers-element}
+  De inverse $x^{-1}$ van een element $x$ van een groep $G$ is uniek.
+  
+  \begin{proof}
+    Bewijs uit het ongerijmde.\\
+    Stel dat er twee verschillende inversen $y$ en $z$ zijn van $x$ in $G$.
+    \[  
+    \begin{array}{rl}
+      y &= y * e_{G}\\
+        &= y * (x * z)\\
+        &= (y * x) * z\\
+        &= e_{G} * z\\
+        &= z
+    \end{array}
+    \]
+    De derde gelijkheid geldt omdat de bewerkin $*$ associatief is.\footnote{Zie de definitie van een groep (Definitie \ref{de:groep}).} De vierde gelijkheid geldt omdat het neutraal element van een groep uniek is.\footnote{Zie stelling \ref{st:groep-uniek-neutraal-element}.}
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Een \emph{commutatieve groep} $G,*$ is een groep waarbij de bewerking $*$ commutatief is.
+  \[ \forall x,y \in G: x * y = y * x\]
+\end{de}
+
+\begin{de}
+  De \emph{multiplicatieve notatie} biedt afkortingen wanneer we de notatie $*$ of $\cdots$ gebruiken voor de bewerking van een groep.
+  \begin{itemize}
+  \item $x_{-1}$ voor de inverse van $x$.
+  \item $x^{0}$ of $1$ voor het neutraal element $e_{G}$.
+  \item $x^{n} = x * x * \dotsc * x$ als $n > 0$
+  \item $x^{n} = x^{-1} * x^{-1} * \dotsc * x^{-1}$ als $n < 0$
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  De \emph{additieve notatie} biedt afkortingen wanneer we de notatie $+$ gebruiken voor de bewerking van een groep.
+  \begin{itemize}
+  \item $-x$ voor de inverse van $x$.
+  \item $0$ voor het neutraal element $e_{G}$.
+  \item $nx = x * x * \dotsc * x$ als $n > 0$
+  \item $nx = (-x) * (-x) * \dotsc * (-x)$ als $n < 0$
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Zij $G,*$ een groep en $H$ een (niet-lege) deelverzameling van $G$. We noemen $H$ een \emph{deelgroep} van $G$ als $H$ zelf ook een groep is met dezelfde bewerking $*$.
+\end{de}
+
+\begin{st}
+  \label{st:deelgroep-zelfde-neutraal-element}
+  Zij $H$ een deelgroep van $G,*$, dan is $e_{G}$ ook het neutraal element van $H$.
+
+  \begin{proof}
+    Noem $e_{G}$ het neutraal element van $G,*$ en $e_{h}$ dat van $H,*$. Noem het invers van een element $x$ in $G$ $x^{-1}$ en het invers van $x$ in $H$ $\bar{x}$.
+    \[
+    \begin{array}{rrl}
+                  & e_{H} * e_{H} &= e_{H} * e_{G}\\
+      \Rightarrow & e^{-1}_{H} * (e_{H} * e_{H}) &= e^{-1}_{H} * (e_{H} * e_{G})\\
+      \Rightarrow & (e^{-1}_{H} * e_{H}) * e_{H} &= (e^{-1}_{H} * e_{H}) * e_{G}\\
+      \Rightarrow & e_{G} * e_{H} &= e_{G} * e_{G}\\
+      \Rightarrow & e_{H} &= e_{G}\\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $H$ een deelgroep van $G,*$, dan is elk invers element $x^{-1}$ van een element $x$ in $H$ ook het invers element van $x$ in $G$.
+
+  \begin{proof}
+    Noem $e_{G}$ het neutraal element van $G,*$ en $e_{h}$ dat van $H,*$.
+    Noem het invers van een element $x$ in $G$ $x^{-1}$ en het invers van $x$ in $H$ $\bar{x}$.
+    \[
+    \begin{array}{rll}
+      x * \bar x &= e_{H} &\\
+                 &= e_{G} &\\
+                 &= x * x^{-1} &\\
+    \end{array}
+    \Rightarrow \bar x = x^{-1}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Het \emph{criterium van een deelgroep}.\\
+  Zij $G,*$ een groep, en $H$ een deelverzameling van $G$.
+  $H$ is een deelgroep van $G$ als en slechts als aan de volgende voorwaarden voldaan is.
+  \begin{enumerate}
+  \item $e_{G} \in H$
+  \item $\forall x,y \in H: x * y \in H$
+  \item $\forall x \in H: x^{-1} \in H$
+  \end{enumerate}
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $H$ een deelgroep is van $G$, dan gelden de voorwaarden al omdat $H$ zelf een groep is.\footnote{Zie bovendien stelling \ref{st:deelgroep-zelfde-neutraal-element}.}
+    \item $\Leftarrow$\\
+      Stel dat de voorwaarden voldaan zijn. Vanwege voorwaarde twee is de beperking van $*$ tot $H$ alvast een interne bewerking in $H$.
+      \[ *: H \times H \rightarrow H: (x,y) \mapsto x*y \]
+      \begin{itemize}
+      \item associativiteit\\
+      Deze bewerking is associatief in $G$, dus ook in $H$.
+      \item Neutraal element\\
+      Vanwege de eerste voorwaarde is $e_{G}$ ook een neutraal element van $H$.
+      \item Inverse\\
+      Elk element $x$ in $H$ heeft bovendien ook een invers in $H$ volgens de derde voorwaarde.
+      \end{itemize}
+    \end{itemize}
+  \end{proof}
+\end{st}
 
 \end{document}
