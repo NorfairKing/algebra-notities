@@ -115,6 +115,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:deelgroep-houdt-invers-ook-in}
   Zij $H$ een deelgroep van $G,*$, dan is elk invers element $x^{-1}$ van een element $x$ in $H$ ook het invers element van $x$ in $G$.
 
   \begin{proof}
@@ -277,6 +278,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:beeld-is-deelgroep}
   Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
   \[ Im(f) \text{ is een deelgroep van } H \]
 
@@ -318,7 +320,7 @@
       \end{array}
       \]
       $x * y$ zit dus in $Ker (f)$ voor elke $x$ en $y$.
-    \item $\forall x \in Im(f): x^{-1} \in Ker (f)$\\
+    \item $\forall x \in Ker(f): x^{-1} \in Ker (f)$\\
       Kies een willekeurig element $x$ in de kern $Ker(f)$ van $f$.
       Nu geld het volgende.
       \[
@@ -336,14 +338,85 @@
 \begin{st}
   Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
   \[ Ker(f) = \{e_{G}\}\Leftrightarrow f \text{ is injectief} \]
-\TODO{bewijs}
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+  \[ \forall x,y \in G: f(x*y) = f(x) \Box f(y) \]
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Bewijs uit het ongerijmde: Stel dat er twee verschillende elementen $x$ en $y$ in $G$ zitten die door $x$ op hetzelfde element $f(x) = f(y) \in H$ afgebeeldt worden.
+      \[ f(x*y) = f(x) \Box f(y) = f(x) \Box f(x) \]
+      \[ f(y) = f(x) \]
+      Contradictie.
+    \item $\Leftarrow$\\
+      Bewijs door contrapositie: Als de kern van $f$ niet triviaal is, dan bestaan er minstens twee verschillende elementen in $G$ die door $f$ op $e_{H}$ afgebeeldt worden en is $f$ dus niet injectief.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
   \[ f \text{ is een isomorfisme} \Rightarrow f^{-1} \text{ is een isomorfisme} \]
   Merk op dat de afbeelding $f^{-1}$ slechts bestaat als $f$ een injectie is.
-\TODO{bewijs}
+  \begin{proof}
+    Inderdaad, als $f$ bijectief is, dan is $f^{-1}$ ook bijectief.
+  \end{proof}
+\question{Dit is te simpel. Wat is er hier mis?}
+\end{st}
+
+\begin{st}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  Als een verzameling $A$ een deelgroep is van $G$, dan is $f(A)$ een deelgroep van $H$.
+
+  \begin{proof}
+    We gaan elke voorwaarde in het criterium van een deelgroep af.
+    \begin{itemize}
+    \item $e_{f(A)} \in H$.\\
+      $A$ is een deelgroep van $G$, dus geldt $e_{A}\in G$.
+      Bovendien wordt $e_{A} = e_{G}$ afgebeeldt op $e_{H} = e_{f(A)}$.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-neutraal-element}.}
+      $e_{f(A)}$ zit dus wel degelijk in $H$.
+    \item $\forall x,y \in f(A): x \Box y \in f(A)$\\
+      Kies twee elementen $f(x)$ en $f(y)$ in $f(A)$, nu bestaan er dus twee elementen $x$ en $y$ in $A$.
+      In $A$ is de bewerking $*$ intern.\footnote{Zie definitie \ref{de:groep}.}
+      Kijk nu naar de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:morfisme}.}
+      \[ f(x * y) = f(x) \Box f(y) \]
+      $f(x) \Box f(y)$ is dus een element van $f(A)$.
+    \item $\forall x \in f(A): x^{-1} \in f(A)$\\
+      Kies een element $f(x)$ in $f(A)$, er bestaat er dus een element $x$ in $A$.
+      Nu is de inverse van $f(x)$ precies $f(x^{-1})$.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-inverse}.}
+    \end{itemize}
+  \end{proof}
+  Merk op dat deze stelling een algemener geval is van stelling \ref{st:beeld-is-deelgroep}.
+\end{st}
+
+\begin{st}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  Als een verzameling $B$ een deelgroep is van $H$, dan is $f^{-1}(B)$ een deelgroep van $G$.
+
+  \begin{proof}
+    We gaan elke voorwaarde in het criterium van een deelgroep af.
+    \begin{itemize}
+    \item $e_{f^{-1}(B)} \in G$.\\
+      Omdat $e_{G} = e_{B}$ geldt\footnote{Zie stelling \ref{st:deelgroep-zelfde-neutraal-element}.}, geldt ook $f(e_{B}) = e_{H}$.
+      Bijgevolg geldt ook $e_{f^{-1}(B)} = e_{B} \in G$. 
+    \item $\forall x,y \in f^{-1}(B): x \Box y \in f^{-1}(B) $\\
+      Kies twee willekeurige elementen $a$ en $b$ uit $f^{-1}(B)$.
+      Dit houdt in dat er twee elementen $f(a)$ en $f(b)$ in $B$ bestaan.
+      $f(a) \Box f(b) \in B$ geldt omdat $B$ een deelgroep is van $B$. \footnote{Zie definitie \ref{de:groep}.}
+      Dit is bovendien gelijk aan $f(a * b) \in f^{-1}(B)$, dus zitten $a$ en $b$ beide in $f^{-1}(B)$.
+    \item $\forall x \in f^{-1}(B): x^{-1} \in f^{-1}(B)$\\
+      Kies een willekeurig element $a$ uit $f^{-1}(B)$.
+      Dit houdt in dat er een element $f(a)$ in $B$ bestaat.
+      Het inverse element van $f(a)$ is $(f(a)^{-1})$ en zit ook in B.\footnote{Zie stelling \ref{st:deelgroep-houdt-invers-ook-in}.}
+      Er bestaat dus ook een element $a^{-1}$ dat bovendien in $f^{-1}(B)$ zit.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-inverse}.}
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+
+\begin{st}
+  De verzamelingen van automorfismen $AutG$, uitgeruist met de samenstellingsfunctie $\circ$ vormt een groep.
+  \TODO{bewijs}
 \end{st}
 
 \end{document}
