@@ -1,3 +1,6 @@
+
+
+
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
@@ -207,6 +210,7 @@
 \label{sec:morfismen}
 
 \begin{de}
+  \label{de:morfisme}
   Zij $G,*$ en $H,\Box$ groepen.
   Een (groeps)(homo)\emph{morfisme} $f$ is een afbeelding $f:G \rightarrow H$ die voldoet aan volgend axioma.
   \[ \forall x,y \in G: f(x*y) = f(x) \Box f(y) \]
@@ -222,32 +226,111 @@
 \end{de}
 
 \begin{de}
-  Zij $f: G \rightarrow H$ een groepsmorfisme. De kern $Ker f$ wordt gedefinieerd als volgt.
-  \[ \{ x \in G \ |\ f(x) = e_{H} \} \]
+  Zij $f: G \rightarrow H$ een groepsmorfisme. De \emph{kern} $Ker f$ wordt gedefinieerd als volgt.
+  \[ Ker f = \{ x \in G \ |\ f(x) = e_{H} \} \]
 \end{de}
 
+\begin{de}
+  Zij $f: G \rightarrow H$ een groepsmorfisme. Het \emph{beeld} $Im f$ wordt gedefinieerd als volgt.
+  \[ Im f = f(G) = \{ f(u) \ |\ u \in G \} \]
+\end{de}
+
+
 \begin{st}
+  \label{st:groepsmorfisme-behoudt-neutraal-element}
   Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
-  \[ e_{G} = f(e_{H}) \]
-\TODO{bewijs}
+  \[ e_{H} = f(e_{G}) \]
+
+  \begin{proof}
+    Beschouw de neutrale elementen $e_{G}$ en $e_{H}$ in de groepen.
+    Begin bij de definite van een groepsmorfisme.\footnote{Zie definitie \ref{de:morfisme}.}
+    \[ f(e_{G}*e_{G}) = f(e_{G})*f(e_{G}) \]
+    $e_{G}$ is het neutraal element in $G$. $e_{G}*e_{G}$ is dus opnieuw $G$.
+    \[ f(e_{G}) = f(e_{G})*f(e_{G}) \]
+    Voeg links $e_{H}$ toe. Dit mag omdat $e_{H}$ het neutraal element is in $H$.
+    \[ f(e_{G})*e_{H} = f(e_{G})*f(e_{G}) \]
+    Schrap tenslotte $f(e_{G})$ aan beide kanten.
+    \[ e_{H} = f(e_{G}) \]
+  \end{proof}
 \end{st}
 
 \begin{st}
+  \label{st:groepsmorfisme-behoudt-inverse}
   Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
   \[ \forall x \in G: f(x^{-1}) = (f(x))^{-1} \]
-\TODO{bewijs}
+
+  \begin{proof}
+    Kies een willekeurig element $x$ in $G$.
+    Nu geldt het volgende:
+    \[
+    \begin{array}{rl}
+    f(x) * f(x^{-1}) &= f(x*x^{-1})\\
+                    &= f(e_{G})\\
+                    &= e_{H}
+    \end{array}
+    \]
+    De eerste gelijkheid is precies de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:morfisme}.}
+    De tweede gelijkheid volgt uit de definitie van de inverse van een element van een groep.\footnote{Zie definitie \ref{de:groep} puntje 3.}
+    De laatste gelijkheid geldt omdat een groepsmorfisme het neutraal element behoudt.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-neutraal-element}.}
+    Wat we bekomen is de definitie van het neutraal element $f(x^{-1})$ van $f(x)$.
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
-  \[ f(G) \text{ is een deelgroep van } H \]
-\TODO{bewijs}
+  \[ Im(f) \text{ is een deelgroep van } H \]
+
+  \begin{proof}
+    We bewijzen elke voorwaarde uit het criterium voor deelgroepen.
+    \begin{enumerate}
+    \item $e_{H} \in Im(f)$\\
+      Inderdaad!\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-neutraal-element}.}
+    \item $\forall x,y \in Im(f): x \Box y \in Im(f)$\\
+      Kies twee elementen $f(x)$ en $f(y)$ in $Im(f)$, nu bestaan er dus twee elementen $x$ en $y$ in $G$.
+      In $G$ is de bewerking $*$ intern.\footnote{Zie definitie \ref{de:groep}}.
+      Kijk nu naar de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:morfisme}.}
+      \[ f(x*y) = f(x) \Box f(y) \]
+      $f(x) \Box f(y)$ is dus een element van $Im(f)$.
+    \item $\forall x \in Im(f): x^{-1} \in Im(f)$\\
+      Kies een element $f(x)$ in $Im(f)$, er bestaat er dus een element $x$ in $G$.
+      Nu is de inverse van $f(x)$ precies $f(x^{-1})$.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-inverse}.}
+    \end{enumerate}
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
   \[ Ker(f) \text{ is een deelgroep van } G \]
 \TODO{bewijs}
+  \begin{proof}
+    We bewijzen elke voorwaarde uit het criterium voor deelgroepen.
+    \begin{enumerate}
+    \item $e_{H} \in Ker(f)$\\
+      Inderdaad!\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-neutraal-element}.}
+    \item $\forall x,y \in Ker(f): x * y \in Ker (f)$\\
+      Kies twee willekeurige elementen $x$ en $y$ in de kern $Ker(f)$ van $f$.
+      Nu geldt het volgende.
+      \[
+      \begin{array}{rl}
+      f(x * y) &= f(x) \Box f(y)\\
+               &= e_{H} \Box e_{H}\\
+               &= e_{H}
+      \end{array}
+      \]
+      $x * y$ zit dus in $Ker (f)$ voor elke $x$ en $y$.
+    \item $\forall x \in Im(f): x^{-1} \in Ker (f)$\\
+      Kies een willekeurig element $x$ in de kern $Ker(f)$ van $f$.
+      Nu geld het volgende.
+      \[
+      \begin{array}{rl}
+      f(x^{-1}) &= (f(x))^{-1}\\
+               &= e_{H}^{-1}\\
+               &= e_{H}
+      \end{array}
+      \]
+      $x^{-1}$ zit dus in $Ker (f)$ voor elke $x$.
+    \end{enumerate}
+  \end{proof}
 \end{st}
 
 \begin{st}
