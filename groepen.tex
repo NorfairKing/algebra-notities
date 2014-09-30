@@ -1,6 +1,3 @@
-
-
-
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
@@ -30,7 +27,7 @@
   \item Er bestaat een \emph{neutraal element} $e \in G$ voor de bewerking $*$.
     \[ \forall x \in G: x*e = e = e*x \]
   \item Elk element $x \in G$ heeft een \emph{inverse} met betrekking tot de bewerking $*$: $x'$
-    \[ x * x' = e = x' * x \]
+    \[ \forall x \in G, \exists x' \in G:\ x * x' = e = x' * x \]
   \end{itemize}
 \end{de}
 
@@ -223,7 +220,11 @@
 \end{de}
 
 \begin{de}
-  Een \emph{endomorfisme} (of automorfisme) is eem morfisme van een groep naar zichzelf.
+  Een \emph{endomorfisme} is eem morfisme van een groep naar zichzelf.
+\end{de}
+
+\begin{de}
+  Een \emph{automorfisme} is eem isomorfisme van een groep naar zichzelf.
 \end{de}
 
 \begin{de}
@@ -415,8 +416,130 @@
 
 
 \begin{st}
-  De verzamelingen van automorfismen $AutG$, uitgeruist met de samenstellingsfunctie $\circ$ vormt een groep.
-  \TODO{bewijs}
+  De verzamelingen van automorfismen $Aut G$, uitgeruist met de samenstellingsfunctie $\circ$ vormt een groep.
+
+  \begin{proof}
+    We bewijzen elk deel van de definitie appart.\footnote{Zie definitie \ref{de:groep}.}
+    \begin{itemize}
+    \item associativiteit
+      \[ \forall x, y, z \in Aut G: (x \circ y) \circ z = x \circ (y \circ z) \] 
+      De samenstelling van afbeeldingen is inderdaad associatief.
+      \TODO{ verwijzing naar vorig hoofdstuk zodra dit bewezen is. }
+    \item neutraal element
+      \[ \forall x \in Aut G: x \circ e = e = e \circ x \]
+      Er bestaat een neutraal element voor $Aut G$, namelijk $Id_{G}$. 
+      \TODO{ verwijzing naar vorig hoofdstuk. (ID verzameling)}
+    \item inverse
+      \[ \forall x \in Aut G, \exists x' \in Aut G:\ x \circ x' = e = x' \circ x \]
+      Kies een willekeurige $x$ in $G$. Er bestaat nu wel degelijk een inverse afbieelding, precies omdat $x$ een bijectie is.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G,*$ en $H,\Box$ groepen en $\alpha: G \rightarrow H$ een morfisme.
+  $\alpha$ is een isomorfisme als en slechts als er een morfisme $\beta: H \rightarrow G$ bestaat zodat $\beta \circ \alpha = Id_{G}$ en $\alpha \circ \beta = Id_{G}$ gelden.
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    Zij $G,*$ en $H,\Box$ willekeurige groepen. 
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Zij $\alpha: G \rightarrow H$ een groepsisomorfisme.
+      $\alpha$ is een bijectie, dus $\alpha^{-1}$ is goed gedefinieerd.
+      Noem $\alpha^{-1}$ nu $\beta$, dan gelden $\beta \circ \alpha = Id_{G}$ en $\alpha \circ \beta = Id_{G}$ vanwege de definitie van de inverse van een afbeelding.
+      \TODO{verwijzing naar inverse van een afbeelding.}
+    \item $\Leftarrow$\\
+      Zij $\alpha: G \rightarrow H$ $\beta: H \rightarrow G$ morfismes, zodat $\beta \circ \alpha = Id_{G}$ en $\alpha \circ \beta = Id_{G}$ gelden.
+      Volgens de definitie van de inverse van een functie is $\beta$ de inverse van $\alpha$.
+      \TODO{verwijzing naar inverse van een afbeelding.}
+      Omdat $\alpha$ een inverse heeft, is $\alpha$ bijectief en bijgevolg een isomorfisme.
+      \TODO{verwijzing naar E inverse asa bijectief.}
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{de}
+  De \emph{orde $n$ van het element $x$ van een groep $G,*$} is de kleinste $n \in N_{0}$ waarvoor $x^{n} = e_{G}$ geldt, indien die bestaat en anders $\infty$.
+\end{de}
+
+\begin{de}
+  De \emph{orde $|G|$ of $\#G$ van een groep $G$} is het aantal elementen van $G$.
+\end{de}
+
+\begin{ei}
+  Zij $G,*$ een groep en $x \in G$ een element met een eindige orde $n$ in die groep.
+  \[ \forall r,s \in \mathbb{Z}:\ (x^{s} = e \Leftrightarrow n | s) \wedge (x^{s} = e \Leftrightarrow n | r-s)\]
+
+  \begin{proof}
+    \TODO{ bewijs }
+  \end{proof}
+\end{ei}
+
+\begin{de}
+  Zij $x$ een element van een groep $G,*$, dan is $<x>$ \emph{de groep voortgebracht door} $x$.
+  \[ <x> = \{ x^{s}\ |\ s \in \mathbb{Z} \} \]
+  We noemen bovendien $x$ de \emph{generator} van $G$.
+\end{de}
+
+\begin{st}
+  Zij $x$ een element van een groep $G,*$.
+  De `groep' $<x>$ voortgebracht door $x$ is wel degelijk een groep.
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $x$ een element in een groep $G,*$, dan is de orde van de groep voortgebracht door $x$ gelijk aan de orde van $G$.
+  \[ |<x>| = |G| \]
+
+\TODO{ bewijs }
+\end{st}
+ 
+\begin{de}
+  Een groep $G,*$ is een \emph{cyclishe groep} als en slechts als er een element in $G$ bestaat dat de generator is van $G$. 
+  We noemen bovendien $x$ de \emph{generator} van $G$.
+\end{de}
+
+\begin{ei}
+  Elke oneindige cyclishe groep is isomorf met $\mathbb{Z},+$ en is dus aftelbaar.
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{ei}
+  Elke cyclishe groep van eindige orde $n \in \mathbb{N}$ is isomorf met $\mathbb{Z}_{n},+$.
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{st}
+  Zij $G = <a>$ een cyclishe groep van orde $n$.
+  De orde van $a^{k}$ is gelijk aan $m$:
+  \[ m = \frac{n}{ggd(k,n)} \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $G = <a>$ een cyclishe groep van orde $n$.
+  $a^{k}$ is een generator van $G$ als en slechts als $ggd(k.n)$ gelijk is aan $1$.
+  \[ <a^{k}> = G \Leftrightarrow ggd(k,n) = 1 \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Elke deelgroep $H$ van een cyclische groep $G,* = <a>$ is cyclish.
+  Sterker nog: $H$ wordt voortgebracht door $a^{s}$ waarbij $s \in \mathbb{N_{0}}$ het kleinste getal is waarvoor $a^{s} \in H$ geldt. 
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $G,* = <a>$ een cyclishe groep van orde $n$.
+  Voor elke $positieve$ deler $m$ van $n$ geldt dat $G$ precies \'e\'en deelgroep heeft van orde $m$, namelijk $<a^{\frac{n}{m}}>$.
+
+\TODO{ bewijs }
 \end{st}
 
 \end{document}
