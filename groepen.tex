@@ -4,6 +4,12 @@
 \chapter{Groepen}
 \label{cha:groepen}
 
+\section{Basisbegrippen}
+\label{sec:basisbegrippen}
+
+\subsection{De groep}
+\label{sec:de-groep}
+
 \begin{de}
   Een \emph{halfgroep} of \emph{mono\"ide} $G,*$ bestaat uit een (niet-lege) verzameling $G$ en een interne afbeelding $*$ (De bewerking).
   \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
@@ -204,7 +210,7 @@
   \end{proof}
 \end{st}
 
-\section{Morfismen}
+\subsection{Morfismen}
 \label{sec:morfismen}
 
 \begin{de}
@@ -459,6 +465,9 @@
   \end{proof}
 \end{st}
 
+\subsection{Orde}
+\label{sec:orde}
+
 \begin{de}
   De \emph{orde $n$ van het element $x$ van een groep $G,*$} is de kleinste $n \in N_{0}$ waarvoor $x^{n} = e_{G}$ geldt, indien die bestaat en anders $\infty$.
 \end{de}
@@ -541,5 +550,107 @@
 
 \TODO{ bewijs }
 \end{st}
+
+\subsection{Nevenklassen}
+\label{sec:nevenklassen}
+
+\begin{de}
+  Zij $G,*$ een groep en $H$ een deelgroep van $G$.
+  \begin{itemize}
+  \item De \emph{likse nevenklas} $xH$ van $H$ in $G$ bepaald door $x$:
+    \[ xH = \{ x * h\ |\ h \in H \} \]
+  \item De \emph{rechtse nevenklas} $Hx$ van $H$ in $G$ bepaald door $x$:
+    \[ Hx = \{ h * x\ |\ h \in H \} \]
+  \end{itemize}
+\end{de}
+
+\begin{ei}
+  Zij $G$ een groep en $H$ een deelgroep van $G$.
+  \[ \forall a,b \in G:\ aH = bH \Leftrightarrow a \in bH \Leftrightarrow b^{-1}a \in H \]
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{ei}
+  Zij $G$ een groep en $H$ een deelgroep van $G$.
+  \[ \forall a,b \in G:\ Ha = Hb \Leftrightarrow a \in Hb \Leftrightarrow ab^{-1} \in H \]
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{ei}
+  Zij $G$ een groep en $H$ een deelgroep van $G$.
+  \[ \forall a \in G:\ aH = H \Leftrightarrow a \in H \Leftrightarrow Ha = H \]
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{st}
+  Zij $G$ een groep en $H$ een deelgroep van $G$, De linkse deelklassen van $H$ vormen een partitie van $G$.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  \emph{Stelling van Lagrange}:\\
+  Zij $G,*$ een eindige groep en $H \subset G$ een deelgroep. Het aantal linkse (of rechtse) nevenklassen van $H$ in $G$ is dan gelijk aan:
+  \[ [G:H] = \frac{|G|}{|H|} \]
+  We noemen dit de index van $H$ in $G$.
+  De orde van $H$ is bijgevolg een deler van de orde van $G$.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{gev}
+  Zij $G,*$ een groep en $x$ een element van $G$.
+  De orde van $x$ is een deler van $|G|$.
+  \[ x^{|G|} = e_{G} \]
+
+\TODO{ bewijs }
+\end{gev}
+
+\begin{st}
+  Zij $G,*$ een groep waarvan de orde gelijk is aan een priemgetal $p$, dan is $G$ cyclisch.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{gev}
+  Op isomorfisme na, bestaat er slechts \'e\'en groep voor elk priemgetal, waarbij dat getal de orde is van die groep.
+
+\TODO{ bewijs }
+\end{gev}
+
+\subsection{Directe som}
+\label{sec:directe-som}
+
+\begin{de}
+  Zij $G_{1},\dotsc,G_{n}$ groepen met bewerkingen $*_{1},\dotsc,*_{n}$, dan is de \emph{directe som} van de groepen $G_{i}$, genoteerd als $G_{1} \oplus \dotsb \oplus G_{n}$ de verzameling $G$, voorzien van de bewerking $*$ waarbij het volgende geldt.
+  \[
+  G = G_{1} \times \dotsb \times G_{n}
+  \]
+  \[
+  (g_{1},\dotsc,g_{n}) *(h_{1},\dotsc,h_{n}) = (g_{1} *_{1} h_{1}, \dotsc, g_{2} *_{2} h_{2})
+  \]
+\end{de}
+
+\begin{st}
+  De directe som van $n$ groepen $G_{1},\dotsc,G_{n}$ is een groep.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{ei}
+  Elke groep van orde $4$ is isomorf met $\mathbb{Z}_{4}$ of met de viergroep $V$.
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{ei}
+  Elke groep van orde $6$ is isomorf met $\mathbb{Z}_{6}$ of met $\mathcal{S}$. 
+
+\TODO{ bewijs }
+\end{ei}
+
 
 \end{document}
