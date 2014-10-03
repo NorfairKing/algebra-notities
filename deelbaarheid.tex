@@ -1,0 +1,151 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Deelbaarheid}
+\label{cha:deelbaarheid}
+
+\begin{de}
+  Zij $x$, $y$ elementen van $\mathbb{Z}$, dan is $x$ een \emph{deler} van $y$ als er een $q$ in $\mathbb{Z}$ bestaat zodat $y = qz$ geldt.
+  \[ x | y \Leftrightarrow \exists q \in \mathbb{Z}:\ y= zq \]
+\end{de}
+
+\begin{ei}
+  De relatie $|$ op $\mathbb{Z}$ is transitief.
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{ei}
+  \[ \forall d,a,b,x,y \in \mathbb{Z}:\ (d|x) \wedge (d|y) \Rightarrow d|(ax + by) \]
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{ei}
+  \[ \forall x,y \in \mathbb{Z}:\ (x|y) \wedge (y|x) \Leftrightarrow |x| = |y| \]
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{ei}
+  \[ \forall x \in \mathbb{Z}, \forall y \in \mathbb{Z}_{0}:\ x|y \Rightarrow |x| \le |y| \]
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{de}
+  Zij $a_{1},\dotsc,a_{n} \in \mathbb{Z}_{0}$. De \emph{grootste gemene deler} $d$ van $a_{1},\dotsc,a_{n}$ is de het grootste getal $d \in \mathbb{N}$ waarvoor het volgende geldt:
+  \[ d = ggd(a_{1},\dotsc,a_{n}) \Leftrightarrow d|a_{1} \wedge \dotsb \wedge d|a_{n}\]
+  Definieer bovendien $ggd(0,0,\dotsc,0) = 0$.   
+\end{de}
+
+\begin{de}
+  Zij $a_{1},\dotsc,a_{n} \in \mathbb{Z}_{0}$.
+  $a_{1},\dotsc,a_{n}$ zijn \emph{relatief priem} of \emph{onderling ondeelbaar} als $ggd(a_{1},\dotsc,a_{n}) = 1$ geldt.
+\end{de}
+
+\begin{st}
+  \emph{Euclidische deling}\\
+  Voor elke $a \in \mathbb{Z}$ en elke $b \in \mathbb{N_{0}}$, bestaat er een unieke $q\in \mathbb{Z}$ en een unieke $r\in \mathbb{Z}$ zodat het volgende geldt:
+  \[ a = bq + r \text{ met } r \le r < b \]
+  We noemen $q$ het quotient en $r$ de rest.
+  We duiden $r$ bovendien aan als $r = a\ mod\ b = a\%b$.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $x$ en $y$ gehele getallen en $n\in \mathbb{N}_{0}$.
+  \[ (x+y)\ mod\ n = ((x\ mod\ n)+(y\ mod\ n))\ mod\ n \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $x$ en $y$ gehele getallen en $n\in \mathbb{N}_{0}$.
+  \[ (x\cdot y)\ mod\ n = ((x\ mod\ n)\cdot(y\ mod\ n))\ mod\ n \]
+
+\TODO{ bewijs }
+\end{st}
+
+\TODO{algoritme van euler}
+
+\begin{st}
+  \emph{B\'ezoet-Bachet}\\
+  Zij $a$ en $b$ elementen van $\mathbb{Z}$ dan bestaan er $\alpha$ en $\beta$ in $\mathbb{Z}$ zodat het volgende geldt.
+  \[ ggd(a,b) = \alpha a + \beta b \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $a,b,c \in \mathbb{Z}$
+  \[ c|ab \wedge gdd(a,c) = 1 \Rightarrow c|b \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $a,b,c \in \mathbb{Z}$
+  \[ a|b \wedge b|c \wedge d=ggd(a,b) \Rightarrow \frac{ab}{d}|c \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $a,b,c \in \mathbb{Z}$
+  \[ ggd(a,bc)|ggd(a,b)\cdot ggd(a,c) \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  \emph{Chinese reststelling}\\
+  Zij $n_{1},\dotsc,n_{r} \in \mathbb{N}_{0}$ met $ggd(n_{i},n_{j}) = 1$ voor alle $i\neq j$.
+  Voor alle $a_{1},\dotsc,a_{r} \in \mathbb{Z}$ bestaat er een $x \in \mathbb{Z}$ zodat het volgende geldt:
+  \[
+  \left\{
+    \begin{array}{rl}
+    x\ mod\ n_{1} = a_{1}\ mod\ n_{1}\\
+    \vdots\\
+    x\ mod\ n_{r} = a_{1}\ mod\ n_{r}\\
+  \end{array}
+  \right.
+  \]
+  Bovendien geldt dat als $x_{0} \in \mathbb{Z}$ een oplossing is van bovenstaand stelsel, dan wordt de oplossingsverzameling in $\mathbb{Z}$ de volgende:
+  \[ \{ x_{0} + (n_{1}n_{2}\dotsc n_{r})k | k \in r\} = \{ x \in \mathbb{Z} | x\ mod\ (n_{1}n_{2}\dotsc n_{r}) = x_{0}\ mod\ (n_{1}n_{2}\dotsc n_{r}) \}\]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Een \emph{priem(getal)} is een natuurlijk getal $p > 1$ dat alleen deelbaar is door $\pm 1$ en $\pm p$.
+\end{de}
+
+\begin{st}
+  Zij $p$ een priemgetal en $a,b \in \mathbb{Z}$ zodat $p|ab$, dan geldt $p|a$ of $p|b$.
+  \[ p|ab \Rightarrow p|a \vee p|b \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  \emph{Unieke priemfactorisatie}\\
+  Elk natuurlijk getal $n > 1$ kan geschreven worden als een product van priemgetallen.
+  Deze ontbinding is uniek op de volgorde van de factoren na.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Zij $p$ een priemgetal en $a \in \mathbb{Z}_{0}$. De $p$ orde $ord_{p}(a)$ van $a$ is de grootste exponent $a\in \mathbb{N}$ zodat $p^{a}|a$. We definieren bovendien $ord_{p}(0) = +\infty$.
+\end{de}
+
+\begin{st}
+  \emph{Stelling van euclides}
+  Er bestaan oneindig veel priemgetallen.
+
+\TODO{ bewijs }
+\end{st}
+
+\end{document}
