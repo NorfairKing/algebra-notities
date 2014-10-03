@@ -72,7 +72,7 @@ de
 
 \begin{de}
   Een verzameling $A$ is een \emph{strikte deelverzameling} van een verzameling $B$ als en slechts als $A$ een deelverzameling is van $B$ en niet gelijk is aan $B$.
-  \[ A \subset B \Leftrightarrow A \subseteq B \wedge a \neq B \]
+  \[ A \subsetneq B \Leftrightarrow A \subseteq B \wedge a \neq B \]
 \end{de}
 
 \begin{de}
@@ -218,7 +218,7 @@ de
 \end{st}
 
 \begin{de}
-  Twee verzamelingen $A$ en $B$ zijn disjunct als en slechts als ze geen gemeenschappelijke elementen hebben.
+  Twee verzamelingen $A$ en $B$ zijn \emph{disjunct} als en slechts als ze geen gemeenschappelijke elementen hebben.
   \[ A \cap B = \emptyset \]
 \end{de}
 
@@ -234,14 +234,22 @@ de
 \begin{st}
   De \emph{doorsnede is distributief ten opzichte van de unie}.
   \[ A \cap ( B \cup C ) = (A \cap B) \cup (A \cap C) \]
+
   \TODO{ bewijs }
 \end{st}
 
 \begin{st}
   De \emph{unie is distributief ten opzichte van de doorsnede}.
   \[ A \cup ( B \cap C ) = (A \cup B) \cap (A \cup C) \]
+
   \TODO{ bewijs }
 \end{st}
+
+\begin{pr}
+  Voor twee verzamelingen $A$ en $B$ geldt dat zowel de doorsnede als de verschillen onderling disjunct zijn.
+
+\TODO{ bewijs }
+\end{pr}
 
 \begin{de}
   Het \emph{complement} van een verzameling $A$ ten opzichte van de universele verzameling $U$ is de verzameling van alle elementen die niet in $A$ zitten, maar wel in $U$.
@@ -250,17 +258,39 @@ de
 \end{de}
 
 \begin{st}
+  Het complement van het complement van een verzameling is opnieuw de originele verzameling.
+  \[ (A^{c})^{c} = A\]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De unie van een verzameling en haar complement is het universum.
+  \[ A \cup A^{c} = U \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De doorsnede van een verzameling en haar complement is leeg..
+  \[ A \cap A^{c} = \emptyset \]
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
   De \emph{wetten von De Morgan}.
   \begin{itemize}
   \item \[ (A \cup B)^{c} = A^{c} \cap B^{c} \]
   \item \[ (A \cap B)^{c} = A^{c} \cup B^{c} \]
   \end{itemize}
+
   \TODO{ bewijs }
 \end{st}
 
 \begin{de}
   Het \emph{verschil} van een verzameling $A$ met een andere verzameling $B$ is de verzameling van alle elementen van $A$ die niet in $B$ zitten.
-  \[ A \setminus B = \left\{ x | x \in A \wedge x \not\in B \right\} \]
+  \[ A \setminus B = \left\{ x\ |\ x \in A \wedge x \not\in B \right\} \]
 \end{de}
 
 \begin{st}
@@ -272,18 +302,33 @@ de
 
 \begin{de}
   Het \emph{symmetrisch verschil} van twee verzamelingen $A$ en $B$ is de verzameling van alle elementen die in precies \'e\'en van de twee verzamelingen zit.
-  \[ A \Delta B = \left\{ x | (x \in A \wedge x \not\in B) \vee (x \in B \wedge x \not\in A) \right\} \]
+  \[ A \Delta B = \left\{ x\ |\ (x \in A \wedge x \not\in B) \vee (x \in B \wedge x \not\in A) \right\} \]
 \end{de}
 
 \begin{st}
   Het symmetrisch verschil van twee verzamelingen kan worden herschreven als de unie van de twee verschillen.
-  \[ A \Delta B = (A \setminus B) \cup (B \setminus A) \]
+  \[ A \Delta B = A \nabla B = A \div B = A \ominus B = (A \setminus B) \cup (B \setminus A) \]
 \end{st}
 
 \begin{de}
-  De \emph{verzameling van alle deelverzamelingen} van een verzameling $A$ wordt genoteerd als $\mathcal P(A)$ of $2^{A}$.
-  \[ \mathcal P(A) = \left\{ S\ |\ S \in A \right\} \]
+  \label{de:machtsverzameling}
+  De \emph{machtsverzameling} $\mathcal P(A)$ is de \emph{verzameling van alle deelverzamelingen} van een verzameling $A$.
+  \[ \mathcal P(A) = \left\{ S\ |\ S \subseteq A \right\} \]
 \end{de}
+
+\begin{de}
+  \label{de:partitie}
+  Een partitie $P$ van een verzameling $X$ is een deelverzameling van de machtsverzameling $\mathcal {P}(x)$ van $X$ met de volgende eigenschappen:
+  \begin{itemize}
+  \item De verzamelingen zijn niet leeg.
+    \[ \forall A \in P:\ A \neq \emptyset \]
+  \item De verzamelingen zijn onderling disjunct.
+    \[ \forall A,B \in P:\ A \neq B \Rightarrow A \cap B = \emptyset \]
+  \item De verzamelingen samen vormen $X$.
+    \[ \forall x \in X:\ \exists A \in P:\ x \in A \]
+  \end{itemize}
+\end{de}
+
 
 \section{Koppels en het carthesisch product}
 \label{sec:koppels-en-het-carthesisch-product}
