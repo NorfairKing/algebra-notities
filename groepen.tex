@@ -205,8 +205,8 @@
   $G,*$ is dan een groep.
 
   \begin{proof}
-    Om te bewijzen dat $G,*$ een groep is, moeten we nog bewijzen dat en een neutraal element bestaat in $G$ en dat elk element een inverse heeft in $G$.
-\TODO{ Bewijs }
+    Om te bewijzen dat $G,*$ een groep is, moeten we nog bewijzen dat er een neutraal element bestaat in $G$ en dat elk element een inverse heeft in $G$.
+\TODO{ voor doorbijters: Bewijs }
   \end{proof}
 \end{st}
 
@@ -308,9 +308,9 @@
 \end{st}
 
 \begin{st}
+  \label{st:kern-is-deelgroep}
   Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
   \[ Ker(f) \text{ is een deelgroep van } G \]
-\TODO{bewijs}
   \begin{proof}
     We bewijzen elke voorwaarde uit het criterium voor deelgroepen.
     \begin{enumerate}
@@ -478,11 +478,9 @@
 
 \begin{ei}
   Zij $G,*$ een groep en $x \in G$ een element met een eindige orde $n$ in die groep.
-  \[ \forall r,s \in \mathbb{Z}:\ (x^{s} = e \Leftrightarrow n | s) \wedge (x^{s} = e \Leftrightarrow n | r-s)\]
+  \[ \forall r,s \in \mathbb{Z}:\ (x^{s} = e \Leftrightarrow n | s) \wedge (x^{r} = x^{s} \Leftrightarrow n | r-s)\]
 
-  \begin{proof}
-    \TODO{ bewijs }
-  \end{proof}
+\TODO{ bewijs }
 \end{ei}
 
 \begin{de}
@@ -498,8 +496,8 @@
 \end{st}
 
 \begin{st}
-  Zij $x$ een element in een groep $G,*$, dan is de orde van de groep voortgebracht door $x$ gelijk aan de orde van $G$.
-  \[ |<x>| = |G| \]
+  Zij $x$ een element in een groep $G,*$, dan is de orde van de groep voortgebracht door $x$ gelijk aan de orde van $x$ in $G$.
+  \[ |x| = |<x>| \]
 
 \TODO{ bewijs }
 \end{st}
@@ -555,16 +553,20 @@
 \label{sec:nevenklassen}
 
 \begin{de}
+  \label{de:neverklassen}
   Zij $G,*$ een groep en $H$ een deelgroep van $G$.
   \begin{itemize}
-  \item De \emph{likse nevenklas} $xH$ van $H$ in $G$ bepaald door $x$:
+  \item De \emph{linkse nevenklasse} $xH$ van $H$ in $G$ bepaald door $x$:
     \[ xH = \{ x * h\ |\ h \in H \} \]
-  \item De \emph{rechtse nevenklas} $Hx$ van $H$ in $G$ bepaald door $x$:
+  \item De \emph{rechtse nevenklasse} $Hx$ van $H$ in $G$ bepaald door $x$:
     \[ Hx = \{ h * x\ |\ h \in H \} \]
   \end{itemize}
+  De verzameling van linker nevenklassen van $H$ in $G$ noteren we als $G/H$.
+  \[ G/H = \{ x*h\ |\ x \in G \} \]
 \end{de}
 
 \begin{ei}
+  \label{ei:linker-neverklasse-eig}
   Zij $G$ een groep en $H$ een deelgroep van $G$.
   \[ \forall a,b \in G:\ aH = bH \Leftrightarrow a \in bH \Leftrightarrow b^{-1}a \in H \]
 
@@ -572,6 +574,7 @@
 \end{ei}
 
 \begin{ei}
+  \label{ei:rechter-neverklasse-eig}
   Zij $G$ een groep en $H$ een deelgroep van $G$.
   \[ \forall a,b \in G:\ Ha = Hb \Leftrightarrow a \in Hb \Leftrightarrow ab^{-1} \in H \]
 
@@ -620,6 +623,63 @@
 
 \TODO{ bewijs }
 \end{gev}
+
+\begin{st}
+  Zij $f: G \rightarrow H$ een morfisme tussen twee groepen $G,*$ en $H,\Box$. Voor alle $x,y$ in $G$ geldt het volgende:
+  \[ f(x) = f(y) \Leftrightarrow x * Ker(f) = y * Ker(f) \]
+
+  \begin{proof}
+    \[ x * Ker(f) = y * Ker(f) \Leftrightarrow x^{-1} * y \in Ker(f) \]
+    $Ker(f)$ is een deelgroep van $G$.\footnote{Zie stelling \ref{st:kern-is-deelgroep}.}
+    Bovenstaande gelijkheid geldt voor elke linker neverklasse, dus ook voor $Ker(f)$.\footnote{Zie eigenschap \ref{ei:linker-nevenklasse-eig} van linker neverklassen.}
+    Omdat $x^{-1} * y$ in de kern van $f$ zit is het beeld ervan $e_{H}$.
+    \[ f(x^{-1} * y) = e_{H} \]
+    $f$ is een morfisme\footnote{Zie definitie \ref{de:morfisme}.}:
+    \[ f(x^{-1}) \Box f(y) = e_{H}\]
+    Wat er nu over blijft is precies dat $f(x)$ en $f(y)$ gelijk zijn.
+    We hebben in dit bewijs enkel equivalenties gebruikt. De omgekeerde redenering geldt dus ook.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $H$ een deelgroep van een groep $G,*$, dan vormen de linkernevenklassen van $H$ in $G$ een partitie van $G$.
+  \begin{itemize}
+  \item Elke linker neverklasse is niet-leeg.
+  \item Elk element van $G$ behoort tot een linkernevenklasse.
+  \item Twee rechter neverklassen zijn ofwel gelijk ofwel volledig disjunct.
+  \end{itemize}
+  Met andere woorden: De relatie ``x en y liggen in dezelfde linker nevenklasse van $H$ in $G$'' is een equivalentierelatie.
+
+\TODO{ bewijs str}
+\end{st}
+
+\begin{st}
+  Zij $H$ een deelgroep van een groep $G,*$, dan vormen de rechternevenklassen van $H$ in $G$ een partitie van $G$.
+  \begin{itemize}
+  \item Elke rechter neverklasse is niet-leeg.
+  \item Elk element van $G$ behoort tot een rechternevenklasse.
+  \item Twee rechter  neverklassen zijn ofwel gelijk ofwel volledig disjunct.
+  \end{itemize}
+  Met andere woorden: De relatie ``x en y liggen in dezelfde rechter nevenklasse van $H$ in $G$'' is een equivalentierelatie.
+
+\TODO{ bewijs str}
+\end{st} 
+
+\begin{st}
+  Zij $G,*$ een eindige groep en $H$ een deelgroep van $G,*$. Nu geldt voor elke $x\in G$ dat de orde van $H$ en zowel de linker als de rechter nevenklasse van $x$ in $G$ alledrie dezelfde orde.
+  \[ |H| = |x*H| = |H*x| \]
+
+\TODO{ bewijs str}
+\end{st}
+
+\begin{st}
+  Als $G$ een commutatieve groep is ,dan is de verzameling $G/H$ met als bewerking $\bar{*}$ vormt een groep.
+  \[ \bar{*}: G/H \times G/H \rightarrow G/H: (x*H,y*H) \rightarrow (x*y)*H \]
+
+\TODO{ bewijs str}
+\TODO{voorwaarde afzwakken bij normaaldelers}
+\end{st}
+
 
 \subsection{Directe som}
 \label{sec:directe-som}
