@@ -366,9 +366,17 @@
   \[ f \text{ is een isomorfisme} \Rightarrow f^{-1} \text{ is een isomorfisme} \]
   Merk op dat de afbeelding $f^{-1}$ slechts bestaat als $f$ een injectie is.
   \begin{proof}
-    Inderdaad, als $f$ bijectief is, dan is $f^{-1}$ ook bijectief.
+    $f^{-1}$ is een morfisme:
+    \[ 
+    \begin{array}{rll}
+      f^{-1}(y_{1} \Box y_{2}) &= f^{-1}(f(x_{1}) \Box f(x_{2})) &\\
+                             &= f^{-1}(f(x_{1} * x_{2})) &\\
+                             &= x_{1} * x_{2} &= f^{-1}(y_{1}) \Box f^{-1}(y_{2})
+    \end{array}
+    \]
+    $f^{-1}$ is bovendien bijectief, want $f$ is bijectief.
+    \TODO{bewijs in het hoofdstuk over afbeeldingen.}
   \end{proof}
-\question{Dit is te simpel. Wat is er hier mis?}
 \end{st}
 
 \begin{st}
@@ -472,6 +480,7 @@
 \end{de}
 
 \begin{ei}
+  \label{ei:groep-eindige-orde-deelbaarheid}
   Zij $G,*$ een groep en $x \in G$ een element met een eindige orde $n$ in die groep.
   \[ \forall r,s \in \mathbb{Z}:\ (x^{s} = e \Leftrightarrow n | s) \wedge (x^{r} = x^{s} \Leftrightarrow n | r-s)\]
   \begin{proof}
@@ -518,15 +527,9 @@
 \end{de}
 
 \begin{st}
+  \label{st:voortbrenging-is-groep}
   Zij $x$ een element van een groep $G,*$.
   De `groep' $<x>$ voortgebracht door $x$ is wel degelijk een groep.
-  
-\TODO{ bewijs }
-\end{st}
-
-\begin{st}
-  Zij $x$ een element in een groep $G,*$, dan is de orde van de groep voortgebracht door $x$ gelijk aan de orde van $x$ in $G$.
-  \[ |x| = |<x>| \]
 
   \begin{proof}
     We bewijzen elke eigenschap van een groep voor $<x>$.\footnote{Zie definitie \ref{de:groep}.}
@@ -549,6 +552,23 @@
       Het invers element van $x^{a}$ is nu $x^{-a}$.
       \[ x^{a}*x^{-a} = x^{a-a} = x^{0} = x^{-a+a} = x^{-a} * x^{a} \]
     \end{itemize}
+  \end{proof}
+
+\end{st}
+
+\begin{st}
+  \label{st:orde-van-generator-is-orde-van-groep}
+  Zij $x$ een element in een groep $G,*$, dan is de orde $n$ van de groep voortgebracht door $x$ gelijk aan de orde $m$ van $x$ in $G$.
+  \[ |x| = |<x>| \]
+
+  \begin{proof}
+    Bekijk de groep $<x>$.
+    \[ <x> = \{ x^{n}, x,x^{2},\dotsc,x^{n-1}\} \]
+    Er zitten precies $n$ elementen in $<x>$.
+    Dat $m$ de orde is van $x$ in $G$ houdt het volgende in:
+    \[ x^{m} = e \text{ en } \neg (\exists\ m')(m'<m \wedge x^{m'} = e) \]
+    Alle machten van $x$ tot en met $x^{m}$ zijn dus verschillend.
+    Die $m$ machten zijn precies de elementen van $<x>$.
   \end{proof}
 \end{st}
  
@@ -580,6 +600,7 @@
 \end{ei}
 
 \begin{st}
+  \label{st:deelgroep-van-cyclische-groep-is-cyclisch}
   Elke deelgroep $H$ van een cyclische groep $G,* = <x>$ is cyclish.
   Sterker nog: $H$ wordt voortgebracht door $x^{s}$ waarbij $s \in \mathbb{N}_{0 }$ het kleinste getal is waarvoor $x^{s} \in H$ geldt. 
 
@@ -602,26 +623,50 @@
 \end{st}
 
 \begin{st}
-  Zij $G = <a>$ een cyclishe groep van orde $n$.
-  De orde van $a^{k}$ is gelijk aan $m$:
-  \[ m = \frac{n}{ggd(k,n)} \]
+  \label{st:orde-element-cyclische-groep}
+  Zij $G = <a>$ een cyclishe groep van eindige orde $n$ met $*$ als bewerking.
+  De orde van $a^{k}$ is gelijk aan $\frac{n}{ggd(k,n)}$:
+  \[ (a^{k})^{\frac{n}{ggd(k,n)}} = e\]
+  
+  \begin{proof}
+    \[ (a^{k})^{\frac{n}{ggd(k,n)}} = (a^{n})^{\frac{k}{ggd(k,n)}} = e \]
+    Nu moeten we nog bewijzen dat $\frac{n}{ggd(k,n)}$ minimaal is.
+    Stel dus dat er en $0 < r < \frac{n}{ggd(k,n)}$ bestaat zodat $a^{kr}$ geldt.
+    Bekijk nu de stelling van B\'ezout-Bachet.\footnote{Zie stelling \ref{st:bezout-bachet}.}
+    Er bestaan een $\alpha$ en $beta$ zodat het volgende geldt:
+    \[ ggd(k,n) = \alpha k + \beta n \]
+    Nu bekijken we $a^{kr} = e$ opnieuw, en verheffen we beide kanten tot de macht $\alpha$ zodat er $\alpha k$ in de macht staat.
+    \[ a^{kr\alpha} = a^{ggd(k,n)r - \beta nr} = a^{ggd(k,n)r}* a^{-\beta nr} = a^{ggd(k,n)r}\]
+    Omdat $a^{ggd(k,n)r} = e$ geldt, is $n$ een deler van $ggd(k,n)r$.\footnote{Zie stelling \ref{ei:groep-eindige-orde-deelbaarheid}.}
+    Dat houdt in dat $\frac{n}{d}$ een deler is van $r$, en dus kleiner.
+    \TODO{bewijzen in hoofdstuk van deelbaarheid}
+  \end{proof}
 
-\TODO{ bewijs }
 \end{st}
 
 \begin{st}
-  Zij $G = <a>$ een cyclishe groep van orde $n$.
+  Zij $G = <a>$ een cyclishe groep van eindige orde $n$.
   $a^{k}$ is een generator van $G$ als en slechts als $ggd(k.n)$ gelijk is aan $1$.
   \[ <a^{k}> = G \Leftrightarrow ggd(k,n) = 1 \]
 
-\TODO{ bewijs }
+  \begin{proof}
+     We weten dat de orde van $a^{k}$ in $G$ gelijk is aan $\frac{n}{ggd(k,n)}$.\footnote{Zie stelling \ref{st:orde-element-cyclische-groep}.}
+     Als en slechts als $a^{k}$ een generator is voor $G$, dan is de orde van $a^{k}$ gelijk aan de orde van $G$.\footnote{Zie stelling \ref{st:orde-van-generator-is-orde-van-groep}.}
+     \[ \frac{n}{ggd(k,n)} = n \Leftrightarrow ggd(k,n) = 1 \]
+  \end{proof}
 \end{st}
 
 \begin{st}
-  Zij $G,* = <a>$ een cyclishe groep van orde $n$.
+  Zij $G,* = <a>$ een cyclishe groep van eindige orde $n$.
   Voor elke $positieve$ deler $m$ van $n$ geldt dat $G$ precies \'e\'en deelgroep heeft van orde $m$, namelijk $<a^{\frac{n}{m}}>$.
-
-\TODO{ bewijs }
+  \begin{proof}
+    $<a^{\frac{n}{m}}>$ is een deelgroep\footnote{Zie stelling \ref{st:voortbrenging-is-groep}.} van $G$.
+    Omdat $G$ cyclisch is, is $<a^{\frac{n}{m}}>$ ook cyclisch.\footnote{Zie stelling \ref{st:deelgroep-van-cyclische-groep-is-cyclisch}.} De orde van $<a^{\frac{n}{m}}>$ is bovendien gelijk aan $\frac{n}{ggd({\frac{n}{m},n)}}$.\footnote{Zie stelling \ref{st:orde-element-cyclische-groep}.}
+    \[ \frac{n}{ggd({\frac{n}{m},n)}} = m \]
+\TODO{Bewijs in hoofdstuk van deelbaarheid}
+    We moeten nu dus nog bewijzen dat elke deelgroep $H$ van orde $m$ gelijk is aan $<a^{\frac{n}{m}}>$.
+\TODO{bewijs}
+  \end{proof}
 \end{st}
 
 \subsection{Nevenklassen}
