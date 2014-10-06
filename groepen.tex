@@ -515,12 +515,12 @@
 \begin{de}
   Zij $x$ een element van een groep $G,*$, dan is $<x>$ \emph{de groep voortgebracht door} $x$.
   \[ <x> = \{ x^{s}\ |\ s \in \mathbb{Z} \} \]
-  We noemen bovendien $x$ de \emph{generator} van $G$.
 \end{de}
 
 \begin{st}
   Zij $x$ een element van een groep $G,*$.
   De `groep' $<x>$ voortgebracht door $x$ is wel degelijk een groep.
+  
 \TODO{ bewijs }
 \end{st}
 
@@ -528,25 +528,78 @@
   Zij $x$ een element in een groep $G,*$, dan is de orde van de groep voortgebracht door $x$ gelijk aan de orde van $x$ in $G$.
   \[ |x| = |<x>| \]
 
-\TODO{ bewijs }
+  \begin{proof}
+    We bewijzen elke eigenschap van een groep voor $<x>$.\footnote{Zie definitie \ref{de:groep}.}
+    \begin{itemize}
+    \item Associativiteit\\
+      Kies drie willekeurige elementen uit $<x>$, met andere woorden kies drie getallen $a$, $b$ en $c$ uit $mathbb{Z}$:
+      \[
+      \begin{array}{rll}
+      (x^{a} * x^{b})* x^{c} &= x^{a+b} * x^{c} &\\
+                           &= x^{a+b+c}       &\\
+                           &= x^{a} * x^{b+c} &= x^{a} * (x^{b} * x^{c})
+      \end{array}
+      \]
+    \item Neutraal element
+      Kies willekeurig een element uit $<x>$, kies dus een $a\in \mathbb{Z}$.
+      Het neutraal element voor $<x>$ is $x^{0}$:
+      \[ x^{a} * x^{0} = x^{a+0} = x^{a} = x^{0+a} = x^{0} + x^{a} \]
+    \item Invers element
+      Kies een willekeurig element uit $<x>$, kies dus een $a \in \mathbb{Z}$.
+      Het invers element van $x^{a}$ is nu $x^{-a}$.
+      \[ x^{a}*x^{-a} = x^{a-a} = x^{0} = x^{-a+a} = x^{-a} * x^{a} \]
+    \end{itemize}
+  \end{proof}
 \end{st}
  
 \begin{de}
-  Een groep $G,*$ is een \emph{cyclishe groep} als en slechts als er een element in $G$ bestaat dat de generator is van $G$. 
+  Een groep $G,*$ is een \emph{cyclishe groep} als en slechts als er een element in $G$ bestaat dat $G$ voortbrengt.
   We noemen bovendien $x$ de \emph{generator} van $G$.
 \end{de}
 
 \begin{ei}
   Elke oneindige cyclishe groep is isomorf met $\mathbb{Z},+$ en is dus aftelbaar.
 
-\TODO{ bewijs }
+  \begin{proof}
+    We tonen dat er een bijectie $b$ bestaat tussen de willekeurige oneindige cyclische groep $G,*$ met generator $x$ en $\mathbb{Z},+$.
+    \[ G = <x> = \{ x^{s}\ |\ s \in \mathbb{Z} \} \]
+    Inderdaad, kies $b$ als volgt.
+    \[ b:\ \mathbb{Z} \rightarrow G:\ s \mapsto x^{s} \]
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Elke cyclishe groep van eindige orde $n \in \mathbb{N}$ is isomorf met $\mathbb{Z}_{n},+$.
 
-\TODO{ bewijs }
+  \begin{proof}
+    We tonen dat er een bijectie $b$ bestaat tussen de willekeurige eindige cyclische groep $G,*$ met generator $x$ en orde $n$ en $\mathbb{Z},+$.
+    \[ G = <x> = \{ x^{s}\ |\ s \in \mathbb{Z} \} \]
+    Inderdaad, kies $b$ als volgt.
+    \[ b:\ \mathbb{Z} \rightarrow G:\ [s]_{n} \mapsto x^{s} \]
+  \end{proof}
 \end{ei}
+
+\begin{st}
+  Elke deelgroep $H$ van een cyclische groep $G,* = <x>$ is cyclish.
+  Sterker nog: $H$ wordt voortgebracht door $x^{s}$ waarbij $s \in \mathbb{N}_{0 }$ het kleinste getal is waarvoor $x^{s} \in H$ geldt. 
+
+  \begin{proof}
+    Als $H = \{e\}$ geldt, dan is $H$ inderdaad cyclisch.
+    Stel nu dat $H$ niet enkel het neutraal element bevat, dan bevat $H$ mistens nog de elementen $x^{m}$ en $x^{-m}$ met $m \in \mathbb{N}$.
+    Het kan zijn dat er meerdere van die $m$'s bestaan, maar er bestaat er altijd een kleinste: $n$.
+    \[ x^{n} \in H \]
+    Voor elk element $x^{s}$ van $G$ geldt nu dat het in $H$ zit als $n$ een deler is van $s$.
+    \[ x^{s} \in H \Leftrightarrow n|s \]
+    Inderdaad, als $x^{s}$ in $H$ zit, dan kunnen we $s$ euclidisch delen door $n$\footnote{Zie stelling \ref{st:euclidische-deling}.}:
+    \[ s = nq + r \text{ met } 0 \le r < n \]
+    \[ x^{s} = x^{nq + r} \Rightarrow x^{r} = x^{s-nq} = x^{s}(x^{n})^{-q} \in H \]
+    Omdat $n$ minimaal is, en $r$ tussen $0$ en $n$ zit, is $r$ gelijk aan nul, en $s$ dus deelbaar door $s$.
+    Omgekeerd, wanneer $s$ deelbaar is door $n$ bestaat er een $q$ zodat volgende bewering geldt\footnote{Zie definitie \ref{de:deler}.}:
+    \[ s = nq \]
+    \[ x^{s} = x^{nq} = (x^{n})^{q} \in H \]
+    Met andere woorden: elke macht van $x^{n} \in H$ zit opnieuw in $H$. Dit betekent precies dat $H$ cyclisch is.
+  \end{proof}
+\end{st}
 
 \begin{st}
   Zij $G = <a>$ een cyclishe groep van orde $n$.
@@ -560,13 +613,6 @@
   Zij $G = <a>$ een cyclishe groep van orde $n$.
   $a^{k}$ is een generator van $G$ als en slechts als $ggd(k.n)$ gelijk is aan $1$.
   \[ <a^{k}> = G \Leftrightarrow ggd(k,n) = 1 \]
-
-\TODO{ bewijs }
-\end{st}
-
-\begin{st}
-  Elke deelgroep $H$ van een cyclische groep $G,* = <a>$ is cyclish.
-  Sterker nog: $H$ wordt voortgebracht door $a^{s}$ waarbij $s \in \mathbb{N_{0}}$ het kleinste getal is waarvoor $a^{s} \in H$ geldt. 
 
 \TODO{ bewijs }
 \end{st}
