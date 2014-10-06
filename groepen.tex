@@ -429,12 +429,10 @@
     \begin{itemize}
     \item associativiteit
       \[ \forall x, y, z \in Aut G: (x \circ y) \circ z = x \circ (y \circ z) \] 
-      De samenstelling van afbeeldingen is inderdaad associatief.
-      \TODO{ verwijzing naar vorig hoofdstuk zodra dit bewezen is. }
+      De samenstelling van afbeeldingen is inderdaad associatief.\footnote{Zie stelling \ref{st:samenstelling-relaties-associatief}.}
     \item neutraal element
       \[ \forall x \in Aut G: x \circ e = e = e \circ x \]
-      Er bestaat een neutraal element voor $Aut G$, namelijk $Id_{G}$. 
-      \TODO{ verwijzing naar vorig hoofdstuk. (ID verzameling)}
+      Er bestaat een neutraal element voor $Aut G$, namelijk $Id_{G}$.\footnote{Zie definitie \ref{identieke-transformatie}.}
     \item inverse
       \[ \forall x \in Aut G, \exists x' \in Aut G:\ x \circ x' = e = x' \circ x \]
       Kies een willekeurige $x$ in $G$. Er bestaat nu wel degelijk een inverse afbieelding, precies omdat $x$ een bijectie is.
@@ -453,14 +451,11 @@
     \item $\Rightarrow$\\
       Zij $\alpha: G \rightarrow H$ een groepsisomorfisme.
       $\alpha$ is een bijectie, dus $\alpha^{-1}$ is goed gedefinieerd.
-      Noem $\alpha^{-1}$ nu $\beta$, dan gelden $\beta \circ \alpha = Id_{G}$ en $\alpha \circ \beta = Id_{G}$ vanwege de definitie van de inverse van een afbeelding.
-      \TODO{verwijzing naar inverse van een afbeelding.}
+      Noem $\alpha^{-1}$ nu $\beta$, dan gelden $\beta \circ \alpha = Id_{G}$ en $\alpha \circ \beta = Id_{G}$.\footnote{Zie stelling \ref{st:afb+inverse=identieke}.}
     \item $\Leftarrow$\\
       Zij $\alpha: G \rightarrow H$ $\beta: H \rightarrow G$ morfismes, zodat $\beta \circ \alpha = Id_{G}$ en $\alpha \circ \beta = Id_{G}$ gelden.
-      Volgens de definitie van de inverse van een functie is $\beta$ de inverse van $\alpha$.
-      \TODO{verwijzing naar inverse van een afbeelding.}
-      Omdat $\alpha$ een inverse heeft, is $\alpha$ bijectief en bijgevolg een isomorfisme.
-      \TODO{verwijzing naar E inverse asa bijectief.}
+      Volgens $\beta$ is nu de inverse van $\alpha$.\footnote{Zie stelling \ref{st:afb+inverse=identieke}.}
+      Omdat $\alpha$ een inverse heeft, is $\alpha$ bijectief en bijgevolg een isomorfisme.\footnote{Zie stelling \ref{st:afb-inverse-asa-bijectief}.}
     \end{itemize}
   \end{proof}
 \end{st}
@@ -479,8 +474,42 @@
 \begin{ei}
   Zij $G,*$ een groep en $x \in G$ een element met een eindige orde $n$ in die groep.
   \[ \forall r,s \in \mathbb{Z}:\ (x^{s} = e \Leftrightarrow n | s) \wedge (x^{r} = x^{s} \Leftrightarrow n | r-s)\]
-
-\TODO{ bewijs }
+  \begin{proof}
+    Bewijs van conjunctie.
+    Kies willekeurige elementen $r$ en $s$ in $\mathbb{Z}$.
+    \begin{itemize}
+    \item $(x^{s} = e \Leftrightarrow n | s)$
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        Stel $x^{s} = e$ geldt.
+        Deel nu $s$ euclidisch door $n$.\footnote{Zie stelling \ref{st:euclidische-deling}.}
+        \[ s = nq + r \text{ met } 0 \le r < n \]
+        Nu geldt het volgende:
+        \[ x^{s} = x^{nq + r} = (x^{n})^{q} * x^{r} = e^{q} * x^{r} = x^{r} = e\]
+        Omdat $n$ de kleinste waarde is waarvoor $x^{n}=e$ geldt en omdat $r$ tussen $0$ en $n$ ligt, besluiten we dat $r$ nul is.
+        \[ s = nq \]
+        $n$ is dus een deler van s.\footnote{Zie definitie \ref{de:deler}.}
+      \item $\Leftarrow$\\
+        Stel dat $n | s$ geldt, dan bestaat er een $q$ zodat volgende gelijkheid geldt.\footnote{Zie definitie \ref{de:deler}.}
+        \[ s = nq \]
+        We beschouwen nu $x^{s}$
+        \[ x^{s} = x^{nq} = (x^{n})^{q} = e^{q} = e\]
+      \end{itemize}
+    \item $(x^{r} = x^{s} \Leftrightarrow n | r-s)$
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        Stel dat $x^{r} = x^{s}$ geldt.
+        \[ x^{r} = x^{s} \Leftrightarrow x^{r-s} = e \]
+        In het vorige deel van dit bewijs hebben we bewezin dat $n$ dan een deler is van $r-s$.
+        \[ n|r-s \]
+      \item $\Leftarrow$\\
+        Stel dat $n | r-s$ geldt, dan geldt volgend deel \'e\'en van dit bewijs het volgende:
+        \[ x^{r-s} = e \]
+        Dit betekent precies dat $x^{r}$ en $x^{s}$ gelijk zijn.
+        \[ \Rightarrow x^{r} = x^{s} \]
+      \end{itemize}
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{de}
@@ -566,7 +595,7 @@
 \end{de}
 
 \begin{ei}
-  \label{ei:linker-neverklasse-eig}
+  \label{ei:linker-nevenklasse-eig}
   Zij $G$ een groep en $H$ een deelgroep van $G$.
   \[ \forall a,b \in G:\ aH = bH \Leftrightarrow a \in bH \Leftrightarrow b^{-1}a \in H \]
 
@@ -574,7 +603,7 @@
 \end{ei}
 
 \begin{ei}
-  \label{ei:rechter-neverklasse-eig}
+  \label{ei:rechter-nevenklasse-eig}
   Zij $G$ een groep en $H$ een deelgroep van $G$.
   \[ \forall a,b \in G:\ Ha = Hb \Leftrightarrow a \in Hb \Leftrightarrow ab^{-1} \in H \]
 
