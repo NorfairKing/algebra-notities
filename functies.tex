@@ -115,9 +115,55 @@
   Een afbeelding $f: A \rightarrow A$ van een verzameling op zichzelf noemen we een transformatie.
 \end{de}
 
+\section{Speciale afbeeldingen}
+\label{sec:spec-afbe}
+
+
 \begin{de}
   Een bijectieve afbeelding van een eindige verzameling naar zichzelf noemen we een permutatie.
 \end{de}
+
+\begin{de}
+  We noteren het voorschrift van een permutatie $\sigma: A\rightarrow A$ van een verzameling $A = a_{1},\dotsc,a_{n}$ soms als volgt:
+  \[
+  \sigma = 
+  \begin{pmatrix}
+    a_{1}         & \hdots & a_{n}         \\
+    \sigma(a_{1}) & \hdots & \sigma(a_{n}) \\
+  \end{pmatrix}
+  \]
+  Dit heet de twee-lijnen notatie van Cauchy.
+\end{de}
+
+\begin{de}
+  We kunnen een permutatie van $\{1,\dotsc,n\}$ eenvoudig noteren als volgt:
+  Zij $i_{1},\dotsc,i_{r}$ elementen uit $\{1,\dotsc,n\}$.
+  \[ \sigma = (i_{1}i_{2}\dotsc i_{r}) \]
+  Bovenstaande gelijkheid is de notatie voor $\sigma$, zijnde de volgende permutatie:
+  \[ \sigma(i_{i}) = i_{(i+1) mod\ r} \]
+  Dit heet de cykelnotatie.
+\end{de}
+
+\begin{de}
+  Twee cykels zijn disjunct als ze geen gemeenschappelijke symbolen hebben. 
+\end{de}
+
+\begin{st}
+  Elke permutatie in $\mathcal{S}_{n}$, verschillend van de identieke, is de samenstelling van twee aan twee disjuncte cykels.
+
+\TODO{bewijs zie p 14}
+\end{st}
+
+\begin{de}
+  Een \emph{transpositie} is een permutatie die elementen verwisselt en de rest op zichzelf afbeeldt.
+  Het is met andere woorden een cykel van lengte 2.
+\end{de}
+
+\begin{st}
+  Een permutatie is een samenstelling van transposities.
+
+\TODO{bewijs zie p 15}
+\end{st}
 
 \begin{de}
   Een bijectieve functie van een eindige verzameling $A$ naar een eindige verzameling $B$ noemen we een substitutie. 
