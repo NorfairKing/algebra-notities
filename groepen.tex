@@ -573,6 +573,7 @@
 \end{st}
  
 \begin{de}
+  \label{de:cyclische-groep}
   Een groep $G,*$ is een \emph{cyclishe groep} als en slechts als er een element in $G$ bestaat dat $G$ voortbrengt.
   We noemen bovendien $x$ de \emph{generator} van $G$.
 \end{de}
@@ -682,7 +683,7 @@
 \label{sec:nevenklassen}
 
 \begin{de}
-  \label{de:neverklassen}
+  \label{de:nevenklassen}
   Zij $G,*$ een groep en $H$ een deelgroep van $G$.
   \begin{itemize}
   \item De \emph{linkse nevenklasse} $xH$ van $H$ in $G$ bepaald door $x$:
@@ -699,7 +700,30 @@
   Zij $G$ een groep en $H$ een deelgroep van $G$.
   \[ \forall a,b \in G:\ aH = bH \Leftrightarrow a \in bH \Leftrightarrow b^{-1}a \in H \]
 
-\TODO{ bewijs }
+  \begin{proof}
+    Bewijs door circulaire implicaties.
+    \begin{itemize}
+    \item $\forall a,b \in G:\ aH = bH \Rightarrow a \in bH$\\
+      $H$ is een groep, en bevat dus een neutraal element.\footnote{Zie definitie \ref{de:groep}.}
+      $a$ is dus een element van $aH$, wat gelijk is aan $bH$, dus $a$ zit in $bH$.
+    \item $\forall a,b \in G:\ a \in bH \Rightarrow b^{-1}a \in H$\\
+      Ofwel zijn $b$ en $a$ gelijk, en dan is $b^{-1}a$ een element van $H$ omdat $H$ een groep is.
+      Ofwel zijn $b$ en $a$ niet gelijk, en dan bestaat er dus een $c \in H$ waarvoor het volgende geldt:
+      \[ b*c = a\]
+      \[ b^{-1}*b*c = b^{-1}a\]
+      \[ c = b^{-1}a \in H \]
+    \item $\forall a,b \in G:\ b^{-1}a \in H\Rightarrow aH = bH$\\
+      Noem $b^{-1}a$ $h_{0}$.
+      \[ b^{-1}a = h_{0} \Rightarrow (a = bh_{0}) \text { en } b = a h_{0}^{-1} \]
+      Nu geldt voor alle $h \in H$ het volgende:
+      \[ a * h = bh_{0}*h \]
+      $aH$ is dus al een deel van $bH$.
+      Bovendien geldt, opnieuw voor alle $h \in H$ ook het volgende:
+      \[ b * h = ah_{0}^{-1} \]
+      $bH$ is dus ook een deel van $aH$.
+      We besluiten dat $aH$ en $bH$ gelijk zijn.
+   \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{ei}
@@ -707,50 +731,143 @@
   Zij $G$ een groep en $H$ een deelgroep van $G$.
   \[ \forall a,b \in G:\ Ha = Hb \Leftrightarrow a \in Hb \Leftrightarrow ab^{-1} \in H \]
 
-\TODO{ bewijs }
+\TODO{ bewijs analoog }
 \end{ei}
 
 \begin{ei}
-  Zij $G$ een groep en $H$ een deelgroep van $G$.
+  Zij $G,*$ een groep en $H$ een deelgroep van $G$.
   \[ \forall a \in G:\ aH = H \Leftrightarrow a \in H \Leftrightarrow Ha = H \]
 
-\TODO{ bewijs }
+  \begin{proof}
+    Bewijs door circulaire implicaties.
+    \begin{itemize}
+    \item $\forall a \in G:\ aH = H \Rightarrow a \in H$\\
+      $a$ is een element van $aH$. $aH$ en $H$ zijn gelijk, dus $a$ zit ook in $H$.
+    \item $\forall a \in G:\ a \in H \Rightarrow Ha = H$\\
+      $H$ is een deelgroep met bewerking $*$ die intern is in $H$.\footnote{Zie definitie \ref{de:groep}.}
+      Wanneer we elk element in $H$ rechts bewerken met $a$, komen we telkens een element in $H$ uit.
+      Omgekeerd kan elk element in $H$ geschreven worden als een ander element in $H$ rechts bewerkt met $a$.
+    \item $\forall a \in G:\ Ha = H \Rightarrow aH = H$\\
+      $a$ is een element van $Ha$. $Ha$ en $H$ zijn gelijk, dus $a$ zit ook in $H$.
+      $H$ is een deelgroep met bewerking $*$ die intern is in $H$.\footnote{Zie definitie \ref{de:groep}.}
+      Wanneer we elk element in $H$ links bewerken met $a$, komen we telkens een element in $H$ uit.
+      Omgekeerd kan elk element in $H$ geschreven worden als een ander element in $H$ links bewerkt met $a$.
+      $Ha$ en $aH$ zijn dus gelijk.
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{st}
-  Zij $G$ een groep en $H$ een deelgroep van $G$, De linkse deelklassen van $H$ vormen een partitie van $G$.
+  Zij $G$ een groep en $H$ een deelgroep van $G$, De linkse(/rechter) nevenklassen van $H$ vormen een partitie van $G$
+  De relatie ``X en Y liggen in dezelfde linkernevenklasse van $H$ in $G$'' is een equivalentierelatie.
 
-\TODO{ bewijs }
+  \begin{proof}
+    We bewijzen dat de linkse(/rechter) nevenklassen elke definierende eigenschap van een partitie heeft.
+    \begin{itemize}
+    \item Elke linker(/rechter) nevenklasse is niet leeg. Ze bevat altijd het element waarmee bewerkt wordt
+    \item Elk element van $G$ behoort tot een linker(/rechter) nevenklasse.
+      Elk element $x$ behoort al zeker tot de nevenklasse van $H$ bepaald door $x$ in $G$.
+    \item Twee linker(/rechter) nevenklassen zijn ofwel gelijk ofwel disjunct.
+      Ofwel zijn twee nevenklassen disjunct, ofwel bevatten hun doorsnede minstens \'e\'en element.
+      We bewijzen dat als twee nevenklassen minstens \'e\'en element gemeenschapplijk hebben, dat ze dan gelijk zijn.
+      Kies een willekeurige $x$ en $y$ uit $G$ zodat de doorsnede van de nevenklasse van $H$ bepaald door $x$ en door $y$ niet disjunct zijn.
+      Er bestaat dan een element $z$ in $G$ dat in de doorsnede zit.
+      Er bestaan dus elementen $h$ en $h'$ in $G$ die aan volgende bewering voldoen:
+      \begin{itemize}
+      \item Linker nevenklassen
+        \[ z = x*h = y*h' \]
+        Nu volgt dit:
+        \[ y^{-1}*x = h'*h^{-1} \in H \]
+        $xH$ en $yH$ zijn dus gelijk.\footnote{Zie eigenschap \ref{ei:linker-nevenklasse-eig}.}
+      \item Rechter nevenklassen
+        \[ z = h*x = h'*y \]
+        Nu volgt dit:
+        \[ y*x^{-1} = h'^{-1}h \in H \]
+        $Hx$ en $Hy$ zijn dus gelijk.\footnote{Zie eigenschap \ref{ei:rechter-nevenklasse-eig}.}
+      \end{itemize}
+    \end{itemize}
+    De relatie ``X en Y liggen in dezelfde linkernevenklasse van $H$ in $G$'' is dus een equivalentierelatie.\footnote{Zie stelling \ref{st:partitie-equivalentierelatie}.}
+  \end{proof}
 \end{st}
 
 \begin{st}
+  \label{st:nevenklassen-zelfde-orde}
+  Zij $G,*$ een eindige groep en $H$ een deelgroep van $G,*$. Nu geldt voor elke $x\in G$ dat de orde van $H$ en zowel de linker als de rechter nevenklasse van $x$ in $G$ alledrie dezelfde orde.
+  \[ |H| = |x*H| = |H*x| \]
+
+  \begin{proof}
+    We bewijzen dat er een bijectie $f: H \rightarrow xH$ bestaat tussen $H$ en $xH$.
+    Beschouw de afbeelding $f$:
+    \[ f:\ H\rightarrow xH:\ h \rightarrow x*h \]
+    \begin{itemize}
+    \item $f$ is injectief.\\
+      Kies twee willekeurige elementen $h_{1}$ en $h_{2}$ uit $H$ waarvoor het beeld onder $f$ gelijk is.
+      \[ 
+      \begin{array}{rrl}
+                  & f(h_{1})    &= f(h_{2})   \\ 
+      \Rightarrow & xh_{1}      &= xh_{2}     \\
+      \Rightarrow & x^{-1}xh_{1} &= x^{-1}xh_{2}\\
+      \Rightarrow & h_{1}       &= h_{2}
+      \end{array}
+      \]
+    \item $f$ is surjectief.\\
+      Kies een willekeurig element $a$ uit $xH$, dan bestaat er dus een $h \in H$ zodat $a = x*h$ geldt.
+    \end{itemize}
+    Analoog kunnen we bewijven dat er een bijectie $f: H \rightarrow Hx$ bestaat.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:stelling-van-lagrange}
   \emph{Stelling van Lagrange}:\\
   Zij $G,*$ een eindige groep en $H \subset G$ een deelgroep. Het aantal linkse (of rechtse) nevenklassen van $H$ in $G$ is dan gelijk aan:
   \[ [G:H] = \frac{|G|}{|H|} \]
   We noemen dit de index van $H$ in $G$.
   De orde van $H$ is bijgevolg een deler van de orde van $G$.
 
-\TODO{ bewijs }
+  \begin{proof}
+    De linkernevenklassen van $H$ in $G$ vormen een partitie van $G$, dus we kunnen elementen $g_{1} = e,g_{2},\dotsc,g_{k} \in G$ kiezen zodat de nevenklassen die erdoor bepaald zijn samen $G$ vormen en onderling disjunct zijn.
+    \[ G = g_{1}H \cup \dotsb \cup g_{k}H \]
+    \[ \forall i,j:\ i \neq j \Rightarrow g_{i}H \cap g_{j}H = \emptyset \]
+    Nu geldt dus dat de orde van $G$ $k$ keer de orde van $H$ is.\footnote{Zie stelling \ref{st:nevenklassen-zelfde-orde}.}
+    \[ |G| = k \cdot |H|\]
+    Hieruit volgt dat $|H|$ een deler is van $|G|$ en dat het aantal linker nevenklassen $k$ gelijk is aan $\frac{|G|}{|H|}$.
+  \end{proof}
 \end{st}
 
 \begin{gev}
-  Zij $G,*$ een groep en $x$ een element van $G$.
-  De orde van $x$ is een deler van $|G|$.
+  \footnote{gev:orde-van-element-deelt-orde-van-groep}
+  Zij $G,*$ een eindige groep en $x$ een element van $G$.
+  De orde van $x$ in $G$ is een deler van $|G|$.
   \[ x^{|G|} = e_{G} \]
 
-\TODO{ bewijs }
+  \begin{proof}
+    Beschouw de deelgroep\footnote{Zie stelling \ref{st:voortbrenging-is-groep}.} $<x>$ van $G$.
+    Het aantal elementen van $<x>$ is precies de orde van $x$ in $G$.\footnote{Zie stelling \ref{st:orde-van-generator-is-orde-van-groep}.}
+    De orde van een deelgroep is steeds een deler van de orde van de groep.\footnote{Zie stelling \ref{st:orde-van-generator-is-orde-van-groep}.}
+  \end{proof}
 \end{gev}
 
 \begin{st}
+  \label{st:priemgroep-is-cyclisch}
   Zij $G,*$ een groep waarvan de orde gelijk is aan een priemgetal $p$, dan is $G$ cyclisch.
-
-\TODO{ bewijs }
+  \begin{proof}
+    Kies een willekeurig element $x$ uit $G$ en beschouw de deelgroep\footnote{Zie stelling \ref{st:voortbrenging-is-groep}.} $<x>$ voortgebracht door $x$ van $G$.
+    De orde van $<x>$ is een deler van de orde van $G$.\footnote{Zie stelling \ref{gev:orde-van-element-deelt-orde-van-groep}.}
+    $p$ heeft maar twee delers, namelijk $1$ en $p$, dus ofwel is $x$ gelijk aan het neutraal element, ofwel is $x$ een generator voon $G$ en is $G$ dus cyclisch.\footnote{Zie definitie \ref{de:cyclische-groep}.}
+  \end{proof}
 \end{st}
 
 \begin{gev}
   Op isomorfisme na, bestaat er slechts \'e\'en groep voor elk priemgetal, waarbij dat getal de orde is van die groep.
-
-\TODO{ bewijs }
+  \begin{proof}
+    Kies een priemgetal $p$ en twee groepen $G,*$ en $H,\Box$ met $p$ als orde.
+    We weten al dat $G$ en $H$ cyclisch zijn.\footnote{Zie stelling \ref{st:priemgroep-is-cyclisch}.}
+    Kies dus een generator $g$ voor $G$ en een generator $h$ voor $H$.
+    Beschouw nu het volgende morfisme.
+    \[ f:\ G \rightarrow H:\ g^{k} \mapsto h^{k} \]
+    $f$ is een isomorfisme, dus $G$ en $H$ zijn isomorf.
+  \end{proof}
 \end{gev}
 
 \begin{st}
@@ -770,36 +887,6 @@
   \end{proof}
 \end{st}
 
-\begin{st}
-  Zij $H$ een deelgroep van een groep $G,*$, dan vormen de linkernevenklassen van $H$ in $G$ een partitie van $G$.
-  \begin{itemize}
-  \item Elke linker neverklasse is niet-leeg.
-  \item Elk element van $G$ behoort tot een linkernevenklasse.
-  \item Twee rechter neverklassen zijn ofwel gelijk ofwel volledig disjunct.
-  \end{itemize}
-  Met andere woorden: De relatie ``x en y liggen in dezelfde linker nevenklasse van $H$ in $G$'' is een equivalentierelatie.
-
-\TODO{ bewijs str}
-\end{st}
-
-\begin{st}
-  Zij $H$ een deelgroep van een groep $G,*$, dan vormen de rechternevenklassen van $H$ in $G$ een partitie van $G$.
-  \begin{itemize}
-  \item Elke rechter neverklasse is niet-leeg.
-  \item Elk element van $G$ behoort tot een rechternevenklasse.
-  \item Twee rechter  neverklassen zijn ofwel gelijk ofwel volledig disjunct.
-  \end{itemize}
-  Met andere woorden: De relatie ``x en y liggen in dezelfde rechter nevenklasse van $H$ in $G$'' is een equivalentierelatie.
-
-\TODO{ bewijs str}
-\end{st} 
-
-\begin{st}
-  Zij $G,*$ een eindige groep en $H$ een deelgroep van $G,*$. Nu geldt voor elke $x\in G$ dat de orde van $H$ en zowel de linker als de rechter nevenklasse van $x$ in $G$ alledrie dezelfde orde.
-  \[ |H| = |x*H| = |H*x| \]
-
-\TODO{ bewijs str}
-\end{st}
 
 \begin{st}
   Als $G$ een commutatieve groep is ,dan is de verzameling $G/H$ met als bewerking $\bar{*}$ vormt een groep.
