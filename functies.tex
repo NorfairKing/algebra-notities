@@ -9,7 +9,7 @@
 \end{opm}
 
 \begin{de}
-  Een (partiele) \emph{functie} $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een relatie tussen $A$ en $B$ die 1-waardig is.
+  Een (partiele) \term{functie} $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een relatie tussen $A$ en $B$ die 1-waardig is.
   \begin{enumerate}
   \item $f \in A \times B$ ($f$ is een relatie van $A$ naar $B$.)
   \item $(x,y_{1}) \in f \wedge (x,y_{2}) \in f \Rightarrow y_{1} = y_{2}$ ($f$ is 1-waardig.)
@@ -18,14 +18,14 @@
 \end{de}
 
 \begin{de}
-  De \emph{definitie van een functie} ziet er als volgt uit:
+  De \term{definitie van een functie} ziet er als volgt uit:
   \[ f: A \rightarrow B: a \mapsto b \]
   Hier noemen we $B$ het codomein van $f$ en er geldt $dom f \subseteq A$.
   We lezen: ``$f$ is een functie van $A$ naar $B$ die $a$ afbeeldt op $b$.''
 \end{de}
 
 \begin{de}
-  Wanneer er geen koppel $(x,y)$ in $f$ bestaat zeggen we dat de functie $f$ \emph{ongedefinieerd} is in $x$.
+  Wanneer er geen koppel $(x,y)$ in $f$ bestaat zeggen we dat de functie $f$ \term{ongedefinieerd} is in $x$.
 \end{de}
 
 \begin{de}
@@ -35,26 +35,26 @@
 
 \begin{de}
   Zij $f$ een functie: $f: A \rightarrow B$. 
-  In $y = f(x)$ noemen we $x$ het \emph{argument} en $y$ het \emph{beeld} van $x$ onder $f$.
+  In $y = f(x)$ noemen we $x$ het \term{argument} en $y$ het \term{beeld} van $x$ onder $f$.
 \end{de}
 
 \begin{de}
-  Het \emph{beeld $f(A)$ van een verzameling} $A$ onder een functie $f$ is de verzameling van alle beelden van de elementen van $A$.
+  Het \term{beeld} $f(A)$ van een verzameling $A$ onder een functie $f$ is de verzameling van alle beelden van de elementen van $A$.
   \[ f(A) = \{ y \in Y \ |\ \exists x \in A:\ f(x) = y \} \]
 \end{de}
 
 \begin{de}
-  Het \emph{invers beeld $f^{-1}(A)$ van een verzameling} $B$ onder een functie $f$ is de verzameling van alle elementen uit $X$ die op een element in $B$ afgebeeldt worden.
+  Het \term{invers beeld $f^{-1}(A)$ van een verzameling} $B$ onder een functie $f$ is de verzameling van alle elementen uit $X$ die op een element in $B$ afgebeeldt worden.
   \[ f^{-1}(B) = \{ x \in X \ |\ f(x) \in B \} \]
 \end{de}
 
 \begin{de}
-  Een \emph{afbeelding} (of volledige functie) $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een functie die overal gedefini\"eerd is.
+  Een \term{afbeelding} (of volledige functie) $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een functie die overal gedefini\"eerd is.
   \[ \forall x \in A,\ \exists y \in B: (x,y) \in f \]
 \end{de} 
  
 \begin{de}
-  De \emph{definitie van een afbeelding} ziet er als volgt uit:
+  De \term{definitie van een afbeelding} ziet er als volgt uit:
   \[ f: A \rightarrow B: a \mapsto b \]
   Hier noemen we $B$ het codomein van $f$ en $A$ het domein van $f$.
   We lezen: ``$f$ is een functie afbeelding van $A$ op $B$ die $a$ afbeeldt op $b$.''
@@ -81,13 +81,13 @@
 
 \begin{de}
   Zij $f: A \rightarrow A$ een functie van $A$ naar zichzelf.
-  We noemen $x$ een \emph{vast punt} van $f$ als $f$ $x$ op zichzelf afbeeldt.
+  We noemen $x$ een \term{vast punt} van $f$ als $f$ $x$ op zichzelf afbeeldt.
   \[ f(x) = x \]
 \end{de}
 
 \begin{de}
   Zij $f: A \rightarrow A$ een functie van $A$ naar zichzelf.
-  We noemen een deelverzameling $X$ van $A$ een \emph{invariante of stabiele deelverzameling} voor $f$ als $f$ $X$ op een deelverzameling van zichzelf afbeeldt.
+  We noemen een deelverzameling $X$ van $A$ een \term{invariante of stabiele deelverzameling} voor $f$ als $f$ $X$ op een deelverzameling van zichzelf afbeeldt.
   \[ f(X) \subseteq X \]
 \end{de}
 
@@ -100,19 +100,19 @@
 
 \begin{de}
   \label{de:afbeelding-injectief}
-  Een afbeelding $f: A \rightarrow B$ is \emph{injectief} (een injectie) als ze voor verschillende argumenten nooit hetzelfde beeld geeft.
+  Een afbeelding $f: A \rightarrow B$ is \term{injectief} (een injectie) als ze voor verschillende argumenten nooit hetzelfde beeld geeft.
   \[ \forall x_{1},x_{2} \in A:\ f(x_{1}) = f(x_{2}) \Rightarrow x_{1}= x_{2} \]
 \end{de}
 
 \begin{de}
   \label{de:afbeelding-surjectief}
-  Een afbeelding $f: A \rightarrow B$ is \emph{surjectief} (een surjectie) als elk element in het codomein $B$ een beeld is van een element uit $A$.
+  Een afbeelding $f: A \rightarrow B$ is \term{surjectief} (een surjectie) als elk element in het codomein $B$ een beeld is van een element uit $A$.
   \[ \forall y \in B:\ \exists x \in A:\ y = f(x) \]
 \end{de}
 
 \begin{de}
   \label{de:afbeelding-bijectief}
-  Een afbeelding $f: A \rightarrow B$ is \emph{bijectief} (een bijectie) als het een injectie en een surjectie is.
+  Een afbeelding $f: A \rightarrow B$ is \term{bijectief} (een bijectie) als het een injectie en een surjectie is.
 \end{de}
 
 \begin{de}
@@ -132,17 +132,17 @@
 
 \begin{de}
   \label{identieke-transformatie}
-  De \emph{identieke transformatie} $id_{A}$ van een verzameling $A$ is de (bijectieve) afbeelding die elk element op zichzelf afbeeldt.
+  De \term{identieke transformatie} $id_{A}$ van een verzameling $A$ is de (bijectieve) afbeelding die elk element op zichzelf afbeeldt.
   \[ id_{A}: A \rightarrow A \text{ met } \forall x \in A: f(x) = x \]
 \end{de}
 
 \begin{de}
-  De \emph{inlassing} $i_{AB}$ van $A$ in $B$ met $A \subseteq B$ beeldt elk element ook op zichzelf af, maar heeft een ander codomein.
+  De \term{inlassing} $i_{AB}$ van $A$ in $B$ met $A \subseteq B$ beeldt elk element ook op zichzelf af, maar heeft een ander codomein.
   \[ i_{AB}: A \rightarrow B \text{ met } \forall x \in A: f(x) = x \]
 \end{de}
 
 \begin{de}
-  Een \emph{constante afbeelding} $f$ beeldt elk argument af op \'e\'enzelfde beeld $b$.
+  Een \term{constante afbeelding} $f$ beeldt elk argument af op \'e\'enzelfde beeld $b$.
   \[ f: A \rightarrow B \text{ met } \forall x \in dom f: f(x) = b \]
 \end{de}
 
@@ -160,7 +160,7 @@
 \end{de}
 
 \begin{de}
-  De \emph{beperking} $f|_{C}$ van $f$ tot $C$ is gedefinieerd voor $f: A \rightarrow B$ en $C \in A$ als volgt:
+  De \term{beperking} $f|_{C}$ van $f$ tot $C$ is gedefinieerd voor $f: A \rightarrow B$ en $C \in A$ als volgt:
   \[ f|_{C}: C \rightarrow B: x \mapsto f(x), \forall x \in C\]
   Een functie, beperkt tot haar domein is een afbeelding.
 \end{de}
@@ -190,18 +190,18 @@
 
 \begin{de}
   Assymetrische inversen\\
-  De \emph{linker inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding zodat het volgende geldt:
+  De \term{linker inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding zodat het volgende geldt:
   \[ g \circ f = I_{A} \]
-  De \emph{rechter inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding zodat het volgende geldt:
+  De \term{rechter inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding zodat het volgende geldt:
   \[ f \circ g = I_{B}\]
 \end{de}
 
 \begin{de}
-  De (algemene) \emph{inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding die zowel de linker- als rechter inverse is van $f$.
+  De (algemene) \term{inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding die zowel de linker- als rechter inverse is van $f$.
 \end{de}
 
 \begin{de}
-  Een afbeelding $f: A \rightarrow B$ is \emph{inverteerbaar} als en slechts als $f^{-1}: B \rightarrow A$ ook een afbeelding is. $f^{-1}$ noemen we dan de inverse afbeelding.
+  Een afbeelding $f: A \rightarrow B$ is \term{inverteerbaar} als en slechts als $f^{-1}: B \rightarrow A$ ook een afbeelding is. $f^{-1}$ noemen we dan de inverse afbeelding.
 \end{de}
 
 \begin{st}
@@ -233,12 +233,12 @@
 \label{sec:permutaties}
 
 \begin{de}
-  Een \emph{transpositie} is een permutatie die elementen verwisselt en de rest op zichzelf afbeeldt.
+  Een \term{transpositie} is een permutatie die elementen verwisselt en de rest op zichzelf afbeeldt.
   Het is met andere woorden een cykel van lengte 2.
 \end{de}
 
 \begin{de}
-  Een bijectieve afbeelding van een eindige verzameling naar zichzelf noemen we een \emph{permutatie}.
+  Een bijectieve afbeelding van een eindige verzameling naar zichzelf noemen we een \term{permutatie}.
 \end{de}
 
 \begin{st}
@@ -313,7 +313,7 @@
 \end{ei}
 
 \begin{de}
-  We noemen een permutatie \emph{even}/\emph{oneven} als het aantal inversies even/oneven is.
+  We noemen een permutatie \term{even}/\term{oneven} als het aantal inversies even/oneven is.
 \end{de}
 
 \begin{de}

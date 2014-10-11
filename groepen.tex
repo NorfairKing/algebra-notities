@@ -11,21 +11,21 @@
 \label{sec:de-groep}
 
 \begin{de}
-  Een \emph{halfgroep} of \emph{mono\"ide} $G,*$ is een algebra\footnote{Zie definitie \ref{de:algebra}.} die bestaat uit een (niet-lege) verzameling $G$ en een overal bepaalde, interne afbeelding $*$ (De bewerking).
+  Een \term{halfgroep} of \term{mono\"ide} $G,*$ is een algebra\footnote{Zie definitie \ref{de:algebra}.} die bestaat uit een (niet-lege) verzameling $G$ en een overal bepaalde, interne afbeelding $*$ (De bewerking).
   \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
   De bewerking $*$ voldoet aan de volgende voorwaarden.
   \begin{itemize}
-  \item De bewerking $*$ is \emph{associatief}:
+  \item De bewerking $*$ is \term{associatief}:
     \[ \forall x, y, z \in G: (x*y)*z = x*(y*z) \] 
-  \item Er bestaat een \emph{neutraal element} $e \in G$ voor de bewerking $*$.
+  \item Er bestaat een \term{neutraal element} $e \in G$ voor de bewerking $*$.
     \[ \forall x \in G: x*e = e = e*x \]
   \end{itemize}
 \end{de}
 
 \begin{de}
   \label{de:groep}
-  Een \emph{groep} $G,*$ is een mono\"ide waarvoor nog een extra voorwaarde geldt:\\
-  Elk element $x \in G$ heeft een \emph{inverse} met betrekking tot de bewerking $*$: $x'$
+  Een \term{groep} $G,*$ is een mono\"ide waarvoor nog een extra voorwaarde geldt:\\
+  Elk element $x \in G$ heeft een \term{inverse} met betrekking tot de bewerking $*$: $x'$
   \[ \forall x \in G, \exists x' \in G:\ x * x' = e = x' * x \]
 \end{de}
 
@@ -50,12 +50,12 @@
 \end{st}
 
 \begin{de}
-  Een \emph{commutatieve groep} of \emph{abelse groep} $G,*$ is een groep waarbij de bewerking $*$ commutatief is.
+  Een \term{commutatieve groep} of \term{abelse groep} $G,*$ is een groep waarbij de bewerking $*$ commutatief is.
   \[ \forall x,y \in G: x * y = y * x\]
 \end{de}
 
 \begin{de}
-  Zij $G,*$ een groep en $H$ een (niet-lege) deelverzameling van $G$. We noemen $H$ een \emph{deelgroep} van $G$ als $H$ zelf ook een groep is met dezelfde bewerking $*$.
+  Zij $G,*$ een groep en $H$ een (niet-lege) deelverzameling van $G$. We noemen $H$ een \term{deelgroep} van $G$ als $H$ zelf ook een groep is met dezelfde bewerking $*$.
 \end{de}
 
 \begin{st}
@@ -95,7 +95,7 @@
 \end{st}
 
 \begin{st}
-  Het \emph{criterium van een deelgroep}.\\
+  Het \term{criterium van een deelgroep}.\\
   Zij $G,*$ een groep, en $H$ een deelverzameling van $G$.
   $H$ is een deelgroep van $G$ als en slechts als aan de volgende voorwaarden voldaan is.
   \begin{enumerate}
@@ -125,7 +125,7 @@
 \end{st}
 
 \begin{st}
-  \emph{Alternatieve criteria}.\\
+  \term{alternatieve criteria}.\\
   We kunnen in het vorige criterium de volgende aanpassingen maken.
   \begin{itemize}
   \item Vervang de eerste voorwaarde door voorwaarde $1'$:
@@ -175,17 +175,17 @@
 \begin{de}
   \label{de:groepsmorfisme}
   Zij $G,*$ en $H,\Box$ groepen.
-  Een (groeps)(homo)\emph{morfisme} $f$ is een morfisme\footnote{Zie definitie \ref{de:morfisme}.} tussen twee groepen $G,*$ en $H,\Box$.
+  Een (groeps)(homo)\term{morfisme} $f$ is een morfisme\footnote{Zie definitie \ref{de:morfisme}.} tussen twee groepen $G,*$ en $H,\Box$.
   \[ \forall x,y \in G: f(x*y) = f(x) \Box f(y) \]
 \end{de}
 
 \begin{de}
-  Zij $f: G \rightarrow H$ een groepsmorfisme. De \emph{kern} $Ker f$ wordt gedefinieerd als volgt.
+  Zij $f: G \rightarrow H$ een groepsmorfisme. De \term{kern} $Ker f$ wordt gedefinieerd als volgt.
   \[ Ker f = \{ x \in G \ |\ f(x) = e_{H} \} \]
 \end{de}
 
 \begin{de}
-  Zij $f: G \rightarrow H$ een groepsmorfisme. Het \emph{beeld} $Im f$ wordt gedefinieerd als volgt.
+  Zij $f: G \rightarrow H$ een groepsmorfisme. Het \term{beeld} $Im f$ wordt gedefinieerd als volgt.
   \[ Im f = f(G) = \{ f(u) \ |\ u \in G \} \]
 \end{de}
 
@@ -414,15 +414,16 @@
   \end{proof}
 \end{st}
 
+
 \subsection{Orde}
 \label{sec:orde}
 
 \begin{de}
-  De \emph{orde $n$ van het element $x$ van een groep $G,*$} is de kleinste $n \in N_{0}$ waarvoor $x^{n} = e_{G}$ geldt, indien die bestaat en anders $\infty$.
+  De \term{orde} $n$ van het element $x$ van een groep $G,*$ is de kleinste $n \in N_{0}$ waarvoor $x^{n} = e_{G}$ geldt, indien die bestaat en anders $\infty$.
 \end{de}
 
 \begin{de}
-  De \emph{orde $|G|$ of $\#G$ van een groep $G$} is het aantal elementen van $G$.
+  De \term{orde} $|G|$ of $\#G$ van een groep $G$ is het aantal elementen van $G$.
 \end{de}
 
 \begin{ei}
@@ -468,7 +469,7 @@
 \end{ei}
 
 \begin{de}
-  Zij $x$ een element van een groep $G,*$, dan is $<x>$ \emph{de groep voortgebracht door} $x$.
+  Zij $x$ een element van een groep $G,*$, dan is $<x>$ de \term{groep} voortgebracht door $x$.
   \[ <x> = \{ x^{s}\ |\ s \in \mathbb{Z} \} \]
 \end{de}
 
@@ -520,8 +521,8 @@
  
 \begin{de}
   \label{de:cyclische-groep}
-  Een groep $G,*$ is een \emph{cyclishe groep} als en slechts als er een element in $G$ bestaat dat $G$ voortbrengt.
-  We noemen bovendien $x$ de \emph{generator} van $G$.
+  Een groep $G,*$ is een \term{cyclishe groep} als en slechts als er een element in $G$ bestaat dat $G$ voortbrengt.
+  We noemen bovendien $x$ de \term{generator} van $G$.
 \end{de}
 
 \begin{ei}
@@ -632,9 +633,9 @@
   \label{de:nevenklassen}
   Zij $G,*$ een groep en $H$ een deelgroep van $G$.
   \begin{itemize}
-  \item De \emph{linkse nevenklasse} $xH$ van $H$ in $G$ bepaald door $x$:
+  \item De \term{linkse nevenklasse} $xH$ van $H$ in $G$ bepaald door $x$:
     \[ xH = \{ x * h\ |\ h \in H \} \]
-  \item De \emph{rechtse nevenklasse} $Hx$ van $H$ in $G$ bepaald door $x$:
+  \item De \term{rechtse nevenklasse} $Hx$ van $H$ in $G$ bepaald door $x$:
     \[ Hx = \{ h * x\ |\ h \in H \} \]
   \end{itemize}
   De verzameling van linker nevenklassen van $H$ in $G$ noteren we als $G/H$.
@@ -765,7 +766,7 @@
 
 \begin{st}
   \label{st:stelling-van-lagrange}
-  \emph{Stelling van Lagrange}:\\
+  \term{Stelling van Lagrange}:\\
   Zij $G,*$ een eindige groep en $H \subset G$ een deelgroep. Het aantal linkse (of rechtse) nevenklassen van $H$ in $G$ is dan gelijk aan:
   \[ [G:H] = \frac{|G|}{|H|} \]
   We noemen dit de index van $H$ in $G$.
@@ -847,7 +848,7 @@
 \label{sec:directe-som}
 
 \begin{de}
-  Zij $G_{1},\dotsc,G_{n}$ groepen met bewerkingen $*_{1},\dotsc,*_{n}$, dan is de \emph{directe som} van de groepen $G_{i}$, genoteerd als $G_{1} \oplus \dotsb \oplus G_{n}$ de verzameling $G$, voorzien van de bewerking $*$ waarbij het volgende geldt.
+  Zij $G_{1},\dotsc,G_{n}$ groepen met bewerkingen $*_{1},\dotsc,*_{n}$, dan is de \term{directe som} van de groepen $G_{i}$, genoteerd als $G_{1} \oplus \dotsb \oplus G_{n}$ de verzameling $G$, voorzien van de bewerking $*$ waarbij het volgende geldt.
   \[
   G = G_{1} \times \dotsb \times G_{n}
   \]
@@ -880,15 +881,15 @@
 \begin{de}
   Zij $V$ een verzameling.
   De verzameling van permutaties van $V$ noemen we $\mathcal{S}V$.
-  De \emph{symmetrische groep} van $V$ is de groep $\mathcal{S}V, \circ$ waarbij $\circ$ de samenstelling van afbeeldingen is.
+  De \term{symmetrische groep} van $V$ is de groep $\mathcal{S}V, \circ$ waarbij $\circ$ de samenstelling van afbeeldingen is.
 \end{de}
 
 \begin{de}
-  Een \emph{permutatiegroep} van $V$ is een deelgroep van $\mathcal{S}V,\circ$.
+  Een \term{permutatiegroep} van $V$ is een deelgroep van $\mathcal{S}V,\circ$.
 \end{de}
 
 \begin{de}
-  De \emph{symmetrische groep van graad $n$}: $\mathcal{S}_{n}$ is de groep van permutaties van $\{1,\dotsc,n\}$,
+  De \term{symmetrische groep} van graad $n$: $\mathcal{S}_{n}$ is de groep van permutaties van $\{1,\dotsc,n\}$,
 \end{de}
 
 \begin{st}
@@ -905,7 +906,7 @@
 
 \begin{st}
   \label{st:stelling-van-cayley}
-  \emph{Stelling van Cayley}:\\
+  \term{Stelling van Cayley}:\\
   Elke groep is isomorf met een permutatiegroep.
 
 \TODO{ bewijs }

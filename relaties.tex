@@ -5,19 +5,19 @@
 \label{cha:relaties}
 
 \begin{de}
-  Een (binaire) \emph{relatie} $R$ is een verzameling koppels $(x,y)$, respectievelijk van een verzameling $X$ en $Y$. 
+  Een (binaire) \term{relatie} $R$ is een verzameling koppels $(x,y)$, respectievelijk van een verzameling $X$ en $Y$. 
   Wanneer $(x,y)$ een koppel is in $R$ noteren we $x R y$.
   \[ R \subseteq X \times Y \]
   Vaak worden $X$ en $Y$ opgenomen in de identiteit van de relatie om over surjecties te kunnen spreken.
 \end{de}
 
 \begin{de}
-  De \emph{eenheidsrelatie} $I_{X}$ op een verzameling $X$ is de volgende verzameling:
+  De \term{eenheidsrelatie} $I_{X}$ op een verzameling $X$ is de volgende verzameling:
   \[ \{(x,x) \in X \times X\ |\ x \in X \} \]
 \end{de}
 
 \begin{de}
-  De \emph{inverse $R^{-1}$ van een relatie} $R$ is de volgende relatie:
+  De \term{inverse} $R^{-1}$ van een relatie $R$ is de volgende relatie:
   \[ R^{-1} = \left\{ (x,y)\ |\ (y,x) \in R \right\} \]
 \end{de}
 
@@ -31,30 +31,30 @@
 \label{sec:samenst-van-relat}
 
 \begin{de}
-  De \emph{samenstelling $S \circ R$ van twee relaties} $R$ en $S$ (lees: ``$S$ na $R$'') is de volgende relatie.
+  De \term{samenstelling $S \circ R$ van twee relaties} $R$ en $S$ (lees: ``$S$ na $R$'') is de volgende relatie.
   \[ \left\{ (x,y) \ |\ (\exists z) ((x,z) \in R \wedge (z,y) \in S) \right\} \]
 \end{de}
 
 \begin{st}
   \label{st:samenstelling-relaties-associatief}
-  De \emph{samenstelling van relaties is associatief}.
+  De \term{samenstelling van relaties is associatief}.
   \[ (T \circ S) \circ R = T \circ (S \circ R) \]
   \TODO{ bewijs }
 \end{st}
 
 \begin{st}
-  De \emph{inverse van een verzameling is distributief ten opzichte van de samenstelling van relaties}.
+  De \term{inverse} van een relatie nemen is distributief ten opzichte van de samenstelling van relaties.
   \[ (S \circ R)^{-1} = R^{-1} \circ S^{-1} \]
   \TODO{ bewijs }
 \end{st}
 
 \begin{de}
-  Zij $R$ een relatie. Het \emph{domein} (domain) is als volgt gedefinieerd.
+  Zij $R$ een relatie. Het \term{domein} (domain) is als volgt gedefinieerd.
   \[ dom R = \left\{ x \ |\ (\exists y)(x,y) \in R \right\} \]
 \end{de}
 
 \begin{de}
-  Zij $R$ een relatie. Het \emph{beeld} (range) is als volgt gedefinieerd.
+  Zij $R$ een relatie. Het \term{beeld} (range) is als volgt gedefinieerd.
   \[ bld  R = ran R = \left\{ y \ |\ (\exists x)(x,y) \in R \right\} \]
 \end{de}
 
@@ -97,25 +97,25 @@
 
 \begin{de}
   \label{de:reflexief}
-  Een relatie $R$ op $X \times X$ is \emph{reflexief} wanneer voor alle $x\in X$ $xRx$ geldt.
+  Een relatie $R$ op $X \times X$ is \term{reflexief} wanneer voor alle $x\in X$ $xRx$ geldt.
   \[ \forall x \in X: (x,x) \in R \]
 \end{de}
 
 \begin{de}
   \label{de:symmetrisch}
-  Een relatie $R$ op $X \times X$ is \emph{symmetrisch} wanneer voor alle $x,y\in X$ $xRy \Leftrightarrow yRx$ geldt.
+  Een relatie $R$ op $X \times X$ is \term{symmetrisch} wanneer voor alle $x,y\in X$ $xRy \Leftrightarrow yRx$ geldt.
   \[ \forall x,y \in X: (x,y) \in R \Leftrightarrow (y,x) \in R\]
 \end{de}
 
 \begin{de}
   \label{de:transitief}
-  Een relatie $R$ op $X \times X$ is \emph{transitief} wanneer voor alle $x,y,z\in X$ $(xRy \wedge yRz) \Rightarrow xRz$ geldt.
+  Een relatie $R$ op $X \times X$ is \term{transitief} wanneer voor alle $x,y,z\in X$ $(xRy \wedge yRz) \Rightarrow xRz$ geldt.
   \[ \forall x,y,z \in X: ((x,y) \in R \wedge (y,z) \in R) \Rightarrow (x,z) \in R\]
 \end{de}
 
 \begin{de}
   \label{de:equivalentierelatie}
-  Een \emph{equivalentierelatie} $R$ is een relatie die reflexief, symmetrisch en transitief is.
+  Een \term{equivalentierelatie} $R$ is een relatie die reflexief, symmetrisch en transitief is.
 \end{de}
 
 \subsection{Equivalentieklassen}
@@ -123,12 +123,12 @@
 
 \begin{de}
   Zij $\sim$ een equivalentierelatie op $X$ en zij $x \in X$.
-  De \emph{equivalentieklasse} van $x$ is de verzameling van elk element dat equivalent is met $x$.
+  De \term{equivalentieklasse} van $x$ is de verzameling van elk element dat equivalent is met $x$.
   \[ [x] = \{ y \in X\ |\ x \sim y \} \]
 \end{de}
 
 \begin{de}
-  De \emph{quotientverzameling} van $X$ ten opzichte van een equivalentierelatie $\sim$ is de verzameling van alle equivalentieklassen.
+  De \term{quotientverzameling} van $X$ ten opzichte van een equivalentierelatie $\sim$ is de verzameling van alle equivalentieklassen.
   \[ X/\sim = \{[x] \ |\ x \in X \}\]
 \end{de}
 
@@ -198,24 +198,24 @@
 \label{sec:orderelaties}
 
 \begin{de}
-  Een relatie $R$ op een verzameling $X \times X$ is \emph{anti-symmetrisch} als het volgende geldt:
+  Een relatie $R$ op een verzameling $X \times X$ is \term{anti-symmetrisch} als het volgende geldt:
   \[ \forall x,y \in X: ((x,y) \in R \wedge (y,x) \in R) \Rightarrow x = y \]
 \end{de}
 
 \begin{de}
-  Een \emph{(parti\"ele) orderelatie} op $X$ is reflexief, transitief en anti-symmetrisch.
+  Een (parti\"ele) \term{orderelatie} op $X$ is reflexief, transitief en anti-symmetrisch.
 \end{de}
 
 \begin{de}
-  Een \emph{grootste element} $a$ van een verzameling $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dan alle andere elementen kleiner zijn of gelijk aan $a$.
+  Een \term{grootste element} $a$ van een verzameling $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dan alle andere elementen kleiner zijn of gelijk aan $a$.
   \[ \forall x \in A: x \preceq a \] 
-  Analoog wordt ook een \emph{kleinste element} gedefinieerd.
+  Analoog wordt ook een \term{kleinste element} gedefinieerd.
 \end{de}
 
 \begin{de}
-  Een \emph{maximaal element} $a$ van $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dat er geen kleiner bestaat.
+  Een \term{maximaal element} $a$ van $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dat er geen kleiner bestaat.
   \[ \not\exists x \in A: a \prec x \]
-  Analoog wordt ook een \emph{minimaal element} gedefinieerd.
+  Analoog wordt ook een \term{minimaal element} gedefinieerd.
 \end{de}
 
 \begin{opm}
@@ -224,9 +224,9 @@
 
 \begin{de}
   Zij $(X,preceq)$ een geordende verzameling en $A \subsetneq X$.
-  $b \in X$ is een \emph{bovengrens} van $A$ als het volgende geldt.
+  $b \in X$ is een \term{bovengrens} van $A$ als het volgende geldt.
   \[ \forall x \in A: x \preceq b \]
-  Analoog wordt een \emph{ondergrens} gedefinieerd.
+  Analoog wordt een \term{ondergrens} gedefinieerd.
 \end{de}
 
 \begin{opm}
@@ -234,7 +234,7 @@
 \end{opm}
 
 \begin{de}
-  Een \emph{supremum}(\emph{infimum}) van een deelverzameling van een geordende verzameling is een bovengrens(ondergrens) die kleiner(groter) is dan elke andere bovengrens(ondergrens).
+  Een \term{supremum}(\term{infimum}) van een deelverzameling van een geordende verzameling is een bovengrens(ondergrens) die kleiner(groter) is dan elke andere bovengrens(ondergrens).
 \end{de}
 
 \begin{opm}
@@ -256,7 +256,7 @@
 \end{st}
 
 \begin{de}
-  Een \emph{totale orderelatie} $\preceq$ is een partiele orderelatie met bijkomend de volgende eigenschap:
+  Een \term{totale orderelatie} $\preceq$ is een partiele orderelatie met bijkomend de volgende eigenschap:
   \[ \forall x,y \in X: x \preceq y \vee y \preceq x \]
   Voor elke twee elementen zijn er dus precies drie mogelijkheden:
   \begin{itemize}
