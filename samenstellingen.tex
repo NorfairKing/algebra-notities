@@ -1,0 +1,74 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Samenstellingswetten}
+\label{cha:samenstellingswetten}
+
+\begin{de}
+  Een (inwendige) samenstellingswet of \emph{bewerking} $\top$ onder de elementen van een verzameling $A$ is een partiele functie:
+  \[ f:\ A\times A \rightarrow A:\ (x,y) \rightarrow \top((x,y)) \]
+  De enige voorwaarde voor een bewerking is dat ze intern is.
+  Met andere woorden:
+  \[ \forall x,y \in A: \top((x,y)) \in A \]
+  Vaker dan de functienotatie gebruiken we de infixnotatie:
+  \[ x \top y \Leftrightarrow  ((x,y),\top((x,y))) \in \top \]
+\end{de}
+
+\begin{de}
+  We noemen een bewerking overal bepaald als het een afbeelding is.
+\end{de}
+
+\begin{de}
+  Zij $\top:\ A\times A\rightarrow A$ een bewerking gedefinieerd op een verzameling $A$.
+  We noemen een deelverzameling $B\subseteq A$ stabiel of gesloten onder $\top$ als de bewerking intern is binnen $B$.
+  \[ \forall x,y \in E\subseteq A: x \top y \in E \]
+\end{de}
+
+\begin{de}
+  \emph{Associativiteit}\\
+  We noemen een bewerking $\top:\ A\times A\rightarrow A$ \emph{associatief} als de haakjes niet uit maken.
+  \[ \forall x,y,z \in A:\ x\top(y\top z) = (x\top y) \top z \]
+\end{de}
+
+\begin{de}
+  \emph{Commutativiteit}\\
+  We noemen een bewerking $\top:\ A\times A\rightarrow A$ \emph{associatief} als de volgorde van de argumenten niet uit maakt.
+  \[ \forall x,y \in A:\ x \top y \Leftrightarrow y \top x \]
+\end{de}
+
+\begin{de}
+  Zij $\top:\ A\times A\rightarrow A$ een bewerking gedefinieerd op een verzameling $A$.
+  We noemen $e\in A$ het neutraal element van $\top$ in $A$ als de volgende gelijkheden gelden.
+  \[ \forall a \in A: a\top e = e = e\top a \]
+\end{de}
+
+\begin{st}
+  \label{st:neutraal-element-uniek}
+  Als er een neutraal element $e$ bestaat voor een bewerking $\top$ in een verzameling $A$ is dat neutraal element uniek.
+  \begin{proof}
+    Bewijs uit het ongerijmde\\
+    Stel dat er twee verschillende neutrale elementen $e_{1}$ en $e_{2}$ bestaan, dan gelden volgende gelijkheden:
+    \[ e_{2}\top e_{1} = e_{1}  =e_{1}\top e_{2}\]
+    \[ e_{1}\top e_{2} = e_{2}  =e_{2}\top e_{1}\]
+    Bijgevolg zijn deze neutrale elementen gelijk. Contradictie.
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Zij $\top:\ A\times A\rightarrow A$ een bewerking gedefinieerd op een verzameling $A$.
+  Zij $l$ een element van $A$.\\
+  $l$ is \emph{links-regulier} of \emph{links-schrapbaar} als het links geschrapt kan worden.
+  \[ \forall x,y \in A:\ l \top x = l \top y \Rightarrow x = y \]
+  $r$ is \emph{rechts-regulier} of \emph{rechtss-schrapbaar} als het rechtse geschrapt kan worden.
+  \[ \forall x,y \in A:\ x \top r = y \top r \Rightarrow x = y \]
+  Een element is \emph{regulier} of \emph{schrapbaar} als het zowel links- als rechts-regulier is. 
+\end{de}
+
+\begin{opm}
+  Als een element links/rechts schrapbaar is, is de afbeelding $x \mapsto l\top x$ / $x \mapsto x\top r$ een injectie. Het ``schrappen'' van dat element is dan de linker/linker inverse afbeelding van deze afbeelding.
+\end{opm}
+
+\TODO{symmetriseerbaar p 14}
+
+
+\end{document}

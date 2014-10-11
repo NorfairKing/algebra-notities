@@ -11,7 +11,7 @@
 \label{sec:de-groep}
 
 \begin{de}
-  Een \emph{halfgroep} of \emph{mono\"ide} $G,*$ bestaat uit een (niet-lege) verzameling $G$ en een interne afbeelding $*$ (De bewerking).
+  Een \emph{halfgroep} of \emph{mono\"ide} $G,*$ bestaat uit een (niet-lege) verzameling $G$ en een overal bepaalde, interne afbeelding $*$ (De bewerking).
   \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
   De bewerking $*$ voldoet aan de volgende voorwaarden.
   \begin{itemize}
@@ -24,7 +24,7 @@
 
 \begin{de}
   \label{de:groep}
-  Een \emph{groep} $G,*$ bestaat uit een (niet-lege) verzameling $G$ en een interne afbeelding $*$ (De bewerking).
+  Een \emph{groep} $G,*$ bestaat uit een (niet-lege) verzameling $G$ en een overal bepaalde, interne afbeelding $*$ (De bewerking).
   \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
   De bewerking $*$ voldoet aan de volgende voorwaarden.
   \begin{itemize}
@@ -36,19 +36,6 @@
     \[ \forall x \in G, \exists x' \in G:\ x * x' = e = x' * x \]
   \end{itemize}
 \end{de}
-
-\begin{st}
-  \label{st:groep-uniek-neutraal-element}
-  Het neutraal element van een groep $e_{G}$ is uniek.
-  
-  \begin{proof}
-    Bewijs uit het ongerijmde.\\
-    Stel dat er twee verschillende neutrale elementen $e$ en $f$ voor een groep $G$ zijn.
-    \[ e = e * f = f \]
-    De neutrale elementen zijn dan gelijk. Contradictie.
-  \end{proof}
-\end{st}
-
 
 \begin{st}
   \label{st:groep-uniek-invers-element}
@@ -66,7 +53,7 @@
         &= z
     \end{array}
     \]
-    De derde gelijkheid geldt omdat de bewerkin $*$ associatief is.\footnote{Zie de definitie van een groep (Definitie \ref{de:groep}).} De vierde gelijkheid geldt omdat het neutraal element van een groep uniek is.\footnote{Zie stelling \ref{st:groep-uniek-neutraal-element}.}
+    De derde gelijkheid geldt omdat de bewerkin $*$ associatief is.\footnote{Zie de definitie van een groep (Definitie \ref{de:groep}).} De vierde gelijkheid geldt omdat het neutraal element van een groep uniek is.\footnote{Zie stelling \ref{st:neutraal-element-uniek}.}
   \end{proof}
 \end{st}
 
