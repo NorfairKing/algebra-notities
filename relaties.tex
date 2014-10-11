@@ -27,13 +27,13 @@
   \TODO{ bewijs }
 \end{st}
 
+\section{Samenstelling van relaties}
+\label{sec:samenst-van-relat}
+
 \begin{de}
   De \emph{samenstelling $S \circ R$ van twee relaties} $R$ en $S$ (lees: ``$S$ na $R$'') is de volgende relatie.
   \[ \left\{ (x,y) \ |\ (\exists z) ((x,z) \in R \wedge (z,y) \in S) \right\} \]
 \end{de}
-
-\section{Samenstelling van relaties}
-\label{sec:samenst-van-relat}
 
 \begin{st}
   \label{st:samenstelling-relaties-associatief}
@@ -55,7 +55,7 @@
 
 \begin{de}
   Zij $R$ een relatie. Het \emph{beeld} (range) is als volgt gedefinieerd.
-  \[ bld  R = ran R = \left\{ y \ |\ (\exists xi)(x,y) \in R \right\} \]
+  \[ bld  R = ran R = \left\{ y \ |\ (\exists x)(x,y) \in R \right\} \]
 \end{de}
 
 \begin{st}
@@ -185,7 +185,13 @@
   De volgende verzameling vormt dan een equivalentierelatie op $X$.
   \[ x \sim y \Leftrightarrow (\exists A \in P:\ x \in A \wedge y \in A )\]
 
-\TODO{bewijs}
+  \begin{proof}
+    We definieren een relatie $\sim$ als volgt:
+    \[
+    x \sim y \Leftrightarrow \text{ x en y zitten in dezelfde deelverzameling van } P
+    \]
+    Dat deze relatie een equivalentierelatie is volgt meteen uit het feit dat ``dezelfde ... als'' ook een equivalentierelatie is.
+  \end{proof}
 \end{st}
 
 \section{Orderelaties}
@@ -201,6 +207,55 @@
 \end{de}
 
 \begin{de}
+  Een \emph{grootste element} $a$ van een verzameling $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dan alle andere elementen kleiner zijn of gelijk aan $a$.
+  \[ \forall x \in A: x \preceq a \] 
+  Analoog wordt ook een \emph{kleinste element} gedefinieerd.
+\end{de}
+
+\begin{de}
+  Een \emph{maximaal element} $a$ van $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dat er geen kleiner bestaat.
+  \[ \not\exists x \in A: a \prec x \]
+  Analoog wordt ook een \emph{minimaal element} gedefinieerd.
+\end{de}
+
+\begin{opm}
+  Een maximaal/minimaal element is niet noodzakelijk een grootste/kleinste element.    
+\end{opm}
+
+\begin{de}
+  Zij $(X,preceq)$ een geordende verzameling en $A \subsetneq X$.
+  $b \in X$ is een \emph{bovengrens} van $A$ als het volgende geldt.
+  \[ \forall x \in A: x \preceq b \]
+  Analoog wordt een \emph{ondergrens} gedefinieerd.
+\end{de}
+
+\begin{opm}
+  Een grens van een ordeverzameling hoeft dus niet in die verzameling te zitten.
+\end{opm}
+
+\begin{de}
+  Een \emph{supremum}(\emph{infimum}) van een deelverzameling van een geordende verzameling is een bovengrens(ondergrens) die kleiner(groter) is dan elke andere bovengrens(ondergrens).
+\end{de}
+
+\begin{opm}
+  Een supremum/infimum is een grens van een ordeverzameling en hoeft dus niet in die verzameling te zitten.
+\end{opm}
+
+\begin{st}
+  Zij $A$ een partieel geordende verzameling met orderelatie $\prec$.
+  Het kleinste/grootste element element van $A$ is uniek als het bestaat.
+
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $A$ een partieel geordende verzameling met orderelatie $\prec$.
+  Het supremum/infimum van $A$ is uniek als het bestaat.
+
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
   Een \emph{totale orderelatie} $\preceq$ is een partiele orderelatie met bijkomend de volgende eigenschap:
   \[ \forall x,y \in X: x \preceq y \vee y \preceq x \]
   Voor elke twee elementen zijn er dus precies drie mogelijkheden:
@@ -212,25 +267,13 @@
 \end{de}
 
 \begin{de}
-  Een \emph{grootste element} $a$ van een verzameling $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dan alle andere elementen kleiner zijn of gelijk aan $a$.
-  \[ \forall x \in A: x \preceq a \] 
-  Analoog wordt ook een \emph{kleinste element} gedefinieerd.
+  Zij $A$ een verzameling die volledig geordend is door de relatie $\prec$, dan noemen we $succ$ de successorfunctie als die gedefinieerd kan worden.
+  \[ succ(x) = y \Leftrightarrow x < y \wedge (\not\exists z \in A:\ x < z < y \]
 \end{de}
 
-\begin{de}
-  Het \emph{maximaal element} $a$ van $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dat er geen kleiner bestaat.
-  \[ \not\exists x \in A: a \prec x \]
-  Analoog wordt ook een \emph{minimaal element} gedefinieerd.
-\end{de}
-
-\begin{de}
-  Zij $(X,preceq)$ een geordende verzameling en $A \subsetneq X$.
-  $b \in X$ is een \emph{bovengrens} van $A$ als het volgende geldt.
-  \[ \forall x \in A: x \preceq b \]
-  Analoog wordt een \emph{ondergrens} gedefinieerd.
-\end{de}
-
-\begin{de}
-  Een \emph{supremum}(\emph{infimum}) van een deelverzameling van een geordende verzameling is een bovengrens(ondergrens) die kleiner(groter) is dan elke andere bovengrens(ondergrens).
-\end{de}
+\begin{opm}
+  De successorfunctie kan niet altijd gedefinieerd worden.
+  Denk bijvoorbeeld aan de volgende volledige orderelatie over $\mathbb{Z}$:
+  \[ |\le|:\ \mathbb{Z} \times \mathbb{Z}:\ x\ |\le|\ y \Leftrightarrow |x| \le |y| \]
+\end{opm}
 \end{document}

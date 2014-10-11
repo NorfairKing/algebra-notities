@@ -4,13 +4,17 @@
 \chapter{Functies en afbeeldingen}
 \label{cha:functies-en-afbeeldingen}
 
+\begin{opm}
+  Na dit hoofdstuk en in andere lectuur wordt met ``functie'' vaak ``volledige functie'' bedoelt, en wordt er dus geen onderscheid meer gemaakt tussen een functie en een afbeelding.
+\end{opm}
+
 \begin{de}
   Een (partiele) \emph{functie} $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een relatie tussen $A$ en $B$ die 1-waardig is.
   \begin{enumerate}
   \item $f \in A \times B$ ($f$ is een relatie van $A$ naar $B$.)
   \item $(x,y_{1}) \in f \wedge (x,y_{2}) \in f \Rightarrow y_{1} = y_{2}$ ($f$ is 1-waardig.)
   \end{enumerate}
-  Vaak worden $A$ en $B$ opgenomen in de definitie van een functie om over surjecties te kunnen spreken. Een functie $f: A \rightarrow B$ is dan het drietal $(f,A,B)$. Soms wordt een functie en een afbeelding als hetzelfde gezien, waarbij men dan bedoelt wat hier een afbeelding wordt genoemd. (Zie later.) In dat geval valt $A$ samen met het domein van de functie.
+  Vaak worden $A$ en $B$ opgenomen in de definitie van een functie om over surjecties te kunnen spreken. Een functie $f: A \rightarrow B$ is dan het drietal $(f,A,B)$.
 \end{de}
 
 \begin{de}
@@ -90,6 +94,10 @@
 \section{Jecties}
 \label{sec:jecties}
 
+\begin{opm}
+  De ``jecties'' worden soms enkel gedefinieerd voor afbeeldingen, maar ze kunnen al over relaties gedefinieerd worden.
+\end{opm}
+
 \begin{de}
   \label{de:afbeelding-injectief}
   Een afbeelding $f: A \rightarrow B$ is \emph{injectief} (een injectie) als ze voor verschillende argumenten nooit hetzelfde beeld geeft.
@@ -117,53 +125,6 @@
 
 \section{Speciale afbeeldingen}
 \label{sec:spec-afbe}
-
-
-\begin{de}
-  Een bijectieve afbeelding van een eindige verzameling naar zichzelf noemen we een permutatie.
-\end{de}
-
-\begin{de}
-  We noteren het voorschrift van een permutatie $\sigma: A\rightarrow A$ van een verzameling $A = a_{1},\dotsc,a_{n}$ soms als volgt:
-  \[
-  \sigma = 
-  \begin{pmatrix}
-    a_{1}         & \hdots & a_{n}         \\
-    \sigma(a_{1}) & \hdots & \sigma(a_{n}) \\
-  \end{pmatrix}
-  \]
-  Dit heet de twee-lijnen notatie van Cauchy.
-\end{de}
-
-\begin{de}
-  We kunnen een permutatie van $\{1,\dotsc,n\}$ eenvoudig noteren als volgt:
-  Zij $i_{1},\dotsc,i_{r}$ elementen uit $\{1,\dotsc,n\}$.
-  \[ \sigma = (i_{1}i_{2}\dotsc i_{r}) \]
-  Bovenstaande gelijkheid is de notatie voor $\sigma$, zijnde de volgende permutatie:
-  \[ \sigma(i_{i}) = i_{(i+1) mod\ r} \]
-  Dit heet de cykelnotatie.
-\end{de}
-
-\begin{de}
-  Twee cykels zijn disjunct als ze geen gemeenschappelijke symbolen hebben. 
-\end{de}
-
-\begin{st}
-  Elke permutatie in $\mathcal{S}_{n}$, verschillend van de identieke, is de samenstelling van twee aan twee disjuncte cykels.
-
-\TODO{bewijs zie p 14}
-\end{st}
-
-\begin{de}
-  Een \emph{transpositie} is een permutatie die elementen verwisselt en de rest op zichzelf afbeeldt.
-  Het is met andere woorden een cykel van lengte 2.
-\end{de}
-
-\begin{st}
-  Een permutatie is een samenstelling van transposities.
-
-\TODO{bewijs zie p 15}
-\end{st}
 
 \begin{de}
   Een bijectieve functie van een eindige verzameling $A$ naar een eindige verzameling $B$ noemen we een substitutie. 
@@ -228,7 +189,15 @@
 \end{st}
 
 \begin{de}
-  Een functie $f: A \rightarrow B$ is \emph{inverteerbaar} als en slechts als $f^{-1}: B \rightarrow A$ ook een functie is. $f^{-1}$ noemen we dan de inverse functie.
+  Assymetrische inversen\\
+  De \emph{linker inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding zodat het volgende geldt:
+  \[ g \circ f = I_{A} \]
+  De \emph{rechter inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding zodat het volgende geldt:
+  \[ f \circ g = I_{B}\]
+\end{de}
+
+\begin{de}
+  De (algemene) \emph{inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding die zowel de linker- als rechter inverse is van $f$.
 \end{de}
 
 \begin{de}
@@ -247,32 +216,121 @@
 \TODO{bewijs}
 \end{st}
 
+\begin{st}
+  Ontbindingsstelling voor afbeeldingen\\
+  Iedere afbeelding $f:A\rightarrow B$ valt te schrijven als een samenstelling:
+  \[ f = i \circ b \circ p \]
+  \begin{itemize}
+  \item $p$: de projectie van $f$ op $A/R_{f}$.
+  \item $b$: een bijectie tussen $A/R_{f}$ en $f(A)$,
+  \item $i$: de inlassing van $f(A)$ in $B$,
+  \end{itemize}
 
+\TODO{bewijs}
+\end{st}
 
-\section{Kardinaliteit}
-\label{sec:kardinaliteit}
+\section{Permutaties}
+\label{sec:permutaties}
 
 \begin{de}
-  Definieer $\mathbb{E}_{n}$ als de verzameling met de $n$ eerste elementen uit $\mathbb{N}$.
-  \[ \mathbb{E}_{n} = \{ i \in \mathbb{N}\ |\ 1 \le i \le n \}\] 
+  Een \emph{transpositie} is een permutatie die elementen verwisselt en de rest op zichzelf afbeeldt.
+  Het is met andere woorden een cykel van lengte 2.
 \end{de}
 
 \begin{de}
-  Zij $X$ een verzameling. We zeggen dat $n$ de \emph{kardinaliteit} is van $X$ als er een bijectie bestaat tussen $X$ en $\mathbb{E}_{n}$.
-  \[ |X| = \#X = n \]
+  Een bijectieve afbeelding van een eindige verzameling naar zichzelf noemen we een \emph{permutatie}.
+\end{de}
+
+\begin{st}
+  Een permutatie is een samenstelling van transposities.
+
+\TODO{bewijs zie p 15}
+\end{st}
+
+\begin{de}
+  We noteren het voorschrift van een permutatie $\sigma: A\rightarrow A$ van een verzameling $A = a_{1},\dotsc,a_{n}$ soms als volgt:
+  \[
+  \sigma = 
+  \begin{pmatrix}
+    a_{1}         & \hdots & a_{n}         \\
+    \sigma(a_{1}) & \hdots & \sigma(a_{n}) \\
+  \end{pmatrix}
+  \]
+  Dit heet de twee-lijnen notatie van Cauchy.
 \end{de}
 
 \begin{de}
-  Een verzameling is \emph{aftelbaar oneindig} als $X$ equipotent is met $\mathbb{N}_{0}$.
-  \[ |X| = \aleph_{0} \]
+  We kunnen een permutatie van $\{1,\dotsc,n\}$ eenvoudig noteren als volgt:
+  Zij $i_{1},\dotsc,i_{r}$ elementen uit $\{1,\dotsc,n\}$.
+  \[ \sigma = (i_{1}i_{2}\dotsc i_{r}) \]
+  Bovenstaande gelijkheid is de notatie voor $\sigma$, zijnde de volgende permutatie:
+  \[ \sigma(i_{i}) = i_{(i+1) mod\ r} \]
+  Dit heet de cykelnotatie.
 \end{de}
 
 \begin{de}
-  We noemen een verzameling \emph{aftelbaar} als ze eindig of aftelbaar oneindig is. 
+  Twee cykels zijn disjunct als ze geen gemeenschappelijke symbolen hebben. 
+\end{de}
+
+\begin{st}
+  Elke permutatie in $\mathcal{S}_{n}$, verschillend van de identieke, is de samenstelling van twee aan twee disjuncte cykels.
+
+\TODO{bewijs zie p 14}
+\end{st}
+
+\begin{de}
+  Zij $\pi: A \rightarrow A$ een permutatie en $i$ en $j$ twee elementen van $A$ met $i < j$.
+  We zeggen dat $i$ en $j$ geinverteerd worden door $\pi$ als het volgende geldt:
+  \[ \pi(i) > \pi(j) \]
 \end{de}
 
 \begin{de}
-  Een verzameling is \emph{overaftelbaar} als ze nie aftelbaar is.
+  Het aantal inversies van een permutatie $\pi$ tellen we als volgt:
+  \[
+  \phi(i,j) =
+  \left\{
+  \begin{array}{lc}
+    0 \text{ als } \pi(i) < \pi(j)\\
+    1 \text{ als } \pi(i) < \pi(j)
+  \end{array}
+  \right.
+  \]
+  \[ I(\pi) = \sum_{1\le i < j \le n}\phi(i,j) \]
+  \[ sign(\pi) = (-1)^{I(\pi)}\] 
 \end{de}
+
+\begin{ei}
+  Zij $\pi$ en $\rho$ permutaties.
+  \[ sign(\pi\circ\rho) = sign(\pi)sign(\rho) \] 
+  \begin{proof}
+    \[
+    \begin{array}{rll}
+      sign(\pi)sign(\rho) &= (-1)^{I(\pi)} (-1)^{I(\rho)} &\\
+                          &= (-1)^{I(\pi\circ\rho)}      &=sign(\pi\circ\rho)\\
+    \end{array}
+    \]
+  \end{proof}
+\end{ei}
+
+\begin{de}
+  We noemen een permutatie \emph{even}/\emph{oneven} als het aantal inversies even/oneven is.
+\end{de}
+
+\begin{de}
+  We noemen een cykel van $r$ elementen even/oneven als $r$ even/oneven is.
+\end{de}
+
+\begin{st}
+  Een transpositie is steeds oneven.
+  \begin{proof}
+    Een transpositie inverteert precies \'e\'en element.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Een permutatie in disjuncte cykelnotatie is even als en slechts als het aantal even cykels even is.
+
+\TODO{bewijs}
+\end{st}
 
 \end{document}
