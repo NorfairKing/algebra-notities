@@ -11,7 +11,7 @@
 \label{sec:de-groep}
 
 \begin{de}
-  Een \emph{halfgroep} of \emph{mono\"ide} $G,*$ bestaat uit een (niet-lege) verzameling $G$ en een overal bepaalde, interne afbeelding $*$ (De bewerking).
+  Een \emph{halfgroep} of \emph{mono\"ide} $G,*$ is een algebra\footnote{Zie definitie \ref{de:algebra}.} die bestaat uit een (niet-lege) verzameling $G$ en een overal bepaalde, interne afbeelding $*$ (De bewerking).
   \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
   De bewerking $*$ voldoet aan de volgende voorwaarden.
   \begin{itemize}
@@ -24,17 +24,9 @@
 
 \begin{de}
   \label{de:groep}
-  Een \emph{groep} $G,*$ bestaat uit een (niet-lege) verzameling $G$ en een overal bepaalde, interne afbeelding $*$ (De bewerking).
-  \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
-  De bewerking $*$ voldoet aan de volgende voorwaarden.
-  \begin{itemize}
-  \item De bewerking $*$ is \emph{associatief}:
-    \[ \forall x, y, z \in G: (x*y)*z = x*(y*z) \] 
-  \item Er bestaat een \emph{neutraal element} $e \in G$ voor de bewerking $*$.
-    \[ \forall x \in G: x*e = e = e*x \]
-  \item Elk element $x \in G$ heeft een \emph{inverse} met betrekking tot de bewerking $*$: $x'$
-    \[ \forall x \in G, \exists x' \in G:\ x * x' = e = x' * x \]
-  \end{itemize}
+  Een \emph{groep} $G,*$ is een mono\"ide waarvoor nog een extra voorwaarde geldt:\\
+  Elk element $x \in G$ heeft een \emph{inverse} met betrekking tot de bewerking $*$: $x'$
+  \[ \forall x \in G, \exists x' \in G:\ x * x' = e = x' * x \]
 \end{de}
 
 \begin{st}
@@ -58,28 +50,8 @@
 \end{st}
 
 \begin{de}
-  Een \emph{commutatieve groep} $G,*$ is een groep waarbij de bewerking $*$ commutatief is.
+  Een \emph{commutatieve groep} of \emph{abelse groep} $G,*$ is een groep waarbij de bewerking $*$ commutatief is.
   \[ \forall x,y \in G: x * y = y * x\]
-\end{de}
-
-\begin{de}
-  De \emph{multiplicatieve notatie} biedt afkortingen wanneer we de notatie $*$ of $\cdots$ gebruiken voor de bewerking van een groep.
-  \begin{itemize}
-  \item $x_{-1}$ voor de inverse van $x$.
-  \item $x^{0}$ of $1$ voor het neutraal element $e_{G}$.
-  \item $x^{n} = x * x * \dotsc * x$ als $n > 0$
-  \item $x^{n} = x^{-1} * x^{-1} * \dotsc * x^{-1}$ als $n < 0$
-  \end{itemize}
-\end{de}
-
-\begin{de}
-  De \emph{additieve notatie} biedt afkortingen wanneer we de notatie $+$ gebruiken voor de bewerking van een groep.
-  \begin{itemize}
-  \item $-x$ voor de inverse van $x$.
-  \item $0$ voor het neutraal element $e_{G}$.
-  \item $nx = x * x * \dotsc * x$ als $n > 0$
-  \item $nx = (-x) * (-x) * \dotsc * (-x)$ als $n < 0$
-  \end{itemize}
 \end{de}
 
 \begin{de}
@@ -159,7 +131,7 @@
   \item Vervang de eerste voorwaarde door voorwaarde $1'$:
     \[ H \neq \emptyset \]
   \item Vervang de tweede en derde voorwaarde samen door voorwaarde $4$:
-    \[ \forall x,y \in H: x * y^{-1} \in H \]
+      \[ \forall x,y \in H: x * y^{-1} \in H \]
   \end{itemize}
 
   \begin{proof}
@@ -201,23 +173,10 @@
 \label{sec:morfismen}
 
 \begin{de}
-  \label{de:morfisme}
+  \label{de:groepsmorfisme}
   Zij $G,*$ en $H,\Box$ groepen.
-  Een (groeps)(homo)\emph{morfisme} $f$ is een afbeelding $f:G \rightarrow H$ die voldoet aan volgend axioma.
+  Een (groeps)(homo)\emph{morfisme} $f$ is een morfisme\footnote{Zie definitie \ref{de:morfisme}.} tussen twee groepen $G,*$ en $H,\Box$.
   \[ \forall x,y \in G: f(x*y) = f(x) \Box f(y) \]
-\end{de}
-
-\begin{de}
-  Een \emph{isomorfisme} is een bijectief morfisme. ``$G,*$ is isomorf met $H,\Box$'' noteren we als volgt:
-  \[ G \cong H \]
-\end{de}
-
-\begin{de}
-  Een \emph{endomorfisme} is eem morfisme van een groep naar zichzelf.
-\end{de}
-
-\begin{de}
-  Een \emph{automorfisme} is eem isomorfisme van een groep naar zichzelf.
 \end{de}
 
 \begin{de}
@@ -238,7 +197,7 @@
 
   \begin{proof}
     Beschouw de neutrale elementen $e_{G}$ en $e_{H}$ in de groepen.
-    Begin bij de definite van een groepsmorfisme.\footnote{Zie definitie \ref{de:morfisme}.}
+    Begin bij de definite van een groepsmorfisme.\footnote{Zie definitie \ref{de:groepsmorfisme}.}
     \[ f(e_{G}*e_{G}) = f(e_{G})*f(e_{G}) \]
     $e_{G}$ is het neutraal element in $G$. $e_{G}*e_{G}$ is dus opnieuw $G$.
     \[ f(e_{G}) = f(e_{G})*f(e_{G}) \]
@@ -264,7 +223,7 @@
                     &= e_{H}
     \end{array}
     \]
-    De eerste gelijkheid is precies de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:morfisme}.}
+    De eerste gelijkheid is precies de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:groepsmorfisme}.}
     De tweede gelijkheid volgt uit de definitie van de inverse van een element van een groep.\footnote{Zie definitie \ref{de:groep} puntje 3.}
     De laatste gelijkheid geldt omdat een groepsmorfisme het neutraal element behoudt.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-neutraal-element}.}
     Wat we bekomen is de definitie van het neutraal element $f(x^{-1})$ van $f(x)$.
@@ -284,7 +243,7 @@
     \item $\forall x,y \in Im(f): x \Box y \in Im(f)$\\
       Kies twee elementen $f(x)$ en $f(y)$ in $Im(f)$, nu bestaan er dus twee elementen $x$ en $y$ in $G$.
       In $G$ is de bewerking $*$ intern.\footnote{Zie definitie \ref{de:groep}}.
-      Kijk nu naar de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:morfisme}.}
+      Kijk nu naar de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:groepsmorfisme}.}
       \[ f(x*y) = f(x) \Box f(y) \]
       $f(x) \Box f(y)$ is dus een element van $Im(f)$.
     \item $\forall x \in Im(f): x^{-1} \in Im(f)$\\
@@ -380,7 +339,7 @@
     \item $\forall x,y \in f(A): x \Box y \in f(A)$\\
       Kies twee elementen $f(x)$ en $f(y)$ in $f(A)$, nu bestaan er dus twee elementen $x$ en $y$ in $A$.
       In $A$ is de bewerking $*$ intern.\footnote{Zie definitie \ref{de:groep}.}
-      Kijk nu naar de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:morfisme}.}
+      Kijk nu naar de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:groepsmorfisme}.}
       \[ f(x * y) = f(x) \Box f(y) \]
       $f(x) \Box f(y)$ is dus een element van $f(A)$.
     \item $\forall x \in f(A): x^{-1} \in f(A)$\\
@@ -867,7 +826,7 @@
     Bovenstaande gelijkheid geldt voor elke linker neverklasse, dus ook voor $Ker(f)$.\footnote{Zie eigenschap \ref{ei:linker-nevenklasse-eig} van linker neverklassen.}
     Omdat $x^{-1} * y$ in de kern van $f$ zit is het beeld ervan $e_{H}$.
     \[ f(x^{-1} * y) = e_{H} \]
-    $f$ is een morfisme\footnote{Zie definitie \ref{de:morfisme}.}:
+    $f$ is een morfisme\footnote{Zie definitie \ref{de:groepsmorfisme}.}:
     \[ f(x^{-1}) \Box f(y) = e_{H}\]
     Wat er nu over blijft is precies dat $f(x)$ en $f(y)$ gelijk zijn.
     We hebben in dit bewijs enkel equivalenties gebruikt. De omgekeerde redenering geldt dus ook.
