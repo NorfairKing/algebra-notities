@@ -1,0 +1,184 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Oefenzittingen}
+\label{cha:oefenzittingen}
+
+\section{Oefenzitting 1}
+
+\TODO{Oefening 1}
+
+\subsection{Oefening 2}
+\label{oz1-oef2}
+Zij $G,*$ een groep.
+Stel dat $\forall x \in G: x^{2} = e$ geldt.
+Toon aan dat $G,*$ commutatief is.
+
+\begin{proof}
+  Kies twee willekeurige elementen $x$ en $y$ uit $G$:
+  \[ 
+  \begin{array}{rl}
+  (x*y)^{2} &= e\\
+  (x*y*x*y) &= e\\
+  x*(x*y*x*y)*y &= x*e*y\\
+  (x*x)*y*x*(y*y) &= x*y\\
+  y*x &= x*y\\
+  \end{array}
+  \]
+\end{proof}
+
+\subsection{Oefening 3}
+Zij $G$ een groep.
+Toon aan dat $G$ commutatief is als en slechts als het volgende geldt:
+\[ \forall a,b \in G, \forall n \in \mathbb{N}:\ (ab)^{n} = a^{n}b^{n} \]
+
+\begin{proof}
+  Kies twee willekeurige elementen $a$ en $b$ uit $G$:
+  \begin{itemize}
+  \item $\Rightarrow$\\
+    Kies een willekeurige $n\in \mathbb{N}$
+    \[ (ab)^{n} = ababab \ldots abab = aaaaa \ldots bbbbb \]
+  \item $\Leftarrow$\\
+    Kies $n=2$:
+    \[ 
+    \begin{array}{rl}
+       abab &= aabb\\
+       bab &= abb\\
+       ba &= ab
+    \end{array}
+    \]
+  \end{itemize}
+\end{proof}
+
+\TODO{Oefening 3}
+
+
+\subsection{Oefening 4}
+
+\subsubsection{(a)}
+Bepaal alle deelgroepen van $\mathbb{Z}_{12},+$.
+\[
+\begin{array}{c}
+  \{ 0,2,4,6,8,10 \},+\\
+  \{ 0,3,6,9 \},+\\
+  \{ 0,4,8 \},+\\
+  \{ 0,6 \},+\\
+  \{ 0 \},+\\
+\end{array}
+\]
+
+
+\TODO{Oefening 4b}
+\TODO{Oefening 4c}
+\TODO{Oefening 4d}
+
+
+\TODO{Oefening 5}
+\TODO{Oefening 6}
+
+\subsection{Oefening 7}
+\subsubsection{(a)}
+Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+Als een verzameling $A$ een deelgroep is van $G$, dan is $f(A)$ een deelgroep van $H$.
+
+Inderdaad, zie \ref{st:fa-deelgroep-h}
+\subsubsection{(b)}
+Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+Als een verzameling $B$ een deelgroep is van $H$, dan is $f^{-1}(B)$ een deelgroep van $G$.
+
+Inderdaad, zie \ref{st:fbm-deelgroep-g}
+
+\subsection{Oefening 8}
+Zij $G,\cdot$ een niet-cyclische groep van orde $6$.
+
+\subsubsection{(a)}
+$G$ heeft een element van orde $3$.
+
+\begin{proof}
+De orde van een element van een groep is een deler van de orde van de groep.\footnote{Zie gevolg \ref {gev:orde-van-element-deelt-orde-van-groep}.}
+Elk element heeft dus een orde in $\{ 1, 2, 3, 6 \}$.
+Enkel $e$ heeft als orde $1$, en er zijn geen elementen van orde $6$ want dan zou $G$ cyclisch zijn.
+Stel dat elk element orde $2$ is, dan is $G$ commutatief.\footnote{Zie oefening 2. (\ref{oz1-oef2})}
+Dit zou betekenen dat $\{ e,a,b,ab \}$ een deelgroep was van $G$ met orde $4$, maar $4$ is geen deler van $6$. Contradictie\footnote{Zie stelling \ref{st:stelling-van-lagrange}.}
+Bijgevolg bestaat er minstens \'e\'en element van orde 3.
+\end{proof}
+
+\subsubsection{(b)}
+Zij $a$ een element van orde $3$ en $b \not\in \{ e,a,a^{2} \}$, dan geldt $G= \{ e,a,a^{2},b,ab,a^{2}b \}$.
+
+\begin{proof}
+  We bewijzen dat $\{ e,a,a^{2},b,ab,a^{2}b \}$ enkel verschillende elementen bevat.
+  \begin{itemize}
+  \item $\{ e,a,a^{2} \}$ is een verzameling van onderling verschillende elementen, en bovendien een groep.
+  \item $\{ e,a,a^{2},b \}$ is een verzameling van onderling verschillende elementen omdat $b$ niet in$\{ e,a,a^{2} \}$ zit en $\{ e,a,a^{2} \}$ een groep is.
+\clarify{Waarom?}
+  \item $\{ e,a,a^{2},b,ab \}$ is een verzameling van onderling verschillende elementen:
+    \[ ab \neq e \text{ want dan zou } \{ e,a,a^{2} \} \text{ geen groep zijn.} \]
+    \[ ab \neq a \text{ want dan zou } b = e \text{ gelden. } \]
+    \[ ab \neq a^{2} \text{ want dan zou } b = a \text{ gelden. } \]
+    \[ ab \neq b \text{ want dan zou } a = b \text{ gelden. } \]
+  \item $\{ e,a,a^{2},b,ab,a^{2}b \}$ is een verzameling van onderling verschillende elementen:
+    \[ a^{2}b \neq e \text{ want dan zou } \{ e,a,a^{2},b \} \text{ geen groep zijn.} \]
+\clarify{Waarom?}
+    \[ ab^{2} \neq a \text{ want dan zou } b^{2} = e \text{ gelden. } \]
+\clarify{Waarom?}
+    \[ ab^{2} \neq a^{2} \text{ want dan zou }  \]
+\clarify{Waarom?}
+    \[ ab^{2} \neq b \text{ want dan zou } ab = b \text{ gelden. } \]
+    \[ ab^{2} \neq ab \text{ want dan zou } b = e \text{ gelden. } \]
+  \end{itemize}
+  
+\end{proof}
+
+\subsubsection{(c)}
+De orde van $b$ is $2$.
+
+\begin{proof}
+  \[
+  \begin{array}{rll}
+    b^{2} &\neq a &\text{want} ???\\ 
+    b^{2} &\neq a^{2} &\text{want} ??? \\ 
+    b^{2} &\neq ab &\text{want dan zou } b=a \text{ gelden.} \\ 
+    b^{2} &\neq a^{2}b &\text{want dan zou } b=a^{2} \text{ gelden.} \\ 
+  \end{array}
+  \]
+\clarify{Waarom?}
+  Bijgevolg geldt $b^{2} = e$.
+\end{proof}
+
+
+\subsubsection{(d)}
+$ba$ is gelijk aan $a^{2}b$.
+
+\begin{proof}
+  \[
+  \begin{array}{rll}
+    ba &\neq e &\text{want dan zou } \{ e,a,a^{2} \} \text{ geen groep zijn.}\\ 
+    ba &\neq a &\text{(gegeven)}\\ 
+    ba &\neq a^{2} &\text{want dan zou } b=a \text{ gelden.} \\ 
+    ba &\neq b &\text{want dan zou } a=e \text{ gelden.} \\ 
+    ba &\neq ab &\text{want ???} \\ 
+    ba &\neq a^{2}b &\text{want dan zou } b=a^{2} \text{ gelden.} \\ 
+  \end{array}
+  \]
+\clarify{Waarom?}
+\end{proof}
+
+\subsubsection{(e)}
+$G \cong \mathcal{D}_{3} \cong \mathcal{S}_{3}$ geldt.
+
+\begin{proof}
+  Constructief bewijs.
+  \begin{itemize}
+  \item Er bestaat een bijectie tussen $G$ en $\mathcal{S}_{3}$:
+    \[
+    \begin{pmatrix}
+      e & a     & a^{2} & b    & ab   & a^{2}b\\
+      e & (123) & (132) & (12) & (13) & (23)\\
+    \end{pmatrix}
+    \]
+  \item $G$ is gelijk aan $D_{4}$.
+  \end{itemize}
+\end{proof}
+
+\end{document}
