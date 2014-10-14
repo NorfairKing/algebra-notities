@@ -1,0 +1,223 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Samenstellingswetten}
+\label{cha:samenstellingswetten}
+
+\section{Inwendige bewerking}
+\label{sec:inwendige-bewerking}
+
+\begin{de}
+  Een (inwendige) samenstellingswet of \term{bewerking} $\top$ onder de elementen van een verzameling $A$ is een partiele functie:
+  \[ \top:\ A\times A \rightarrow A:\ (x,y) \rightarrow \top((x,y)) \]
+  De enige voorwaarde voor een bewerking is dat ze intern is.
+  Met andere woorden:
+  \[ \forall x,y \in A: \top((x,y)) \in A \]
+  Vaker dan de functienotatie gebruiken we de infixnotatie:
+  \[ x \top y \Leftrightarrow  ((x,y),\top((x,y))) \in \top \]
+\end{de}
+
+\begin{de}
+  We noemen een bewerking overal bepaald als het een afbeelding is.
+\end{de}
+
+\begin{de}
+  Zij $\top:\ A\times A\rightarrow A$ een bewerking gedefinieerd op een verzameling $A$.
+  We noemen een deelverzameling $B\subseteq A$ stabiel of gesloten onder $\top$ als de bewerking intern is binnen $B$.
+  \[ \forall x,y \in B\subseteq A: x \top y \in B \]
+\end{de}
+
+\begin{de}
+  \term{associativiteit}\\
+  We noemen een bewerking $\top:\ A\times A\rightarrow A$ \term{associatief} als de haakjes niet uit maken.
+  \[ \forall x,y,z \in A:\ x\top(y\top z) = (x\top y) \top z \]
+\end{de}
+
+\begin{de}
+  \term{commutativiteit}\\
+  We noemen een bewerking $\top:\ A\times A\rightarrow A$ \term{associatief} als de volgorde van de argumenten niet uit maakt.
+  \[ \forall x,y \in A:\ x \top y \Leftrightarrow y \top x \]
+\end{de}
+
+\begin{de}
+  Zij $\top:\ A\times A\rightarrow A$ een bewerking gedefinieerd op een verzameling $A$.
+  We noemen $e\in A$ het neutraal element van $\top$ in $A$ als de volgende gelijkheden gelden.
+  \[ \forall a \in A: a\top e = e = e\top a \]
+\end{de}
+
+\begin{st}
+  \label{st:neutraal-element-uniek}
+  Als er een neutraal element $e$ bestaat voor een bewerking $\top$ in een verzameling $A$ is dat neutraal element uniek.
+  \begin{proof}
+    Bewijs uit het ongerijmde\\
+    Stel dat er twee verschillende neutrale elementen $e_{1}$ en $e_{2}$ bestaan, dan gelden volgende gelijkheden:    \[ e_{2}\top e_{1} = e_{1}  =e_{1}\top e_{2}\]
+    \[ e_{1}\top e_{2} = e_{2}  =e_{2}\top e_{1}\]
+    Bijgevolg zijn deze neutrale elementen gelijk. Contradictie.
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Zij $\top:\ A\times A\rightarrow A$ een bewerking gedefinieerd op een verzameling $A$.
+  Zij $l$ een element van $A$.\\
+  $l$ is \term{links-regulier} of \term{links-schrapbaar} als het links geschrapt kan worden.
+  \[ \forall x,y \in A:\ l \top x = l \top y \Rightarrow x = y \]
+  $r$ is \term{rechts-regulier} of \term{rechtss-schrapbaar} als het rechtse geschrapt kan worden.
+  \[ \forall x,y \in A:\ x \top r = y \top r \Rightarrow x = y \]
+  Een element is \term{regulier} of \term{schrapbaar} als het zowel links- als rechts-regulier is. 
+\end{de}
+
+\begin{opm}
+  Als een element links/rechts schrapbaar is, is de afbeelding $x \mapsto l\top x$ / $x \mapsto x\top r$ een injectie. Het ``schrappen'' van dat element is dan de linker/linker inverse afbeelding van deze afbeelding.
+\end{opm}
+
+\begin{de}
+  Zij $\top:\ A\times A\rightarrow A$ een bewerking gedefinieerd op een verzameling $A$ met een neutraal element $e$.
+  We noemen een element $x\in A$ \term{symmetriseerbaar} voor $\top$ alls het volgende geldt:
+  \[ \exists y \in A:\ (x \top y = e) \wedge (y \top x = e) \]
+  $y$ is dan het \term{symmetrisch element} van $x$ voor $\top$ in $A$.
+  \[ y = sym(x) \]
+\end{de}
+
+\begin{st}
+  Zij $\top:\ A\times A\rightarrow A$ een associatieve bewerking gedefinieerd op een verzameling $A$ met een neutraal element $e$.
+  Voor elk element $x \in A$ geldt dat het symmtrisch element uniek is als het bestaat.
+  \[ !\exists y:\ y = sym(x) \]
+
+  \TODO{ bewijs}
+\end{st}
+
+\begin{st}
+  Zij $\top:\ A\times A\rightarrow A$ een associatieve bewerking gedefinieerd op een verzameling $A$ met een neutraal element $e$.
+  Elk symmetrisch element is schrapbaar.
+  \[ \exists y:\ y = sym(x) \Rightarrow (\forall a,b \in A:\ (a\top x = b \top x \Rightarrow a = b) \wedge( x\top a = x \top b \Rightarrow a = b)) \]
+
+  \TODO{ bewijs}
+\end{st}
+
+\begin{st}
+  Zij $\top:\ A\times A\rightarrow A$ een associatieve bewerking gedefinieerd op een verzameling $A$ met een neutraal element $e$.
+  \[ \forall x, y \in A: sym(x\top y) = sym(x) \top sym(y) \]
+
+  \TODO{ bewijs}
+\end{st}
+
+
+\begin{de}
+  De \term{multiplicatieve notatie} biedt afkortingen wanneer we de notatie $*$ of $\cdots$ gebruiken voor de notatie van een bewerking.
+  Multiplicatieve notatie wordt meestal gebruikt als de bewerking associatief is maar niet noodzakelijk commutatief.
+  \begin{itemize}
+  \item $x_{-1}$ voor het symmetrisch element van $x$.
+  \item $x^{0}$ of $1$ voor het neutraal element $e$.
+  \item $x^{n} = x * x * \dotsc * x$ als $n > 0$
+  \item $x^{n} = x^{-1} * x^{-1} * \dotsc * x^{-1}$ als $n < 0$
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  De \term{additieve notatie} biedt afkortingen wanneer we de notatie $+$ gebruiken voor de notatie van een bewerking.
+  Additieve notatie wordt meestal gebruikt als de bewerking zowel associatief als commutatief is.
+  \begin{itemize}
+  \item $-x$ voor het symmetrisch element van $x$.
+  \item $0$ voor het neutraal element $e$.
+  \item $nx = x * x * \dotsc * x$ als $n > 0$
+  \item $nx = (-x) * (-x) * \dotsc * (-x)$ als $n < 0$
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Zij $\top$ en $\top'$ twee bewerkingen op $A$.\\
+  $\top$ is \term{links-distributief} ten opzichte van $\top'$ als en slechts als volgende bewering geldt:
+  \[ \forall x,y,z \in A:\ x \top (y \top' z) = (x\top y) \top' (x \top z)\]
+  $\top$ is \term{rechts-distributief} ten opzichte van $\top'$ als en slechts als volgende bewering geldt:
+  \[ \forall x,y,z \in A:\ (x \top' y) \top z = (x\top z) \top' (y \top z)\]
+  $\top$ is zonder meer \term{distributief} als de bewerking zowel links- als rechts-distributief is.
+\end{de}
+
+\section{Uitwendige bewerking}
+\label{sec:uitwendige-bewerking}
+
+\begin{de}
+  Een (uitwendige) samenstellingswet of \term{bewerking} $\bot$ tussen elementen van een verzameling $\Omega$ en elementin van eenverzameling $A$ is een partiele functie.
+  \[ \bot:\ \Omega\times A \rightarrow A:\ (x,y) \rightarrow \bot(x,y)) \]
+  Vaker dan de functienotatie gebruiken we de infixnotatie:
+  \[ x \bot y \Leftrightarrow  ((x,y),\bot((x,y))) \in \bot \]
+\end{de}
+
+\begin{de}
+  Zij $\bot:\ \Omega\times A\rightarrow A$ een uitwendige bewerking.
+  We noemen een deelverzameling $B\subseteq A$ stabiel of gesloten onder $\bot$ als de bewerking intern is binnen $B$ voor alle elementen van $\Omega$.
+  \[ \forall x\in B\subseteq A, \forall y \in A: x \bot y \in B \]
+\end{de}
+
+\begin{de}
+  Zij $\top$ een inwendige en $\bot$ een uitwendige bewerking voor $A$, dan noemen we $\bot$ distributief ten opzichte van $\top$ als het volgende geldt:
+  \[ \forall \alpha \in \Omega, \forall x,y \in A:\ \alpha\bot(x\top y) = (\alpha \bot x)\top(\alpha \bot y) \]
+\end{de}
+
+\begin{de}
+  Zij $\top$ een inwendige en $\bot$ een uitwendige bewerking voor $A$, dan noemen we $\bot$ associatief ten opzichte van $\top$ als het volgende geldt:
+  \[ \forall \alpha,\beta\in \Omega, \forall x \in A:\ (\alpha \top \beta) \bot x = \alpha \bot (\beta \bot x) \]
+\end{de}
+
+\begin{de}
+  Zij $\top_{1}$ en $\top_{2}$ bewerkingen voor twee respectievelijke verzamelingen $A_{1}$ en $A_{2}$.
+  De productbewerking $\top$ is als volgt gedefinieedr:
+  \[ \forall x_{1},y_{1} \in A_{1}, \forall y_{2},x_{2} \in A_{2}:\ (x_{1},x_{2}) \oplus (y_{1},y_{2}) = (x_{1}\top_{1}y_{1}, x_{2}\top_{2} y_{2}) \]
+\end{de}
+
+\begin{opm}
+  De definitie van de productbewerking kan uitgebreid worden naar $n$-tallen.
+\end{opm}
+
+\begin{de}
+  Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$.
+  We noemen $\sim$ rechts-verenigbaar met $\top$ als het volgende geldt:
+  \[ \forall x,y,a \in A:\ x\sim y \Rightarrow (x\top a) \sim (y \top a) \]
+  We noemen $\sim$ links-verenigbaar met $\top$ als het volgende geldt:
+  \[ \forall x,y,a \in A:\ x\sim y \Rightarrow (a\top x) \sim (a \top y) \]
+  We noemen $\sim$ zonder meer verenigbaar met $\top$ als $\sim$ zowel links- als rechts-verenigbaar is met $\top$. 
+\end{de}
+
+\begin{de}
+    Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
+    $\bar{\top}$ is de quotientbewerking voor $\top$ door $B$:
+  \[ \bar{\top}: A/R \times A/R \rightarrow A/R: (\sim_{x},\sim_{y}) \mapsto \sim_{x} \bar{\top} \sim_{y} = \sim_{x\top y} \]
+\end{de}
+ 
+\begin{st}
+    Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
+    De quotientbewerking $\bar{\top}$ voor $\top$ door $B$ is wel degelijk een inwendige bewerking.
+  
+    \TODO{ bewijs}
+\end{st}
+
+\begin{st}
+    Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
+    Als de quotientbewerking $\bar{\top}$ associatief is, dan is $\top$ associatief.
+  
+    \TODO{ bewijs}
+\end{st}
+
+\begin{st}
+    Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
+    Als de quotientbewerking $\bar{\top}$ commutatief is, dan is $\top$ commutatief.
+  
+    \TODO{ bewijs}
+\end{st}
+
+\begin{st}
+    Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
+    Als de equivalentieklasse $\sim_{e}$ van een element het neutraal element is van $\bar{\top}$, dan is $e$ het neutraal element van $\top$. 
+  
+    \TODO{ bewijs}
+\end{st}
+
+
+\begin{st}
+    Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
+    Voor elk element $x$ van $A$ geldt als $y$ het symmetrisch element is van $x$ in $A$, dat $\sim_{x}$ dan het symmetrisch element is van $\sim_{y}$ is in $A/R$.
+  
+    \TODO{ bewijs}
+\end{st}
+
+\end{document}

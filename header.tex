@@ -5,11 +5,16 @@
 \newtheorem{ei}[thm]{Eigenschap}
 \newtheorem{st}[thm]{Stelling}
 \newtheorem{gev}[thm]{Gevolg}
+\newtheorem{pr}[thm]{Propositie}
+\newtheorem{opm}[thm]{Opmerking}
 
 % Mooiere TODO's
 \newcommand{\TODO}[1]{\todo[color=red,inline,size=\small]{TODO: #1}}
 \newcommand{\clarify}[1]{\todo[color=yellow,inline,size=\small]{CLARIFY: #1}}
+\newcommand{\question}[1]{\todo[color=yellow,inline,size=\small]{QUESTION: #1}}
 
 % Nuttigere emph
 \let\oldemph\emph
 \renewcommand\emph[1]{{\textbf{\oldemph{#1}}}}
+
+\newcommand{\term}[1]{\index{#1}\emph{#1}}
