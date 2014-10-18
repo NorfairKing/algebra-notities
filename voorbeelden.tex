@@ -7,9 +7,78 @@
 \section{Groepen}
 \label{sec:groepen}
 
+\begin{vb}
+  De getallen, uitgerust met de optelling, vormen groepen met $0$ als neutraal element.
+  \[ \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C} \]
+\commutatief  
+\end{vb}
+
+\begin{vb}
+  De complexe en re\"ele getallen, uitgerust met de vermeningvuldiging, vormen groepen met $1$ als neutraal element.
+  \[ \mathbb{R} \subseteq \mathbb{C} \]
+\commutatief  
+\end{vb}
+
+\begin{vb}
+  De $n$-tallen, uitgerust met de optelling, vormen groepen met $\vec{0}$ als neutraal element.
+  \[ \mathbb{Z}^{n} \subseteq \mathbb{Q}^{n} \subseteq \mathbb{R}^{n} \subseteq \mathbb{C}^{n} \]
+\commutatief  
+\end{vb}
+
+\begin{vb}
+  De $n$-de eenheidswortels $\{ z \in \mathbb{C}\ |\ z^{n} = 1 \}$, uitgerust met de vermeningvuldiging is een groep met neutraal element $1$.
+\end{vb}
+
 \begin{de}
-  De \term{symmetrische groep} van graad $n$: $S_{n},\circ$ is de groep van permutaties van $\{ 1,\dotsc,n \}$.
+  De \term{cirkelgroep} $S^{1}$ is de verzameling van complexe getallen met modulus $1$, uitgerust met de vermenigvuldiging.
 \end{de}
+
+\begin{vb}
+  De matrixes van dezelfde vorm, uitgerust met de optelling, vormen groepen met $[0]$ als neutraal element.
+  \[ \mathbb{Z}^{m \times n} \subseteq \mathbb{Q}^{m \times n} \subseteq \mathbb{R}^{m \times n} \subseteq \mathbb{C}^{m \times n} \]
+\commutatief  
+\end{vb}
+
+\begin{vb}
+  De verzameling $GL_{n}(\mathbb{R})$ van inverteerbare re\"ele $n\times n$-matrices, uitgerust met de matrix vermeningvuldiging, vormen een groep met $\mathbb{I}_{n}$ als neutraal element.
+\end{vb}
+
+\begin{vb}
+  De verzameling $\mathbb{R}[x]$ van re\"ele veeltermen in de veranderlijke $x$, uitgeruist met de optelling, is een groep met neutraal element $0$.\\
+\commutatief  
+\end{vb}
+
+\begin{de}
+  De \term{viergroep} of \term{groep van Klein} $V,\cdot$ heeft als neutraal element $e$.
+  Er geldt een eenvoudige regel: $ab = c$, $bc = a$, $ca = b$
+  \[
+  \begin{array}{c|cccc}
+    \circ & e & a & b & c \\
+    \hline
+    e & e & a & b & c \\
+    a & a & e & c & b \\
+    b & b & c & b & a \\
+    c & c & b & a & e \\
+  \end{array}
+  \]
+\commutatief
+\end{de}
+
+\begin{vb}
+  De re\"ele getallen $\mathbb{Z}$, uitgerust met de optelling modulo $n\in \mathbb{N}_{0}$, vormen een groep $\mathbb{Z}_{n}$ met neutraal element $[0]_{n}$. Zo een groep heet de \term{restklassengroep} van graad $n$.
+\commutatief       
+\end{vb}
+
+\begin{de}
+  De \term{symmetrische groep} van graad $n$: $\mathcal{S}_{n},\circ$ is de groep van permutaties van $\{ 1,\dotsc,n \}$.
+  \[ |\mathcal{D}_{n}| = n! \]
+  Voor $n \le 2$ is $\mathcal{S}_{n}$ commutatief.
+\end{de}
+
+\begin{ei}
+  $\mathcal{S}_{n}$ is een deelgroep van $\mathcal{S}_{n+1}$.
+  \TODO{bewijs}
+\end{ei}
 
 \begin{vb}
   $\mathcal{S}_{1},\circ$: De groep van permutaties van $\{ 1 \}$.\\
@@ -54,7 +123,6 @@
 
 \begin{vb}
   $\mathcal{S}_{4},\circ$: De groep van permutaties van $\{ 1,2,3,4 \}$.\\
-  De Cayley-tabel kan eenvoudig uitgerekend worden.
   \[ 
   \mathcal{S}_{4} = 
   \begin{array}{l}
@@ -68,5 +136,106 @@
   \end{array}
   \]
 \end{vb}
+
+\begin{de}
+  $Q,\cdot$,: De \term{quaternionengroep}.\\
+  \[ Q = \{ 1,-1,i,-i,j,-j,k,-k \} \]
+  Er gelden vier eenvoudige regels:
+  \begin{itemize}
+  \item $i^{2}=j^{2}=k^{2}= -1$
+  \item $ij=k$
+  \item $jk=i$
+  \item $ki=j$
+  \end{itemize}
+  \[ 
+  \begin{array}{r|rrrrrrrr}
+\cdot & 1 & -1 & i & -i & j & -j & k & -k\\
+\hline
+1 & 1 & -1 & i & -i & j & -j & k & -k\\
+-1 & -1 & 1 & -i & i & -j & j & -k & k\\
+i & i & -i & -1 & 1 & k & -k & -j & j\\
+-i & -i & i & 1 & -1 & -k & k & j & -j\\
+j & j & -j & -k & k & -1 & 1 & i & -i\\
+-j & -j & j & k & -k & 1 & -1 & -i & i\\
+k & k & -k & j & -j & -i & i & -1 & 1\\
+-k & -k & k & -j & j & i & -i & 1 & -1
+  \end{array}
+\]
+\end{de}
+
+\begin{de}
+  De \term{Di\"edergroep} van graad $n$: $\mathcal{D}_{n},\circ$ is de groep van starre bewegingen die een regelmatige $n$-hoek op zichzelf afbeelden.
+  $\mathcal{D}_{n}$ bevat $n$ rotaties $Id, a, \dotsc, a^{n-1}$ en $n$ spiegelingen $b,ab,\dotsc,a^{n-1}b$.
+  \[ |\mathcal{D}_{n}| = 2n \]
+  Er gelden drie eenvoudige regels:
+  \begin{itemize}
+  \item $a^{n} = Id$
+  \item $b^{2} = Id$
+  \item $ba = a^{-1}b$             
+  \end{itemize}
+\end{de}
+
+\begin{vb}
+  $\mathcal{D}_{1},\circ$: De groep van starre bewegingen die een regelmatige $1$-hoek op zichzelf afbeelden.
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & b\\
+    \hline
+    Id & Id & b\\
+    b & b & Id\\
+  \end{array}
+  \]
+\commutatief  
+\end{vb}
+
+\begin{vb}
+  $\mathcal{D}_{2},\circ$: De groep van starre bewegingen die een regelmatige $2$-hoek op zichzelf afbeelden.
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & a & b & ab\\
+    \hline
+    Id & Id & a & b & ab\\
+    a & a & Id & ab & b\\
+    b & b & ab & Id & a\\
+    ab & ab & b & a & Id
+  \end{array}
+  \]
+\commutatief  
+\end{vb}
+
+\begin{vb}
+  $\mathcal{D}_{3},\circ$: De groep van starre bewegingen die een regelmatige $3$-hoek op zichzelf afbeelden.
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & a & a^{2} & b & ab & a^{2}b\\
+    \hline
+    Id & Id & a & a^{2} & b & ab & a^{2}b \\
+    a & a & a^{2} & Id & ab & a^{2}b & b \\
+    a^{2} & a^{2} & Id & a & a^{2}b & b & ab \\
+    b & b & a^{2}b & ab & Id & a^{2} & a \\
+    ab & ab & b & a^{2}b & a & Id & a^{2} \\
+    a^{2}b & a^{2}b & ab & b & a^{2} & a & Id \\
+  \end{array}
+  \]
+\end{vb}
+
+\begin{vb}
+  $\mathcal{D}_{4},\circ$: De groep van starre bewegingen die een regelmatige $4$-hoek op zichzelf afbeelden.
+  \[
+  \begin{array}{c|cccccccc}
+    \circ & Id & a & a^{2} & a^{3} & b & ab & a^{2}b & a^{3}b \\
+    \hline
+    Id & Id & a  & a^{2} & a^{3} & b & ab & a^{2}b & a^{3}b \\
+    a & a & a^{2} & a^{3} & Id & ab & a^{2} & a^{3}b & b \\
+    a^{2} & a^{2} & a^{3} & Id & a & a^{2}b & a^{3}b & b & ab \\
+    a^{3} & a^{3} & Id & a & a^{2} & a^{3}b & b & ab & a^{2}b \\
+    b & b & a^{3}b & a^{2}b & ab & Id & a^{3} & a^{2} & a \\
+    ab & ab & b & a^{3}b & a^{2}b & a & Id & a^{3} & a^{2} \\
+    a^{2}b & a^{2}b & ab & b & a^{3}b & a^{2} & a & Id & a^{3} \\
+    a^{3}b & a^{3}b & a^{2}b & ab & b & a^{3} & a^{2} & a & Id \\
+  \end{array}
+  \]
+\end{vb}
+
 
 \end{document}
