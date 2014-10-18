@@ -1,0 +1,72 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Voorbeelden}
+\label{cha:voorbeelden}
+
+\section{Groepen}
+\label{sec:groepen}
+
+\begin{de}
+  De \term{symmetrische groep} van graad $n$: $S_{n},\circ$ is de groep van permutaties van $\{ 1,\dotsc,n \}$.
+\end{de}
+
+\begin{vb}
+  $\mathcal{S}_{1},\circ$: De groep van permutaties van $\{ 1 \}$.\\
+  \[
+  \begin{array}{c|c}
+    \circ & Id \\
+    \hline
+    Id & Id\\
+  \end{array}
+  \]
+\commutatief  
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{2},\circ$: De groep van permutaties van $\{ 1,2 \}$.\\
+  \[
+  \begin{array}{c|cc}
+    \circ & Id & (12) \\
+    \hline
+    Id & Id & (12)\\
+    (12) & (12) & Id
+  \end{array}
+  \]
+\commutatief  
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{3},\circ$: De groep van permutaties van $\{ 1,2,3 \}$.\\
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & (12) & (13) & (23) & (123) & (132) \\
+    \hline
+    Id & Id & (12) & (13) & (23) & (123) & (132)\\
+    (12) & (12) & Id & (132) & (123) & (23) & (13)\\
+    (13) & (13) & (123) & Id & (132) & (12) & (23)\\
+    (23) & (23) & (132) & (123) & Id & (13) & (12)\\
+    (123) & (123) & (13) & (23) & (12) & (132) & Id\\
+    (132) & (132) & (23) & (12) & (13) & Id & (123)\\
+  \end{array}
+  \]
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{4},\circ$: De groep van permutaties van $\{ 1,2,3,4 \}$.\\
+  De Cayley-tabel kan eenvoudig uitgerekend worden.
+  \[ 
+  \mathcal{S}_{4} = 
+  \begin{array}{l}
+     \{\\
+     Id,\\
+     (12), (13), (14), (23), (24), (34),\\
+     (123), (124), (132), (134), (142), (143), (234), (243)\\
+     (12)(34), (13)(42), (14)(23),\\
+     (1234), (1243), (1324), (1342), (1423), (1432)\\
+     \}
+  \end{array}
+  \]
+\end{vb}
+
+\end{document}
