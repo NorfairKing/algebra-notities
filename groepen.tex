@@ -11,7 +11,7 @@
 \label{sec:de-groep}
 
 \begin{de}
-  Een \term{halfgroep} of \term{mono\"ide} $G,*$ is een algebra\footnote{Zie definitie \ref{de:algebra}.} die bestaat uit een (niet-lege) verzameling $G$ en een overal bepaalde, interne afbeelding $*$ (De bewerking).
+  Een \term{halfgroep} of \term{mono\"ide} $G,*$ is een algebra\footnote{Zie definitie \ref{de:algebra}.} die bestaat uit een (niet-lege) verzameling $G$ en een afbeelding $*$ (De bewerking).
   \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
   De bewerking $*$ voldoet aan de volgende voorwaarden.
   \begin{itemize}
@@ -917,5 +917,169 @@
 
 \TODO{ bewijs }
 \end{gev}
+
+\begin{pr}
+  De afbeelding $sgn: \mathcal{S}_{n},\circ \rightarrow \{1,-1\},\cdot$ is een groepsmorfisme met als kern $A_{n}$.
+
+\TODO{ bewijs p 18}
+\end{pr}
+
+\section{Conjugatie}
+\label{sec:conjugatie}
+
+\begin{de}
+  Zij $G$ een groep en $x$ een element van $G$.
+  Een element $axa^{-1}$ met $a\in G$ in $G$ noemen we een \term{geconjugeerde} van $x$.
+\end{de}
+
+\begin{de}
+  De \term{conjugatieklas} van $x$ in $G$ is de verzameling $Cl(x)$.
+  \[ Cl(x) = \{ axa^{-1}\ |\ a \in G \} \]
+\end{de}
+
+\begin{ei}
+  Een element behoort steeds tot zijn eigen conjugatieklas.
+
+  \begin{proof}
+    Kies een willekeurig element $x$ van een groep $G,*$.
+    Omdat $e$ een element is van $G$ bevat de conjugatieklas het element $exe^{-1} = x$.
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  De verzameling van alle conjugatieklassen van een groep $G,*$ vormt een partitie van $G$ en bepaalt bijgevolg een equivalentierelatie.
+
+\TODO{bewijs pagina 19.}
+\end{ei}
+
+\begin{st}
+  Zij $G,*$ een groep en $a$ en $b$ twee elementen van $G$.
+  \[ Cl(a) = Cl(b) \Leftrightarrow b \in Cl(a) \Leftrightarrow Cl(b) \]
+\end{st}
+
+\begin{ei}
+  Twee permutaties $\sigma$ en $\tau$ in $\mathcal{S}_{n}$ zijn geconjugeerd als en slechts als ze dezelfde cykelstructuur hebben.
+  Met andere woorden als en slechts als $\sigma$ en $\tau$ evenveel cykels hebben van elke optredende lengte.
+
+\TODO{bewijs pagina 19.}
+\end{ei}
+
+\begin{de}
+  Zij $G,*$ een groep en $a$ een element van $G$.
+  De \term{conjugatie met een element} $a$ of het \term{inwendig automorfisme bepaald door een element} $a$ is een afbeelding $\sigma_{a}$:
+  \[ \sigma_{a}:\ G \rightarrow G:\ x \mapsto axa^{-1} \]
+\end{de}
+
+\begin{ei}
+  Zij $G,*$ een groep en $a$ een element van $G$, dan is $\sigma_{a}$ een automorfisme.
+  
+\TODO{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $G,*$ een groep, dan is de afbeelding $\sigma$ een groepsmorfisme:
+  \[ \sigma:\ G,* \rightarrow Aut G,\circ:\ a \mapsto \sigma_{a} \]
+\end{ei}
+
+\begin{de}
+  De deelgroep $InnG$ van $AutG$ is de \term{groep der inwendige automorfismen} van $G$.
+  \[ InnG = Im(\sigma) = \{ \sigma_{a}\ |\ a \in G \} \]
+\end{de}
+
+\begin{st}
+  De groep $InnG$ der inwendige automorfismen van een groep $G$ is wel degelijk een deelgroep van $AutG$.
+\end{st}
+
+\begin{de}
+  Zij $G$ een groep en $g$ een element van $G$, dan is de \term{centralisator} van $g$ in $G$ de verzameling $C_{G}(g)$ van de elemneten in $G$ die commuteren met $G$.
+  \[ C_{G}(g) = \{ x \in G\ |\ gx = xg \} \]
+\end{de}
+
+\begin{de}
+  Zij $G$ een groep, dan is het \term{centrum} van $G$ de deelverzameling van $G$ van elementen die met alle elementen van de groep commuteren.
+  \[ Z(G) = \{ x \in G\ |\ \forall g \in G:\ gx = xg\} = \bigcap_{g \in G}C_{G}(g) \]
+\end{de}
+
+\begin{ei}
+  Zij $G$ een groep, dan is elke centralisator $C_{G}(g)$ van $G$ een deelgroep van $G$.
+
+\TODO{bewijs pagina 21.}
+\end{ei}
+
+\begin{ei}
+  Het centrum van een groep is een deelgroep van die groep.
+
+\TODO{bewijs pagina 21.}
+\end{ei}
+
+\begin{st}
+  Voor $n$ groter dan $1$ geldt het volgende over het centrum van $D_{n}$
+  \[ Z(D_{2n-1} = \{e\} \]
+  \[ Z(D_{2n}) = \{e,a^{n}\} \]
+  
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $G$ een eindige groep en $a$ een element van $G$.
+  \[ |G| = |C_{G}(a)|\cdot|Cl(a)| \]
+
+\TODO{bewijs pagina 21.}
+\end{st}
+
+\begin{gev}
+  Zij $G$ een eindige groep en $a$ een element van $G$, dan is $|Cl(a)|$ een deler van $|G|$.
+  
+\TODO{bewijs}
+\end{gev}
+
+\begin{st}
+  \label{st:klasvergelijking}
+  De \term{klasvergelijking}\\
+  Zij $G$ een eindige groep van orde $k$.
+  De som van het aantal orde in het centrum van $G$ en het aantal elementen van de conjungatieklassen met meer dan 1 element is gelijk aan het aantal elementen in $G$.
+  In symbolen: Noteer de conjungatieklassen van $G$ als volgt:
+  \[ Cl(a_{1}),\dotsc, Cl(a_{m}), Cl(a_{m+1}), \dotsc, Cl(a_{k}) \]
+  De elementen met index kleiner of gelijk aan $m$ hebben een conjungatieklasse van grootte $1$, en de anderen een grotere.
+  \[ |Cl(a_{1})| = \dotsb = |Cl(a_{m})| = 1 \text{ en } |Cl(a_{m+i})| > 1\]
+  \[ |G| = Z(G) + \sum_{i=m+1}^{k}|Cl(a_{i})| \]
+
+\TODO{bewijs pagina 22.}
+\end{st}
+
+\begin{de}
+  Een groep $P$ met een macht $p^{k}$ van een priemgetal $p$ als orde noemen we een $p$-groep.
+\end{de}
+
+\begin{pr}
+  Zij $p$ een priemgetal en $P$ een $p$-groep, dan bevat het centrum van $P$ meer dan \'e\'en element.
+  \[ |Z(P)| > 1 \]
+
+\TODO{bewijs pagina 22.}
+\end{pr}
+
+\begin{ei}
+  Zij $p$ een priemgetal en $P$ een $p$-groep, dan deelt $p$ het aantal elementen in het centrum van $P$.
+  \[ p\ |\ |Z(P)|\]
+
+\TODO{bewijs pagina 22.}
+\end{ei}
+
+\begin{st}
+  Zij $p$ een priemgetal, dan is elke groep met $p^{2}$ elementen commutatief.
+
+\TODO{bewijs pagina 23.}
+\end{st}
+
+\begin{st}
+  Elke groep van orde $9$ is isomorf met $\mathbb{Z}_{9}$ of met $\mathbb{Z}_{3} \oplus \mathbb{Z}_{3}$.
+  
+\TODO{bewijs}
+\end{st}
+
+\section{Normaaldelers en Quotientgroepen}
+\label{sec:normaaldelers-en-quotientgroepen}
+
+
 
 \end{document}
