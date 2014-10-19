@@ -639,7 +639,7 @@
     \[ Hx = \{ h * x\ |\ h \in H \} \]
   \end{itemize}
   De verzameling van linker nevenklassen van $H$ in $G$ noteren we als $G/H$.
-  \[ G/H = \{ x*h\ |\ x \in G \} \]
+  \[ G/H = \{ xH\ |\ x \in G \} \]
 \end{de}
 
 \begin{ei}
@@ -1079,6 +1079,226 @@
 
 \section{Normaaldelers en Quotientgroepen}
 \label{sec:normaaldelers-en-quotientgroepen}
+
+\begin{de}
+  Een \term{normaaldeler} $H,*$ is een deelgroep $H,*$ van $G,*$ met de volgende eigenschap:
+  \[ N \triangleleft G \Leftrightarrow \forall g \in G: g*H = H*g \]
+  In woorden: ``De linker en rechter nevenklasse van $N$ bepaald door elk element $g\in G$ zijn gelijk.''
+\end{de}
+
+\begin{opm}
+  Merk op dat volgende bewering niet noodzakelijk geldt voor een normaaldeler $H,*$ van een groep $G,*$:
+  \[ \forall h \in H, g \in G:\ g*h = h*g \]
+  \clarify{is dit equivalent met: ``en normaaldeler is niet noodzakelijk het centrum van een groep.''}
+\end{opm}
+
+\begin{de}
+  Een \term{quotientgroep} $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G$ 
+\end{de}
+
+\begin{st}
+  Van een commutatieve groep is elke deelgroep een normaaldeler.
+  
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  In elke groep $G$ zijn $\{e_{G}\}$ en $G$ normaaldelers.
+  
+\TODO{bewijs}
+\end{st}
+
+\begin{de}
+  Zij $G$ een groep, dan noemen we $\{e_{G}\}$ en $G$ de triviale normaaldelers van $G$.
+\end{de}
+
+\begin{st}
+  \label{st:criteria-voor-normaaldeler}
+  Criteria voor een normaaldeler\\
+  Zij $G,*$ een groep en $H$ een deelgroep van $G$.
+  \[
+  \begin{array}{rcl}
+    H \triangleleft G &\overset{(1)}{\Leftrightarrow} & \forall g \in G:\ g*H*g^{-1} = H\\
+                      &\overset{(2)}{\Leftrightarrow} & \forall g \in G:\ g*H*g^{-1} \subset H\\
+                      &\overset{(3)}{\Leftrightarrow} & \forall g \in G,\forall h \in H:\ g*h*g^{-1} \in H\\
+  \end{array}
+  \]
+  
+\TODO{bewijs p 26}
+\end{st}
+
+\begin{pr}
+  Zij $G,*$ een groep, dan is het centrum $Z(G)$ een normaaldeler van $G$.
+  
+\TODO{bewijs p 26}
+\end{pr}
+
+\begin{pr}
+  Zij $G,*$ een groep, dan is elke deelgroep van $G$ met index $2$ een normaaldeler van $G$.
+  
+\TODO{bewijs p 26}
+\end{pr}
+
+\begin{pr}
+  Zij $G,*$ een groep en $N$ de enige deelgroep van $G$ met orde $|N|$, dan is $N$ een normaaldeler van $G$.
+  
+\TODO{bewijs p 26}
+\end{pr}
+
+\begin{pr}
+  De kern $Ker(G)$ van een groepsmorfisme $f:\ G,* \rightarrow H,\Box$ is een normaaldeler van $G,*$.
+  \[ Ker(f) \triangleleft G \]
+  
+\TODO{bewijs}
+\end{pr}
+
+\begin{ei}
+  Zij $f:\ G,* \rightarrow H,\Box$ een groepsmorfisme
+  $f$ behoudt het normaaldelen.
+  \[ N \triangleleft G \Rightarrow f(N) \triangleleft f(G) \]
+  
+\TODO{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $f:\ G,* \rightarrow H,\Box$ een groepsmorfisme
+  $f^{-1}$ behoudt het normaaldelen.
+  \[ N \triangleleft H \Rightarrow f^{-1}(N) \triangleleft G \]
+  
+\TODO{bewijs}
+\end{ei}
+
+\subsection{Quotientgroepen}
+\label{sec:quotientgroepen}
+
+\begin{de}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$.
+  De (kandidaat-)bewerking $\bar{*}$ op $G/N$ is gedefinieerd als volgt:
+  \[ (x*N)\bar{*}(y*N) = (x'*y')*N \]
+  Hierin zijn $x'\in x*N$ en $y'\in f*N$ twee willekeurige \term{representanten}.
+\end{de}
+
+\begin{pr}
+  De bewerking $\bar{*}:\ G/N \times G/N$ is onafhankelijk van de gekozen representanten.
+  
+\TODO{bewijs p 27}
+\end{pr}
+
+\begin{st}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$, dan is de verzameling der nevenklassen $G/H$, uitgerust met de bewerking $\bar{*}$ een groep.
+  
+\TODO{bewijs p 28}  
+\end{st}
+
+\begin{st}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$, dan is de afbeelding $\pi$ een groepsmorfisme.
+  \[ \pi:\ G \rightarrow G/N:\ x \mapsto x*N \]
+  
+\TODO{bewijs p 28}  
+\end{st}
+
+\begin{de}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$.
+  De verzameling $G/H$ van nevenklassen, uitgerust met de bewerking $\bar{*}$ noemen we de \term{quoti\"entgroep} van $G$ door $N$.
+  $\bar{*}$ zullen we vanaf nu ook gewoon als $*$ schrijven.
+\end{de}
+
+\begin{de}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$.
+  We gebruiken een kortere notatie $\bar{x}$ voor een element $x*N$ van de quoti\"entgroep van $G$ door $N$:
+  \[ \bar{x} = x*N \]
+\end{de}
+
+\begin{ei}
+  De kern van $\pi\ G \rightarrow G/N:\ x \mapsto x*N$ is $N$.
+  
+\TODO{bewijs}
+\end{ei}
+
+\begin{gev}
+  Een deelgroep $N,*$ van een groep $G,*$ is een normaaldolor van $G$ als en slechts als deze de kern is van een groepsmorfisme vanuit $G$.
+  
+\TODO{bewijs}
+\end{gev}
+
+\begin{st}
+  Zij $N,*$ een deelgroep van een groep $G,*$, dan is $N$ een normaaldeler als de bewerking $\bar{*}$ van $G/N$ een groep maakt:
+  \[ \bar{*}:\ G/N \times G/N \rightarrow G/N:\ (x*N)\bar{*}(y*N) = (x*y)*N \]
+  
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $G,*$ een groep met $G/Z(G)$ cyclisch, dan is $G$ commutatief (en $G/Z(G)$ bijgevolg de triviale groep).
+  
+\TODO{bewijs p 29}
+\end{st}
+
+\begin{st}
+  Als er een deelgroep $H,*$ van het centrum $Z(G)$ van een groep $G,*$ bestaat zodat $G/H$ cyclisch is, das is $G$ commutatief.
+  
+\TODO{bewijs}
+\end{st}
+
+\begin{gev}
+  Zij $p$ en $q$ verschillende priemgetallen, dan is het centrum van een niet-commutatieve groep $G,*$ van orde $pq$ triviaal.
+  \[ Z(G) = \{ e_{G} \} \]
+  
+\TODO{bewijs p 29}
+\end{gev}
+
+\subsection{Enkelvoudige en oplosbare groepen}
+\label{sec:enkelv-en-oplosb}
+
+\begin{de}
+  Een groep $G,*$ is enkelvoudige als de enige normaaldelers van $G$ de triviale normaaldelers $\{e_{G}\}$ en $G$ zijn.
+\end{de}
+
+\TODO{definitie van compositiefactoren}
+
+\begin{pr}
+  De enkelvoudige eindige commutatieve groepen zijn de groepen $\mathbb{Z}_{p},+$ met $p$ een priemgetal en de triviale groep $\{e_{G}\},*$.
+  
+\TODO{bewijs p 30}
+\end{pr}
+
+\begin{st}
+  zonder bewijs\\
+  Structuurstelling voor eindige commutatieve groepen\\
+  Elke eindige commutatieve groep is isomorf met een directe som van cyclische groepen.
+  \[ \bigoplus_{i=1}^{r} Z_{p_{i}^{k_{i}}} \]
+  Hierin is elke $p_{i}^{k_{i}}$ een macht van een priemgetal.
+\TODO{ toch eens het bewijs proberen? }
+\end{st}
+
+\begin{de}
+  Een groep $G$ is \term{oplosbaar} als er een eindige keten van deelgroepen $H_{i}$ bestaat zodat voor elke $H_{i}$ twee eigenschappen gelden:
+  \[ \{e_{G}\} = H_{k} \subset H_{k-1} \dotsb H_{2} \subset H_{1} \subset H_{0} = G \]
+  \begin{itemize}
+  \item $\forall i:\ H_{i+1} \triangleleft H_{i}$
+  \item $\forall i:\ H_{i}/H_{i+1}$ is commutatief
+  \end{itemize}
+\end{de}
+
+\begin{st}
+  zonder bewijs\\
+  Een eindige groep $G,*$ is oplosbaar als en slechts als alle compositiefactoren van $G$ commutatief zijn.
+\TODO{ toch eens het bewijs proberen? }
+\end{st}
+
+\begin{st}
+  zonder bewijs\\
+  Een eindige groep $G$ van orde $n$ is oplosbaar als \'e\'en van de volgende voorwaarden geldt:
+  \begin{itemize}
+  \item $n < 60$.
+  \item $n$ is oneven.
+  \item $n$ is een macht van een priemgetal.
+  \end{itemize}
+\TODO{ bewijs bekijken }
+\end{st}
+
+\section{De isomorfismestellingen}
+\label{sec:isomorfismestellingen}
 
 
 
