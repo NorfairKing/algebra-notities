@@ -11,21 +11,20 @@
 \label{sec:de-groep}
 
 \begin{de}
-  Een \term{halfgroep} of \term{mono\"ide} $G,*$ is een algebra\footnote{Zie definitie \ref{de:algebra}.} die bestaat uit een (niet-lege) verzameling $G$ en een afbeelding $*$ (De bewerking).
+  Een \term{halfgroep} $G,*$ is een algebra\footnote{Zie definitie \ref{de:algebra}.} die bestaat uit een (niet-lege) verzameling $G$ en een afbeelding $*$ (De bewerking).
   \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
-  De bewerking $*$ voldoet aan de volgende voorwaarden.
-  \begin{itemize}
-  \item De bewerking $*$ is \term{associatief}:
-    \[ \forall x, y, z \in G: (x*y)*z = x*(y*z) \] 
-  \item Er bestaat een \term{neutraal element} $e \in G$ voor de bewerking $*$.
-    \[ \forall x \in G: x*e = e = e*x \]
-  \end{itemize}
+  De bewerking $*$ is associatief.
 \end{de}
 
 \begin{de}
+  Een \term{mono\"ide} is een halfgroep $G,*$ met een neutraal element $e_{G}$.
+\end{de}
+
+\TODO{ cyclische mono\"ide }
+
+\begin{de}
   \label{de:groep}
-  Een \term{groep} $G,*$ is een mono\"ide waarvoor nog een extra voorwaarde geldt:\\
-  Elk element $x \in G$ heeft een \term{inverse} met betrekking tot de bewerking $*$: $x'$
+  Een \term{groep} $G,*$ is een mono\"ide waarin elk element symmetriseerbaar is.
   \[ \forall x \in G, \exists x' \in G:\ x * x' = e = x' * x \]
 \end{de}
 
@@ -56,6 +55,7 @@
 
 \begin{de}
   Zij $G,*$ een groep en $H$ een (niet-lege) deelverzameling van $G$. We noemen $H$ een \term{deelgroep} van $G$ als $H$ zelf ook een groep is met dezelfde bewerking $*$.
+  Met andere woorden: ``Een deelgroep is een deelalgebra die ook een groep is''.
 \end{de}
 
 \begin{st}
@@ -132,7 +132,7 @@
     \[ H \neq \emptyset \]
   \item Vervang de tweede en derde voorwaarde samen door voorwaarde $4$:
       \[ \forall x,y \in H: x * y^{-1} \in H \]
-  \end{itemize}
+   \end{itemize}
 
   \begin{proof}
     We bewijzen dat de voorwaarden die we vervangen equivalent zijn.
@@ -167,6 +167,12 @@
     Om te bewijzen dat $G,*$ een groep is, moeten we nog bewijzen dat er een neutraal element bestaat in $G$ en dat elk element een inverse heeft in $G$.
 \TODO{ voor doorbijters: Bewijs }
   \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G,*$ een groep waarop een equivalentierelatie $\sim$ is gedefinieerd, dan is de verzameling van alle elementen equivalent met het neutraal element als $\sim$ links-(of rechts-)verenigbaar is met $*$.
+  
+\TODO{bewijs p 106 tai}
 \end{st}
 
 \subsection{Morfismen}
@@ -705,6 +711,12 @@
 \end{ei}
 
 \begin{st}
+  De verzamelingen der linker en rechter nevenklassen van een deelgroep $H,*$ van een groep $G,*$ zijn equipotent.
+  \[ |\{ xH\ |\ x \in G \}| = |\{ Hx\ |\ x \in G \}| \]
+  \TODO{bewijs p 101 tai}
+\end{st}
+
+\begin{st}
   Zij $G$ een groep en $H$ een deelgroep van $G$, De linkse(/rechter) nevenklassen van $H$ vormen een partitie van $G$
   De relatie ``X en Y liggen in dezelfde linkernevenklasse van $H$ in $G$'' is een equivalentierelatie.
 
@@ -762,6 +774,12 @@
     \end{itemize}
     Analoog kunnen we bewijven dat er een bijectie $f: H \rightarrow Hx$ bestaat.
   \end{proof}
+\end{st}
+
+\begin{st}
+  Een groep $G,*$ heeft evenveel linkse als rechtse nevenklassen.
+
+\TODO{bewijs}
 \end{st}
 
 \begin{st}
@@ -875,6 +893,10 @@
 \TODO{ bewijs }
 \end{ei}
 
+\begin{de}
+  Zij $G,*$ een commutatieve groep en $G_{1},*$ en $G_{2},*$ deelgroepen van $G$, en elk element $g$ valt op een unieke manier te schrijven als $g=g_{1}g_{2}$ met $g_{1}\in G_{1}$ en $g_{2}\in G_{2}$, dan noemen we $G$ de inwendige directe som van $G_{1}$ en $G_{2}$.
+\end{de}
+
 \section{Permutatiegroepen}
 \label{sec:permutatiegroepen}
 
@@ -905,9 +927,15 @@
 \end{st}
 
 \begin{st}
+  In een permutatiegroep heeft een element dat als een cykel van lengte $n$ wordt voorgesteld orde $n$
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
   \label{st:stelling-van-cayley}
   \term{Stelling van Cayley}:\\
-  Elke groep is isomorf met een permutatiegroep.
+  Elke groep is isomorf met een permutatiegroep (een deelgroep van $S(G),\circ$).
 
 \TODO{ bewijs }
 \end{st}
@@ -929,7 +957,7 @@
 
 \begin{de}
   Zij $G$ een groep en $x$ een element van $G$.
-  Een element $axa^{-1}$ met $a\in G$ in $G$ noemen we een \term{geconjugeerde} van $x$.
+  Een element $axa^{-1}$ met $a\in G$ in $G$ noemen we een \term{geconjugeerde} of \term{toegevoegde} van $x$.
 \end{de}
 
 \begin{de}
@@ -1125,6 +1153,12 @@
   \]
   
 \TODO{bewijs p 26}
+\end{st}
+
+\begin{st}
+  ZIj $G,*$ een groep, $H,*$ een deelgroep van $G,*$ en $\sim$ een equivalentierelatie op $G$, dan is $H$ een normaaldeler van $G$ als en slechts als $\sim$ zowel links als rechts verenigbaar is.
+
+\TODO{bewijs p 106 tai}
 \end{st}
 
 \begin{pr}
