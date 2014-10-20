@@ -248,6 +248,10 @@
 \end{st}
 
 \begin{de}
+  We noemen de verzameling van permutaties van $n$ elementen $\mathcal{S}_{n}$.
+\end{de}
+
+\begin{de}
   We noteren het voorschrift van een permutatie $\sigma: A\rightarrow A$ van een verzameling $A = a_{1},\dotsc,a_{n}$ soms als volgt:
   \[
   \sigma = 
@@ -296,10 +300,12 @@
   \right.
   \]
   \[ I(\pi) = \sum_{1\le i < j \le n}\phi(i,j) \]
+  Het \term{teken} van de permutatie $\pi$ noteren we als $sign(\pi)$ en is ofwel $1$ ofwel $-1$.
   \[ sign(\pi) = (-1)^{I(\pi)}\] 
 \end{de}
 
 \begin{ei}
+  \label{ei:samenstelling-permutaties-teken}
   Zij $\pi$ en $\rho$ permutaties.
   \[ sign(\pi\circ\rho) = sign(\pi)sign(\rho) \] 
   \begin{proof}
@@ -318,6 +324,11 @@
 
 \begin{de}
   We noemen een cykel van $r$ elementen even/oneven als $r$ even/oneven is.
+\end{de}
+
+\begin{de}
+  \label{de:even-permutaties}
+  We noemen de verzameling van even permutaties van $n$ elementen $A_{n}$.
 \end{de}
 
 \begin{st}

@@ -95,6 +95,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:criterium-deelgroep}
   Het \term{criterium van een deelgroep}.\\
   Zij $G,*$ een groep, en $H$ een deelverzameling van $G$.
   $H$ is een deelgroep van $G$ als en slechts als aan de volgende voorwaarden voldaan is.
@@ -927,6 +928,12 @@
 \end{st}
 
 \begin{st}
+  De orde van $\mathcal{A}_{n}$ is $\frac{n!}{2}$.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
   In een permutatiegroep heeft een element dat als een cykel van lengte $n$ wordt voorgesteld orde $n$
 
 \TODO{ bewijs }
@@ -949,7 +956,37 @@
 \begin{pr}
   De afbeelding $sgn: \mathcal{S}_{n},\circ \rightarrow \{1,-1\},\cdot$ is een groepsmorfisme met als kern $A_{n}$.
 
-\TODO{ bewijs p 18}
+  \begin{proof}
+    Kies twee willekeurige permutaties $\sigma$ en $\tau$ uit $\mathcal{S}_{n}$.
+    Nu geldt het volgende, bijgevolg is $sgn$ een morfisme.\footnote{Zie stelling \ref{ei:samenstelling-permutaties-teken}}
+    \[ sgn(\sigma \circ \tau) = sgn(\sigma) \cdot sgn(\tau) \]
+    De kern van dit morfisme zijn alle permutaties met teken $1$.
+    Dit zijn precies de permutaties in $A_{n}$.\footnote{Zie definitie \ref{de:even-permutaties}.}
+  \end{proof}
+\end{pr}
+ 
+\begin{pr}
+  De groep van even permutaties $\mathcal{A}_{n}$ is een deelgroep van $\mathcal{S}_{n}$.
+  \begin{proof}
+    We gaan de voorwaarden in het criterium voor een deelgroep na.\footnote{Zie stelling \ref{st:criterium-deelgroep}}.
+    \begin{itemize}
+    \item Het neutraal element van $\mathcal{S}_{n}$ is een even permutatie.
+    \item De samenstelling van twee even permutaties is opnieuw een even permutatie.
+      Kies namelijk twee willekeurige even permutaties $\sigma$ en $\tau$:
+      \[ sgn(\sigma \circ \tau) = sgn(\sigma) \cdot sgn(\tau) = 1 \cdot 1 = 1 \]
+    \item Voor elke even permutatie bestaat er een inverse permutatie die ook even is.
+      Kies een willekeurige even permutatie $\tau$:
+      \[
+      \begin{array}{rl}
+        \tau \circ \tau^{-1} &= Id\\
+        sgn(tau \circ \tau^{-1}) &= sgn(Id)\\
+        sgn(tau) \cdot sgn(\tau^{-1}) &= 1\\
+        1 \cdot sgn(\tau^{-1}) &= 1
+      \end{array}
+      \]
+      Het teken van $\tau^{-1}$ moet dus $1$ zijn en $\tau^{-1}$ bijgevolg even.
+    \end{itemize}
+  \end{proof}
 \end{pr}
 
 \section{Conjugatie}
@@ -966,6 +1003,7 @@
 \end{de}
 
 \begin{ei}
+  \label{ei:element-eigen-conjugatieklas}
   Een element behoort steeds tot zijn eigen conjugatieklas.
 
   \begin{proof}
@@ -975,24 +1013,82 @@
 \end{ei}
 
 \begin{ei}
+  \label{ei:conjugatieklassen-partitie}
   De verzameling van alle conjugatieklassen van een groep $G,*$ vormt een partitie van $G$ en bepaalt bijgevolg een equivalentierelatie.
-
-\TODO{bewijs pagina 19.}
+  \begin{proof}
+    We gaan alle eigenschappen van een partitie na.\footnote{Zie definitie \ref{de:partitie}.}
+    \begin{itemize}
+    \item Een conjugatieklasse van een element $x$ is nooit leeg want ze bevat steeds minstens $x$.
+    \item Conjugatieklassen zijn onderling disjunct.
+      Stel immers dat twee verschillende conjugatieklassen $Cl(x)$ en $Cl(y)$ van elementen $x$ en $y$ een niet-lege doorsnede hebben, dan bestaan er elementen $a,b \in G$ en een element $z$ in de doorsnede zodat het volgende geldt:
+      \[ axa^{-1} = z = byb^{-1} \]
+      Nu zit $x$ in de conjugatieklas $Cl(y)$ van $y$ met als geconjugeerde $b^{-1}a$ en $y$ in de conjugatieklas $Cl(x)$ van $x$ met als geconjugeerde $a^{-1}b$:
+      \[ (b^{-1}a)x(a^{-1}b) = y \]
+      \[ x = (a^{-1}b) y(b^{-1}a) \]
+\clarify{ Ik ben nog niet overtuigd... }
+      Contradictie.
+    \item Elk element van $G$ zit in een conjugatieklas.\footnote{Zie eigenschap \ref{ei:element-eigen-conjugatieklas}.}
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{st}
   Zij $G,*$ een groep en $a$ en $b$ twee elementen van $G$.
-  \[ Cl(a) = Cl(b) \Leftrightarrow b \in Cl(a) \Leftrightarrow Cl(b) \]
+  \[ Cl(a) = Cl(b) \Leftrightarrow b \in Cl(a) \Leftrightarrow a \in Cl(b) \]
+
+  \begin{proof}
+    Twee verschillende conjugatieklassen zijn disjunct\footnote{Zie eigenschap \ref{ei:conjugatieklassen-partitie}.}, dus twee elementen zitten in dezelfde conjugatieklas als en slechts als een van de elementen in de conjugatieklas van het andere zit.
+  \end{proof}
 \end{st}
 
 \begin{ei}
   Twee permutaties $\sigma$ en $\tau$ in $\mathcal{S}_{n}$ zijn geconjugeerd als en slechts als ze dezelfde cykelstructuur hebben.
   Met andere woorden als en slechts als $\sigma$ en $\tau$ evenveel cykels hebben van elke optredende lengte.
-
-\TODO{bewijs pagina 19.}
+  
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Zij $\sigma$ en $\tau$ twee geconjugeerde permutaties in $\mathcal{S}_{n}$.
+      Er bestaat dan een geconjugeerd element $\alpha$:
+      \[ \alpha \sigma \alpha^{-1} = \tau \]
+      Schrijf nu $\sigma$ in de disjuncte cykelnotatie als volgt:
+      \[ \sigma = (i_{1,1}\dotsc i_{1,j_{1}})(i_{2,1}\dotsc i_{2,j_{2}}) \dotsc (i_{k,1}\dotsc i_{k,j_{k}}) \]
+      Het aantal elementen in de $m$-de cykel is $j_{m}$ en het totaal aantal cykels is $k$.
+      Allereerst merken we het volgende op:
+      \[ \alpha \circ (i_{m,1}\dotsc i_{m,j_{m}}) \circ \alpha^{-1} = (\alpha(i_{m,1})\dotsc\alpha(i_{m,j_{m}})) \]
+\clarify{waarom? maak algoritme voor samenstelling van cykels en toon dan aan.}
+      Dit is bovendien opnieuw een $j_{m}$-cykel.
+      Bekijk nu $\tau$:
+      \[ 
+      \begin{array}{rl}
+      \tau &= \alpha \circ \sigma \circ \alpha^{-1}\\
+           &= \alpha \circ (i_{1,1}\dotsc i_{1,j_{1}})(i_{2,1}\dotsc i_{2,j_{2}}) \dotsc (i_{k,1}\dotsc i_{k,j_{k}}) \circ \alpha^{-1}\\
+           &= (\alpha \circ (i_{1,1}\dotsc i_{1,j_{1}})\circ \alpha^{-1}) \circ (\alpha \circ(i_{2,1}\dotsc i_{2,j_{2}})\circ \alpha^{-1}) \circ \dotsc \circ (\alpha \circ(i_{k,1}\dotsc i_{k,j_{k}}) \circ \alpha^{-1})\\
+           &= (\alpha(i_{2,1})\dotsc\alpha(i_{2,j_{2}})) \circ (\alpha(i_{2,1})\dotsc\alpha(i_{2,j_{2}})) \circ \dotsc \circ (\alpha(i_{k,1})\dotsc\alpha(i_{k,j_{k}}))
+      \end{array}
+      \]
+      Deze schrijfwijze bestaat opnieuw uit disjuncte cykels.
+      \clarify{waarom?}
+      De cykelstructuur is bovendien gelijk aan die van $\sigma$.
+    \item $\Leftarrow$\\
+      Stel dat twee permutaties $\sigma$ en $\tau$ dezelfde cykelstructuur hebben.
+      \[ \sigma = (i_{1,1}\dotsc i_{1,j_{1}})(i_{2,1}\dotsc i_{2,j_{2}}) \dotsc (i_{k,1}\dotsc i_{k,j_{k}}) \]
+      \[ \sigma = (i'_{1,1}\dotsc i'_{1,j_{1}})(i'_{2,1}\dotsc i'_{2,j_{2}}) \dotsc (i'_{k,1}\dotsc i'_{k,j_{k}}) \]
+      We construeren nu een permutatie $\alpha$ van $\{ 1,\dotsc,n \}$ zodat $\tau$ en $\sigma$ conjugeren als volgt:
+      \[
+        \forall p,q:\ \alpha(i_{p,q}) = i'_{p,q}\\
+      \]
+      De andere elementen beeldt $\alpha$ op zichzelf af.
+      \clarify{Zeker?}
+      Nu conjugeert $\alpha$ $\tau$ met $\sigma$.
+      \clarify{Ja?}
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{de}
+  \label{de:sigma-a}
   Zij $G,*$ een groep en $a$ een element van $G$.
   De \term{conjugatie met een element} $a$ of het \term{inwendig automorfisme bepaald door een element} $a$ is een afbeelding $\sigma_{a}$:
   \[ \sigma_{a}:\ G \rightarrow G:\ x \mapsto axa^{-1} \]
@@ -1001,12 +1097,26 @@
 \begin{ei}
   Zij $G,*$ een groep en $a$ een element van $G$, dan is $\sigma_{a}$ een automorfisme.
   
-\TODO{bewijs}
+  \begin{proof}
+    $\sigma_{a}$ is een transformatie van $G$\footnote{Zie definitie \ref{de:sigma-a}.}, dus we moeten enkel nog bewijzen dat $\sigma_{a}$ voor elke $a$ een bijectie is.
+    Kies daarvoor een willekeurige $a$ uit $G$.
+    \begin{itemize}
+    \item $\sigma_{a}$ is een surjuctie.
+      Kies een element $b$ in het beeld van $\sigma_{a}$, dan bestaat er een $x$ zodat $x$ op $b$ afgebeeldt wordt:
+      \[ \sigma_{a}(x) = b \]
+      $b$ is namelijk gelijk aan $axa^{-1}$ dus $x$ is gelijk aan $a^{-1}ba$.
+    \item $\sigma_{a}$ is een injectie.
+      Kies twee elementen $x$ en $y$ met eenzelfde beeld $b$ onder $\sigma_{a}$.
+      \[ axa^{-1} = aya^{-1} \]
+      $x$ is dan gelijk aan $y$.
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Zij $G,*$ een groep, dan is de afbeelding $\sigma$ een groepsmorfisme:
   \[ \sigma:\ G,* \rightarrow Aut G,\circ:\ a \mapsto \sigma_{a} \]
+\TODO{bewijs}
 \end{ei}
 
 \begin{de}
