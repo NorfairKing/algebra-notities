@@ -1444,6 +1444,220 @@
 \section{De isomorfismestellingen}
 \label{sec:isomorfismestellingen}
 
+\begin{st}
+  \term{Eerste isomorfismestelling}\\
+  Zij $\phi: G \rightarrow H$ een groepsmorfisme, dan is $\bar{\phi}: G/Ker(\phi) \rightarrow H: gKer(\phi) \mapsto \phi(g)$ een injectief groepsmorgifsme.
+  Bijgevolg is $G/Ker(\phi)$ isomorf met $\phi(G)$.
+  \[ G/Ker(\phi) \cong \phi(G) \]
+  Een alternatieve formulering van deze stelling gaat als volgt:
+  Zij $\phi: G \rightarrow H$ een groepsmorfisme, dan is het volgende diagram commutatief en $\phi'$ een isomorfisme.
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+      {
+       G & H \\
+       G/Ker(\phi) & \phi(G) \\};
+      \path[-stealth]
+      (m-1-1) edge node [left] {$\pi$} (m-2-1)
+              edge [double] node [above] {$\phi$} (m-1-2)
+      (m-2-1.east|-m-2-2) edge node [below] {$\phi'$} (m-2-2)
+      (m-2-2) edge node [right] {$i$} (m-1-2)
+      (m-2-1) edge [dashed] node [above] {$\bar{\phi}$} (m-1-2);
+    \end{tikzpicture}
+  \end{figure}
+  Nog een derde formulering als volgt:
+  Met dezelde notaties: een groepsmorfisme $\phi$ kan ontbonden worden als een samenstelling van een surjectie $\pi$ en de injectie $\bar{\phi} = i \circ \phi'$
+  \clarify{dit kan duidelijker}
+  \TODO{bewijs p 33}
+\end{st}
+
+\begin{pr}
+  Zij $G$ een groep, dan zijn de nevenklassen van het centrum van $G$ in $G$ isomorf met de groep der inwendige automorfismen van $G$.
+  \TODO{bewijs p 34}
+\end{pr}
+
+\begin{st}
+De \term{factorisatiestelling} deel 1\\
+Zij $f: G\rightarrow H$ een groepsmorfisme en $N\subseteq Ker(f)$ een normaaldeler van $G$.
+Er bestaan dan een uniek groepsmorfisme $f':G/N \rightarrow H$ zodat $f$ kan ontbonden worden als $f'\circ \pi$.
+\TODO{bewijs p 34}
+\end{st}
+
+\begin{st}
+De \term{factorisatiestelling} deel 2\\
+Zij $f: G\rightarrow H$ een groepsmorfisme en $N\subseteq Ker(f)$ een normaaldeler van $G$.
+Het groepsmorfisme $f'$ met $f = f'\circ \pi$ is injectief als en slechts als $N$ gelijk is aan de kern van $f$.
+\[ f':G/N \rightarrow H \text{ is injectief } \Leftrightarrow N = Ker(f) \]
+\TODO{bewijs p 34}
+\end{st}
+
+\begin{de}
+Zij $G,*$ een groep en $X \subseteq G$ een deelverzameling van $G$.
+De groep $grp\{X\}$ voortgebracht door $X$ is de doorsnede van alle deelgroepen van $G$ die $X$ omvatten. 
+\[ grp\{X\} = grp<X> = <X> \]
+De groep voortgebracht door $X$ is de kleinste deelgroep van $G$ die $X$ omvat.
+\end{de}
+
+\begin{opm}
+Zij $G,*$ een groep en $x$ en $y$ twee elementen van $G$.
+De groep $<x,y>$ voortgebracht door $x$ en $y$ is niet zomaar gelijk aan de volgende verzameling (analoog met een cyclische groep).
+\[ \{ x^{k}y^{l}\ |\ k,l\in \mathbb{Z} \} \]
+\end{opm}
+
+\begin{ei}
+Zij $G,\cdot$ een groep en $X \subseteq G$ een deelverzameling van $G$, dan is de groep $<X>$ voortgebracht door $X$ gelijk aan de verzameling van alle mogelijke samenstellingen van elementen uit $X$ en hun inversen.
+\[ <X> = \left\{ \prod_{i=0}^{n}a_{i} \ \left|\ n\in \mathbb{N}, a_{i}\in X \vee a_{i}^{-1} \in X \right.\right\}\]
+\TODO{bewijs p 34}
+\end{ei}
+
+\begin{pr}
+\[ \mathcal{S}_n = <(12),(13),(14),\dotsc, (1\, n-1), (1n)> \]
+\extra{bewijs p 34}
+\end{pr}
+
+\begin{pr}
+\[ \mathcal{S}_n = <(12),(23),(34),\dotsc, (n-2\, n-1), (n-1\,n)> \]
+\extra{bewijs p 34}
+\end{pr}
+
+\begin{pr}
+\[ \mathcal{S}_n = <(12), (123\dotsc n-1\,n)> \]
+\extra{bewijs p 34}
+\end{pr}
+
+\begin{pr}
+\[ \mathcal{A}_n = <(ab)(cd)\ |\ a\neq b \wedge c \neq d> \]
+\extra{bewijs p 34}
+\end{pr}
+
+\begin{pr}
+\[ n \ge 3 \Rightarrow \mathcal{A}_n = <(abc)\ |\ a,b,c \in \{1,2,\dotsc,n\}> \]
+\extra{bewijs p 34}
+\end{pr}
+
+\begin{de}
+Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan is $HK$ als volgt gedefinieerd.
+\[ H*K = \{ h*k\ |\ h\in H, k\in K \} \]
+\end{de}
+
+\begin{opm}
+Als $G$ niet commutatief is, dan zal $HK$ niet steeds de groep zijn voortgebracht door $H\cup K$.
+Het is zelfs niet steeds een deelgroep.
+\end{opm}
+
+\begin{st}
+Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan is $HK$ een deelverzameling van de groep voortgebracht door $H\cup K$.
+\[ HK \subseteq <H\cup K> \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+Zij $H$ en $K$ deelgroepen van een commutatieve groep $G,*$, dan is $HK$ gelijk aan de groep voortgebracht door $H\cup K$.
+\[ HK = <H\cup K> \]
+\extra{bewijs}
+\end{st}
+
+\begin{pr}
+Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan zijn de volgende stellingen equivalent.
+\begin{itemize}
+\item $HK = <H\cup K>$
+\item $HK$ is een deelgroep van $G$.
+\item $HK = KH$
+\end{itemize}
+\extra{bewijs p 36}
+\end{pr}
+
+\begin{gev}
+Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan geldt het volgende als $H$ of $K$ een normaaldeler is.
+\[ HK = KH = <H\cup K> \]
+\end{gev}
+
+\begin{st}
+\term{Tweede isomorfismestelling} of \term{parallellogramisomorfismestelling}\\
+Zij $G$ een groep. Zij $H$ een deelgroep van $G$ en $N$ een normaaldeler van $G$, dan gelden volgende beweringen.
+\[ (H \cap N) \triangleleft H \]
+\[ N \triangleleft HN \]
+\[ \frac{H}{H\cap N} \cong \frac{HN}{N} \]
+\TODO{bewijs p 37}
+\end{st}
+
+\begin{st}
+Zij $A$ en $B$ deelgroepen van een eindige groep $G$.
+\[ |AB| = \frac{|A|\cdot|B|}{|A\cap B|} \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+\term{Derde isomorfismestelling}\\
+Zij $G$ een groep en $N$ een normaaldeler van $G$.
+\begin{itemize}
+\item De afbeelding $H \mapsto H/N$ bepaalt een bijectie tussen de deelgroepen van $G$ die $N$ omvatten en de deelgroepen van $G/N$.
+\item Onder deze bijectie corresponderen normaaldelers van $G$ met normaaldelers van $G/N$.
+\item Zij $H$ nog een normaaldeler van $G$ zodat $N$ een deelverzameling is van $H$, dan geldt het volgende:
+\[ \nicefrac{(G/N)}{(H/N)} \cong G/H\]
+\end{itemize}
+\TODO{bewijs p 38}
+\end{st}
+
+\begin{st}
+Herformulering van commutativiteit\\
+Een groep is commutatief als en slechts als het volgende geldt:
+\[ \forall x,y \in G: xyx^{-1}y^{-1} = e \]
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+Zij $G$ een groep, dan zijn de elementen in $G$ van de vorm $xyx^{-1}y^{-1}$ met $x,y\in G$ \term{commutatoren}
+\end{de}
+
+\begin{de}
+De \term{commutatordeelgroep} of afgeleide groep $G' = G^{(1)}$ van $G$ is de groep voortgebracht door de commutatoren van $G$.
+\[ G' = G^{(1)} = < xyx^{-1}y^{-1} \ |\ x,y\in G > \]
+\end{de}
+
+\begin{st}
+Zij $G$ een groep.
+\[ G' \triangleleft G \]
+\TODO{bewijs p 39}
+\end{st}
+
+\begin{st}
+Zij $G$ een groep.
+\[ G/G' \text{ is commutatief } \]
+\TODO{bewijs p 39}
+\end{st}
+
+\begin{st}
+Zij $G$ een groep en $N$ een normaaldeler van $G$, dan is $G/N$ commutatief als en slechts als $G'$ een deel is van $N$.
+
+\[ G/N \text{ is commutatief } \Leftrightarrow G' \subseteq N \]
+\TODO{bewijs p 39}
+\end{st}
+
+\begin{st}
+Zij $G$ een groep, definieer dan $p$ als volgt:
+\[ p:\ G \rightarrow G/G':\ g \mapsto gG' \]
+Zij $f$ nu een groepsmorfisme van $G$ naar een commutatieve groep $A$, dan bestaat er een uniek morfisme $f'$ als volgt:
+\[ f':\ G/G' \rightarrow A \text{ met } f = f'\circ p \]
+\TODO{bewijs p 39}
+\end{st}
+
+\begin{de}
+De $n$-de afgeleide groep $G^{(n)}$ van een groep $G$ als volgt.
+\[ G^{(n)} = G_{(n-1)}' \]
+\end{de}
+
+\begin{pr}
+$G$ is oplosbaar als en slechts er een $k$-de afgeleide van $G$ bestaat die enkel het neutraal element bevat.
+\[ G \text{ is oplosbaar } \Leftrightarrow \exists k\in\mathbb{N}_{0}:\ G^{(k)} = \{e_{G}\} \]
+\TODO{bewijs p 40}
+\end{pr}
+
+\begin{st}
+Voor $n$ groter dan $4$ is $\mathcal{S}_{n}$ niet oplosbaar.
+\TODO{bewijs p 40}
+\end{st}
 
 
 \end{document}
