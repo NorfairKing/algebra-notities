@@ -177,6 +177,12 @@ hopl
 \TODO{bewijs p 106 tai}
 \end{st}
 
+\begin{st}
+  \label{st:doorsnede-deelgroepen}
+  De doorsneden van twee deelgroepen is opnieuw een deelgroep.
+\extra{bewijs}
+\end{st}
+
 \subsection{Morfismen}
 \label{sec:morfismen}
 
@@ -1162,6 +1168,7 @@ hopl
 \end{de}
 
 \begin{ei}
+  \label{ei:centralisator-is-deelgroep}
   Zij $G,*$ een groep, dan is elke centralisator $C_{G,*}(g)$ van $G,*$ een deelgroep van $G,*$.
   \begin{proof}
     We gaan het criterium voor een deelgroep na voor een willekeurig element $g$ in $G$
@@ -1193,7 +1200,15 @@ hopl
 \begin{ei}
   Het centrum van een groep is een deelgroep van die groep.
 
-\TODO{bewijs pagina 21.}
+  \begin{proof}
+    We kunnen dit op drie manieren bewijzen:
+    \begin{enumerate}
+    \item Het criterium van een deelgroep afgaan.
+    \item Het centrum van een groep is de doorsnede van deelgroepen. \footnote{Zie eigenschap \ref{ei:centralisator-is-deelgroep}.}
+\footnote{Zie stelling \ref{st:doorsnede-deelgroepen}.}
+    \item Het centrum van een een groep is de kern van $\sigma:\ G,* \rightarrow Aut G,\circ:\ a \mapsto \sigma_{a}$\footnote{Zie stelling \ref{st:kern-is-deelgroep}.}
+    \end{enumerate}
+  \end{proof}
 \end{ei}
 
 \begin{st}
