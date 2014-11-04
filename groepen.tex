@@ -1162,10 +1162,14 @@ hopl
   \[ C_{G,*}(g) = \{ x \in G\ |\ gx = xg \} \]
 \end{de}
 
-\begin{de}
-  Zij $G$ een groep, dan is het \term{centrum} van $G$ de deelverzameling van $G$ van elementen die met alle elementen van de groep commuteren.
-  \[ Z(G) = \{ x \in G\ |\ \forall g \in G:\ gx = xg\} = \bigcap_{g \in G}C_{G}(g) \]
-\end{de}
+\begin{ei}
+  \label{ei:centralisator-bevat-element}
+  De centralisator $C_{G}(a)$ van $a$ in een groep $G,*$ bevat steeds $a$.
+  
+  \begin{proof}
+    Inderdaad, $ga = ag$ geldt steeds voor $g=a$.
+  \end{proof}
+\end{ei}
 
 \begin{ei}
   \label{ei:centralisator-is-deelgroep}
@@ -1196,6 +1200,12 @@ hopl
     \end{itemize}
   \end{proof}
 \end{ei}
+
+\begin{de}
+  \label{de:centrum}
+  Zij $G$ een groep, dan is het \term{centrum} van $G$ de deelverzameling van $G$ van elementen die met alle elementen van de groep commuteren.
+  \[ Z(G) = \{ x \in G\ |\ \forall g \in G:\ gx = xg\} = \bigcap_{g \in G}C_{G}(g) \]
+\end{de}
 
 \begin{ei}
   \label{ei:centrum-is-deelgroep}
@@ -1283,6 +1293,7 @@ hopl
 \end{de}
 
 \begin{pr}
+  \label{pr:orde-centrum-pgroep-groter-dan-een}
   Zij $p$ een priemgetal en $P,*$ een $p$-groep, dan bevat het centrum $Z(P)$ van $P,*$ meer dan \'e\'en element.
   \[ |Z(P)| > 1 \]
   
@@ -1305,13 +1316,24 @@ hopl
 \begin{st}
   Zij $p$ een priemgetal, dan is elke groep met $p^{2}$ elementen commutatief.
 
-\TODO{bewijs pagina 23.}
+  \begin{proof}
+    Zij $P$ een groep met orde $p^{2}$.
+    De orde van het centrum $Z(P)$ van $P$ is groter dan $1$\prref{pr:orde-centrum-pgroep-groter-dan-een}.
+    De orde van het centrum is bovendien een deler van $p^{2}$\stref{st:stelling-van-lagrange} \eiref{ei:centrum-is-deelgroep}.
+    Bijgevolg zijn er precies twee mogelijkheden:
+    \[ |Z(P)| = p \text { of } |Z(P)| = p^{2} \]
+    Als $|Z(p)| = p^{2}$ geldt, is de groep gelijk aan het centrum van de groep en bijgevolg commutatief.\deref{de:centrum}
+    Als $|Z(p)|$ $p$ is, kies dan een element $a$ uit $P$ dat niet in het centrum zit. Dit kan omdat $p$ strikt kleiner is dan $p^{2}$.
+    De centralisator $C_{P}(a)$ van $a$ zal minstens zichzelf bevatten\eiref{ei:centralisator-bevat-element}, alsook het centrum van $P$, minstens $p+1$ elementen dus.
+    Die centralisator moet als orde een deler hebben van $|P|$,\eiref{ei:centralisator-is-deelgroep} \stref{st:stelling-van-lagrange} dus moet die centralisator heel $P$ omvatten.
+    Dit betekent echter dat $a$ toch een element is van het centrum want deze redenering gaat op voor elke $a$ buiten $Z(P)$, contradictie. 
+  \end{proof}
 \end{st}
 
 \begin{st}
   Elke groep van orde $9$ is isomorf met $\mathbb{Z}_{9}$ of met $\mathbb{Z}_{3} \oplus \mathbb{Z}_{3}$.
   
-\TODO{bewijs}
+\extra{bewijs}
 \end{st}
 
 \section{Normaaldelers en Quotientgroepen}
