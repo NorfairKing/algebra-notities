@@ -1198,6 +1198,7 @@ hopl
 \end{ei}
 
 \begin{ei}
+  \label{ei:centrum-is-deelgroep}
   Het centrum van een groep is een deelgroep van die groep.
 
   \begin{proof}
@@ -1213,17 +1214,34 @@ hopl
 
 \begin{st}
   Voor $n$ groter dan $1$ geldt het volgende over het centrum van $D_{n}$
-  \[ Z(D_{2n-1} = \{e\} \]
+  \[ Z(D_{2n-1}) = \{e\} \]
   \[ Z(D_{2n}) = \{e,a^{n}\} \]
   
-\TODO{bewijs}
+\extra{bewijs}
 \end{st}
 
 \begin{st}
   Zij $G$ een eindige groep en $a$ een element van $G$.
   \[ |G| = |C_{G}(a)|\cdot|Cl(a)| \]
 
-\TODO{bewijs pagina 21.}
+  \begin{proof}
+    We construeren een bijectie tussen de conjugatieklas $Cl(a)$ van $a$ en de verzameling van linkse nevenklassen van $C_{G}(a)$ in $G,*$.
+    Er geldt dan het volgende, wat equivalent is met de te bewijzen stelling.\footnote{Zie stelling \ref{st:stelling-van-lagrange}.}
+    \[ \frac{|G|}{|C_{G}(a)|} = |\{ gC_{G}(a) \ |\ a \in G \}| = Cl(a) \]
+    Beschouw nu de afbeelding $\phi$:
+    \[ \phi: \{ gC_{G}(a) \ |\ a \in G \} \rightarrow Cl(a): gC_{G}(a) \mapsto gag^{-1} \]
+    We bewijzen eerst dat $\phi$ goed gedefinieerd is.
+    Als we immers twee verschillende elementen $g$ en $h$ zouden kiezen van een linker nevenklasse $gC_{G}(a)$ dan zou $gag^{-1}$ gelijk moeten zijn aan $hah^{-1}$ opdat $\phi$ goed gedefinieerd zou zijn.
+    \[ gC_{G}(a) = hC_{G}(a) \Leftrightarrow h^{-1}gC_{G}(a) = C_{g}(a) \]
+    Omdat $h^{-1}g$ bijgevolge in $C_{g}(a)$ zit commuteert $h^{-1}g$ met $a$:
+    \[ \Leftrightarrow h^{-1}g \in C_{g}(a) \Leftrightarrow h^{-1}ga = ah^{-1}g \Leftrightarrow gag^{-1} = hah^{-1} \]
+    \begin{itemize}
+    \item $\phi$ is een injectie:\\
+      Stel dat $\phi(gC_{g}(a))$ gelijk is aan $\phi(hC_{g}(a))$, dus dat $gag^{-1}$ gelijk is aan $hah^{-1}$, dan geldt eenvoudigweg dat $gC_{G}(a)$ gelijk is aan $hC_{G}(a)$.
+    \item $\phi$ is een surjectie:\\
+      Inderdaad, voor elke mogelijke conjugatie (met $g$) van $a$ bestaat er een linker nevenklasse $gC_{G}(a)$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{gev}
