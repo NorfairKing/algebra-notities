@@ -1221,6 +1221,7 @@ hopl
 \end{st}
 
 \begin{st}
+  \label{st:orde-conjugatieklasse-centralisator}
   Zij $G$ een eindige groep en $a$ een element van $G$.
   \[ |G| = |C_{G}(a)|\cdot|Cl(a)| \]
 
@@ -1258,14 +1259,22 @@ hopl
   \label{st:klasvergelijking}
   De \term{klasvergelijking}\\
   Zij $G$ een eindige groep van orde $k$.
-  De som van het aantal orde in het centrum van $G$ en het aantal elementen van de conjungatieklassen met meer dan 1 element is gelijk aan het aantal elementen in $G$.
+  De som van het aantal orde in het centrum van $G$ en het aantal elementen van de conjungatieklassen met meer dan 1 element is gelijk aan het aantal elementen in $G$.\\
   In symbolen: Noteer de conjungatieklassen van $G$ als volgt:
   \[ Cl(a_{1}),\dotsc, Cl(a_{m}), Cl(a_{m+1}), \dotsc, Cl(a_{k}) \]
   De elementen met index kleiner of gelijk aan $m$ hebben een conjungatieklasse van grootte $1$, en de anderen een grotere.
   \[ |Cl(a_{1})| = \dotsb = |Cl(a_{m})| = 1 \text{ en } |Cl(a_{m+i})| > 1\]
-  \[ |G| = Z(G) + \sum_{i=m+1}^{k}|Cl(a_{i})| \]
+  \[ |G| = |Z(G)| + \sum_{i=m+1}^{k}|Cl(a_{i})| \]
 
-\TODO{bewijs pagina 22.}
+  \begin{proof}
+    De conjugatieklassen van $G,*$ vormen een partitie.\footnote{Zie stellin \ref{ei:conjugatieklassen-partitie}.}
+    Bijgevolg geldt het volgende over $|G|$.
+    \[ |G| = \sum_{i=1}^{k}|Cl(a_{i})| \]
+    Merk nu op dat de orde van een conjugatieklasse $Cl(a_{i})$ $1$ is wanneer die conjugatieklasse $Cl(a_{i})$ enkel $a_{i}$ bevat.
+    Dit is precies wanneer de centralisator $C_{G,*}(a)$ van $a$ heel $G$ is\footnote{Zie stelling \ref{st:orde-conjugatieklasse-centralisator}.}, dus wanneer $a$ in het centrum van $G,*$ zit.
+    \[ \sum_{i=1}^{m}|Cl(a_{i})| = |Z(G)| \]
+    Hieruit volgt meteen de stelling.
+  \end{proof}
 \end{st}
 
 \begin{de}
