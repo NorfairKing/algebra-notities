@@ -1245,9 +1245,13 @@ hopl
 \end{st}
 
 \begin{gev}
-  Zij $G$ een eindige groep en $a$ een element van $G$, dan is $|Cl(a)|$ een deler van $|G|$.
+  Zij $G,*$ een eindige groep en $a$ een element van $G$, dan is $|Cl(a)|$ een deler van $|G|$.
   
-\TODO{bewijs}
+  \begin{proof}
+    Voor elk element $a$ van $G$ bestaat er een $q \in \mathbb{Z}$ zodat het volgende geldt:
+    \[ |G| = q \cdot |Cl(a)| \]
+    Sterker nog, die $q$ is gelijk aan $|C_{G}(a)|$.
+  \end{proof}
 \end{gev}
 
 \begin{st}
