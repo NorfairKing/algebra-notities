@@ -1246,6 +1246,7 @@ hopl
 \end{st}
 
 \begin{gev}
+  \label{gev:orde-conjugatieklasse-deelt-orde-groep}
   Zij $G,*$ een eindige groep en $a$ een element van $G$, dan is $|Cl(a)|$ een deler van $|G|$.
   
   \begin{proof}
@@ -1278,22 +1279,28 @@ hopl
 \end{st}
 
 \begin{de}
-  Een groep $P$ met een macht $p^{k}$ van een priemgetal $p$ als orde noemen we een $p$-groep.
+  Een groep $P,*$ met een macht $p^{k}$ van een priemgetal $p$ als orde noemen we een $p$-groep.
 \end{de}
 
 \begin{pr}
-  Zij $p$ een priemgetal en $P$ een $p$-groep, dan bevat het centrum van $P$ meer dan \'e\'en element.
+  Zij $p$ een priemgetal en $P,*$ een $p$-groep, dan bevat het centrum $Z(P)$ van $P,*$ meer dan \'e\'en element.
   \[ |Z(P)| > 1 \]
-
-\TODO{bewijs pagina 22.}
+  
+  \begin{proof}
+    Het aantal elementen in het centrum van een $p$-groep bevat meer dan \'e\'en element als en slechts als het aantal elementen van dat centrum groter is of gelijk aan $p$.
+    Dit als en slechts als $p$ de orde van $Z(P)$ deelt.
+    De orde van $Z(P)$ deelt immers de orde van $P$ want $Z(P)$ is een deelgroep van $G,*$.\footnote{Zie eigenschap \ref{ei:centrum-is-deelgroep}.} \stref{st:stelling-van-lagrange}
+    Als $|P|$ niet $1$ is, deelt $p$ dus zeker de orde van $Z(P)$.
+    \[ |Z(P)| > 1 \Leftrightarrow |Z(P)| \ge p \Leftrightarrow p \text{ deelt } |Z(p)| \]
+    Zij de orde van $|P|$ de $r$-de macht van $p$.
+    \[ |P| = p^{r} \]
+    Zij $Cl(a_{1})$ tot en met $Cl(a_{k})$ de conjugatieklassen van $G,*$ zoals in de formulering van de klasvergelijking.
+    \[ p^{r} = |P| = |Z(G)| + \sum_{i=m+1}^{k}|Cl(a_{i})| \]
+    Omdat de orde van $Cl(a_{i})$ ook $|P|$ deelt\footnote{Zie gevolg \ref{gev:orde-conjugatieklasse-deelt-orde-groep}.}, moet $|Cl(a_{i})|$ met $i$ groter dan $m$ een strikt positieve macht zijn van $p$.
+    Bijgevolg moet $p$ een deler zijn van $|Z(p)|$ \clarify{waarom?} en $|Z(p)|$ dus groter dan $1$.
+  \end{proof}
 \end{pr}
 
-\begin{ei}
-  Zij $p$ een priemgetal en $P$ een $p$-groep, dan deelt $p$ het aantal elementen in het centrum van $P$.
-  \[ p\ |\ |Z(P)|\]
-
-\TODO{bewijs pagina 22.}
-\end{ei}
 
 \begin{st}
   Zij $p$ een priemgetal, dan is elke groep met $p^{2}$ elementen commutatief.
