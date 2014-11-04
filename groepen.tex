@@ -1137,7 +1137,6 @@ hopl
     \end{array}
     \]
   \end{proof}
-\TODO{bewijs}
 \end{ei}
 
 \begin{de}
@@ -1147,11 +1146,14 @@ hopl
 
 \begin{st}
   De groep $InnG$ der inwendige automorfismen van een groep $G$ is wel degelijk een deelgroep van $AutG$.
+\extra{bewijs}
 \end{st}
 
+\extra{bekijk expliciet wat er gebeurt in commutatieve groepen voor bovenstaande begrippen.}
+
 \begin{de}
-  Zij $G$ een groep en $g$ een element van $G$, dan is de \term{centralisator} van $g$ in $G$ de verzameling $C_{G}(g)$ van de elemneten in $G$ die commuteren met $G$.
-  \[ C_{G}(g) = \{ x \in G\ |\ gx = xg \} \]
+  Zij $G,*$ een groep en $g$ een element van $G$, dan is de \term{centralisator} van $g$ in $G,*$ de verzameling $C_{G,*}(g)$ van de elemneten in $G$ die commuteren met $g$.
+  \[ C_{G,*}(g) = \{ x \in G\ |\ gx = xg \} \]
 \end{de}
 
 \begin{de}
@@ -1160,9 +1162,32 @@ hopl
 \end{de}
 
 \begin{ei}
-  Zij $G$ een groep, dan is elke centralisator $C_{G}(g)$ van $G$ een deelgroep van $G$.
-
-\TODO{bewijs pagina 21.}
+  Zij $G,*$ een groep, dan is elke centralisator $C_{G,*}(g)$ van $G,*$ een deelgroep van $G,*$.
+  \begin{proof}
+    We gaan het criterium voor een deelgroep na voor een willekeurig element $g$ in $G$
+    \begin{itemize}
+    \item Het neutraal element van $G,*$ is een element van $C_{G,*}(g)$.
+      \[ \forall g\in G: ge_{G} = e_{G}g \]
+    \item Kies twee elementen $x$ en $y$ die commuteren met $g$
+      \[
+      \begin{array}{rll}
+        (x*y)*g &= x*(y*g)&\\
+                &= x*(g*y) &\\
+                &= (x*g)*y &\\
+                &= (g*x)*y &= g*(x*y)
+      \end{array}
+      \]
+    \item Kies een element $x$ dat commuteert met $g$:
+      \[
+      \begin{array}{rl}
+        xx^{-1} &= e\\
+        gxx^{-1} &= g\\
+        xgx^{-1} &= g\\
+        gx^{-1} &= x^{-1}g
+      \end{array}
+      \]
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{ei}
