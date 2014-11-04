@@ -124,6 +124,7 @@
     \end{itemize}
   \end{proof}
 \end{st}
+hopl
 
 \begin{st}
   \term{alternatieve criteria}.\\
@@ -1002,6 +1003,11 @@
   \[ Cl(x) = \{ axa^{-1}\ |\ a \in G \} \]
 \end{de}
 
+\begin{st}
+  In elke groep is de conjugatieklas van het neutraal element het singleton van het neutraal element.
+\extra{bewijs}
+\end{st}
+
 \begin{ei}
   \label{ei:element-eigen-conjugatieklas}
   Een element behoort steeds tot zijn eigen conjugatieklas.
@@ -1116,6 +1122,21 @@
 \begin{ei}
   Zij $G,*$ een groep, dan is de afbeelding $\sigma$ een groepsmorfisme:
   \[ \sigma:\ G,* \rightarrow Aut G,\circ:\ a \mapsto \sigma_{a} \]
+
+  \begin{proof}
+    Kies twee willekeurige elementen $a$ en $b$ uit $G$.
+    \[ \sigma(a * b) = \sigma_{a * b}\]
+    \[ \sigma(a) \circ \sigma(b) = \sigma_{a} \circ \sigma_{b} \]
+    Kies nu een willekeurig element $x$ uit $G$:
+    \[
+    \begin{array}{rll}
+      \sigma_{a * b}(x) &= (a*b)*x*(a*b)^{-1} &\\
+                       &= a*b*x*b^{-1}a^{-1} &\\
+                       &= a*\sigma_{b}(x)*a^{-1} &\\
+                       &= \sigma_{a}(\sigma_{b}(x)) = (\sigma_{a} \circ \sigma_{b})(x)      
+    \end{array}
+    \]
+  \end{proof}
 \TODO{bewijs}
 \end{ei}
 
@@ -1658,6 +1679,7 @@ $G$ is oplosbaar als en slechts er een $k$-de afgeleide van $G$ bestaat die enke
 Voor $n$ groter dan $4$ is $\mathcal{S}_{n}$ niet oplosbaar.
 \TODO{bewijs p 40}
 \end{st}
+
 
 
 \end{document}
