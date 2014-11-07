@@ -24,11 +24,10 @@
 \newcommand{\clarify}[1]{\todo[color=yellow,inline,size=\small]{CLARIFY: #1}}
 \newcommand{\question}[1]{\todo[color=yellow,inline,size=\small]{QUESTION: #1}}
 
-% Nuttigere emph
-\let\oldemph\emph
-\renewcommand\emph[1]{{\textbf{\oldemph{#1}}}}
-
-\newcommand{\term}[1]{\index{#1}\emph{#1}}
+\newcommand{\term}[1]{\index{#1}\textbf{#1}}
 
 %badges
-\newcommand{\commutatief}[0]{\framebox[1.1\width]{Commutatief}}
+\newcommand{\commj}[0]{\framebox[1.1\width]{Commutatief: Ja}}
+\newcommand{\commn}[0]{\framebox[1.1\width]{Commutatief: Nee}}
+\newcommand{\eenhj}[1]{\framebox[1.1\width]{Eenheidselement: #1}}
+\newcommand{\eenhn}[0]{\framebox[1.1\width]{Eenheidselement: Nee}}

@@ -146,6 +146,122 @@
 \TODO{bewijs}
 \end{ei}
 
+\begin{de}
+  Zij $a$, $b$ en $q$ elementen van een integriteitsdomein $D,+,\cdot$ zodat $a= qb$ met $b$ niet het nulelement $e$, dan noemen we $b$ een deler van $a$.
+  \[ b\ |\ a \Leftrightarrow \exists q \in D: a = qb \]
+\end{de}
+
+\begin{st}
+  Zij $a$, $b$ en $c$ elementen van een integriteitsdomein $D,+,\cdot$.
+  \[ (a\ |\ b \wedge a\ |\ c) \Rightarrow a\ |\ (b+c) \]
+\TODO{bewijs TAI p 123}
+\end{st}
+
+\begin{st}
+  Zij $a$ en $b$ elementen van een integriteitsdomein $D,+,\cdot$.
+  \[ \forall r \in D:\ a\ |\ b \Rightarrow a\ |\ br  \]
+\TODO{bewijs TAI p 123}
+\end{st}
+
+\begin{st}
+  Zij $a$, $b$ en $c$ elementen van een integriteitsdomein $D,+,\cdot$.
+  \[ (a\ |\ b \wedge b\ |\ c) \Rightarrow a\ |\ c \]
+\TODO{bewijs TAI p 123}
+\end{st}
+
+\begin{de}
+  We noemen twee (niet-nul)elementen $a$ en $b$ uit een integriteitsdomein $D,+,\cdot$, met eenheidselement $i$, \term{geassocieerd} als er een eenheid $u$ bestaat in $D$ zodat $a=ub$ geldt:
+  \[ a \sim_{D} b \Leftrightarrow \exists u,u'\in D:\ uu'= i = u'u \wedge a = ub \]
+\question{ is de associatie een equivalentierelatie? }
+\end{de}
+
+\begin{st}
+  Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
+  \[ a \sim_{D} b \Leftrightarrow (a\ |\ b \wedge b\ |\ a) \]
+  \TODO{bewijs p 123}
+\end{st}
+
+\begin{st}
+  Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
+  \[ (a \sim_{D} b \wedge c \sim_{D} d) \Leftrightarrow (a\ |\ c \wedge b\ |\ d) \]
+  \TODO{bewijs p 123}
+\end{st}
+
+\begin{de}
+  We noemen een deler $a$ van $b$ een \term{echte deler} van $b$ als $a$ niet-inverteerbaar is en niet geassocieerd is met $b$.
+\end{de}
+
+\begin{de}
+  Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
+  We noemen $g\in D$ een \term{grootste gemene deler} van $a$ en $b$ als $g$ zowel een deler is van $a$ als van $b$ en elke andere deler van $a$ en $b$ een deler is van $g$.
+  \[ g = ggd(a,b) \Leftrightarrow (g\ |\ a \wedge g\ |\ b \wedge (\forall c\in D: (c\ |\ a \wedge c\ |\ b) \Rightarrow c\ |\ g)) \]
+\end{de}
+
+\begin{de}
+  Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
+  We noemmen $k\in D$ een \term{kleinst gemeen veelvoud} van $a$ en $b$ als $k$ zowel een veelvoud is van $a$ als van $b$ en elk ander gemeen veelvoud van $a$ en $b$ een veelvoud is van $k$.
+  \[ g = kgv(a,b) \Leftrightarrow (a\ |\ k \wedge b\ |\ k \wedge (\forall c\in D: (a\ |\ c \wedge b\ |\ c) \Rightarrow k\ |\ c)) \]
+\end{de}
+
+\begin{st}
+  Een grootst gemene deler is uniek op een inverteerbaar element na.
+  Zij $D,+,\cdot$ een integriteitsdomein.
+  \[ \forall a,b,g_{1},g_{2} \in D:\ (g_{1} = ggd(a,b) \wedge g_{2} = ggd(a,b)) \Rightarrow g_{1} \sim_{D} g_{2} \]
+\TODO{bewijs p 124 TAI}
+\end{st}
+
+\begin{st}
+  Zij $D,+,\cdot$ een integriteitsdomein.
+  \[ \forall a,b,g_{1},g_{2} \in D:\ (g_{1} \sim_{D} g_{2} \wedge g_{1} = ggd(a,b)) \Rightarrow g_{2} = ggd(a,b) \]
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  Zij $D,+,\cdot$ een integriteitsdomein en $p$ een niet-nulelement van $D$, dan noemen we $p$ een \term{priemelement} als uit $p=ab$ volgt dat $a$ of $b$ inverteerbaar is in $D$.
+\end{de}
+
+\begin{opm}
+  Een priemgetal heeft dus geen echte delers.
+\end{opm}
+
+\begin{de}
+  We noemen een integriteitsdomein $D,+,\cdot$ een euclidische ring als er een afbeelding $d:\ D\setminus \{e_{D,+}\} \rightarrow D \setminus \{e_{D,+}\}$ bestaat die elk niet-nulelement $a$ afbeeldt op een niet-negatief geheel getal $d(a)$ zodat het volgende geldt:
+\begin{itemize}
+\item $\forall a,b \in D\setminus \{e_{D,+}\}:\ d(a) \le d(ab)$
+\item $\forall a \in D,\ \forall b\in D\setminus \{e_{D,+}\}:\ \exists q,r \in D:\ (a = qb+r \wedge (r=0 \vee d(r) < d(b)))$
+\end{itemize}
+\clarify{welke orderelatie?}
+\end{de}
+
+\begin{st}
+  In een euclidische ring $D,+,\cdot$ met afbeelding $d$ geldt het volgende:
+  \[ \forall a,b \in D:\ d(a) = d(ab) \Leftrightarrow b \text{ is inverteerbaar} \]
+\TODO{bewijs p 125}
+\end{st}
+
+\begin{st}
+  In een euclidische ring $D,+,\cdot$ met afbeelding $d$ geldt het volgende:
+  \[ \forall a,b \in D:\ d(a) < d(ab) \Leftrightarrow b \text{ is niet inverteerbaar} \]
+\TODO{bewijs p 125}
+\end{st}
+
+\begin{st}
+  In een euclidische ring $D,+,\cdot$ met afbeelding $d$ geldt het volgende:
+  \[ \forall a,b \in D:\ b \text{ is een echte deler van } a \Rightarrow d(b) < d(a) \]
+\TODO{bewijs p 125}
+\end{st}
+
+\begin{st}
+  Stelling van B\'ezout\\
+  In een Euclidische ring $D,+,\cdot$ bestaat er een grootste gemene deler van elk paar elementen $(a,b)$ die niet allebei het nulelement zijn.
+  Bovendien kan die grootste gemene deler $g$ beschreven worden als volgt:
+  \[ ggd(a,b) = g = \alpha \cdot a + \beta \cdot b \text{ met }\alpha,\beta \in D \]
+\TODO{bewijs p 126 TAI}
+\end{st}
+
+\TODO{ vanaf algoritme van Euclides om grootste gemene deler te vinden
+  p 126 TAI tot sectie 7 p 129}
+
 \subsection{Lichaam}
 \label{sec:lichaam}
 
@@ -182,6 +298,7 @@
 \begin{st}
   Een eindig integriteitsdomein is een veld.
 \TODO{bewijs p 44 A I}
+\TODO{bewijs p 118 TAI}
 \end{st}
 
 \begin{gev}
@@ -193,6 +310,15 @@
   Een eindig lichaam is een veld.
 \extra{toch eens bewijs proberen?zie stelling \ref{st:stelling-van-wedderburn}.}
 \end{st}
+
+\begin{st}
+  In een veld hebben alle van het nulelement verschillende elementen dezelfde additieve orde.
+\TODO{bewijs p 119}
+\end{st}
+
+\begin{de}
+  De additieve orde van de van $0$ verschillende elementen van een veld noemt met de \term{karakteristiek} van het veld.
+\end{de}
 
 
 \subsection{Direct product}
@@ -377,7 +503,44 @@
   \TODO{bewijs p 49 A}
 \end{ei}
 
+\subsection{Idealen}
+\label{sec:idealen}
 
+\TODO{linker, en rechterideaal}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring en $I$ een deelverzameling van $R$.
+  $I$ is een \term{ideaal} van $R$ als het valgende geldt:
+  \begin{itemize}
+  \item $I,+$ is een deelgroep van $R,+$.
+  \item $forall a \in R, \forall b \in I:\ a\cdot b \subseteq I \wedge b\cdot a \subseteq I$. 
+  \end{itemize}
+\end{de}
+
+\begin{st}
+  Elke ring heeft twee triviale idealen.
+  \begin{enumerate}
+  \item De ring met enkel het nulelement.
+  \item Heel de ring.
+  \end{enumerate}
+\extra{bewijs}
+\end{st}
+
+\begin{ei}
+  Een ideaal $I$ van een ring $R,+,\cdot$ is een normaaldeler van de groep $R,+$.
+\end{ei}
+
+\begin{de}
+  De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
+\end{de}
+
+\begin{de}
+  De \term{quotientring} $R/I$ van een ring $R,+,\cdot$ ten opzichte van een ideaal is de partitie van $R$ is restklassen van $I$, uitgerust met de quotientwetten:
+  \begin{itemize}
+  \item $\scalebox{1.5}{$+$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$+$}\ (y+I) = (x+y)+I$
+  \item $\scalebox{1.5}{$\cdot$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$\cdot$}\ (y+I) = (x\cdot y) + I$
+  \end{itemize}
+\end{de}
 
 
 
