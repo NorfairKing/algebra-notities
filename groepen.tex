@@ -1531,21 +1531,25 @@ hopl
   Hierin zijn $x'\in x*N$ en $y'\in f*N$ twee willekeurige \term{representanten}.
 \end{de}
 
-\begin{st}
+\begin{pr}
   De definitie van de quotientgroep $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G,*$ is enkel zinvol wanneer $H$ een normaaldeler is van $G,*$.
   't Is te zeggen. De bewerking $\bar{*}$ is enkel goed gedefinieerd, dus onafhankelijk van de representatenkeuze, wanneer $H$ een normaaldeler is.
   
   \begin{proof}
     Zij $H$ een normaaldeler van een groep $G,*$.
     Kies twee verschillende representaten $x'$, $x''$, $y'$ en $y''$ van $x$, respectievelijk $y$ in respectievelijk $x*H$ en $y*H$.
-
+    We moeten nu bewijzen dat $(x''*y'')*N$ gelijk is aan $(x'*y')*N$.
+    We weten dat $x''*N$ en $x'*N$ gelijk zijn, alsook $y''*N$ en $y'*N$ omdat ze beiden in $x*N$ zitten.\eiref{ei:nevenklasse-eigen-element-gelijk}
+    Er bestaan dus elementen $n_{x}$ en $n_{y}$ in $N$ zodat het volgende geldt:
+    \[ x'' = x'n_{x} \quad\text{ en }\quad y'' = y'n_{y} \]
+    Hieruit volgt eenvoudigweg het volgende:
+    \[ x'' * y'' = x' * n_{x} * y' * n_{y} \]
+    Omdat $y'$ in $y'N$ zit, geldt ook $N*y' = y'*N$.\eiref{ei:nevenklasse-eigen-element-gelijk}
+    Er bestaat dus een $n\in N$ zedat $n_{x} * y$ gelijk is aan $y' * n$.
+    \[ x'' * y'' = x' * y' * n * n_{y} \]
+    Omdat $n*n_{y}$ ook in $N$ zit, volgt hieruit dat de representatenkeuze niet uitmaakt.
+    \[  (x'' * y'') * N = (x' * y') * N \]
   \end{proof}
-\end{st}
-
-\begin{pr}
-  De bewerking $\bar{*}:\ G/N \times G/N$ is onafhankelijk van de gekozen representanten.
-  
-\TODO{bewijs p 27}
 \end{pr}
 
 \begin{st}
