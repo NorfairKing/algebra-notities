@@ -1559,12 +1559,29 @@ hopl
   \end{proof}
 \end{st}
 
+\begin{de}
+  We noemen $G/H,\bar{*}$ de \term{quotientgroep} of het \term{quotient} van $G$ door $H$.
+\end{de}
+
+\begin{de}
+  We verkorten de notatie van $\bar{*}$ soms naar $*$ als de bewerking op $G/H$.
+\end{de}
+
 \begin{st}
   Zij $G,*$ een groep en $N$ een normaaldeler van $G$, dan is de afbeelding $\pi$ een groepsmorfisme.
   \[ \pi:\ G \rightarrow G/N:\ x \mapsto x*N \]
-  
-\TODO{bewijs p 28}  
+
+  \begin{proof}
+    We moeten dat voor elke twee elementen $x$ en $y$ uit $G$ het volgende geldt:
+    \[ \pi(x*y) = \pi(x) \bar{*} \pi(y) \Rightarrow (x*N)\bar{*}(y*N) = (x*y)*N \]
+    Dit is een herformulering van de definitie van $\bar{*}$.
+  \end{proof}
 \end{st}
+
+\begin{de}
+  We verkorten de notatie $x*N$ soms als $\bar{x}$ voor $x\in G$.
+  \[ \overline{e_{G}} = e_{G}*N = N \quad\text{ en }\quad \bar{x}^{-1} = \overline{x^{-1}} \,\text{ of }\, -\bar{x} = \overline{-x} \]
+\end{de}
 
 \begin{de}
   Zij $G,*$ een groep en $N$ een normaaldeler van $G$.
@@ -1580,21 +1597,24 @@ hopl
 
 \begin{ei}
   De kern van $\pi\ G \rightarrow G/N:\ x \mapsto x*N$ is $N$.
-  
-\TODO{bewijs}
+
+  \begin{proof}
+    Elk element $n$ in $N$ wordt onder $\pi$ afgebeeldt op $n*N$, maar vermits $n$ in $n*N$ zit, is $n*N$ gelijk aan $N$.\eiref{ei:nevenklasse-eigen-element-gelijk}
+    Elk element $g$ buiten $N$ in $G$ wordt afgebeeldt op $g*N$ en vermits $g$ niet in $N$ zit, zitten er minstens $|N|+1$ elementen is $g*N$. $g*N$ kan dus niet gelijk zijn aan $N$.
+  \end{proof}
 \end{ei}
 
 \begin{gev}
-  Een deelgroep $N,*$ van een groep $G,*$ is een normaaldolor van $G$ als en slechts als deze de kern is van een groepsmorfisme vanuit $G$.
+  Een deelgroep $N,*$ van een groep $G,*$ is een normaaldelor van $G$ als en slechts als deze de kern is van een groepsmorfisme vanuit $G$.
   
-\TODO{bewijs}
+\extra{bewijs}
 \end{gev}
 
 \begin{st}
   Zij $N,*$ een deelgroep van een groep $G,*$, dan is $N$ een normaaldeler als de bewerking $\bar{*}$ van $G/N$ een groep maakt:
   \[ \bar{*}:\ G/N \times G/N \rightarrow G/N:\ (x*N)\bar{*}(y*N) = (x*y)*N \]
   
-\TODO{bewijs}
+\extra{bewijs}
 \end{st}
 
 \begin{st}
