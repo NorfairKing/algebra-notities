@@ -795,7 +795,7 @@ hopl
   \term{Stelling van Lagrange}:\\
   Zij $G,*$ een eindige groep en $H \subset G$ een deelgroep. Het aantal linkse (of rechtse) nevenklassen van $H$ in $G$ is dan gelijk aan:
   \[ [G:H] = \frac{|G|}{|H|} \]
-  We noemen dit de index van $H$ in $G$.
+  We noemen dit de \term{index} van $H$ in $G$.
   De orde van $H$ is bijgevolg een deler van de orde van $G$.
 
   \begin{proof}
@@ -1441,9 +1441,18 @@ hopl
 \end{pr}
 
 \begin{pr}
-  Zij $G,*$ een groep, dan is elke deelgroep van $G$ met index $2$ een normaaldeler van $G$.
-  
-\TODO{bewijs p 26}
+  Zij $G,*$ een groep, dan is elke deelgroep van een groep $G,*$ met index $2$ een normaaldeler van $G,*$.
+  \begin{proof}
+    Zij $H,*$ een deelgroep van een groep $G,*$ met index $2$.
+    \[ [G:H] = 2 \Leftrightarrow \frac{|G|}{|H|} = 2 \]
+    Het aantal nevenklassen van $H$ in $G$ in dan precies $2$.\stref{st:stelling-van-lagrange}
+    De nevenklassen zijn dan $H$ en $G\setminus H$.
+\clarify{waarom?}
+    We gaan nu na of $gH$ gelijk is aan $Hg$ voor elke $g\in G$.
+    Als $g$ in $H$ zit, dan is $gH$ gelijk aan $H$ en $Hg$. $gH=Hg$ geldt dan.
+    Als $g$ in $G\setminus H$ zit, dan zijn zowel $gH$ als $Hg$ niet gelijk aan $H$ geldt bijgevolg $gH = G\setminus H = Hg$.
+    \clarify{waarom?}
+  \end{proof}
 \end{pr}
 
 \begin{pr}
