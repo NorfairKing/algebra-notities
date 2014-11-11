@@ -1486,16 +1486,39 @@ hopl
   Zij $f:\ G,* \rightarrow H,\Box$ een groepsmorfisme
   $f$ behoudt het normaaldelen.
   \[ N \triangleleft G \Rightarrow f(N) \triangleleft f(G) \]
-  
-\TODO{bewijs}
+
+  \begin{proof}
+    Omdat $N$ een normaaldeler is van $G$, geldt voor elk element $g$ van $G$, dat er voor elk element $n$ van $N$ een element $n'$ in $N$ bestaat zodat het volgende geldt:
+    \[ g*n =n'*g \]
+    We beelden nu beiden kanten af onder $f$.
+    \[
+    \begin{array}{rl}
+      f(g*n) &= f(n'*g)\\  
+      f(g)\Box f(n) &= f(n') \Box f(g)\\
+    \end{array}
+    \]
+    Dit betekent precies dat $f(N)$ een normaaldeler is van $G$.
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Zij $f:\ G,* \rightarrow H,\Box$ een groepsmorfisme
   $f^{-1}$ behoudt het normaaldelen.
-  \[ N \triangleleft H \Rightarrow f^{-1}(N) \triangleleft G \]
-  
-\TODO{bewijs}
+  \[ f(N) \triangleleft H \Rightarrow N \triangleleft G \]
+
+  \begin{proof}
+    Omdat $N$ een normaaldeler is van $H$, geldt voor elk element $f(g)$ van $H$, dat er voor elk element $f(n)$ van $N$ een element $f(n')$ in $N$ bestaat zodat het volgende geldt:
+    \[ f(g) \Box f(n) = f(n') \Box f(g) \]
+    Gebruik nu de definierende eigenschap van een groepsmorfisme om het volgende te bekomen.
+    \[
+    \begin{array}{rl}
+      f(g*n) &= f(n'*g)\\
+      g*n &= n'*g
+    \end{array}
+    \]
+    \clarify{waarom moeten we hier niet eisen dat $f$ injectief is?}
+    
+  \end{proof}
 \end{ei}
 
 \subsection{Quotientgroepen}
