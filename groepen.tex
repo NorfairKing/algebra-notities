@@ -1456,9 +1456,16 @@ hopl
 \end{pr}
 
 \begin{pr}
-  Zij $G,*$ een groep en $N$ de enige deelgroep van $G$ met orde $|N|$, dan is $N$ een normaaldeler van $G$.
-  
-\TODO{bewijs p 26}
+  Zij $G,*$ een groep en $N,*$ de enige deelgroep van $G,*$ met orde $|N|$, dan is $N,*$ een normaaldeler van $G,*$.
+
+  \begin{proof}
+    Beschouw voor elke $g$ in $G$ het inwendig automorfisme $\sigma_{g}$:
+    \[ \sigma_{g}:\ G \rightarrow G:\ x \mapsto gxg^{-1} \]
+    Dit morfisme beeldt de deelgroep $N$ bijectief af op de deelgroep $gNg^{-1}$.
+    \clarify{waarom?}
+    \[ |gNg^{-1}| = |N| \]
+    Omdat $N$ de enige deelgroep is met $|N|$ elementen en $gNg^{-1}$ een deelgroep is \waarom van $G,*$ moeten $gNg^{-1}$ en $N$ gelijk zijn.
+  \end{proof}
 \end{pr}
 
 \begin{pr}
