@@ -1348,23 +1348,34 @@ hopl
 \begin{opm}
   Merk op dat volgende bewering niet noodzakelijk geldt voor een normaaldeler $H,*$ van een groep $G,*$:
   \[ \forall h \in H, g \in G:\ g*h = h*g \]
-  \clarify{is dit equivalent met: ``en normaaldeler is niet noodzakelijk het centrum van een groep.''}
+  \clarify{is dit equivalent met: ``en normaaldeler is niet noodzakelijk het centrum van een groep.'' ?}
 \end{opm}
 
 \begin{de}
-  Een \term{quotientgroep} $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G$ 
+  Een \term{quotientgroep} $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G$ is de groep der linker nevenklassen van $H$ met een bewerking $\bar{*}$ die onafhankelijk is van de representantenkeuze.
+  \[ (\bar{*}):\ G/H \rightarrow G/H:\ (x*H)\bar{*}(y*H) = (x' * y') * H \]
+  In de bovenstaande definitie zijn $x'$ en $y'$ twee willekeurig gekozen representaten.
 \end{de}
 
 \begin{st}
   Van een commutatieve groep is elke deelgroep een normaaldeler.
-  
-\TODO{bewijs}
+
+  \begin{proof}
+    Kies een deelgroep $D,*$ van een commutatieve groep $G,*$.
+    \[ \forall x\in G: x*D = \{ x*d | d \in D \} = \{ d*x | d \in D \} = D*x \]
+  \end{proof}
 \end{st}
 
 \begin{st}
-  In elke groep $G$ zijn $\{e_{G}\}$ en $G$ normaaldelers.
+  In elke groep $G,*$ zijn $\{e_{G}\},*$ en $G,*$ normaaldelers.
   
-\TODO{bewijs}
+  \begin{proof}
+    Aangezien de bewerking $*$ in $G$ intern is\deref{de:groep} geldt het volgende:
+    \[ gG = Gg \]
+    $G,*$ is dus een normaaldeler van $G,*$\\
+    Precies omdat $e_{G}$ het neutraal element is in $G,*$, is $\{e_{G}\},*$ een normaaldeler van $G,*$.
+    \[ e_G*\{e_{G}\} = \{e_{G} * e_{G}\} = \{e_{G}\}*e_{G} \]
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -1382,8 +1393,38 @@ hopl
                       &\overset{(3)}{\Leftrightarrow} & \forall g \in G,\forall h \in H:\ g*h*g^{-1} \in H\\
   \end{array}
   \]
-  
-\TODO{bewijs p 26}
+
+  \begin{proof}
+    \begin{enumerate}
+    \item Bewijs van een equivalentie.
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        \begin{itemize}
+        \item $gNg^{-1}\subseteq N$\\
+          Kies een willekeurig element $g*n*g^{-1}$ in $g*N*g^{-1}$.
+          Omdat $g*n$ in de nevenklasse van $N$ zit, moet er een $n'\in N$ bestaan zodat $g*n =n'*g$ geldt.
+          Laat dit nu precies $gng^{-1}$ zijn.
+          \[ gng^{-1} = n'gg^{-1} = n' \]
+          $gng^{-1}$ zit dus zeker in $N$.\\
+        \item $N \subseteq gNg^{-1}$\\
+          Kies een willekeurig element $n$ in $N$.
+          Omdat $n*g$ voor elk element $g\in G$ in de nevenklasse van $N$ zit, bestaat er een $n'\in N$ zodat $n*g = g*n'$ geldt.
+          \[ n = n * g * g^{-1} = g*n'*g^{-1}\]
+          $g*n'*g^{-1}$ zit zeker in $g*N*g^{-1}$.
+        \end{itemize}
+      \item $\Leftarrow$\\
+        Kies een willekeurig element $g$ van $G,*$. voor elk element $n$ van $N$ bestaat er nu een element $n'\in N$ als volgt:
+        \[ \forall n\in N,\ \exists n'\in N:\ g*n*g^{-1} =n' \]
+        Dit houdt precies het volgende in.
+        \[ \forall n\in N,\ \exists n'\in N:\ g*n=n'*g^{-1} \]
+        $N$ is dus een normaaldeler van $G$.
+        \[ g*N = N*g \]
+      \end{itemize}
+
+    \item \extra{bewijs}
+    \item Dit is precies hetzelfde als het tweede criterium, enkel geherformuleerd.
+    \end{enumerate}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -1442,6 +1483,17 @@ hopl
   \[ (x*N)\bar{*}(y*N) = (x'*y')*N \]
   Hierin zijn $x'\in x*N$ en $y'\in f*N$ twee willekeurige \term{representanten}.
 \end{de}
+
+\begin{st}
+  De definitie van de quotientgroep $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G,*$ is enkel zinvol wanneer $H$ een normaaldeler is van $G,*$.
+  't Is te zeggen. De bewerking $\bar{*}$ is enkel goed gedefinieerd, dus onafhankelijk van de representatenkeuze, wanneer $H$ een normaaldeler is.
+  
+  \begin{proof}
+    Zij $H$ een normaaldeler van een groep $G,*$.
+    Kies twee verschillende representaten $x'$, $x''$, $y'$ en $y''$ van $x$, respectievelijk $y$ in respectievelijk $x*H$ en $y*H$.
+
+  \end{proof}
+\end{st}
 
 \begin{pr}
   De bewerking $\bar{*}:\ G/N \times G/N$ is onafhankelijk van de gekozen representanten.
