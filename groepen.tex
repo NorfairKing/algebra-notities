@@ -696,6 +696,7 @@ hopl
 \end{ei}
 
 \begin{ei}
+  \label{ei:nevenklasse-eigen-element-gelijk}
   Zij $G,*$ een groep en $H$ een deelgroep van $G$.
   \[ \forall a \in G:\ aH = H \Leftrightarrow a \in H \Leftrightarrow Ha = H \]
 
@@ -1469,10 +1470,16 @@ hopl
 \end{pr}
 
 \begin{pr}
-  De kern $Ker(G)$ van een groepsmorfisme $f:\ G,* \rightarrow H,\Box$ is een normaaldeler van $G,*$.
+  De kern $Ker(f)$ van een groepsmorfisme $f:\ G,* \rightarrow H,\Box$ is een normaaldeler van $G,*$.
   \[ Ker(f) \triangleleft G \]
   
-\TODO{bewijs}
+  \begin{proof}
+    Kies een willekeurig element $g$.
+    We bewijzen nu dat er voor elk element $k$ in de kern $Ker(f)$ van $f$ een element $k'$ bestaat zodat $gk$ gelijk is aan $k'g$.
+    Omdat zowel $k$ als $k'$ in de kern van $f$ zitten geldt het volgende:\eiref{ei:nevenklasse-eigen-element-gelijk}
+    \[ kKer(f) = Ker(f) = Ker(f)k'\]
+    Dit betekent precies dat de kern van $f$ een normaaldeler is van $G,*$.
+  \end{proof}
 \end{pr}
 
 \begin{ei}
