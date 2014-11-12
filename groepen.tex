@@ -303,6 +303,7 @@ hopl
 \end{st}
 
 \begin{st}
+  \label{st:kern-triviaal-asa-morfisme-injectief}
   Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
   \[ Ker(f) = \{e_{G}\}\Leftrightarrow f \text{ is injectief} \]
 
@@ -1602,7 +1603,7 @@ hopl
 \end{de}
 
 \begin{ei}
-  De kern van $\pi\ G \rightarrow G/N:\ x \mapsto x*N$ is $N$.
+  De kern van $\pi:\ G \rightarrow G/N:\ x \mapsto x*N$ is $N$.
 
   \begin{proof}
     Elk element $n$ in $N$ wordt onder $\pi$ afgebeeldt op $n*N$, maar vermits $n$ in $n*N$ zit, is $n*N$ gelijk aan $N$.\eiref{ei:nevenklasse-eigen-element-gelijk}
@@ -1750,8 +1751,9 @@ hopl
 
 \begin{st}
   \term{Eerste isomorfismestelling}\\
-  Zij $\phi: G \rightarrow H$ een groepsmorfisme, dan is $\bar{\phi}: G/Ker(\phi) \rightarrow H: gKer(\phi) \mapsto \phi(g)$ een injectief groepsmorgifsme.
-  Bijgevolg is $G/Ker(\phi)$ isomorf met $\phi(G)$.
+  Zij $G.*$ en $H,\Box$ twee groepen.
+  Zij $\phi: G \rightarrow H$ een groepsmorfisme, dan is $\bar{\phi}: G/Ker(\phi) \rightarrow H: gKer(\phi) \mapsto \phi(g)$ een injectief groepsmorfisme.
+  Bijgevolg is $G/Ker(\phi)$ isomorf met $\phi(G)$. 
   \[ G/Ker(\phi) \cong \phi(G) \]
   Een alternatieve formulering van deze stelling gaat als volgt:
   Zij $\phi: G \rightarrow H$ een groepsmorfisme, dan is het volgende diagram commutatief en $\phi'$ een isomorfisme.
@@ -1771,9 +1773,27 @@ hopl
     \end{tikzpicture}
   \end{figure}
   Nog een derde formulering als volgt:
-  Met dezelde notaties: een groepsmorfisme $\phi$ kan ontbonden worden als een samenstelling van een surjectie $\pi$ en de injectie $\bar{\phi} = i \circ \phi'$
-  \clarify{dit kan duidelijker}
-  \TODO{bewijs p 33}
+  Met dezelde notaties: een groepsmorfisme $\phi$ kan ontbonden worden als een samenstelling van een surjectie $\pi$ en de injectie $\bar{\phi} = i \circ \phi'$, of nog, een surjectie $\pi$, een bijectie $\phi'$ en een injectie (inbedding) $i$.
+
+  \begin{proof}
+    Eerst bewijzen we dat $\phi$ goed gedefinieerd is. We tonen aan dat voor twee verschillende representanten $x$ en $y$ uit $gKer(\phi)$ het beeld onder $\phi$ hetzelfde is.
+    Omdat $x$ en $y$ beide in dezelfde nevenklasse van $Ker(\phi)$ zitten, bestaat er een element $h\in Ker(\phi)$ zodat $x$ gelijk is aan $y*h$.
+    \[
+    \begin{array}{rll}
+      \phi(x) &= \phi(y*h) &\\
+              &= \phi(y) \Box \phi(h) &\\
+              &= \phi(y) \Box e_{H} = \phi(y)
+    \end{array}
+    \]
+    Vervolgens bewijzen we dat $\bar{\phi}$ een groepsmorfisme is.
+    Inderdaad, omdat $\phi$ een groepsmorfisme is, en \waarom.
+    Tenslotte bewijzen we dat $\bar{\phi}$ een injectie is.
+    Kies een $\bar{g} = gKer(\phi)$ in $G/Ker(\phi)$ zodat $\bar{\phi}$ $\bar{g}$ afbeeldt op $e_{H}$.
+    We moeten nu aantonen dat daaruit volgt dat $\bar{g}$ het neutraal element ($Ker(\phi)$) is van $G/Ker(\phi)$.\stref{st:kern-triviaal-asa-morfisme-injectief}
+    Omdat $\bar{\phi}$ $\bar{g}$ afbeeldt op $e_{H}$, moet $\phi$ $g$ ook afbeelden op $e_{H}$.
+    \waarom
+    Dit betekent dat $g$ tot $Ker(\phi)$ behoort. Bijgevolg is $\bar{g}$ gelijk aan $Ker(\phi)$, het neutraal element van $G/Ker(\phi)$.\eiref{ei:nevenklasse-eigen-element-gelijk}.
+  \end{proof}
 \end{st}
 
 \begin{pr}
