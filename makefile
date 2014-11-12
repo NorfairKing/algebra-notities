@@ -3,12 +3,15 @@
 OUTPUT_NAME = algebra-notities
 MAIN_NAME = main
 
-LATEX = latexmk -pdf
+LATEX = ./makepdf.sh
 
-all: assets full_text
+all:
+	make assets
+	make text
 
-full_text: $(OUTPUT_NAME).pdf
+text: $(OUTPUT_NAME).pdf
 
 $(OUTPUT_NAME).pdf:
-	$(LATEX) $(MAIN_NAME).tex -jobname="$(OUTPUT_NAME)"
+	$(LATEX) $(MAIN_NAME).tex
+	cp $(MAIN_NAME).tex $(OUTPUT_NAME).pdf
 
