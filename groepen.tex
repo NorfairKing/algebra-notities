@@ -1663,6 +1663,8 @@ hopl
     $Z(G)$ is dus niet cyclisch.
     De orde van $Z(G)$ moet bovendien een deler zijn van de orde van $G$ omdat $Z(G)$ een deelgroep is van $G$.\stref{st:stelling-van-lagrange} \eiref{ei:centrum-is-deelgroep}
     De orde van $Z(G)$ moet dus $p$, $q$ of $1$ zijn. $p$ en $q$ zijn echter priemgetallen, en elke groep met een priemgetal als orde is cyclisch\stref{st:priemgroep-is-cyclisch}, dus de orde van $Z(G)$ moet $1$ zijn.
+    Elke groep van orde $1$ is de groep met enkel het neutraal element.
+    \waarom
   \end{proof}
 \end{gev}
 
@@ -1670,25 +1672,52 @@ hopl
 \label{sec:enkelv-en-oplosb}
 
 \begin{de}
-  Een groep $G,*$ is enkelvoudige als de enige normaaldelers van $G$ de triviale normaaldelers $\{e_{G}\}$ en $G$ zijn.
+  Een groep $G,*$ is enkelvoudig als de enige normaaldelers van $G$ de triviale normaaldelers $\{e_{G}\}$ en $G$ zijn.
 \end{de}
 
-\TODO{definitie van compositiefactoren}
+\begin{st}
+  We kunnen elke niet-enkelvoudige groep $G$ ontbinden in enkelvoudige groepen.
+  \begin{proof}
+    Kies van $G=G_{0}$ een niet-triviale normaaldeler $G_{1}$ van maximale orde, dan is $G_{0}/G_{1}$ enkelvoudig.
+\waarom
+    Kies nu, opnieuw, als $G_{1}$ niet enkelvoudig is, een niet-triviale normaaldeler (van $G_{1}$) van maximale orde.
+    $G_{1}/G_{2}$ is dan ook enkelvoudig.
+\waarom
+    We kunnen zo verder groepen $G_{i}$ kiezen met $G_{i+1} \triangleleft G_{i}$ tot $G_{n}$ uiteindelijk enkelvoudig is.
+  \end{proof}
+\end{st}
 
-\begin{pr}
-  De enkelvoudige eindige commutatieve groepen zijn de groepen $\mathbb{Z}_{p},+$ met $p$ een priemgetal en de triviale groep $\{e_{G}\},*$.
-  
-\TODO{bewijs p 30}
-\end{pr}
+\begin{de}
+  De enkelvoudige groepen $G_{i}/G_{i+1}$ uit bovenstaande ontbinding noemen we (de) \term{compositiefactoren} van $G$.
+\end{de}
 
 \begin{st}
-  zonder bewijs\\
+  Zonder bewijs\\
+  De compositiefactoren van een niet-enkelvoudige groep $G$ zijn onafhankelijk (op isomorfisme na) van de keuze van de normaaldelers.\\\\
+  Geen bewijs. Zie Jordan en H\"older.
+\extra{ toch eens het bewijs proberen? }
+\end{st}
+
+\begin{st}
+  Zonder bewijs\\
   Structuurstelling voor eindige commutatieve groepen\\
   Elke eindige commutatieve groep is isomorf met een directe som van cyclische groepen.
   \[ \bigoplus_{i=1}^{r} Z_{p_{i}^{k_{i}}} \]
   Hierin is elke $p_{i}^{k_{i}}$ een macht van een priemgetal.
-\TODO{ toch eens het bewijs proberen? }
+\extra{ toch eens het bewijs proberen? }
 \end{st}
+
+\question{Het ziet ernaar uit dat de $p_{i}^{k_{i}}$ delers moeten zijn van de orde van $G$, waarom is dat?}
+
+\begin{pr}
+  De enkelvoudige eindige commutatieve groepen zijn de groepen $\mathbb{Z}_{p},+$ met $p$ een priemgetal en de triviale groep $\{e_{G}\},*$.
+  \begin{proof}
+    $\mathbb{Z}_{p}$ heeft geen niet-triviale normaaldelers. De enige directe som die mogelijk is om $\mathbb{Z}_{p}$ te bekomen is immers enkel $\mathbb{Z}_{p}$ zelf.
+    \waarom
+    Elke andere (niet-triviale) eindige commutatieve groep heeft een niet-triviale normaaldeler.
+\waarom
+  \end{proof}
+\end{pr}
 
 \begin{de}
   Een groep $G$ is \term{oplosbaar} als er een eindige keten van deelgroepen $H_{i}$ bestaat zodat voor elke $H_{i}$ twee eigenschappen gelden:
@@ -1700,20 +1729,20 @@ hopl
 \end{de}
 
 \begin{st}
-  zonder bewijs\\
+  Zonder bewijs\\
   Een eindige groep $G,*$ is oplosbaar als en slechts als alle compositiefactoren van $G$ commutatief zijn.
-\TODO{ toch eens het bewijs proberen? }
+\extra{ toch eens het bewijs proberen? }
 \end{st}
 
 \begin{st}
-  zonder bewijs\\
+  Zonder bewijs\\
   Een eindige groep $G$ van orde $n$ is oplosbaar als \'e\'en van de volgende voorwaarden geldt:
   \begin{itemize}
   \item $n < 60$.
   \item $n$ is oneven.
   \item $n$ is een macht van een priemgetal.
   \end{itemize}
-\TODO{ bewijs bekijken }
+\extra{ bewijs bekijken }
 \end{st}
 
 \section{De isomorfismestellingen}
