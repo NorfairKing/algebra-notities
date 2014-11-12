@@ -539,6 +539,12 @@ hopl
   We noemen bovendien $x$ de \term{generator} van $G$.
 \end{de}
 
+\begin{st}
+  \label{st:cyclishe-groep-is-commutatief}
+  Elke cyclische groep is commutatief.
+\extra{bewijs}
+\end{st}
+
 \begin{ei}
   Elke oneindige cyclishe groep is isomorf met $\mathbb{Z},+$ en is dus aftelbaar.
 
@@ -1618,15 +1624,34 @@ hopl
 \end{st}
 
 \begin{st}
-  Zij $G,*$ een groep met $G/Z(G)$ cyclisch, dan is $G$ commutatief (en $G/Z(G)$ bijgevolg de triviale groep).
+  \label{st:deelgroep-centrum-quotient-cyclisch-groep-commutatief}
+  Als er een deelgroep $H,*$ van het centrum $Z(G)$ van een groep $G,*$ bestaat zodat $G/H$ cyclisch is, das is $G$ commutatief.
   
-\TODO{bewijs p 29}
+  \begin{proof}
+    Stel dat $G/H$ cyclisch is, dan bewijzen we nu dat willekeurige elementen $a$ en $b$ uit $G$ commuteren.
+    Zij $\bar{g}$ een generator voor $G/H$, dan bestaan er getallen $i$ en $j$ in $\mathbb{Z}$ zodat, in $G/H$ het volgende geldt:
+    \[ \bar{a} = (\bar{g})^{i} = \overline{g^{i}} \quad\text{ en }\quad \bar{b} = (\bar{g})^{j} = \overline{g}^{j} \]
+    Anders gezegd bestaan er $x$ en $y$ in $H$ zodat we $a$ en $b$ als volgt kunnen schrijven.
+\waarom
+    \[ a = g^{i}x \quad\text{ en }\quad b = g^{j}y \]
+    We kunnen nu rekenen met $a$ en $b$. Merk op dat, omdat $G/H$ cyclisch is, $G/Z(G)$ ook commutatief is.\stref{st:cyclishe-groep-is-commutatief}
+    \[
+    \begin{array}{rll}
+      ab &= g^{i}xg^{j}y &\\
+         &= g^{i}g^{j}xy &\\
+         &= g^{j}g^{i}yx &\\
+         &= g^{j}yg^{i}x &= ba
+    \end{array}
+    \]
+  \end{proof}
 \end{st}
 
 \begin{st}
-  Als er een deelgroep $H,*$ van het centrum $Z(G)$ van een groep $G,*$ bestaat zodat $G/H$ cyclisch is, das is $G$ commutatief.
-  
-\TODO{bewijs}
+  Zij $G,*$ een groep met $G/Z(G)$ cyclisch, dan is $G,*$ commutatief (en $G/Z(G)$ bijgevolg de triviale groep).
+
+  \begin{proof}
+    Als $G/Z(G)$ cyclisch is, dan is $G$ commutatief omdat $Z(G)$ een deelgroep is van $Z(G)$.\stref{st:deelgroep-centrum-quotient-cyclisch-groep-commutatief}
+  \end{proof}
 \end{st}
 
 \begin{gev}
