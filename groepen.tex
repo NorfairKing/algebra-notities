@@ -1154,6 +1154,7 @@ hopl
 \end{ei}
 
 \begin{de}
+  \label{de:inn-g}
   De deelgroep $InnG$ van $AutG$ is de \term{groep der inwendige automorfismen} van $G$.
   \[ InnG = Im(\sigma) = \{ \sigma_{a}\ |\ a \in G \} \]
 \end{de}
@@ -1750,6 +1751,7 @@ hopl
 \label{sec:isomorfismestellingen}
 
 \begin{st}
+  \label{st:eerste-isomorfismestelling}
   \term{Eerste isomorfismestelling}\\
   Zij $G.*$ en $H,\Box$ twee groepen.
   Zij $\phi: G \rightarrow H$ een groepsmorfisme, dan is $\bar{\phi}: G/Ker(\phi) \rightarrow H: gKer(\phi) \mapsto \phi(g)$ een injectief groepsmorfisme.
@@ -1798,7 +1800,13 @@ hopl
 
 \begin{pr}
   Zij $G$ een groep, dan zijn de nevenklassen van het centrum van $G$ in $G$ isomorf met de groep der inwendige automorfismen van $G$.
-  \TODO{bewijs p 34}
+  \[ G/Z(G) \cong Inn G \quad\text{ met }\quad Inn G = \{ \sigma_{a}: G \rightarrow G: g \mapsto aga^{-1} \ |\ a\in G \} \]
+
+  \begin{proof}
+    We passen de eerste morfismestelling\stref{st:eerste-isomorfismestelling} toe op het groepsmorfisme $\sigma$.
+    \[ \sigma: G \rightarrow Aut G:\ a \mapsto \sigma_{a} \]
+    $Z(G)$ is nu de kern van $\sigma$ \waarom , dus is $G/Z(G)$ isomorf met $Inn G$.
+  \end{proof}
 \end{pr}
 
 \begin{st}
