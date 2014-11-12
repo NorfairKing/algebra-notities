@@ -1625,7 +1625,7 @@ hopl
 
 \begin{st}
   \label{st:deelgroep-centrum-quotient-cyclisch-groep-commutatief}
-  Als er een deelgroep $H,*$ van het centrum $Z(G)$ van een groep $G,*$ bestaat zodat $G/H$ cyclisch is, das is $G$ commutatief.
+  Als er een deelgroep $H,*$ van het centrum $Z(G)$ van een groep $G,*$ bestaat zodat $G/H$ cyclisch is, dan is $G$ commutatief.
   
   \begin{proof}
     Stel dat $G/H$ cyclisch is, dan bewijzen we nu dat willekeurige elementen $a$ en $b$ uit $G$ commuteren.
@@ -1657,8 +1657,13 @@ hopl
 \begin{gev}
   Zij $p$ en $q$ verschillende priemgetallen, dan is het centrum van een niet-commutatieve groep $G,*$ van orde $pq$ triviaal.
   \[ Z(G) = \{ e_{G} \} \]
-  
-\TODO{bewijs p 29}
+
+  \begin{proof}
+    Omdat $G$ niet commutatief is, bestaat er geen deelgroep $H$ van het centrum $Z(G)$ zodat $G/H$ cyclisch (en dus commutatief \stref{st:cyclishe-groep-is-commutatief}) is.\stref{st:deelgroep-centrum-quotient-cyclisch-groep-commutatief}
+    $Z(G)$ is dus niet cyclisch.
+    De orde van $Z(G)$ moet bovendien een deler zijn van de orde van $G$ omdat $Z(G)$ een deelgroep is van $G$.\stref{st:stelling-van-lagrange} \eiref{ei:centrum-is-deelgroep}
+    De orde van $Z(G)$ moet dus $p$, $q$ of $1$ zijn. $p$ en $q$ zijn echter priemgetallen, en elke groep met een priemgetal als orde is cyclisch\stref{st:priemgroep-is-cyclisch}, dus de orde van $Z(G)$ moet $1$ zijn.
+  \end{proof}
 \end{gev}
 
 \subsection{Enkelvoudige en oplosbare groepen}
