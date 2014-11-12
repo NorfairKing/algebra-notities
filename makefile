@@ -13,5 +13,5 @@ text: $(OUTPUT_NAME).pdf
 
 $(OUTPUT_NAME).pdf:
 	$(LATEX) $(MAIN_NAME).tex
-	cp $(MAIN_NAME).tex $(OUTPUT_NAME).pdf
+	cp $(MAIN_NAME).pdf $(OUTPUT_NAME).pdf
 
