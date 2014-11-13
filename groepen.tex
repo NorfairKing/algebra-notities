@@ -1812,8 +1812,14 @@ hopl
 \begin{st}
   De \term{factorisatiestelling} deel 1\\
   Zij $f: G\rightarrow H$ een groepsmorfisme en $N\subseteq Ker(f)$ een normaaldeler van $G$.
-  Er bestaan dan een uniek groepsmorfisme $f':G/N \rightarrow H$ zodat $f$ kan ontbonden worden als $f'\circ \pi$.
-  \TODO{bewijs p 34}
+  Er bestaan dan een uniek groepsmorfisme $f':\ G/N \rightarrow H$ zodat $f$ kan ontbonden worden als $f'\circ \pi$.
+
+  \begin{proof}
+    Inderdaad:
+    \[ f':\ G/N \rightarrow H:\ aN \mapsto f(a) \]
+    Voor elke $a$ in $G$ geldt nu dat $a$ door $f= (f' \circ \pi)$ afgebeeld wordt op $f'(aN) = f(a)$.
+    \clarify{waarom is $f'$ uniek?}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -1821,7 +1827,13 @@ hopl
   Zij $f: G\rightarrow H$ een groepsmorfisme en $N\subseteq Ker(f)$ een normaaldeler van $G$.
   Het groepsmorfisme $f'$ met $f = f'\circ \pi$ is injectief als en slechts als $N$ gelijk is aan de kern van $f$.
   \[ f':G/N \rightarrow H \text{ is injectief } \Leftrightarrow N = Ker(f) \]
-  \TODO{bewijs p 34}
+
+  \begin{proof}
+    De nevenklassen van $N$ die door $f'$ op $e_{H}$ worden afgebeeld zijn de nevenklassen $aN$ met $a$ in de kern van $f$.
+    $f'$ is dus injectief als en slechts als de verzameling $\{ aN \ |\ a \in Ker(f) \}$ gelijk is aan $\{ N \}$.
+    Dit is precies wanneer $N$ de kern is van $f$.
+\clarify{ik ben nog niet overtuigd}
+  \end{proof}
 \end{st}
 
 \begin{de}
