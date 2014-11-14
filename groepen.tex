@@ -1852,7 +1852,15 @@ hopl
 \begin{ei}
   Zij $G,\cdot$ een groep en $X \subseteq G$ een deelverzameling van $G$, dan is de groep $<X>$ voortgebracht door $X$ gelijk aan de verzameling van alle mogelijke samenstellingen van elementen uit $X$ en hun inversen.
   \[ <X> = \left\{ \prod_{i=0}^{n}a_{i} \ \left|\ n\in \mathbb{N}, a_{i}\in X \vee a_{i}^{-1} \in X \right.\right\}\]
-  \TODO{bewijs p 34}
+
+  \begin{proof}
+    Noteer het rechterlid van bovenstaande vergelijking als $X'$.
+    Elke deelgroep van $G$ die $X$ omvat moet alle elementen van $X$, hun inversen, en onderlinge samenstellingen bevatten.
+    \[ X' \subseteq <X> \]
+    Anderzijds is $X'$ ook een deelgroep van $G$ die $X$ omvat.
+\waarom
+    \[ <X> \subseteq X' \]
+  \end{proof}
 \end{ei}
 
 \begin{pr}
