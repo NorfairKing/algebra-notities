@@ -1955,7 +1955,7 @@ hopl
     $x$ is dan van de vorm $x=hnN$ met $h\in H$ en $n\in N$.
     $x$ is dan het beeld van $h$ onder $p$.
     \[ x = hnN = p(h) \]
-    $\nicefrac{H}{H\cap N}$ is nu isomorf met $\nicefrac{HN}{N}$.
+    $\nicefrac{H}{H\cap N}$ is nu isomorf met $\nicefrac{HN}{N}$.\stref{st:eerste-isomorfismestelling}
     $H\cap N$ is immers de kern van $p$ en $\nicefrac{HN}{N}$ het beeld van $N$ onder $p$.
     \clarify{waarom is $p$ zeker een groepsmorfisme, en waarom moeten we surjectiviteit bewijzen?}
   \end{proof}
@@ -1971,13 +1971,49 @@ hopl
   \term{Derde isomorfismestelling}\\
   Zij $G,*$ een groep en $N$ een normaaldeler van $G,*$.
   \begin{itemize}
-  \item De afbeelding $H \mapsto H/N$ bepaalt een bijectie tussen de deelgroepen van $G,*$ die $N$ omvatten en de deelgroepen van $G/N$.
+  \item De afbeelding $H \rightarrow H/N$ bepaalt een bijectie tussen de deelgroepen van $G,*$ die $N$ omvatten en de deelgroepen van $G/N$.
   \item Onder deze bijectie corresponderen normaaldelers van $G$ met normaaldelers van $G/N$.
   \item Zij $H$ nog een normaaldeler van $G$ zodat $N$ een deelverzameling is van $H$, dan geldt het volgende:
     \[ \nicefrac{(G/N)}{(H/N)} \cong G/H\]
   \end{itemize}
 
-  \TODO{bewijs p 38}
+  \begin{proof}
+    Bewijs in delen.
+    \begin{itemize}
+    \item
+      Zij $A$ de verzameling van alle deelgroepen $H$ van $G$ waarvan $N$ een deelverzameling is en $B$ de verzameling van deelgroepen van $G/N$.
+      $A$ en $B$ zijn dan de verzamelingen waartussen we een bijectie zoeken.
+      We bewijzen dat de afbeelding $p$ een (die) bijectie is.
+      \[ p:\ A \rightarrow B:\ H \mapsto \pi(H) \quad\text{ met }\quad \pi: G \rightarrow G/N: g \mapsto gN \]
+      \begin{itemize}
+      \item $p$ is injectief.\\
+        Kies een $H$ en $H$ in $A$ zodat $\pi(H)$ gelijk is aan $\pi(H')$.
+        We moeten nu bewijzen dat hieruit volgt dat $H$ gelijk is aan $H'$
+        \begin{itemize}
+        \item $H \subseteq H'$\\
+          Kies een willekeurig element $h$ uit $H$, dan is de afbeelding $\pi(h)$ van $h$ onder $\pi$ een element van $\pi(H) = \pi(H')$.
+          Er bestaat dus een element $h'$ in $H'$ zodat $pi(h)$ gelijk is aan $\pi(h')$.
+          Dit betekent dat er een $n$ in $N$ bestaat zodat $h$ gelijk is aan $h'n$.
+          $N$ is echter een deelverzamelijk van $H'$, dus $h$ zit ook in $H'$.
+        \item $H' \supseteq H$\\
+          Wissel de benamingen $H$ en $H'$ om in bovenstaand puntje.
+        \end{itemize}
+      \item $p$ is surjectief.\\
+        Kies een $H'$ uit $B$.
+        Omdat $\pi$ surjectief is, \waarom geldt $H' = \pi(\pi^{-1}(H'))$.
+        Er bestaat dus steeds een element $a$ uit $A$ zodat $p(a)=H'$ geldt. 
+      \end{itemize}
+    \item Dit volgt uit de eigenschap over beelden en inverse beelden van normaaldelers onder een groepsmorfisme. \extra{dit is me niet duidelijk}
+    \item Beschouw de afbeelding $f$:
+      \[ f:\ G/N \rightarrow G/H: gN \mapsto gH \]
+      $f$ is een goed gedefinieerd groepsmorfisme. \waarom
+      $f$ is surjectief.\\ \waarom \clarify{ en waarom is dit nodig?}
+      De kern van $f$ is $H/N$.
+      \[ Ker(f) = \{ gN \in G/N \ |\ gH = H \} = \{ gN \in G/N \ |\ g \in H \} = H/N \]
+      Omdat $H/N$ de kern van $f$ is, en $G/H$ het beeld van $G/N$ onder $f$, $geldt \nicefrac{(G/N)}{(H/N)} \cong G/H$.\stref{st:eerste-isomorfismestelling}
+    \end{itemize}
+\clarify{Dit kan duidelijker en gedetailleerder!}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -1999,7 +2035,15 @@ hopl
 \begin{st}
   Zij $G$ een groep.
   \[ G' \triangleleft G \]
-  \TODO{bewijs p 39}
+
+  \begin{proof}
+    \hint{Probeer dit niet direct te bewijzen aan de hand van de definitie van een normaaldeler.}
+    Kies een element $g$ uit $G$ en een element $h$ uit $H$.
+    We bewijzen nu dat $ghg^{-1}$ in $G'$ zit.\stref{st:criteria-voor-normaaldeler}
+    We schrijven $ghg^{-1}$ eerst als $ghg^{-1}h^{-1}h$
+    $ghg^{-1}h^{-1}$ en $h$ zijn beide elementen van $G'$, dus $ghg^{-1}h^{-1}h$ ook.
+\clarify{waarom zit $h$ in $G'$?}
+  \end{proof}
 \end{st}
 
 \begin{st}
