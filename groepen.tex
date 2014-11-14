@@ -1731,6 +1731,7 @@ hopl
 \end{pr}
 
 \begin{de}
+  \label{de:oplosbaar}
   Een groep $G$ is \term{oplosbaar} als er een eindige keten van deelgroepen $H_{i}$ bestaat zodat voor elke $H_{i}$ twee eigenschappen gelden:
   \[ \{e_{G}\} = H_{k} \subset H_{k-1} \dotsb H_{2} \subset H_{1} \subset H_{0} = G \]
   \begin{itemize}
@@ -2031,9 +2032,15 @@ hopl
 \end{de}
 
 \begin{de}
-  De \term{commutatordeelgroep} of afgeleide groep $G' = G^{(1)}$ van $G$ is de groep voortgebracht door de commutatoren van $G$.
+  De \term{commutatordeelgroep} of \term{afgeleide groep} $G' = G^{(1)}$ van $G$ is de groep voortgebracht door de commutatoren van $G$.
   \[ G' = G^{(1)} = < xyx^{-1}y^{-1} \ |\ x,y\in G > \]
 \end{de}
+
+\begin{st}
+  \label{st:commutatordeelgroep-is-deelgroep}
+  De commutatordeelgroep $G'$ van een groep $G$ is wel degelijk een deelgroep van $G$.
+  \extra{bewijs}
+\end{st}
 
 \begin{st}
   Zij $G$ een groep.
@@ -2072,6 +2079,7 @@ hopl
 \end{st}
 
 \begin{gev}
+ \label{gev:afgeleide-door-groep-is-commutatief}
   Zij $G$ een groep.
   \[ G/G' \text{ is commutatief } \]
 
@@ -2096,12 +2104,46 @@ hopl
 \begin{pr}
   $G$ is oplosbaar als en slechts er een $k$-de afgeleide van $G$ bestaat die enkel het neutraal element bevat.
   \[ G \text{ is oplosbaar } \Leftrightarrow \exists k\in\mathbb{N}_{0}:\ G^{(k)} = \{e_{G}\} \]
-  \TODO{bewijs p 40}
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+       Zij $H_{0}=G$ tot $H_{n} = \{e_{G}\}$ een keten van deelgroepen van $G$ met $H_{i+1} \subseteq H_{i}$ en $\nicefrac{H_{i}}{H_{i+1}}$ commutatief voor elke $i$.
+       \[ \{ e_{G} \} = H_{n} \triangleleft H_{n-1} \triangleleft \dotsb \triangleleft H_{i+1} \triangleleft H_{i} \triangleleft \dotsb \triangleleft H_{1} \triangleleft H_{0} = G \]
+       We tonen nu per inductie op $i$ aan dat elke deelgroep $H_{i}$ een deelverzameling is van de $i$-de afgeleide groep $G^{(i)}$ van $G$.
+       \begin{itemize}
+       \item $G^{(1)}$ is een deelverzameling van $H_{1}$ want $G/H_{1}$ is commutatief.
+\waarom
+       \item Stel dat $G^{(i)} \subseteq H_{i}$ geldt, dan bewijzen we nu dat daaruit volgt dat $G^{(i+1)} \subseteq H_{i+1}$ geldt.
+         Omdat $G^{(i)}$ een deelverzameling is van $H_{i}$, is $G^{(i+1)}$ een deelverzameling van $H_{i}'$
+\waarom
+         Omdat $H_{i}/H_{i+1}$ commutatief is, is $H_{i}'$ een deelverzameling van $H_{i+1}$.
+\waarom
+         $G^{(i+1)}$ is dus inderdaad een deelverzameling van $H_{i+1}$.
+       \end{itemize}
+    \item $\Leftarrow$\\
+      De keten van deelgroepen voldoet aan de definitie van oplosbaarheid.\deref{de:oplosbaar} \gevref{gev:afgeleide-door-groep-is-commutatief} \stref{st:commutatordeelgroep-is-deelgroep}
+\clarify{Iets meer uitschrijven?}
+    \end{itemize}
+  \end{proof}
 \end{pr}
+
+\begin{lem}
+  Zij $n\in \mathbb{N}$ groter dan $5$, en $H$ een deelgroep van $\mathcal{S}_{n}$.
+  Als alle $3$-cykels tot $H$ behoren, dan behoren ze ook tot $H'$.
+
+  \begin{proof}
+    Kies een willekeurige $3$-cykel $(abc)$ uit $H$.
+    Neem nu twee andere elementen $d$ en $e$ uit $\{1,..,n\}$.
+    \[ (abc) = (abd)(ace)(dba)(eca) = (abd)(ace)(abd)^{-1}(ace)^{-1} \in H' \]
+    Elke $3$-cykel uit $H$ zit dus ook in $H'$.
+  \end{proof}
+\end{lem}
 
 \begin{st}
   Voor $n$ groter dan $4$ is $\mathcal{S}_{n}$ niet oplosbaar.
-  \TODO{bewijs p 40}
+\extra{bewijs}
 \end{st}
 
 
