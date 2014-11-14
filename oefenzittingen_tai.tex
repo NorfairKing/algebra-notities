@@ -1,0 +1,167 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Toepassingen van Algebra: Oefenzittingen}
+\label{cha:tai-oefenzittingen}
+
+\section{Oefenzitting 1}
+
+\subsection*{Oefening 1}
+Op $\mathbb{R}$ definieren we de samenstellingswet $\tau:\ a\tau b = a + b + a^{2}b^{2}$
+\subsubsection*{(a)}
+Geef het neutraal element van deze wet.\\\\
+Het neutraal element is hier $0$:
+\[
+a\tau 0=a+0+a^{2}0^{2}=a=0+a+0^{2}a^2
+\]
+
+\subsubsection*{(b)}
+ze is niet associatief. Ga na!\\\\
+\[
+c \tau (a \tau b) = c \tau (a+b+a^2b^2)= c+ (a+b+a^2b^2)+c^2+(a+b+a^2b^2)^2
+\]
+\[
+\neq (c \tau a) \tau b= (c+a+c^2a^2) \tau b= (c+a+c^2a^2)+b+(c+a+c^2a^2)^2+b
+\]
+
+\subsubsection*{(c)}
+Ze is commutatief. Waarom?\\
+De samenstellingswet is commutatief omdat zowel de optelling als het product voor $a$ en $b$ commutatief zijn.
+
+\subsection*{Oefening 2}
+Bewijs dat in $R^2 \times R^2$ volgende relaties equivalantierelaties zijn:
+\[
+G= \{((a,b),(c,d)|a^2+b^2=c^2+d^2\}
+\]
+\[
+H=\{((a,b),(c,d))|b-a=d-c\}
+\]
+\[
+J=\{((a,b),(c,d))|b+a=d+c\}
+\]
+Deze relaties zijn inderdaad reflexief, transitief en symmetrisch.\\
+welke zijn de partities die door deze relaties bepaald worden?\\\\
+\[
+G_{(a,b)}=\{(x,y) \in \mathbb{R}^2|x^2+y^2=a^2+b^2\}
+\]
+Dit zijn de concentrische cirkels met de oorsprong als middelpunt en straal $\sqrt{a^2+b^2}$.
+\[
+H_{(a,b)}=\{(x,y) \varepsilon : y=x+b-a\}
+\]
+Dit zijn alle punten op dezelfde evenwijdige rechte met de identieke.
+\[
+J_{(a,b)}=\{(x,y) \varepsilon R^2: y=-x+b+a\}
+\]
+Dit zijn alle punten op dezelfde evenwijdige rechte met de tegengestelde van deidentieke.
+
+welke zijn de partities die hierdoor gedefinieerd worden?
+\[
+(H \cap J)_{(a,b)} =\{(x,y) \in \mathbb{R}^2| x=a,y=b\}=\{(a,b)\}
+\]
+
+\subsection*{Oefening 3}
+los het volgende stelsel op:
+
+\[
+\left\{
+\begin{array}{c}
+  3x_1-2x_2+6x_3=4\ mod\ 7\\
+  4x_1+x_2+x_3=0\ mod\ 7\\
+  2x_1+x_2+2x_3=-1\ mod\ 7\\
+\end{array}
+\right.
+\]
+\[
+\longrightarrow
+\left\{
+\begin{array}{c}
+  x_1-3x_2+2x_3=6\ mod\ 7\\
+  4x_1+x_2+x_3=0\ mod\ 7\\
+  2x_1+x_2+2x_3=-1\ mod\ 7\\
+\end{array}
+\right.
+\]
+\[
+\longrightarrow
+\left\{
+\begin{array}{c}
+  x_1-3x_2+2x_3=6\ mod\ 7\\
+  0x_1-1x_2+0x_3=4\ mod\ 7\\
+  0x_1+0x_2+5x_3=1\ mod\ 7\\
+\end{array}
+\right.
+\]
+De oplossingsverzameling van dit stelsel is $\{(2,3,3)\}$
+
+\subsection*{Oefening 4}
+Bepaal de isometrieen van een gelijkzijdige driehoek.\\\\
+Stel voor deze ismetrieen de bewerkingstabel op, onder de samenstellingswet $\circ$.
+Benoem de volgende isometrieen:
+\begin{itemize}
+\item[1]
+identieke
+\item[$r_1$]
+rotatie over $120$ graden
+\item[$r_2$]
+rotatie over $240$ graden
+\item[$s_1$]
+spiegeling over do hoogtelijn door hoek $1$
+\item[$s_2$]
+spiegeling over do hoogtelijn door hoek $2$
+\item[$s_3$]
+spiegeling over do hoogtelijn door hoek $3$
+\end{itemize}
+\[
+\]
+De bijhoordende bewerkingstabel is dan de volgende:
+\[
+\begin{array}{c|ccccccc}
+  \circ& 1     &  r_1  &  r_2  &  s_1  &  s_2  &  s_3 \\
+  \hline
+  1    & 1     &  r_1  &  r_2  &  s_1  &  s_2  &  s_3 \\
+  r_1  &  r_1  &  r_2  &  1    &  s_3  &  s_1  &  s_2 \\
+  r_2  &  r_2  &  1    &  r_1  &  s_2  &  s_3  &  s_1 \\
+  s_1  &  s_1  &  s_2  &  s_3  &  1    &  r_1  &  r_2 \\
+  s_2  &  s_2  &  s_3  &  s_1  &  r_2  &  1    &  r_1 \\
+  s_3  &  s_3  &  s_1  &  s_2  &  r_1  &  r_2  & 1
+\end{array}
+\]
+
+\subsection*{Oefening 5}
+Een latijns vierkant in een n x n tabel waarin slechts n verschillende elementen voorkomen.
+In elke rij en elke kolom komt namelijk elk element juist eenmaal voor.
+\begin{itemize}
+\item[(a)] Bewijs dat de bewerkingstabel voor een eindige groep steeds een latijns vierkant is
+\item[(b)] Is dit ook een voldoende voorwaarde om een groep te hebben? Bepaal of volgend latijns vierkant de bewerkingstabel van een groep is
+\end{itemize} 
+\[ 
+\begin{array}{c|cccccc}
+   \tau & a & b & c & d & e & f\\
+   \hline
+   a & c & e & a & b & f & d\\
+   b & f & c & b & a & d & e\\
+   c & a & b & c & d & e & f\\
+   d & e & a & d & f & c & b\\
+   e & d & f & e & c & b & a\\
+   f & b & d & f & e & a & c\\
+\end{array}
+\]
+
+\subsubsection*{(a)}
+Elke rij en kolom van de bewerkings tabel zijn verschillende elementen.
+Stel immers dat er op een rij of kolom twee keer hetzelfde element voorkomt, dat is de bewerking niet injetief.
+Bijgevolg is de bewerking niet injectief en dus niet inverteerbaar.
+Er is dan geen uniek invers element voor elk element van de groep.
+Dit is in contradictie met de definitie van een bewerking op een groep.
+
+\subsubsection*{(b)}
+De bewerking is niet associatief:
+\[
+a \tau (a \tau b)=a \tau e=f
+\]
+\[
+(a \tau a) \tau b)=c \tau b=b
+\]
+
+
+\end{document}

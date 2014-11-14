@@ -5,12 +5,19 @@
 \label{cha:relaties}
 
 \begin{de}
-  Een (binaire) \emph{relatie} $R$ is een verzameling koppels $(x,y)$.
+  Een (binaire) \term{relatie} $R$ is een verzameling koppels $(x,y)$, respectievelijk van een verzameling $X$ en $Y$. 
   Wanneer $(x,y)$ een koppel is in $R$ noteren we $x R y$.
+  \[ R \subseteq X \times Y \]
+  Vaak worden $X$ en $Y$ opgenomen in de identiteit van de relatie om over surjecties te kunnen spreken.
 \end{de}
 
 \begin{de}
-  De \emph{inverse $R^{-1}$ van een relatie} $R$ is de volgende relatie:
+  De \term{eenheidsrelatie} $I_{X}$ op een verzameling $X$ is de volgende verzameling:
+  \[ \{(x,x) \in X \times X\ |\ x \in X \} \]
+\end{de}
+
+\begin{de}
+  De \term{inverse} $R^{-1}$ van een relatie $R$ is de volgende relatie:
   \[ R^{-1} = \left\{ (x,y)\ |\ (y,x) \in R \right\} \]
 \end{de}
 
@@ -20,42 +27,46 @@
   \TODO{ bewijs }
 \end{st}
 
+\section{Samenstelling van relaties}
+\label{sec:samenst-van-relat}
+
 \begin{de}
-  De \emph{samenstelling $S \circ R$ van twee relaties} $R$ en $S$ (lees: ``$S$ na $R$'') is de volgende relatie.
+  De \term{samenstelling $S \circ R$ van twee relaties} $R$ en $S$ (lees: ``$S$ na $R$'') is de volgende relatie.
   \[ \left\{ (x,y) \ |\ (\exists z) ((x,z) \in R \wedge (z,y) \in S) \right\} \]
 \end{de}
 
 \begin{st}
-  De \emph{samenstelling van relaties is associatief}.
+  \label{st:samenstelling-relaties-associatief}
+  De \term{samenstelling van relaties is associatief}.
   \[ (T \circ S) \circ R = T \circ (S \circ R) \]
   \TODO{ bewijs }
 \end{st}
 
 \begin{st}
-  De \emph{inverse van een verzameling is distributief ten opzichte van de samenstelling van relaties}.
+  De \term{inverse} van een relatie nemen is distributief ten opzichte van de samenstelling van relaties.
   \[ (S \circ R)^{-1} = R^{-1} \circ S^{-1} \]
   \TODO{ bewijs }
 \end{st}
 
 \begin{de}
-  Zij $R$ een relatie. Het \emph{domein} (domain) is als volgt gedefinieerd.
+  Zij $R$ een relatie. Het \term{domein} (domain) is als volgt gedefinieerd.
   \[ dom R = \left\{ x \ |\ (\exists y)(x,y) \in R \right\} \]
 \end{de}
 
 \begin{de}
-  Zij $R$ een relatie. Het \emph{beeld} (range) is als volgt gedefinieerd.
-  \[ ran R = \left\{ y \ |\ (\exists xi)(x,y) \in R \right\} \]
+  Zij $R$ een relatie. Het \term{beeld} (range) is als volgt gedefinieerd.
+  \[ bld  R = ran R = \left\{ y \ |\ (\exists x)(x,y) \in R \right\} \]
 \end{de}
 
 \begin{st}
   Het domein van een relatie is het beeld van zijn inverse.
-  \[ dom R = ran R^{-1} \]
+  \[ dom R = bld R^{-1} \]
   \TODO{ bewijs }
 \end{st}
 
 \begin{st}
   Het beeld van een relatie is het domein van zijn inverse.
-  \[ ran R = dom R^{-1} \]
+  \[ bld R = dom R^{-1} \]
   \TODO{ bewijs }
 \end{st}
 
@@ -67,13 +78,13 @@
  
 \begin{st}
   Beeld na samenstelling:
-  \[ ran (R \circ S) \subseteq ran R \]
+  \[ bld (R \circ S) \subseteq bld R \]
   \TODO{ bewijs }
 \end{st}
 
 \begin{st}
   Domein na samenstelling (2):
-  \[ ran S \subseteq dom R \Rightarrow dom(R \circ S) = dom S \]
+  \[ bld S \subseteq dom R \Rightarrow dom(R \circ S) = dom S \]
   \TODO{ bewijs }
 \end{st}
 
@@ -81,4 +92,188 @@
   Een $n$-aire relatie is, analoog aan een binaire relatie, een verzameling $n$-tallen.
 \end{de}
 
+\section{Equivalentierelaties}
+\label{sec:equivalentierelaties}
+
+\begin{de}
+  \label{de:reflexief}
+  Een relatie $R$ op $X \times X$ is \term{reflexief} wanneer voor alle $x\in X$ $xRx$ geldt.
+  \[ \forall x \in X: (x,x) \in R \]
+\end{de}
+
+\begin{de}
+  \label{de:symmetrisch}
+  Een relatie $R$ op $X \times X$ is \term{symmetrisch} wanneer voor alle $x,y\in X$ $xRy \Leftrightarrow yRx$ geldt.
+  \[ \forall x,y \in X: (x,y) \in R \Leftrightarrow (y,x) \in R\]
+\end{de}
+
+\begin{de}
+  \label{de:transitief}
+  Een relatie $R$ op $X \times X$ is \term{transitief} wanneer voor alle $x,y,z\in X$ $(xRy \wedge yRz) \Rightarrow xRz$ geldt.
+  \[ \forall x,y,z \in X: ((x,y) \in R \wedge (y,z) \in R) \Rightarrow (x,z) \in R\]
+\end{de}
+
+\begin{de}
+  \label{de:equivalentierelatie}
+  Een \term{equivalentierelatie} $R$ is een relatie die reflexief, symmetrisch en transitief is.
+\end{de}
+
+\subsection{Equivalentieklassen}
+\label{sec:equivalentieklassen}
+
+\begin{de}
+  Zij $\sim$ een equivalentierelatie op $X$ en zij $x \in X$.
+  De \term{equivalentieklasse} van $x$ is de verzameling van elk element dat equivalent is met $x$.
+  \[ [x] = \{ y \in X\ |\ x \sim y \} \]
+\end{de}
+
+\begin{de}
+  De \term{quotientverzameling} van $X$ ten opzichte van een equivalentierelatie $\sim$ is de verzameling van alle equivalentieklassen.
+  \[ X/\sim = \{[x] \ |\ x \in X \}\]
+\end{de}
+
+\begin{st}
+  \label{st:element-in-equivalentieklasse}
+  Zij $\sim$ een equivalentierelatie op $X$, dan is elk element van $X$ een element van diens equivalentieklasse.
+  \[ \forall x \in X:\ x \in [x] \]
+  
+  \begin{proof}
+    Zij $x$ een willekeurig element van $X$, dan geldt $x \sim x$ vanwege de reflexiviteit van een equivalentierelatie.\footnote{Zie definitie \ref{de:equivalentierelatie} en \ref{de:reflexief}.}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:element-gelijke-equivalentieklasse}
+  Zij $\sim$ een equivalentierelatie op $X$.
+  \[ \forall x,y \in X:\ y \in [x] \Leftrightarrow [y] = [x] \]
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Kies een willekeurige $y$ in de equivalentieklasse van $x$.
+      \[ y \sim x \]
+      Kies een willekeurige $z\in [y]$. 
+      $x \sim y$ geldt alsook $y \sim z$ bijgevolg geldt $x \sim z$.\footnote{Zie definitie \ref{de:equivalentierelatie} en \ref{de:transitief}.}
+      $[y]$ is dus een deelverzameling van $[x]$.
+      \[ [y] \subseteq [x] \]
+      De omgekeerde richting is analoog.\footnote{Zie definitie \ref{de:equivalentierelatie} en \ref{de:symmetrisch}.}
+      \[ [x] \subseteq [y] \]
+    \item $\Leftarrow$\\
+      Stel $[y] = [x]$, nu geldt $y \in [y]$\footnote{Zie stelling \ref{st:element-in-equivalentieklasse}.} en bijgevolg $y \in [x]$.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  De quotientverzameling $X/\sim$ van een equivalentierelatie $\sim$ op verzameling $X$ is een partitie van $X$.
+
+  \begin{proof}
+    We gaan de voorwaarden uit de definitie van een partitie na.\footnote{Zie definitie \ref{de:partitie}.}
+    \begin{itemize}
+    \item Een element $[x]$ van $A$ bevat steeds een element $x$ en is dus niet leeg.
+    \item Stel dat er twee verschillend elementen $[x]$ en $[y]$ zijn van $X/\sim$ die niet onderling disjunct zijn, dan bestaat er een element $z$ dat in zowel $[x]$ als $[y]$ zit. Nu geldt zowel $[z] = [x]$ als  $[z] = [y]$.\footnote{Zie stelling \ref{st:element-gelijke-equivalentieklasse}.}
+      Tenslotte geldt $[x] = [y]$. Contradictie.
+    \item Voor elk element $x \in X$ zit de equivalentieklasse in $A$. $A$ overdekt dus minstens $X$.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:partitie-equivalentierelatie}
+  Zij $P$ een partitie van $X$.
+  De volgende verzameling vormt dan een equivalentierelatie op $X$.
+  \[ x \sim y \Leftrightarrow (\exists A \in P:\ x \in A \wedge y \in A )\]
+
+  \begin{proof}
+    We definieren een relatie $\sim$ als volgt:
+    \[
+    x \sim y \Leftrightarrow \text{ x en y zitten in dezelfde deelverzameling van } P
+    \]
+    Dat deze relatie een equivalentierelatie is volgt meteen uit het feit dat ``dezelfde ... als'' ook een equivalentierelatie is.
+  \end{proof}
+\end{st}
+
+\section{Orderelaties}
+\label{sec:orderelaties}
+
+\begin{de}
+  Een relatie $R$ op een verzameling $X \times X$ is \term{anti-symmetrisch} als het volgende geldt:
+  \[ \forall x,y \in X: ((x,y) \in R \wedge (y,x) \in R) \Rightarrow x = y \]
+\end{de}
+
+\begin{de}
+  Een (parti\"ele) \term{orderelatie} op $X$ is reflexief, transitief en anti-symmetrisch.
+\end{de}
+
+\begin{de}
+  Een \term{grootste element} $a$ van een verzameling $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dan alle andere elementen kleiner zijn of gelijk aan $a$.
+  \[ \forall x \in A: x \preceq a \] 
+  Analoog wordt ook een \term{kleinste element} gedefinieerd.
+\end{de}
+
+\begin{de}
+  Een \term{maximaal element} $a$ van $A$ waarop een orderelatie $\prec$ is gedefinieerd is, is het element waarvoor geldt dat er geen kleiner bestaat.
+  \[ \not\exists x \in A: a \prec x \]
+  Analoog wordt ook een \term{minimaal element} gedefinieerd.
+\end{de}
+
+\begin{opm}
+  Een maximaal/minimaal element is niet noodzakelijk een grootste/kleinste element.    
+\end{opm}
+
+\begin{de}
+  Zij $(X,\preceq)$ een geordende verzameling en $A \subsetneq X$.
+  $b \in X$ is een \term{bovengrens} van $A$ als het volgende geldt.
+  \[ \forall x \in A: x \preceq b \]
+  Analoog wordt een \term{ondergrens} gedefinieerd.
+\end{de}
+
+\begin{opm}
+  Een grens van een ordeverzameling hoeft dus niet in die verzameling te zitten.
+\end{opm}
+
+\begin{de}
+  Een \term{supremum}(\term{infimum}) van een deelverzameling van een geordende verzameling is een bovengrens(ondergrens) die kleiner(groter) is dan elke andere bovengrens(ondergrens).
+\end{de}
+
+\begin{opm}
+  Een supremum/infimum is een grens van een ordeverzameling en hoeft dus niet in die verzameling te zitten.
+\end{opm}
+
+\begin{st}
+  Zij $A$ een partieel geordende verzameling met orderelatie $\prec$.
+  Het kleinste/grootste element element van $A$ is uniek als het bestaat.
+
+  \TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  Zij $A$ een partieel geordende verzameling met orderelatie $\prec$.
+  Het supremum/infimum van $A$ is uniek als het bestaat.
+
+  \TODO{ bewijs }
+\end{st}
+
+\begin{de}
+  Een \term{totale orderelatie} $\preceq$ is een partiele orderelatie met bijkomend de volgende eigenschap:
+  \[ \forall x,y \in X: x \preceq y \vee y \preceq x \]
+  Voor elke twee elementen zijn er dus precies drie mogelijkheden:
+  \begin{itemize}
+  \item $x \prec y$
+  \item $x = y$
+  \item $y \prec x$
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Zij $A$ een verzameling die volledig geordend is door de relatie $\prec$, dan noemen we $succ$ de successorfunctie als die gedefinieerd kan worden.
+  \[ succ(x) = y \Leftrightarrow x < y \wedge (\not\exists z \in A:\ x < z < y \]
+\end{de}
+
+\begin{opm}
+  De successorfunctie kan niet altijd gedefinieerd worden.
+  Denk bijvoorbeeld aan de volgende volledige orderelatie over $\mathbb{Z}$:
+  \[ |\le|:\ \mathbb{Z} \times \mathbb{Z}:\ x\ |\le|\ y \Leftrightarrow |x| \le |y| \]
+\end{opm}
 \end{document}

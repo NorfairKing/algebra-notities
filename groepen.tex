@@ -4,5 +4,2148 @@
 \chapter{Groepen}
 \label{cha:groepen}
 
+\section{Basisbegrippen}
+\label{sec:basisbegrippen}
+
+\subsection{De groep}
+\label{sec:de-groep}
+
+\begin{de}
+  Een \term{halfgroep} $G,*$ is een algebra\footnote{Zie definitie \ref{de:algebra}.} die bestaat uit een (niet-lege) verzameling $G$ en een afbeelding $*$ (De bewerking).
+  \[ *: G \times G \rightarrow: (x,y) \mapsto x * y \]
+  De bewerking $*$ is associatief.
+\end{de}
+
+\begin{de}
+  Een \term{mono\"ide} is een halfgroep $G,*$ met een neutraal element $e_{G}$.
+\end{de}
+
+\TODO{ cyclische mono\"ide }
+
+\begin{de}
+  \label{de:groep}
+  Een \term{groep} $G,*$ is een mono\"ide waarin elk element symmetriseerbaar is.
+  \[ \forall x \in G, \exists x' \in G:\ x * x' = e = x' * x \]
+\end{de}
+
+\begin{st}
+  \label{st:groep-uniek-invers-element}
+  De inverse $x^{-1}$ van een element $x$ van een groep $G$ is uniek.
+  
+  \begin{proof}
+    Bewijs uit het ongerijmde.\\
+    Stel dat er twee verschillende inversen $y$ en $z$ zijn van $x$ in $G$.
+    \[  
+    \begin{array}{rl}
+      y &= y * e_{G}\\
+        &= y * (x * z)\\
+        &= (y * x) * z\\
+        &= e_{G} * z\\
+        &= z
+    \end{array}
+    \]
+    De derde gelijkheid geldt omdat de bewerkin $*$ associatief is.\footnote{Zie de definitie van een groep (Definitie \ref{de:groep}).} De vierde gelijkheid geldt omdat het neutraal element van een groep uniek is.\footnote{Zie stelling \ref{st:neutraal-element-uniek}.}
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Een \term{commutatieve groep} of \term{abelse groep} $G,*$ is een groep waarbij de bewerking $*$ commutatief is.
+  \[ \forall x,y \in G: x * y = y * x\]
+\end{de}
+
+\begin{de}
+  Zij $G,*$ een groep en $H$ een (niet-lege) deelverzameling van $G$. We noemen $H$ een \term{deelgroep} van $G$ als $H$ zelf ook een groep is met dezelfde bewerking $*$.
+  Met andere woorden: ``Een deelgroep is een deelalgebra die ook een groep is''.
+\end{de}
+
+\begin{st}
+  \label{st:deelgroep-zelfde-neutraal-element}
+  Zij $H$ een deelgroep van $G,*$, dan is $e_{G}$ ook het neutraal element van $H$.
+
+  \begin{proof}
+    Noem $e_{G}$ het neutraal element van $G,*$ en $e_{h}$ dat van $H,*$. Noem het invers van een element $x$ in $G$ $x^{-1}$ en het invers van $x$ in $H$ $\bar{x}$.
+    \[
+    \begin{array}{rrl}
+                  & e_{H} * e_{H} &= e_{H} * e_{G}\\
+      \Rightarrow & e^{-1}_{H} * (e_{H} * e_{H}) &= e^{-1}_{H} * (e_{H} * e_{G})\\
+      \Rightarrow & (e^{-1}_{H} * e_{H}) * e_{H} &= (e^{-1}_{H} * e_{H}) * e_{G}\\
+      \Rightarrow & e_{G} * e_{H} &= e_{G} * e_{G}\\
+      \Rightarrow & e_{H} &= e_{G}\\
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:deelgroep-houdt-invers-ook-in}
+  Zij $H$ een deelgroep van $G,*$, dan is elk invers element $x^{-1}$ van een element $x$ in $H$ ook het invers element van $x$ in $G$.
+
+  \begin{proof}
+    Noem $e_{G}$ het neutraal element van $G,*$ en $e_{h}$ dat van $H,*$.
+    Noem het invers van een element $x$ in $G$ $x^{-1}$ en het invers van $x$ in $H$ $\bar{x}$.
+    \[
+    \begin{array}{rll}
+      x * \bar x &= e_{H} &\\
+                 &= e_{G} &\\
+                 &= x * x^{-1} &\\
+    \end{array}
+    \Rightarrow \bar x = x^{-1}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:criterium-deelgroep}
+  Het \term{criterium van een deelgroep}.\\
+  Zij $G,*$ een groep, en $H$ een deelverzameling van $G$.
+  $H$ is een deelgroep van $G$ als en slechts als aan de volgende voorwaarden voldaan is.
+  \begin{enumerate}
+  \item $e_{G} \in H$
+  \item $\forall x,y \in H: x * y \in H$
+  \item $\forall x \in H: x^{-1} \in H$
+  \end{enumerate}
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $H$ een deelgroep is van $G$, dan gelden de voorwaarden al omdat $H$ zelf een groep is.\footnote{Zie bovendien stelling \ref{st:deelgroep-zelfde-neutraal-element}.}
+    \item $\Leftarrow$\\
+      Stel dat de voorwaarden voldaan zijn. Vanwege voorwaarde twee is de beperking van $*$ tot $H$ alvast een interne bewerking in $H$.
+      \[ *: H \times H \rightarrow H: (x,y) \mapsto x*y \]
+      \begin{itemize}
+      \item associativiteit\\
+      Deze bewerking is associatief in $G$, dus ook in $H$.
+      \item Neutraal element\\
+      Vanwege de eerste voorwaarde is $e_{G}$ ook een neutraal element van $H$.
+      \item Inverse\\
+      Elk element $x$ in $H$ heeft bovendien ook een invers in $H$ volgens de derde voorwaarde.
+      \end{itemize}
+    \end{itemize}
+  \end{proof}
+\end{st}
+hopl
+
+\begin{st}
+  \term{alternatieve criteria}.\\
+  We kunnen in het vorige criterium de volgende aanpassingen maken.
+  \begin{itemize}
+  \item Vervang de eerste voorwaarde door voorwaarde $1'$:
+    \[ H \neq \emptyset \]
+  \item Vervang de tweede en derde voorwaarde samen door voorwaarde $4$:
+      \[ \forall x,y \in H: x * y^{-1} \in H \]
+   \end{itemize}
+
+  \begin{proof}
+    We bewijzen dat de voorwaarden die we vervangen equivalent zijn.
+    \begin{itemize}
+    \item $e_{G} \in H \Leftrightarrow H \neq \emptyset$.
+      Als $e_{G}$ een element is van $H$, is $H$ natuurlijk niet leeg.
+      Als $H$ niet leeg is, bestaat er een element $x$ in $H$.
+      Vanwege de derde voorwaarde zit de inverse van dat element ook in $H$.
+      Vanwege de tweede voorwaarde zit $x * x^{-1} = e_{G}$ ook in $H$.
+    \item 
+      \[ (\forall x,y \in H: x * y \in H) \wedge (\forall x \in H: x^{-1} \in H)  \Leftrightarrow \forall x,y \in H: x * y^{-1} \in H \]
+      Als voorwaarde 2 en 3 gelden is het duidelijk dat voorwaarde 4 geldt.
+      Als voorwaarde 4 geldt, kies dan $e_{G}$ voor $x$ in voorwaarde 4 om voorwaarde 3 te bekomen.
+      \[ \forall y \in H: e_{G} * y^{-1} = y^{-1} \in H \]
+      Kies nu de inverse $z^{-1}$ van een willekeurig element $x$ in $H$ voor $y$ in voorwaarde 4 om voorwaarde 2 te bekomen.
+      \[ \forall x, z \in H: x * (z^{-1})^{-1} = x * z \in H \]
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G$ een verzamelinge met een bewerking $*$ die voldoet aan de volgende voorwaarden.
+  \begin{itemize}
+  \item $*$ is associatief
+  \item er bestaat een $e$ in $G$ waarvoor geldt $\forall x \in G: x * e = x$
+  \item voor elk element $e$ dat voldoet aan de vorige voorwaarde:
+    \[ \forall x \in G, \exists y \in G: x * y = e \]
+  \end{itemize}
+  $G,*$ is dan een groep.
+
+  \begin{proof}
+    Om te bewijzen dat $G,*$ een groep is, moeten we nog bewijzen dat er een neutraal element bestaat in $G$ en dat elk element een inverse heeft in $G$.
+\TODO{ voor doorbijters: Bewijs }
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G,*$ een groep waarop een equivalentierelatie $\sim$ is gedefinieerd, dan is de verzameling van alle elementen equivalent met het neutraal element als $\sim$ links-(of rechts-)verenigbaar is met $*$.
+  
+\TODO{bewijs p 106 tai}
+\end{st}
+
+\begin{st}
+  \label{st:doorsnede-deelgroepen}
+  De doorsneden van twee deelgroepen is opnieuw een deelgroep.
+\extra{bewijs}
+\end{st}
+
+\subsection{Morfismen}
+\label{sec:morfismen}
+
+\begin{de}
+  \label{de:groepsmorfisme}
+  Zij $G,*$ en $H,\Box$ groepen.
+  Een (groeps)(homo)\term{morfisme} $f$ is een morfisme\footnote{Zie definitie \ref{de:morfisme}.} tussen twee groepen $G,*$ en $H,\Box$.
+  \[ \forall x,y \in G: f(x*y) = f(x) \Box f(y) \]
+\end{de}
+
+\begin{de}
+  Zij $f: G \rightarrow H$ een groepsmorfisme. De \term{kern} $Ker f$ wordt gedefinieerd als volgt.
+  \[ Ker f = \{ x \in G \ |\ f(x) = e_{H} \} \]
+\end{de}
+
+\begin{de}
+  Zij $f: G \rightarrow H$ een groepsmorfisme. Het \term{beeld} $Im f$ wordt gedefinieerd als volgt.
+  \[ Im f = f(G) = \{ f(u) \ |\ u \in G \} \]
+\end{de}
+
+
+\begin{st}
+  \label{st:groepsmorfisme-behoudt-neutraal-element}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  \[ e_{H} = f(e_{G}) \]
+
+  \begin{proof}
+    Beschouw de neutrale elementen $e_{G}$ en $e_{H}$ in de groepen.
+    Begin bij de definite van een groepsmorfisme.\footnote{Zie definitie \ref{de:groepsmorfisme}.}
+    \[ f(e_{G}*e_{G}) = f(e_{G})*f(e_{G}) \]
+    $e_{G}$ is het neutraal element in $G$. $e_{G}*e_{G}$ is dus opnieuw $G$.
+    \[ f(e_{G}) = f(e_{G})*f(e_{G}) \]
+    Voeg links $e_{H}$ toe. Dit mag omdat $e_{H}$ het neutraal element is in $H$.
+    \[ f(e_{G})*e_{H} = f(e_{G})*f(e_{G}) \]
+    Schrap tenslotte $f(e_{G})$ aan beide kanten.
+    \[ e_{H} = f(e_{G}) \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:groepsmorfisme-behoudt-inverse}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  \[ \forall x \in G: f(x^{-1}) = (f(x))^{-1} \]
+
+  \begin{proof}
+    Kies een willekeurig element $x$ in $G$.
+    Nu geldt het volgende:
+    \[
+    \begin{array}{rl}
+    f(x) * f(x^{-1}) &= f(x*x^{-1})\\
+                    &= f(e_{G})\\
+                    &= e_{H}
+    \end{array}
+    \]
+    De eerste gelijkheid is precies de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:groepsmorfisme}.}
+    De tweede gelijkheid volgt uit de definitie van de inverse van een element van een groep.\footnote{Zie definitie \ref{de:groep} puntje 3.}
+    De laatste gelijkheid geldt omdat een groepsmorfisme het neutraal element behoudt.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-neutraal-element}.}
+    Wat we bekomen is de definitie van het neutraal element $f(x^{-1})$ van $f(x)$.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:beeld-is-deelgroep}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  \[ Im(f) \text{ is een deelgroep van } H \]
+
+  \begin{proof}
+    We bewijzen elke voorwaarde uit het criterium voor deelgroepen.
+    \begin{enumerate}
+    \item $e_{H} \in Im(f)$\\
+      Inderdaad!\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-neutraal-element}.}
+    \item $\forall x,y \in Im(f): x \Box y \in Im(f)$\\
+      Kies twee elementen $f(x)$ en $f(y)$ in $Im(f)$, nu bestaan er dus twee elementen $x$ en $y$ in $G$.
+      In $G$ is de bewerking $*$ intern.\footnote{Zie definitie \ref{de:groep}}.
+      Kijk nu naar de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:groepsmorfisme}.}
+      \[ f(x*y) = f(x) \Box f(y) \]
+      $f(x) \Box f(y)$ is dus een element van $Im(f)$.
+    \item $\forall x \in Im(f): x^{-1} \in Im(f)$\\
+      Kies een element $f(x)$ in $Im(f)$, er bestaat er dus een element $x$ in $G$.
+      Nu is de inverse van $f(x)$ precies $f(x^{-1})$.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-inverse}.}
+    \end{enumerate}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:kern-is-deelgroep}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  \[ Ker(f) \text{ is een deelgroep van } G \]
+  \begin{proof}
+    We bewijzen elke voorwaarde uit het criterium voor deelgroepen.
+    \begin{enumerate}
+    \item $e_{H} \in Ker(f)$\\
+      Inderdaad!\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-neutraal-element}.}
+    \item $\forall x,y \in Ker(f): x * y \in Ker (f)$\\
+      Kies twee willekeurige elementen $x$ en $y$ in de kern $Ker(f)$ van $f$.
+      Nu geldt het volgende.
+      \[
+      \begin{array}{rl}
+      f(x * y) &= f(x) \Box f(y)\\
+               &= e_{H} \Box e_{H}\\
+               &= e_{H}
+      \end{array}
+      \]
+      $x * y$ zit dus in $Ker (f)$ voor elke $x$ en $y$.
+    \item $\forall x \in Ker(f): x^{-1} \in Ker (f)$\\
+      Kies een willekeurig element $x$ in de kern $Ker(f)$ van $f$.
+      Nu geld het volgende.
+      \[
+      \begin{array}{rl}
+      f(x^{-1}) &= (f(x))^{-1}\\
+               &= e_{H}^{-1}\\
+               &= e_{H}
+      \end{array}
+      \]
+      $x^{-1}$ zit dus in $Ker (f)$ voor elke $x$.
+    \end{enumerate}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:kern-triviaal-asa-morfisme-injectief}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  \[ Ker(f) = \{e_{G}\}\Leftrightarrow f \text{ is injectief} \]
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+  \[ \forall x,y \in G: f(x*y) = f(x) \Box f(y) \]
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Bewijs uit het ongerijmde: Stel dat er twee verschillende elementen $x$ en $y$ in $G$ zitten die door $x$ op hetzelfde element $f(x) = f(y) \in H$ afgebeeldt worden.
+      \[ f(x*y) = f(x) \Box f(y) = f(x) \Box f(x) \]
+      \[ f(y) = f(x) \]
+      Contradictie.
+    \item $\Leftarrow$\\
+      Bewijs door contrapositie: Als de kern van $f$ niet triviaal is, dan bestaan er minstens twee verschillende elementen in $G$ die door $f$ op $e_{H}$ afgebeeldt worden en is $f$ dus niet injectief.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  \[ f \text{ is een isomorfisme} \Rightarrow f^{-1} \text{ is een isomorfisme} \]
+  Merk op dat de afbeelding $f^{-1}$ slechts bestaat als $f$ een injectie is.
+  \begin{proof}
+    $f^{-1}$ is een morfisme:
+    \[ 
+    \begin{array}{rll}
+      f^{-1}(y_{1} \Box y_{2}) &= f^{-1}(f(x_{1}) \Box f(x_{2})) &\\
+                             &= f^{-1}(f(x_{1} * x_{2})) &\\
+                             &= x_{1} * x_{2} &= f^{-1}(y_{1}) \Box f^{-1}(y_{2})
+    \end{array}
+    \]
+    $f^{-1}$ is bovendien bijectief, want $f$ is bijectief.
+    \TODO{bewijs in het hoofdstuk over afbeeldingen.}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  Als een verzameling $A$ een deelgroep is van $G$, dan is $f(A)$ een deelgroep van $H$.
+
+  \begin{proof}
+    We gaan elke voorwaarde in het criterium van een deelgroep af.
+    \begin{itemize}
+    \item $e_{f(A)} \in H$.\\
+      $A$ is een deelgroep van $G$, dus geldt $e_{A}\in G$.
+      Bovendien wordt $e_{A} = e_{G}$ afgebeeldt op $e_{H} = e_{f(A)}$.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-neutraal-element}.}
+      $e_{f(A)}$ zit dus wel degelijk in $H$.
+    \item $\forall x,y \in f(A): x \Box y \in f(A)$\\
+      Kies twee elementen $f(x)$ en $f(y)$ in $f(A)$, nu bestaan er dus twee elementen $x$ en $y$ in $A$.
+      In $A$ is de bewerking $*$ intern.\footnote{Zie definitie \ref{de:groep}.}
+      Kijk nu naar de definitie van een groepsmorfisme.\footnote{Zie definitie \ref{de:groepsmorfisme}.}
+      \[ f(x * y) = f(x) \Box f(y) \]
+      $f(x) \Box f(y)$ is dus een element van $f(A)$.
+    \item $\forall x \in f(A): x^{-1} \in f(A)$\\
+      Kies een element $f(x)$ in $f(A)$, er bestaat er dus een element $x$ in $A$.
+      Nu is de inverse van $f(x)$ precies $f(x^{-1})$.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-inverse}.}
+    \end{itemize}
+  \end{proof}
+  Merk op dat deze stelling een algemener geval is van stelling \ref{st:beeld-is-deelgroep}.
+\end{st}
+
+\begin{st}
+  Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
+  Als een verzameling $B$ een deelgroep is van $H$, dan is $f^{-1}(B)$ een deelgroep van $G$.
+
+  \begin{proof}
+    We gaan elke voorwaarde in het criterium van een deelgroep af.
+    \begin{itemize}
+    \item $e_{f^{-1}(B)} \in G$.\\
+      Omdat $e_{G} = e_{B}$ geldt\footnote{Zie stelling \ref{st:deelgroep-zelfde-neutraal-element}.}, geldt ook $f(e_{B}) = e_{H}$.
+      Bijgevolg geldt ook $e_{f^{-1}(B)} = e_{B} \in G$. 
+    \item $\forall x,y \in f^{-1}(B): x \Box y \in f^{-1}(B) $\\
+      Kies twee willekeurige elementen $a$ en $b$ uit $f^{-1}(B)$.
+      Dit houdt in dat er twee elementen $f(a)$ en $f(b)$ in $B$ bestaan.
+      $f(a) \Box f(b) \in B$ geldt omdat $B$ een deelgroep is van $B$. \footnote{Zie definitie \ref{de:groep}.}
+      Dit is bovendien gelijk aan $f(a * b) \in f^{-1}(B)$, dus zitten $a$ en $b$ beide in $f^{-1}(B)$.
+    \item $\forall x \in f^{-1}(B): x^{-1} \in f^{-1}(B)$\\
+      Kies een willekeurig element $a$ uit $f^{-1}(B)$.
+      Dit houdt in dat er een element $f(a)$ in $B$ bestaat.
+      Het inverse element van $f(a)$ is $(f(a)^{-1})$ en zit ook in B.\footnote{Zie stelling \ref{st:deelgroep-houdt-invers-ook-in}.}
+      Er bestaat dus ook een element $a^{-1}$ dat bovendien in $f^{-1}(B)$ zit.\footnote{Zie stelling \ref{st:groepsmorfisme-behoudt-inverse}.}
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+
+\begin{st}
+  De verzamelingen van automorfismen $Aut G$, uitgeruist met de samenstellingsfunctie $\circ$ vormt een groep.
+
+  \begin{proof}
+    We bewijzen elk deel van de definitie appart.\footnote{Zie definitie \ref{de:groep}.}
+    \begin{itemize}
+    \item associativiteit
+      \[ \forall x, y, z \in Aut G: (x \circ y) \circ z = x \circ (y \circ z) \] 
+      De samenstelling van afbeeldingen is inderdaad associatief.\footnote{Zie stelling \ref{st:samenstelling-relaties-associatief}.}
+    \item neutraal element
+      \[ \forall x \in Aut G: x \circ e = e = e \circ x \]
+      Er bestaat een neutraal element voor $Aut G$, namelijk $Id_{G}$.\footnote{Zie definitie \ref{identieke-transformatie}.}
+    \item inverse
+      \[ \forall x \in Aut G, \exists x' \in Aut G:\ x \circ x' = e = x' \circ x \]
+      Kies een willekeurige $x$ in $G$. Er bestaat nu wel degelijk een inverse afbieelding, precies omdat $x$ een bijectie is.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G,*$ en $H,\Box$ groepen en $\alpha: G \rightarrow H$ een morfisme.
+  $\alpha$ is een isomorfisme als en slechts als er een morfisme $\beta: H \rightarrow G$ bestaat zodat $\beta \circ \alpha = Id_{G}$ en $\alpha \circ \beta = Id_{G}$ gelden.
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    Zij $G,*$ en $H,\Box$ willekeurige groepen. 
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Zij $\alpha: G \rightarrow H$ een groepsisomorfisme.
+      $\alpha$ is een bijectie, dus $\alpha^{-1}$ is goed gedefinieerd.
+      Noem $\alpha^{-1}$ nu $\beta$, dan gelden $\beta \circ \alpha = Id_{G}$ en $\alpha \circ \beta = Id_{G}$.\footnote{Zie stelling \ref{st:afb+inverse=identieke}.}
+    \item $\Leftarrow$\\
+      Zij $\alpha: G \rightarrow H$ $\beta: H \rightarrow G$ morfismes, zodat $\beta \circ \alpha = Id_{G}$ en $\alpha \circ \beta = Id_{G}$ gelden.
+      Volgens $\beta$ is nu de inverse van $\alpha$.\footnote{Zie stelling \ref{st:afb+inverse=identieke}.}
+      Omdat $\alpha$ een inverse heeft, is $\alpha$ bijectief en bijgevolg een isomorfisme.\footnote{Zie stelling \ref{st:afb-inverse-asa-bijectief}.}
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+
+\subsection{Orde}
+\label{sec:orde}
+
+\begin{de}
+  De \term{orde} $n$ van het element $x$ van een groep $G,*$ is de kleinste $n \in N_{0}$ waarvoor $x^{n} = e_{G}$ geldt, indien die bestaat en anders $\infty$.
+\end{de}
+
+\begin{de}
+  De \term{orde} $|G|$ of $\#G$ van een groep $G$ is het aantal elementen van $G$.
+\end{de}
+
+\begin{ei}
+  \label{ei:groep-eindige-orde-deelbaarheid}
+  Zij $G,*$ een groep en $x \in G$ een element met een eindige orde $n$ in die groep.
+  \[ \forall r,s \in \mathbb{Z}:\ (x^{s} = e \Leftrightarrow n | s) \wedge (x^{r} = x^{s} \Leftrightarrow n | r-s)\]
+  \begin{proof}
+    Bewijs van conjunctie.
+    Kies willekeurige elementen $r$ en $s$ in $\mathbb{Z}$.
+    \begin{itemize}
+    \item $(x^{s} = e \Leftrightarrow n | s)$
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        Stel $x^{s} = e$ geldt.
+        Deel nu $s$ euclidisch door $n$.\footnote{Zie stelling \ref{st:euclidische-deling}.}
+        \[ s = nq + r \text{ met } 0 \le r < n \]
+        Nu geldt het volgende:
+        \[ x^{s} = x^{nq + r} = (x^{n})^{q} * x^{r} = e^{q} * x^{r} = x^{r} = e\]
+        Omdat $n$ de kleinste waarde is waarvoor $x^{n}=e$ geldt en omdat $r$ tussen $0$ en $n$ ligt, besluiten we dat $r$ nul is.
+        \[ s = nq \]
+        $n$ is dus een deler van s.\footnote{Zie definitie \ref{de:deler}.}
+      \item $\Leftarrow$\\
+        Stel dat $n | s$ geldt, dan bestaat er een $q$ zodat volgende gelijkheid geldt.\footnote{Zie definitie \ref{de:deler}.}
+        \[ s = nq \]
+        We beschouwen nu $x^{s}$
+        \[ x^{s} = x^{nq} = (x^{n})^{q} = e^{q} = e\]
+      \end{itemize}
+    \item $(x^{r} = x^{s} \Leftrightarrow n | r-s)$
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        Stel dat $x^{r} = x^{s}$ geldt.
+        \[ x^{r} = x^{s} \Leftrightarrow x^{r-s} = e \]
+        In het vorige deel van dit bewijs hebben we bewezin dat $n$ dan een deler is van $r-s$.
+        \[ n|r-s \]
+      \item $\Leftarrow$\\
+        Stel dat $n | r-s$ geldt, dan geldt volgend deel \'e\'en van dit bewijs het volgende:
+        \[ x^{r-s} = e \]
+        Dit betekent precies dat $x^{r}$ en $x^{s}$ gelijk zijn.
+        \[ \Rightarrow x^{r} = x^{s} \]
+      \end{itemize}
+    \end{itemize}
+  \end{proof}
+\end{ei}
+
+\begin{de}
+  Zij $x$ een element van een groep $G,*$, dan is $<x>$ de \term{groep} voortgebracht door $x$.
+  \[ <x> = \{ x^{s}\ |\ s \in \mathbb{Z} \} \]
+\end{de}
+
+\begin{st}
+  \label{st:voortbrenging-is-groep}
+  Zij $x$ een element van een groep $G,*$.
+  De `groep' $<x>$ voortgebracht door $x$ is wel degelijk een groep.
+
+  \begin{proof}
+    We bewijzen elke eigenschap van een groep voor $<x>$.\footnote{Zie definitie \ref{de:groep}.}
+    \begin{itemize}
+    \item Associativiteit\\
+      Kies drie willekeurige elementen uit $<x>$, met andere woorden kies drie getallen $a$, $b$ en $c$ uit $mathbb{Z}$:
+      \[
+      \begin{array}{rll}
+      (x^{a} * x^{b})* x^{c} &= x^{a+b} * x^{c} &\\
+                           &= x^{a+b+c}       &\\
+                           &= x^{a} * x^{b+c} &= x^{a} * (x^{b} * x^{c})
+      \end{array}
+      \]
+    \item Neutraal element
+      Kies willekeurig een element uit $<x>$, kies dus een $a\in \mathbb{Z}$.
+      Het neutraal element voor $<x>$ is $x^{0}$:
+      \[ x^{a} * x^{0} = x^{a+0} = x^{a} = x^{0+a} = x^{0} + x^{a} \]
+    \item Invers element
+      Kies een willekeurig element uit $<x>$, kies dus een $a \in \mathbb{Z}$.
+      Het invers element van $x^{a}$ is nu $x^{-a}$.
+      \[ x^{a}*x^{-a} = x^{a-a} = x^{0} = x^{-a+a} = x^{-a} * x^{a} \]
+    \end{itemize}
+  \end{proof}
+
+\end{st}
+
+\begin{st}
+  \label{st:orde-van-generator-is-orde-van-groep}
+  Zij $x$ een element in een groep $G,*$, dan is de orde $n$ van de groep voortgebracht door $x$ gelijk aan de orde $m$ van $x$ in $G$.
+  \[ |x| = |<x>| \]
+
+  \begin{proof}
+    Bekijk de groep $<x>$.
+    \[ <x> = \{ x^{n}, x,x^{2},\dotsc,x^{n-1}\} \]
+    Er zitten precies $n$ elementen in $<x>$.
+    Dat $m$ de orde is van $x$ in $G$ houdt het volgende in:
+    \[ x^{m} = e \text{ en } \neg (\exists\ m')(m'<m \wedge x^{m'} = e) \]
+    Alle machten van $x$ tot en met $x^{m}$ zijn dus verschillend.
+    Die $m$ machten zijn precies de elementen van $<x>$.
+  \end{proof}
+\end{st}
+ 
+\begin{de}
+  \label{de:cyclische-groep}
+  Een groep $G,*$ is een \term{cyclishe groep} als en slechts als er een element in $G$ bestaat dat $G$ voortbrengt.
+  We noemen bovendien $x$ de \term{generator} van $G$.
+\end{de}
+
+\begin{st}
+  \label{st:cyclishe-groep-is-commutatief}
+  Elke cyclische groep is commutatief.
+\extra{bewijs}
+\end{st}
+
+\begin{ei}
+  Elke oneindige cyclishe groep is isomorf met $\mathbb{Z},+$ en is dus aftelbaar.
+
+  \begin{proof}
+    We tonen dat er een bijectie $b$ bestaat tussen de willekeurige oneindige cyclische groep $G,*$ met generator $x$ en $\mathbb{Z},+$.
+    \[ G = <x> = \{ x^{s}\ |\ s \in \mathbb{Z} \} \]
+    Inderdaad, kies $b$ als volgt.
+    \[ b:\ \mathbb{Z} \rightarrow G:\ s \mapsto x^{s} \]
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  Elke cyclishe groep van eindige orde $n \in \mathbb{N}$ is isomorf met $\mathbb{Z}_{n},+$.
+
+  \begin{proof}
+    We tonen dat er een bijectie $b$ bestaat tussen de willekeurige eindige cyclische groep $G,*$ met generator $x$ en orde $n$ en $\mathbb{Z},+$.
+    \[ G = <x> = \{ x^{s}\ |\ s \in \mathbb{Z} \} \]
+    Inderdaad, kies $b$ als volgt.
+    \[ b:\ \mathbb{Z} \rightarrow G:\ [s]_{n} \mapsto x^{s} \]
+  \end{proof}
+\end{ei}
+
+\begin{st}
+  \label{st:deelgroep-van-cyclische-groep-is-cyclisch}
+  Elke deelgroep $H$ van een cyclische groep $G,* = <x>$ is cyclish.
+  Sterker nog: $H$ wordt voortgebracht door $x^{s}$ waarbij $s \in \mathbb{N}_{0 }$ het kleinste getal is waarvoor $x^{s} \in H$ geldt. 
+
+  \begin{proof}
+    Als $H = \{e\}$ geldt, dan is $H$ inderdaad cyclisch.
+    Stel nu dat $H$ niet enkel het neutraal element bevat, dan bevat $H$ mistens nog de elementen $x^{m}$ en $x^{-m}$ met $m \in \mathbb{N}$.
+    Het kan zijn dat er meerdere van die $m$'s bestaan, maar er bestaat er altijd een kleinste: $n$.
+    \[ x^{n} \in H \]
+    Voor elk element $x^{s}$ van $G$ geldt nu dat het in $H$ zit als $n$ een deler is van $s$.
+    \[ x^{s} \in H \Leftrightarrow n|s \]
+    Inderdaad, als $x^{s}$ in $H$ zit, dan kunnen we $s$ euclidisch delen door $n$\footnote{Zie stelling \ref{st:euclidische-deling}.}:
+    \[ s = nq + r \text{ met } 0 \le r < n \]
+    \[ x^{s} = x^{nq + r} \Rightarrow x^{r} = x^{s-nq} = x^{s}(x^{n})^{-q} \in H \]
+    Omdat $n$ minimaal is, en $r$ tussen $0$ en $n$ zit, is $r$ gelijk aan nul, en $s$ dus deelbaar door $s$.
+    Omgekeerd, wanneer $s$ deelbaar is door $n$ bestaat er een $q$ zodat volgende bewering geldt\footnote{Zie definitie \ref{de:deler}.}:
+    \[ s = nq \]
+    \[ x^{s} = x^{nq} = (x^{n})^{q} \in H \]
+    Met andere woorden: elke macht van $x^{n} \in H$ zit opnieuw in $H$. Dit betekent precies dat $H$ cyclisch is.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:orde-element-cyclische-groep}
+  Zij $G = <a>$ een cyclishe groep van eindige orde $n$ met $*$ als bewerking.
+  De orde van $a^{k}$ is gelijk aan $\frac{n}{ggd(k,n)}$:
+  \[ (a^{k})^{\frac{n}{ggd(k,n)}} = e\]
+  
+  \begin{proof}
+    \[ (a^{k})^{\frac{n}{ggd(k,n)}} = (a^{n})^{\frac{k}{ggd(k,n)}} = e \]
+    Nu moeten we nog bewijzen dat $\frac{n}{ggd(k,n)}$ minimaal is.
+    Stel dus dat er en $0 < r < \frac{n}{ggd(k,n)}$ bestaat zodat $a^{kr}$ geldt.
+    Bekijk nu de stelling van B\'ezout-Bachet.\footnote{Zie stelling \ref{st:bezout-bachet}.}
+    Er bestaan een $\alpha$ en $beta$ zodat het volgende geldt:
+    \[ ggd(k,n) = \alpha k + \beta n \]
+    Nu bekijken we $a^{kr} = e$ opnieuw, en verheffen we beide kanten tot de macht $\alpha$ zodat er $\alpha k$ in de macht staat.
+    \[ a^{kr\alpha} = a^{ggd(k,n)r - \beta nr} = a^{ggd(k,n)r}* a^{-\beta nr} = a^{ggd(k,n)r}\]
+    Omdat $a^{ggd(k,n)r} = e$ geldt, is $n$ een deler van $ggd(k,n)r$.\footnote{Zie stelling \ref{ei:groep-eindige-orde-deelbaarheid}.}
+    Dat houdt in dat $\frac{n}{d}$ een deler is van $r$, en dus kleiner.
+    \TODO{bewijzen in hoofdstuk van deelbaarheid}
+  \end{proof}
+
+\end{st}
+
+\begin{st}
+  Zij $G = <a>$ een cyclishe groep van eindige orde $n$.
+  $a^{k}$ is een generator van $G$ als en slechts als $ggd(k.n)$ gelijk is aan $1$.
+  \[ <a^{k}> = G \Leftrightarrow ggd(k,n) = 1 \]
+
+  \begin{proof}
+     We weten dat de orde van $a^{k}$ in $G$ gelijk is aan $\frac{n}{ggd(k,n)}$.\footnote{Zie stelling \ref{st:orde-element-cyclische-groep}.}
+     Als en slechts als $a^{k}$ een generator is voor $G$, dan is de orde van $a^{k}$ gelijk aan de orde van $G$.\footnote{Zie stelling \ref{st:orde-van-generator-is-orde-van-groep}.}
+     \[ \frac{n}{ggd(k,n)} = n \Leftrightarrow ggd(k,n) = 1 \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G,* = <a>$ een cyclishe groep van eindige orde $n$.
+  Voor elke $positieve$ deler $m$ van $n$ geldt dat $G$ precies \'e\'en deelgroep heeft van orde $m$, namelijk $<a^{\frac{n}{m}}>$.
+  \begin{proof}
+    $<a^{\frac{n}{m}}>$ is een deelgroep\footnote{Zie stelling \ref{st:voortbrenging-is-groep}.} van $G$.
+    Omdat $G$ cyclisch is, is $<a^{\frac{n}{m}}>$ ook cyclisch.\footnote{Zie stelling \ref{st:deelgroep-van-cyclische-groep-is-cyclisch}.} De orde van $<a^{\frac{n}{m}}>$ is bovendien gelijk aan $\frac{n}{ggd({\frac{n}{m},n)}}$.\footnote{Zie stelling \ref{st:orde-element-cyclische-groep}.}
+    \[ \frac{n}{ggd({\frac{n}{m},n)}} = m \]
+\TODO{Bewijs in hoofdstuk van deelbaarheid}
+    We moeten nu dus nog bewijzen dat elke deelgroep $H$ van orde $m$ gelijk is aan $<a^{\frac{n}{m}}>$.
+    Kies zo'n deelgroep $H$ van orde $m$. $H$ is nu zeker cyclisch.
+    Noem de generator van $H$ $a^{k}$.
+    \[ H = <a^{k}> \]
+    We weten nu opnieuw dat $H$ orde $\frac{n}{ggd(k,n)}$ heeft.
+    \[ m = \frac{n}{ggd(k,n)} = \frac{kgv(k,n)}{k} \]
+\TODO{Bewijs in hoofdstuk van deelbaarheid}
+    \[ k = \frac{kgv(k,n)}{m} \]
+    $k$ is dus een veelvoud van $\frac{n}{m}$.
+    Bijgevolg zit $a^{k}$ zeker in $<a^{k}>$.
+    $H$ is nu dus een deel van $<a^{k}>$, dus zijn $H$ en $<a^{\frac{n}{m}}>$ gelijk vanwege hun gelijke orde.
+  \end{proof}
+\end{st}
+
+\subsection{Nevenklassen}
+\label{sec:nevenklassen}
+
+\begin{de}
+  \label{de:nevenklassen}
+  Zij $G,*$ een groep en $H$ een deelgroep van $G$.
+  \begin{itemize}
+  \item De \term{linkse nevenklasse} $xH$ van $H$ in $G$ bepaald door $x$:
+    \[ xH = \{ x * h\ |\ h \in H \} \]
+  \item De \term{rechtse nevenklasse} $Hx$ van $H$ in $G$ bepaald door $x$:
+    \[ Hx = \{ h * x\ |\ h \in H \} \]
+  \end{itemize}
+  De verzameling van linker nevenklassen van $H$ in $G$ noteren we als $G/H$.
+  \[ G/H = \{ xH\ |\ x \in G \} \]
+\end{de}
+
+\begin{ei}
+  \label{ei:linker-nevenklasse-eig}
+  Zij $G$ een groep en $H$ een deelgroep van $G$.
+  \[ \forall a,b \in G:\ aH = bH \Leftrightarrow a \in bH \Leftrightarrow b^{-1}a \in H \]
+
+  \begin{proof}
+    Bewijs door circulaire implicaties.
+    \begin{itemize}
+    \item $\forall a,b \in G:\ aH = bH \Rightarrow a \in bH$\\
+      $H$ is een groep, en bevat dus een neutraal element.\footnote{Zie definitie \ref{de:groep}.}
+      $a$ is dus een element van $aH$, wat gelijk is aan $bH$, dus $a$ zit in $bH$.
+    \item $\forall a,b \in G:\ a \in bH \Rightarrow b^{-1}a \in H$\\
+      Ofwel zijn $b$ en $a$ gelijk, en dan is $b^{-1}a$ een element van $H$ omdat $H$ een groep is.
+      Ofwel zijn $b$ en $a$ niet gelijk, en dan bestaat er dus een $c \in H$ waarvoor het volgende geldt:
+      \[ b*c = a\]
+      \[ b^{-1}*b*c = b^{-1}a\]
+      \[ c = b^{-1}a \in H \]
+    \item $\forall a,b \in G:\ b^{-1}a \in H\Rightarrow aH = bH$\\
+      Noem $b^{-1}a$ $h_{0}$.
+      \[ b^{-1}a = h_{0} \Rightarrow (a = bh_{0}) \text { en } b = a h_{0}^{-1} \]
+      Nu geldt voor alle $h \in H$ het volgende:
+      \[ a * h = bh_{0}*h \]
+      $aH$ is dus al een deel van $bH$.
+      Bovendien geldt, opnieuw voor alle $h \in H$ ook het volgende:
+      \[ b * h = ah_{0}^{-1} \]
+      $bH$ is dus ook een deel van $aH$.
+      We besluiten dat $aH$ en $bH$ gelijk zijn.
+   \end{itemize}
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  \label{ei:rechter-nevenklasse-eig}
+  Zij $G$ een groep en $H$ een deelgroep van $G$.
+  \[ \forall a,b \in G:\ Ha = Hb \Leftrightarrow a \in Hb \Leftrightarrow ab^{-1} \in H \]
+
+\TODO{ bewijs analoog }
+\end{ei}
+
+\begin{ei}
+  \label{ei:nevenklasse-eigen-element-gelijk}
+  Zij $G,*$ een groep en $H$ een deelgroep van $G$.
+  \[ \forall a \in G:\ aH = H \Leftrightarrow a \in H \Leftrightarrow Ha = H \]
+
+  \begin{proof}
+    Bewijs door circulaire implicaties.
+    \begin{itemize}
+    \item $\forall a \in G:\ aH = H \Rightarrow a \in H$\\
+      $a$ is een element van $aH$. $aH$ en $H$ zijn gelijk, dus $a$ zit ook in $H$.
+    \item $\forall a \in G:\ a \in H \Rightarrow Ha = H$\\
+      $H$ is een deelgroep met bewerking $*$ die intern is in $H$.\footnote{Zie definitie \ref{de:groep}.}
+      Wanneer we elk element in $H$ rechts bewerken met $a$, komen we telkens een element in $H$ uit.
+      Omgekeerd kan elk element in $H$ geschreven worden als een ander element in $H$ rechts bewerkt met $a$.
+    \item $\forall a \in G:\ Ha = H \Rightarrow aH = H$\\
+      $a$ is een element van $Ha$. $Ha$ en $H$ zijn gelijk, dus $a$ zit ook in $H$.
+      $H$ is een deelgroep met bewerking $*$ die intern is in $H$.\footnote{Zie definitie \ref{de:groep}.}
+      Wanneer we elk element in $H$ links bewerken met $a$, komen we telkens een element in $H$ uit.
+      Omgekeerd kan elk element in $H$ geschreven worden als een ander element in $H$ links bewerkt met $a$.
+      $Ha$ en $aH$ zijn dus gelijk.
+    \end{itemize}
+  \end{proof}
+\end{ei}
+
+\begin{st}
+  De verzamelingen der linker en rechter nevenklassen van een deelgroep $H,*$ van een groep $G,*$ zijn equipotent.
+  \[ |\{ xH\ |\ x \in G \}| = |\{ Hx\ |\ x \in G \}| \]
+  \TODO{bewijs p 101 tai}
+\end{st}
+
+\begin{st}
+  Zij $G$ een groep en $H$ een deelgroep van $G$, De linkse(/rechter) nevenklassen van $H$ vormen een partitie van $G$
+  De relatie ``X en Y liggen in dezelfde linkernevenklasse van $H$ in $G$'' is een equivalentierelatie.
+
+  \begin{proof}
+    We bewijzen dat de linkse(/rechter) nevenklassen elke definierende eigenschap van een partitie heeft.
+    \begin{itemize}
+    \item Elke linker(/rechter) nevenklasse is niet leeg. Ze bevat altijd het element waarmee bewerkt wordt
+    \item Elk element van $G$ behoort tot een linker(/rechter) nevenklasse.
+      Elk element $x$ behoort al zeker tot de nevenklasse van $H$ bepaald door $x$ in $G$.
+    \item Twee linker(/rechter) nevenklassen zijn ofwel gelijk ofwel disjunct.
+      Ofwel zijn twee nevenklassen disjunct, ofwel bevatten hun doorsnede minstens \'e\'en element.
+      We bewijzen dat als twee nevenklassen minstens \'e\'en element gemeenschapplijk hebben, dat ze dan gelijk zijn.
+      Kies een willekeurige $x$ en $y$ uit $G$ zodat de doorsnede van de nevenklasse van $H$ bepaald door $x$ en door $y$ niet disjunct zijn.
+      Er bestaat dan een element $z$ in $G$ dat in de doorsnede zit.
+      Er bestaan dus elementen $h$ en $h'$ in $G$ die aan volgende bewering voldoen:
+      \begin{itemize}
+      \item Linker nevenklassen
+        \[ z = x*h = y*h' \]
+        Nu volgt dit:
+        \[ y^{-1}*x = h'*h^{-1} \in H \]
+        $xH$ en $yH$ zijn dus gelijk.\footnote{Zie eigenschap \ref{ei:linker-nevenklasse-eig}.}
+      \item Rechter nevenklassen
+        \[ z = h*x = h'*y \]
+        Nu volgt dit:
+        \[ y*x^{-1} = h'^{-1}h \in H \]
+        $Hx$ en $Hy$ zijn dus gelijk.\footnote{Zie eigenschap \ref{ei:rechter-nevenklasse-eig}.}
+      \end{itemize}
+    \end{itemize}
+    De relatie ``X en Y liggen in dezelfde linkernevenklasse van $H$ in $G$'' is dus een equivalentierelatie.\footnote{Zie stelling \ref{st:partitie-equivalentierelatie}.}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:nevenklassen-zelfde-orde}
+  Zij $G,*$ een eindige groep en $H$ een deelgroep van $G,*$. Nu geldt voor elke $x\in G$ dat de orde van $H$ en zowel de linker als de rechter nevenklasse van $x$ in $G$ alledrie dezelfde orde.
+  \[ |H| = |x*H| = |H*x| \]
+
+  \begin{proof}
+    We bewijzen dat er een bijectie $f: H \rightarrow xH$ bestaat tussen $H$ en $xH$.
+    Beschouw de afbeelding $f$:
+    \[ f:\ H\rightarrow xH:\ h \rightarrow x*h \]
+    \begin{itemize}
+    \item $f$ is injectief.\\
+      Kies twee willekeurige elementen $h_{1}$ en $h_{2}$ uit $H$ waarvoor het beeld onder $f$ gelijk is.
+      \[ 
+      \begin{array}{rrl}
+                  & f(h_{1})    &= f(h_{2})   \\ 
+      \Rightarrow & xh_{1}      &= xh_{2}     \\
+      \Rightarrow & x^{-1}xh_{1} &= x^{-1}xh_{2}\\
+      \Rightarrow & h_{1}       &= h_{2}
+      \end{array}
+      \]
+    \item $f$ is surjectief.\\
+      Kies een willekeurig element $a$ uit $xH$, dan bestaat er dus een $h \in H$ zodat $a = x*h$ geldt.
+    \end{itemize}
+    Analoog kunnen we bewijven dat er een bijectie $f: H \rightarrow Hx$ bestaat.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Een groep $G,*$ heeft evenveel linkse als rechtse nevenklassen.
+
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:stelling-van-lagrange}
+  \term{Stelling van Lagrange}:\\
+  Zij $G,*$ een eindige groep en $H \subset G$ een deelgroep. Het aantal linkse (of rechtse) nevenklassen van $H$ in $G$ is dan gelijk aan:
+  \[ [G:H] = \frac{|G|}{|H|} \]
+  We noemen dit de \term{index} van $H$ in $G$.
+  De orde van $H$ is bijgevolg een deler van de orde van $G$.
+
+  \begin{proof}
+    De linkernevenklassen van $H$ in $G$ vormen een partitie van $G$, dus we kunnen elementen $g_{1} = e,g_{2},\dotsc,g_{k} \in G$ kiezen zodat de nevenklassen die erdoor bepaald zijn samen $G$ vormen en onderling disjunct zijn.
+    \[ G = g_{1}H \cup \dotsb \cup g_{k}H \]
+    \[ \forall i,j:\ i \neq j \Rightarrow g_{i}H \cap g_{j}H = \emptyset \]
+    Nu geldt dus dat de orde van $G$ $k$ keer de orde van $H$ is.\footnote{Zie stelling \ref{st:nevenklassen-zelfde-orde}.}
+    \[ |G| = k \cdot |H|\]
+    Hieruit volgt dat $|H|$ een deler is van $|G|$ en dat het aantal linker nevenklassen $k$ gelijk is aan $\frac{|G|}{|H|}$.
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  \label{gev:orde-van-element-deelt-orde-van-groep}
+  Zij $G,*$ een eindige groep en $x$ een element van $G$.
+  De orde van $x$ in $G$ is een deler van $|G|$.
+  \[ x^{|G|} = e_{G} \]
+
+  \begin{proof}
+    Beschouw de deelgroep\footnote{Zie stelling \ref{st:voortbrenging-is-groep}.} $<x>$ van $G$.
+    Het aantal elementen van $<x>$ is precies de orde van $x$ in $G$.\footnote{Zie stelling \ref{st:orde-van-generator-is-orde-van-groep}.}
+    De orde van een deelgroep is steeds een deler van de orde van de groep.\footnote{Zie stelling \ref{st:orde-van-generator-is-orde-van-groep}.}
+  \end{proof}
+\end{gev}
+
+\begin{st}
+  \label{st:priemgroep-is-cyclisch}
+  Zij $G,*$ een groep waarvan de orde gelijk is aan een priemgetal $p$, dan is $G$ cyclisch.
+  \begin{proof}
+    Kies een willekeurig element $x$ uit $G$ en beschouw de deelgroep\footnote{Zie stelling \ref{st:voortbrenging-is-groep}.} $<x>$ voortgebracht door $x$ van $G$.
+    De orde van $<x>$ is een deler van de orde van $G$.\footnote{Zie stelling \ref{gev:orde-van-element-deelt-orde-van-groep}.}
+    $p$ heeft maar twee delers, namelijk $1$ en $p$, dus ofwel is $x$ gelijk aan het neutraal element, ofwel is $x$ een generator voon $G$ en is $G$ dus cyclisch.\footnote{Zie definitie \ref{de:cyclische-groep}.}
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  Op isomorfisme na, bestaat er slechts \'e\'en groep voor elk priemgetal, waarbij dat getal de orde is van die groep.
+  \begin{proof}
+    Kies een priemgetal $p$ en twee groepen $G,*$ en $H,\Box$ met $p$ als orde.
+    We weten al dat $G$ en $H$ cyclisch zijn.\footnote{Zie stelling \ref{st:priemgroep-is-cyclisch}.}
+    Kies dus een generator $g$ voor $G$ en een generator $h$ voor $H$.
+    Beschouw nu het volgende morfisme.
+    \[ f:\ G \rightarrow H:\ g^{k} \mapsto h^{k} \]
+    $f$ is een isomorfisme, dus $G$ en $H$ zijn isomorf.
+  \end{proof}
+\end{gev}
+
+\begin{st}
+  Zij $f: G \rightarrow H$ een morfisme tussen twee groepen $G,*$ en $H,\Box$. Voor alle $x,y$ in $G$ geldt het volgende:
+  \[ f(x) = f(y) \Leftrightarrow x * Ker(f) = y * Ker(f) \]
+
+  \begin{proof}
+    \[ x * Ker(f) = y * Ker(f) \Leftrightarrow x^{-1} * y \in Ker(f) \]
+    $Ker(f)$ is een deelgroep van $G$.\footnote{Zie stelling \ref{st:kern-is-deelgroep}.}
+    Bovenstaande gelijkheid geldt voor elke linker neverklasse, dus ook voor $Ker(f)$.\footnote{Zie eigenschap \ref{ei:linker-nevenklasse-eig} van linker neverklassen.}
+    Omdat $x^{-1} * y$ in de kern van $f$ zit is het beeld ervan $e_{H}$.
+    \[ f(x^{-1} * y) = e_{H} \]
+    $f$ is een morfisme\footnote{Zie definitie \ref{de:groepsmorfisme}.}:
+    \[ f(x^{-1}) \Box f(y) = e_{H}\]
+    Wat er nu over blijft is precies dat $f(x)$ en $f(y)$ gelijk zijn.
+    We hebben in dit bewijs enkel equivalenties gebruikt. De omgekeerde redenering geldt dus ook.
+  \end{proof}
+\end{st}
+
+
+\begin{st}
+  Als $G$ een commutatieve groep is ,dan is de verzameling $G/H$ met als bewerking $\bar{*}$ vormt een groep.
+  \[ \bar{*}: G/H \times G/H \rightarrow G/H: (x*H,y*H) \rightarrow (x*y)*H \]
+
+\TODO{ bewijs str}
+\TODO{voorwaarde afzwakken bij normaaldelers}
+\end{st}
+
+
+\subsection{Directe som}
+\label{sec:directe-som}
+
+\begin{de}
+  Zij $G_{1},\dotsc,G_{n}$ groepen met bewerkingen $*_{1},\dotsc,*_{n}$, dan is de \term{directe som} van de groepen $G_{i}$, genoteerd als $G_{1} \oplus \dotsb \oplus G_{n}$ de verzameling $G$, voorzien van de bewerking $*$ waarbij het volgende geldt.
+  \[
+  G = G_{1} \times \dotsb \times G_{n}
+  \]
+  \[
+  (g_{1},\dotsc,g_{n}) *(h_{1},\dotsc,h_{n}) = (g_{1} *_{1} h_{1}, \dotsc, g_{2} *_{2} h_{2})
+  \]
+\end{de}
+
+\begin{st}
+  De directe som van $n$ groepen $G_{1},\dotsc,G_{n}$ is een groep.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{ei}
+  Elke groep van orde $4$ is isomorf met $\mathbb{Z}_{4}$ of met de viergroep $V$.
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{ei}
+  Elke groep van orde $6$ is isomorf met $\mathbb{Z}_{6}$ of met $\mathcal{S}$. 
+
+\TODO{ bewijs }
+\end{ei}
+
+\begin{de}
+  Zij $G,*$ een commutatieve groep en $G_{1},*$ en $G_{2},*$ deelgroepen van $G$, en elk element $g$ valt op een unieke manier te schrijven als $g=g_{1}g_{2}$ met $g_{1}\in G_{1}$ en $g_{2}\in G_{2}$, dan noemen we $G$ de inwendige directe som van $G_{1}$ en $G_{2}$.
+\end{de}
+
+\section{Permutatiegroepen}
+\label{sec:permutatiegroepen}
+
+\begin{de}
+  Zij $V$ een verzameling.
+  De verzameling van permutaties van $V$ noemen we $\mathcal{S}V$.
+  De \term{symmetrische groep} van $V$ is de groep $\mathcal{S}V, \circ$ waarbij $\circ$ de samenstelling van afbeeldingen is.
+\end{de}
+
+\begin{de}
+  Een \term{permutatiegroep} van $V$ is een deelgroep van $\mathcal{S}V,\circ$.
+\end{de}
+
+\begin{de}
+  De \term{symmetrische groep} van graad $n$: $\mathcal{S}_{n}$ is de groep van permutaties van $\{1,\dotsc,n\}$,
+\end{de}
+
+\begin{st}
+  $\mathcal{S}V,\circ$ is een groep.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De orde van $\mathcal{S}_{n}$ is $n!$.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  De orde van $\mathcal{A}_{n}$ is $\frac{n!}{2}$.
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  In een permutatiegroep heeft een element dat als een cykel van lengte $n$ wordt voorgesteld orde $n$
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{st}
+  \label{st:stelling-van-cayley}
+  \term{Stelling van Cayley}:\\
+  Elke groep is isomorf met een permutatiegroep (een deelgroep van $S(G),\circ$).
+
+\TODO{ bewijs }
+\end{st}
+
+\begin{gev}
+  Elke eindige groep met $n$ elementen is isomorf met een deelgroep van $\mathcal{S}_{n}$.
+
+\TODO{ bewijs }
+\end{gev}
+
+\begin{pr}
+  De afbeelding $sgn: \mathcal{S}_{n},\circ \rightarrow \{1,-1\},\cdot$ is een groepsmorfisme met als kern $A_{n}$.
+
+  \begin{proof}
+    Kies twee willekeurige permutaties $\sigma$ en $\tau$ uit $\mathcal{S}_{n}$.
+    Nu geldt het volgende, bijgevolg is $sgn$ een morfisme.\footnote{Zie stelling \ref{ei:samenstelling-permutaties-teken}}
+    \[ sgn(\sigma \circ \tau) = sgn(\sigma) \cdot sgn(\tau) \]
+    De kern van dit morfisme zijn alle permutaties met teken $1$.
+    Dit zijn precies de permutaties in $A_{n}$.\footnote{Zie definitie \ref{de:even-permutaties}.}
+  \end{proof}
+\end{pr}
+ 
+\begin{pr}
+  De groep van even permutaties $\mathcal{A}_{n}$ is een deelgroep van $\mathcal{S}_{n}$.
+  \begin{proof}
+    We gaan de voorwaarden in het criterium voor een deelgroep na.\footnote{Zie stelling \ref{st:criterium-deelgroep}}.
+    \begin{itemize}
+    \item Het neutraal element van $\mathcal{S}_{n}$ is een even permutatie.
+    \item De samenstelling van twee even permutaties is opnieuw een even permutatie.
+      Kies namelijk twee willekeurige even permutaties $\sigma$ en $\tau$:
+      \[ sgn(\sigma \circ \tau) = sgn(\sigma) \cdot sgn(\tau) = 1 \cdot 1 = 1 \]
+    \item Voor elke even permutatie bestaat er een inverse permutatie die ook even is.
+      Kies een willekeurige even permutatie $\tau$:
+      \[
+      \begin{array}{rl}
+        \tau \circ \tau^{-1} &= Id\\
+        sgn(tau \circ \tau^{-1}) &= sgn(Id)\\
+        sgn(tau) \cdot sgn(\tau^{-1}) &= 1\\
+        1 \cdot sgn(\tau^{-1}) &= 1
+      \end{array}
+      \]
+      Het teken van $\tau^{-1}$ moet dus $1$ zijn en $\tau^{-1}$ bijgevolg even.
+    \end{itemize}
+  \end{proof}
+\end{pr}
+
+\section{Conjugatie}
+\label{sec:conjugatie}
+
+\begin{de}
+  Zij $G$ een groep en $x$ een element van $G$.
+  Een element $axa^{-1}$ met $a\in G$ in $G$ noemen we een \term{geconjugeerde} of \term{toegevoegde} van $x$.
+\end{de}
+
+\begin{de}
+  De \term{conjugatieklas} van $x$ in $G$ is de verzameling $Cl(x)$.
+  \[ Cl(x) = \{ axa^{-1}\ |\ a \in G \} \]
+\end{de}
+
+\begin{st}
+  In elke groep is de conjugatieklas van het neutraal element het singleton van het neutraal element.
+\extra{bewijs}
+\end{st}
+
+\begin{ei}
+  \label{ei:element-eigen-conjugatieklas}
+  Een element behoort steeds tot zijn eigen conjugatieklas.
+
+  \begin{proof}
+    Kies een willekeurig element $x$ van een groep $G,*$.
+    Omdat $e$ een element is van $G$ bevat de conjugatieklas het element $exe^{-1} = x$.
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  \label{ei:conjugatieklassen-partitie}
+  De verzameling van alle conjugatieklassen van een groep $G,*$ vormt een partitie van $G$ en bepaalt bijgevolg een equivalentierelatie.
+  \begin{proof}
+    We gaan alle eigenschappen van een partitie na.\footnote{Zie definitie \ref{de:partitie}.}
+    \begin{itemize}
+    \item Een conjugatieklasse van een element $x$ is nooit leeg want ze bevat steeds minstens $x$.
+    \item Conjugatieklassen zijn onderling disjunct.
+      Stel immers dat twee verschillende conjugatieklassen $Cl(x)$ en $Cl(y)$ van elementen $x$ en $y$ een niet-lege doorsnede hebben, dan bestaan er elementen $a,b \in G$ en een element $z$ in de doorsnede zodat het volgende geldt:
+      \[ axa^{-1} = z = byb^{-1} \]
+      Nu zit $x$ in de conjugatieklas $Cl(y)$ van $y$ met als geconjugeerde $b^{-1}a$ en $y$ in de conjugatieklas $Cl(x)$ van $x$ met als geconjugeerde $a^{-1}b$:
+      \[ (b^{-1}a)x(a^{-1}b) = y \]
+      \[ x = (a^{-1}b) y(b^{-1}a) \]
+\clarify{ Ik ben nog niet overtuigd... }
+      Contradictie.
+    \item Elk element van $G$ zit in een conjugatieklas.\footnote{Zie eigenschap \ref{ei:element-eigen-conjugatieklas}.}
+    \end{itemize}
+  \end{proof}
+\end{ei}
+
+\begin{st}
+  Zij $G,*$ een groep en $a$ en $b$ twee elementen van $G$.
+  \[ Cl(a) = Cl(b) \Leftrightarrow b \in Cl(a) \Leftrightarrow a \in Cl(b) \]
+
+  \begin{proof}
+    Twee verschillende conjugatieklassen zijn disjunct\footnote{Zie eigenschap \ref{ei:conjugatieklassen-partitie}.}, dus twee elementen zitten in dezelfde conjugatieklas als en slechts als een van de elementen in de conjugatieklas van het andere zit.
+  \end{proof}
+\end{st}
+
+\begin{ei}
+  Twee permutaties $\sigma$ en $\tau$ in $\mathcal{S}_{n}$ zijn geconjugeerd als en slechts als ze dezelfde cykelstructuur hebben.
+  Met andere woorden als en slechts als $\sigma$ en $\tau$ evenveel cykels hebben van elke optredende lengte.
+  
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Zij $\sigma$ en $\tau$ twee geconjugeerde permutaties in $\mathcal{S}_{n}$.
+      Er bestaat dan een geconjugeerd element $\alpha$:
+      \[ \alpha \sigma \alpha^{-1} = \tau \]
+      Schrijf nu $\sigma$ in de disjuncte cykelnotatie als volgt:
+      \[ \sigma = (i_{1,1}\dotsc i_{1,j_{1}})(i_{2,1}\dotsc i_{2,j_{2}}) \dotsc (i_{k,1}\dotsc i_{k,j_{k}}) \]
+      Het aantal elementen in de $m$-de cykel is $j_{m}$ en het totaal aantal cykels is $k$.
+      Allereerst merken we het volgende op:
+      \[ \alpha \circ (i_{m,1}\dotsc i_{m,j_{m}}) \circ \alpha^{-1} = (\alpha(i_{m,1})\dotsc\alpha(i_{m,j_{m}})) \]
+\clarify{waarom? maak algoritme voor samenstelling van cykels en toon dan aan.}
+      Dit is bovendien opnieuw een $j_{m}$-cykel.
+      Bekijk nu $\tau$:
+      \[ 
+      \begin{array}{rl}
+      \tau &= \alpha \circ \sigma \circ \alpha^{-1}\\
+           &= \alpha \circ (i_{1,1}\dotsc i_{1,j_{1}})(i_{2,1}\dotsc i_{2,j_{2}}) \dotsc (i_{k,1}\dotsc i_{k,j_{k}}) \circ \alpha^{-1}\\
+           &= (\alpha \circ (i_{1,1}\dotsc i_{1,j_{1}})\circ \alpha^{-1}) \circ (\alpha \circ(i_{2,1}\dotsc i_{2,j_{2}})\circ \alpha^{-1}) \circ \dotsc \circ (\alpha \circ(i_{k,1}\dotsc i_{k,j_{k}}) \circ \alpha^{-1})\\
+           &= (\alpha(i_{2,1})\dotsc\alpha(i_{2,j_{2}})) \circ (\alpha(i_{2,1})\dotsc\alpha(i_{2,j_{2}})) \circ \dotsc \circ (\alpha(i_{k,1})\dotsc\alpha(i_{k,j_{k}}))
+      \end{array}
+      \]
+      Deze schrijfwijze bestaat opnieuw uit disjuncte cykels.
+      \clarify{waarom?}
+      De cykelstructuur is bovendien gelijk aan die van $\sigma$.
+    \item $\Leftarrow$\\
+      Stel dat twee permutaties $\sigma$ en $\tau$ dezelfde cykelstructuur hebben.
+      \[ \sigma = (i_{1,1}\dotsc i_{1,j_{1}})(i_{2,1}\dotsc i_{2,j_{2}}) \dotsc (i_{k,1}\dotsc i_{k,j_{k}}) \]
+      \[ \sigma = (i'_{1,1}\dotsc i'_{1,j_{1}})(i'_{2,1}\dotsc i'_{2,j_{2}}) \dotsc (i'_{k,1}\dotsc i'_{k,j_{k}}) \]
+      We construeren nu een permutatie $\alpha$ van $\{ 1,\dotsc,n \}$ zodat $\tau$ en $\sigma$ conjugeren als volgt:
+      \[
+        \forall p,q:\ \alpha(i_{p,q}) = i'_{p,q}\\
+      \]
+      De andere elementen beeldt $\alpha$ op zichzelf af.
+      \clarify{Zeker?}
+      Nu conjugeert $\alpha$ $\tau$ met $\sigma$.
+      \clarify{Ja?}
+    \end{itemize}
+  \end{proof}
+\end{ei}
+
+\begin{de}
+  \label{de:sigma-a}
+  Zij $G,*$ een groep en $a$ een element van $G$.
+  De \term{conjugatie met een element} $a$ of het \term{inwendig automorfisme bepaald door een element} $a$ is een afbeelding $\sigma_{a}$:
+  \[ \sigma_{a}:\ G \rightarrow G:\ x \mapsto axa^{-1} \]
+\end{de}
+
+\begin{ei}
+  Zij $G,*$ een groep en $a$ een element van $G$, dan is $\sigma_{a}$ een automorfisme.
+  
+  \begin{proof}
+    $\sigma_{a}$ is een transformatie van $G$\footnote{Zie definitie \ref{de:sigma-a}.}, dus we moeten enkel nog bewijzen dat $\sigma_{a}$ voor elke $a$ een bijectie is.
+    Kies daarvoor een willekeurige $a$ uit $G$.
+    \begin{itemize}
+    \item $\sigma_{a}$ is een surjuctie.
+      Kies een element $b$ in het beeld van $\sigma_{a}$, dan bestaat er een $x$ zodat $x$ op $b$ afgebeeldt wordt:
+      \[ \sigma_{a}(x) = b \]
+      $b$ is namelijk gelijk aan $axa^{-1}$ dus $x$ is gelijk aan $a^{-1}ba$.
+    \item $\sigma_{a}$ is een injectie.
+      Kies twee elementen $x$ en $y$ met eenzelfde beeld $b$ onder $\sigma_{a}$.
+      \[ axa^{-1} = aya^{-1} \]
+      $x$ is dan gelijk aan $y$.
+    \end{itemize}
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  Zij $G,*$ een groep, dan is de afbeelding $\sigma$ een groepsmorfisme:
+  \[ \sigma:\ G,* \rightarrow Aut G,\circ:\ a \mapsto \sigma_{a} \]
+
+  \begin{proof}
+    Kies twee willekeurige elementen $a$ en $b$ uit $G$.
+    \[ \sigma(a * b) = \sigma_{a * b}\]
+    \[ \sigma(a) \circ \sigma(b) = \sigma_{a} \circ \sigma_{b} \]
+    Kies nu een willekeurig element $x$ uit $G$:
+    \[
+    \begin{array}{rll}
+      \sigma_{a * b}(x) &= (a*b)*x*(a*b)^{-1} &\\
+                       &= a*b*x*b^{-1}a^{-1} &\\
+                       &= a*\sigma_{b}(x)*a^{-1} &\\
+                       &= \sigma_{a}(\sigma_{b}(x)) = (\sigma_{a} \circ \sigma_{b})(x)      
+    \end{array}
+    \]
+  \end{proof}
+\end{ei}
+
+\begin{de}
+  \label{de:inn-g}
+  De deelgroep $InnG$ van $AutG$ is de \term{groep der inwendige automorfismen} van $G$.
+  \[ InnG = Im(\sigma) = \{ \sigma_{a}\ |\ a \in G \} \]
+\end{de}
+
+\begin{st}
+  De groep $InnG$ der inwendige automorfismen van een groep $G$ is wel degelijk een deelgroep van $AutG$.
+\extra{bewijs}
+\end{st}
+
+\extra{bekijk expliciet wat er gebeurt in commutatieve groepen voor bovenstaande begrippen.}
+
+\begin{de}
+  Zij $G,*$ een groep en $g$ een element van $G$, dan is de \term{centralisator} van $g$ in $G,*$ de verzameling $C_{G,*}(g)$ van de elemneten in $G$ die commuteren met $g$.
+  \[ C_{G,*}(g) = \{ x \in G\ |\ gx = xg \} \]
+\end{de}
+
+\begin{ei}
+  \label{ei:centralisator-bevat-element}
+  De centralisator $C_{G}(a)$ van $a$ in een groep $G,*$ bevat steeds $a$.
+  
+  \begin{proof}
+    Inderdaad, $ga = ag$ geldt steeds voor $g=a$.
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  \label{ei:centralisator-is-deelgroep}
+  Zij $G,*$ een groep, dan is elke centralisator $C_{G,*}(g)$ van $G,*$ een deelgroep van $G,*$.
+  \begin{proof}
+    We gaan het criterium voor een deelgroep na voor een willekeurig element $g$ in $G$
+    \begin{itemize}
+    \item Het neutraal element van $G,*$ is een element van $C_{G,*}(g)$.
+      \[ \forall g\in G: ge_{G} = e_{G}g \]
+    \item Kies twee elementen $x$ en $y$ die commuteren met $g$
+      \[
+      \begin{array}{rll}
+        (x*y)*g &= x*(y*g)&\\
+                &= x*(g*y) &\\
+                &= (x*g)*y &\\
+                &= (g*x)*y &= g*(x*y)
+      \end{array}
+      \]
+    \item Kies een element $x$ dat commuteert met $g$:
+      \[
+      \begin{array}{rl}
+        xx^{-1} &= e\\
+        gxx^{-1} &= g\\
+        xgx^{-1} &= g\\
+        gx^{-1} &= x^{-1}g
+      \end{array}
+      \]
+    \end{itemize}
+  \end{proof}
+\end{ei}
+
+\begin{de}
+  \label{de:centrum}
+  Zij $G$ een groep, dan is het \term{centrum} van $G$ de deelverzameling van $G$ van elementen die met alle elementen van de groep commuteren.
+  \[ Z(G) = \{ x \in G\ |\ \forall g \in G:\ gx = xg\} = \bigcap_{g \in G}C_{G}(g) \]
+\end{de}
+
+\begin{ei}
+  \label{ei:centrum-is-deelgroep}
+  Het centrum van een groep is een deelgroep van die groep.
+
+  \begin{proof}
+    We kunnen dit op drie manieren bewijzen:
+    \begin{enumerate}
+    \item Het criterium van een deelgroep afgaan.
+    \item Het centrum van een groep is de doorsnede van deelgroepen. \footnote{Zie eigenschap \ref{ei:centralisator-is-deelgroep}.}
+\footnote{Zie stelling \ref{st:doorsnede-deelgroepen}.}
+    \item Het centrum van een een groep is de kern van $\sigma:\ G,* \rightarrow Aut G,\circ:\ a \mapsto \sigma_{a}$\footnote{Zie stelling \ref{st:kern-is-deelgroep}.}
+    \end{enumerate}
+  \end{proof}
+\end{ei}
+
+\begin{st}
+  Voor $n$ groter dan $1$ geldt het volgende over het centrum van $D_{n}$
+  \[ Z(D_{2n-1}) = \{e\} \]
+  \[ Z(D_{2n}) = \{e,a^{n}\} \]
+  
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:orde-conjugatieklasse-centralisator}
+  Zij $G$ een eindige groep en $a$ een element van $G$.
+  \[ |G| = |C_{G}(a)|\cdot|Cl(a)| \]
+
+  \begin{proof}
+    We construeren een bijectie tussen de conjugatieklas $Cl(a)$ van $a$ en de verzameling van linkse nevenklassen van $C_{G}(a)$ in $G,*$.
+    Er geldt dan het volgende, wat equivalent is met de te bewijzen stelling.\footnote{Zie stelling \ref{st:stelling-van-lagrange}.}
+    \[ \frac{|G|}{|C_{G}(a)|} = |\{ gC_{G}(a) \ |\ a \in G \}| = Cl(a) \]
+    Beschouw nu de afbeelding $\phi$:
+    \[ \phi: \{ gC_{G}(a) \ |\ a \in G \} \rightarrow Cl(a): gC_{G}(a) \mapsto gag^{-1} \]
+    We bewijzen eerst dat $\phi$ goed gedefinieerd is.
+    Als we immers twee verschillende elementen $g$ en $h$ zouden kiezen van een linker nevenklasse $gC_{G}(a)$ dan zou $gag^{-1}$ gelijk moeten zijn aan $hah^{-1}$ opdat $\phi$ goed gedefinieerd zou zijn.
+    \[ gC_{G}(a) = hC_{G}(a) \Leftrightarrow h^{-1}gC_{G}(a) = C_{g}(a) \]
+    Omdat $h^{-1}g$ bijgevolge in $C_{g}(a)$ zit commuteert $h^{-1}g$ met $a$:
+    \[ \Leftrightarrow h^{-1}g \in C_{g}(a) \Leftrightarrow h^{-1}ga = ah^{-1}g \Leftrightarrow gag^{-1} = hah^{-1} \]
+    \begin{itemize}
+    \item $\phi$ is een injectie:\\
+      Stel dat $\phi(gC_{g}(a))$ gelijk is aan $\phi(hC_{g}(a))$, dus dat $gag^{-1}$ gelijk is aan $hah^{-1}$, dan geldt eenvoudigweg dat $gC_{G}(a)$ gelijk is aan $hC_{G}(a)$.
+    \item $\phi$ is een surjectie:\\
+      Inderdaad, voor elke mogelijke conjugatie (met $g$) van $a$ bestaat er een linker nevenklasse $gC_{G}(a)$.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  \label{gev:orde-conjugatieklasse-deelt-orde-groep}
+  Zij $G,*$ een eindige groep en $a$ een element van $G$, dan is $|Cl(a)|$ een deler van $|G|$.
+  
+  \begin{proof}
+    Voor elk element $a$ van $G$ bestaat er een $q \in \mathbb{Z}$ zodat het volgende geldt:
+    \[ |G| = q \cdot |Cl(a)| \]
+    Sterker nog, die $q$ is gelijk aan $|C_{G}(a)|$.
+  \end{proof}
+\end{gev}
+
+\begin{st}
+  \label{st:klasvergelijking}
+  De \term{klasvergelijking}\\
+  Zij $G$ een eindige groep van orde $k$.
+  De som van het aantal orde in het centrum van $G$ en het aantal elementen van de conjungatieklassen met meer dan 1 element is gelijk aan het aantal elementen in $G$.\\
+  In symbolen: Noteer de conjungatieklassen van $G$ als volgt:
+  \[ Cl(a_{1}),\dotsc, Cl(a_{m}), Cl(a_{m+1}), \dotsc, Cl(a_{k}) \]
+  De elementen met index kleiner of gelijk aan $m$ hebben een conjungatieklasse van grootte $1$, en de anderen een grotere.
+  \[ |Cl(a_{1})| = \dotsb = |Cl(a_{m})| = 1 \text{ en } |Cl(a_{m+i})| > 1\]
+  \[ |G| = |Z(G)| + \sum_{i=m+1}^{k}|Cl(a_{i})| \]
+
+  \begin{proof}
+    De conjugatieklassen van $G,*$ vormen een partitie.\footnote{Zie stellin \ref{ei:conjugatieklassen-partitie}.}
+    Bijgevolg geldt het volgende over $|G|$.
+    \[ |G| = \sum_{i=1}^{k}|Cl(a_{i})| \]
+    Merk nu op dat de orde van een conjugatieklasse $Cl(a_{i})$ $1$ is wanneer die conjugatieklasse $Cl(a_{i})$ enkel $a_{i}$ bevat.
+    Dit is precies wanneer de centralisator $C_{G,*}(a)$ van $a$ heel $G$ is\footnote{Zie stelling \ref{st:orde-conjugatieklasse-centralisator}.}, dus wanneer $a$ in het centrum van $G,*$ zit.
+    \[ \sum_{i=1}^{m}|Cl(a_{i})| = |Z(G)| \]
+    Hieruit volgt meteen de stelling.
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Een groep $P,*$ met een macht $p^{k}$ van een priemgetal $p$ als orde noemen we een $p$-groep.
+\end{de}
+
+\begin{pr}
+  \label{pr:orde-centrum-pgroep-groter-dan-een}
+  Zij $p$ een priemgetal en $P,*$ een $p$-groep, dan bevat het centrum $Z(P)$ van $P,*$ meer dan \'e\'en element.
+  \[ |Z(P)| > 1 \]
+  
+  \begin{proof}
+    Het aantal elementen in het centrum van een $p$-groep bevat meer dan \'e\'en element als en slechts als het aantal elementen van dat centrum groter is of gelijk aan $p$.
+    Dit als en slechts als $p$ de orde van $Z(P)$ deelt.
+    De orde van $Z(P)$ deelt immers de orde van $P$ want $Z(P)$ is een deelgroep van $G,*$.\footnote{Zie eigenschap \ref{ei:centrum-is-deelgroep}.} \stref{st:stelling-van-lagrange}
+    Als $|P|$ niet $1$ is, deelt $p$ dus zeker de orde van $Z(P)$.
+    \[ |Z(P)| > 1 \Leftrightarrow |Z(P)| \ge p \Leftrightarrow p \text{ deelt } |Z(p)| \]
+    Zij de orde van $|P|$ de $r$-de macht van $p$.
+    \[ |P| = p^{r} \]
+    Zij $Cl(a_{1})$ tot en met $Cl(a_{k})$ de conjugatieklassen van $G,*$ zoals in de formulering van de klasvergelijking.
+    \[ p^{r} = |P| = |Z(G)| + \sum_{i=m+1}^{k}|Cl(a_{i})| \]
+    Omdat de orde van $Cl(a_{i})$ ook $|P|$ deelt\footnote{Zie gevolg \ref{gev:orde-conjugatieklasse-deelt-orde-groep}.}, moet $|Cl(a_{i})|$ met $i$ groter dan $m$ een strikt positieve macht zijn van $p$.
+    Bijgevolg moet $p$ een deler zijn van $|Z(p)|$ \clarify{waarom?} en $|Z(p)|$ dus groter dan $1$.
+  \end{proof}
+\end{pr}
+
+
+\begin{st}
+  Zij $p$ een priemgetal, dan is elke groep met $p^{2}$ elementen commutatief.
+
+  \begin{proof}
+    Zij $P$ een groep met orde $p^{2}$.
+    De orde van het centrum $Z(P)$ van $P$ is groter dan $1$\prref{pr:orde-centrum-pgroep-groter-dan-een}.
+    De orde van het centrum is bovendien een deler van $p^{2}$\stref{st:stelling-van-lagrange} \eiref{ei:centrum-is-deelgroep}.
+    Bijgevolg zijn er precies twee mogelijkheden:
+    \[ |Z(P)| = p \text { of } |Z(P)| = p^{2} \]
+    Als $|Z(p)| = p^{2}$ geldt, is de groep gelijk aan het centrum van de groep en bijgevolg commutatief.\deref{de:centrum}
+    Als $|Z(p)|$ $p$ is, kies dan een element $a$ uit $P$ dat niet in het centrum zit. Dit kan omdat $p$ strikt kleiner is dan $p^{2}$.
+    De centralisator $C_{P}(a)$ van $a$ zal minstens zichzelf bevatten\eiref{ei:centralisator-bevat-element}, alsook het centrum van $P$, minstens $p+1$ elementen dus.
+    Die centralisator moet als orde een deler hebben van $|P|$,\eiref{ei:centralisator-is-deelgroep} \stref{st:stelling-van-lagrange} dus moet die centralisator heel $P$ omvatten.
+    Dit betekent echter dat $a$ toch een element is van het centrum want deze redenering gaat op voor elke $a$ buiten $Z(P)$, contradictie. 
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Elke groep van orde $9$ is isomorf met $\mathbb{Z}_{9}$ of met $\mathbb{Z}_{3} \oplus \mathbb{Z}_{3}$.
+  
+\extra{bewijs}
+\end{st}
+
+\section{Normaaldelers en Quotientgroepen}
+\label{sec:normaaldelers-en-quotientgroepen}
+
+\begin{de}
+  Een \term{normaaldeler} $H,*$ is een deelgroep $H,*$ van $G,*$ met de volgende eigenschap:
+  \[ N \triangleleft G \Leftrightarrow \forall g \in G: g*H = H*g \]
+  In woorden: ``De linker en rechter nevenklasse van $N$ bepaald door elk element $g\in G$ zijn gelijk.''
+\end{de}
+
+\begin{opm}
+  Merk op dat volgende bewering niet noodzakelijk geldt voor een normaaldeler $H,*$ van een groep $G,*$:
+  \[ \forall h \in H, g \in G:\ g*h = h*g \]
+  \clarify{is dit equivalent met: ``en normaaldeler is niet noodzakelijk het centrum van een groep.'' ?}
+\end{opm}
+
+\begin{de}
+  Een \term{quotientgroep} $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G$ is de groep der linker nevenklassen van $H$ met een bewerking $\bar{*}$ die onafhankelijk is van de representantenkeuze.
+  \[ (\bar{*}):\ G/H \rightarrow G/H:\ (x*H)\bar{*}(y*H) = (x' * y') * H \]
+  In de bovenstaande definitie zijn $x'$ en $y'$ twee willekeurig gekozen representaten.
+\end{de}
+
+\begin{ei}
+  \label{ei:normaaldelers-tussen-groep-en-deler}
+  Als $N$ een normaaldeler is van $G$, dan is $N$ ook een normaaldeler van elke deelgroep tussen $N$ en $G$ en geldt bovendien, nog sterker, het volgende in $G,*$:
+  \[ N \triangleleft G \Rightarrow (\forall N':\ (N \subseteq N' \wedge N' \subseteq G) \Rightarrow (\forall n\in N: nN' = N'n)) \]
+\extra{bewijs}
+\end{ei}
+
+\begin{st}
+  Van een commutatieve groep is elke deelgroep een normaaldeler.
+
+  \begin{proof}
+    Kies een deelgroep $D,*$ van een commutatieve groep $G,*$.
+    \[ \forall x\in G: x*D = \{ x*d | d \in D \} = \{ d*x | d \in D \} = D*x \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  In elke groep $G,*$ zijn $\{e_{G}\},*$ en $G,*$ normaaldelers.
+  
+  \begin{proof}
+    Aangezien de bewerking $*$ in $G$ intern is\deref{de:groep} geldt het volgende:
+    \[ gG = Gg \]
+    $G,*$ is dus een normaaldeler van $G,*$\\
+    Precies omdat $e_{G}$ het neutraal element is in $G,*$, is $\{e_{G}\},*$ een normaaldeler van $G,*$.
+    \[ e_G*\{e_{G}\} = \{e_{G} * e_{G}\} = \{e_{G}\}*e_{G} \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Zij $G$ een groep, dan noemen we $\{e_{G}\}$ en $G$ de triviale normaaldelers van $G$.
+\end{de}
+
+\begin{st}
+  \label{st:criteria-voor-normaaldeler}
+  Criteria voor een normaaldeler\\
+  Zij $G,*$ een groep en $H$ een deelgroep van $G$.
+  \[
+  \begin{array}{rcl}
+    H \triangleleft G &\overset{(1)}{\Leftrightarrow} & \forall g \in G:\ g*H*g^{-1} = H\\
+                      &\overset{(2)}{\Leftrightarrow} & \forall g \in G:\ g*H*g^{-1} \subset H\\
+                      &\overset{(3)}{\Leftrightarrow} & \forall g \in G,\forall h \in H:\ g*h*g^{-1} \in H\\
+  \end{array}
+  \]
+
+  \begin{proof}
+    \begin{enumerate}
+    \item Bewijs van een equivalentie.
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        \begin{itemize}
+        \item $gNg^{-1}\subseteq N$\\
+          Kies een willekeurig element $g*n*g^{-1}$ in $g*N*g^{-1}$.
+          Omdat $g*n$ in de nevenklasse van $N$ zit, moet er een $n'\in N$ bestaan zodat $g*n =n'*g$ geldt.
+          Laat dit nu precies $gng^{-1}$ zijn.
+          \[ gng^{-1} = n'gg^{-1} = n' \]
+          $gng^{-1}$ zit dus zeker in $N$.\\
+        \item $N \subseteq gNg^{-1}$\\
+          Kies een willekeurig element $n$ in $N$.
+          Omdat $n*g$ voor elk element $g\in G$ in de nevenklasse van $N$ zit, bestaat er een $n'\in N$ zodat $n*g = g*n'$ geldt.
+          \[ n = n * g * g^{-1} = g*n'*g^{-1}\]
+          $g*n'*g^{-1}$ zit zeker in $g*N*g^{-1}$.
+        \end{itemize}
+      \item $\Leftarrow$\\
+        Kies een willekeurig element $g$ van $G,*$. voor elk element $n$ van $N$ bestaat er nu een element $n'\in N$ als volgt:
+        \[ \forall n\in N,\ \exists n'\in N:\ g*n*g^{-1} =n' \]
+        Dit houdt precies het volgende in.
+        \[ \forall n\in N,\ \exists n'\in N:\ g*n=n'*g^{-1} \]
+        $N$ is dus een normaaldeler van $G$.
+        \[ g*N = N*g \]
+      \end{itemize}
+
+    \item \extra{bewijs}
+    \item Dit is precies hetzelfde als het tweede criterium, enkel geherformuleerd.
+    \end{enumerate}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  ZIj $G,*$ een groep, $H,*$ een deelgroep van $G,*$ en $\sim$ een equivalentierelatie op $G$, dan is $H$ een normaaldeler van $G$ als en slechts als $\sim$ zowel links als rechts verenigbaar is.
+
+\TODO{bewijs p 106 tai}
+\end{st}
+
+\begin{pr}
+  Zij $G,*$ een groep, dan is het centrum $Z(G)$ een normaaldeler van $G$.
+  \begin{proof}
+    \[ \forall g\in G:\ g*Z(G) = \{ g*z \ |\ z\in Z(G) \} = \{ z*g \ |\ z\in Z(G) \} = Z(G)*g \} \]
+  \end{proof}
+\end{pr}
+
+\begin{pr}
+  Zij $G,*$ een groep, dan is elke deelgroep van een groep $G,*$ met index $2$ een normaaldeler van $G,*$.
+  \begin{proof}
+    Zij $H,*$ een deelgroep van een groep $G,*$ met index $2$.
+    \[ [G:H] = 2 \Leftrightarrow \frac{|G|}{|H|} = 2 \]
+    Het aantal nevenklassen van $H$ in $G$ in dan precies $2$.\stref{st:stelling-van-lagrange}
+    De nevenklassen zijn dan $H$ en $G\setminus H$.
+\clarify{waarom?}
+    We gaan nu na of $gH$ gelijk is aan $Hg$ voor elke $g\in G$.
+    Als $g$ in $H$ zit, dan is $gH$ gelijk aan $H$ en $Hg$. $gH=Hg$ geldt dan.
+    Als $g$ in $G\setminus H$ zit, dan zijn zowel $gH$ als $Hg$ niet gelijk aan $H$ geldt bijgevolg $gH = G\setminus H = Hg$.
+    \clarify{waarom?}
+  \end{proof}
+\end{pr}
+
+\begin{pr}
+  Zij $G,*$ een groep en $N,*$ de enige deelgroep van $G,*$ met orde $|N|$, dan is $N,*$ een normaaldeler van $G,*$.
+
+  \begin{proof}
+    Beschouw voor elke $g$ in $G$ het inwendig automorfisme $\sigma_{g}$:
+    \[ \sigma_{g}:\ G \rightarrow G:\ x \mapsto gxg^{-1} \]
+    Dit morfisme beeldt de deelgroep $N$ bijectief af op de deelgroep $gNg^{-1}$.
+    \clarify{waarom?}
+    \[ |gNg^{-1}| = |N| \]
+    Omdat $N$ de enige deelgroep is met $|N|$ elementen en $gNg^{-1}$ een deelgroep is \waarom van $G,*$ moeten $gNg^{-1}$ en $N$ gelijk zijn.
+  \end{proof}
+\end{pr}
+
+\begin{pr}
+  \label{pr:kern-is-normaaldeler}
+  De kern $Ker(f)$ van een groepsmorfisme $f:\ G,* \rightarrow H,\Box$ is een normaaldeler van $G,*$.
+  \[ Ker(f) \triangleleft G \]
+  
+  \begin{proof}
+    Kies een willekeurig element $g$.
+    We bewijzen nu dat er voor elk element $k$ in de kern $Ker(f)$ van $f$ een element $k'$ bestaat zodat $gk$ gelijk is aan $k'g$.
+    Omdat zowel $k$ als $k'$ in de kern van $f$ zitten geldt het volgende:\eiref{ei:nevenklasse-eigen-element-gelijk}
+    \[ kKer(f) = Ker(f) = Ker(f)k'\]
+    Dit betekent precies dat de kern van $f$ een normaaldeler is van $G,*$.
+  \end{proof}
+\end{pr}
+
+\begin{ei}
+  Zij $f:\ G,* \rightarrow H,\Box$ een groepsmorfisme
+  $f$ behoudt het normaaldelen.
+  \[ N \triangleleft G \Rightarrow f(N) \triangleleft f(G) \]
+
+  \begin{proof}
+    Omdat $N$ een normaaldeler is van $G$, geldt voor elk element $g$ van $G$, dat er voor elk element $n$ van $N$ een element $n'$ in $N$ bestaat zodat het volgende geldt:
+    \[ g*n =n'*g \]
+    We beelden nu beiden kanten af onder $f$.
+    \[
+    \begin{array}{rl}
+      f(g*n) &= f(n'*g)\\  
+      f(g)\Box f(n) &= f(n') \Box f(g)\\
+    \end{array}
+    \]
+    Dit betekent precies dat $f(N)$ een normaaldeler is van $G$.
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  Zij $f:\ G,* \rightarrow H,\Box$ een groepsmorfisme
+  $f^{-1}$ behoudt het normaaldelen.
+  \[ f(N) \triangleleft H \Rightarrow N \triangleleft G \]
+
+  \begin{proof}
+    Omdat $N$ een normaaldeler is van $H$, geldt voor elk element $f(g)$ van $H$, dat er voor elk element $f(n)$ van $N$ een element $f(n')$ in $N$ bestaat zodat het volgende geldt:
+    \[ f(g) \Box f(n) = f(n') \Box f(g) \]
+    Gebruik nu de definierende eigenschap van een groepsmorfisme om het volgende te bekomen.
+    \[
+    \begin{array}{rl}
+      f(g*n) &= f(n'*g)\\
+      g*n &= n'*g
+    \end{array}
+    \]
+    \clarify{waarom moeten we hier niet eisen dat $f$ injectief is?}
+    
+  \end{proof}
+\end{ei}
+
+\subsection{Quotientgroepen}
+\label{sec:quotientgroepen}
+
+\begin{de}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$.
+  De (kandidaat-)bewerking $\bar{*}$ op $G/N$ is gedefinieerd als volgt:
+  \[ (x*N)\bar{*}(y*N) = (x'*y')*N \]
+  Hierin zijn $x'\in x*N$ en $y'\in f*N$ twee willekeurige \term{representanten}.
+\end{de}
+
+\begin{pr}
+  \label{pr:bewerking-quotientgroep-goed-gedefinieerd}
+  De definitie van de quotientgroep $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G,*$ is enkel zinvol wanneer $H$ een normaaldeler is van $G,*$.
+  't Is te zeggen. De bewerking $\bar{*}$ is enkel goed gedefinieerd, dus onafhankelijk van de representatenkeuze, wanneer $H$ een normaaldeler is.
+  
+  \begin{proof}
+    Zij $H$ een normaaldeler van een groep $G,*$.
+    Kies twee verschillende representaten $x'$, $x''$, $y'$ en $y''$ van $x$, respectievelijk $y$ in respectievelijk $x*H$ en $y*H$.
+    We moeten nu bewijzen dat $(x''*y'')*N$ gelijk is aan $(x'*y')*N$.
+    We weten dat $x''*N$ en $x'*N$ gelijk zijn, alsook $y''*N$ en $y'*N$ omdat ze beiden in $x*N$ zitten.\eiref{ei:nevenklasse-eigen-element-gelijk}
+    Er bestaan dus elementen $n_{x}$ en $n_{y}$ in $N$ zodat het volgende geldt:
+    \[ x'' = x'n_{x} \quad\text{ en }\quad y'' = y'n_{y} \]
+    Hieruit volgt eenvoudigweg het volgende:
+    \[ x'' * y'' = x' * n_{x} * y' * n_{y} \]
+    Omdat $y'$ in $y'N$ zit, geldt ook $N*y' = y'*N$.\eiref{ei:nevenklasse-eigen-element-gelijk}
+    Er bestaat dus een $n\in N$ zedat $n_{x} * y$ gelijk is aan $y' * n$.
+    \[ x'' * y'' = x' * y' * n * n_{y} \]
+    Omdat $n*n_{y}$ ook in $N$ zit, volgt hieruit dat de representatenkeuze niet uitmaakt.
+    \[  (x'' * y'') * N = (x' * y') * N \]
+  \end{proof}
+\end{pr}
+
+\begin{st}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$, dan vormt de quotientverzameling $G/N$, uitgerust met de bewerking $\bar{*}$ een groep.
+  \begin{proof}
+    Inderdaad, $\bar{*}$ is intern, het neutraal element van $G/N$ is $N$ en de inverse van een element $x*N$ van $G/N$ is $x^{-1}N$.
+  \end{proof}
+\end{st}
+
+\begin{de}
+  We noemen $G/H,\bar{*}$ de \term{quotientgroep} of het \term{quotient} van $G$ door $H$.
+\end{de}
+
+\begin{de}
+  We verkorten de notatie van $\bar{*}$ soms naar $*$ als de bewerking op $G/H$.
+\end{de}
+
+\begin{st}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$, dan is de afbeelding $\pi$ een groepsmorfisme.
+  \[ \pi:\ G \rightarrow G/N:\ x \mapsto x*N \]
+
+  \begin{proof}
+    We moeten dat voor elke twee elementen $x$ en $y$ uit $G$ het volgende geldt:
+    \[ \pi(x*y) = \pi(x) \bar{*} \pi(y) \Rightarrow (x*N)\bar{*}(y*N) = (x*y)*N \]
+    Dit is een herformulering van de definitie van $\bar{*}$.
+  \end{proof}
+\end{st}
+
+\begin{de}
+  We verkorten de notatie $x*N$ soms als $\bar{x}$ voor $x\in G$.
+  \[ \overline{e_{G}} = e_{G}*N = N \quad\text{ en }\quad \bar{x}^{-1} = \overline{x^{-1}} \,\text{ of }\, -\bar{x} = \overline{-x} \]
+\end{de}
+
+\begin{de}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$.
+  De verzameling $G/H$ van nevenklassen, uitgerust met de bewerking $\bar{*}$ noemen we de \term{quoti\"entgroep} van $G$ door $N$.
+  $\bar{*}$ zullen we vanaf nu ook gewoon als $*$ schrijven.
+\end{de}
+
+\begin{de}
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G$.
+  We gebruiken een kortere notatie $\bar{x}$ voor een element $x*N$ van de quoti\"entgroep van $G$ door $N$:
+  \[ \bar{x} = x*N \]
+\end{de}
+
+\begin{ei}
+  De kern van $\pi:\ G \rightarrow G/N:\ x \mapsto x*N$ is $N$.
+
+  \begin{proof}
+    Elk element $n$ in $N$ wordt onder $\pi$ afgebeeldt op $n*N$, maar vermits $n$ in $n*N$ zit, is $n*N$ gelijk aan $N$.\eiref{ei:nevenklasse-eigen-element-gelijk}
+    Elk element $g$ buiten $N$ in $G$ wordt afgebeeldt op $g*N$ en vermits $g$ niet in $N$ zit, zitten er minstens $|N|+1$ elementen is $g*N$. $g*N$ kan dus niet gelijk zijn aan $N$.
+  \end{proof}
+\end{ei}
+
+\begin{gev}
+  Een deelgroep $N,*$ van een groep $G,*$ is een normaaldelor van $G$ als en slechts als deze de kern is van een groepsmorfisme vanuit $G$.
+  
+\extra{bewijs}
+\end{gev}
+
+\begin{st}
+  Zij $N,*$ een deelgroep van een groep $G,*$, dan is $N$ een normaaldeler als de bewerking $\bar{*}$ van $G/N$ een groep maakt:
+  \[ \bar{*}:\ G/N \times G/N \rightarrow G/N:\ (x*N)\bar{*}(y*N) = (x*y)*N \]
+  
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:deelgroep-centrum-quotient-cyclisch-groep-commutatief}
+  Als er een deelgroep $H,*$ van het centrum $Z(G)$ van een groep $G,*$ bestaat zodat $G/H$ cyclisch is, dan is $G$ commutatief.
+  
+  \begin{proof}
+    Stel dat $G/H$ cyclisch is, dan bewijzen we nu dat willekeurige elementen $a$ en $b$ uit $G$ commuteren.
+    Zij $\bar{g}$ een generator voor $G/H$, dan bestaan er getallen $i$ en $j$ in $\mathbb{Z}$ zodat, in $G/H$ het volgende geldt:
+    \[ \bar{a} = (\bar{g})^{i} = \overline{g^{i}} \quad\text{ en }\quad \bar{b} = (\bar{g})^{j} = \overline{g}^{j} \]
+    Anders gezegd bestaan er $x$ en $y$ in $H$ zodat we $a$ en $b$ als volgt kunnen schrijven.
+\waarom
+    \[ a = g^{i}x \quad\text{ en }\quad b = g^{j}y \]
+    We kunnen nu rekenen met $a$ en $b$. Merk op dat, omdat $G/H$ cyclisch is, $G/Z(G)$ ook commutatief is.\stref{st:cyclishe-groep-is-commutatief}
+    \[
+    \begin{array}{rll}
+      ab &= g^{i}xg^{j}y &\\
+         &= g^{i}g^{j}xy &\\
+         &= g^{j}g^{i}yx &\\
+         &= g^{j}yg^{i}x &= ba
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G,*$ een groep met $G/Z(G)$ cyclisch, dan is $G,*$ commutatief (en $G/Z(G)$ bijgevolg de triviale groep).
+
+  \begin{proof}
+    Als $G/Z(G)$ cyclisch is, dan is $G$ commutatief omdat $Z(G)$ een deelgroep is van $Z(G)$.\stref{st:deelgroep-centrum-quotient-cyclisch-groep-commutatief}
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  Zij $p$ en $q$ verschillende priemgetallen, dan is het centrum van een niet-commutatieve groep $G,*$ van orde $pq$ triviaal.
+  \[ Z(G) = \{ e_{G} \} \]
+
+  \begin{proof}
+    Omdat $G$ niet commutatief is, bestaat er geen deelgroep $H$ van het centrum $Z(G)$ zodat $G/H$ cyclisch (en dus commutatief \stref{st:cyclishe-groep-is-commutatief}) is.\stref{st:deelgroep-centrum-quotient-cyclisch-groep-commutatief}
+    $Z(G)$ is dus niet cyclisch.
+    De orde van $Z(G)$ moet bovendien een deler zijn van de orde van $G$ omdat $Z(G)$ een deelgroep is van $G$.\stref{st:stelling-van-lagrange} \eiref{ei:centrum-is-deelgroep}
+    De orde van $Z(G)$ moet dus $p$, $q$ of $1$ zijn. $p$ en $q$ zijn echter priemgetallen, en elke groep met een priemgetal als orde is cyclisch\stref{st:priemgroep-is-cyclisch}, dus de orde van $Z(G)$ moet $1$ zijn.
+    Elke groep van orde $1$ is de groep met enkel het neutraal element.
+    \waarom
+  \end{proof}
+\end{gev}
+
+\subsection{Enkelvoudige en oplosbare groepen}
+\label{sec:enkelv-en-oplosb}
+
+\begin{de}
+  Een groep $G,*$ is enkelvoudig als de enige normaaldelers van $G$ de triviale normaaldelers $\{e_{G}\}$ en $G$ zijn.
+\end{de}
+
+\begin{st}
+  We kunnen elke niet-enkelvoudige groep $G$ ontbinden in enkelvoudige groepen.
+  \begin{proof}
+    Kies van $G=G_{0}$ een niet-triviale normaaldeler $G_{1}$ van maximale orde, dan is $G_{0}/G_{1}$ enkelvoudig.
+\waarom
+    Kies nu, opnieuw, als $G_{1}$ niet enkelvoudig is, een niet-triviale normaaldeler (van $G_{1}$) van maximale orde.
+    $G_{1}/G_{2}$ is dan ook enkelvoudig.
+\waarom
+    We kunnen zo verder groepen $G_{i}$ kiezen met $G_{i+1} \triangleleft G_{i}$ tot $G_{n}$ uiteindelijk enkelvoudig is.
+  \end{proof}
+\end{st}
+
+\begin{de}
+  De enkelvoudige groepen $G_{i}/G_{i+1}$ uit bovenstaande ontbinding noemen we (de) \term{compositiefactoren} van $G$.
+\end{de}
+
+\begin{st}
+  Zonder bewijs\\
+  De compositiefactoren van een niet-enkelvoudige groep $G$ zijn onafhankelijk (op isomorfisme na) van de keuze van de normaaldelers.\\\\
+  Geen bewijs. Zie Jordan en H\"older.
+\extra{ toch eens het bewijs proberen? }
+\end{st}
+
+\begin{st}
+  Zonder bewijs\\
+  Structuurstelling voor eindige commutatieve groepen\\
+  Elke eindige commutatieve groep is isomorf met een directe som van cyclische groepen.
+  \[ \bigoplus_{i=1}^{r} Z_{p_{i}^{k_{i}}} \]
+  Hierin is elke $p_{i}^{k_{i}}$ een macht van een priemgetal.
+\extra{ toch eens het bewijs proberen? }
+\end{st}
+
+\question{Het ziet ernaar uit dat de $p_{i}^{k_{i}}$ delers moeten zijn van de orde van $G$, waarom is dat?}
+
+\begin{pr}
+  De enkelvoudige eindige commutatieve groepen zijn de groepen $\mathbb{Z}_{p},+$ met $p$ een priemgetal en de triviale groep $\{e_{G}\},*$.
+  \begin{proof}
+    $\mathbb{Z}_{p}$ heeft geen niet-triviale normaaldelers. De enige directe som die mogelijk is om $\mathbb{Z}_{p}$ te bekomen is immers enkel $\mathbb{Z}_{p}$ zelf.
+    \waarom
+    Elke andere (niet-triviale) eindige commutatieve groep heeft een niet-triviale normaaldeler.
+\waarom
+  \end{proof}
+\end{pr}
+
+\begin{de}
+  \label{de:oplosbaar}
+  Een groep $G$ is \term{oplosbaar} als er een eindige keten van deelgroepen $H_{i}$ bestaat zodat voor elke $H_{i}$ twee eigenschappen gelden:
+  \[ \{e_{G}\} = H_{k} \subset H_{k-1} \dotsb H_{2} \subset H_{1} \subset H_{0} = G \]
+  \begin{itemize}
+  \item $\forall i:\ H_{i+1} \triangleleft H_{i}$
+  \item $\forall i:\ H_{i}/H_{i+1}$ is commutatief
+  \end{itemize}
+\end{de}
+
+\begin{st}
+  Zonder bewijs\\
+  Een eindige groep $G,*$ is oplosbaar als en slechts als alle compositiefactoren van $G$ commutatief zijn.
+\extra{ toch eens het bewijs proberen? }
+\end{st}
+
+\begin{st}
+  Zonder bewijs\\
+  Een eindige groep $G$ van orde $n$ is oplosbaar als \'e\'en van de volgende voorwaarden geldt:
+  \begin{itemize}
+  \item $n < 60$.
+  \item $n$ is oneven.
+  \item $n$ is een macht van een priemgetal.
+  \end{itemize}
+  \extra{ bewijs bekijken }
+\end{st}
+
+\section{De isomorfismestellingen}
+\label{sec:isomorfismestellingen}
+
+\begin{st}
+  \label{st:eerste-isomorfismestelling}
+  \term{Eerste isomorfismestelling}\\
+  Zij $G.*$ en $H,\Box$ twee groepen.
+  Zij $\phi: G \rightarrow H$ een groepsmorfisme, dan is $\bar{\phi}: G/Ker(\phi) \rightarrow H: gKer(\phi) \mapsto \phi(g)$ een injectief groepsmorfisme.
+  Bijgevolg is $G/Ker(\phi)$ isomorf met $\phi(G)$. 
+  \[ G/Ker(\phi) \cong \phi(G) \]
+  Een alternatieve formulering van deze stelling gaat als volgt:
+  Zij $\phi: G \rightarrow H$ een groepsmorfisme, dan is het volgende diagram commutatief en $\phi'$ een isomorfisme.
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+      {
+        G & H \\
+        G/Ker(\phi) & \phi(G) \\};
+      \path[-stealth]
+      (m-1-1) edge node [left] {$\pi$} (m-2-1)
+      edge [double] node [above] {$\phi$} (m-1-2)
+      (m-2-1.east|-m-2-2) edge node [below] {$\phi'$} (m-2-2)
+      (m-2-2) edge node [right] {$i$} (m-1-2)
+      (m-2-1) edge [dashed] node [above] {$\bar{\phi}$} (m-1-2);
+    \end{tikzpicture}
+  \end{figure}
+  Nog een derde formulering als volgt:
+  Met dezelde notaties: een groepsmorfisme $\phi$ kan ontbonden worden als een samenstelling van een surjectie $\pi$ en de injectie $\bar{\phi} = i \circ \phi'$, of nog, een surjectie $\pi$, een bijectie $\phi'$ en een injectie (inbedding) $i$.
+
+  \begin{proof}
+    Eerst bewijzen we dat $\phi$ goed gedefinieerd is. We tonen aan dat voor twee verschillende representanten $x$ en $y$ uit $gKer(\phi)$ het beeld onder $\phi$ hetzelfde is.
+    Omdat $x$ en $y$ beide in dezelfde nevenklasse van $Ker(\phi)$ zitten, bestaat er een element $h\in Ker(\phi)$ zodat $x$ gelijk is aan $y*h$.
+    \[
+    \begin{array}{rll}
+      \phi(x) &= \phi(y*h) &\\
+      &= \phi(y) \Box \phi(h) &\\
+      &= \phi(y) \Box e_{H} = \phi(y)
+    \end{array}
+    \]
+    Vervolgens bewijzen we dat $\bar{\phi}$ een groepsmorfisme is.
+    Inderdaad, omdat $\phi$ een groepsmorfisme is, en \waarom.
+    Tenslotte bewijzen we dat $\bar{\phi}$ een injectie is.
+    Kies een $\bar{g} = gKer(\phi)$ in $G/Ker(\phi)$ zodat $\bar{\phi}$ $\bar{g}$ afbeeldt op $e_{H}$.
+    We moeten nu aantonen dat daaruit volgt dat $\bar{g}$ het neutraal element ($Ker(\phi)$) is van $G/Ker(\phi)$.\stref{st:kern-triviaal-asa-morfisme-injectief}
+    Omdat $\bar{\phi}$ $\bar{g}$ afbeeldt op $e_{H}$, moet $\phi$ $g$ ook afbeelden op $e_{H}$.
+    \waarom
+    Dit betekent dat $g$ tot $Ker(\phi)$ behoort. Bijgevolg is $\bar{g}$ gelijk aan $Ker(\phi)$, het neutraal element van $G/Ker(\phi)$.\eiref{ei:nevenklasse-eigen-element-gelijk}.
+  \end{proof}
+\end{st}
+
+\begin{pr}
+  Zij $G$ een groep, dan zijn de nevenklassen van het centrum van $G$ in $G$ isomorf met de groep der inwendige automorfismen van $G$.
+  \[ G/Z(G) \cong Inn G \quad\text{ met }\quad Inn G = \{ \sigma_{a}: G \rightarrow G: g \mapsto aga^{-1} \ |\ a\in G \} \]
+
+  \begin{proof}
+    We passen de eerste morfismestelling\stref{st:eerste-isomorfismestelling} toe op het groepsmorfisme $\sigma$.
+    \[ \sigma: G \rightarrow Aut G:\ a \mapsto \sigma_{a} \]
+    $Z(G)$ is nu de kern van $\sigma$ \waarom , dus is $G/Z(G)$ isomorf met $Inn G$.
+  \end{proof}
+\end{pr}
+
+\begin{st}
+  De \term{factorisatiestelling} deel 1\\
+  Zij $f: G\rightarrow H$ een groepsmorfisme en $N\subseteq Ker(f)$ een normaaldeler van $G$.
+  Er bestaan dan een uniek groepsmorfisme $f':\ G/N \rightarrow H$ zodat $f$ kan ontbonden worden als $f'\circ \pi$.
+
+  \begin{proof}
+    Inderdaad:
+    \[ f':\ G/N \rightarrow H:\ aN \mapsto f(a) \]
+    Voor elke $a$ in $G$ geldt nu dat $a$ door $f= (f' \circ \pi)$ afgebeeld wordt op $f'(aN) = f(a)$.
+    \clarify{waarom is $f'$ uniek?}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  De \term{factorisatiestelling} deel 2\\
+  Zij $f: G\rightarrow H$ een groepsmorfisme en $N\subseteq Ker(f)$ een normaaldeler van $G$.
+  Het groepsmorfisme $f'$ met $f = f'\circ \pi$ is injectief als en slechts als $N$ gelijk is aan de kern van $f$.
+  \[ f':G/N \rightarrow H \text{ is injectief } \Leftrightarrow N = Ker(f) \]
+
+  \begin{proof}
+    De nevenklassen van $N$ die door $f'$ op $e_{H}$ worden afgebeeld zijn de nevenklassen $aN$ met $a$ in de kern van $f$.
+    $f'$ is dus injectief als en slechts als de verzameling $\{ aN \ |\ a \in Ker(f) \}$ gelijk is aan $\{ N \}$.
+    Dit is precies wanneer $N$ de kern is van $f$.
+\clarify{ik ben nog niet overtuigd}
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Zij $G,*$ een groep en $X \subseteq G$ een deelverzameling van $G$.
+  De groep $grp\{X\}$ voortgebracht door $X$ is de doorsnede van alle deelgroepen van $G$ die $X$ omvatten. 
+  \[ grp\{X\} = grp<X> = <X> \]
+  De groep voortgebracht door $X$ is de kleinste deelgroep van $G$ die $X$ omvat.
+\end{de}
+
+\begin{opm}
+  Zij $G,*$ een groep en $x$ en $y$ twee elementen van $G$.
+  De groep $<x,y>$ voortgebracht door $x$ en $y$ is niet zomaar gelijk aan de volgende verzameling (analoog met een cyclische groep).
+  \[ \{ x^{k}y^{l}\ |\ k,l\in \mathbb{Z} \} \]
+\end{opm}
+
+\begin{ei}
+  Zij $G,\cdot$ een groep en $X \subseteq G$ een deelverzameling van $G$, dan is de groep $<X>$ voortgebracht door $X$ gelijk aan de verzameling van alle mogelijke samenstellingen van elementen uit $X$ en hun inversen.
+  \[ <X> = \left\{ \prod_{i=0}^{n}a_{i} \ \left|\ n\in \mathbb{N}, a_{i}\in X \vee a_{i}^{-1} \in X \right.\right\}\]
+
+  \begin{proof}
+    Noteer het rechterlid van bovenstaande vergelijking als $X'$.
+    Elke deelgroep van $G$ die $X$ omvat moet alle elementen van $X$, hun inversen, en onderlinge samenstellingen bevatten.
+    \[ X' \subseteq <X> \]
+    Anderzijds is $X'$ ook een deelgroep van $G$ die $X$ omvat.
+\waarom
+    \[ <X> \subseteq X' \]
+  \end{proof}
+\end{ei}
+
+\begin{pr}
+  \[ \mathcal{S}_n = <(12),(13),(14),\dotsc, (1\, n-1), (1n)> \]
+  \extra{bewijs p 34}
+\end{pr}
+
+\begin{pr}
+  \[ \mathcal{S}_n = <(12),(23),(34),\dotsc, (n-2\, n-1), (n-1\,n)> \]
+  \extra{bewijs p 34}
+\end{pr}
+
+\begin{pr}
+  \[ \mathcal{S}_n = <(12), (123\dotsc n-1\,n)> \]
+  \extra{bewijs p 34}
+\end{pr}
+
+\begin{pr}
+  \[ \mathcal{A}_n = <(ab)(cd)\ |\ a\neq b \wedge c \neq d> \]
+  \extra{bewijs p 34}
+\end{pr}
+
+\begin{pr}
+  \[ n \ge 3 \Rightarrow \mathcal{A}_n = <(abc)\ |\ a,b,c \in \{1,2,\dotsc,n\}> \]
+  \extra{bewijs p 34}
+\end{pr}
+
+\begin{de}
+  Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan is $HK$ als volgt gedefinieerd.
+  \[ H*K = \{ h*k\ |\ h\in H, k\in K \} \]
+\end{de}
+
+\begin{opm}
+  \label{opm:verm-deelgroepen-niet-noodzakelijk-deelgroep}
+  Als $G$ niet commutatief is, dan zal $HK$ niet steeds de groep zijn voortgebracht door $H\cup K$.
+  Het is zelfs niet steeds een deelgroep.
+\end{opm}
+
+\begin{st}
+  \label{st:verm-deelgroepen-deel-van-voortbrenging-van-unie}
+  Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan is $HK$ een deelverzameling van de groep voortgebracht door $H\cup K$.
+  \[ HK \subseteq <H\cup K> \]
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $H$ en $K$ deelgroepen van een commutatieve groep $G,*$, dan is $HK$ gelijk aan de groep voortgebracht door $H\cup K$.
+  \[ HK = <H\cup K> \]
+  \extra{bewijs}
+\end{st}
+
+\begin{pr}
+  Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan zijn de volgende stellingen equivalent.
+  \begin{itemize}
+  \item $HK = <H\cup K>$
+  \item $HK$ is een deelgroep van $G$.
+  \item $HK = KH$
+  \end{itemize}
+  \extra{bewijs p 36}
+\end{pr}
+
+\begin{gev}
+  Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan geldt het volgende als $H$ of $K$ een normaaldeler is.
+  \[ HK = KH = <H\cup K> \]
+\end{gev}
+
+\begin{st}
+  \term{Tweede isomorfismestelling} of \term{parallellogramisomorfismestelling}\\
+  Zij $G,*$ een groep. Zij $H$ een deelgroep van $G,*$ en $N$ een normaaldeler van $G,*$, dan gelden volgende beweringen.
+  \[ N \triangleleft HN \]
+  \[ (H \cap N) \triangleleft H \]
+  \[ \frac{H}{H\cap N} \cong \frac{HN}{N} \]
+
+  \begin{proof}
+    $N$ is een normaaldeler van $G$, en $HN$ is een deelgroep van $G$, tussen $N$ en $G$, dus $N$ is ook een 'normaaldeler' van $NH$.
+    \clarify{ waarom zijn we er hier plots wel zeker van dat $HN$ een deelgroep is? zie opmerking \ref{opm:verm-deelgroepen-niet-noodzakelijk-deelgroep}.}
+    \[ N \triangleleft NH \]
+    Beschouw nu de afbeelding $p$:
+    \[ p: H \rightarrow \frac{HN}{N}:\ h \mapsto hN \]
+    $p$ kunnen we beschouwen als samenstelling $\pi \circ i$ van de inbedding $i:\ H\rightarrow HN$ en het natuurlijk morfisme $\pi$:
+    \[ \pi: H \rightarrow \frac{HN}{N}:\ h \mapsto hN \]
+    De kern van $p$ is nu gelijk aan $H\cap N$, dus $H \cap N$ is een normaaldeler van $H$.\prref{pr:kern-is-normaaldeler}
+    $p$ is bovendien surjectief.
+    Kies immers een willekeurig element $x$ in $\nicefrac{HN}{N}$.
+    $x$ is dan van de vorm $x=hnN$ met $h\in H$ en $n\in N$.
+    $x$ is dan het beeld van $h$ onder $p$.
+    \[ x = hnN = p(h) \]
+    $\nicefrac{H}{H\cap N}$ is nu isomorf met $\nicefrac{HN}{N}$.\stref{st:eerste-isomorfismestelling}
+    $H\cap N$ is immers de kern van $p$ en $\nicefrac{HN}{N}$ het beeld van $N$ onder $p$.
+    \clarify{waarom is $p$ zeker een groepsmorfisme, en waarom moeten we surjectiviteit bewijzen?}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $A$ en $B$ deelgroepen van een eindige groep $G$.
+  \[ |AB| = \frac{|A|\cdot|B|}{|A\cap B|} \]
+  \extra{bewijs, je mag gebruiken dat $B$ een normaaldeler is van $G$, maar het kan zonder.}
+\end{st}
+
+\begin{st}
+  \term{Derde isomorfismestelling}\\
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G,*$.
+  \begin{itemize}
+  \item De afbeelding $H \rightarrow H/N$ bepaalt een bijectie tussen de deelgroepen van $G,*$ die $N$ omvatten en de deelgroepen van $G/N$.
+  \item Onder deze bijectie corresponderen normaaldelers van $G$ met normaaldelers van $G/N$.
+  \item Zij $H$ nog een normaaldeler van $G$ zodat $N$ een deelverzameling is van $H$, dan geldt het volgende:
+    \[ \nicefrac{(G/N)}{(H/N)} \cong G/H\]
+  \end{itemize}
+
+  \begin{proof}
+    Bewijs in delen.
+    \begin{itemize}
+    \item
+      Zij $A$ de verzameling van alle deelgroepen $H$ van $G$ waarvan $N$ een deelverzameling is en $B$ de verzameling van deelgroepen van $G/N$.
+      $A$ en $B$ zijn dan de verzamelingen waartussen we een bijectie zoeken.
+      We bewijzen dat de afbeelding $p$ een (die) bijectie is.
+      \[ p:\ A \rightarrow B:\ H \mapsto \pi(H) \quad\text{ met }\quad \pi: G \rightarrow G/N: g \mapsto gN \]
+      \begin{itemize}
+      \item $p$ is injectief.\\
+        Kies een $H$ en $H$ in $A$ zodat $\pi(H)$ gelijk is aan $\pi(H')$.
+        We moeten nu bewijzen dat hieruit volgt dat $H$ gelijk is aan $H'$
+        \begin{itemize}
+        \item $H \subseteq H'$\\
+          Kies een willekeurig element $h$ uit $H$, dan is de afbeelding $\pi(h)$ van $h$ onder $\pi$ een element van $\pi(H) = \pi(H')$.
+          Er bestaat dus een element $h'$ in $H'$ zodat $pi(h)$ gelijk is aan $\pi(h')$.
+          Dit betekent dat er een $n$ in $N$ bestaat zodat $h$ gelijk is aan $h'n$.
+          $N$ is echter een deelverzamelijk van $H'$, dus $h$ zit ook in $H'$.
+        \item $H' \supseteq H$\\
+          Wissel de benamingen $H$ en $H'$ om in bovenstaand puntje.
+        \end{itemize}
+      \item $p$ is surjectief.\\
+        Kies een $H'$ uit $B$.
+        Omdat $\pi$ surjectief is, \waarom geldt $H' = \pi(\pi^{-1}(H'))$.
+        Er bestaat dus steeds een element $a$ uit $A$ zodat $p(a)=H'$ geldt. 
+      \end{itemize}
+    \item Dit volgt uit de eigenschap over beelden en inverse beelden van normaaldelers onder een groepsmorfisme. \extra{dit is me niet duidelijk}
+    \item Beschouw de afbeelding $f$:
+      \[ f:\ G/N \rightarrow G/H: gN \mapsto gH \]
+      $f$ is een goed gedefinieerd groepsmorfisme. \waarom
+      $f$ is surjectief.\\ \waarom \clarify{ en waarom is dit nodig?}
+      De kern van $f$ is $H/N$.
+      \[ Ker(f) = \{ gN \in G/N \ |\ gH = H \} = \{ gN \in G/N \ |\ g \in H \} = H/N \]
+      Omdat $H/N$ de kern van $f$ is, en $G/H$ het beeld van $G/N$ onder $f$, $geldt \nicefrac{(G/N)}{(H/N)} \cong G/H$.\stref{st:eerste-isomorfismestelling}
+    \end{itemize}
+\clarify{Dit kan duidelijker en gedetailleerder!}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:herformulering-commutativiteit}
+  Herformulering van commutativiteit\\
+  Een groep is commutatief als en slechts als het volgende geldt:
+  \[ \forall x,y \in G: xyx^{-1}y^{-1} = e \]
+  \extra{bewijs}
+\end{st}
+
+\begin{de}
+  Zij $G$ een groep, dan zijn de elementen in $G$ van de vorm $xyx^{-1}y^{-1}$ met $x,y\in G$ \term{commutatoren}
+\end{de}
+
+\begin{de}
+  De \term{commutatordeelgroep} of \term{afgeleide groep} $G' = G^{(1)}$ van $G$ is de groep voortgebracht door de commutatoren van $G$.
+  \[ G' = G^{(1)} = < xyx^{-1}y^{-1} \ |\ x,y\in G > \]
+\end{de}
+
+\begin{st}
+  \label{st:commutatordeelgroep-is-deelgroep}
+  De commutatordeelgroep $G'$ van een groep $G$ is wel degelijk een deelgroep van $G$.
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $G$ een groep.
+  \[ G' \triangleleft G \]
+
+  \begin{proof}
+    \hint{Probeer dit niet direct te bewijzen aan de hand van de definitie van een normaaldeler.}
+    Kies een element $g$ uit $G$ en een element $h$ uit $H$.
+    We bewijzen nu dat $ghg^{-1}$ in $G'$ zit.\stref{st:criteria-voor-normaaldeler}
+    We schrijven $ghg^{-1}$ eerst als $ghg^{-1}h^{-1}h$
+    $ghg^{-1}h^{-1}$ en $h$ zijn beide elementen van $G'$, dus $ghg^{-1}h^{-1}h$ ook.
+\clarify{waarom zit $h$ in $G'$?}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $G$ een groep en $N$ een normaaldeler van $G$, dan is $G/N$ commutatief als en slechts als $G'$ een deel is van $N$.
+
+  \[ G/N \text{ is commutatief } \Leftrightarrow G' \subseteq N \]
+
+  \begin{proof}
+    $G/N$ is commutatief als en slechts als het volgende geldt:
+    \[
+    \begin{array}{rl}
+      \Leftrightarrow & \forall x,y \in G:\ xN * yN * (xN)^{-1} * (yN)^{-1} = N \text{ in }G/N\\
+      \Leftrightarrow & \forall x,y \in G: xyx^{-1}yN = N \text{ in } G/N\\
+      \Leftrightarrow & \forall x,y \in G: xyx^{-1}y \in N\\
+      \Leftrightarrow & G =\ < xyx^{-1}y^{-1} | x,y \in G >\ \subseteq N\\ 
+    \end{array}
+    \]
+    De eerste equivalentie geldt omwille van de herformulering van commutativiteit.\stref{st:herformulering-commutativiteit}
+    De tweede equivalentie geldt omdat de bewerking in een quotientgroep goed gedefinieerd is.\prref{pr:bewerking-quotientgroep-goed-gedefinieerd}
+    De derde equivalentie is een eerder bewezen eigenschap.\eiref{ei:nevenklasse-eigen-element-gelijk}
+    De laatste equivalentie is het resultaat van een eerder bewezen stelling.\stref{st:verm-deelgroepen-deel-van-voortbrenging-van-unie}
+  \end{proof}
+\end{st}
+
+\begin{gev}
+ \label{gev:afgeleide-door-groep-is-commutatief}
+  Zij $G$ een groep.
+  \[ G/G' \text{ is commutatief } \]
+
+  \begin{proof}
+    $G'$ is een deelverzameling van $G'$, dus dit is een speciaal geval van de stelling
+  \end{proof}
+\end{gev}
+
+\begin{st}
+  Zij $G$ een groep, definieer dan $p$ als volgt:
+  \[ p:\ G \rightarrow G/G':\ g \mapsto gG' \]
+  Zij $f$ nu een groepsmorfisme van $G$ naar een commutatieve groep $A$, dan bestaat er een uniek morfisme $f'$ als volgt:
+  \[ f':\ G/G' \rightarrow A \text{ met } f = f'\circ p \]
+  \extra{bewijs, hint p 39}
+\end{st}
+
+\begin{de}
+  De $n$-de afgeleide groep $G^{(n)}$ van een groep $G$ als volgt.
+  \[ G^{(n)} = G_{(n-1)}' \]
+\end{de}
+
+\begin{pr}
+  $G$ is oplosbaar als en slechts er een $k$-de afgeleide van $G$ bestaat die enkel het neutraal element bevat.
+  \[ G \text{ is oplosbaar } \Leftrightarrow \exists k\in\mathbb{N}_{0}:\ G^{(k)} = \{e_{G}\} \]
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+       Zij $H_{0}=G$ tot $H_{n} = \{e_{G}\}$ een keten van deelgroepen van $G$ met $H_{i+1} \subseteq H_{i}$ en $\nicefrac{H_{i}}{H_{i+1}}$ commutatief voor elke $i$.
+       \[ \{ e_{G} \} = H_{n} \triangleleft H_{n-1} \triangleleft \dotsb \triangleleft H_{i+1} \triangleleft H_{i} \triangleleft \dotsb \triangleleft H_{1} \triangleleft H_{0} = G \]
+       We tonen nu per inductie op $i$ aan dat elke deelgroep $H_{i}$ een deelverzameling is van de $i$-de afgeleide groep $G^{(i)}$ van $G$.
+       \begin{itemize}
+       \item $G^{(1)}$ is een deelverzameling van $H_{1}$ want $G/H_{1}$ is commutatief.
+\waarom
+       \item Stel dat $G^{(i)} \subseteq H_{i}$ geldt, dan bewijzen we nu dat daaruit volgt dat $G^{(i+1)} \subseteq H_{i+1}$ geldt.
+         Omdat $G^{(i)}$ een deelverzameling is van $H_{i}$, is $G^{(i+1)}$ een deelverzameling van $H_{i}'$
+\waarom
+         Omdat $H_{i}/H_{i+1}$ commutatief is, is $H_{i}'$ een deelverzameling van $H_{i+1}$.
+\waarom
+         $G^{(i+1)}$ is dus inderdaad een deelverzameling van $H_{i+1}$.
+       \end{itemize}
+    \item $\Leftarrow$\\
+      De keten van deelgroepen voldoet aan de definitie van oplosbaarheid.\deref{de:oplosbaar} \gevref{gev:afgeleide-door-groep-is-commutatief} \stref{st:commutatordeelgroep-is-deelgroep}
+\clarify{Iets meer uitschrijven?}
+    \end{itemize}
+  \end{proof}
+\end{pr}
+
+\begin{lem}
+  Zij $n\in \mathbb{N}$ groter dan $5$, en $H$ een deelgroep van $\mathcal{S}_{n}$.
+  Als alle $3$-cykels tot $H$ behoren, dan behoren ze ook tot $H'$.
+
+  \begin{proof}
+    Kies een willekeurige $3$-cykel $(abc)$ uit $H$.
+    Neem nu twee andere elementen $d$ en $e$ uit $\{1,..,n\}$.
+    \[ (abc) = (abd)(ace)(dba)(eca) = (abd)(ace)(abd)^{-1}(ace)^{-1} \in H' \]
+    Elke $3$-cykel uit $H$ zit dus ook in $H'$.
+  \end{proof}
+\end{lem}
+
+\begin{st}
+  Voor $n$ groter dan $4$ is $\mathcal{S}_{n}$ niet oplosbaar.
+\extra{bewijs}
+\end{st}
+
+
 
 \end{document}

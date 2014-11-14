@@ -1,0 +1,556 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Ringen}
+\label{cha:ringen}
+
+\section{Abstracte ringen}
+\label{sec:abstracte-ringen}
+
+\subsection{Ring}
+\label{sec:ring}
+
+\begin{de}
+  Een \term{ring} $R,+,\cdot$ is een verzameling $R$ waarop twee inwendige bewerkingen $+$ en $\cdot$ gedefinieerd zijn met de volgende eigenschappen:
+  \begin{itemize}
+  \item $R,+$ is een commutatieve groep.
+  \item $\cdot$ is associatief.
+    \[ \forall x,y,z \in R:\ (x\cdot y) \cdot z = x \cdot (y \cdot z) \]
+  \item $\cdot$ is distributief ten opzichte van $+$.
+    \[ \forall x,y,z \in R:\ x\cdot (y + z) = (x \cdot y) + (x \cdot z) = (y \cdot x) + (z \cdot x) \]
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  In de context van een ring $R,+,\cdot$ noemen we het neutraal element van $R,+$ het \term{nulelement} van $R,+,\cdot$.
+\end{de}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring met nulelement $e$.
+  \[ \forall a \in R:\ a \cdot e = e = e \cdot a \]
+  \TODO{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring met nulelement.
+  \[ \forall a,b \in R:\ a \cdot (-b) = (-a) \cdot b = -(a \cdot b) \]
+  \TODO{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring met nulelement.
+  \[ \forall a,b \in R:\ (-a) \cdot (-b) = a \cdot b \]
+  \TODO{bewijs}
+\end{ei}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring, dan noteren we de verzameling $R$ zonder het neutraal element $e_{R,+}$ van $+$ in $R$ als $R_{0}$.
+\end{de}
+
+\begin{de}
+  Wanneer in de context van een ring $R,+,\cdot$ de multiplicatieve notatie wordt gebruikt voor de tweede bewerking korten we ``$x \cdot y$'' vaak af als ``$xy$''.
+\end{de}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring, dan korten we de verzameling $R\setminus \{e_{R,+}\}$ vaak af met $R_{0}$ of $R_{e}$.
+\end{de}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring en $x$ en $y$ twee elementen van $R\setminus \{e_{R,+}\}$, dan noemen we $x$...
+  \begin{itemize}
+  \item ... een \term{linker nuldeler} van $y$ als $x\cdot y$ het neutraal element is van $R,+$.
+  \item ... een \term{rechter nuldeler} van $y$ als $y\cdot x$ het neutraal element is vn $R,+$.
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring, dan noemen we $x\in R$ een \term{nuldeler} van $y\in R$ als $x$ zowel een linker als rechter nuldeler is van $y$.
+\end{de}
+
+\subsection{Ring met eenheidselement}
+\label{sec:ring-met-eenheidselement}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring.
+  We noemen $R,+,\cdot$ een \term{ring met eenheidselement} als er een \term{eenheidselement} $i\in R$ bestaat als volgt:
+  \[ \forall x\in R:\ i\cdot x = x = x \cdot i \]
+\end{de}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  \[ \forall a \in R:\ (-i)\cdot a = -a = a \cdot (-i) \]
+  \TODO{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  \[ (-i) \cdot (-i) = i\]
+  \TODO{bewijs}
+\end{ei}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  We noemen een element $u$ van $R$ een \term{eenheid} als er een element $v$ bestaat van $R$ zodat het volgende geldt:
+  \[ u \cdot v = i = v \cdot u \]
+\end{de}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  Zij $u$ een eenheid van $R,+,\cdot$ met $v$, dan noemen we $v$ de \term{inverse} van $u$.
+  \[ u \cdot v = i = v \cdot u \]
+\end{de}
+
+\begin{st}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  Zij $u$ een eenheid van $R,+,\cdot$, dan is de inverse van $u$ uniek.
+  \TODO{bewijs}
+\end{st}
+
+\begin{de}
+  De \term{eenhedengroep} $R^{\times},\cdot$ van een ring $R,+,\cdot$ met eenheidselement $i$ is de verzameling van eenheden van $R$, uitgerust met de multiplicatieve bewerking van $R$.
+  \[ R^{\times} = U(R) = \{ u \in R \ |\ \exists v \in R:\ u \cdot v = i = v \cdot u \} \]
+\end{de}
+
+\begin{st}
+  Zij $R,+,\cdot$ en $R,\star,*$ ringen met eenheidselement.
+  \[ (R \times S)^{\times} = R^{\times}\times S^{\times} \]
+  \TODO{bewijs p 34 structuren}
+\end{st}
+
+\subsection{Commutatieve ring}
+\label{sec:commutatieve-rin}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring waarbij $\cdot$ commutatief is, dan noemen we $R,+,\cdot$ een \term{commutatieve ring}.
+  \[ \forall x,y \in R:\ x\cdot y = y \cdot x \]
+\end{de}
+
+\begin{de}
+  Zij $R,+,\cdot$ een commutatieve ring en $a$ en $b$ elementen van $R$.
+  We noemen $a$ een \term{deler} van $b$ (in $R,+,\cdot$) als er een $q$ in $R$ bestaat zodat het volgende geldt:
+  \[ b = q \cdot a \]
+\end{de}
+
+\subsection{Integriteitsdomeinen}
+\label{sec:integriteitsdomeinen}
+
+\begin{de}
+  Een \term{(integriteits)domein} $R,+,\cdot$ is een (niet-triviale) commutatieve ring $R,+,\cdot$ met eenheidselement, zonder nuldelers.
+  Zij $e$ het nulelement van $R,+,\cdot$:
+  \[ \forall a, b \in R:\ (a \cdot x = e) \Rightarrow (x = e \vee y = e) \]
+\end{de}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een intergiteitsdomein met nulelement $e$
+  \[ \forall a,b,c \in R:\ (ab = ac \wedge a \neq 0) \Rightarrow b = c \]
+\TODO{bewijs}
+\end{ei}
+
+\begin{de}
+  Zij $a$, $b$ en $q$ elementen van een integriteitsdomein $D,+,\cdot$ zodat $a= qb$ met $b$ niet het nulelement $e$, dan noemen we $b$ een deler van $a$.
+  \[ b\ |\ a \Leftrightarrow \exists q \in D: a = qb \]
+\end{de}
+
+\begin{st}
+  Zij $a$, $b$ en $c$ elementen van een integriteitsdomein $D,+,\cdot$.
+  \[ (a\ |\ b \wedge a\ |\ c) \Rightarrow a\ |\ (b+c) \]
+\TODO{bewijs TAI p 123}
+\end{st}
+
+\begin{st}
+  Zij $a$ en $b$ elementen van een integriteitsdomein $D,+,\cdot$.
+  \[ \forall r \in D:\ a\ |\ b \Rightarrow a\ |\ br  \]
+\TODO{bewijs TAI p 123}
+\end{st}
+
+\begin{st}
+  Zij $a$, $b$ en $c$ elementen van een integriteitsdomein $D,+,\cdot$.
+  \[ (a\ |\ b \wedge b\ |\ c) \Rightarrow a\ |\ c \]
+\TODO{bewijs TAI p 123}
+\end{st}
+
+\begin{de}
+  We noemen twee (niet-nul)elementen $a$ en $b$ uit een integriteitsdomein $D,+,\cdot$, met eenheidselement $i$, \term{geassocieerd} als er een eenheid $u$ bestaat in $D$ zodat $a=ub$ geldt:
+  \[ a \sim_{D} b \Leftrightarrow \exists u,u'\in D:\ uu'= i = u'u \wedge a = ub \]
+\question{ is de associatie een equivalentierelatie? }
+\end{de}
+
+\begin{st}
+  Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
+  \[ a \sim_{D} b \Leftrightarrow (a\ |\ b \wedge b\ |\ a) \]
+  \TODO{bewijs p 123}
+\end{st}
+
+\begin{st}
+  Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
+  \[ (a \sim_{D} b \wedge c \sim_{D} d) \Leftrightarrow (a\ |\ c \wedge b\ |\ d) \]
+  \TODO{bewijs p 123}
+\end{st}
+
+\begin{de}
+  We noemen een deler $a$ van $b$ een \term{echte deler} van $b$ als $a$ niet-inverteerbaar is en niet geassocieerd is met $b$.
+\end{de}
+
+\begin{de}
+  Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
+  We noemen $g\in D$ een \term{grootste gemene deler} van $a$ en $b$ als $g$ zowel een deler is van $a$ als van $b$ en elke andere deler van $a$ en $b$ een deler is van $g$.
+  \[ g = ggd(a,b) \Leftrightarrow (g\ |\ a \wedge g\ |\ b \wedge (\forall c\in D: (c\ |\ a \wedge c\ |\ b) \Rightarrow c\ |\ g)) \]
+\end{de}
+
+\begin{de}
+  Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
+  We noemmen $k\in D$ een \term{kleinst gemeen veelvoud} van $a$ en $b$ als $k$ zowel een veelvoud is van $a$ als van $b$ en elk ander gemeen veelvoud van $a$ en $b$ een veelvoud is van $k$.
+  \[ g = kgv(a,b) \Leftrightarrow (a\ |\ k \wedge b\ |\ k \wedge (\forall c\in D: (a\ |\ c \wedge b\ |\ c) \Rightarrow k\ |\ c)) \]
+\end{de}
+
+\begin{st}
+  Een grootst gemene deler is uniek op een inverteerbaar element na.
+  Zij $D,+,\cdot$ een integriteitsdomein.
+  \[ \forall a,b,g_{1},g_{2} \in D:\ (g_{1} = ggd(a,b) \wedge g_{2} = ggd(a,b)) \Rightarrow g_{1} \sim_{D} g_{2} \]
+\TODO{bewijs p 124 TAI}
+\end{st}
+
+\begin{st}
+  Zij $D,+,\cdot$ een integriteitsdomein.
+  \[ \forall a,b,g_{1},g_{2} \in D:\ (g_{1} \sim_{D} g_{2} \wedge g_{1} = ggd(a,b)) \Rightarrow g_{2} = ggd(a,b) \]
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  Zij $D,+,\cdot$ een integriteitsdomein en $p$ een niet-nulelement van $D$, dan noemen we $p$ een \term{priemelement} als uit $p=ab$ volgt dat $a$ of $b$ inverteerbaar is in $D$.
+\end{de}
+
+\begin{opm}
+  Een priemgetal heeft dus geen echte delers.
+\end{opm}
+
+\begin{de}
+  We noemen een integriteitsdomein $D,+,\cdot$ een euclidische ring als er een afbeelding $d:\ D\setminus \{e_{D,+}\} \rightarrow D \setminus \{e_{D,+}\}$ bestaat die elk niet-nulelement $a$ afbeeldt op een niet-negatief geheel getal $d(a)$ zodat het volgende geldt:
+\begin{itemize}
+\item $\forall a,b \in D\setminus \{e_{D,+}\}:\ d(a) \le d(ab)$
+\item $\forall a \in D,\ \forall b\in D\setminus \{e_{D,+}\}:\ \exists q,r \in D:\ (a = qb+r \wedge (r=0 \vee d(r) < d(b)))$
+\end{itemize}
+\clarify{welke orderelatie?}
+\end{de}
+
+\begin{st}
+  In een euclidische ring $D,+,\cdot$ met afbeelding $d$ geldt het volgende:
+  \[ \forall a,b \in D:\ d(a) = d(ab) \Leftrightarrow b \text{ is inverteerbaar} \]
+\TODO{bewijs p 125}
+\end{st}
+
+\begin{st}
+  In een euclidische ring $D,+,\cdot$ met afbeelding $d$ geldt het volgende:
+  \[ \forall a,b \in D:\ d(a) < d(ab) \Leftrightarrow b \text{ is niet inverteerbaar} \]
+\TODO{bewijs p 125}
+\end{st}
+
+\begin{st}
+  In een euclidische ring $D,+,\cdot$ met afbeelding $d$ geldt het volgende:
+  \[ \forall a,b \in D:\ b \text{ is een echte deler van } a \Rightarrow d(b) < d(a) \]
+\TODO{bewijs p 125}
+\end{st}
+
+\begin{st}
+  Stelling van B\'ezout\\
+  In een Euclidische ring $D,+,\cdot$ bestaat er een grootste gemene deler van elk paar elementen $(a,b)$ die niet allebei het nulelement zijn.
+  Bovendien kan die grootste gemene deler $g$ beschreven worden als volgt:
+  \[ ggd(a,b) = g = \alpha \cdot a + \beta \cdot b \text{ met }\alpha,\beta \in D \]
+\TODO{bewijs p 126 TAI}
+\end{st}
+
+\TODO{ vanaf algoritme van Euclides om grootste gemene deler te vinden
+  p 126 TAI tot sectie 7 p 129}
+
+\subsection{Lichaam}
+\label{sec:lichaam}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  We noemen $R,+,\cdot$ een \term{lichaam} als $R_{e},\cdot$ een groep is:
+  \[ \forall x \in R_{e}, \exists y \in R:\ x\cdot y = y \cdot x = i \]
+\end{de}
+
+\begin{st}
+  Een lichaam heeft geen nuldelers
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:stelling-van-wedderburn}
+  De \term{stelling van Wedderburn}\\
+  Een eindig lichaam is commutatief.
+\extra{toch eens een bewijs proberen?}
+\end{st}
+
+\subsection{Velden}
+\label{sec:velden}
+
+\begin{de}
+  Een \term{veld} is een commutatief lichaam.
+\end{de}
+
+\begin{st}
+  De eenhedengroep van een veld $F,+,\cdot$ is gelijk aan $F_{e},\cdot$
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Een eindig integriteitsdomein is een veld.
+\TODO{bewijs p 44 A I}
+\TODO{bewijs p 118 TAI}
+\end{st}
+
+\begin{gev}
+  Zij $p$ een priemgetal, dan is $\mathbb{Z}_{p},+,\cdot$ een veld.
+\extra{bewijs}
+\end{gev}
+
+\begin{st}
+  Een eindig lichaam is een veld.
+\extra{toch eens bewijs proberen?zie stelling \ref{st:stelling-van-wedderburn}.}
+\end{st}
+
+\begin{st}
+  In een veld hebben alle van het nulelement verschillende elementen dezelfde additieve orde.
+\TODO{bewijs p 119}
+\end{st}
+
+\begin{de}
+  De additieve orde van de van $0$ verschillende elementen van een veld noemt met de \term{karakteristiek} van het veld.
+\end{de}
+
+
+\subsection{Direct product}
+\label{sec:direct-product}
+
+
+\begin{de}
+  Zij $R_{i},+_{i},\cdot_{i}$ $n$ ringen, dan definieren we het direct product van deze $R_{i}$ als de productverzameling met dezelfde bewerkingen, maar dan op paarsgewijze elementen.
+  \[ (R_{1} \times \dotsb \times R_{n}),+,\cdot \]
+\end{de}
+
+\begin{st}
+  Het direct product van $n$ ringen $R_{i},+_{i},\cdot_{i}$ heeft een eenheidselement als en slechts als elk van de ringen $R_{i},+_{i},\cdot_{i}$ een eenheidselement heeft is.
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Het direct product van $n$ ringen $R_{i},+_{i},\cdot_{i}$ is commutatief als en slechts als elk van de ringen $R_{i},+_{i},\cdot_{i}$ commutatief is.
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Het direct product van $n$ ringen $R_{i},+_{i},\cdot_{i}$ kan geen veld zijn als elk van de ringen $R_{i},+_{i},\cdot_{i}$ verschillend is van de nulring.
+  \extra{bewijs}
+\end{st}
+
+\subsection{Deelringen}
+\label{sec:deelringen}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring en $S$ een niet-lege deelverzameling van $R$.
+  We noemen $S$ een \term{deelring} van $R$ als $S$ een ring is voor dezelfde bewerkingen.
+\end{de}
+
+\begin{st}
+  \label{st:deelring-criteria}
+  Criteria voor een deelring.
+  Zij $R,+,\cdot$ een ring en $S$ een niet-lege deelverzameling van $R$, dan is $S$ een deelring van $R$ als aan de volgende criteria voldaan is.
+  \begin{itemize}
+  \item $S,+$ is een deelgroep van $R,+$ en $\cdot$ is intern in $S$.
+  \item $S$ is niet leeg, $\cdot$ is intern in $S$ en het volgende geldt:
+    \[ \forall a,b \in S: a - b \in S \]
+  \end{itemize}
+\TODO{bewijs}
+\end{st}
+
+\subsection{Ringmorfismen}
+\label{sec:ringmorfismen}
+
+\begin{de}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen.
+  Een \term{(ring)(homo)morfisme} van $R$ naar $S$ is een afbeelding $f: R\rightarrow S$ die voldoet aan twee voorwaarden:
+  \begin{enumerate}
+  \item $\forall x,y \in R:\ f(x + y) = f(x) \star f(y)$
+  \item $\forall x,y \in R:\ f(x \cdot y) = f(x) * f(y)$
+  \end{enumerate}
+\end{de}
+
+\begin{opm}
+  Een ringisomorfisme $f$ van een ring $R,+,\cdot$ naar $S,\star,*$ is een groepsisomorfisme van de groep $R,+$ naar $S,\star$
+\end{opm}
+
+\begin{de}
+  Een bijectief ringhomomorfisme is een \term{(ring)isomorfisme}.
+\end{de}
+
+\begin{de}
+  Een morfisme van een ring naar zichzelf heet een \term{endomorfisme}.
+\end{de}
+
+\begin{de}
+  Een isomorfisme van een ring naar zichzelf heet een \term{automorfisme}.
+\end{de}
+
+\begin{de}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een ringmorfisme.
+  Zij $e$ het nulelement van $S$.
+  De \term{kern} $Ker(f)$ van $f$ is de verzameling van elementen van $R$ die onder $f$ op $e\in S$ worden afgebeeldt.
+  \[ Ker(f) = \{ x \in R \ |\ f(x) = 0 \} \]
+\end{de}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
+  \[ f(0) = 0 \]
+  \TODO{bewijs}
+\end{ei}
+ 
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
+  \[ \forall a \in R: f(-a) = -f(a) \]
+  \TODO{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
+  Zij $A$ een deelring van $R$, dan is $f(A)$ een deelring van $S$.
+  \TODO{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
+  Zij $B$ een deelring van $S$, dan is $f^{-1}(B)$ een deelring van $R$.
+  \TODO{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$, $S,\star,*$ een ring en $f:R \rightarrow S$ een morfisme.
+  De deelring $f(R)$ heeft $f(i)$ als eenheidselement.
+  \TODO{bewijs}
+\end{ei}
+
+\begin{opm}
+  Het eenheidselement van een deelring van een ring hoeft niet gelijk zijn aan het eenheidselement van de ring.
+  \clarify{hoeft de ring er \'e\'en te hebben?}
+  \extra{verwijzen naar vb op p 47 A}
+\end{opm}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
+  Zij $e$ het nulelement van $R$.
+  $f$ is injectief als en slechts als $Ker(f) = \{e\}$.
+  \TODO{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f$ een ringisomorfisme van $R$ naar $S$, dan is ook $f^{-1}: S \rightarrow R$ een ringisomorfisme.
+  \TODO{bewijs p 33 structuren}
+\end{ei}
+
+\begin{st}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen met eenheidselement $i_{R}$ en $i_{S}$ en zij $f: R\rightarrow S$ een isomorfisme dat het eenheidselement $i_{R}$ van $R,+,\cdot$ afstuurt op het eenheidselement $i_{S}$ van $S,+,\cdot$, dan zijn de eenheidsgroepen $R^{\times},\cdot$ en $S^{\times},\cdot$ isomorf.
+  \TODO{bewijs p 34 structuren}
+\end{st}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen met eenheidselement $i_{R}$ en $i_{S}$ en zij $f: R\rightarrow S$ een isomorfisme dat het eenheidselement $i_{R}$ van $R,+,\cdot$ afstuurt op het eenheidselement $i_{S}$ van $S,+,\cdot$.
+  Als $u$ een eenheid is in $R$, dan is $f(u)$ een eenheid in $S$.
+  Bovendien geldt het volgende:
+  \[ (f(u))^{-1} = f(u^{-1}) \]
+  \TODO{bewijs}
+\end{ei}
+
+\begin{pr}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i_{R}$ en nulelement $e_{R}$ en zij $S,\star,*$ een integriteitsdomein met eenheidselement $i_{S}$ en nulelement $e_{S}$.
+  Zij $f: R \rightarrow S$ een ringmorfisme.
+  \[ f(R) = \{e_{S}\} \quad\vee\quad f(i_{R}) = i_{S} \]
+\TODO{bewijs p 47 A}
+\end{pr}
+
+\begin{pr}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R \rightarrow S$ een morfisme.
+  $f$ is een isomorfisme als en slechts als en een morfisme $g: S \rightarrow R$ bestaat zodat het volgende geldt:
+  \[ g \circ f = I_{R} \quad\wedge\quad f \circ g = I_{S} \]
+\TODO{bewijs}
+\end{pr}
+
+\subsection{Breukenveld van een integriteitsdomein}
+\label{sec:breukenveld-van-een-integriteitsdomein}
+
+\begin{de}
+  Zij $R$ een integriteitsdomein, $F$ een veld en $i: R \rightarrow F$ een ringmorfisme als volgt:
+  \begin{enumerate}
+  \item $i$ is injectief
+  \item $\forall q \in F,\ \exists a \in R, b\in R_{e}:\ q = i(a)\cdot i(b)^{-1}$
+  \end{enumerate}
+  $F$ is dan het \term{breukenveld} van $R$.
+\end{de}
+
+\begin{st}
+  We kunnen een integriteitsdomein identificeren met zijn beeld onder de inbedding $i$ en dus als deelring van $F$ beschouwen.
+  \TODO{bewijs p 48 A}
+\end{st}
+
+\begin{ei}
+  Het breukenveld van een integriteitsdomein is uniek.
+  \TODO{bewijs p 49 A}
+\end{ei}
+
+\begin{ei}
+  Zij $F$ het breukenveld van een integriteitsdomein $R$ met inbedding $i: R \rightarrow F$.
+  Er bestaat voor elk injectief ringmorfisme $f: R \rightarrow K$ met $K$ een veld een uniek ringmorfisme $f': F \rightarrow K$ zodat $f = f' \circ i$ geldt.
+  \TODO{bewijs p 49 A}
+\end{ei}
+
+\subsection{Idealen}
+\label{sec:idealen}
+
+\TODO{linker, en rechterideaal}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring en $I$ een deelverzameling van $R$.
+  $I$ is een \term{ideaal} van $R$ als het valgende geldt:
+  \begin{itemize}
+  \item $I,+$ is een deelgroep van $R,+$.
+  \item $forall a \in R, \forall b \in I:\ a\cdot b \subseteq I \wedge b\cdot a \subseteq I$. 
+  \end{itemize}
+\end{de}
+
+\begin{st}
+  Elke ring heeft twee triviale idealen.
+  \begin{enumerate}
+  \item De ring met enkel het nulelement.
+  \item Heel de ring.
+  \end{enumerate}
+\extra{bewijs}
+\end{st}
+
+\begin{ei}
+  Een ideaal $I$ van een ring $R,+,\cdot$ is een normaaldeler van de groep $R,+$.
+\end{ei}
+
+\begin{de}
+  De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
+\end{de}
+
+\begin{de}
+  De \term{quotientring} $R/I$ van een ring $R,+,\cdot$ ten opzichte van een ideaal is de partitie van $R$ is restklassen van $I$, uitgerust met de quotientwetten:
+  \begin{itemize}
+  \item $\scalebox{1.5}{$+$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$+$}\ (y+I) = (x+y)+I$
+  \item $\scalebox{1.5}{$\cdot$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$\cdot$}\ (y+I) = (x\cdot y) + I$
+  \end{itemize}
+\end{de}
+
+
+
+
+\extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
+
+\end{document}
+
+
+
+
+
+

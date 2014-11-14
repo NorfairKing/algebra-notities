@@ -1,0 +1,64 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Algebras}
+\label{cha:algebras}
+
+\begin{de}
+  \label{de:algebra}
+  Een \term{algebra\"ische structuur} of \term{algebra} is een verzameling $A$ waarop een aantal inwendige (en eventueel een aantal uitwendige) bewerkingen gedefinieerd zijn.
+  \[ A,\top_{1},dotsc,\top_{m},\bot_{1},\dotsc,\bot_{n} \]
+\end{de}
+
+\begin{de}
+  Een algebra $B$ is een \term{deelalgebra} of \term{subalgebra} van een algebra $A$ als volgende beweringen gelden:
+  \begin{itemize}
+  \item $B \subseteq A$: $B$ is een deelverzameling van $A$.
+  \item Op $B$ zijn dezelfde bewerkingen gedefineerd.
+  \item $B$ is stabiel voor de interne bewerkingen van $A$.
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Zij $A$ een algebra en $\sim$ een equivalentierelatie verenigbaar met de bewerkingen van $A$, dan vormt de quotientverzameling $A/R$ voorzien van de quotientbewerking de quotientalgebra van $A$ door $R$.
+\end{de}
+
+\section{Morfismen}
+\label{sec:morfismen}
+
+\begin{de}
+  Twee algebras $A$ en $B$ zijn \term{homoloog} als volgende beweringen gelden:
+  \begin{itemize}
+  \item Met iedere inwendige bewerking op $A$ komt een inwendige bewerking op $B$ overeen. 
+  \item Met iedere uitwendige bewerking op $A$ komt een uitwendige bewerking op $B$ overeen.
+  \item De operatorengebieden voor $A$ zijn dezelfde als de operatorengebieden voor $B$.
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  \label{de:morfisme}
+  Zij $A,\top,\dotsc,\bot,\dotsc$ en $B,\top',\dotsc,\bot',\dotsc$ twee homologe algebras.
+  Een \term{homomorfisme} tussen $A$ en $B$ is een afbeelding $f$ met de volgende eigenschappen:
+  \begin{itemize}
+  \item Voor elke inwendige bewerking:
+    \[ \forall x,y \in A:\ f(x\top y) = f(x) \top f(y) \]  
+  \item Voor elke uitwendige bewerking:
+    \[ \forall x \in A,\forall \alpha\in\Omega:\ f(\alpha\bot x) = \alpha\bot f(x) \]  
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Een bijectief homomorfisme is een isomorfisme.
+  ``$A$ is isomorf met $B$'' noteren we als volgt:
+  \[ G \cong H \]
+\end{de}
+
+\begin{de}
+  Een homomorfisme van een algebra met zichzelf is een endomorfisme.
+\end{de}
+
+\begin{de}
+  Een isomorfisme van een algebra met zichzelf is een automorfisme.
+\end{de}
+
+\end{document}
