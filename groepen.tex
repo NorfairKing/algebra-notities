@@ -1366,6 +1366,13 @@ hopl
   In de bovenstaande definitie zijn $x'$ en $y'$ twee willekeurig gekozen representaten.
 \end{de}
 
+\begin{ei}
+  \label{ei:normaaldelers-tussen-groep-en-deler}
+  Als $N$ een normaaldeler is van $G$, dan is $N$ ook een normaaldeler van elke deelgroep tussen $N$ en $G$ en geldt bovendien, nog sterker, het volgende in $G,*$:
+  \[ N \triangleleft G \Rightarrow (\forall N':\ (N \subseteq N' \wedge N' \subseteq G) \Rightarrow (\forall n\in N: nN' = N'n)) \]
+\extra{bewijs}
+\end{ei}
+
 \begin{st}
   Van een commutatieve groep is elke deelgroep een normaaldeler.
 
@@ -1478,6 +1485,7 @@ hopl
 \end{pr}
 
 \begin{pr}
+  \label{pr:kern-is-normaaldeler}
   De kern $Ker(f)$ van een groepsmorfisme $f:\ G,* \rightarrow H,\Box$ is een normaaldeler van $G,*$.
   \[ Ker(f) \triangleleft G \]
   
@@ -1894,6 +1902,7 @@ hopl
 \end{de}
 
 \begin{opm}
+  \label{opm:verm-deelgroepen-niet-noodzakelijk-deelgroep}
   Als $G$ niet commutatief is, dan zal $HK$ niet steeds de groep zijn voortgebracht door $H\cup K$.
   Het is zelfs niet steeds een deelgroep.
 \end{opm}
@@ -1927,28 +1936,47 @@ hopl
 
 \begin{st}
   \term{Tweede isomorfismestelling} of \term{parallellogramisomorfismestelling}\\
-  Zij $G$ een groep. Zij $H$ een deelgroep van $G$ en $N$ een normaaldeler van $G$, dan gelden volgende beweringen.
-  \[ (H \cap N) \triangleleft H \]
+  Zij $G,*$ een groep. Zij $H$ een deelgroep van $G,*$ en $N$ een normaaldeler van $G,*$, dan gelden volgende beweringen.
   \[ N \triangleleft HN \]
+  \[ (H \cap N) \triangleleft H \]
   \[ \frac{H}{H\cap N} \cong \frac{HN}{N} \]
-  \TODO{bewijs p 37}
+
+  \begin{proof}
+    $N$ is een normaaldeler van $G$, en $HN$ is een deelgroep van $G$, tussen $N$ en $G$, dus $N$ is ook een 'normaaldeler' van $NH$.
+    \clarify{ waarom zijn we er hier plots wel zeker van dat $HN$ een deelgroep is? zie opmerking \ref{opm:verm-deelgroepen-niet-noodzakelijk-deelgroep}.}
+    \[ N \triangleleft NH \]
+    Beschouw nu de afbeelding $p$:
+    \[ p: H \rightarrow \frac{HN}{N}:\ h \mapsto hN \]
+    $p$ kunnen we beschouwen als samenstelling $\pi \circ i$ van de inbedding $i:\ H\rightarrow HN$ en het natuurlijk morfisme $\pi$:
+    \[ \pi: H \rightarrow \frac{HN}{N}:\ h \mapsto hN \]
+    De kern van $p$ is nu gelijk aan $H\cap N$, dus $H \cap N$ is een normaaldeler van $H$.\prref{pr:kern-is-normaaldeler}
+    $p$ is bovendien surjectief.
+    Kies immers een willekeurig element $x$ in $\nicefrac{HN}{N}$.
+    $x$ is dan van de vorm $x=hnN$ met $h\in H$ en $n\in N$.
+    $x$ is dan het beeld van $h$ onder $p$.
+    \[ x = hnN = p(h) \]
+    $\nicefrac{H}{H\cap N}$ is nu isomorf met $\nicefrac{HN}{N}$.
+    $H\cap N$ is immers de kern van $p$ en $\nicefrac{HN}{N}$ het beeld van $N$ onder $p$.
+    \clarify{waarom is $p$ zeker een groepsmorfisme, en waarom moeten we surjectiviteit bewijzen?}
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $A$ en $B$ deelgroepen van een eindige groep $G$.
   \[ |AB| = \frac{|A|\cdot|B|}{|A\cap B|} \]
-  \extra{bewijs}
+  \extra{bewijs, je mag gebruiken dat $B$ een normaaldeler is van $G$, maar het kan zonder.}
 \end{st}
 
 \begin{st}
   \term{Derde isomorfismestelling}\\
-  Zij $G$ een groep en $N$ een normaaldeler van $G$.
+  Zij $G,*$ een groep en $N$ een normaaldeler van $G,*$.
   \begin{itemize}
-  \item De afbeelding $H \mapsto H/N$ bepaalt een bijectie tussen de deelgroepen van $G$ die $N$ omvatten en de deelgroepen van $G/N$.
+  \item De afbeelding $H \mapsto H/N$ bepaalt een bijectie tussen de deelgroepen van $G,*$ die $N$ omvatten en de deelgroepen van $G/N$.
   \item Onder deze bijectie corresponderen normaaldelers van $G$ met normaaldelers van $G/N$.
   \item Zij $H$ nog een normaaldeler van $G$ zodat $N$ een deelverzameling is van $H$, dan geldt het volgende:
     \[ \nicefrac{(G/N)}{(H/N)} \cong G/H\]
   \end{itemize}
+
   \TODO{bewijs p 38}
 \end{st}
 
