@@ -1548,6 +1548,7 @@ hopl
 \end{de}
 
 \begin{pr}
+  \label{pr:bewerking-quotientgroep-goed-gedefinieerd}
   De definitie van de quotientgroep $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G,*$ is enkel zinvol wanneer $H$ een normaaldeler is van $G,*$.
   't Is te zeggen. De bewerking $\bar{*}$ is enkel goed gedefinieerd, dus onafhankelijk van de representatenkeuze, wanneer $H$ een normaaldeler is.
   
@@ -1908,6 +1909,7 @@ hopl
 \end{opm}
 
 \begin{st}
+  \label{st:verm-deelgroepen-deel-van-voortbrenging-van-unie}
   Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan is $HK$ een deelverzameling van de groep voortgebracht door $H\cup K$.
   \[ HK \subseteq <H\cup K> \]
   \extra{bewijs}
@@ -2017,6 +2019,7 @@ hopl
 \end{st}
 
 \begin{st}
+  \label{st:herformulering-commutativiteit}
   Herformulering van commutativiteit\\
   Een groep is commutatief als en slechts als het volgende geldt:
   \[ \forall x,y \in G: xyx^{-1}y^{-1} = e \]
@@ -2047,17 +2050,35 @@ hopl
 \end{st}
 
 \begin{st}
-  Zij $G$ een groep.
-  \[ G/G' \text{ is commutatief } \]
-  \TODO{bewijs p 39}
-\end{st}
-
-\begin{st}
   Zij $G$ een groep en $N$ een normaaldeler van $G$, dan is $G/N$ commutatief als en slechts als $G'$ een deel is van $N$.
 
   \[ G/N \text{ is commutatief } \Leftrightarrow G' \subseteq N \]
-  \TODO{bewijs p 39}
+
+  \begin{proof}
+    $G/N$ is commutatief als en slechts als het volgende geldt:
+    \[
+    \begin{array}{rl}
+      \Leftrightarrow & \forall x,y \in G:\ xN * yN * (xN)^{-1} * (yN)^{-1} = N \text{ in }G/N\\
+      \Leftrightarrow & \forall x,y \in G: xyx^{-1}yN = N \text{ in } G/N\\
+      \Leftrightarrow & \forall x,y \in G: xyx^{-1}y \in N\\
+      \Leftrightarrow & G =\ < xyx^{-1}y^{-1} | x,y \in G >\ \subseteq N\\ 
+    \end{array}
+    \]
+    De eerste equivalentie geldt omwille van de herformulering van commutativiteit.\stref{st:herformulering-commutativiteit}
+    De tweede equivalentie geldt omdat de bewerking in een quotientgroep goed gedefinieerd is.\prref{pr:bewerking-quotientgroep-goed-gedefinieerd}
+    De derde equivalentie is een eerder bewezen eigenschap.\eiref{ei:nevenklasse-eigen-element-gelijk}
+    De laatste equivalentie is het resultaat van een eerder bewezen stelling.\stref{st:verm-deelgroepen-deel-van-voortbrenging-van-unie}
+  \end{proof}
 \end{st}
+
+\begin{gev}
+  Zij $G$ een groep.
+  \[ G/G' \text{ is commutatief } \]
+
+  \begin{proof}
+    
+  \end{proof}
+\end{gev}
 
 \begin{st}
   Zij $G$ een groep, definieer dan $p$ als volgt:
