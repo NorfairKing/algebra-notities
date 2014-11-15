@@ -313,7 +313,7 @@ $G \cong \mathcal{D}_{3} \cong \mathcal{S}_{3}$ geldt.
 
 \section{Oefenzitting 2: Permutatiegroepen}
 
-\subsection{Oefening 1}
+\subsection*{Oefening 1}
 \label{oza:oz2-oef1}
 Geef alle mogelijke permutaties $\pi$ op de verzameling $\{1,2,3,4,5\}$ die orde $5$ hebben en voldoen aan $\pi(1) = 5$, $\pi(2) = 3$ en $\pi(3) = 4$.\\\\
 De permutaties die we zoeken zien er als volgt uit:
@@ -374,12 +374,146 @@ Onder welke voorwaarden is de afbeelding $\pi:\ \{ 0,\dotsc, n-1 \} \rightarrow 
 $a$ en $b$ moeten relatief priem zijn.
 \waarom
 
-\subsection{Extra oefening}
+\subsection*{Extra oefening}
 \label{oza:oz2-extra}
 Zij $\sigma$ en $\tau$ permutaties in $\mathcal{S}_{n}$.
 Zoek de nodige en voldoende voorwaarden op $\sigma$ en $\tau$ opdat zo zouden commuteren.
 Hint: $\sigma \tau = \tau \sigma$ geldt als en slechts als $\tau$ en $\sigma$ disjunct zijn \emph{of} ...
 \extra{oefening}
+
+\section{Oefenzitting 3: Conjugatie en klasvergelijking}
+
+\subsection*{Oefening 1}
+\label{sec:oz3-oef1}
+Geef alle conjugatieklassen van een Abelse groep $G,*$.
+Controleer de klasvergelijking voor een eindige abelse groep.\\\\
+De conjugatie met $a$ is in een Abelse groep de identieke transformatie $Id$.
+De conjugatieklassen van $G,*$ zijn dus singletons van alle respectievelijke elementen in $G$.
+De klasvergelijking is bijzonder simpel voor een Abelse groep omdat dan het centrum van $G,*$ heel $G$ is.
+
+\subsection*{Oefening 2}
+\label{sec:oz3-oef2}
+Geef de conjugatieklassen van $\mathcal{S}_{3}$ en controleer de klasvergelijking.
+\[ 
+\left\{ 
+  \begin{array}{c}
+\{ Id \},\\
+\{ (12),(13),(23) \},\\
+\{ (123),(132) \},\\
+\end{array}
+\right\}
+\]
+\[
+\begin{array}{ccccc}
+  |G| &=& |Z(G)| &+& \sum|Cl(a_{i})|\\
+  |\mathcal{S}_{3}| &=& 1 &+& 5\\
+\end{array}
+\]
+
+
+\subsection*{Oefening 3}
+\label{sec:oz3-oef2}
+Geef de conjugatieklassen van $\mathcal{S}_{4}$ en controleer de klasvergelijking.
+\[ 
+\left\{ 
+  \begin{array}{c}
+\{ Id \},\\
+\{ (12),(13),(14),(23),(24),(34) \},\\
+\{ (123),(132),(124),(142),(234),(243),(134),(143) \},\\
+\{ (12)(34),(13)(24),(14)(23) \},\\
+\{ (1234),(1342),(1423),(1432),(1243),(1324) \}\\
+\end{array}
+\right\}
+\]
+\[
+\begin{array}{ccccc}
+  |G| &=& |Z(G)| &+& \sum|Cl(a_{i})|\\
+  |\mathcal{S}_{4}| &=& 1 &+& 23\\
+\end{array}
+\]
+
+\subsection*{Oefening 4}
+\label{sec:oz3-oef3}
+Geef de conjugatieklassen van de quaternionengroep en controleer de klasvergelijking.
+\[ 
+\left\{ 
+  \begin{array}{c}
+\{ 1 \},\\
+\{ -1 \},\\
+\{ i,-i \},\\
+\{ j,-j \},\\
+\{ k,-k \}\\
+\end{array}
+\right\}
+\]
+\[
+\begin{array}{ccccc}
+  |G| &=& |Z(G)| &+& \sum|Cl(a_{i})|\\
+  |\mathcal{Q}| &=& 2 &+& 6\\
+\end{array}
+\]
+
+\subsection*{Oefening 5}
+\label{sec:oz3-oef4}
+Geef de conjugatieklassen van de didi\"edergroep $\mathcal{D}_{4}$ met $8$ elementen en controleer de klasvergelijking.
+\[ 
+\left\{ 
+  \begin{array}{c}
+\{ Id \},\\
+\{ a^{2} \},\\
+\{ a,a^{3} \},\\
+\{ b,a^{2}b \},\\
+\{ ab,a^{3}b \}\\
+\end{array}
+\right\}
+\]
+\[
+\begin{array}{ccccc}
+  |G| &=& |Z(G)| &+& \sum|Cl(a_{i})|\\
+  |\mathcal{D}_{4}| &=& 2 &+& 6\\
+\end{array}
+\]
+
+\subsection*{Oefening 6}
+\label{sec:oz3-oef5}
+Bepaal alle eindige groepen met precies $2$ conjugatieklassen.\\\\
+Zij $G,*$ een eindige groep met precies $2$ conjugatieklassen.
+Elk element in het centrum heeft zijn eigen conjugatieklas.
+Er zit minstens $1$ element in het centrum: $e_{G}$.
+$e_{G}$ zit dus al zeker in zijn eigen conjugatieklas.
+Alle andere elementen zitten in dus samen in een conjugatieklas.
+De groep is van orde minstens twee omdat alle conjugatieklassen niet-leeg zijn.
+Noem $C$ de conjugatieklas van $G,*$ waar $e_{G}$ niet in zit.
+\[ |C| = |G| - 1 \]
+We weten dat de orde van elke conjugatieklas een deler moet zijn van de orde van $G$\gevref{gev:orde-conjugatieklasse-deelt-orde-groep}.
+$|G| - 1$ is alleen een deler van $|G|$ als $|G|$ precies $2$ is.
+Er is maar $1$ groep van orde $2$, op isomorfisme na: $\mathbb{Z}_{2}$.
+
+\subsection*{Oefening 7}
+\label{sec:oz3-oef6}
+Bepaal alle eindige groepen met precies $3$ conjugatieklassen.\\\\
+Verdergaand op de redenering in de vorige oefening moet een groep $G,*$ met precies $3$ conjugatieklassen minstens drie elementen.
+$G$ heeft dan als orde $1+a+b$ zodat zowel $a$ als $b$ $|G|$ delen.
+De mogelijkheden voor $(a,b)$ zijn dan $\{(1,1),(1,2),(2,3)\}$.
+\begin{itemize}
+\item Als $a = b = 1$ geldt, is $G$ abels, en dan is $G$ isomorf met $\mathbb{Z}_{3}$.
+\item Als $a=1$ en $b=2$ gelden, is $G$ een groep van orde $4$ die niet abels. Zo'n groep bestaat niet.
+  Elke groep van orde $4$ is immers isomorf met ofwel de viergroep, ofwel $\mathbb{Z}_{4}$.\eiref{ei:groep-orde-vier}
+\item Als $a=2$ en $b=3$ gelden, is $G$ een groep van orde $6$. $G$ is dan ofwel isomorf met $\mathcal{S}_{3}$ ofwel met $\mathbb{Z}_{6}$.\eiref{ei-groep-orde-zes}
+\end{itemize}
+
+\subsection*{Oefening 8}
+\label{sec:oz3-oef7}
+Bepaal de orde van het centrum van een niet-abelse groep $P$ van orde $p^{3}$ met $p$ een priemgetal.
+Controleer dit voor de didi\"edergroep $\mathcal{D}_{4}$ en de quaternionengroep.\\\\
+De orde van het centrum is een deler van de orde van $P$\eiref{ei:centrum-is-deelgroep} \stref{st:stelling-van-lagrange} en bovendien groter dan $1$.\prref{pr:orde-centrum-pgroep-groter-dan-een}.
+$|Z(P)|$ moet dus $p$ of $p^{2}$ zijn.
+Voor $|Z(P)|$ $3$ zou immers betekenen dat $P$ abels is.
+De orde van $P$ kan bovendien niet $p^{2}$ zijn, want dan zou $P$ abels zijn.\stref{st:priemgroep-kwadraat-abels}
+
+
+
+
 
 
 
