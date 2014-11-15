@@ -163,5 +163,141 @@ a \tau (a \tau b)=a \tau e=f
 (a \tau a) \tau b)=c \tau b=b
 \]
 
+\section{Oefenzitting 2}
+\subsection*{Oefening 1}
+
+Bewijs dat $\mathbb{R}_0 \times \mathbb{R}$, voorzien van de samenstellingswet $(*):\ \mathbb{R}_{0}\rightarrow \mathhbb{R}:\ ((a,b),(c,d)) \mapsto (ac,bc+d)$ een groep is.
+Is hij abels?
+\begin{proof} 
+We bewijzen elke eigenschap in het criterium voor groepen.
+\begin{itemize}
+  \item associativiteit
+  \[
+  ((a,b)*(c,d))\times (e,f)=(ac,bc+d)\times (e,f)=(ace,(bc+d)e+f))
+  \]
+  \[
+  (a,b) \times ((c,d) \times (e,f))=(a,b) \times
+  (ce,de+f)=(ace,(bce)+(de+f))=(ace,(bc+d)e+f)
+  \]
+  \item Het neutraal element is $(1,0)$. 
+  \item Het invers element van een element $(a,b)$ is  $(\dfrac{1}{a},\dfrac{-b}{a})$.
+\end{itemize}
+\end{proof}
+De groep is niet commutatief, tegenvoorbeeld:
+\[
+(1,1)*(0,0) = (0,0) \quad\text{ en }\quad (0,0)*(1,1) = (0,1)
+\]
+
+\subsection*{Oefening 2}
+$\mathcal{S}_{n},\circ$ is de groep van permutaties van een verzameling van $n$ elementen.
+Stel de samenstellingstabel op van $\mathcal{S}_{3},\circ$.
+Zijn er deelgroepen?
+Normaaldelers? 
+\extra{verwijzing naar $\mathcal{S}_n$.}
+
+\subsection*{oefening 3}
+Zoek de generatoren van de volgede additieve cyclische groepen: $\mathbb{Z}_{10}$ $\mathbb{Z}_{11}$ $\mathbb{Z}_{12}$
+\extra{verwijzing naar eigenschap over generatoren van cyclische groepen en hun orde}
+
+\[ \{ 1,3,7,9\} \]
+\[ \{ 1,2,3,4,5,6,7,8,9,10,11 \} \]
+\[ \{ 1,5,7,9,10,11 \} \]
+\extra{mooier opschrijven}
+
+\subsection*{oefening 4}
+
+Genereer de groep voorgebracht onder vermenigvuldiging door de matrices.
+\[ \left( \begin{array}{cc}
+0 & 1 \\
+-1 & 0
+\end{array} \right)
+\text{ en }
+\left( \begin{array}{cc}
+0 & 1 \\
+1 & 0
+\end{array} \right)
+\]
+\extra{ verwijzing naar precies dezelfde oefening bij algebra I}
+Bewijs dat dit een niet abelse groep is van orde 8.
+\subsubsection*{oplossing}
+\[
+X=
+\begin{pmatrix}
+0 &1\\
+-1&0
+\end{pmatrix}
+, X^2=
+\begin{pmatrix}
+-1&0\\
+0&-1
+\end{pmatrix}
+,X^3=
+\begin{pmatrix}
+0 & -1\\
+1&0
+\end{pmatrix}
+,X^4=
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+\]
+\[
+Y=
+\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}
+,Y^2=
+\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}
+\]
+\[
+XY=
+\begin{pmatrix}
+1 &0\\
+0 &-1
+\end{pmatrix}
+=YX^3,X^2y=
+\begin{pmatrix}
+0 &- 1\\
+-1 &0
+\end{pmatrix}
+=YX^2,X^3Y=
+\begin{pmatrix}
+-1 & 0\\
+0&1
+\end{pmatrix}
+=YX
+\]
+$\rightarrow$ 8 verschillende elementen. Dus het is een groep van orde 8.
+\\$\{X,Y,X^2,X^3,X^4,XY,X^2Y,X^3Y\}$
+\\Het is geen abelse groep.
+
+\subsection*{oefening 5}
+Beschouw de groep $G = \mathbb{Z}_{7} /\{0\},\cdot$ van de gehele getallen modulo 7 zonder de nul en met vermenigvuldiging modulo 7.Bepaal de orde van al de elementen. Is de groep Commutatief?
+\subsubsection*{oplossing}
+Vb: $\bar{5} \rightarrow$
+\begin{itemize}
+\item $\bar{5}^2=\bar{25}=\bar{4}$ .
+\item $\bar(5)^3=\bar{4}*\bar{5}=\bar{20}=\bar{6}$.
+\item ...
+\item $\bar{5}^6=\bar{3}*\bar{5}=\bar{15}=\bar{1} \rightarrow$ Orde van 5 is 6.
+\end{itemize}
+De groep is commutatief want de maal is commutatief.
+
+\subsection*{oefening 6}
+Bewijs dat elke deelgroep van een cyclische groep cyclisch is.\\\\
+Inderdaad.\stref{st:deelgroep-van-cyclische-groep-is-cyclisch}
+
+\subsection*{Extra 1}
+Hoeveel groepen zijn er van orde $4$, op isomorfisme na.
+\extra{oefening}
+
+\subsection*{Extra 2}
+Zoek alle isomorfismen tussen $\mathbb{Z}_{4},+$ en $\mathbb{Z}_{5},\cdot$.
+\extra{oefening}
 
 \end{document}
