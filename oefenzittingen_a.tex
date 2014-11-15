@@ -4,7 +4,8 @@
 \chapter{Algebra I: Oefenzittingen}
 \label{cha:algebra-i-oefenzittingen}
 
-\section*{Oefenzitting 1}
+\section{Oefenzitting 1: Herhalingen en Aanvullingen}
+\subsection*{Oefening 1}
 \label{oza:oz1-oef1}
 Kies de groep $\mathcal{S}_{3}$.
 Beschouw nu de elementen $(12)$ en $(23)$, deze hebben beide orde $2$.
@@ -229,7 +230,8 @@ Elk element heeft dus een orde in $\{ 1, 2, 3, 6 \}$.
 Enkel $e$ heeft als orde $1$, en er zijn geen elementen van orde $6$ want dan zou $G$ cyclisch zijn.
 Stel dat elk element orde $2$ is, dan is $G$ commutatief.\footnote{Zie oefening 2 op pagina \pageref{oza:oz1-oef2}}
 Dit zou betekenen dat $\{ e,a,b,ab \}$ een deelgroep was van $G$ met orde $4$, maar $4$ is geen deler van $6$. Contradictie\stref{st:stelling-van-lagrange}
-Bijgevolg bestaat er minstens \'e\'en element van orde 3.
+Bijgevolg bestaat er minstens \'e\'en element van orde $3$ en is de orde van $G$ dus $3$.\stref{st:orde-van-generator-is-orde-van-groep}
+
 \end{proof}
 
 \subsubsection*{(b)}
@@ -308,5 +310,77 @@ $G \cong \mathcal{D}_{3} \cong \mathcal{S}_{3}$ geldt.
   \item $G$ is gelijk aan $D_{3}$.
   \end{itemize}
 \end{proof}
+
+\section{Oefenzitting 2: Permutatiegroepen}
+
+\subsection{Oefening 1}
+\label{oza:oz2-oef1}
+Geef alle mogelijke permutaties $\pi$ op de verzameling $\{1,2,3,4,5\}$ die orde $5$ hebben en voldoen aan $\pi(1) = 5$, $\pi(2) = 3$ en $\pi(3) = 4$.\\\\
+De permutaties die we zoeken zien er als volgt uit:
+\[
+\begin{pmatrix}
+  1 & 2 & 3 & 4 & 5\\
+  5 & 3 & 4 & a & b
+\end{pmatrix}
+\] 
+Om een permutatie te zijn moet $\{a,b\}$ gelijk zijn aan $\{1,2\}$.
+Als $a$ $1$ is en $b$ $2$, voldoet de permutatie aan de opgelegde eigenschappen.
+Als $a$ $2$ is en $b$ $1$, heeft de permutatie orde $6$.
+Antwoord:
+\[
+\begin{pmatrix}
+  1 & 2 & 3 & 4 & 5\\
+  5 & 3 & 4 & 1 & 2
+\end{pmatrix}
+\] 
+
+\subsection*{Oefening 2}
+\label{oza:oz2-oef2}
+Beschouw het volgend geheim schrift.
+De vercijfering van een tekst gebeurt door in de tekst de letters van het alfabet te permuteren volgens de permutatie $\pi$.
+\[
+\pi =
+\left(
+\begin{array}{cccccccccccccccccccccccccc}
+  a & b & c & d & e & f & g & h & i & j & k & l & m & n & o & p & q & r & s & t & u & v & w & x & y & z\\
+  b & c & d & e & f & g & h & i & a & z & x & m & l & o & p & n & s & r & t & q & j & w & v & k & u & y\\ 
+\end{array}
+\right)
+\]
+
+\subsubsection*{(a)}
+Zoek de disjuncte cykel-schrijfwijze van de permutatie $\pi$.
+\[ (abcdefghi)(jzyuj)(kx)(lm)(nop)(qst)(vw) \] 
+
+\subsubsection*{(b)}
+Wat is de orde van $\pi$?
+\[ kgv(9,5,2,2,3,3,2) = 90 \]
+
+\subsubsection*{(c)}
+Wat is het teken van $\pi$?
+$-1$ want er is een oneven aantal cykels met even lengte.
+\extra{verwijzing naar stelling.}
+
+\subsection*{Oefening 3}
+\label{oza:oz2-oef3}
+Waar of niet?
+Er bestaat geen permutatie $\pi$ van $9$ elementen met orde $15$.\\\\
+Niet waar:
+\[ (abc)(efghi) \]
+
+\subsection*{Oefening 4}
+\label{oza:oz2-oef4}
+Onder welke voorwaarden is de afbeelding $\pi:\ \{ 0,\dotsc, n-1 \} \rightarrow \{ 0,\dotsc, n-1 \}:\ i \mapsto ai + b \mod n$ een permutatie. ($a,b \in \mathbb{Z}$).\\\\
+$a$ en $b$ moeten relatief priem zijn.
+\waarom
+
+\subsection{Extra oefening}
+\label{oza:oz2-extra}
+Zij $\sigma$ en $\tau$ permutaties in $\mathcal{S}_{n}$.
+Zoek de nodige en voldoende voorwaarden op $\sigma$ en $\tau$ opdat zo zouden commuteren.
+Hint: $\sigma \tau = \tau \sigma$ geldt als en slechts als $\tau$ en $\sigma$ disjunct zijn \emph{of} ...
+\extra{oefening}
+
+
 
 \end{document}
