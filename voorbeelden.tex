@@ -13,6 +13,231 @@
 \commj \cyclj{$e_{G}$}
 \end{de}
 
+\begin{de}
+  De \term{viergroep} of \term{groep van Klein} $V,\cdot$ heeft als neutraal element $e$.
+  \[ V = \{ e, a, b, c \} \]
+  Er gelden drie eenvoudige regels: 
+  \begin{itemize}
+  \item $ab = c$
+  \item $bc = a$
+  \item $ca = b$
+  \end{itemize}
+  \[
+  \begin{array}{c|cccc}
+    \circ & e & a & b & c \\
+    \hline
+    e & e & a & b & c \\
+    a & a & e & c & b \\
+    b & b & c & e & a \\
+    c & c & b & a & e \\
+  \end{array}
+  \]
+\commj \cycln
+\end{de}
+
+\begin{de}
+  $Q,\cdot$,: De \term{quaternionengroep}.\\
+  \[ Q = \{ 1,-1,i,-i,j,-j,k,-k \} \]
+  Er gelden vier eenvoudige regels:
+  \begin{itemize}
+  \item $i^{2}=j^{2}=k^{2}= -1$
+  \item $ij=k$
+  \item $jk=i$
+  \item $ki=j$
+  \end{itemize}
+  \[
+  \begin{array}{r|rrrrrrrr}
+    \cdot & 1 & -1 & i & -i & j & -j & k & -k\\
+    \hline
+    1 & 1 & -1 & i & -i & j & -j & k & -k\\
+    -1 & -1 & 1 & -i & i & -j & j & -k & k\\
+    i & i & -i & -1 & 1 & k & -k & -j & j\\
+    -i & -i & i & 1 & -1 & -k & k & j & -j\\
+    j & j & -j & -k & k & -1 & 1 & i & -i\\
+    -j & -j & j & k & -k & 1 & -1 & -i & i\\
+    k & k & -k & j & -j & -i & i & -1 & 1\\
+    -k & -k & k & -j & j & i & -i & 1 & -1
+  \end{array}
+  \]
+\commn \cycln
+\end{de}
+
+
+\begin{de}
+  De \term{symmetrische groep} van graad $n$: $\mathcal{S}_{n},\circ$ is de groep van permutaties van $\{ 1,\dotsc,n \}$.
+  \[ |\mathcal{D}_{n}| = n! \]
+\end{de}
+
+\begin{vb}
+  $\mathcal{S}_{1},\circ$: De groep van permutaties van $\{ 1 \}$.
+  \[ \mathcal{S}_{3} = \left\{ Id \right\} \]
+  \[
+  \begin{array}{c|c}
+    \circ & Id \\
+    \hline
+    Id & Id\\
+  \end{array}
+  \]
+\commj \cyclj{$Id$}
+\end{vb}
+
+\end{de}
+
+\begin{vb}
+  $\mathcal{S}_{1},\circ$: De groep van permutaties van $\{ 1 \}$.
+  \[ \mathcal{S}_{3} = \left\{ Id \right\} \]
+  \[
+  \begin{array}{c|c}
+    \circ & Id \\
+    \hline
+    Id & Id\\
+  \end{array}
+  \]
+\commj \cyclj{$Id$}
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{2},\circ$: De groep van permutaties van $\{ 1,2 \}$.
+  \[ \mathcal{S}_{3} = \left\{ Id, (12) \right\} \]
+  \[
+  \begin{array}{c|cc}
+    \circ & Id & (12) \\
+    \hline
+    Id & Id & (12)\\
+    (12) & (12) & Id
+  \end{array}
+  \]
+\commj \cyclj{$(12)$}
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{3},\circ$: De groep van permutaties van $\{ 1,2,3 \}$.
+  \[ \mathcal{S}_{3} = \left\{ Id, (12), (13), (23), (123), (132) \right\} \]
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & (12) & (13) & (23) & (123) & (132) \\
+    \hline
+    Id & Id & (12) & (13) & (23) & (123) & (132)\\
+    (12) & (12) & Id & (132) & (123) & (23) & (13)\\
+    (13) & (13) & (123) & Id & (132) & (12) & (23)\\
+    (23) & (23) & (132) & (123) & Id & (13) & (12)\\
+    (123) & (123) & (13) & (23) & (12) & (132) & Id\\
+    (132) & (132) & (23) & (12) & (13) & Id & (123)\\
+  \end{array}
+  \]
+\commn \cycln
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{4},\circ$: De groep van permutaties van $\{ 1,2,3,4 \}$.
+  \[
+  \mathcal{S}_{4} =
+  \left\{
+  \begin{array}{l}
+     Id,\\
+     (12), (13), (14), (23), (24), (34),\\
+     (123), (124), (132), (134), (142), (143), (234), (243)\\
+     (12)(34), (13)(42), (14)(23),\\
+     (1234), (1243), (1324), (1342), (1423), (1432)
+  \end{array}
+  \right\}
+  \]
+\commn \cycln
+\end{vb}
+
+\begin{ei}
+  $\mathcal{S}_{n}$ is een deelgroep van $\mathcal{S}_{n+1}$.
+  \TODO{bewijs}
+\end{ei}
+
+\extra{$mathcal{A}$}
+
+\begin{de}
+  De \term{Di\"edergroep} of \term{Dihedrale groep} van graad $n$: $\mathcal{D}_{n},\circ$ is de groep van starre bewegingen die een regelmatige $n$-hoek op zichzelf afbeelden.
+  $\mathcal{D}_{n}$ bevat $n$ rotaties $Id, a, \dotsc, a^{n-1}$ en $n$ spiegelingen $b,ab,\dotsc,a^{n-1}b$.
+  \[ |\mathcal{D}_{n}| = 2n \]
+  Er gelden drie eenvoudige regels:
+  \begin{itemize}
+  \item $a^{n} = Id$
+  \item $b^{2} = Id$
+  \item $ba = a^{-1}b$
+  \end{itemize}
+\commn \cycln
+\end{de}
+
+\begin{vb}
+  $\mathcal{D}_{1},\circ$: De groep van starre bewegingen die een regelmatige $1$-hoek op zichzelf afbeelden.
+  \[ \mathcal{D}_{1} = \{ Id, b \} \]
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & b\\
+    \hline
+    Id & Id & b\\
+    b & b & Id\\
+  \end{array}
+  \]
+\commj \cyclj{$b$}
+\end{vb}
+
+\begin{vb}
+  $\mathcal{D}_{2},\circ$: De groep van starre bewegingen die een regelmatige $2$-hoek op zichzelf afbeelden.
+  \[ \mathcal{D}_{2} = \{ Id, a, b, ab \} \]
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & a & b & ab\\
+    \hline
+    Id & Id & a & b & ab\\
+    a & a & Id & ab & b\\
+    b & b & ab & Id & a\\
+    ab & ab & b & a & Id
+  \end{array}
+  \]
+\commj \cycln
+\end{vb}
+
+\begin{vb}
+  $\mathcal{D}_{3},\circ$: De groep van starre bewegingen die een regelmatige $3$-hoek op zichzelf afbeelden.
+  \[ \mathcal{D}_{3} = \{ Id, a, a^{2}, b, ab, a^{2}b \} \]
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & a & a^{2} & b & ab & a^{2}b\\
+    \hline
+    Id & Id & a & a^{2} & b & ab & a^{2}b \\
+    a & a & a^{2} & Id & ab & a^{2}b & b \\
+    a^{2} & a^{2} & Id & a & a^{2}b & b & ab \\
+    b & b & a^{2}b & ab & Id & a^{2} & a \\
+    ab & ab & b & a^{2}b & a & Id & a^{2} \\
+    a^{2}b & a^{2}b & ab & b & a^{2} & a & Id \\
+  \end{array}
+  \]
+\commn \cycln
+\end{vb}
+
+\begin{vb}
+  $\mathcal{D}_{4},\circ$: De groep van starre bewegingen die een regelmatige $4$-hoek op zichzelf afbeelden.
+  \[ \mathcal{D}_{4} = \{ Id, a, a^{2}, a^{3}, b, ab, a^{2}b, a^{3}b \} \]
+  \[
+  \begin{array}{c|cccccccc}
+    \circ & Id & a & a^{2} & a^{3} & b & ab & a^{2}b & a^{3}b \\
+    \hline
+    Id & Id & a  & a^{2} & a^{3} & b & ab & a^{2}b & a^{3}b \\
+    a & a & a^{2} & a^{3} & Id & ab & a^{2} & a^{3}b & b \\
+    a^{2} & a^{2} & a^{3} & Id & a & a^{2}b & a^{3}b & b & ab \\
+    a^{3} & a^{3} & Id & a & a^{2} & a^{3}b & b & ab & a^{2}b \\
+    b & b & a^{3}b & a^{2}b & ab & Id & a^{3} & a^{2} & a \\
+    ab & ab & b & a^{3}b & a^{2}b & a & Id & a^{3} & a^{2} \\
+    a^{2}b & a^{2}b & ab & b & a^{3}b & a^{2} & a & Id & a^{3} \\
+    a^{3}b & a^{3}b & a^{2}b & ab & b & a^{3} & a^{2} & a & Id \\
+  \end{array}
+  \]
+\commn \cycln
+\end{vb}
+
+\begin{st}
+  Voor elke $\mathcal{A}_{i}$ met $i>2$ bestaat er een deelgroep $\mathcal{A}_{i-1}$.
+\extra{bewijs, zeker?}
+\end{st}
+
 \begin{vb}
   De getallen, uitgerust met de optelling, vormen groepen met $0$ als neutraal element.
   \[ \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C} \]
@@ -82,206 +307,9 @@
 \commj \cycln
 \end{vb}
 
-\begin{de}
-  De \term{viergroep} of \term{groep van Klein} $V,\cdot$ heeft als neutraal element $e$.
-  Er geldt een eenvoudige regel: $ab = c$, $bc = a$, $ca = b$
-  \[
-  \begin{array}{c|cccc}
-    \circ & e & a & b & c \\
-    \hline
-    e & e & a & b & c \\
-    a & a & e & c & b \\
-    b & b & c & b & a \\
-    c & c & b & a & e \\
-  \end{array}
-  \]
-\commj
-\end{de}
-
 \begin{vb}
   De re\"ele getallen $\mathbb{Z}$, uitgerust met de optelling modulo $n\in \mathbb{N}_{0}$, vormen een groep $\mathbb{Z}_{n}$ met neutraal element $[0]_{n}$. Zo een groep heet de \term{restklassengroep} van graad $n$.\\
 \commj \cyclj{$\bar{1}$}
-\end{vb}
-
-\begin{de}
-  De \term{symmetrische groep} van graad $n$: $\mathcal{S}_{n},\circ$ is de groep van permutaties van $\{ 1,\dotsc,n \}$.
-  \[ |\mathcal{D}_{n}| = n! \]
-\end{de}
-
-\begin{vb}
-  $\mathcal{S}_{1},\circ$: De groep van permutaties van $\{ 1 \}$.\\
-  \[
-  \begin{array}{c|c}
-    \circ & Id \\
-    \hline
-    Id & Id\\
-  \end{array}
-  \]
-\commj \cyclj{$Id$}
-\end{vb}
-
-\begin{vb}
-  $\mathcal{S}_{2},\circ$: De groep van permutaties van $\{ 1,2 \}$.\\
-  \[
-  \begin{array}{c|cc}
-    \circ & Id & (12) \\
-    \hline
-    Id & Id & (12)\\
-    (12) & (12) & Id
-  \end{array}
-  \]
-\commj \cyclj{$(12)$}
-\end{vb}
-
-\begin{vb}
-  $\mathcal{S}_{3},\circ$: De groep van permutaties van $\{ 1,2,3 \}$.\\
-  \[
-  \begin{array}{c|cccccc}
-    \circ & Id & (12) & (13) & (23) & (123) & (132) \\
-    \hline
-    Id & Id & (12) & (13) & (23) & (123) & (132)\\
-    (12) & (12) & Id & (132) & (123) & (23) & (13)\\
-    (13) & (13) & (123) & Id & (132) & (12) & (23)\\
-    (23) & (23) & (132) & (123) & Id & (13) & (12)\\
-    (123) & (123) & (13) & (23) & (12) & (132) & Id\\
-    (132) & (132) & (23) & (12) & (13) & Id & (123)\\
-  \end{array}
-  \]
-\commn \cycln
-\end{vb}
-
-\begin{vb}
-  $\mathcal{S}_{4},\circ$: De groep van permutaties van $\{ 1,2,3,4 \}$.\\
-  \[
-  \mathcal{S}_{4} =
-  \begin{array}{l}
-     \{\\
-     Id,\\
-     (12), (13), (14), (23), (24), (34),\\
-     (123), (124), (132), (134), (142), (143), (234), (243)\\
-     (12)(34), (13)(42), (14)(23),\\
-     (1234), (1243), (1324), (1342), (1423), (1432)\\
-     \}
-  \end{array}
-  \]
-\commn \cycln
-\end{vb}
-
-\begin{ei}
-  $\mathcal{S}_{n}$ is een deelgroep van $\mathcal{S}_{n+1}$.
-  \TODO{bewijs}
-\end{ei}
-
-
-\extra{$mathcal{A}$}
-
-\begin{st}
-  Voor elke $\mathcal{A}_{i}$ met $i>2$ bestaat er een deelgroep $\mathcal{A}_{i-1}$.
-\extra{bewijs, zeker?}
-\end{st}
-
-\begin{de}
-  $Q,\cdot$,: De \term{quaternionengroep}.\\
-  \[ Q = \{ 1,-1,i,-i,j,-j,k,-k \} \]
-  Er gelden vier eenvoudige regels:
-  \begin{itemize}
-  \item $i^{2}=j^{2}=k^{2}= -1$
-  \item $ij=k$
-  \item $jk=i$
-  \item $ki=j$
-  \end{itemize}
-  \[
-  \begin{array}{r|rrrrrrrr}
-    \cdot & 1 & -1 & i & -i & j & -j & k & -k\\
-    \hline
-    1 & 1 & -1 & i & -i & j & -j & k & -k\\
-    -1 & -1 & 1 & -i & i & -j & j & -k & k\\
-    i & i & -i & -1 & 1 & k & -k & -j & j\\
-    -i & -i & i & 1 & -1 & -k & k & j & -j\\
-    j & j & -j & -k & k & -1 & 1 & i & -i\\
-    -j & -j & j & k & -k & 1 & -1 & -i & i\\
-    k & k & -k & j & -j & -i & i & -1 & 1\\
-    -k & -k & k & -j & j & i & -i & 1 & -1
-  \end{array}
-  \]
-\commn \cycln
-\end{de}
-
-\begin{de}
-  De \term{Di\"edergroep} of \term{Dihedrale groep} van graad $n$: $\mathcal{D}_{n},\circ$ is de groep van starre bewegingen die een regelmatige $n$-hoek op zichzelf afbeelden.
-  $\mathcal{D}_{n}$ bevat $n$ rotaties $Id, a, \dotsc, a^{n-1}$ en $n$ spiegelingen $b,ab,\dotsc,a^{n-1}b$.
-  \[ |\mathcal{D}_{n}| = 2n \]
-  Er gelden drie eenvoudige regels:
-  \begin{itemize}
-  \item $a^{n} = Id$
-  \item $b^{2} = Id$
-  \item $ba = a^{-1}b$
-  \end{itemize}
-\commn \cycln
-\end{de}
-
-\begin{vb}
-  $\mathcal{D}_{1},\circ$: De groep van starre bewegingen die een regelmatige $1$-hoek op zichzelf afbeelden.
-  \[
-  \begin{array}{c|cccccc}
-    \circ & Id & b\\
-    \hline
-    Id & Id & b\\
-    b & b & Id\\
-  \end{array}
-  \]
-\commj \cyclj{$b$}
-\end{vb}
-
-\begin{vb}
-  $\mathcal{D}_{2},\circ$: De groep van starre bewegingen die een regelmatige $2$-hoek op zichzelf afbeelden.
-  \[
-  \begin{array}{c|cccccc}
-    \circ & Id & a & b & ab\\
-    \hline
-    Id & Id & a & b & ab\\
-    a & a & Id & ab & b\\
-    b & b & ab & Id & a\\
-    ab & ab & b & a & Id
-  \end{array}
-  \]
-\commj \cycln
-\end{vb}
-
-\begin{vb}
-  $\mathcal{D}_{3},\circ$: De groep van starre bewegingen die een regelmatige $3$-hoek op zichzelf afbeelden.
-  \[
-  \begin{array}{c|cccccc}
-    \circ & Id & a & a^{2} & b & ab & a^{2}b\\
-    \hline
-    Id & Id & a & a^{2} & b & ab & a^{2}b \\
-    a & a & a^{2} & Id & ab & a^{2}b & b \\
-    a^{2} & a^{2} & Id & a & a^{2}b & b & ab \\
-    b & b & a^{2}b & ab & Id & a^{2} & a \\
-    ab & ab & b & a^{2}b & a & Id & a^{2} \\
-    a^{2}b & a^{2}b & ab & b & a^{2} & a & Id \\
-  \end{array}
-  \]
-\commn \cycln
-\end{vb}
-
-\begin{vb}
-  $\mathcal{D}_{4},\circ$: De groep van starre bewegingen die een regelmatige $4$-hoek op zichzelf afbeelden.
-  \[
-  \begin{array}{c|cccccccc}
-    \circ & Id & a & a^{2} & a^{3} & b & ab & a^{2}b & a^{3}b \\
-    \hline
-    Id & Id & a  & a^{2} & a^{3} & b & ab & a^{2}b & a^{3}b \\
-    a & a & a^{2} & a^{3} & Id & ab & a^{2} & a^{3}b & b \\
-    a^{2} & a^{2} & a^{3} & Id & a & a^{2}b & a^{3}b & b & ab \\
-    a^{3} & a^{3} & Id & a & a^{2} & a^{3}b & b & ab & a^{2}b \\
-    b & b & a^{3}b & a^{2}b & ab & Id & a^{3} & a^{2} & a \\
-    ab & ab & b & a^{3}b & a^{2}b & a & Id & a^{3} & a^{2} \\
-    a^{2}b & a^{2}b & ab & b & a^{3}b & a^{2} & a & Id & a^{3} \\
-    a^{3}b & a^{3}b & a^{2}b & ab & b & a^{3} & a^{2} & a & Id \\
-  \end{array}
-  \]
-\commn \cycln
 \end{vb}
 
 \extra{normaaldelers p 26}
