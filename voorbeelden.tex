@@ -10,48 +10,76 @@
 \begin{de}
   De \term{triviale groep} is de groep met enkel een neutraal element.
   \[ G,* = \{ e_{G} \},* \]
-\commj
+\commj \cyclj{$e_{G}$}
 \end{de}
 
 \begin{vb}
   De getallen, uitgerust met de optelling, vormen groepen met $0$ als neutraal element.
   \[ \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C} \]
-\commj
+  \begin{itemize}
+  \item $\mathbb{Z}$: \cyclj{$1$}
+  \item $\mathbb{Q}$: \cycln
+  \item $\mathbb{R}$: \cycln
+  \item $\mathbb{C}$: \cycln
+  \end{itemize}
+\commj 
 \end{vb}
 
 \begin{vb}
-  De complexe en re\"ele getallen, uitgerust met de vermeningvuldiging, vormen groepen met $1$ als neutraal element.
-  \[ \mathbb{R} \subseteq \mathbb{C} \]
-\commj
+  De complexe en re\"ele niet-nul getallen, uitgerust met de vermeningvuldiging, vormen groepen met $1$ als neutraal element.
+  \[ \mathbb{R}_{0} \subseteq \mathbb{C}_{0} \]
+\commj \cycln
 \end{vb}
 
 \begin{vb}
   De $n$-tallen, uitgerust met de optelling, vormen groepen met $\vec{0}$ als neutraal element.
   \[ \mathbb{Z}^{n} \subseteq \mathbb{Q}^{n} \subseteq \mathbb{R}^{n} \subseteq \mathbb{C}^{n} \]
+  \begin{itemize}
+  \item $\mathbb{Z}^{n}$: \cyclj{$(1,\dotsb,1)$}
+  \item $\mathbb{Q}^{n}$: \cycln
+  \item $\mathbb{R}^{n}$: \cycln
+  \item $\mathbb{C}^{n}$: \cycln
+  \end{itemize}
 \commj
 \end{vb}
 
 \begin{vb}
-  De $n$-de eenheidswortels $\{ z \in \mathbb{C}\ |\ z^{n} = 1 \}$, uitgerust met de vermeningvuldiging is een groep met neutraal element $1$.
+  De re\"ele en complexe $n$-tallen, uitgerust met de vermenigvuldiging, vormen groepen met $(1,\dotsc,1)$ als neutraal element.
+  \[ \mathbb{R}^{n} \subseteq \mathbb{C}^{n} \]
+\commj \cycln
+\end{vb}
+
+\begin{vb}
+  De $n$-de eenheidswortels $\{ z \in \mathbb{C}\ |\ z^{n} = 1 \}$, uitgerust met de vermeningvuldiging is een groep met neutraal element $1$.\\
+\commj \cyclj{Ja}\footnote{Een generator is bijvoorbeeld de eerste eenheidswortel na $1$.}
 \end{vb}
 
 \begin{de}
   De \term{cirkelgroep} $S^{1}$ is de verzameling van complexe getallen met modulus $1$, uitgerust met de vermenigvuldiging.
+  \[ S^{1} = \{ z \in c\ |\ |z| = 1 \} \]
+\commj \cycln
 \end{de}
 
 \begin{vb}
   De matrixes van dezelfde vorm, uitgerust met de optelling, vormen groepen met $[0]$ als neutraal element.
   \[ \mathbb{Z}^{m \times n} \subseteq \mathbb{Q}^{m \times n} \subseteq \mathbb{R}^{m \times n} \subseteq \mathbb{C}^{m \times n} \]
-\commj
+  \begin{itemize}
+  \item $\mathbb{Z}^{n \times n}$: \cyclj{$\mathbb{I}_{n}$}
+  \item $\mathbb{Q}^{n \times n}$: \cycln
+  \item $\mathbb{R}^{n \times n}$: \cycln
+  \item $\mathbb{C}^{n \times n}$: \cycln
+  \end{itemize}
+\commn
 \end{vb}
 
 \begin{vb}
-  De verzameling $GL_{n}(\mathbb{R})$ van inverteerbare re\"ele $n\times n$-matrices, uitgerust met de matrix vermeningvuldiging, vormen een groep met $\mathbb{I}_{n}$ als neutraal element.
+  De verzameling $GL_{n}(\mathbb{R})$ van inverteerbare re\"ele $n\times n$-matrices, uitgerust met de matrix vermeningvuldiging, vormen een groep met $\mathbb{I}_{n}$ als neutraal element.\\
+\commn \cycln
 \end{vb}
 
 \begin{vb}
   De verzameling $\mathbb{R}[x]$ van re\"ele veeltermen in de veranderlijke $x$, uitgeruist met de optelling, is een groep met neutraal element $0$.\\
-\commj
+\commj \cycln
 \end{vb}
 
 \begin{de}
@@ -71,20 +99,14 @@
 \end{de}
 
 \begin{vb}
-  De re\"ele getallen $\mathbb{Z}$, uitgerust met de optelling modulo $n\in \mathbb{N}_{0}$, vormen een groep $\mathbb{Z}_{n}$ met neutraal element $[0]_{n}$. Zo een groep heet de \term{restklassengroep} van graad $n$.
-\commj
+  De re\"ele getallen $\mathbb{Z}$, uitgerust met de optelling modulo $n\in \mathbb{N}_{0}$, vormen een groep $\mathbb{Z}_{n}$ met neutraal element $[0]_{n}$. Zo een groep heet de \term{restklassengroep} van graad $n$.\\
+\commj \cyclj{$\bar{1}$}
 \end{vb}
 
 \begin{de}
   De \term{symmetrische groep} van graad $n$: $\mathcal{S}_{n},\circ$ is de groep van permutaties van $\{ 1,\dotsc,n \}$.
   \[ |\mathcal{D}_{n}| = n! \]
-  Voor $n \le 2$ is $\mathcal{S}_{n}$ commutatief.
 \end{de}
-
-\begin{ei}
-  $\mathcal{S}_{n}$ is een deelgroep van $\mathcal{S}_{n+1}$.
-  \TODO{bewijs}
-\end{ei}
 
 \begin{vb}
   $\mathcal{S}_{1},\circ$: De groep van permutaties van $\{ 1 \}$.\\
@@ -95,7 +117,7 @@
     Id & Id\\
   \end{array}
   \]
-\commj
+\commj \cyclj{$Id$}
 \end{vb}
 
 \begin{vb}
@@ -108,7 +130,7 @@
     (12) & (12) & Id
   \end{array}
   \]
-\commj
+\commj \cyclj{$(12)$}
 \end{vb}
 
 \begin{vb}
@@ -125,6 +147,7 @@
     (132) & (132) & (23) & (12) & (13) & Id & (123)\\
   \end{array}
   \]
+\commn \cycln
 \end{vb}
 
 \begin{vb}
@@ -141,13 +164,16 @@
      \}
   \end{array}
   \]
+\commn \cycln
 \end{vb}
 
+\begin{ei}
+  $\mathcal{S}_{n}$ is een deelgroep van $\mathcal{S}_{n+1}$.
+  \TODO{bewijs}
+\end{ei}
+
+
 \extra{$mathcal{A}$}
-\begin{st}
-  Voor elke $\mathcal{S}_{i}$ met $i>2$ bestaat er een deelgroep $\mathcal{S}_{i-1}$.
-\extra{bewijs, zeker?}
-\end{st}
 
 \begin{st}
   Voor elke $\mathcal{A}_{i}$ met $i>2$ bestaat er een deelgroep $\mathcal{A}_{i-1}$.
@@ -166,18 +192,19 @@
   \end{itemize}
   \[
   \begin{array}{r|rrrrrrrr}
-\cdot & 1 & -1 & i & -i & j & -j & k & -k\\
-\hline
-1 & 1 & -1 & i & -i & j & -j & k & -k\\
--1 & -1 & 1 & -i & i & -j & j & -k & k\\
-i & i & -i & -1 & 1 & k & -k & -j & j\\
--i & -i & i & 1 & -1 & -k & k & j & -j\\
-j & j & -j & -k & k & -1 & 1 & i & -i\\
--j & -j & j & k & -k & 1 & -1 & -i & i\\
-k & k & -k & j & -j & -i & i & -1 & 1\\
--k & -k & k & -j & j & i & -i & 1 & -1
+    \cdot & 1 & -1 & i & -i & j & -j & k & -k\\
+    \hline
+    1 & 1 & -1 & i & -i & j & -j & k & -k\\
+    -1 & -1 & 1 & -i & i & -j & j & -k & k\\
+    i & i & -i & -1 & 1 & k & -k & -j & j\\
+    -i & -i & i & 1 & -1 & -k & k & j & -j\\
+    j & j & -j & -k & k & -1 & 1 & i & -i\\
+    -j & -j & j & k & -k & 1 & -1 & -i & i\\
+    k & k & -k & j & -j & -i & i & -1 & 1\\
+    -k & -k & k & -j & j & i & -i & 1 & -1
   \end{array}
-\]
+  \]
+\commn \cycln
 \end{de}
 
 \begin{de}
@@ -190,6 +217,7 @@ k & k & -k & j & -j & -i & i & -1 & 1\\
   \item $b^{2} = Id$
   \item $ba = a^{-1}b$
   \end{itemize}
+\commn \cycln
 \end{de}
 
 \begin{vb}
@@ -202,7 +230,7 @@ k & k & -k & j & -j & -i & i & -1 & 1\\
     b & b & Id\\
   \end{array}
   \]
-\commj
+\commj \cyclj{$b$}
 \end{vb}
 
 \begin{vb}
@@ -217,7 +245,7 @@ k & k & -k & j & -j & -i & i & -1 & 1\\
     ab & ab & b & a & Id
   \end{array}
   \]
-\commj
+\commj \cycln
 \end{vb}
 
 \begin{vb}
@@ -234,6 +262,7 @@ k & k & -k & j & -j & -i & i & -1 & 1\\
     a^{2}b & a^{2}b & ab & b & a^{2} & a & Id \\
   \end{array}
   \]
+\commn \cycln
 \end{vb}
 
 \begin{vb}
@@ -252,6 +281,7 @@ k & k & -k & j & -j & -i & i & -1 & 1\\
     a^{3}b & a^{3}b & a^{2}b & ab & b & a^{3} & a^{2} & a & Id \\
   \end{array}
   \]
+\commn \cycln
 \end{vb}
 
 \extra{normaaldelers p 26}
