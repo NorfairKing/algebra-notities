@@ -121,15 +121,43 @@
 \end{de}
 
 \begin{ei}
-  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$ en nulelement $e$.
   \[ \forall a \in R:\ (-i)\cdot a = -a = a \cdot (-i) \]
-  \TODO{bewijs}
+
+  \begin{proof}
+    We bewijzen dat $(-i) \cdot a$ en $a$ alsook $a \cdot (-i)$ en $a$ elkaars inversen zijn in $R,+$.
+    Dit betekent dat $(-i) \cdot a$ gelijk is aan $-a$ alsook $a\cdot (-i)$ want de inverse is uniek.\stref{st:groep-uniek-invers-element}
+    \[
+    \begin{array}{rll}
+      (-i) \cdot a + a &= (-i) \cdot a + i \cdot a &\\
+                       &= (-i + i) \cdot a &\\
+                       &= e \cdot a &= e
+    \end{array}
+    \]
+    \[
+    \begin{array}{rll}
+      a \cdot (-i) + a &= a \cdot (-i) + a \cdot i &\\
+                       &= a \cdot (-i+i) &\\
+                       &= a \cdot e &= e
+    \end{array}
+    \]
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Zij $R,+,\cdot$ een ring met eenheidselement $i$.
   \[ (-i) \cdot (-i) = i\]
-  \TODO{bewijs}
+  \begin{proof}
+    We bewijzen dat $(-i) \cdot (-i)$ en $-i$ elkaars inversen zijn in $R,+$.
+    Dit betekent dat $(-i) \cdot (-i)$ gelijk is aan $i$ want de inverse is uniek.\stref{st:groep-uniek-invers-element}
+    \[
+    \begin{array}{rll}
+      (-i) \cdot (-i) + (-i) &= (-i) \cdot (-i) + (-i) \cdot i &\\
+                             &= (-i) \cdot (-i + i) &\\
+                             &= (-i) \cdot e &= e
+    \end{array}
+    \]
+  \end{proof}
 \end{ei}
 
 \begin{de}
