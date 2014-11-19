@@ -11,7 +11,7 @@
 \label{sec:ring}
 
 \begin{de}
-  Een \term{ring} $R,+,\cdot$ is een verzameling $R$ waarop twee inwendige bewerkingen $+$ en $\cdot$ gedefinieerd zijn met de volgende eigenschappen:
+  Een \term{ring} $R,+,\cdot$ is een (niet lege) verzameling $R$ waarop twee inwendige bewerkingen $+$ en $\cdot$ gedefinieerd zijn met de volgende eigenschappen:
   \begin{itemize}
   \item $R,+$ is een commutatieve groep.
   \item $\cdot$ is associatief.
@@ -26,21 +26,69 @@
 \end{de}
 
 \begin{ei}
+  \label{ei:nulelement-opslorpend}
   Zij $R,+,\cdot$ een ring met nulelement $e$.
   \[ \forall a \in R:\ a \cdot e = e = e \cdot a \]
-  \TODO{bewijs}
+
+  \begin{proof}
+    \[
+    \begin{array}{rll}
+      a \cdot e &= a \cdot (-e+e) &\\
+                &= a \cdot (e+e) &\\
+                &= (a \cdot e) + (a \cdot e)\\
+      \Rightarrow & a \cdot e = e\\
+    \end{array}
+    \]
+    \[
+    \begin{array}{rll}
+      e \cdot a &= (-e+e) \cdot a &\\
+                &= (e+e) \cdot a &\\
+                &= (e \cdot a) + (e \cdot a) &= e\\
+      \Rightarrow & e \cdot a = e\\
+    \end{array}
+    \]
+    We gebruiken in de tweede gelijkheid dat $e$ zijn eigen inverse is en in de derde gelijkheid dat $\cdot$ distributief is ten opzichte van $+$.
+  \end{proof}
 \end{ei}
 
 \begin{ei}
-  Zij $R,+,\cdot$ een ring met nulelement.
-  \[ \forall a,b \in R:\ a \cdot (-b) = (-a) \cdot b = -(a \cdot b) \]
-  \TODO{bewijs}
+  \label{ei:min-door-maal}
+  Zij $R,+,\cdot$ een ring met nulelement $e$. 
+  \[ \forall a,b \in R:\ a \cdot (-b) = -(a \cdot b) = (-a) \cdot b \]
+ 
+  \begin{proof}
+    We bewijzen dat $a \cdot (-b)$ en $a \cdot b$ elkaars inversen zijn in $R,+$ alsook $-a \cdot b$ en $a \cdot b$.
+    Dit betekent dat $a \cdot (-b)$ en $-a \cdot b$ gelijk zijn aan $-(a \cdot b)$ want de inverse is uniek.\stref{st:groep-uniek-invers-element}
+    \[
+    \begin{array}{rll}
+      (a \cdot -b) + (a \cdot b) &= a \cdot (-b + b) &\\
+                                 &= a \cdot e &= e 
+    \end{array}
+    \]  
+    \[
+    \begin{array}{rll}
+      (-a \cdot b) + (a \cdot b) &= (-a + a) \cdot b &\\
+                                 &= e \cdot b &= e 
+    \end{array}
+    \]      
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Zij $R,+,\cdot$ een ring met nulelement.
   \[ \forall a,b \in R:\ (-a) \cdot (-b) = a \cdot b \]
-  \TODO{bewijs}
+
+  \begin{proof}
+    We bewijzen dat $(-a) \cdot (-b)$ en $-(a \cdot b)$ elkaars inversen zijn in $R,+$
+    Dit betekent dat $(-a) \cdot (-b)$ gelijk is aan $a \cdot b$ want de inverse is uniek.\stref{st:groep-uniek-invers-element}
+    \[
+    \begin{array}{rll}
+      (-a) \cdot (-b) + (- (a \cdot b)) &= (-a) \cdot (-b) + (-a) \cdot b &\\
+                                        &= (-a) \cdot (-b + b) &\\
+                                        &= (-a) \cdot e &= e
+    \end{array}
+    \]
+  \end{proof}
 \end{ei}
 
 \begin{de}
