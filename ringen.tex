@@ -111,6 +111,34 @@
   Zij $R,+,\cdot$ een ring, dan noemen we $x\in R$ een \term{nuldeler} van $y\in R$ als $x$ zowel een linker als rechter nuldeler is van $y$.
 \end{de}
 
+\begin{ei}
+  \label{ei:nuldeler-asa-niet-schrapbaar}
+  Zij $R,+,\cdot$ een niet-triviale ring en $z$ een element van $R$, dan is $z$ een nuldeler als en slechts als $z$ niet schrapbaar is voor $\cdot$.
+  Noem het nulelement van $R,+,\cdot$ $e$.
+  \[ z \text{ is een nuldeler } \Leftrightarrow z \text{ is niet schrapbaar voor } \cdot \]
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $z$ een nuldeler is, dan bestaat er dus een $x \in R_{e}$ zodat $x\cdot z= e$ of $z \cdot x = e$ geldt.
+      $z$ kan dan niet schrapbaar zijn voor $\cdot$ want $z\cdot e = e = e \cdot z$ geldt\eiref{ei:nulelement-opslorpend}:
+      \[ z \cdot x = z \cdot e \wedge x \neq e \quad\text{ of }\quad x \cdot z = e \cdot z \wedge x \neq e \]
+    \item $\Leftarrow$\\
+      Stel dat er twee verschillende elementen $x$ en $y$ in $R$ bestaan zodat $z \cdot x$ gelijk is aan $z \cdot y$.
+      $z$ is dan dus niet schrapbaar.
+      \[ z \cdot x = z \cdot y \wedge x \neq y \]
+      $z$ moet dan een nuldeler zijn:
+      \[
+      \begin{array}{rll}
+        z \cdot (x + (-y)) &= z \cdot x + z \cdot (-y) &\\
+                           &= z \cdot y + (-(z \cdot y)) &= e
+      \end{array}
+      \]
+      Merk op dat dat de tweede gelijkheid enkel geldt omdat $z \cdot (-y) = -(z \cdot y)$ geldt voor elke twee elementen van een ring.\eiref{ei:min-door-maal}
+    \end{itemize}
+  \end{proof}
+\end{ei}
+
 \subsection{Ring met eenheidselement}
 \label{sec:ring-met-eenheidselement}
 
@@ -251,9 +279,17 @@
 
 \begin{ei}
   Zij $R,+,\cdot$ een intergiteitsdomein met nulelement $e$
-  \[ \forall a,b,c \in R:\ (ab = ac \wedge a \neq 0) \Rightarrow b = c \]
-\TODO{bewijs}
+  \[ \forall a,b,c \in R:\ (a\cdot b = a\cdot c \wedge a \neq e) \Rightarrow b = c \]
+
+  \begin{proof}
+    Er zijn geen nuldelers in $R,+,\cdot$, want het is een integriteitsdomein, dus elk element is schrapbaar.\eiref{ei:nuldeler-asa-niet-schrapbaar}
+  \end{proof}
 \end{ei}
+
+\begin{opm}
+  In een willekeurige ring zijn niet alle elementen schrapbaar.
+  In $\mathbb{Z}_{10}$ geldt $5\cdot 3 = 5 \cdot 7$ maar $3 \neq 7$.
+\end{opm}
 
 \begin{de}
   Zij $a$, $b$ en $q$ elementen van een integriteitsdomein $D,+,\cdot$ zodat $a= qb$ met $b$ niet het nulelement $e$, dan noemen we $b$ een deler van $a$.
