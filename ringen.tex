@@ -260,6 +260,12 @@
   \end{proof}
 \end{st}
 
+\begin{st}
+  \label{st:nulring-nul-is-een}
+  Een ring $R,+,\cdot$ met eenheidselement $i$ en nulelement $e$ waarbij $i$ gelijk is aan $e$ is de nulring.
+  \extra{bewijs}
+\end{st}
+
 \subsection{Commutatieve ring}
 \label{sec:commutatieve-rin}
 
@@ -273,12 +279,6 @@
   We noemen $a$ een \term{deler} van $b$ (in $R,+,\cdot$) als er een $q$ in $R$ bestaat zodat het volgende geldt:
   \[ b = q \cdot a \]
 \end{de}
-
-\begin{st}
-  \label{st:nulring-nul-is-een}
-  Een ring $R,+,\cdot$ met eenheidselement $i$ en nulelement $e$ waarbij $i$ gelijk is aan $e$ is de nulring.
-  \extra{bewijs}
-\end{st}
 
 \subsection{Integriteitsdomeinen}
 \label{sec:integriteitsdomeinen}
@@ -304,7 +304,359 @@
   In $\mathbb{Z}_{10}$ geldt $5\cdot 3 = 5 \cdot 7$ maar $3 \neq 7$.
 \end{opm}
 
-\subsubsection{deelbaarheid}
+\subsection{Lichaam}
+\label{sec:lichaam}
+
+\begin{de}
+  Zij $R,+,\cdot$ een (niet-triviale) ring met eenheidselement $i$.
+  We noemen $R,+,\cdot$ een \term{lichaam} als $R_{e},\cdot$ een groep is:
+  \[ \forall x \in R_{e}, \exists y \in R:\ x\cdot y = y \cdot x = i \]
+  Elk element in $R_{e}$ is dus een eenheid.
+\end{de}
+
+\begin{st}
+  \label{st:lichaam-geen-nuldelers}
+  Een lichaam heeft geen nuldelers
+
+  \begin{proof}
+    Zij $R,+,\cdot$ een lichaam met eenheidselement $i$ en nulelement $e$.
+    Stel nu dat er element $x$ en $y$ in $R$ bestaan zodat $x\cdot y = e$ of $y \cdot x = e$ geldt.
+    \[
+    \begin{array}{rrl}
+      x \cdot y &= e\\
+      \Rightarrow & x^{-1} \cdot (x \cdot y) \cdot y^{-1} &= x^{-1} \cdot e \cdot y^{-1}\\
+      \Rightarrow & (x^{-1} \cdot x) \cdot (y \cdot y^{-1}) &= e\\
+      \Rightarrow & i \cdot i &= e\\
+      \Rightarrow & i &= e
+    \end{array}
+    \]
+    De eerste equivalentie geldt omdat elk element een eenheid is.
+    De tweede equivalentie geldt omdat het nulelement zich opslorpend gedraagt voor de multiplicatieve bewerking in een ring.\eiref{ei:nulelement-opslorpend}
+    De laatste gelijkheid impliceert dat de ring $R$ triviaal is.
+    Contradictie.\stref{st:nulring-nul-is-een}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:stelling-van-wedderburn}
+  De \term{stelling van Wedderburn}\\
+  Een eindig lichaam is commutatief en dus een veld.
+
+  \begin{proof}
+    Geen bewijs.
+  \end{proof}
+\end{st}
+
+\subsection{Velden}
+\label{sec:velden}
+
+\begin{de}
+  Een \term{veld} is een commutatief lichaam.
+\end{de}
+
+\begin{st}
+  Een eindig integriteitsdomein is een veld.
+
+  \begin{proof}
+    Zij $D$ een eindig integriteitsdomein met nulelement $e$ en eenheidselement $i$.
+    We moeten aantonen dat elk element $a$, verschillend van $e$, in $d$ een eenheid is.
+    Kies een element $a$ van $D$ verschillend van $i$, (voor $a=i$ is $a$ namelijk zeker een eenheid).
+    Beschouw nu de elementen $a^{n}$ voor elke $n\in \mathbb{N}$.
+    Omdat $D$ eindig is bestaan er getallen $i$ en $j$ in $\mathbb{N}$ zodat $a^{i}$ gelijk is aan $a^{j}$ met $i > j$.
+    \[ a^{i} = a^{j} \]
+    Omdat er geen nuldelers zijn in $D$\deref{de:integriteitsdomein}, mogen we dit vereenvoudigen:
+    \[ a^{i-j} = i \]
+    Dit betekent precies dat $a^{i-j-1}$ de invers is van $a$.
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  Zij $p$ een priemgetal, dan is $\mathbb{Z}_{p},+,\cdot$ een veld.
+\extra{bewijs}
+\end{gev}
+
+\begin{st}
+  In een veld hebben alle van het nulelement verschillende elementen dezelfde additieve orde.
+  
+  \begin{proof}
+    Zij $F,+,\cdot$ een veld met eenheidselement $i$ en nulelement $e$.
+    Kies nu twee elementen $a$ en $b$ uit $F_{e}$.
+    Zij $r$ de additieve orde van $a$ zodat $ra = e$, dan bewijzen we nu dat $rb$ ook gelijk is aan het nulelement.
+    \[
+    \begin{array}{rll}
+      rb &= r(ib) &\\
+         &= r(aa^{-1}b) &\\
+         &= (ra)a^{-1}b &\\
+         &= e(a^{-1}b) &= e
+    \end{array}
+    \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  De additieve orde van de van $0$ verschillende elementen van een veld noemt met de \term{karakteristiek} van het veld.
+\end{de}
+
+
+\subsection{Direct product}
+\label{sec:direct-product}
+
+
+\begin{de}
+  Zij $R_{i},+_{i},\cdot_{i}$ $n$ ringen, dan definieren we het direct product van deze $R_{i}$ als de productverzameling met dezelfde bewerkingen, maar dan op paarsgewijze elementen.
+  \[ (R_{1} \times \dotsb \times R_{n}),+,\cdot \]
+\end{de}
+
+\begin{st}
+  Het direct product van $n$ ringen $R_{i},+_{i},\cdot_{i}$ heeft een eenheidselement als en slechts als elk van de ringen $R_{i},+_{i},\cdot_{i}$ een eenheidselement heeft is.
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Het direct product van $n$ ringen $R_{i},+_{i},\cdot_{i}$ is commutatief als en slechts als elk van de ringen $R_{i},+_{i},\cdot_{i}$ commutatief is.
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Het direct product van $n$ ringen $R_{i},+_{i},\cdot_{i}$ kan geen veld zijn als elk van de ringen $R_{i},+_{i},\cdot_{i}$ verschillend is van de nulring.
+  \extra{bewijs}
+\end{st}
+
+\subsection{Deelringen}
+\label{sec:deelringen}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring en $S$ een niet-lege deelverzameling van $R$.
+  We noemen $S$ een \term{deelring} van $R$ als $S$ een ring is voor dezelfde bewerkingen.
+\end{de}
+
+\begin{st}
+  \label{st:deelring-criteria}
+  Criteria voor een deelring.
+  Zij $R,+,\cdot$ een ring en $S$ een niet-lege deelverzameling van $R$, dan is $S$ een deelring van $R$ als aan \'e\'en van de volgende criteria voldaan is.
+  \begin{itemize}
+  \item $S,+$ is een deelgroep van $R,+$ en $\cdot$ is intern in $S$.
+  \item $S$ is niet leeg, $\cdot$ is intern in $S$ en het volgende geldt:
+    \[ \forall a,b \in S: a - b \in S \]
+  \end{itemize}
+\extra{bewijs}
+\end{st}
+
+\subsection{Ringmorfismen}
+\label{sec:ringmorfismen}
+
+\begin{de}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen.
+  Een \term{(ring)(homo)morfisme} van $R$ naar $S$ is een afbeelding $f: R\rightarrow S$ die voldoet aan twee voorwaarden:
+  \begin{enumerate}
+  \item $\forall x,y \in R:\ f(x + y) = f(x) \star f(y)$
+  \item $\forall x,y \in R:\ f(x \cdot y) = f(x) * f(y)$
+  \end{enumerate}
+\end{de}
+
+\begin{opm}
+  Een ringisomorfisme $f$ van een ring $R,+,\cdot$ naar $S,\star,*$ is een groepsisomorfisme van de groep $R,+$ naar $S,\star$
+\end{opm}
+
+\begin{de}
+  Een bijectief ringhomomorfisme is een \term{(ring)isomorfisme}.
+\end{de}
+
+\begin{de}
+  Een morfisme van een ring naar zichzelf heet een \term{endomorfisme}.
+\end{de}
+
+\begin{de}
+  Een isomorfisme van een ring naar zichzelf heet een \term{automorfisme}.
+\end{de}
+
+\begin{de}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een ringmorfisme.
+  Zij $e$ het nulelement van $S$.
+  De \term{kern} $Ker(f)$ van $f$ is de verzameling van elementen van $R$ die onder $f$ op $e\in S$ worden afgebeeldt.
+  \[ Ker(f) = \{ x \in R \ |\ f(x) = 0 \} \]
+\end{de}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen met nulelementen $e_{R}$ en $e_{S}$, en $f:R \rightarrow S$ een morfisme.
+  \[ f(e_{R}) = e_{S} \]
+
+  \begin{proof}
+    $f$ moet de groep $R,+$ afbeelden op $S,\star$, dus het neutraal element van $R,+$ moet op het neutraal element van $S,\star$ afgebeeld worden.\stref{st:groepsmorfisme-behoudt-neutraal-element}
+  \end{proof}
+\end{ei}
+ 
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
+  \[ \forall a \in R: f(-a) = -f(a) \]
+  \begin{proof}
+    $f$ moet de groep $R,+$ afbeelden op $S,\star$, dus $f$ moet de inverse behouden.\stref{st:groepsmorfisme-behoudt-inverse}
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
+  Zij $A$ een deelring van $R$, dan is $f(A)$ een deelring van $S$.
+  \extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
+  Zij $B$ een deelring van $S$, dan is $f^{-1}(B)$ een deelring van $R$.
+  \extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$, $S,\star,*$ een ring en $f:R \rightarrow S$ een morfisme.
+  De deelring $f(R)$ heeft $f(i)$ als eenheidselement.
+  \extra{bewijs}
+\end{ei}
+
+\begin{opm}
+  Het eenheidselement van een deelring van een ring hoeft niet gelijk zijn aan het eenheidselement van de ring.
+  \clarify{hoeft de ring er \'e\'en te hebben?}
+  \extra{verwijzen naar vb op p 47 A}
+\end{opm}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
+  Zij $e$ het nulelement van $R$.
+  $f$ is injectief als en slechts als $Ker(f) = \{e\}$.
+  \extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f$ een ringisomorfisme van $R$ naar $S$, dan is ook $f^{-1}: S \rightarrow R$ een ringisomorfisme.
+  \extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  \label{ei:ringmorfisme-behoudt-multiplicatieve-inverse}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen met eenheidselement $i_{R}$ en $i_{S}$ en zij $f: R\rightarrow S$ een isomorfisme dat het eenheidselement $i_{R}$ van $R,+,\cdot$ afstuurt op het eenheidselement $i_{S}$ van $S,+,\cdot$.
+  Als $u$ een eenheid is in $R$, dan is $f(u)$ een eenheid in $S$.
+  Bovendien geldt het volgende:
+  \[ (f(u))^{-1} = f(u^{-1}) \]
+  \TODO{bewijs}
+\end{ei}
+
+
+\begin{st}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen met eenheidselement $i_{R}$ en $i_{S}$ en zij $f: R\rightarrow S$ een isomorfisme dat het eenheidselement $i_{R}$ van $R,+,\cdot$ afstuurt op het eenheidselement $i_{S}$ van $S,+,\cdot$, dan zijn de eenheidsgroepen $R^{\times},\cdot$ en $S^{\times},\cdot$ isomorf.
+
+  \begin{proof}
+    Het is voldoende om aan te tonen dat $f(R^{\times})$ gelijk is aan $S^{\times}$ want $f$ is een isomorfisme.
+    Noem $i_{R}$ het eenheidselement van $R^{\times}$ en $i_{S}$ het eenheidselement van $S^{\times}$
+    \begin{itemize}
+    \item $\subseteq$\\
+      Kies een $r\in R^{\times}$, dan bestaat er een inverse $r'$ van $r$ in $R^{\times}$.
+      \[ r\cdot r' = i_{R} = r' \cdot r \]
+      We beelden nu $i_{R}$ af onder $f$:
+      \[ f(r\cdot r') = f(i_{R}) = f(r' \cdot r) \]
+      \[ f(r)\cdot f(r') = i_{S} = f(r') \cdot f(r)\]
+      Voor element $f(r)$ van $S^{\times}$ bestaat er dus een element $f(r')$ in $S^{\times}$.
+      \[ f(R^{\times}) \subseteq S^{\times} \]
+    \item $\supseteq$\\
+      Omdat $f$ bijectief is, is $f^{-1}$ ook bijectief en bovendien zinvol om te beschouwen.\stref{st:afb-inverse-asa-bijectief}
+      Kies nu een element $f(r)$ met inverse $f(r)^{-1}$ in $S,\star,*$.
+      \[ f(r) \cdot f(r)^{-1} = i_{S} = f(r)^{-1} \cdot f(r) \]
+     We beelden nu $i_{S}$ af onder $f^{-1}$:
+     \[ f^{-1}(f(r) \cdot f(r)^{-1}) = f^{-1}(i_{S}) = f^{-1}(f(r)^{-1} \cdot f(r))\]
+     \[ f^{-1}(f(r)) \cdot f^{-1}(f(r^{-1})) = f^{-1}(i_{S}) = f^{-1}(f(r^{-1})) \cdot f^{-1}(f(r))\]
+     \[ r \cdot r^{-1} = f^{-1} = i_{R} = r^{-1} \cdot r \]
+      Voor element $r$ van $R^{\times}$ bestaat er dus een element $r^{-1}$ in $R^{\times}$.
+      \[ f^{-1}(S^{\times}) \subseteq R^{\times} \]
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{pr}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i_{R}$ en nulelement $e_{R}$ en zij $S,\star,*$ een integriteitsdomein met eenheidselement $i_{S}$ en nulelement $e_{S}$.
+  Zij $f: R \rightarrow S$ een ringmorfisme.
+  \[ f(R) = \{e_{S}\} \quad\vee\quad f(i_{R}) = i_{S} \]
+\TODO{bewijs p 47 A}
+\end{pr}
+
+\begin{pr}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R \rightarrow S$ een morfisme.
+  $f$ is een isomorfisme als en slechts als en een morfisme $g: S \rightarrow R$ bestaat zodat het volgende geldt:
+  \[ g \circ f = I_{R} \quad\wedge\quad f \circ g = I_{S} \]
+\TODO{bewijs}
+\end{pr}
+
+\subsection{Breukenveld van een integriteitsdomein}
+\label{sec:breukenveld-van-een-integriteitsdomein}
+
+\begin{de}
+  Zij $R$ een integriteitsdomein, $F$ een veld en $i: R \rightarrow F$ een ringmorfisme als volgt:
+  \begin{enumerate}
+  \item $i$ is injectief
+  \item $\forall q \in F,\ \exists a \in R, b\in R_{e}:\ q = i(a)\cdot i(b)^{-1}$
+  \end{enumerate}
+  $F$ is dan het \term{breukenveld} van $R$.
+\end{de}
+
+\begin{st}
+  We kunnen een integriteitsdomein identificeren met zijn beeld onder de inbedding $i$ en dus als deelring van $F$ beschouwen.
+  \TODO{bewijs p 48 A}
+\end{st}
+
+\begin{ei}
+  Het breukenveld van een integriteitsdomein is uniek.
+  \TODO{bewijs p 49 A}
+\end{ei}
+
+\begin{ei}
+  Zij $F$ het breukenveld van een integriteitsdomein $R$ met inbedding $i: R \rightarrow F$.
+  Er bestaat voor elk injectief ringmorfisme $f: R \rightarrow K$ met $K$ een veld een uniek ringmorfisme $f': F \rightarrow K$ zodat $f = f' \circ i$ geldt.
+  \TODO{bewijs p 49 A}
+\end{ei}
+
+\subsection{Idealen}
+\label{sec:idealen}
+
+\TODO{linker, en rechterideaal}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring en $I$ een deelverzameling van $R$.
+  $I$ is een \term{ideaal} van $R$ als het valgende geldt:
+  \begin{itemize}
+  \item $I,+$ is een deelgroep van $R,+$.
+  \item $forall a \in R, \forall b \in I:\ a\cdot b \subseteq I \wedge b\cdot a \subseteq I$. 
+  \end{itemize}
+\end{de}
+
+\begin{st}
+  Elke ring heeft twee triviale idealen.
+  \begin{enumerate}
+  \item De ring met enkel het nulelement.
+  \item Heel de ring.
+  \end{enumerate}
+\extra{bewijs}
+\end{st}
+
+\begin{ei}
+  Een ideaal $I$ van een ring $R,+,\cdot$ is een normaaldeler van de groep $R,+$.
+\end{ei}
+
+\begin{de}
+  De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
+\end{de}
+
+\begin{de}
+  De \term{quotientring} $R/I$ van een ring $R,+,\cdot$ ten opzichte van een ideaal is de partitie van $R$ is restklassen van $I$, uitgerust met de quotientwetten:
+  \begin{itemize}
+  \item $\scalebox{1.5}{$+$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$+$}\ (y+I) = (x+y)+I$
+  \item $\scalebox{1.5}{$\cdot$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$\cdot$}\ (y+I) = (x\cdot y) + I$
+  \end{itemize}
+\end{de}
+
+
+
+
+\extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
+
+
+\section{deelbaarheid}
 \label{sec:deelbaarheid}
 
 \begin{de}
@@ -445,7 +797,7 @@
   Een priemgetal heeft dus geen echte delers.
 \end{opm}
 
-\subsubsection{Euclidische Ring}
+\subsection{Euclidische Ring}
 \label{sec:euclidische-ring}
 
 \begin{de}
@@ -485,326 +837,6 @@
 \TODO{ vanaf algoritme van Euclides om grootste gemene deler te vinden
   p 126 TAI tot sectie 7 p 129}
 
-\subsection{Lichaam}
-\label{sec:lichaam}
-
-\begin{de}
-  Zij $R,+,\cdot$ een (niet-triviale) ring met eenheidselement $i$.
-  We noemen $R,+,\cdot$ een \term{lichaam} als $R_{e},\cdot$ een groep is:
-  \[ \forall x \in R_{e}, \exists y \in R:\ x\cdot y = y \cdot x = i \]
-  Elk element in $R_{e}$ is dus een eenheid.
-\end{de}
-
-\begin{st}
-  \label{st:lichaam-geen-nuldelers}
-  Een lichaam heeft geen nuldelers
-
-  \begin{proof}
-    Zij $R,+,\cdot$ een lichaam met eenheidselement $i$ en nulelement $e$.
-    Stel nu dat er element $x$ en $y$ in $R$ bestaan zodat $x\cdot y = e$ of $y \cdot x = e$ geldt.
-    \[
-    \begin{array}{rrl}
-      x \cdot y &= e\\
-      \Rightarrow & x^{-1} \cdot (x \cdot y) \cdot y^{-1} &= x^{-1} \cdot e \cdot y^{-1}\\
-      \Rightarrow & (x^{-1} \cdot x) \cdot (y \cdot y^{-1}) &= e\\
-      \Rightarrow & i \cdot i &= e\\
-      \Rightarrow & i &= e
-    \end{array}
-    \]
-    De eerste equivalentie geldt omdat elk element een eenheid is.
-    De tweede equivalentie geldt omdat het nulelement zich opslorpend gedraagt voor de multiplicatieve bewerking in een ring.\eiref{ei:nulelement-opslorpend}
-    De laatste gelijkheid impliceert dat de ring $R$ triviaal is.
-    Contradictie.\stref{st:nulring-nul-is-een}
-  \end{proof}
-\end{st}
-
-\begin{st}
-  \label{st:stelling-van-wedderburn}
-  De \term{stelling van Wedderburn}\\
-  Een eindig lichaam is commutatief en dus een veld.
-
-  \begin{proof}
-    Geen bewijs.
-  \end{proof}
-\end{st}
-
-\subsection{Velden}
-\label{sec:velden}
-
-\begin{de}
-  Een \term{veld} is een commutatief lichaam.
-\end{de}
-
-\begin{st}
-  Een eindig integriteitsdomein is een veld.
-
-  \begin{proof}
-    Zij $D$ een eindig integriteitsdomein met nulelement $e$ en eenheidselement $i$.
-    We moeten aantonen dat elk element $a$, verschillend van $e$, in $d$ een eenheid is.
-    Kies een element $a$ van $D$ verschillend van $i$, (voor $a=i$ is $a$ namelijk zeker een eenheid).
-    Beschouw nu de elementen $a^{n}$ voor elke $n\in \mathbb{N}$.
-    Omdat $D$ eindig is bestaan er getallen $i$ en $j$ in $\mathbb{N}$ zodat $a^{i}$ gelijk is aan $a^{j}$ met $i > j$.
-    \[ a^{i} = a^{j} \]
-    Omdat er geen nuldelers zijn in $D$\deref{de:integriteitsdomein}, mogen we dit vereenvoudigen:
-    \[ a^{i-j} = i \]
-    Dit betekent precies dat $a^{i-j-1}$ de invers is van $a$.
-\waarom
-  \end{proof}
-\end{st}
-
-\begin{gev}
-  Zij $p$ een priemgetal, dan is $\mathbb{Z}_{p},+,\cdot$ een veld.
-\extra{bewijs}
-\end{gev}
-
-\begin{st}
-  In een veld hebben alle van het nulelement verschillende elementen dezelfde additieve orde.
-  
-  \begin{proof}
-    Zij $F,+,\cdot$ een veld met eenheidselement $i$ en nulelement $e$.
-    Kies nu twee elementen $a$ en $b$ uit $F_{e}$.
-    Zij $r$ de additieve orde van $a$ zodat $ra = e$, dan bewijzen we nu dat $rb$ ook gelijk is aan het nulelement.
-    \[
-    \begin{array}{rll}
-      rb &= r(ib) &\\
-         &= r(aa^{-1}b) &\\
-         &= (ra)a^{-1}b &\\
-         &= e(a^{-1}b) &= e
-    \end{array}
-    \]
-  \end{proof}
-\end{st}
-
-\begin{de}
-  De additieve orde van de van $0$ verschillende elementen van een veld noemt met de \term{karakteristiek} van het veld.
-\end{de}
-
-
-\subsection{Direct product}
-\label{sec:direct-product}
-
-
-\begin{de}
-  Zij $R_{i},+_{i},\cdot_{i}$ $n$ ringen, dan definieren we het direct product van deze $R_{i}$ als de productverzameling met dezelfde bewerkingen, maar dan op paarsgewijze elementen.
-  \[ (R_{1} \times \dotsb \times R_{n}),+,\cdot \]
-\end{de}
-
-\begin{st}
-  Het direct product van $n$ ringen $R_{i},+_{i},\cdot_{i}$ heeft een eenheidselement als en slechts als elk van de ringen $R_{i},+_{i},\cdot_{i}$ een eenheidselement heeft is.
-  \extra{bewijs}
-\end{st}
-
-\begin{st}
-  Het direct product van $n$ ringen $R_{i},+_{i},\cdot_{i}$ is commutatief als en slechts als elk van de ringen $R_{i},+_{i},\cdot_{i}$ commutatief is.
-  \extra{bewijs}
-\end{st}
-
-\begin{st}
-  Het direct product van $n$ ringen $R_{i},+_{i},\cdot_{i}$ kan geen veld zijn als elk van de ringen $R_{i},+_{i},\cdot_{i}$ verschillend is van de nulring.
-  \extra{bewijs}
-\end{st}
-
-\subsection{Deelringen}
-\label{sec:deelringen}
-
-\begin{de}
-  Zij $R,+,\cdot$ een ring en $S$ een niet-lege deelverzameling van $R$.
-  We noemen $S$ een \term{deelring} van $R$ als $S$ een ring is voor dezelfde bewerkingen.
-\end{de}
-
-\begin{st}
-  \label{st:deelring-criteria}
-  Criteria voor een deelring.
-  Zij $R,+,\cdot$ een ring en $S$ een niet-lege deelverzameling van $R$, dan is $S$ een deelring van $R$ als aan de volgende criteria voldaan is.
-  \begin{itemize}
-  \item $S,+$ is een deelgroep van $R,+$ en $\cdot$ is intern in $S$.
-  \item $S$ is niet leeg, $\cdot$ is intern in $S$ en het volgende geldt:
-    \[ \forall a,b \in S: a - b \in S \]
-  \end{itemize}
-\TODO{bewijs}
-\end{st}
-
-\subsection{Ringmorfismen}
-\label{sec:ringmorfismen}
-
-\begin{de}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen.
-  Een \term{(ring)(homo)morfisme} van $R$ naar $S$ is een afbeelding $f: R\rightarrow S$ die voldoet aan twee voorwaarden:
-  \begin{enumerate}
-  \item $\forall x,y \in R:\ f(x + y) = f(x) \star f(y)$
-  \item $\forall x,y \in R:\ f(x \cdot y) = f(x) * f(y)$
-  \end{enumerate}
-\end{de}
-
-\begin{opm}
-  Een ringisomorfisme $f$ van een ring $R,+,\cdot$ naar $S,\star,*$ is een groepsisomorfisme van de groep $R,+$ naar $S,\star$
-\end{opm}
-
-\begin{de}
-  Een bijectief ringhomomorfisme is een \term{(ring)isomorfisme}.
-\end{de}
-
-\begin{de}
-  Een morfisme van een ring naar zichzelf heet een \term{endomorfisme}.
-\end{de}
-
-\begin{de}
-  Een isomorfisme van een ring naar zichzelf heet een \term{automorfisme}.
-\end{de}
-
-\begin{de}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een ringmorfisme.
-  Zij $e$ het nulelement van $S$.
-  De \term{kern} $Ker(f)$ van $f$ is de verzameling van elementen van $R$ die onder $f$ op $e\in S$ worden afgebeeldt.
-  \[ Ker(f) = \{ x \in R \ |\ f(x) = 0 \} \]
-\end{de}
-
-\begin{ei}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
-  \[ f(0) = 0 \]
-  \TODO{bewijs}
-\end{ei}
- 
-\begin{ei}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
-  \[ \forall a \in R: f(-a) = -f(a) \]
-  \TODO{bewijs}
-\end{ei}
-
-\begin{ei}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
-  Zij $A$ een deelring van $R$, dan is $f(A)$ een deelring van $S$.
-  \TODO{bewijs}
-\end{ei}
-
-\begin{ei}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
-  Zij $B$ een deelring van $S$, dan is $f^{-1}(B)$ een deelring van $R$.
-  \TODO{bewijs}
-\end{ei}
-
-\begin{ei}
-  Zij $R,+,\cdot$ een ring met eenheidselement $i$, $S,\star,*$ een ring en $f:R \rightarrow S$ een morfisme.
-  De deelring $f(R)$ heeft $f(i)$ als eenheidselement.
-  \TODO{bewijs}
-\end{ei}
-
-\begin{opm}
-  Het eenheidselement van een deelring van een ring hoeft niet gelijk zijn aan het eenheidselement van de ring.
-  \clarify{hoeft de ring er \'e\'en te hebben?}
-  \extra{verwijzen naar vb op p 47 A}
-\end{opm}
-
-\begin{ei}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
-  Zij $e$ het nulelement van $R$.
-  $f$ is injectief als en slechts als $Ker(f) = \{e\}$.
-  \TODO{bewijs}
-\end{ei}
-
-\begin{ei}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f$ een ringisomorfisme van $R$ naar $S$, dan is ook $f^{-1}: S \rightarrow R$ een ringisomorfisme.
-  \TODO{bewijs p 33 structuren}
-\end{ei}
-
-\begin{st}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen met eenheidselement $i_{R}$ en $i_{S}$ en zij $f: R\rightarrow S$ een isomorfisme dat het eenheidselement $i_{R}$ van $R,+,\cdot$ afstuurt op het eenheidselement $i_{S}$ van $S,+,\cdot$, dan zijn de eenheidsgroepen $R^{\times},\cdot$ en $S^{\times},\cdot$ isomorf.
-  \TODO{bewijs p 34 structuren}
-\end{st}
-
-\begin{ei}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen met eenheidselement $i_{R}$ en $i_{S}$ en zij $f: R\rightarrow S$ een isomorfisme dat het eenheidselement $i_{R}$ van $R,+,\cdot$ afstuurt op het eenheidselement $i_{S}$ van $S,+,\cdot$.
-  Als $u$ een eenheid is in $R$, dan is $f(u)$ een eenheid in $S$.
-  Bovendien geldt het volgende:
-  \[ (f(u))^{-1} = f(u^{-1}) \]
-  \TODO{bewijs}
-\end{ei}
-
-\begin{pr}
-  Zij $R,+,\cdot$ een ring met eenheidselement $i_{R}$ en nulelement $e_{R}$ en zij $S,\star,*$ een integriteitsdomein met eenheidselement $i_{S}$ en nulelement $e_{S}$.
-  Zij $f: R \rightarrow S$ een ringmorfisme.
-  \[ f(R) = \{e_{S}\} \quad\vee\quad f(i_{R}) = i_{S} \]
-\TODO{bewijs p 47 A}
-\end{pr}
-
-\begin{pr}
-  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R \rightarrow S$ een morfisme.
-  $f$ is een isomorfisme als en slechts als en een morfisme $g: S \rightarrow R$ bestaat zodat het volgende geldt:
-  \[ g \circ f = I_{R} \quad\wedge\quad f \circ g = I_{S} \]
-\TODO{bewijs}
-\end{pr}
-
-\subsection{Breukenveld van een integriteitsdomein}
-\label{sec:breukenveld-van-een-integriteitsdomein}
-
-\begin{de}
-  Zij $R$ een integriteitsdomein, $F$ een veld en $i: R \rightarrow F$ een ringmorfisme als volgt:
-  \begin{enumerate}
-  \item $i$ is injectief
-  \item $\forall q \in F,\ \exists a \in R, b\in R_{e}:\ q = i(a)\cdot i(b)^{-1}$
-  \end{enumerate}
-  $F$ is dan het \term{breukenveld} van $R$.
-\end{de}
-
-\begin{st}
-  We kunnen een integriteitsdomein identificeren met zijn beeld onder de inbedding $i$ en dus als deelring van $F$ beschouwen.
-  \TODO{bewijs p 48 A}
-\end{st}
-
-\begin{ei}
-  Het breukenveld van een integriteitsdomein is uniek.
-  \TODO{bewijs p 49 A}
-\end{ei}
-
-\begin{ei}
-  Zij $F$ het breukenveld van een integriteitsdomein $R$ met inbedding $i: R \rightarrow F$.
-  Er bestaat voor elk injectief ringmorfisme $f: R \rightarrow K$ met $K$ een veld een uniek ringmorfisme $f': F \rightarrow K$ zodat $f = f' \circ i$ geldt.
-  \TODO{bewijs p 49 A}
-\end{ei}
-
-\subsection{Idealen}
-\label{sec:idealen}
-
-\TODO{linker, en rechterideaal}
-
-\begin{de}
-  Zij $R,+,\cdot$ een ring en $I$ een deelverzameling van $R$.
-  $I$ is een \term{ideaal} van $R$ als het valgende geldt:
-  \begin{itemize}
-  \item $I,+$ is een deelgroep van $R,+$.
-  \item $forall a \in R, \forall b \in I:\ a\cdot b \subseteq I \wedge b\cdot a \subseteq I$. 
-  \end{itemize}
-\end{de}
-
-\begin{st}
-  Elke ring heeft twee triviale idealen.
-  \begin{enumerate}
-  \item De ring met enkel het nulelement.
-  \item Heel de ring.
-  \end{enumerate}
-\extra{bewijs}
-\end{st}
-
-\begin{ei}
-  Een ideaal $I$ van een ring $R,+,\cdot$ is een normaaldeler van de groep $R,+$.
-\end{ei}
-
-\begin{de}
-  De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
-\end{de}
-
-\begin{de}
-  De \term{quotientring} $R/I$ van een ring $R,+,\cdot$ ten opzichte van een ideaal is de partitie van $R$ is restklassen van $I$, uitgerust met de quotientwetten:
-  \begin{itemize}
-  \item $\scalebox{1.5}{$+$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$+$}\ (y+I) = (x+y)+I$
-  \item $\scalebox{1.5}{$\cdot$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$\cdot$}\ (y+I) = (x\cdot y) + I$
-  \end{itemize}
-\end{de}
-
-
-
-
-\extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
 
 \end{document}
 
