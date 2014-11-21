@@ -339,20 +339,46 @@
 
 \begin{de}
   We noemen twee (niet-nul)elementen $a$ en $b$ uit een integriteitsdomein $D,+,\cdot$, met eenheidselement $i$, \term{geassocieerd} als er een eenheid $u$ bestaat in $D$ zodat $a=ub$ geldt:
-  \[ a \sim_{D} b \Leftrightarrow \exists u,u'\in D:\ uu'= i = u'u \wedge a = ub \]
-\question{ is de associatie een equivalentierelatie? }
+  \[ a \sim_{D} b \Leftrightarrow \exists (u,u'\in D:\ uu'= i = u'u) \wedge a = ub \]
 \end{de}
 
 \begin{st}
   Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
   \[ a \sim_{D} b \Leftrightarrow (a\ |\ b \wedge b\ |\ a) \]
-  \TODO{bewijs p 123}
+
+  \begin{proof}
+    Bewijs van een equivalentie.\\
+    Noem het eenheidselement van $D$ $i$.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $a\sim_{D} b$ geldt, dan bestaat er een inverteerbaar element $u$ zodat $a= ub$, dus $b|a$ geldt, maar omdat $u$ inverteerbaar is, geldt ook $u^{-1}a=b$.
+      Bijgevolg is $a$ ook een deler van $b$: $a|b$.
+    \item $\Leftarrow$\\
+      Omdat $a$ en $b$ onderling elkaar delen, bestaan er elementen $x$ en $y$ in $D$ zodat zowel $a=xb$ als $b=ya$ gelden.
+      \[ a = xb = xya \Rightarrow x\cdot y = i\]
+      $x$ en $y$ zijn elkaars inversen, dus $x$ is inverteerbaar, zodat $a\sim_{D} b$ geldt.
+    \end{itemize}
+  \end{proof}
 \end{st}
+
+\begin{ei}
+  \label{ei:associatie-is-equivalentierelatie}
+  De associatie $\sim_{D}$ is een equivalientierelatie.
+  \begin{proof}
+    Inderdaad, de associatie is reflexief, transitief\stref{st:deler-transitief} en symmetrisch.
+  \end{proof}
+\end{ei}
 
 \begin{st}
   Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
-  \[ (a \sim_{D} b \wedge c \sim_{D} d) \Leftrightarrow (a\ |\ c \wedge b\ |\ d) \]
-  \TODO{bewijs p 123}
+  \[ (a \sim_{D} b \wedge c \sim_{D} d) \Rightarrow (a\ |\ c \Rightarrow b\ |\ d) \]
+
+  \begin{proof}
+    Als $a\sim_{D} b$ en $c\sim_{D} d$ gelden, bestaan er dus inverteerbare elementen $u$ en $v$ in $D$ zodat $a=ub$ en $c=vd$ gelden.
+    Stel nu dat $a$ een deler is van $c$, dan bestaat er ook nog een $q\in D$ zodat $c=qa$ geldt.
+    \[ d = v^{-1}c = v^{-1}qa = v^{-1}qub \]
+    $b$ is dus een deler van $d$.
+  \end{proof}
 \end{st}
 
 \begin{de}
