@@ -175,7 +175,20 @@
 \begin{st}
   Zij $R,+,\cdot$ een ring met eenheidselement $i$.
   Zij $u$ een eenheid van $R,+,\cdot$, dan is de inverse van $u$ uniek.
-  \TODO{bewijs}
+
+  \begin{proof}
+    Zij $u$ een eenheid van een ring $R,+,\cdot$.
+    Stel dat er twee elementen $v$ en $v'$ invers zijn van $u$.
+    \[ u \cdot v = i = v \cdot u \quad\text{ en }\quad u \cdot v' = i = v' \cdot u \]
+    \[
+    \begin{array}{rll}
+      v &= i \cdot v &\\
+        &= (v' \cdot u) \cdot v &\\
+        &= v' \cdot (u \cdot v) &\\
+        &= v' \cdot i &= v'
+    \end{array}
+    \]
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -184,9 +197,33 @@
 \end{de}
 
 \begin{st}
-  Zij $R,+,\cdot$ en $R,\star,*$ ringen met eenheidselement.
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen met eenheidselement.
   \[ (R \times S)^{\times} = R^{\times}\times S^{\times} \]
-  \TODO{bewijs p 34 structuren}
+
+  \begin{proof}
+    Noteer het eenheidselement van $R,+,\cdot$ als $i_{R}$, het eenheidselement van $S,\star,*$ als $i_{S}$ en het eenheidselement van $(R \times S),(+,\star),(\cdot,*)$ als $i_{R \times S}$.
+    \[
+    \begin{array}{rll}
+      (R \times S)^{\times} &= \{ (r,s) \ |\ r \in R, s \in S \}^{\times} &\\
+                          &= \{ (r,s) \in R\times S \ |\ \exists (r',s') \in R\times S:\ (r,s) \cdot (r',s') = i_{R \times S} = (r',s') \cdot (r,s) \}
+    \end{array}
+    \]
+    Merk op dat $i_{R\times S}$ gelijk is aan $(i_{R},i_{S})$.
+    \[
+    \begin{array}{rll}
+      R^{\times} \times S^{\times} &= \{ r \in R \ |\ \exists r' \in R:\ r \cdot r' = i_{R} = r' \cdot r \} \times \{ s \in S \ |\ \exists s' \in S:\ s * s' = i_{S} = s' * s \} &\\
+                               &= \{ (r,s) \in R \times S \ |\ (\exists r' \in R:\ r \cdot r' = i_{R} = r' \cdot r) \wedge (\exists s' \in S:\ s * s' = i_{S} = s' * s) \} &\\
+    \end{array}
+    \]
+    Er rest ons nu dus nog op te merken dat de volgende bewering wel degelijk geldt.
+    \[
+    \begin{array}{c}
+      \exists (r',s') \in R\times S:\ (r,s) \cdot (r',s') = i_{R \times S} = (r',s') \cdot (r,s)\\
+      \Leftrightarrow \\
+      (\exists r' \in R:\ r \cdot r' = i_{R} = r' \cdot r) \wedge (\exists s' \in S:\ s * s' = i_{S} = s' * s)
+    \end{array}
+    \]
+  \end{proof}
 \end{st}
 
 \subsection{Commutatieve ring}
