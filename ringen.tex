@@ -139,6 +139,12 @@
   \end{proof}
 \end{ei}
 
+\begin{de}
+  \label{de:nulring}
+  De \term{nulring} of \term{niet-triviale} ring is de ring met enkel een nulelement $e$.
+  \[ \{ e \} \]
+\end{de}
+
 \subsection{Ring met eenheidselement}
 \label{sec:ring-met-eenheidselement}
 
@@ -268,6 +274,12 @@
   \[ b = q \cdot a \]
 \end{de}
 
+\begin{st}
+  \label{st:nulring-nul-is-een}
+  Een ring $R,+,\cdot$ met eenheidselement $i$ en nulelement $e$ waarbij $i$ gelijk is aan $e$ is de nulring.
+  \extra{bewijs}
+\end{st}
+
 \subsection{Integriteitsdomeinen}
 \label{sec:integriteitsdomeinen}
 
@@ -292,8 +304,11 @@
   In $\mathbb{Z}_{10}$ geldt $5\cdot 3 = 5 \cdot 7$ maar $3 \neq 7$.
 \end{opm}
 
+\subsubsection{deelbaarheid}
+\label{sec:deelbaarheid}
+
 \begin{de}
-  Zij $a$, $b$ en $q$ elementen van een integriteitsdomein $D,+,\cdot$ zodat $a= qb$ met $b$ niet het nulelement $e$, dan noemen we $b$ een deler van $a$.
+  Zij $a$, $b$ en $q$ elementen van een integriteitsdomein $D,+,\cdot$ zodat $a= qb$ met $b$ niet het nulelement $e$, dan noemen we $b$ een \term{deler} van $a$.
   \[ a\ |\ b \Leftrightarrow \exists q \in D: b = q\cdot a \]
 \end{de}
 
@@ -386,28 +401,40 @@
 \end{de}
 
 \begin{de}
+  \label{de:ggd}
   Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
   We noemen $g\in D$ een \term{grootste gemene deler} van $a$ en $b$ als $g$ zowel een deler is van $a$ als van $b$ en elke andere deler van $a$ en $b$ een deler is van $g$.
   \[ g = ggd(a,b) \Leftrightarrow (g\ |\ a \wedge g\ |\ b \wedge (\forall c\in D: (c\ |\ a \wedge c\ |\ b) \Rightarrow c\ |\ g)) \]
 \end{de}
 
 \begin{de}
+  \label{de:kgv}
   Zij $a$ en $b$ twee elementen uit een integriteitsdomein $D,+,\cdot$.
   We noemmen $k\in D$ een \term{kleinst gemeen veelvoud} van $a$ en $b$ als $k$ zowel een veelvoud is van $a$ als van $b$ en elk ander gemeen veelvoud van $a$ en $b$ een veelvoud is van $k$.
   \[ g = kgv(a,b) \Leftrightarrow (a\ |\ k \wedge b\ |\ k \wedge (\forall c\in D: (a\ |\ c \wedge b\ |\ c) \Rightarrow k\ |\ c)) \]
 \end{de}
 
 \begin{st}
-  Een grootst gemene deler is uniek op een inverteerbaar element na.
+  \label{st:ggd-uniek}
+  Een grootst gemene deler is uniek op een inverteerbaar element na.\\
   Zij $D,+,\cdot$ een integriteitsdomein.
   \[ \forall a,b,g_{1},g_{2} \in D:\ (g_{1} = ggd(a,b) \wedge g_{2} = ggd(a,b)) \Rightarrow g_{1} \sim_{D} g_{2} \]
-\TODO{bewijs p 124 TAI}
+  \begin{proof}
+    Stel dat $g_{1}$ en $g_{2}$ beide een $ggd$ zijn van $a$ en $b$, dan geldt $g_{1}|g_{2}$ alsook $g_{2}|g_{1}$.\deref{ggd}
+    $g_{1}$ is dus geaccosieerd met $g_{2}$: $g_{1} \sim_{D} g_{2}$.
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $D,+,\cdot$ een integriteitsdomein.
   \[ \forall a,b,g_{1},g_{2} \in D:\ (g_{1} \sim_{D} g_{2} \wedge g_{1} = ggd(a,b)) \Rightarrow g_{2} = ggd(a,b) \]
-\extra{bewijs}
+
+  \begin{proof}
+    Stel dat $g_{1}$ geassocieerd is met een $ggd$ $g_{2}$ van $a$ en $b$ in $D,+,\cdot$, dan gelden volgende beweringen:
+    \[ a | g_{1} \wedge b | g_{1} \wedge g_{1} | g_{2} \wedge g_{2} | g_{1} \]
+    Door de transitiviteit van ``is een deler van''\stref{st:deler-transitief} zijn $a$ en $b$ dan ook delers van $g_{2}$.
+    Bovendien is elke andere $ggd$ van $a$ en $b$ geassocieerd met $g_{2}$, dus ook deelbaar door $g_{2}$.\stref{st:ggd-uniek}
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -418,13 +445,15 @@
   Een priemgetal heeft dus geen echte delers.
 \end{opm}
 
+\subsubsection{Euclidische Ring}
+\label{sec:euclidische-ring}
+
 \begin{de}
-  We noemen een integriteitsdomein $D,+,\cdot$ een euclidische ring als er een afbeelding $d:\ D\setminus \{e_{D,+}\} \rightarrow D \setminus \{e_{D,+}\}$ bestaat die elk niet-nulelement $a$ afbeeldt op een niet-negatief geheel getal $d(a)$ zodat het volgende geldt:
+  We noemen een integriteitsdomein $D,+,\cdot$ een \term{euclidische ring} als er een afbeelding $d:\ D\setminus \{e_{D,+}\} \rightarrow \mathbb{R}^{+}$ bestaat die elk niet-nulelement $a$ afbeeldt op een niet-negatief geheel getal $d(a)$ zodat het volgende geldt:
 \begin{itemize}
 \item $\forall a,b \in D\setminus \{e_{D,+}\}:\ d(a) \le d(ab)$
 \item $\forall a \in D,\ \forall b\in D\setminus \{e_{D,+}\}:\ \exists q,r \in D:\ (a = qb+r \wedge (r=0 \vee d(r) < d(b)))$
 \end{itemize}
-\clarify{welke orderelatie?}
 \end{de}
 
 \begin{st}
@@ -460,21 +489,43 @@
 \label{sec:lichaam}
 
 \begin{de}
-  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  Zij $R,+,\cdot$ een (niet-triviale) ring met eenheidselement $i$.
   We noemen $R,+,\cdot$ een \term{lichaam} als $R_{e},\cdot$ een groep is:
   \[ \forall x \in R_{e}, \exists y \in R:\ x\cdot y = y \cdot x = i \]
+  Elk element in $R_{e}$ is dus een eenheid.
 \end{de}
 
 \begin{st}
+  \label{st:lichaam-geen-nuldelers}
   Een lichaam heeft geen nuldelers
-\extra{bewijs}
+
+  \begin{proof}
+    Zij $R,+,\cdot$ een lichaam met eenheidselement $i$ en nulelement $e$.
+    Stel nu dat er element $x$ en $y$ in $R$ bestaan zodat $x\cdot y = e$ of $y \cdot x = e$ geldt.
+    \[
+    \begin{array}{rrl}
+      x \cdot y &= e\\
+      \Rightarrow & x^{-1} \cdot (x \cdot y) \cdot y^{-1} &= x^{-1} \cdot e \cdot y^{-1}\\
+      \Rightarrow & (x^{-1} \cdot x) \cdot (y \cdot y^{-1}) &= e\\
+      \Rightarrow & i \cdot i &= e\\
+      \Rightarrow & i &= e
+    \end{array}
+    \]
+    De eerste equivalentie geldt omdat elk element een eenheid is.
+    De tweede equivalentie geldt omdat het nulelement zich opslorpend gedraagt voor de multiplicatieve bewerking in een ring.\eiref{ei:nulelement-opslorpend}
+    De laatste gelijkheid impliceert dat de ring $R$ triviaal is.
+    Contradictie.\stref{st:nulring-nul-is-een}
+  \end{proof}
 \end{st}
 
 \begin{st}
   \label{st:stelling-van-wedderburn}
   De \term{stelling van Wedderburn}\\
-  Een eindig lichaam is commutatief.
-\extra{toch eens een bewijs proberen?}
+  Een eindig lichaam is commutatief en dus een veld.
+
+  \begin{proof}
+    Geen bewijs.
+  \end{proof}
 \end{st}
 
 \subsection{Velden}
@@ -485,14 +536,20 @@
 \end{de}
 
 \begin{st}
-  De eenhedengroep van een veld $F,+,\cdot$ is gelijk aan $F_{e},\cdot$
-  \extra{bewijs}
-\end{st}
-
-\begin{st}
   Een eindig integriteitsdomein is een veld.
-\TODO{bewijs p 44 A I}
-\TODO{bewijs p 118 TAI}
+
+  \begin{proof}
+    Zij $D$ een eindig integriteitsdomein met nulelement $e$ en eenheidselement $i$.
+    We moeten aantonen dat elk element $a$, verschillend van $e$, in $d$ een eenheid is.
+    Kies een element $a$ van $D$ verschillend van $i$, (voor $a=i$ is $a$ namelijk zeker een eenheid).
+    Beschouw nu de elementen $a^{n}$ voor elke $n\in \mathbb{N}$.
+    Omdat $D$ eindig is bestaan er getallen $i$ en $j$ in $\mathbb{N}$ zodat $a^{i}$ gelijk is aan $a^{j}$ met $i > j$.
+    \[ a^{i} = a^{j} \]
+    Omdat er geen nuldelers zijn in $D$\deref{de:integriteitsdomein}, mogen we dit vereenvoudigen:
+    \[ a^{i-j} = i \]
+    Dit betekent precies dat $a^{i-j-1}$ de invers is van $a$.
+\waarom
+  \end{proof}
 \end{st}
 
 \begin{gev}
@@ -501,13 +558,21 @@
 \end{gev}
 
 \begin{st}
-  Een eindig lichaam is een veld.
-\extra{toch eens bewijs proberen?zie stelling \ref{st:stelling-van-wedderburn}.}
-\end{st}
-
-\begin{st}
   In een veld hebben alle van het nulelement verschillende elementen dezelfde additieve orde.
-\TODO{bewijs p 119}
+  
+  \begin{proof}
+    Zij $F,+,\cdot$ een veld met eenheidselement $i$ en nulelement $e$.
+    Kies nu twee elementen $a$ en $b$ uit $F_{e}$.
+    Zij $r$ de additieve orde van $a$ zodat $ra = e$, dan bewijzen we nu dat $rb$ ook gelijk is aan het nulelement.
+    \[
+    \begin{array}{rll}
+      rb &= r(ib) &\\
+         &= r(aa^{-1}b) &\\
+         &= (ra)a^{-1}b &\\
+         &= e(a^{-1}b) &= e
+    \end{array}
+    \]
+  \end{proof}
 \end{st}
 
 \begin{de}
