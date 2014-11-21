@@ -272,6 +272,7 @@
 \label{sec:integriteitsdomeinen}
 
 \begin{de}
+  \label{de:integriteitsdomein}
   Een \term{(integriteits)domein} $R,+,\cdot$ is een (niet-triviale) commutatieve ring $R,+,\cdot$ met eenheidselement, zonder nuldelers.
   Zij $e$ het nulelement van $R,+,\cdot$:
   \[ \forall a, b \in R:\ (a \cdot x = e) \Rightarrow (x = e \vee y = e) \]
@@ -293,25 +294,47 @@
 
 \begin{de}
   Zij $a$, $b$ en $q$ elementen van een integriteitsdomein $D,+,\cdot$ zodat $a= qb$ met $b$ niet het nulelement $e$, dan noemen we $b$ een deler van $a$.
-  \[ b\ |\ a \Leftrightarrow \exists q \in D: a = qb \]
+  \[ a\ |\ b \Leftrightarrow \exists q \in D: b = q\cdot a \]
 \end{de}
 
 \begin{st}
   Zij $a$, $b$ en $c$ elementen van een integriteitsdomein $D,+,\cdot$.
   \[ (a\ |\ b \wedge a\ |\ c) \Rightarrow a\ |\ (b+c) \]
-\TODO{bewijs TAI p 123}
+
+  \begin{proof}
+    $a$ deelt $b$, dus er bestaat een $q \in D$ zodat $b=q\cdot a$ geldt.
+    $a$ deelt bovendien $c$, dus er bestaat ook een $q'\in D$ zodat $c = q'\cdot a$ geldt. 
+    \[
+      b + c = q\cdot a + q'\cdot a = (q+q')\cdot a 
+    \]
+    Dit betekent dat $a$ ook $b+c$ deelt.
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $a$ en $b$ elementen van een integriteitsdomein $D,+,\cdot$.
   \[ \forall r \in D:\ a\ |\ b \Rightarrow a\ |\ br  \]
-\TODO{bewijs TAI p 123}
+
+  \begin{proof}
+    Stel dat $a$ een deler is van $b$ in $D,+,\cdot$, dan bestaat er dus een $q\in D$ zodat $b = qa$ geldt.
+    Beschouw nu $br$ voor een willekeurige $r\in D$.
+    \[ br = qar = qra \]
+    De tweede gelijkheid geldt omdat $\cdot$ commutatief is in $D$.\deref{de:integriteitsdomein}
+    $br =qra$ betekent precies dat $a$ een deler is van $br$.
+  \end{proof}
 \end{st}
 
 \begin{st}
+  \label{st:deler-transitief}
   Zij $a$, $b$ en $c$ elementen van een integriteitsdomein $D,+,\cdot$.
   \[ (a\ |\ b \wedge b\ |\ c) \Rightarrow a\ |\ c \]
-\TODO{bewijs TAI p 123}
+
+  \begin{proof}
+    $a$ deelt $b$, dus er bestaat een $q \in D$ zodat $b=q\cdot a$ geldt.
+    $b$ deelt bovendien $c$, dus er bestaat ook een $q'\in D$ zodat $c = q'\cdot b$ geldt. 
+    \[ c = q'b = q'qa \]
+    Dit betekent precies dat $a$ $c$ deelt.
+  \end{proof}
 \end{st}
 
 \begin{de}
