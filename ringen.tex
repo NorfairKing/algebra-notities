@@ -837,7 +837,207 @@
 \TODO{ vanaf algoritme van Euclides om grootste gemene deler te vinden
   p 126 TAI tot sectie 7 p 129}
 
+\begin{al}
+  \label{al:algoritme-van-euclides}
+  Het \term{Algoritme van Euclides}\\
+  Zij $a$ en $b$ twee elementen van een euclidische ring $D,+,\cdot,d$, dan kunnen we de grootste gemene deler $ggd(a,b)$ van $a$ en $b$ als volgt vinden.
+  \[
+  \begin{array}{rcll}
+    a &=& bq_{1} + r_{1} &\text{ met } d(r_{1}) < d(b) \\
+    b &=& r_{1}q_{1} + r_{2} &\text{ met } d(r_{2}) < d(r_{1}) \\
+    r_{1} &=& r_{2}q_{2} + r_{3} &\text{ met } d(r_{3}) < d(r_{2}) \\
+    \vdots && \vdots \\
+    r_{k-2} &=& r_{k-1}q_{k} + r_{k} &\text{ met } d(r_{k}) < d(r_{k-1}) \\
+    r_{k-1} &=& r_{k}q_{k+1} + 0
+  \end{array}
+  \]
+  $r_{k}$ is dan de grootste gemene deler $ggd(a,b)$ van $a$ en $b$.
+  \begin{proof}
+    Het algoritme van Euclides is eindig en correct.
+    \begin{itemize}
+    \item Eindigheid\\
+      De rij $r_{1},\dotsc$ is een dalende rij in $\mathbb{N}$, dus voor een zekere $k$ moet $r_{k+1}$ nul worden.
+    \item Correctheid\\
+      Allereerst bewijzen we dat de grootst gemene deler $ggd(a,b)$ van $a$ en $b$ gelijk is aan de grootst gemene deler $ggd(b,r_{1})$ van $b$ en $r_{1}$.
+      \[ ggd(a,b) = ggd(b,r_{1}) \]
+      Noem $g$ de grootst gemene deler van $a$ en $b$, dan deelt $g$ zeker $a$ en $b$.
+      Nu geldt bovendien $r_{1} = a - bq_{1}$, dus $g$ deelt ook $r_{1}$.
+      Elke andere deler van zowel $b$ als $r_{1}$ zal ook een deler zijn van $a$, en dus ook een deler van $g$.
+      \[ ggd(r_{i-1},r_{i}) = ggd(r_{i},r_{i+1}) \]
+      We kunnen deze redenering verder zetten voor $r_{i-1}$, $r_{i}$ en $r_{i+1}$ op volledig analoge wijze.
+      Het resultaat van deze redenering is dat $ggd(a,b)$ gelijk is aan $ggd(r_{k-1},r_{k})$.
+      $r_{k}$ is echter een deler van $r_{k-1}$, dus ook de grootst gemene deler van $r_{k}$ en $r_{k+1}$ en bijgevolg de grootst gemene deler $ggd(a,b)$ van $a$ en $b$.
+    \end{itemize}
+  \end{proof}
+\end{al}
 
+\begin{de}
+  Als de grootst gemene deler $ggd(a,b)$ van twee elementen $a$ en $b$ van een euclidische ring $D,+,\cdot,d$ niet inverteerbaar is, dan noemen we $a$ en $b$ \term{onderling ondeelbaar} of \term{copriem}.
+\end{de}
+
+\begin{ei}
+  In een euclidische ring $D,+,\cdot,d$ met eenheidselement $i$ zal $i$ steeds een grootst gemene deler zijn van twee onderling ondeelbare elementen $a$ en $b$.
+\extra{bewijs}
+\end{ei}
+
+\begin{st}
+  Zij $D,+,\cdot,d$ een euclidische ring en $a$ en $b$ elementen van $D$.
+  \[ a \text{ en } b \text{ zijn onderling ondeelbaar } \Rightarrow (\forall c \in D)(a | bc \Rightarrow a|c) \]
+  \TODO{bewijs TAI p 128}
+\end{st}
+
+\begin{st}
+  Zij $D,+,\cdot,d$ een euclidische ring en $a$ en $b$ elementen van $D$.
+  \[ a \text{ en } b \text{ zijn onderling ondeelbaar } \Rightarrow (\forall c \in D)(a | c \wedge b | c \Rightarrow ab|c) \]
+  \TODO{bewijs TAI p 128}
+\end{st}
+
+\begin{st}
+  Zij $D,+,\cdot,d$ een euclidische ring en $a$ en $b$ elementen van $D$.
+  \[ p \text{ priem } \Rightarrow (p|ab \Rightarrow p|a \vee p|b) \]
+  \TODO{bewijs TAI p 128}
+\end{st}
+
+\begin{st}
+  In een euclidische ring $D,+,\cdot,d$ kan elk niet-nulelement ontbonden worden in een product van priemelementen en een inverteerbaar element.
+  Deze ontbinding is bovendien uniek op de volgorde van de factoren na en op een inverteerbaar element na.
+  \TODO{bewijs TAI p 128}
+\end{st}
+
+\subsection{Veeltermen over ringen}
+\label{sec:veelt-over-ring}
+
+\begin{de}
+  Een \term{veelterm over een ring} $R,+,\cdot$ is een uitdrukking $a(x)$ van de volgende vorm.
+  \[ a(x) = \sum_{i=0}^{n}a_{i}x^{i} \text{ met } n \ge 0 \]
+  In $a(x)$ zijn alle $a_{i}$ elementen van $R$ en $a_{n}$ niet het nulelement. 
+  De $a_{i}$ noemt met de \term{co\"efficienten} en $x$ de \term{onbepaalde}.
+  $n$ noemt men de \term{graad} van $a(x)$.
+  $a_{n}$ noemt met de \term{leidende co\"efficient} en $a_{n}x^{n}$ de \term{leidende term}.
+\end{de}
+
+\begin{de}
+  De \term{graad} van een veelterm $a(x)$ noteren we als $gr(a(x))$.
+\end{de}
+
+\begin{de}
+  Een veelterm van graad $0$ noemt men een \term{constante (veel)term}.
+\end{de}
+
+\begin{de}
+  De veelterm van graad $0$ met het nulelement $e$ als co\"efficient noemt met de \term{nul(veel)term}
+\end{de}
+
+\begin{de}
+  Een veelterm waarbij de $n$-de co\"efficient $a_{n}$ gelijk is aan het eenheidselement $i$ noemt men een \term{monische veelterm}.
+\end{de}
+
+\begin{de}
+  We definieren de som van twee veeltermen $a(x)$ en $b(x)$ als volgt:
+  \[ a(x) = \sum_{i=0}^{m}a_{i}x^{i} \]
+  \[ b(x) = \sum_{i=0}^{n}b_{i}x^{i} \]
+  \[  a(x) + b(x) = \sum_{i=0}^{\max(m,n)}(a_{i} + b_{i})x^{i} \]
+  Uiteraard zijn $a_{i}$ en $b_{i}$ voor $i$ groter dan $m$, respectievelijk $n$ nulelementen.
+\end{de}
+
+\begin{de}
+  We definieren het product van twee veeltermen $a(x)$ en $b(x)$ als volgt:
+  \[ a(x) = \sum_{i=0}^{m}a_{i}x^{i} \]
+  \[ b(x) = \sum_{i=0}^{n}b_{i}x^{i} \]
+  \[  a(x)\cdot b(x) = \sum_{i=0}^{n+m}(a_{i} \cdot b_{i})x^{i} \]
+  Uiteraard zijn $a_{i}$ en $b_{i}$ voor $i$ groter dan $m$, respectievelijk $n$ nulelementen.
+\end{de}
+
+\begin{de}
+  Men noteert de verzameling van veeltermen in $x$ over een ring $R,+,\cdot$ als $R[x]$.
+\end{de}
+
+\begin{ei}
+  De verzameling van veeltermen $R[x]$ in een variabele $x$ over een ring $R,+,\cdot$, uitgerust met de veelterm-som en het veelterm-product, vormt een ring $R[x],+,\cdot$.
+\extra{bewijs}
+\end{ei}
+
+\begin{st}
+  Als de ring $R,+,\cdot$ commutatief is, dan is $R[x],+,\cdot$ ook commutatief.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Het nulelement $e$ van $R,+,\cdot$ is ook het nulelement van $R[x],+,\cdot$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Het eenheidselement $i$ van $R,+,\cdot$(, als het bestaat,) is ook het eenheidselement van $R[x],+,\cdot$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  $R[x],+,\cdot$ heeft geen nuldelers als en slechts als $R,+,\cdot$ geen nuldelers heeft.
+\extra{bewijs}
+\end{st}
+
+\begin{gev}
+  $R[x],+,\cdot$ is een integriteitsdomein als en slechts als $R,+,\cdot$ een integriteitsdomein is.
+\extra{bewijs}
+\end{gev}
+
+
+\subsection{Veeltermen over velden}
+\label{sec:veelt-over-veld}
+
+\begin{opm}
+  De inverse van een veelterm over een ring $R,+,\cdot$ is in $R,+,\cdot$ is over het algemeen geen veelterm.
+\end{opm}
+
+\begin{opm}
+  Zij $F,+,\cdot$ een veld, dan is $F[x]$ niet noodzakelijk een veld.
+\end{opm}
+
+\begin{st}
+  \label{st:deling-veelterm-over-veld}
+  Zij $a(x)$ en $b(x)$ veeltermen over een veld $F[x],+,\cdot$ met $b(x)$ niet het nulelement, dan bestaat er precies \'e\'en veelterm $q(x) \in F[x]$ en een $r(x) \in F[x]$ zodat het volgende geldt:
+  \[ a(x) = q(x)b(x) + r(x) \quad\text{ met }\quad gr(r(x)) < gr(b(x)) \]
+\TODO{bewijs p 131 TAI}
+\end{st}
+
+\begin{de}
+  Zij $a(x)$ en $b(x)$ veeltermen over een veld $F[x],+,\cdot$ met $b(x)$ niet het nulelement.
+  Als $q(x)$ en $r(x)$ veeltermen zijn zoals in stelling \ref{st:deling-veelterm-over-veld} op pagina \pageref{st:deling-veelterm-over-veld}, dan noemen we $q(x)$ het \term{quotient} en $r(x)$ de \term{rest} van $a(x)$ bij deling door $b(x)$.
+\end{de}
+
+\begin{st}
+  De veeltermen in een variabele $x$ over een veld $F,+,\cdot$, uitgerust met $gr$ als afbeelding $d$, vormen een euclidische ring.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  De productverzameling $(\mathbb{Z}_{2})^{m}$ bevat $m$-tallen van bits.
+  We noteren $(\mathbb{Z}_{2})^{m}$ vaak als $F_{2^{m}}$.
+\end{de}
+
+\begin{de}
+  We associeren met elk element $(a_{m-1},\dotsc,a_{0})$ van $F_{2^{m}}$ een veelterm $a(x)$:
+  \[ a = (a_{m-1},\dotsc,a_{0}) \longleftrightarrow a(x) = \sum_{i=0}^{n}a_{i}x^{i} \]
+\end{de}
+
+\begin{de}
+  We definieren een optelling in $F_{2^{m}}$ als de optelling van veeltermen met co\"efficienten in de $m$-tallen.
+  \[ (a_{m-1},\dotsc,a_{0}) + (b_{m-1},\dotsc,b_{0}) =  (c_{m-1},\dotsc,c_{0}) \Leftrightarrow a(x) + b(x) = c(x) \]
+\end{de}
+
+\begin{de}
+  We definieren een vermenigvuldiging in $F_{2^{m}}$ (modulo een $m$-tal $g$) als de optelling van veeltermen met co\"efficienten in de $m$-tallen.
+  \[ (a_{m-1},\dotsc,a_{0}) \cdot (b_{m-1},\dotsc,b_{0}) =  (c_{m-1},\dotsc,c_{0}) \Leftrightarrow a(x) \cdot b(x) = c(x) \mod g(x) \]
+\end{de}
+
+\begin{ei}
+  De verzameling veeltermen van graad $m-1$ of lager, uitgerust met de optelling en vermenigvuldiging (modulo $g$) vormt een veld.
+\TODO{bewijs p 134}
+\end{ei}
+
+
+  
 \end{document}
 
 
