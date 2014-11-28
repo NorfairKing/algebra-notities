@@ -904,7 +904,7 @@
   \TODO{bewijs TAI p 128}
 \end{st}
 
-\subsection{Veeltermen over ringen}
+\section{Veeltermen over ringen}
 \label{sec:veelt-over-ring}
 
 \begin{de}
@@ -983,7 +983,7 @@
 \end{gev}
 
 
-\subsection{Veeltermen over velden}
+\section{Veeltermen over velden}
 \label{sec:veelt-over-veld}
 
 \begin{opm}
@@ -1036,8 +1036,120 @@
 \TODO{bewijs p 134}
 \end{ei}
 
+\section{Veeltermfuncties}
+\label{sec:veeltermfuncties}
 
+\begin{de}
+  Zij $R[x],+,\cdot$ de ring der veeltermen over een deelring $R,+,\cdot$ van $S,+,\cdot$.
+  We defini\"eren de \term{waarde} van een veelterm $a(x)$ voor een element $s$ van $s$ als het element $a(s)$ van $S$.
+\end{de}
+
+\begin{de}
+  Zij $R[x],+,\cdot$ de ring der veeltermen over een deelring $R,+,\cdot$ van $S,+,\cdot$.
+  De waarde van een veelterm $a(x)$ voor een element $s\in S$ bepaalt een functie $a$:
+  \[ a:\ S \rightarrow S:\ s \mapsto a(s) \]
+  We noemen $a$ de \term{veeltermfunctie} van $a$.
+\end{de}
+
+\begin{de}
+  Zij $R[x],+,\cdot$ de ring der veeltermen over een deelring $R,+,\cdot$ van $S,+,\cdot$.
+  Zij $s$ een element van $S$ en $a(x)$ een veelterm van $R[x]$, dan noemen we $s$ een \term{nulpunt} of een \term{wortel} van $a$ als en slechts als $a(s)$ het nulelement is van $s$.
+\end{de}
+
+\begin{st}
+  De rest bij deling van een veelterm $p(x)$ door $(x-a)$ is $p(a)$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  $p(x)$ is deelbaar door $(x-a)$ als en slechts als $a$ een nulpunt is van $p$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Een veelterm $p$ van graad $2$ over een veld $F,+,\cdot$ is irreduceerbaar als en slechts $p$ geen wortel heeft in $F$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:fundamentele-stelling-van-de-algebra}
+  De \term{fundamentele stelling van de algebra}.\\
+  Een niet-constante veelterm over het veld $\mathbb{C},+,\cdot$ der complexe getallen heeft minstens $1$ wortel in $\mathbb{C}$.
+  \extra{verwijzing naar een bewijs.}
+\end{st}
   
+\begin{gev}
+  Elke veelterm van graad $n$ over het veld $\mathbb{C},+,\cdot$ der complexe getallen heeft precies $n$ wortels in $\mathbb{C}$.
+\extra{bewijs}
+\end{gev}
+
+\begin{gev}
+  Elke veelterm van graad $n$ over het veld $\mathbb{C},+,\cdot$ der complexe getallen is op een unieke manier te ontbinden in priemelementen van de vorm $(x-a)$ op een constante (en dus inverteerbare) veelterm na.
+\extra{bewijs}
+\end{gev}
+
+\begin{st}
+  Als $a\in \mathbb{C}$ een complexe wortel is van een re\"ele veelterm $p(x)\in \mathbb{R}[x]$, dan zal ook het complex toegevoegde $\bar{a}$ van $a$ een wortel zijn van $p(x)$.
+\TODO{bewijs p 136}
+\end{st}
+
+\section{Codetheorie}
+\label{sec:codetheorie}
+
+\begin{de}
+  Een \term{boodschap} van $n$ bits is een opeenvolging van $n$ elementen van een eindig veld (meestal $\mathbb{Z}_{2}$).
+\end{de}
+
+\begin{de}
+  \label{de:code}
+  Een $(n,k)$-\term{code} is een afbeelding $c$ die een boodschap van $k$ bits afbeeldt op een boodschap van $n$ bits.
+  \[ c:\ \mathbb{Z}_{2}^{k} \rightarrow \mathbb{Z}_{2}^{n}:\ b \mapsto c(b) \]
+
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \tikzset{
+        elps/.style 2 args={draw,ellipse,minimum width=#1,minimum height=#2},
+        node distance=3cm,
+        font=\footnotesize,
+        >=latex,
+      }
+      \node(x)[elps={1.3cm}{1cm},label={below left:$\mathbb{Z}_{2}^{k}$}]{};
+      \node(y)[elps={2cm}{1.2cm},right=of x,label={below left:$\mathbb{Z}_{2}^{n}$}]{};
+      \fill[gray!50]($(y.center)-(5pt,5pt)$)circle[x radius=.7cm,y radius=.3cm]coordinate(im);
+      \node at (im){$\mathrm{im}(c)$};
+      \draw[->](x)to[bend left=20]node[above]{$c$}(y);
+    \end{tikzpicture}
+    \caption{Een code, schematisch voorgesteld}
+    \label{fig:code}
+  \end{figure}
+\end{de}
+
+\begin{opm}
+  Een code is nooit surjectief. (Dit is de bedoeling natuurlijk.)
+\end{opm}
+
+\begin{de}
+  Een \term{codewoord} is een boodschap $c(b)$ in het beeld van een code $c$.
+\end{de}
+
+\begin{de}
+  Een \term{code gegenereerd door een veelterm} $p(x)\in \mathbb{Z}_{2}[x]$ van graad $n-k$ is een $(n,k)$-code $c$:
+  \[ c:\ \mathbb{Z}_{2}^{k} \rightarrow \mathbb{Z}_{2}^{n}:\ b(x) \mapsto c(b) = r(x) + x^{n-k}x(x) \quad\text{ met }\quad x^{n-k}b(x) = p(x)q(x) + r(x) \]
+\end{de}
+
+\begin{opm}
+  Vermits de graad $gr(r(x))$ van de rest $r(x)$ een kleiner is dan $n-k$, passen de extra $n-k$ bits netjes na de boodschap-bits.
+\end{opm}
+
+\TODO{zeker een voorbeeld maken, wss examenvraag!}
+
+
+\section{Het veld der breuken}
+\label{sec:het-veld-der}
+
+
+
 \end{document}
 
 
