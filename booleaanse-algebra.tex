@@ -4,6 +4,375 @@
 \chapter{Booleaanse algebra}
 \label{cha:booleaanse-algebra}
 
+\begin{de}
+  Een \term{booleaanse algebra} $K,\wedge,\vee,\neg$ is een verzameling $K$, uitgerust met drie inwendige bewerkingen: $\wedge,vee,\neg$ waarbij de eerste twee binair zijn en de derde unair.
+  Een booleaanse alsgebra heeft de volgende definierende eigenschappen:
+  \begin{figure}[H]
+    \centering
+    
+    \begin{tabular}[H]{rlcr}
+      B1 & $a \wedge (b \wedge c) = (a \wedge b) \wedge c$        &\quad& ($\wedge$ is associatief)\\
+      B2 & $a \vee (b \vee c) = (a \vee b) \vee c$                && ($\vee$ is associatief)\\
+      B3 & $a \wedge b = b \wedge a$                              && ($\wedge$ is commutatief)\\
+      B4 & $a \vee b = b \vee a$                                  && ($\vee$ is commutatief)\\
+      B5 & $a \wedge (b\vee c) = (a \wedge b) \vee (a \wedge c)$  && ($\wedge$ is distributief t.o.v. $\vee$)\\
+      B6 & $a \vee (b\wedge c) = (a \vee b) \wedge (a \vee c)$    && ($\vee$ is distributief t.o.v. $\wedge$)\\
+      B7 & $\exists e \in K:\ \forall a \in K:\ a \vee e = a$     && (nulelement)\\
+      B8 & $\exists i \in K:\ \forall a \in K:\ a \wedge i = a$   && (eenheidselement)\\
+      B9 & $a \wedge \neg a = e$                                  && (complementaire wet voor $\wedge$)\\
+      B10 & $a \vee \neg a = i$                                   && (complementaire wet voor $\vee$)\\
+    \end{tabular}
+  \end{figure}
+\end{de}
+
+\begin{de}
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra en $a$ een element van $K$, dan noemt men $\neg a$ het \term{complement} van $a$.
+\end{de}
+
+\begin{opm}
+  In een booleaanse algebra $K,\wedge,\vee,\neg$ is $\neg a$ noch het symmetrisch element van $a$ volgens $wedge$, noch het symmetrisch element van $a$ volgens $\vee$.
+\end{opm}
+
+\begin{ei}
+  Het nulelement van een booleaanse algbera $K,\wedge,\vee,\neg$ is uniek.
+\extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Het eenheidselement van een booleaanse algbera $K,\wedge,\vee,\neg$ is uniek.
+\extra{bewijs}
+\end{ei}
+
+\begin{st}
+  \label{ei:dualiteitsprincipe}
+  Het \term{dualiteitsprincipe}.\\
+  Elke booleaanse algebra $K,\wedge,\vee,\neg$ is isomorf met $K,\vee,\wedge,\neg$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:involutie}
+  De \term{involutiewet}\\
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra.
+  \[ \forall a \in K:\ \neg(\neg a) = a \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:idempotentie-a-w-a}
+  De \term{idempotentiewet}\\
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra.
+  \[ \forall a \in K:\ a \wedge a = a\]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:idempotentie-a-v-a}
+  De \term{idempotentiewet}\\
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra.
+  \[ \forall a \in K:\ a \vee a = a \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:absorptiewet-w-v}
+  De \term{absorptiewet}\\
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra.
+  \[ \forall a,b \in K:\ a \wedge (b \vee a) = a\]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:absorptiewet-v-w}
+  De \term{absorptiewet}\\
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra.
+  \[ \forall a,b \in K:\ a \vee (b \wedge a) = a\]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:wetten-van-de-morgan}
+  De \term{wetten van De Morgan}
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra.
+  \[ \forall a,b \in K:\ \neg(a \wedge b) = \neg a \vee \neg b\]
+  \[ \forall a,b \in K:\ \neg(a \vee b) = \neg a \wedge \neg b\]
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  We definieren een relatie $\le$ op een booleaanse algebra $K,\wedge,\vee,\neg$ als volgt:
+  \[ a \le b \Leftrightarrow a \wedge b = a \]
+\end{de}
+
+\begin{st}
+  De relatie $\le$ is een orderelatie in een booleaanse algebra.
+  \TODO{bewijs p 162 TAI}
+\end{st}
+
+\extra{ is $\le$ totaal?}
+
+\begin{st}
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra met orderelatie $\le$.
+  \[ \forall a,b \in R:\ a\wedge b \le a \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra met orderelatie $\le$.
+  \[ \forall a,b \in R:\ a \le a \vee b \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra met orderelatie $\le$.
+  \[ \forall a,b,c \in R:\ (a \le c) \text{ en } (b \le c) \Rightarrow (a \vee b) \le c \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra met orderelatie $\le$ en nulelement $e$.
+  \[ \forall a,b \in R:\ a \le b \Leftrightarrow (a \wedge \neg b) = e \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra met orderelatie $\le$ en nulelement $e$.
+  \[ \forall a \in R:\ e \le a \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $K,\wedge,\vee,\neg$ een booleaanse algebra met orderelatie $\le$ en eenheidselement $i$.
+  \[ \forall a \in R:\ a \le i \]
+\extra{bewijs}
+\end{st}
+
+\section{Atomen}
+\label{sec:atomen}
+
+\begin{de}
+  Een element $a$ van een booleaanse algebra $B,\wedge,\vee,\neg$ met nulelement $e$ heet een \term{atoom} als $a$ niet het nulelement is en voor elke $x$ in $B$ het volgende geldt:
+  \[ x \wedge a = a \quad\text{ of }\quad x \wedge a = e \]
+\end{de}
+
+\begin{st}
+  Zij $a$ een atoom van een booleaanse algebra $B,\wedge,\vee,\neg$ met nulelement $e$.
+  \[ \forall x\in B:\ a \le x \vee x \wedge a = e \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $a$ een atoom van een booleaanse algebra $B,\wedge,\vee,\neg$ met nulelement $e$.
+  \[ \forall x\in B:\ x \le a \Rightarrow x = e \text{ of } x = a \]
+\extra{bewijs}
+\end{st}
+
+\begin{opm}
+  Het enige element dat strikt vooraf gaat aan een atoom is het nulelement.
+\end{opm}
+
+\begin{st}
+  Zij $a_{1}$ en $a_{2}$ twee atomen in een booleaanse algebra $B,\wedge,\vee,\neg$ met nulelement $e$.
+  \[ a_{1} \wedge a_{2} \neq e \Rightarrow a_{1} = a_{2} \]
+\TODO{bewijs p 166 TAI}
+\end{st}
+
+\begin{st}
+  Zij $a$ $b_{1}, b_{2}, \dotsc, b_{n}$ atomen in een booleaanse algebra $B,\wedge,\vee,\neg$ met orderelatie $\le$.
+  \[ a \le \bigvee_{i=1}^{n}b_{i} \Leftrightarrow \exists i:\ a = b_{i} \]
+\TODO{bewijs p 166 TAI}
+\end{st}
+
+\begin{st}
+  Zij $a$ een niet-nulelement van een eindige booleaanse algebra $B,\wedge,\vee,\neg$ met orderelatie $\le$, dan bestaat er een atoom $b\in B$ zodat $b\le a$ geldt.
+\TODO{bewijs p 166 TAI}
+\end{st}
+
+\begin{st}
+  Zij $\{ b_{1},\dots,b_{n}\}$ de verzameling van alle atomen van een booleaanse algebra $B,\wedge,\vee,\neg$ met orderelatie $\le$ en nulelement $e$.
+  \[  a = e \Leftrightarrow \forall i \in \{ 1,\dotsc,n \}:\ a \wedge b_{i} = 0\]
+\TODO{bewijs p 166 TAI}
+\end{st}
+
+\begin{st}
+  Elk element in een booleaanse algebra is op een unieke manier te schrijven als een disjunctie van atomen.
+\TODO{bewijs p 167 TAI}
+\end{st}
+
+\begin{st}
+  Elke eindige booleaanse algebra $B,\wedge,\vee,\neg$ is isomorf met de booleaanse algebra $2^{A},\cup,\cap,\neg$ waarbij $A$ de verzameling is van atomen van $B,\wedge,\vee,\neg$.
+\TODO{bewijs p 167 TAI}
+\end{st}
+
+\begin{gev}
+  Het aantal elementen in een booleaanse algebra is steeds een macht van $2$.
+\end{gev}
+
+\begin{de}
+  $B_{2}^{n}$ is de verzameling van $n$ bit vectoren.
+\end{de}
+
+\begin{st}
+  $B_{2}^{n}$, uitgerust met de bit-per-bit optelling (of), de bit-per-bit vermenigvuldiging (en) en het $2$ complement, vormt een booleaanse algebra: $B_{2}^{n},+,\cdot,\bar{}$.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  We korten $B_{2}^{n},+,\cdot,\bar{}$ vaak af als \textbf{B}.
+\end{de}
+
+\begin{opm}
+  Het nulement van \textbf{B} is een rij nul-bits, en het eenheidselement van \textbf{B} is een rij \'e\'en-bits.
+\end{opm}
+
+\begin{de}
+  De elementen van de booleaanse algebra \textbf{B} noemen we \term{constanten}.
+\end{de}
+
+\begin{de}
+  Een \term{booleaanse uitdruking} $E$ wordt inductief gedefinieerd als volgt:
+  \begin{itemize}
+  \item $E = c$ met $c$ een constante.
+  \item $E = x$ met $x$ een variabele.
+  \item $(E)$
+  \item $(\bar{E})$
+  \item $E_{1} + E_{2}$
+  \item $E_{1} \cdot E_{2}$
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Een \term{minterm} is een booleaanse uitdrukking $x$ van de volgende vorm, waarin $x_{1},\dotsc,x_{k}$ de veranderlijken zijn.
+  \[ x^{\delta} = x_{1}^{\delta_{1}}x_{2}^{\delta_{2}}\dotsb x_{k}^{\delta_{k}} \]
+\end{de}
+
+\begin{de}
+  Een \term{maxterm} is een booleaanse uitdrukking $x$ van de volgende vorm, waarin $x_{1},\dotsc,x_{k}$ de veranderlijken zijn.
+  \[ \overline{x^{\delta}} = x_{1}^{1-\delta_{1}}+x_{2}^{1-\delta_{2}}+\dotsb+ x_{k}^{1-\delta_{k}} \]
+\end{de}
+
+\begin{opm}
+  Er zijn $2^{k}$ mogelijke mintermen( en maxtermen) voor een booleaanse uitdrukking in $k$ variabelen.
+\end{opm}
+
+\begin{ei}
+  Een minterm is gelijk aan het eenheidselement als en slechts als elke factor gelijk is aan het eenheidselement.
+\extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Een makterm is gelijk aan het nulelement als en slechts als elke factor gelijk is aan het nulelement.
+\extra{bewijs}
+\end{ei}
+
+\begin{st}
+  Elke booleaanse uitdrukking kan op een (unieke?) manier uitgedrukt worden als een som van mintermen.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elke booleaanse uitdrukking $f(\mathbf{x}) = f(x_{1},\dotsc,f_{k})$ over $\mathbf{B}$ valt te schrijven als volgt:
+  \[ f(x_{1},\dotsc,f_{k}) = \sum_{\delta = 0,0,\dotsc,0}^{1,1,\dotsc,1}f(\delta x^{\delta}) = \sum_{\delta = B_{2}^{k}}f(\delta)x^{\delta} \]
+  ... maar ook als volgt:
+  \[ f(x_{1},\dotsc,f_{k}) = \prod_{\delta = 0,0,\dotsc,0}^{1,1,\dotsc,1}(f(\delta) + \overline{x^{\delta}}) = \sum_{\delta = B_{2}^{k}}(f(\delta) + \overline{x^{\delta}}) \]
+\TODO{bewijs p 173}
+\end{st}
+
+\begin{de}
+  De twee vormen uit de vorige stelling noemt men respectievelijk de \term{minterm normaalvorm} en de \term{maxterm normaalvorm}.
+\end{de}
+
+\section{Netwerken en Schakelalgebra}
+\label{sec:netw-en-schak}
+
+\begin{de}
+  Een booleaans \term{netwerk} is een 'zwarte doos' met $k$ binaire ingangen en $l$ binaire uitgangen die een booleaanse functie $f$ realiseert.
+  \[ f:\ B_{2}^{k} \rightarrow B_{2}^{l}:\ (x_{1},x_{2},\dotsc,x_{k}) \mapsto f(x_{1},x_{2},\dotsc,x_{k}) = (z_{1},z_{2},\dotsc,z_{l})\]
+\end{de}
+
+\begin{de}
+  Een poort is een booleaans netwerk met slechts $1$ uitgang.
+  Een poort realiseert dus een functie $f:B_{2}^{k} \rightarrow B_{2}$.
+\end{de}
+
+\extra{en, niet en of}
+
+\TODO{sectie 5.1 en 5.2 p 179}
+
+\subsection{Synthese van netwerken}
+\label{sec:synth-van-netw}
+
+\begin{de}
+  Gegeven een booleaanse functie $f$ en een verzameling poorten $G$ zeggen we dat $f$ realiseerbaar is met $G$ als er een netwerk bestaat dat $f$ realiseert en enkel de poorten uit $G$ (eventueel meermaals) bevat.
+  Het netwerk noemen we een \term{realisatie} van $f$ en het proces een \term{synthese} van $f$.
+\end{de}
+
+\begin{de}
+  Een verzameling poorten $G$ noemt men \term{functioneel volledig} als iedere functie realiseerbaar is met poorten uit $G$.
+\end{de}
+
+\begin{de}
+  Een poort noemt men een \term{universele poort} als elke logische functie realiseerbaar is met die ene poort.
+\end{de}
+
+\begin{st}
+  $\{NIET,EN,OF\}$ is functioneel volledig.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  $\{NIET,OF\}$ is functioneel volledig.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  $\{NIET,EN\}$ is functioneel volledig.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  $NEN$ is een universele poort.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  $NOF$ is een universele poort.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  Zij $f$ en $g$ twee logische poorten $f,g:\ B_{2}^{k}\rightarrow B_{2}$, dan noemen we een uitdrukking van de volgende vorm een \term{booleaanse vergelijking}.
+  \[ f(x_{1},\dotsc,x_{K}) = g(x_{1},\dotsc,x_{k}) \]
+\end{de}
+
+\begin{de}
+  Twee booleaanse vergelijkingen noemen we equivalent indien ze dezelfde oplossing heb.
+\end{de}
+
+\begin{st}
+  Onderstaande vergelijkingen zijn equivalent.
+  \[ f(x_{1},\dotsc,x_{K}) = g(x_{1},\dotsc,x_{k}) \]
+  \[ f(x_{1},\dotsc,x_{K})\overline{g(x_{1},\dotsc,x_{k})} + \overline{f(x_{1},\dotsc,x_{K})}g(x_{1},\dotsc,x_{k}) = 0 \]
+\TODO{bewijs p 181 TAI}
+\end{st}
+
+\begin{st}
+  Zij $v$ een Booleaanse vergelijking in $1$ onbekende.
+  \[ v \leftrightarrow a_{1}\bar{x} + a_{2}x = 0 \]
+  $v$ is oplosbaar als en slechts $a_{1}a_{2} = 0$ geldt.
+  De oplossingen zijn dat van de vorm $x$:
+  \[ x = a_{1} + a_{2}\lambda \]
+\TODO{bewijs p 182 TAI}
+\end{st}
+
+\begin{st}
+  Zij $f(x_{1},\dotsc,x_{k}) = 0$ een booleaanse vergelijking met de volgende uitdrukking als minterm normaalvorm.
+  \[ f(x_{1},\dotsc,x_{k}) = \sum_{\delta \in B_{2}^{k}}f(\delta)x^{\delta} \]
+  Deze vergelijking is oplosbaar als en slechts als het volgende geldt:
+  \[ \prod_{\delta\in B_{2}^{k}}f(\delta) = 0 \]
+\TODO{bewijs p 183 TAI}
+\end{st}
+
 
 
 
