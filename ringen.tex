@@ -108,7 +108,8 @@
 \end{de}
 
 \begin{de}
-  Zij $R,+,\cdot$ een ring, dan noemen we $x\in R$ een \term{nuldeler} van $y\in R$ als $x$ zowel een linker als rechter nuldeler is van $y$.
+  Zij $R,+,\cdot$ een ring met nulelement $e$, dan noemen we $x\in R$ een \term{nuldeler} van $y\in R$ als $x$ zowel een linker als rechter nuldeler is van $y$.
+  \[ x \cdot y = e = y \cdot x \]
 \end{de}
 
 \begin{ei}
@@ -141,8 +142,8 @@
 
 \begin{de}
   \label{de:nulring}
-  De \term{nulring} of \term{niet-triviale} ring is de ring met enkel een nulelement $e$.
-  \[ \{ e \} \]
+  De \term{nulring} of \term{triviale} ring is de ring met enkel een nulelement $e$.
+  \[ \{ e \},+,\cdot \]
 \end{de}
 
 \subsection{Ring met eenheidselement}
@@ -341,10 +342,7 @@
   \label{st:stelling-van-wedderburn}
   De \term{stelling van Wedderburn}\\
   Een eindig lichaam is commutatief en dus een veld.
-
-  \begin{proof}
-    Geen bewijs.
-  \end{proof}
+  \zb
 \end{st}
 
 \subsection{Velden}
@@ -596,6 +594,11 @@
 \end{de}
 
 \begin{st}
+  Constructie van een breukenveld\\
+\TODO{p 48 algebra}
+\end{st}
+
+\begin{st}
   We kunnen een integriteitsdomein identificeren met zijn beeld onder de inbedding $i$ en dus als deelring van $F$ beschouwen.
   \TODO{bewijs p 48 A}
 \end{st}
@@ -618,24 +621,26 @@
 
 \begin{de}
   Zij $R,+,\cdot$ een ring en $I$ een deelverzameling van $R$.
-  $I$ is een \term{ideaal} van $R$ als het valgende geldt:
+  $I$ is een \term{ideaal} van $R$ als het volgende geldt:
   \begin{itemize}
   \item $I,+$ is een deelgroep van $R,+$.
-  \item $forall a \in R, \forall b \in I:\ a\cdot b \subseteq I \wedge b\cdot a \subseteq I$. 
+  \item $\forall a \in R, \forall b \in I:\ a\cdot b \subseteq I \wedge b\cdot a \subseteq I$. 
   \end{itemize}
+  \[ I \triangleleft R \]
 \end{de}
 
 \begin{st}
-  Elke ring heeft twee triviale idealen.
+  In elke ring $R,+,\cdot$ zijn de triviale deelringen idealen.
   \begin{enumerate}
-  \item De ring met enkel het nulelement.
-  \item Heel de ring.
+  \item De ring met enkel het nulelement: $\{e_{R,+}\},+,\cdot$
+  \item Heel de ring: $R,+,\cdot$
   \end{enumerate}
 \extra{bewijs}
 \end{st}
 
 \begin{ei}
   Een ideaal $I$ van een ring $R,+,\cdot$ is een normaaldeler van de groep $R,+$.
+\extra{bewijs}
 \end{ei}
 
 \begin{de}
@@ -643,21 +648,118 @@
 \end{de}
 
 \begin{de}
-  De \term{quotientring} $R/I$ van een ring $R,+,\cdot$ ten opzichte van een ideaal is de partitie van $R$ is restklassen van $I$, uitgerust met de quotientwetten:
+  De \term{quotientring} $R/I$ van een ring $R,+,\cdot$ ten opzichte van een ideaal is de partitie van $R$ in restklassen van $I$, uitgerust met de quotientwetten:
   \begin{itemize}
   \item $\scalebox{1.5}{$+$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$+$}\ (y+I) = (x+y)+I$
   \item $\scalebox{1.5}{$\cdot$}:\ R/I \rightarrow R/I:\ (x+I)\ \scalebox{1.5}{$\cdot$}\ (y+I) = (x\cdot y) + I$
   \end{itemize}
 \end{de}
 
+\begin{pr}
+  Zij $R,+,\cdot$ een ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
+  De (kandidiaat-)bewerking $\bar{\cdot}$ op $R/I$ met $x'\in x+I$ en $y'\in y+I$ willekeurige representanten is goed gedefinieerd.
+  \[ \scalebox{1.5}{$\cdot$}:\ R/I \times R/I \rightarrow R/I:\ (x+I) \cdot (y+I) = (x'\cdot y') + I \]
+\extra{bewijs}
+\end{pr}
 
+\begin{opm}
+  De bewerking $\bar{\cdot}$ is niet goed gedefinieerd als $I$ geen ideaal is.
+\extra{bewijs ( 53 algebra)}
+\end{opm}
 
+\begin{pr}
+  De afbeelding $\pi$ is een ringmorfisme.
+  \[ \pi:\ R \rightarrow R/I:\ x \mapsto x+I \]
+\extra{bewijs}
+\end{pr}
+
+\begin{st}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$ en $I$ een ideaal van $R$, dan is $\bar{i} = i + I$ het eenheidselement van $R/I$ en voor $x\in R^{\times}$ is de ivers van $\bar{x} + I$ gelijk aan $\overline{x^{-1}} = x^{-1} + I$. 
+\end{st}
+
+\begin{opm}
+  Analoog als bij groepen is een deelgroep van een ring $R$ een idiaal van $R$ als en slechts als hij de kern is van een ringmorfisme vanuit $R$.
+\extra{bewijs}
+\end{opm}
 
 \extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
 
+\section{Isomorfismestellingen}
+\label{sec:isomorfismestellingen}
 
-\section{deelbaarheid}
-\label{sec:deelbaarheid}
+\begin{st}
+  De \term{Factorisatiestelling}\\
+  Zij $f: R \rightarrow S$ een ringmorfisme en $I \subseteq Ker(f)$ een ideaal van $R$.
+  Noteer $\pi$ voor de natuurlijke afbeelding $R \rightarrow R/I:\ x \mapsto x+I$.
+  \begin{itemize}
+  \item Er bestaat een uniek ringmorfisme $f': R/I \rightarrow S$ zodat $f$ factoriseert als $f \circ \pi$.
+  \item $f'$ is injectief als en slechts als $I$ gelijk is aan de kern van $f$.
+  \end{itemize}
+\TODO{bewijs p 54 A}
+\end{st}
+
+\begin{gev}
+  De \term{morfismestelling} of \term{eerste isomorfismestellng}\\
+  Zij $\phi:\ R \rightarrow S$ een ringmorfisme, dan is $\phi$ een injectief ringmorfisme.
+  \[ \bar{\phi}: R/Ker(\phi) \rightarrow S:\ xKer(\phi) \mapsto \phi(x) \]
+  Bijgevolg geldt het volgende.
+  \[ R/Ker(\phi) \cong \phi(R) \]
+\TODO{bewijs}
+\end{gev}
+
+\begin{st}
+  De \term{tweede isomorfismestelling} of \term{parrallellogramisomorfismestelling}
+\TODO{formuleer en bewijs}
+\end{st}
+
+\begin{st}
+  De \term{derde isomorfismestelling}
+  Zij $R,+,\cdot$ een ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
+  Noteer $\pi$ voor de natuurlijke afbeelding $R \rightarrow R/I:\ x \mapsto x+I$.
+  \begin{itemize}
+  \item De afbeelding $J\mapsto \pi(J)$ bepaalt een bijectie tussen de deelringen, respectievelijk idealen van $R$ die $I$ omvatten en de deelringen, respectievelijk idealen van $R/I$.
+  \item Zij $J$ een ideaal van $R$ zodat $I \subseteq J$, dan geldt het volgende:
+    \[ \nicefrac{R/I}{J/I} \cong R/J \]
+  \end{itemize}
+\TODO{bewijs p 54 ringen}
+\end{st}
+
+\section{Priemidealen en Maximale idealen}
+\label{sec:priem-en-maxim}
+
+\begin{de}
+  Zij $R,+,\cdot$ een commutatieve ring.
+  Een \term{priemideaal} van $R,+,\cdot$ is een ideaal $I,+,\cdot$ van $R,+,\cdot$ zodat $I\neq R$ en het volgende gelden:
+  \[ \forall x,y \in R: x \cdot y \in I \Rightarrow x \in I \vee y \in I \]
+\end{de}
+
+\begin{de}
+  Zij $R,+,\cdot$ een commutatieve ring.
+  Een \term{maximaal ideaal} van $R,+,\cdot$ is een ideaal $I,+,\cdot$ van $R,+,\cdot$ zodat $I\neq R$ en er geen enkel ideaal $J,+,\cdot$ van $R$ bestaat tussen $I$ en $R$.
+  \[ \not\exists J:\ I \subsetneq J \subsetneq R \]
+\end{de}
+
+\begin{ei}
+  In een commutatieve ring met eenheidselement is een maximaal ideaal ook een priemideaal.
+\TODO{bewijs p 55 A}
+\end{ei}
+
+\begin{st}
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
+  \begin{itemize}
+  \item $R/I$ is een integriteitsdomein $\Leftrightarrow$ $I$ is een priemideaal.
+  \item $R/I$ is een veld $\Leftrightarrow$ $I$ is een maximaal ideaal.
+  \end{itemize}
+\TODO{bewijs p 56 A}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een commutatieve ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$ met $I\neq R$, dan bestaat er een maximaal ideaal $M,+,\cdot$ van $R,+,\cdot$ zodat $I \subseteq M$.
+  \zb
+\end{st}
+
+\section{deelbaarheid binnen integriteitsdomeinen}
+\label{sec:deelbaarheid-binnen-integriteitsdomeinen}
 
 \begin{de}
   Zij $a$, $b$ en $q$ elementen van een integriteitsdomein $D,+,\cdot$ zodat $a= qb$ met $b$ niet het nulelement $e$, dan noemen we $b$ een \term{deler} van $a$.
@@ -925,6 +1027,10 @@
 \end{de}
 
 \begin{de}
+  Een veelterm waarbij $a_{0}$ het nulelement is, noemt men een \term{veelterm zonder constante term}.
+\end{de}
+
+\begin{de}
   De veelterm van graad $0$ met het nulelement $e$ als co\"efficient noemt met de \term{nul(veel)term}
 \end{de}
 
@@ -950,11 +1056,12 @@
 
 \begin{de}
   Men noteert de verzameling van veeltermen in $x$ over een ring $R,+,\cdot$ als $R[x]$.
+  We noemen deze ring de \term{veeltermring}.
 \end{de}
 
 \begin{ei}
   De verzameling van veeltermen $R[x]$ in een variabele $x$ over een ring $R,+,\cdot$, uitgerust met de veelterm-som en het veelterm-product, vormt een ring $R[x],+,\cdot$.
-\extra{bewijs}
+\TODO{bewijs}
 \end{ei}
 
 \begin{st}
@@ -974,8 +1081,14 @@
 
 \begin{st}
   $R[x],+,\cdot$ heeft geen nuldelers als en slechts als $R,+,\cdot$ geen nuldelers heeft.
-\extra{bewijs}
+  \TODO{bewijs p 58 A}
 \end{st}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring zonder nuldelers.
+  \[ \forall x,y \in R[X]:\ gr(f\cdot g) = gr(f) \cdot gr(g) \]
+  \TODO{bewijs p 58 A}
+\end{ei}
 
 \begin{gev}
   $R[x],+,\cdot$ is een integriteitsdomein als en slechts als $R,+,\cdot$ een integriteitsdomein is.
@@ -983,8 +1096,161 @@
 \end{gev}
 
 
+\section{Veeltermfuncties}
+\label{sec:veeltermfuncties}
+
+
+\begin{de}
+  Zij $R,+,\cdot$ een commutatieve ring en $c$ een element van $R$, dan noemen we de afbeelding $f$ (als volgt) de \term{substitutie} of \term{veeltermfunctie} van $c$.
+  \[ f:\ R[X] \rightarrow R: \sum_{i=0}^{n}a_{i}X^{i} \mapsto \sum_{i=0}^{n}a_{i}c^{i} \]
+\end{de}
+
+\begin{de}
+  Zij $R[X],+,\cdot$ de ring der veeltermen over een deelring $R,+,\cdot$ van $S,+,\cdot$.
+  We defini\"eren de \term{waarde} van een veelterm $a(x)$ voor een element $s$ van $s$ als het element $a(s)$ van $S$.
+\end{de}
+
+\begin{de}
+  Zij $R[X],+,\cdot$ de ring der veeltermen over een deelring $R,+,\cdot$ van $S,+,\cdot$.
+  Zij $s$ een element van $S$ en $a(X)$ een veelterm van $R[X]$, dan noemen we $s$ een \term{nulpunt} of een \term{wortel} van $a$ als en slechts als $a(s)$ het nulelement is van $s$.
+\end{de}
+
+\begin{st}
+  Het \term{delingsalgoritme} voor veeltermen over een ring met eenheidselement.
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$ en zij $f,g\in R[X]$ veeltermen over $R$.
+  Als $g$ monisch is, dan bestaan er unieke veeltermen $q$ en $r$ in $R[X]$ zodat het volgende geldt:
+  \[ f = qg + r \text{ en } gr(r) \le gr(g) \]
+\TODO{bewijs p 58 algebra}
+\end{st}
+
+\begin{de}
+  Zij $a$ en $b$ veeltermen over een commutatieve ring $R,+,\cdot$ met $b$ niet het nulelement van $R[X],+,\cdot$.
+  Als $q$ en $r$ veeltermen zijn zoals in de vorige stelling, dan noemen we $q$ het \term{quotient} en $r$ de \term{rest} van $a$ bij deling door $b$.
+\end{de}
+
+\begin{st}
+  De term{reststelling}\\
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$.
+  Zij $f\in R[X]$ een veelterm over $R,+,\cdot$ en $a$ een element van $R$.
+  \begin{itemize}
+  \item  $f(a)$ is de rest bij deling van $f$ door $X-a$. Er bestaat dus een unieke veelterm $q\in R[X]$ zodat het volgende geldt:
+    \[ f = q(X-a) + f(a) \]
+  \item $f$ is deelbaar door $X-a$ ($X-a|f$) als en slechts als a een nulpunt is van $f$.
+  \end{itemize}
+\TODO{bewijs p 60 algebra}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een integriteitsdomein en $f\in R[X]$ een veelterm over $R,+,\cdot$.
+  Zij $a_{1},a_{2},\dotsc,a_{r}$ onderling verschillende nulpunten van $f$.
+  $(X-a_{1})(X-a_{2}) \dotsc (X-a_{n})$ is een deler van $f$.
+\TODO{bewijs p 60 algebra}
+\end{st}
+
 \section{Veeltermen over velden}
 \label{sec:veelt-over-veld}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld.
+  Een veelterm over $F$ met $k$ verschillende nulpunten heeft minstens graad $k$ of is de nulveelterm.
+\extra{bewijs}
+\end{st}
+\begin{st}
+  Zij $F,+,\cdot$ een veld.
+  Een veelterm van graad $n \ge 1$ over $F$ heeft hoogstens $n$ verschillende nulpunten.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld.
+  Als twee veeltermen van graad $n$ over $f$ dezelfde waarde aannemen in $n+1$ onderling verschillende elementen, dan zijn deze veeltermen gelijk.
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $F,+,\cdot$ een oneindig veld.
+  Voor twee veeltermen $f$ en $g$ uit $F[X]$:
+  \[ \forall f,g \in F[X]: (\forall a \in F:\ f(a) = g(a) \Rightarrow f = g) \]
+  Voor oneindige velden zijn de begrippen veeltermen en veeltermfuncties dus wel hetzelfde.
+  \extra{bewijs}
+\end{st}
+
+\begin{opm}
+  De vier bovenstaande stellingen gelden in het algemeen over integriteitsdomeinen maar worden meestal geciteerd over een veld.
+\end{opm}
+
+\begin{opm}
+  De vier bovenstaande stellingen gelden in het algemeen niet voor een lichaam.
+\clarify{waar loopt het mis als je geen commutativiteit eist?}
+\end{opm}
+
+\begin{de}
+  Zij $K,+,\cdot$ een veld.
+  Een veelterm $f\in K[X]$ is \term{irreduceerbaar} of \term{irreducibel} over $K$ (of in $K[X]$) als $f$ niet constant is en niet geschreven kan worden als een product van twee veeltermen van graad kleiner dan $gr(f)$.
+  Een niet-constante veelterm heet \term{reduceerbaar} of \term{reducibel} als hij niet irreduceerbaar is.
+\end{de}
+
+\begin{ei}
+  Het \term{eerste criterium}\\
+  Zij $f\in \mathbb{Z}[X]$ een veelterm over $\mathbb{Z},+,\cdot$ met $gr(f) \ge 1$ en $p$ een priemgetal.
+  Beschouww dan het volgend ringmorfisme:
+  \[ Z[X] \rightarrow Z_{p}[X]: f = \sum_{i=0}^{n}a_{i}X^{i} \mapsto \bar{f} = \sum_{i=0}^{n}\overline{a_{i}}X^{i} \]
+  Als $gr(f)$ gelijk is aan $gr(\bar{f})$ en $\bar{f}$ is irreducibel in $\mathbb{Z}_{p}[X]$, dan is $f$ irreducibel in $\mathbb{Q}[X]$.
+\TODO{bewijs}
+\end{ei}
+
+\begin{opm}
+  De omgekeerde eigenschap geldt niet.
+  Er bestaan zelfs veeltermen over $\mathbb{Z}$ die irreducibel zijn over $\mathbb{Q}$ maar voor elk priemgetal $p$ reducibel worden over $\mathbb{Z}_{p}$:
+  \[ X^{4}+ 6X^{2}+1 \text{ en } X^{4} -2X^{2} + 9 \]
+\end{opm}
+
+\begin{ei}
+  Het \term{tweede criterium} of het \term{criterium van Einstein}\\
+  Zij $f\in \mathbb{Z}[X]$ een veelterm over $\mathbb{Z}$:
+  \[ f = \sum_{i=0}^{n}a_{i}X^{i}\]
+  Als er een priemgetal $p$ bestaat als volgt, is $f$ irreducibel in $\mathbb{Q}[X]$.
+  \[ p \nmid a_{n} \wedge (\forall i \in \{0,\dotsc,n-1\}:\ p |a_{i}) \wedge p^{2} \nmid a_{0} \]
+\extra{bewijs}
+\end{ei}
+
+\begin{vb}
+  De veelterm $f= 2X^{5} + 6X^{3} + 9X + 30$ is irreducibel in $\mathbb{Q}[X]$ met $p=3$.
+  \TODO{verplaats later naar voorbeelden}
+\end{vb}
+
+\begin{ei}
+  Het \term{derde criterium}\\
+  Zij $K,+,\cdot$ een veld en $f\in K[X]$ een veelterm van graad $2$ of $3$, dan is $f$ reducibel over $K$ als en slechts als $f$ een nulpunt heeft in $K$.
+\TODO{bewijs}
+\end{ei}
+
+\begin{st}
+  Een veelterm $p$ van graad $2$ over een veld $F,+,\cdot$ is irreduceerbaar als en slechts $p$ geen wortel heeft in $F$.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:fundamentele-stelling-van-de-algebra}
+  De \term{fundamentele stelling van de algebra}.\\
+  Een niet-constante veelterm over het veld $\mathbb{C},+,\cdot$ der complexe getallen heeft minstens $1$ wortel in $\mathbb{C}$.
+  \extra{verwijzing naar een bewijs.}
+\end{st}
+  
+\begin{gev}
+  Elke veelterm van graad $n$ over het veld $\mathbb{C},+,\cdot$ der complexe getallen heeft precies $n$ wortels in $\mathbb{C}$.
+\extra{bewijs}
+\end{gev}
+
+\begin{gev}
+  Elke veelterm van graad $n$ over het veld $\mathbb{C},+,\cdot$ der complexe getallen is op een unieke manier te ontbinden in priemelementen van de vorm $(x-a)$ op een constante (en dus inverteerbare) veelterm na.
+\extra{bewijs}
+\end{gev}
+
+\begin{st}
+  Als $a\in \mathbb{C}$ een complexe wortel is van een re\"ele veelterm $p(x)\in \mathbb{R}[x]$, dan zal ook het complex toegevoegde $\bar{a}$ van $a$ een wortel zijn van $p(x)$.
+\TODO{bewijs p 136}
+\end{st}
 
 \begin{opm}
   De inverse van een veelterm over een ring $R,+,\cdot$ is in $R,+,\cdot$ is over het algemeen geen veelterm.
@@ -996,15 +1262,10 @@
 
 \begin{st}
   \label{st:deling-veelterm-over-veld}
-  Zij $a(x)$ en $b(x)$ veeltermen over een veld $F[x],+,\cdot$ met $b(x)$ niet het nulelement, dan bestaat er precies \'e\'en veelterm $q(x) \in F[x]$ en een $r(x) \in F[x]$ zodat het volgende geldt:
-  \[ a(x) = q(x)b(x) + r(x) \quad\text{ met }\quad gr(r(x)) < gr(b(x)) \]
+  Zij $a$ en $b$ veeltermen over een veld $F,+,\cdot$ met $b$ niet het nulelement van $F[X]$, dan bestaat er precies \'e\'en veelterm $q \in F[x]$ en een $r \in F[x]$ zodat het volgende geldt:
+  \[ a = qb + r \quad\text{ met }\quad gr(r) < gr(b) \]
 \TODO{bewijs p 131 TAI}
 \end{st}
-
-\begin{de}
-  Zij $a(x)$ en $b(x)$ veeltermen over een veld $F[x],+,\cdot$ met $b(x)$ niet het nulelement.
-  Als $q(x)$ en $r(x)$ veeltermen zijn zoals in stelling \ref{st:deling-veelterm-over-veld} op pagina \pageref{st:deling-veelterm-over-veld}, dan noemen we $q(x)$ het \term{quotient} en $r(x)$ de \term{rest} van $a(x)$ bij deling door $b(x)$.
-\end{de}
 
 \begin{st}
   De veeltermen in een variabele $x$ over een veld $F,+,\cdot$, uitgerust met $gr$ als afbeelding $d$, vormen een euclidische ring.
@@ -1036,62 +1297,43 @@
 \TODO{bewijs p 134}
 \end{ei}
 
-\section{Veeltermfuncties}
-\label{sec:veeltermfuncties}
+\subsection{Veeltermen in meerdere veranderlijken}
+\label{sec:veelt-meerd-verand}
 
 \begin{de}
-  Zij $R[x],+,\cdot$ de ring der veeltermen over een deelring $R,+,\cdot$ van $S,+,\cdot$.
-  We defini\"eren de \term{waarde} van een veelterm $a(x)$ voor een element $s$ van $s$ als het element $a(s)$ van $S$.
+  Zij $R,+,\cdot$ een ring.
+  De \term{polynomenring} of \term{veeltermenring} over $R,+,\cdot$ in de veranderlijken $X_{1},\dotsc,X_{n}$, genoteerd $R[X_{1},\dotsc,X_{n}]$ is de verzameling van alle formele sommen van de volgende vorm:
+  \[ \sum_{i\in \mathbb{N}^{n}}a_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}\]
+\TODO{formuleer de bewerkingen op $R[X_{1},\dotsc,X_{n}]$ en bewijs de zinnigheid}
 \end{de}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring.
+  \[ R[X_{1},\dotsc,X_{n}] \cong (R[X_{1},\dotsc,X_{n-1}])[X_{n}] \]
+\extra{bewijs}
+\end{ei}
+
+\begin{opm}
+  Men kan $R[X_{1},\dotsc,X_{n}]$ ook inductief definieren volgens deze eigenschap.
+  We moeten dan de ringaxioma's niet meer verifi\"eren, maar we moeten dan wel nog de volgende eigenschap bewijzen.
+\end{opm}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring.
+  \[ (R[X_{1}])[X_{2}] \cong (R[X_{2}])[X_{1}] \]
+\extra{bewijs}
+\end{ei}
 
 \begin{de}
-  Zij $R[x],+,\cdot$ de ring der veeltermen over een deelring $R,+,\cdot$ van $S,+,\cdot$.
-  De waarde van een veelterm $a(x)$ voor een element $s\in S$ bepaalt een functie $a$:
-  \[ a:\ S \rightarrow S:\ s \mapsto a(s) \]
-  We noemen $a$ de \term{veeltermfunctie} van $a$.
+  Zij $R$ een ring en $V$ een verzameling.
+  Benoem nu voor elk element $j$ van $V$ een veranderlijke $X_{j}$.
+  De \term{polynomenring} of \term{veeltermenring} over $R$ in de veranderlijken $X_{j}$, genoteerd $R[X_{j}]_{j\in V}$ is de verzameling van alle formele sommen van de volgende vorm:
+  \[ \sum_{i\in \mathbb{N}^{n}}a_{i}X_{j_{1}}^{i_{1}}X_{j_{2}}^{i_{2}}\dotsc X_{j_{n}}^{i_{n}}\]
+  Zij hierin $n$ het aantal elementen van $V$. en $a_{i}$ een element van $R$ voor elk $n$-tel van $\mathbb{N}^{n}$. 
 \end{de}
 
-\begin{de}
-  Zij $R[x],+,\cdot$ de ring der veeltermen over een deelring $R,+,\cdot$ van $S,+,\cdot$.
-  Zij $s$ een element van $S$ en $a(x)$ een veelterm van $R[x]$, dan noemen we $s$ een \term{nulpunt} of een \term{wortel} van $a$ als en slechts als $a(s)$ het nulelement is van $s$.
-\end{de}
 
-\begin{st}
-  De rest bij deling van een veelterm $p(x)$ door $(x-a)$ is $p(a)$.
-\extra{bewijs}
-\end{st}
 
-\begin{st}
-  $p(x)$ is deelbaar door $(x-a)$ als en slechts als $a$ een nulpunt is van $p$.
-\extra{bewijs}
-\end{st}
-
-\begin{st}
-  Een veelterm $p$ van graad $2$ over een veld $F,+,\cdot$ is irreduceerbaar als en slechts $p$ geen wortel heeft in $F$.
-\extra{bewijs}
-\end{st}
-
-\begin{st}
-  \label{st:fundamentele-stelling-van-de-algebra}
-  De \term{fundamentele stelling van de algebra}.\\
-  Een niet-constante veelterm over het veld $\mathbb{C},+,\cdot$ der complexe getallen heeft minstens $1$ wortel in $\mathbb{C}$.
-  \extra{verwijzing naar een bewijs.}
-\end{st}
-  
-\begin{gev}
-  Elke veelterm van graad $n$ over het veld $\mathbb{C},+,\cdot$ der complexe getallen heeft precies $n$ wortels in $\mathbb{C}$.
-\extra{bewijs}
-\end{gev}
-
-\begin{gev}
-  Elke veelterm van graad $n$ over het veld $\mathbb{C},+,\cdot$ der complexe getallen is op een unieke manier te ontbinden in priemelementen van de vorm $(x-a)$ op een constante (en dus inverteerbare) veelterm na.
-\extra{bewijs}
-\end{gev}
-
-\begin{st}
-  Als $a\in \mathbb{C}$ een complexe wortel is van een re\"ele veelterm $p(x)\in \mathbb{R}[x]$, dan zal ook het complex toegevoegde $\bar{a}$ van $a$ een wortel zijn van $p(x)$.
-\TODO{bewijs p 136}
-\end{st}
 
 \section{Codetheorie}
 \label{sec:codetheorie}
