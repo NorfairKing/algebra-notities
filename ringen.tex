@@ -614,7 +614,30 @@
   \TODO{bewijs p 49 A}
 \end{ei}
 
-\subsection{Idealen}
+
+\begin{st}
+  Zij $D,+,\cdot$ een integriteitsdomein, dan is het mogelijk om een veld $F,\star,*$ te construeren zodat ...
+  \begin{itemize}
+  \item ... $R,+,\cdot$ isomorf is met een deelring $R'$ van $F$.
+  \item ... ieder element in $F$ te schrijven valt als $p\star q^{-1}$ met $p,q \in R'$.
+  \end{itemize}
+\TODO{bewijs p 139}
+\end{st}
+
+\begin{de}
+  Het veld $F$ uit de vorige stelling noemt met het \term{veld der breuken} of het \term{veld der quoti\"enten} van $R$.
+\end{de}
+
+\begin{opm}
+  Men kan $F$ zien als een uitbreiding van $R$ (isomorf met $R'$) zodat in $F$ elk niet-nulelement van $R$ een inverse heeft gekregen.
+\end{opm}
+
+\begin{st}
+  Het breukenveld van een integriteitsdomein is op isomorfisme na uniek.
+\extra{zeker? bewijs!}
+\end{st}
+
+\section{Idealen}
 \label{sec:idealen}
 
 \TODO{linker, en rechterideaal}
@@ -646,6 +669,61 @@
 \begin{de}
   De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
 \end{de}
+
+
+\begin{de}
+  Zij $a$ een element van een commutatieve ring $R,+,\cdot$ met eenheidselement.
+  Het \term{ideaal voortgebracht door een element} $a$ of \term{hoofdideaal} door $a$ is $(a)$.
+  \[ (a) = \{r \cdot a \ |\ r \in R \},+,\cdot \]
+\end{de}
+
+\begin{de}
+  Zij $a_{1},\dotsc,a_{n}$ elementen van een commutatieve ring $R,+,\cdot$ met eenheidselement.
+  Het \term{ideaal voortgebracht door elementen} $a_{1},\dotsc,a_{n}$ is $(a_{1},\dotsc,a_{n})$
+  \[ (a_{1},\dotsc,a_{n}) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R \right\} \]
+\end{de}
+
+\begin{de}
+  Zij $A$ een deelverzameling van een $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement.
+  Het \term{ideaal voortgebracht door een verzameling} $A$ is $(A)$..
+  \[ (A) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R, a_{i} \in A, n\in \{1 \dotsc, |A|\} \right\}\]
+\end{de}
+
+\begin{st}
+  Voortgebrachte idealen zijn wel degelijk idealen.
+\extra{bewijs}
+\end{st}
+
+\begin{opm}
+  Een ideaal voortgebracht door een deelverzameling $A$ van $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement is in feite gelijk aan de doorsnede van alle idealen van $R$ die $A$ omvatten.
+  Of nog: ``het kleinste ideaal van $R$ dat $A$ omvat''.
+\end{opm}
+
+\extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
+
+\begin{pr}
+  De kern van een ringmorfisme is een ideaal.
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R\rightarrow S$ een ringmorfisme.
+  \[ Ker(f) \triangleleft R \]
+\extra{bewijs}
+\end{pr}
+
+\begin{pr}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R\rightarrow S$ een ringmorfisme.
+  \[ I \triangleleft R \Rightarrow f(I) \triangleleft f(R) \]
+\extra{bewijs}
+\end{pr}
+
+\begin{pr}
+  Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R\rightarrow S$ een ringmorfisme.
+  \[ J \triangleleft S \Rightarrow f^{-1}(J) \triangleleft R \]
+\extra{bewijs}
+\end{pr}
+
+
+\subsection{Quotientringen}
+\label{sec:quotientringen}
+
 
 \begin{de}
   De \term{quotientring} $R/I$ van een ring $R,+,\cdot$ ten opzichte van een ideaal is de partitie van $R$ in restklassen van $I$, uitgerust met de quotientwetten:
@@ -682,9 +760,7 @@
 \extra{bewijs}
 \end{opm}
 
-\extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
-
-\section{Isomorfismestellingen}
+\subsection{Isomorfismestellingen}
 \label{sec:isomorfismestellingen}
 
 \begin{st}
@@ -724,7 +800,7 @@
 \TODO{bewijs p 54 ringen}
 \end{st}
 
-\section{Priemidealen en Maximale idealen}
+\subsection{Priemidealen en Maximale idealen}
 \label{sec:priem-en-maxim}
 
 \begin{de}
@@ -758,7 +834,7 @@
   \zb
 \end{st}
 
-\section{deelbaarheid binnen integriteitsdomeinen}
+\subsection{deelbaarheid binnen integriteitsdomeinen}
 \label{sec:deelbaarheid-binnen-integriteitsdomeinen}
 
 \begin{de}
@@ -899,7 +975,7 @@
   Een priemgetal heeft dus geen echte delers.
 \end{opm}
 
-\subsection{Euclidische Ring}
+\subsubsection{Euclidische Ring}
 \label{sec:euclidische-ring}
 
 \begin{de}
@@ -1096,7 +1172,7 @@
 \end{gev}
 
 
-\section{Veeltermfuncties}
+\subsection{Veeltermfuncties}
 \label{sec:veeltermfuncties}
 
 
@@ -1147,7 +1223,7 @@
 \TODO{bewijs p 60 algebra}
 \end{st}
 
-\section{Veeltermen over velden}
+\subsection{Veeltermen over velden}
 \label{sec:veelt-over-veld}
 
 \begin{st}
@@ -1332,7 +1408,186 @@
   Zij hierin $n$ het aantal elementen van $V$. en $a_{i}$ een element van $R$ voor elk $n$-tel van $\mathbb{N}^{n}$. 
 \end{de}
 
+\section{HID en UFD}
+\label{sec:hid-en-ufd}
 
+\begin{de}
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$ en nulelement $e$.
+  Een element $x\in R$ is \term{irreduceerbaar} of \term{irreducibel} in $R,+,\cdot$ als de velgende bewering gelden:
+  \begin{itemize}
+  \item $x \neq e$
+  \item $x$ is geen eenheid in $R,+,\cdot$
+  \item Als er twee elementen $a$ en $b$ in $R$ bestaan zodat $a\cdot b = x$ geldt, dan is $a$ of $b$ een eenheid in $R,+,\cdot$.
+  \end{itemize}
+\end{de}
+
+\begin{ei}
+  Zij $x$ een irreduceerbaar element van een commutatieve ring $R,+,\cdot$ met eenheidselement $i$.
+  Elke deler van $x$ is ofwel een eenheid, ofwel geassocieerd met $x$.
+\TODO{bewijs p 63 algebra}
+\end{ei}
+
+\begin{gev}
+  Zij $a$ en $b$ voortbrengers van hetzelfde hoodideaal in een integriteitsdomein $R,+,\cdot$, dan zijn $a$ en $b$ geassocieerd.
+  \[ (a) = (b) \Leftrightarrow a|b \wedge b|a \]
+\extra{bewijs}
+\end{gev}
+
+\begin{de}
+  Zij $R,+,\cdot$ een commutatieve ring en $x_{1},\dotsc,x_{n}$ elementen van $R$.
+  Men noemt $d\in R$ een grootst gemene deler van $x_{1},\dotsc,x_{n}$ als volgende beweringen gelden:
+  \begin{itemize}
+  \item $\forall i:\ d|x_{i}$
+  \item $\forall r \in R:\ \forall i:\ r|x_{i} \Rightarrow r|d$
+  \end{itemize}
+  \clarify{dit is een veralgemening van de vorige definite von grootst gemene deler, laten staan?}
+\end{de}
+
+\begin{opm}
+  Een grootste gemene deler is over het algemeen niet uniek.
+\end{opm}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een integriteitsdomein, $x_{1},\dotsc,x_{n}$ elementen van $R$ en $d$ en $d'$ beide grootst gemene delers van $x_{1},\dotsc,x_{n}$, dan zijn $d$ en $d'$ geassocieerd.
+\extra{bewijs}
+\end{ei}
+
+\begin{opm}
+  Een grootst gemene deler hoeft niet altijd te bestaan.
+  \TODO{voorbeeld p 64 algebra}
+\end{opm}
+
+\begin{opm}
+  In $\mathbb{Z}$ is een grootst gemene deler uniek op het teken na.
+  \extra{bewijs, na bewijs, maak hier een stelling van.}
+\end{opm}
+
+\subsection{Hoofdideaaldomein}
+\label{sec:hoofdideaaldomein}
+
+\begin{de}
+  Zij $R,+,\cdot$ een integriteitsdomein, dan noemen we $R,+,\cdot$ een \term{hoofdideaaldomein} (\term{HID}) als elk ideaal van $R$ een hoodideaal is.
+\end{de}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld, dan is $F[X]$ een HID.
+\TODO{bewijs p 65 algebra}
+\end{st}
+
+\begin{st}
+  Het criterium voor een HID\\
+  Zij $F,+,\cdot$ een veld met nulelement $e$ en $I \neq \{e\}$ een ideaal in $F[X]$, dan is een element $g\in I$ een voortbrenger van $I$ als en slechts als $g$ een veelterm is van minimale graad in $I\setminus \{ e \}$.
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld met nulelement $e$ en $I \neq \{e\}$ een ideaal in $F[X]$.
+  Als twee elementen $g$ en $g'$ van $F$ voortbrengers zijn van $I$, dan bestaat er een (eenheid?) $c\in F^{\times}$ zodat $g'=cg$ geldt.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een hoofdideaaldomein en $p\in R_{e}$, dan is $(p)$ een maximaal ideaal als en slechts als $p$ irreducibel is.
+  \TODO{bewijs p 66}
+\end{st}
+
+\begin{gev}
+  Zij $F,+,\cdot$ een veld en $p$ een irreducibele veelterm $F[X]$, dan is $F[X]/(p)$ een veld.
+\end{gev}
+
+\TODO{oefeningen p 66}
+
+\begin{st}
+  $\mathbb{Z} + \mathbb{Z}i$ is een HID.
+  \zb
+\end{st}
+
+\begin{st}
+  De \term{Stelling van Bezout}\\
+  Zij $R,+,\cdot$ een hoofdideaaldomein en $x_{1},\dotsc,x_{n}$ elementen van $R$.
+  \begin{itemize}
+  \item Er bestaat een grootste gemene deler van $x_{1},\dotsc,x_{n}$.
+  \item Voor elke grootste gemene deler $d$ van $x_{1},\dotsc,x_{n}$ bestaan er elementen $r_{1},\dotsc,r_{n}$ in $R$ zodat het volgende geldt:
+    \[ d = \sum_{i=1}^{n}r_{i}x_{i} \]
+  \end{itemize}
+\TODO{bewijs p 67 algebra}
+\end{st}
+
+\subsection{Unieke factorisatiedomeinen}
+\label{sec:unieke-fact}
+
+\begin{de}
+  Zij $R,+,\cdot$ een integriteitsdomein met nulelement $e$.
+  Men noemt $R,+,\cdot$ een \term{unieke factorisatiedomein} (\term{UDF}) als er voor elk element $x$ uit $R_{e}$ dat geen eenheid is het volgende geldt:
+  \begin{itemize}
+  \item Er bestaan irreducibele elementen $r_{1},r_{2},\dotsc,r_{n}$ in $R$ zodat we $x$ als volgt kunnen schrijven.
+    \[ x = \prod_{i=1}^{n} r_{i} \]
+  \item Deze ontbinding is bovendien uniek.
+    Als er immers nog elementen $r_{1}',r_{2}',\dotsc,r_{m}'$ in $R$ bestaan als volgt, geldt $m=n$ en zijn de overeenkomstige $r_{i}$ en $r'_{i}$ geassocieerd.
+    \[ x = \prod_{i=1}^{n} r_{i} = \prod_{i=1}^{m} r_{i} \]
+  \end{itemize}
+\end{de}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een uniek factorisatiedomein met nulelement $e$, en $r_{1},r_{2},\dotsc,r_{n}$ elementen uit $R_{e}$, dan bestaat er een grootst gemene deler van $x_{1},\dotsc,x_{n}$.
+  \begin{proof}
+  \[ x_{i} = u_{i}\prod_{j}r_{j}^{e_{ij}} \]
+\waarom
+\TODO{bewijs afmaken p 67}    
+\question{waar komen de eenheden $u_{i}$ vandaan?}
+  \end{proof}
+\end{ei}
+
+\begin{opm}
+  In bovenstaande eigenschap mogen er $r_{i}$ het nulelement zijn, maar niet allemaal.
+\end{opm}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een uniek factorisatiedomein met nulelement $e$, en $r_{1},r_{2},\dotsc,r_{n}$ elementen uit $R_{e}$, dan bestaat er een kleinst gemeen veelvoud van $x_{1},\dotsc,x_{n}$.
+  \extra{bewijs}
+\end{ei}
+
+\begin{st}
+  Zij $R,+,\cdot$ een UDF en $a$, $b$ elementen van $R$.
+  Als $d$ een grootste gemene deler is van $a$ en $b$ en $v$ een kleinst gemeen veelvoud van $a$ en $b$, dan zijn $d\cdot v$ en $a\cdot b$ geassocieerd.
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elk HID is een UDF.
+\TODO{bewijs p 68}
+\end{st}
+
+\begin{lem}
+  Zij $I_{0} \subseteq I_{1} \subseteq \dotsb \subseteq I_{n} \subseteq \dotsb $ een keten van idealen in een HID $R,+,\cdot$, dan bestaat er een index $k$ zodat $I_{k} = I_{n}$ voor alle $n$ groter dan $k$.
+  In andere woorden: ``De keten stabiliseert''.
+\TODO{bewijs p 68}
+\end{lem}
+
+\begin{lem}
+  Zij $p$ een irreducibel element in een HID $R,+,\cdot$
+  \[ p|ab \Rightarrow p|a \vee p|b \]
+\TODO{bewijs p 68}
+\end{lem}
+
+\begin{gev}
+  Zij $F$ een veld, dan is $F[X]$ een UFD.
+\end{gev}
+
+\begin{st}
+  Zij $R,+,\cdot$ een UFD, dan is $R[X]$ ook een UFD.
+  \zb
+\end{st}
+
+\begin{gev}
+  $\mathbb{Z}[X_{1},\dotsc,X_{n}]$ en $F[X_{1},\dotsc,X_{n}]$ met $F$ een veld zijn UFD's.
+\extra{bewijs}
+\end{gev}
+
+\subsubsection{Een toepassing van UFD's: rare dobbelstenen}
+\label{sec:een-toepassing-van-ufds}
+
+\TODO{dobbelstenen bewijs?}
 
 
 \section{Codetheorie}
@@ -1386,31 +1641,6 @@
 
 \TODO{zeker een voorbeeld maken, wss examenvraag!}
 
-
-\section{Het veld der breuken}
-\label{sec:het-veld-der}
-
-\begin{st}
-  Zij $D,+,\cdot$ een integriteitsdomein, dan is het mogelijk om een veld $F,\star,*$ te construeren zodat ...
-  \begin{itemize}
-  \item ... $R,+,\cdot$ isomorf is met een deelring $R'$ van $F$.
-  \item ... ieder element in $F$ te schrijven valt als $p\star q^{-1}$ met $p,q \in R'$.
-  \end{itemize}
-\TODO{bewijs p 139}
-\end{st}
-
-\begin{de}
-  Het veld $F$ uit de vorige stelling noemt met het \term{veld der breuken} of het \term{veld der quoti\"enten} van $R$.
-\end{de}
-
-\begin{opm}
-  Men kan $F$ zien als een uitbreiding van $R$ (isomorf met $R'$) zodat in $F$ elk niet-nulelement van $R$ een inverse heeft gekregen.
-\end{opm}
-
-\begin{st}
-  Het breukenveld van een integriteitsdomein is op isomorfisme na uniek.
-\extra{zeker? bewijs!}
-\end{st}
 
 \end{document}
 
