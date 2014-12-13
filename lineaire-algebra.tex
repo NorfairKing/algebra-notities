@@ -150,7 +150,7 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \end{st}
 
 \begin{pr}
-  Zij $K,+,\cdot$ een veld en $A$ een lineaire tranfformatie van een eindigdimensionale $K$-vectorruimte $V$, dan is $\lambda\in K$ een eigenwaarde van $A$ als en slechts als $\lamda$ een wortel is van de karakteristieke veelterm van $A$.
+  Zij $K,+,\cdot$ een veld en $A$ een lineaire tranfformatie van een eindigdimensionale $K$-vectorruimte $V$, dan is $\lambda\in K$ een eigenwaarde van $A$ als en slechts als $\lambda$ een wortel is van de karakteristieke veelterm van $A$.
 \extra{bewijs}
 \end{pr}
 
@@ -182,5 +182,507 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \begin{opm}
   Als $K,+,\cdot$ een algebra\"isch gesloten veld is zijn alle matrices en lineaire transformaties van eindigdimensionale vectorruimtes over $K$ trianguleerbaar.
 \end{opm}
+
+\section{Cayley-Hamilton}
+\label{sec:cayley-hamilton}
+
+\subsection{$K$-algebra's}
+\label{sec:k-algebras}
+
+\begin{de}
+  ZIj $K,+,\cdot$ een veld.
+  Een $K$-\term{algebra} $A,+,\cdot,\bowtie$ is een verzameling $A$ voorzien van twee inwendige bewerkingen...
+  \[ (+):\ A \times A \rightarrow A \quad\text{ en }\quad (\cdot): A \times A \rightarrow A \]
+  ... en een scalaire vermenigvuldiging (een uitwendige bewerking)...
+  \[ \bowtie: K \times A \rightarrow A: (k,a) \mapsto k \bowtie a \]
+  ... met de volgende eigenschappen:
+  \begin{itemize}
+  \item $A,+,\cdot$ is een ring.
+  \item $K,A,+$ is een vectorruimte met scalaire vermenigvuldiging $\bowtie$.
+  \item $\forall a,b \in A: \forall k \in K: k \bowtie (a\cdot b) = (k \bowtie a) \cdot b = a \cdot (k \bowtie b)$
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Een $K$-algebra $A,+,\cdot,\bowtie$ is \term{commutatief} als de ring $A,+,\cdot$ commutatief is.
+\end{de}
+
+\begin{de}
+  Een $K$-algebra $A,+,\cdot,\bowtie$ heeft een eenheidselement als de ring $A,+,\cdot$ een eenheidselement heeft.
+\end{de}
+
+\begin{de}
+  Zij $M \in M^{n\times n}(K)$ een matrix over $K$.
+  We kunnen $M$ substitueren voor $X$ in een veelterm $g\in K[X]$ over $K$.
+  \[ g = \sum_{i=0}^{r}k_{i}\cdot X^{i} \]
+  \[ g(M) = \sum_{i=0}k_{i}\bowtie M^{i} \in M^{n\times n}(K)\text{ met } M^{0} = \mathbb{I}_{n} \]
+\end{de}
+
+\begin{de}
+  Zij $V$ een $K$-vectorruimte van willekeurige dimensie.
+  Een lineare transformatie $A \in Hom(V,V)$ kunnen we substitueren voor $X$ in een veelterm $g\in K[X]$ over $K$.
+  \[ g = \sum_{i=0}^{r}k_{i}\cdot X^{i} \]
+  \[ g(A) = \sum_{i=0}k_{i}\bowtie M^{i} \text{ met } A^{0} = Id \text{ en } A^{n} = A\circ A^{n-1}\]
+\end{de}
+
+\begin{de}
+  Zij $K,+,\cdot$ een veld en $A,+,\cdot,\bowtie$ en $B,+,\cdot,\heartsuit$ $K$-algebra's.
+  Een $K$-\term{algebramorfisme} is een afbeelding $f$ met de volgende eigenschappen.
+  \[ f:\ A \rightarrow B:\ a \mapsto f(a) \]
+  \[ \forall k\in K: a\in A: f(k\bowtie a) = k \heartsuit f(b) \]
+\question{klopt dit? was oefening}
+\end{de}
+
+\begin{st}
+  Zij $M\in M^{n\times n}(K)$ een matrix over $K$ De afbeelding $\phi$ is een $K$-algebramorfisme:
+  \[ \phi:\ K[X] \rightarrow M^{n\times n}(K): g \mapsto g(M) \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  De volgende verzameling is een commutatieve deel-$K$-algebra van $M^{n\times n}(K)$.
+  \[ \{ g(M) \ |\ g \in K[X] \} \]
+\extra{bewijs}
+\end{st}
+
+\subsection{Cayley-Hamilton}
+\label{sec:cayley-hamilton-1}
+
+\begin{ei}
+  Zij $K,+,\cdot$ een veld en $A\in M^{n\times n}(K)$ een matrix, dan bestaat er een veelterm $g\in K[X]$ met $g$ verschillend van de nulveelterm zodat $A$ een wortel is van $g$.
+\TODO{bewijs p 111}
+\end{ei}
+
+\begin{st}
+  Zij $K,+,\cdot$ een veld.
+  Zij $A$ een lineaire transformatie van een eindigdimensionale $K$-vectorruimte (of een $n\times n$ matrix over $K$). Noteer met $f_{A}$ de karakteristieke veelterm van $A$.
+  \[ f_{A}(A) = 0 \]
+\TODO{bewijs p 112}
+\end{st}
+
+\section{Minimale veeltermen}
+\label{sec:minimale-veeltermen}
+
+\begin{de}
+  Zij $K,+,\cdot$ en $A$ een lineaire transformatie van een eindigdimensionale $K$-vectorruimte (of een $n\times n$ matrix over $K$).
+  De \term{minimale veelterm} van $A$ is de (unieke) monische veelterm $g\in K[X]$ van minimale graad zodat $g(A) = 0$ geldt.
+  We noteren de minimale veelterm van $A$ als $\phi_{A}$.
+\end{de}
+
+\begin{ei}
+  Zij $A$ een lineaire transformatie van een eindigdimensionale $K$-vectorruimte $V$ en $M$ de matrix van $A$ ten opzichte van een basis van $V$.
+  \[ \phi_{A} = \phi_{M} \]
+\extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $K'$ een velduidbreiding van een veld $K,+,\cdot$ en $M\in M^{n\times n}(K)$ een matrix over $K$ met minimale veelterm $\phi_{M} \in K[X]$.
+  We kunnen $M$ ook beschouwen als element van $M^{n\times n}(K')$ met minimale veelterm $\phi'_{M} \in K'[X]$
+  \[ \phi_{M} = \phi'_{M} \]
+\TODO{bewijs p 115}
+\end{ei}
+
+\subsection{Decompositie via minimale veelterm}
+\label{sec:decomp-via-minim}
+
+\begin{pr}
+  Zij $K,+,\cdot$ een veld en $V$ een eindigdimensionale $K$-vectorruimte.
+  Zij $A$ een lineaire transformatie van $V$ met minimale veelterm $\phi_{A}$.
+  Zij $\phi_{A} = \phi_{1} \cdot \phi_{2}$ met $\phi_{1}$ en $\phi_{2}$ monische veeltermen over $K$ en relatief priem.
+  We beschouwen de lineaire transformaties $\phi_{1}(A)$ en $\phi_{2}(A)$ van $V$ en definieren $V_{1}$ en $V_{2}$ als volgt:
+  \[ V_{1} = Ker(\phi_{1}(A)) \quad\text{ en }\quad V_{2} = Ker(\phi_{2}(A)) \]
+  \begin{itemize}
+  \item $V_{1} = Im(\phi_{2}(A))$ en $V_{2} = Im(\phi_{1}(A))$
+  \item $V = V_{1} \oplus V_{2}$, $A(V_{1}) \subseteq V_{1}$ en $A(V_{2}) \subseteq V_{2}$.
+  \item De minimale veelterm van $A|_{V_{1}}$ is $\phi_{1}$ en de minimale veelterm van $A|_{V_{2}}$ is $\phi_{2}$.
+  \end{itemize}
+\TODO{bewijs p 116}
+\end{pr} 
+
+\begin{gev}
+  Zij $K,+,\cdot$ een veld en $V$ een eindigdimensionale $K$-vectorruimte.
+  Zij $A$ een lineaire transformatie van $V$ met minimale veelterm $\phi_{A}$.
+  Zij $\phi_{A} = \phi_{1}^{p_{1}}\cdot phi_{2}^{p_{2}}\cdot \dotsb phi_{k}^{p_{k}}$ met $\phi_{1},\dotsc,\phi_{k}\in K[X]$ onderling verschillende monische irreducibele veeltermen.
+  Noteer $V_{i} = Ker(\phi_{i}(A)^{p_{i}}$.
+  \[ V = V_{1} \oplus V_{2} \oplus \dotsb \oplus V_{k} \]
+  \[ \forall i: A(V_{i}) \subseteq V_{i} \]
+  De minimale veelterm van $A|_{V_{i}}$ is $\phi_{i}^{p_{i}}$.
+\extra{bewijs}
+\end{gev}
+
+\begin{st}
+  Zij $K,+,\cdot$ een algebra\"isch gesloten vold en $V$ een eindigdimensionale $K$-vectorruimte.
+  Zij $A$ een lineaire transformatie van $V$ met minimale veelterm $\phi_{A}$.
+  \[ \phi_{A} = \prod_{i=1}^{k}(X-c_{i})^{p_{i}} \]
+  In bovenstaande gelijkheid zijn alle $c_{i} \in K$ verschillend.
+  Noteer $V_{i}=Ker((A-c_{i}I)^{p_{i}})$.
+  \begin{itemize}
+  \item $V = \bigoplus_{i=1}^{k}V_{i}$, $A(V_{i}) \subseteq V_{i}$ en de minimale veelterm van $A_{i} = A|_{V_{i}}$ is $(X-c_{i})^{p_{i}}$.
+  \item De eigenwaarden van $A$ zijn de $c_{i}$
+  \item Noteer $m_{i}$ voor de dimensie van $V_{i}$.
+    De karakteristieke veeltermen $f_{A}$ en $f_{A_{i}}$ van $A$ en $A_{i}$ zijn gegeven als volgt:
+    \[ f_{A_{i}} = (X-c_{i})^{m_{i}} \quad\text{ en }\quad f_{A} = \prod_{i=1}^{k}f_{A_{i}} \]
+  \end{itemize}
+\TODO{bewijs p 118}
+\end{st}
+
+\begin{de}
+  De deelruimte $V_{i}$ noemt men de \term{veralgemeende eigenruimte} of \term{karakteristieke deelruimte} van de eigenwaarde $c_{i}$.
+\end{de}
+
+\begin{ei}
+  Zij $K,+,\cdot$ een veld en $A$ een lineaire transformatie van een eindigdimensionale $K$-vectorruimte, dan hebben $\phi_{A}$ en $f_{A}$ dezelfde irreducibele factoren in $K[X]$.
+\end{ei}
+
+\subsection{Diagonaliseren}
+\label{sec:diagonaliseren}
+
+\begin{st}
+  Zij $K,+,\cdot$ een willekeurig veld, $V$ een eindigdimensionale $K$-vectorruimte en $A$ een lineaire transformatie van $V$.
+  $A$ is diagonaliseerbaar (over $K,+,\cdot$) als en slechts als de minimale veelterm $\phi_{A}\in K[X]$ van $A$ het product is van onderling verschillende lineaire veeltermen in $K[X]$.
+  \[ \phi_{A} = \prod_{i=1}^{k}(X-c_{i}) \text{ met } \forall i,j:\ c_{i} \neq c_{j} \]
+\TODO{bewijs p 119}
+\end{st}
+
+\begin{ei}
+  Zij $K,+,\cdot$ een veld en $M\in M^{n\times n}(K)$ een matrix, dan bestaat er een matrix $P \in GL_{n}(K)$ zodat $P^{-1}MP$ een diagonaalmatrix is als en slechts als de minimale veelterm $\phi_{M}\in K[X]$ van $M$ het product is van onderling verschillende lineaire veeltermen in $K[X]$.
+\extra{bewijs} 
+\end{ei}
+
+\section{Nilpotente transformaties en Jordanvorm}
+\label{sec:nilp-transf-en}
+
+\subsection{Nilpotente transformaties}
+\label{sec:nilp-transf}
+
+\begin{de}
+  Zijk $K,+,\cdot$ een willekeurig veld.
+  Een lineaire transformatie $A$ van een (niet-triviale) $K$-vectorruimte $V$(, of een matrix $A\in M^{n\times n}(K)$) is \term{nilpotent} van index $k\in \mathbb{N}_{0}$ als het volgende geldt:
+  \[ A^{k} = 0 \text{ en } A^{k-1} \neq 0 \]
+\end{de}
+
+\begin{ei}
+  Een lineaire transformatie $A$ van een eindigdimensionale $K$-vectorruimte $V$(, of een matrix $A\in M^{n\times n}(K)$) is nilpotent van index $k$ als en slechts als de minimale veelterm $\phi_{A}$ gelijk is aan $X^{k}$.
+\extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $K,+,\cdot$ een veld en $V$ een eindigdimensionale $K$-vectorruimte.
+  Zij $A$ een nilpotente transformatie van $V$ van index $k$.
+  Neem $v\in V$ een vector zodat $A^{k-1}(v) \neq \vec{0}$.
+  $v, A(v), A^{2}(V), \dotsc, A^{k-1}(v)$ zijn lineair onafhankelijk in $V$.
+\TODO{bewijs p 122}
+\end{ei}
+
+\begin{st}
+  Zij $K,+,\cdot$ een veld en $V$ een $K$-vectorruimte van eindige dimensie $n$.
+  Zij $A$ een nilpotente transformatie van $V$ van index $k$, dan bestaan er...
+  \begin{itemize}
+  \item ... strikt positieve natuurlijke getallen $p$ en $k_{1}, \dotsc, k_{p}$ met $k_{i} \le k_{i+1}$ als volgt:
+    \[ \sum_{i=1}^{p}k_{i} = n \]
+  \item ...  en $p$ vectoren $v_{i}\in V$ met $A^{k_{i}}(v_{i}) = 0$ ...
+  \end{itemize}
+  ... zodat de volgende verzameling een basis vormt van $V$.
+  \[ \bigcup_{i=1}^{p} \{ v_{i}, A(v_{i}), \dotsc, A^{k_{i}-1}(v_{i}) \} \]
+  Bovendien zijn $p$ en de $k_{i}$ hierin uniek bepaald.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  De $k_{1}, \dotsc, k_{p}$ uit vorige stelling noemen we het \term{invariant systeem} van de nilpotente verzameling $A$.
+\end{de}
+
+\begin{gev}
+  Zij $K,+,\cdot$ een veld en $V$ een eindigdimensionale $K$-vectorruimte.
+  Zij $A$ een nilpotente transformatie van $V$ van index $k$ en met invariant systeem $\{k =k_{1},\dotsc,k_{p}\}$
+  Er bestaat dan een basis van $V$ zodat de matrix van $A$ ten opzicte van die basis de volgende blokvorm heeft:
+  \[ 
+  \begin{pmatrix}
+    A_{1} & 0 & \hdots & 0\\
+    0 & A_{2} & \hdots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \hdots & A_{p}\\
+  \end{pmatrix}
+  \]
+  Hierin is elke $A_{i}$ een $k_{i}\times k_{i}$-matrix met de volgende vorm:
+  \[ 
+  \begin{pmatrix}
+    0 & 0 & 0 & \hdots & 0 & 0 & 0\\
+    1 & 0 & 0 & \hdots & 0 & 0 & 0\\
+    0 & 1 & 0 & \hdots & 0 & 0 & 0\\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
+    0 & 0 & 0 & \hdots & 0 & 0 & 0\\
+    0 & 0 & 0 & \hdots & 1 & 0 & 0\\
+    0 & 0 & 0 & \hdots & 0 & 1 & 0\\
+  \end{pmatrix}
+  \]
+\extra{bewijs}
+\end{gev}
+
+\begin{pr}
+  Zij $K,+,\cdot$ een veld en zij gegeven strikt positieve natuurlijke getallen $n$, $p$ en $k_{1}, \dotsc, k_{p}$ zodat $n$ de som is van de $k_{i}$.
+  \begin{itemize}
+  \item Er bestaat voor elke $K$-vectorruimte $V$ van dimensie $n$ een nilpotente transformatie van $V$ met invariant syteem $k_{1}, \dotsc, k_{p}$.
+  \item Zij $V$ en $V'$ precies zo'n $K$-vectorruimten en $A$ en $A'$ nilpotente transformaties met dat invariant systeem, dan bestaat er een isomorfisme (van $K$-vectorruimte) $f: V\rightarrow V'$ zodat het volgende diagram commuteert:
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}
+        \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+        {
+          V & V \\
+          V' & V' \\};
+        \path[-stealth]
+        (m-1-1) edge node [left] {$f$} (m-2-1)
+        edge node [above] {$A$} (m-1-2)
+        (m-2-1.east|-m-2-2) edge node [below] {$A'$} (m-2-2)
+        (m-1-2) edge node [right] {$f$} (m-2-2);
+      \end{tikzpicture}
+    \end{figure}
+  \end{itemize}
+  \extra{bewijs}
+\end{pr}
+
+\subsection{Jordanvorm}
+\label{sec:jordanvorm}
+
+\begin{de}
+  Zij $K,+,\cdot$ een veld en $c\in K$ een element van $K$.
+  We definieren voor $k\in \mathbb{N}_{0}$ een matrix $J(c;k)$ als volgt:
+  \[
+  J(c;k) = 
+  \begin{pmatrix}
+    c & 0 & 0 & \hdots & 0 & 0 & 0\\
+    1 & c & 0 & \hdots & 0 & 0 & 0\\
+    0 & 1 & c & \hdots & 0 & 0 & 0\\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
+    0 & 0 & 0 & \hdots & c & 0 & 0\\
+    0 & 0 & 0 & \hdots & 1 & c & 0\\
+    0 & 0 & 0 & \hdots & 0 & 1 & c\\
+  \end{pmatrix}
+  \in M^{k\times k}(K)
+  \]
+  We definieren $J(c;k_{1},\dotsc,k_{p})$ verder als de volgende blokmatrix:
+  \[
+  J(c;k_{1},\dotsc,k_{p}) = 
+  \begin{pmatrix}
+    J(c;k_{1}) & 0 & \hdots & 0\\
+    0 & J(c;k_{2}) & \hdots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \hdots & J(c;k_{p})\\
+  \end{pmatrix}
+  \in M^{n\times n}(K)
+  \]
+\end{de}
+
+\begin{de}
+  Een \term{Jordanmatrik} over een veld $K,+,\cdot$ is een blokmatrix van de volgende vorm, waarin de $c_{i}$ onderling verschillende elementen zijn van $K$.
+  \[
+  \begin{pmatrix}
+    J(c;k_{1}^{(1)},\dotsc,k_{p}^{(2)}) & 0 & \hdots & 0\\
+    0 & J(c;k_{1}^{(2)},\dotsc,k_{p}^{(2)}) & \hdots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \hdots & J(c;k_{1}^{(m)},\dotsc,k_{p}^{(m)})\\
+  \end{pmatrix}
+  \]
+\end{de}
+
+\begin{st}
+  Zij $K,+,\cdot$ een algebra\"isch gesloten veld en $A$ een lineaire transformatie van een eindigdimensionale $K$-vectorruimte, dan bestaat er een basis van $V$ zodat de matrix $A$ ten opzichte van die basis een Jordanmatrix is.
+  Deze matrix is bovendien uniek op de volgorde van de blokken na.
+  \TODO{bewijs p 126}
+\end{st}
+
+\begin{ei}
+  Zij $K,+,\cdot$ een algebra\"isch gesloten veld.
+  Zij $V$, respectievelijk $V'$ een $K$-vectorruimte van dimensie $n$ en $A$, respectievelijk $A'$ een lineaire transformatie hierop.
+  $A$ en $A'$ hebben dezelfde Jordanvorm als en slechs als er een isomorfisme van $K$-vectorruimten $f$ bestaat zodat het volgende diagram commuteert
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+      {
+        V & V \\
+        V' & V' \\};
+      \path[-stealth]
+      (m-1-1) edge node [left] {$f$} (m-2-1)
+      edge node [above] {$A$} (m-1-2)
+      (m-2-1.east|-m-2-2) edge node [below] {$A'$} (m-2-2)
+      (m-1-2) edge node [right] {$f$} (m-2-2);
+    \end{tikzpicture}
+  \end{figure}
+  \extra{bewijs}
+\end{ei}
+
+\begin{de}
+  Zij $K,+,\cdot$ een algebra\"isch gesloten veld.
+  Zij $M\in M^{n\times n}(K)$ een matrix over $K$.
+  De Jordanvorm van $M$ is de unieke Jordanmatrix $J\in M^{n\times n}(K)$ zodat er een $P\in GL_{n}(K)$ bestaat opdat $J = P^{-1}MP$ geldt.
+\end{de}
+
+\begin{pr}
+  Twee matrices $M$, $M'$ over $K$ hebben dezelfde Jordanvorm als en slechts als er een $P\in GL_{n}(K)$ bestaat met $M' = P^{-1}MP$.
+  Met andere woorden: ``Gelijkvormige matrices hebben dezelfde Jordanvorm.''
+\extra{bewijs}
+\end{pr}
+
+\section{Normale transformaties}
+\label{sec:norm-transf}
+
+\subsection{Inproducten}
+\label{sec:inproducten}
+
+\begin{de}
+  Zij $V$ een $\mathbb{R}$-vectorruimte.
+  Een \term{inproduct} is een afbeelding $\langle \cdot, \cdot\rangle$ ...
+  \[ \langle \cdot , \cdot \rangle :\ V \times V \rightarrow \mathbb{R}:\ (v,w) \mapsto \langle v, w \rangle \]
+  ... met de volgende eigenschappen: 
+  \begin{itemize}
+  \item $\forall v, w \in V:\ \langle v,w \rangle = \langle w, v \rangle$
+  \item $\forall v,v',w \in V,\ \forall \alpha,\beta \in \mathbb{R}:\ \langle \alpha v + \beta v', w \rangle = \alpha \langle v,w \rangle + \beta \langle v', w \rangle $ (lineariteit)
+  \item $\forall v\in V:\ \langle v,v \rangle \in \mathbb{R}^{+}$
+  \item $\forall v\in V:\ \langle v,v \rangle = 0 \Leftrightarrow v = \vec{0}$
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Zij $V$ een $\mathbb{C}$-vectorruimte.
+  Een \term{hermetisch product} is een afbeelding $\langle \cdot, \cdot\rangle$ ...
+  \[ \langle \cdot , \cdot \rangle :\ V \times V \rightarrow \mathbb{R}:\ (v,w) \mapsto \langle v, w \rangle \]
+  ... met de volgende eigenschappen:
+  \begin{itemize}
+  \item $\forall v, w \in V:\ \langle v,w \rangle = \overline{\langle w, v \rangle}$
+  \item $\forall v,v',w \in V,\ \forall \alpha,\beta \in \mathbb{C}:\ \langle \alpha v + \beta v', w \rangle = \overline{\alpha} \langle v,w \rangle + \overline{\beta} \langle v', w \rangle $ (toegevoegde lineariteit)
+  \item $\forall v\in V:\ \langle v,v \rangle \in \mathbb{R}^{+}$
+  \item $\forall v\in V:\ \langle v,v \rangle = 0 \Leftrightarrow v = \vec{0}$
+  \end{itemize}
+\end{de}
+
+\begin{de}
+  Een re\"ele of complexe vectorruimte, uitgerust met een inproduct of hermitisch product, noemen we een \term{inproductruimte}.
+\end{de}
+
+\begin{de}
+  Zij $V$ een re\"ele of complexe inproductruimte.
+  Voor elke vector $v\in V$ defini\"eren we de \term{norm} $|v|$ van $v$ als volgt:
+  \[ |v| = \sqrt{\langle v,v\rangle} \]
+\end{de}
+
+\begin{de}
+  Zij $V$ een re\"ele of complexe inproductruimte.
+  Twee vectoren $v$ en $w$ uit $V$ noemen we \term{orthogonaal} als hun inproduct nul is.
+\end{de}
+
+\begin{de}
+  Zij $V$ een re\"ele of complexe inproductruimte.
+  Twee vectoren $v$ en $w$ uit $V$ noemen we \term{orthonormaal} als zo orthogonaal zijn en norm $1$ hebben.
+\end{de}
+
+\begin{st}
+  De \term{ongelijkheid van Cauchy-Schwarz}\\
+  Zij $V$ een re\"ele of complexe inproductruimte.
+  \[ \forall v,w \in V:\ |\langle v,w \rangle| \le |v| \cdot |w| \]
+\TODO{bewijs p 3}
+\end{st}
+
+\begin{de}
+  Zij $V,\langle\cdot,\cdot\rangle$ en $W,[\cdot,\cdot]$ inproductruimten over hetzelfde veld.
+  Een lineaire afbeelding $A:V \rightarrow W$ heet een \term{isometrie} als het volgende geldt:
+  \[ \forall v,w \in V: \langle v,w \rangle = [A(v),A(w)] \]
+\end{de}
+
+\begin{ei}
+  Een isometrie is bijectief.
+\extra{bewijs}
+\end{ei}
+
+\begin{ei}
+  Zij $A$ een lineaire afbeelding van de inproductruimte $V,\langle\cdot,\cdot\rangle$ naar de inproductruimte $W,[\cdot,\cdot]$.
+  $A$ is een isometrie als en slechts als $A$ de norm van vectoren bewaart.
+  \[ \forall v \in V:\ |v| = |A(v)| \]
+\TODO{bewijs p 3}
+\end{ei}
+
+\subsection{De adjunct van een lineaire transformatien}
+\label{sec:de-adjunct-van}
+
+\begin{st}
+  Zij $V,\langle\cdot,\cdot\rangle$ een eindigdimensionale re\"ele of complexe inproductruimte en zij $A\in Hom(V,V)$ een lineaire transformatie van $V$.
+  Er bestaat een unieke lineaire transformatie $A^{*} \in Hom(V,V)$ zodat het volgende geldt:
+  \[ \langle A(v),w \rangle = \langle v, A^{*}(w) \rangle \]
+\TODO{bewijs p 4}
+\end{st}
+
+\begin{de}
+  De lineaire transformatie $A^{*}$ uit de vorige stelling noemen we de \term{adjuncte lineaire transformatie} van $A$.
+\end{de}
+
+\begin{de}
+  De adjunct $M^{*}$ van een matrix $M$ is de matrix $\overline{M}^{T}$.
+\end{de}
+
+\begin{ei}
+  Zij $V,\langle\cdot,\cdot\rangle$ een eindigdimensionale re\"ele of complexe inproductruimte. 
+  Zij $\varepsilon$ een orthonormale basis van $V$ en $A \in Hom{V,V}$ een lineaire tranformatie van $V$.
+  Als $M$ de matrix is van $A$ ten opzichte van $\varepsilon$, dan is $M^{*}$ de matrix van $A^{*}$ ten opzichte van $\varepsilon$.
+\TODO{bewijs p 6}
+\end{ei}
+
+\subsection{Normale transformaties}
+\label{sec:norm-transf-1}
+
+\begin{de}
+  Zij $V,\langle\cdot,\cdot\rangle$ een inproductruimte en $A\in H(V,V)$ een lineaire transformatie van $V$ waarvoor de adjunct $A^{*}$ bestaat.
+  \begin{itemize}
+  \item We noemen $A$ \term{normaal} als $A\circ A^{*} = A^{\circ} \circ A$ geldt.
+  \item We noemen $A$ \term{hermetisch} als $A=A^{*}$ geldt.
+  \item We noemen $A$ \term{unitair} als $A^{-1} = A^{*}$ geldt.
+  \end{itemize}
+\end{de}
+\TODO{eigenschappen p 7}
+
+\begin{lem}
+  Zij $V,\langle\cdot,\cdot\rangle$ een inproductruimte en $A,B \in H(V,V)$ lineaire transformaties van $V$.
+  \begin{itemize}
+  \item $(A+B)^{*} = A^{*} + B^{*}$
+  \item $(A^{k})^{*} = (A^{*})^{k}$
+  \item $(\lambda A)^{*} = \overline{\lamda}A^{*}$ voor $\lamda \in F$.
+  \end{itemize}
+\TODO{bewijs p 8}
+\end{lem}
+
+\begin{lem}
+  Zij $A$ een normale transformatie van een inproductruimte $V,\langle\cdot,\cdot\rangle$.
+  \begin{itemize}
+  \item Voor alle $f\in F[X]$ is $f(A)$ een normale transformatie van $V$.
+  \item $\forall v\in V: |A(v)| = |A^{*}(v)|$
+  \item Als $v$ een eigenvector is van $A$ bij eigenwaarde $\lambda \in F$, dan is $v$ een eigenvector van $A^{*}$ bij eigenwaarde $\overline{\lambda}$. 
+  \item Eigenvectoren van $A$ bij verschillende eigenwaarden zijn orthogonaal.
+  \item Zij $v$ een vector in $V$.
+    \[ A^{k}(v) = 0 \Rightarrow A(v) = 0 \]
+  \end{itemize}
+\TODO{bewijs p 8}
+\end{lem}
+
+\begin{lem}
+  Zij $V,\langle\cdot,\cdot\rangle$ een eindigdimensionale complexe improductruimte.
+  Zij $A\in Hom(V,V)$ een normale transformatie.
+  De minimale veelterm $\varphi_{A}$ een product van verschillende lineaire factoren.
+\TODO{bewijs p 9}
+\end{lem}
+
+\begin{st}
+  Zij $V,\langle\cdot,\cdot\rangle$ een eindigdimensionale complexe improductruimte.
+  $A$ is normaal als en slechts als $V$ een orthonormale basis van eigenvectoren voor $A$ heeft.
+  \TODO{bewijs p 9}
+\end{st}
+
+\begin{gev}
+  Zij $M$ een normale matrix, dan bestaat er een unitaire matrix $U$ zodat $U^{-1}MU$ een diagonaalmatrix is.
+  \extra{bewijs}
+\end{gev}
+
+\begin{de}
+  Zij $O$ een re\"ele matrix, dan heet $O$ \term{orthogonaal} als $O^{T}= O^{-1}$ geldt.
+\end{de}
 
 \end{document}
