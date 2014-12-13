@@ -1,0 +1,186 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Lineaire Algebra}
+\label{cha:lineaire-algebra}
+
+\section{Herhaling}
+\label{sec:herhaling}
+
+\subsection{Conventies}
+\label{sec:conventies}
+
+
+In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vectorruimte $V,+,\cdot$ van eindige dimensie $n$.
+
+\begin{de}
+  Een $K$-lineaire afbeelding van $V$ naar $V$ noemen we ook een \term{lineaire transformatie}, \term{(lineaire) operator} of \term{endomorfisme} van $V$.
+\end{de}
+
+\begin{st}
+  Zij $\varepsilon = \{e_{1},\dotsc,e_{n}\}$ en $\varepsilon'= \{ e_{1}',\dotsc,e_{n}'\}$ twee basissen van $V$.
+  De matrix $P \in M^{n\times n}(K)$ van basisverandering van $\varepsilon$ naar $\varepsilon'$ heeft in de $j$-de kolomn de co\"ordinaten van $e_{j}'$ ten opzichte van $\varepsilon$.
+  \[ e_{j}' = \sum_{i=1}^{n}c_{ij}e_{i} \]
+  \[
+  P = 
+  \begin{pmatrix}
+    c_{11} & c_{12} & \hdots & c_{1n}\\
+    c_{21} & c_{22} & \hdots & c_{2n}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    c_{n1} & c_{n2} & \hdots & c_{nn}\\
+  \end{pmatrix}
+  \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $A$ een lineaire transformatie van $V$.
+  De matrix $M\in M^{n\times n}(K)$ van $A$ ten opzichte van een basis $\varepsilon = \{e_{1},\dotsc,e_{n}\}$ van $V$ heeft in de $j$-de kolom de co\"ordinaten van $A(e_{j})$ ten opzichte van $\varepsilon$.
+  \[ A(e_{j}) = \sum_{i=1}^{n}a_{ij}e_{j} \]
+  \[ 
+  M = 
+  \begin{pmatrix}
+    a_{11} & a_{12} & \hdots & a_{1n}\\
+    a_{21} & a_{22} & \hdots & a_{2n}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    a_{n1} & a_{n2} & \hdots & a_{nn}\\
+  \end{pmatrix}
+  \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $\varepsilon = \{e_{1},\dotsc,e_{n}\}$ en $\varepsilon'= \{ e_{1}',\dotsc,e_{n}'\}$ twee basissen van $V$ en $P$ de matrix van basisverandering van $\varepsilon$ naar $\varepsilon'$.
+  \[ 
+  \begin{pmatrix}
+    e'_{1} & e'_{2} & \hdots & e'_{n}\\
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    e_{1} & e_{2} & \hdots & e_{n}\\
+  \end{pmatrix}
+  P
+  \]
+\extra{bewijs}
+\end{st}
+ 
+\begin{st}
+  Zij $x_{1},\dotsc,x_{n}\in K$ de co\"ordinaten van $v\in V$ ten opzicht van $\varepsilon$ en $x'_{1},\dotsc,x'_{n}\in K$ de co\"ordinaten van diezelfde $v$ ten opzicht van $\varepsilon'$.
+  \[ v = \sum_{i=1}^{n}x_{i}e_{i} = \sum_{i=1}^{n}x'_{i}e'_{i}\]
+  \[ 
+  \begin{pmatrix}
+    x_{1} \\ x_{2} \\ \vdots \\ x_{n}\\
+  \end{pmatrix}
+  =
+  P
+  \begin{pmatrix}
+    x'_{1} \\ x'_{2} \\ \vdots \\ x'_{n}\\
+  \end{pmatrix}
+  \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zi $A$ een lineaire transformatie van $V$ en $M$ de matrix van $A$ ten opzichte van $\varepsilon$.
+  Zij $x_{1},\dotsc,x_{n}\in K$ de co\"ordinaten van $v\in V$ ten opzichte van $\varepsilon$ en $y{1},\dotsc,y_{n}\in K$ de co\"ordinaten van $A(v)$ ten opzichte van $\varepsilon$.
+  \[ 
+  \begin{pmatrix}
+    y_{1} \\ y_{2} \\ \vdots \\ y_{n}\\
+  \end{pmatrix}
+  =
+  M
+  \begin{pmatrix}
+    x_{1} \\ x_{2} \\ \vdots \\ x_{n}\\
+  \end{pmatrix}
+  \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij ook nog $M'$ de matrix van $A$ ten opzichte van $\varepsilon'$.
+  \[ M' = P^{-1}MP \]
+  $M$ en $M'$ zijn dus gelijkvormig.
+\extra{bewijs}
+\end{st}
+
+\subsection{Herhaling}
+\label{sec:herhaling-1}
+
+\begin{de}
+  Zij $K,+,\cdot$ een veld en $V,+,\cdot$ een eindigdimensionale $K$-vectorruimte.
+  Een lineaire transformatie $A$ van $V,+,\cdot$ noemen we \term{diagonaliseerbaar} over $K,+,\cdot$ als er een basis van $V,+,\cdot$ bestaat zodat de matrix van $A$ ten opzichte van die basis een diagonaalmatrix is over $K$.
+\end{de}
+
+\begin{de}
+  Een matrix $M\in M^{n\times n}(K)$ is diagonaliseerbaar over $K$ als er een matrix $P\in GL_{n}(K)$ bestaat zodat $P^{-1}MP$ een diagonaalmatrix is.
+\end{de}
+
+\begin{ei}
+  Zij $K,+,\cdot$ een veld en $V$ een eindigdimensionale $K$-vectorruimte met basis $\varepsilon$.
+  Een lineaire transformatie $A$ van $V$ is diagonaliseerbaar over $K$ als en slechts als de matrix van $A$ ten opzichte van $\varepsilon$ diagonaliseerbaar is over $K$.
+\extra{bewijs}
+\end{ei}
+
+\begin{de}
+  Zij $K,+,\cdot$ een veld en $A$ een lineaire tranformatie van een $K$-vectorruimte $V,+,\cdot$.
+  De vector $v\in V$ is een \term{eigenvector} van $A$ met \term{eigenwaarde} $\lambda\in K$ als het volgende geldt
+  \[ A(v) = \lambda v \text{ en } v\neq \vec{0} \]
+\end{de}
+
+\begin{ei}
+  Zij $K,+,\cdot$ een veld en $V$ een eindigdimensiolane $K$-vectorruimte.
+  Een lineaire transformatie $A$ van $V$ is diagonaliseerbaar over $K$ als en slechts als $V$ een basis heeft van eigenvectoren (met eigenwaarden in $K$).
+\extra{bewijs}
+\end{ei}
+
+\begin{de}
+  Zij $K,+,\cdot$ een veld en $M$ een matrix in $M^{n\times n}(K)$.
+  De \term{karakteristieke veelterm} van $M$ is $f_{M}$.
+  \[ f_{M} = \det(X\mathbb{I}_{n} - M) \in K[X] \]
+\end{de}
+
+\begin{de}
+  Zij $A$ een lineaire transformatie van een eindigdimensionale $K$-vectorruimte $V$.
+  De \term{karakteristieke veelterm} van $A$ is de karakteristieke veelterm van de matrix van $A$ ten opzichte van een willekeurige basis van $V$.
+\end{de}
+
+\begin{st}
+  De karakteristieke veelterm van een lineaire transformatie is onafhankelijk van de gekozen veelterm.
+\extra{bewijs}
+\end{st}
+
+\begin{pr}
+  Zij $K,+,\cdot$ een veld en $A$ een lineaire tranfformatie van een eindigdimensionale $K$-vectorruimte $V$, dan is $\lambda\in K$ een eigenwaarde van $A$ als en slechts als $\lamda$ een wortel is van de karakteristieke veelterm van $A$.
+\extra{bewijs}
+\end{pr}
+
+\begin{de}
+  Naar aanleiding van bovenstaande propositie spreken we ook over de eigenwaarden van een matrix.
+\end{de}
+
+\begin{gev}
+  Zij $K,+,\cdot$ een veld en $V$ een eindigdimensionale $K$-vectorruimte van dimensie $n$ en $A$ een lineaire transformatie van $V$.
+  Als de karakteristieke veelterm $f_{A}$ $n$ verschillende wortel heeft in $K$, dan is $A$ diagonaliseerbaar over $K$.
+\extra{bewijs}
+\end{gev}
+
+\subsection{Triagulatie}
+\label{sec:triagulatie}
+
+\begin{st}
+  De \term{triagulatiestelling}\\
+  Zij $K,+,\cdot$ een veld en $V$ een $n$-dimensionale $K$-vectorruimte.
+  Zij $A$ een lineaire transformatie van $V$ waarvoor $f_{A}$ volledig splitst in lineaire factoren over $K$, dan bestaat er een basis $\mathcal{B} = \{ v_{1},\dotsc,v_{n} \}$ van $V$ zodat de matrix van $A$ tev opzichte van $\mathcal{B}$ een bovendriehoeksmatrix is met de eigenwaarden van $A$ op de hoofddiagonaal.
+\extra{bewijs?}
+\end{st}
+
+\begin{gev}
+  Zij $K,+,\cdot$ een veld en $M\in M^{n\times n}(K)$ een matrix over $K$ zodat $f_{M}$ volledig splitst in lineaire factoren over $K$, dan bestaat er een matrix $P\in GL_{n}(K)$ zodat $P^{-1}AP$ een bovendriehoeksmatrix is met de eigenwaarden van $M$ op de hoofddiagonaal.
+\extra{bewijs?}
+\end{gev}
+
+\begin{opm}
+  Als $K,+,\cdot$ een algebra\"isch gesloten veld is zijn alle matrices en lineaire transformaties van eindigdimensionale vectorruimtes over $K$ trianguleerbaar.
+\end{opm}
+
+\end{document}
