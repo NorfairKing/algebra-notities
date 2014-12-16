@@ -24,7 +24,15 @@
 \begin{st}
   De inverse van de inverse van een relatie is opnieuw de originele verzameling.
   \[ R^{-1^{-1}} = R \]
-  \TODO{ bewijs }
+
+  \begin{proof}
+    \[
+    \begin{array}{rll}
+      R^{-1^{-1}} &= \left\{ (x,y)\ |\ (y,x) \in \left\{ (u,v)\ |\ (v,u) \in R \right\} \right\} &\\
+                &= \left\{ (x,y)\ |\ (x,y) \in R \right\} &= R
+    \end{array}
+    \]
+  \end{proof}
 \end{st}
 
 \section{Samenstelling van relaties}
@@ -45,6 +53,7 @@
 \begin{st}
   De \term{inverse} van een relatie nemen is distributief ten opzichte van de samenstelling van relaties.
   \[ (S \circ R)^{-1} = R^{-1} \circ S^{-1} \]
+
   \TODO{ bewijs }
 \end{st}
 

@@ -20,16 +20,7 @@ Stel dat $\forall x \in G: x^{2} = e$ geldt.
 Toon aan dat $G,*$ commutatief is.
 
 \begin{proof}
-  Kies twee willekeurige elementen $x$ en $y$ uit $G$:
-  \[ 
-  \begin{array}{rl}
-  (x*y)^{2} &= e\\
-  (x*y*x*y) &= e\\
-  x*(x*y*x*y)*y &= x*e*y\\
-  (x*x)*y*x*(y*y) &= x*y\\
-  y*x &= x*y\\
-  \end{array}
-  \]
+  Inderdaad\stref{st:groep-alles-orde-2-commutatief}
 \end{proof}
 
 \subsection*{Oefening 3}
@@ -228,7 +219,7 @@ $G$ heeft een element van orde $3$.
 De orde van een element van een groep is een deler van de orde van de groep.\gevref {gev:orde-van-element-deelt-orde-van-groep}
 Elk element heeft dus een orde in $\{ 1, 2, 3, 6 \}$.
 Enkel $e$ heeft als orde $1$, en er zijn geen elementen van orde $6$ want dan zou $G$ cyclisch zijn.
-Stel dat elk element orde $2$ is, dan is $G$ commutatief.\footnote{Zie oefening 2 op pagina \pageref{oza:oz1-oef2}}
+Stel dat elk element orde $2$ heeft, dan is $G$ commutatief.\stref{st:groep-alles-orde-2-commutatief}
 Dit zou betekenen dat $\{ e,a,b,ab \}$ een deelgroep was van $G$ met orde $4$, maar $4$ is geen deler van $6$. Contradictie\stref{st:stelling-van-lagrange}
 Bijgevolg bestaat er minstens \'e\'en element van orde $3$ en is de orde van $G$ dus $3$.\stref{st:orde-van-generator-is-orde-van-groep}
 

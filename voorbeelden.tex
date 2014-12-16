@@ -66,6 +66,7 @@
 \begin{de}
   De \term{symmetrische groep} van graad $n$: $\mathcal{S}_{n},\circ$ is de groep van permutaties van $\{ 1,\dotsc,n \}$.
   \[ |\mathcal{D}_{n}| = n! \]
+  \commn \cycln
 \end{de}
 
 \begin{vb}
@@ -149,7 +150,7 @@
   \TODO{bewijs}
 \end{ei}
 
-\extra{$mathcal{A}$}
+\extra{$\mathcal{A}_{n}$}
 
 \begin{de}
   De \term{Di\"edergroep} of \term{Dihedrale groep} van graad $n$: $\mathcal{D}_{n},\circ$ is de groep van starre bewegingen die een regelmatige $n$-hoek op zichzelf afbeelden.
@@ -302,6 +303,11 @@
 \end{vb}
 
 \begin{vb}
+  De verzameling van inverteerbare transformaties van een vectorruimte $V$, uitgerust met de samenstelling, vormen een groep: $GL(V),\circ$.
+\commn \cycln
+\end{vb}
+
+\begin{vb}
   De verzameling $\mathbb{R}[x]$ van re\"ele veeltermen in de veranderlijke $x$, uitgeruist met de optelling, is een groep met neutraal element $0$.\\
 \commj \cycln
 \end{vb}
@@ -309,6 +315,137 @@
 \begin{vb}
   De re\"ele getallen $\mathbb{Z}$, uitgerust met de optelling modulo $n\in \mathbb{N}_{0}$, vormen een groep $\mathbb{Z}_{n}$ met neutraal element $[0]_{n}$. Zo een groep heet de \term{restklassengroep} van graad $n$.\\
 \commj \cyclj{$\bar{1}$}
+\end{vb}
+
+\begin{vb}
+  De machtsverzameling $\mathcal{P}(X)$ van een verzameling $X$, uitgerust met het symmetrisch verschil, vormt een groep.
+\commj \cycln
+\end{vb}
+
+\subsection{Deelgroepen}
+\label{sec:deelgroepen}
+
+In dit deel voorbeelden duiden we de relatie ``... is een deelgroep van ...'' aan als $\underset{g}{\subseteq}$.
+
+\begin{vb}
+  \[ n\mathbb{Z},+ \underset{g}{\subseteq} \mathbb{Z},+ \underset{g}{\subseteq} \mathbb{Q},+ \underset{g}{\subseteq} \mathbb{R},+ \underset{g}{\subseteq} \mathbb{C},+ \]
+\end{vb}
+
+\begin{vb}
+  \[ \{ 1,-1\},\cdot \underset{g}{\subseteq} \mathbb{Q}_{0},\cdot \underset{g}{\subseteq} \mathbb{R}_{0},\cdot \underset{g}{\subseteq} \mathbb{C}_{0},\cdot \]
+\end{vb}
+
+\begin{vb}
+  \[ \{ 0,4,8\},+ \underset{g}{\subseteq} \{ 0,2,4,6,8,10,12\},+ \underset{g}{\subseteq} \mathbb{Z}_{12},+ \]
+\end{vb}
+
+\begin{vb}
+  \[ \{0_{n\times n}\},+ \underset{g}{\subseteq} \{ n\mathbb{I}_{n} \ |\ n \in \mathbb{N} \},+ \underset{g}{\subseteq} \{ Diag \},+ \underset{g}{\subseteq} \{ Bovendriehoeks \},+ \underset{g}{\subseteq} \mathbb{R}^{n\times n},+ \]
+\end{vb}
+
+\begin{vb}
+  \[ SL_{n}(\mathbb{R}),\cdot \underset{g}{\subseteq} GL_{n}(\mathbb{R}),\cdot \]
+\end{vb}
+
+\begin{vb}
+  \[ \{f \in \mathbb{R}[X] \ |\ gr(f) \le r\},+ \underset{g}{\subseteq} \mathbb{R}[X],+ \]
+\end{vb} 
+
+\subsection{Groepsmorfisme}
+\label{sec:groepsmorfisme}
+
+In deze sectie geven we voorbeelden van groepsmorfismen
+
+\begin{vb}
+  Automorfisme
+  \[ \mathbb{Z},+ \rightarrow \mathbb{Z},+:\ x \mapsto 3x \]
+\end{vb}
+
+\begin{vb}
+  Automorfisme
+  \[ \mathbb{C},+ \rightarrow \mathbb{Z},+:\ z \mapsto \bar{z} \]
+\end{vb}
+
+\begin{vb}
+  Automorfisme
+  \[ \mathbb{C}_{0},\cdot \rightarrow \mathbb{C}_{0},\cdot:\ z \mapsto \bar{z} \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{R}^{2},+ \rightarrow \mathbb{R},+:\ (x,y) \mapsto x \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{R}_{0},\cdot \rightarrow \mathbb{R}^{+}_{0},+:\ x \mapsto |x| \]
+\end{vb}
+
+\begin{vb}
+  Isomorfisme
+  \[ \mathbb{R},+ \rightarrow \mathbb{R}^{+}_{0},+:\ x \mapsto 2^{x} \]
+\end{vb}
+
+\begin{vb}
+  Isomorfisme
+  \[ \mathbb{R}^{+}_{0},\cdot \rightarrow \mathbb{R},+:\ x \mapsto ln(x) \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{R},+ \rightarrow \mathbb{C}_{0},\cdot:\ x \mapsto e^{2\pi x} \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ GL_{n}(\mathbb{R}),\cdot \rightarrow \mathbb{R}_{0},\cdot:\ A \mapsto det(A) \]
+\end{vb}
+
+
+\subsection{Orde}
+\label{sec:orde}
+
+\begin{vb}
+  In $\mathbb{Z}_{30},+$ is de orde van $5$ $6$ en de orde van $8$ $15$.
+\end{vb}
+
+\begin{vb}
+  De orde van $7$ in $\mathbb{Z},+$ is $\infty$.
+\end{vb}
+
+\subsection{Nevenklassen}
+\label{sec:nevenklassen}
+
+\begin{vb}
+  Beschouw $H= <3>$ als deelgroep van $\mathbb{Z}_{12},+$.
+  \[ 2 + H = \{ 2,5,8,11 \} = 5 + H = 8 + H = 11 + H \]
+\end{vb}
+
+\begin{vb}
+  Beschouw $H = \{e,b\}$ als deelgroep van $\mathcal{D}_{4}$.
+  \[ a\cdot H = \{a,ab\} \text{ en } H \cdot a = \{ a,a^{3}b \} \]
+\end{vb}
+
+\subsection{Directe som}
+\label{sec:directe-som}
+
+\begin{vb}
+  De viergroep $V$ is isomorf met $\mathbb{Z}_{2} \oplus \mathbb{Z}_{2}$.
+\end{vb}
+
+\begin{vb}
+  $\mathbb{Z}_{6}$ is isomorf met $\mathbb{2} \oplus \mathbb{Z}_{3}$.
+\end{vb}
+
+\subsection{Permutatiegroepen}
+\label{sec:permutatiegroepen}
+
+\begin{vb}
+  De groepsautomorfismen van de een groep $G,*$ vormen een permutatiegroep van $G,+$.
+\end{vb}
+
+\begin{vb}
+  De inverteerbare lineaire afbeeldingen van een vectorruimte $V$ naar zichzelf vormen een permutatiegroep van $V$.
 \end{vb}
 
 \extra{normaaldelers p 26}
