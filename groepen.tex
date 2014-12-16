@@ -1141,7 +1141,11 @@
 
 \begin{st}
   In elke groep is de conjugatieklas van het neutraal element het singleton van het neutraal element.
-\extra{bewijs}
+
+  \begin{proof}
+    Voor elk element $g$ uit een groep $G,*$ beschouwen we de conjugatieklas van het neutraal element $e_{G}$:
+    \[ Cl(e_{G}) = \{ ae_{G}a^{-1}\ |\ a \in G \} = \{ aa^{-1}\ |\ a \in G \} = \{ e_{G}\ |\ a \in G \} = \{ e_{G} \} \]
+  \end{proof}
 \end{st}
 
 \begin{ei}
@@ -1158,18 +1162,17 @@
   \label{ei:conjugatieklassen-partitie}
   De verzameling van alle conjugatieklassen van een groep $G,*$ vormt een partitie van $G$ en bepaalt bijgevolg een equivalentierelatie.
   \begin{proof}
-    We gaan alle eigenschappen van een partitie na.\footnote{Zie definitie \ref{de:partitie}.}
+    We gaan alle eigenschappen van een partitie na.\deref{de:partitie}
     \begin{itemize}
     \item Een conjugatieklasse van een element $x$ is nooit leeg want ze bevat steeds minstens $x$.
     \item Conjugatieklassen zijn onderling disjunct.
       Stel immers dat twee verschillende conjugatieklassen $Cl(x)$ en $Cl(y)$ van elementen $x$ en $y$ een niet-lege doorsnede hebben, dan bestaan er elementen $a,b \in G$ en een element $z$ in de doorsnede zodat het volgende geldt:
       \[ axa^{-1} = z = byb^{-1} \]
       Nu zit $x$ in de conjugatieklas $Cl(y)$ van $y$ met als geconjugeerde $b^{-1}a$ en $y$ in de conjugatieklas $Cl(x)$ van $x$ met als geconjugeerde $a^{-1}b$:
-      \[ (b^{-1}a)x(a^{-1}b) = y \]
-      \[ x = (a^{-1}b) y(b^{-1}a) \]
-\clarify{ Ik ben nog niet overtuigd... }
-      Contradictie.
-    \item Elk element van $G$ zit in een conjugatieklas.\footnote{Zie eigenschap \ref{ei:element-eigen-conjugatieklas}.}
+      \[ (a^{-1}b)^{-1}y(a^{-1}b) = (b^{-1}a)x(a^{-1}b) = y \]
+      \[ x = (a^{-1}b) y(b^{-1}a) = (a^{-1}b) y (a^{-1}b)^{-1} \]
+      Contradictie
+    \item Elk element van $G$ zit in een conjugatieklas.\eiref{ei:element-eigen-conjugatieklas}
     \end{itemize}
   \end{proof}
 \end{ei}
@@ -1179,7 +1182,7 @@
   \[ Cl(a) = Cl(b) \Leftrightarrow b \in Cl(a) \Leftrightarrow a \in Cl(b) \]
 
   \begin{proof}
-    Twee verschillende conjugatieklassen zijn disjunct\footnote{Zie eigenschap \ref{ei:conjugatieklassen-partitie}.}, dus twee elementen zitten in dezelfde conjugatieklas als en slechts als een van de elementen in de conjugatieklas van het andere zit.
+    Twee verschillende conjugatieklassen zijn disjunct\eiref{ei:conjugatieklassen-partitie}, dus twee elementen zitten in dezelfde conjugatieklas als en slechts als een van de elementen in de conjugatieklas van het andere zit.
   \end{proof}
 \end{st}
 
@@ -1240,7 +1243,7 @@
   Zij $G,*$ een groep en $a$ een element van $G$, dan is $\sigma_{a}$ een automorfisme.
   
   \begin{proof}
-    $\sigma_{a}$ is een transformatie van $G$\footnote{Zie definitie \ref{de:sigma-a}.}, dus we moeten enkel nog bewijzen dat $\sigma_{a}$ voor elke $a$ een bijectie is.
+    $\sigma_{a}$ is een transformatie van $G$\deref{de:sigma-a}, dus we moeten enkel nog bewijzen dat $\sigma_{a}$ voor elke $a$ een bijectie is.
     Kies daarvoor een willekeurige $a$ uit $G$.
     \begin{itemize}
     \item $\sigma_{a}$ is een surjuctie.
@@ -1346,12 +1349,16 @@
     We kunnen dit op drie manieren bewijzen:
     \begin{enumerate}
     \item Het criterium van een deelgroep afgaan.
-    \item Het centrum van een groep is de doorsnede van deelgroepen. \footnote{Zie eigenschap \ref{ei:centralisator-is-deelgroep}.}
-\footnote{Zie stelling \ref{st:doorsnede-deelgroepen}.}
-    \item Het centrum van een een groep is de kern van $\sigma:\ G,* \rightarrow Aut G,\circ:\ a \mapsto \sigma_{a}$\footnote{Zie stelling \ref{st:kern-is-deelgroep}.}
+    \item Het centrum van een groep is de doorsnede van deelgroepen. \eiref{ei:centralisator-is-deelgroep}
+\stref{st:doorsnede-deelgroepen}
+    \item Het centrum van een een groep is de kern van $\sigma:\ G,* \rightarrow Aut G,\circ:\ a \mapsto \sigma_{a}$\stref{st:kern-is-deelgroep}
     \end{enumerate}
   \end{proof}
 \end{ei}
+
+\begin{opm}
+  We kunnen het centrum beschouwen als de grootste commutatieve deelgroep.
+\end{opm}
 
 \begin{st}
   Voor $n$ groter dan $1$ geldt het volgende over het centrum van $D_{n}$
@@ -1368,7 +1375,7 @@
 
   \begin{proof}
     We construeren een bijectie tussen de conjugatieklas $Cl(a)$ van $a$ en de verzameling van linkse nevenklassen van $C_{G}(a)$ in $G,*$.
-    Er geldt dan het volgende, wat equivalent is met de te bewijzen stelling.\footnote{Zie stelling \ref{st:stelling-van-lagrange}.}
+    Er geldt dan het volgende, wat equivalent is met de te bewijzen stelling.\stref{st:stelling-van-lagrange}
     \[ \frac{|G|}{|C_{G}(a)|} = |\{ gC_{G}(a) \ |\ a \in G \}| = Cl(a) \]
     Beschouw nu de afbeelding $\phi$:
     \[ \phi: \{ gC_{G}(a) \ |\ a \in G \} \rightarrow Cl(a): gC_{G}(a) \mapsto gag^{-1} \]
@@ -1409,11 +1416,11 @@
   \[ |G| = |Z(G)| + \sum_{i=m+1}^{k}|Cl(a_{i})| \]
 
   \begin{proof}
-    De conjugatieklassen van $G,*$ vormen een partitie.\footnote{Zie stellin \ref{ei:conjugatieklassen-partitie}.}
+    De conjugatieklassen van $G,*$ vormen een partitie.\eiref{ei:conjugatieklassen-partitie}
     Bijgevolg geldt het volgende over $|G|$.
     \[ |G| = \sum_{i=1}^{k}|Cl(a_{i})| \]
     Merk nu op dat de orde van een conjugatieklasse $Cl(a_{i})$ $1$ is wanneer die conjugatieklasse $Cl(a_{i})$ enkel $a_{i}$ bevat.
-    Dit is precies wanneer de centralisator $C_{G,*}(a)$ van $a$ heel $G$ is\footnote{Zie stelling \ref{st:orde-conjugatieklasse-centralisator}.}, dus wanneer $a$ in het centrum van $G,*$ zit.
+    Dit is precies wanneer de centralisator $C_{G,*}(a)$ van $a$ heel $G$ is\stref{st:orde-conjugatieklasse-centralisator}, dus wanneer $a$ in het centrum van $G,*$ zit.
     \[ \sum_{i=1}^{m}|Cl(a_{i})| = |Z(G)| \]
     Hieruit volgt meteen de stelling.
   \end{proof}
@@ -1431,14 +1438,14 @@
   \begin{proof}
     Het aantal elementen in het centrum van een $p$-groep bevat meer dan \'e\'en element als en slechts als het aantal elementen van dat centrum groter is of gelijk aan $p$.
     Dit als en slechts als $p$ de orde van $Z(P)$ deelt.
-    De orde van $Z(P)$ deelt immers de orde van $P$ want $Z(P)$ is een deelgroep van $G,*$.\footnote{Zie eigenschap \ref{ei:centrum-is-deelgroep}.} \stref{st:stelling-van-lagrange}
+    De orde van $Z(P)$ deelt immers de orde van $P$ want $Z(P)$ is een deelgroep van $G,*$.\eiref{ei:centrum-is-deelgroep} \stref{st:stelling-van-lagrange}
     Als $|P|$ niet $1$ is, deelt $p$ dus zeker de orde van $Z(P)$.
     \[ |Z(P)| > 1 \Leftrightarrow |Z(P)| \ge p \Leftrightarrow p \text{ deelt } |Z(p)| \]
     Zij de orde van $|P|$ de $r$-de macht van $p$.
     \[ |P| = p^{r} \]
     Zij $Cl(a_{1})$ tot en met $Cl(a_{k})$ de conjugatieklassen van $G,*$ zoals in de formulering van de klasvergelijking.
     \[ p^{r} = |P| = |Z(G)| + \sum_{i=m+1}^{k}|Cl(a_{i})| \]
-    Omdat de orde van $Cl(a_{i})$ ook $|P|$ deelt\footnote{Zie gevolg \ref{gev:orde-conjugatieklasse-deelt-orde-groep}.}, moet $|Cl(a_{i})|$ met $i$ groter dan $m$ een strikt positieve macht zijn van $p$.
+    Omdat de orde van $Cl(a_{i})$ ook $|P|$ deelt\gevref{gev:orde-conjugatieklasse-deelt-orde-groep}, moet $|Cl(a_{i})|$ met $i$ groter dan $m$ een strikt positieve macht zijn van $p$.
     Bijgevolg moet $p$ een deler zijn van $|Z(p)|$ \clarify{waarom?} en $|Z(p)|$ dus groter dan $1$.
   \end{proof}
 \end{pr}
