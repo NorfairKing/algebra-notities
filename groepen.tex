@@ -1063,6 +1063,7 @@
 \end{gev}
 
 \begin{pr}
+  \label{pr:sgn-groepsmorfisme}
   De afbeelding $sgn: \mathcal{S}_{n},\circ \rightarrow \{1,-1\},\cdot$ is een groepsmorfisme met als kern $A_{n}$.
 
   \begin{proof}
@@ -1886,6 +1887,8 @@
 \section{De isomorfismestellingen}
 \label{sec:isomorfismestellingen}
 
+\subsection{Eerste isomorfismestelling}
+
 \begin{st}
   \label{st:eerste-isomorfismestelling}
   \term{Eerste isomorfismestelling}\\
@@ -1972,6 +1975,8 @@
   \end{proof}
 \end{st}
 
+\subsection{Voortbrengers van een groep}
+
 \begin{de}
   Zij $G,*$ een groep en $X \subseteq G$ een deelverzameling van $G$.
   De groep $grp\{X\}$ voortgebracht door $X$ is de doorsnede van alle deelgroepen van $G$ die $X$ omvatten. 
@@ -1999,30 +2004,6 @@
   \end{proof}
 \end{ei}
 
-\begin{pr}
-  \[ \mathcal{S}_n = <(12),(13),(14),\dotsc, (1\, n-1), (1n)> \]
-  \extra{bewijs p 34}
-\end{pr}
-
-\begin{pr}
-  \[ \mathcal{S}_n = <(12),(23),(34),\dotsc, (n-2\, n-1), (n-1\,n)> \]
-  \extra{bewijs p 34}
-\end{pr}
-
-\begin{pr}
-  \[ \mathcal{S}_n = <(12), (123\dotsc n-1\,n)> \]
-  \extra{bewijs p 34}
-\end{pr}
-
-\begin{pr}
-  \[ \mathcal{A}_n = <(ab)(cd)\ |\ a\neq b \wedge c \neq d> \]
-  \extra{bewijs p 34}
-\end{pr}
-
-\begin{pr}
-  \[ n \ge 3 \Rightarrow \mathcal{A}_n = <(abc)\ |\ a,b,c \in \{1,2,\dotsc,n\}> \]
-  \extra{bewijs p 34}
-\end{pr}
 
 \begin{de}
   Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan is $HK$ als volgt gedefinieerd.
@@ -2063,6 +2044,9 @@
   \[ HK = KH = <H\cup K> \]
 \end{gev}
 
+\subsection{Tweede isomorfismestelling}
+
+
 \begin{st}
   \term{Tweede isomorfismestelling} of \term{parallellogramisomorfismestelling}\\
   Zij $G,*$ een groep. Zij $H$ een deelgroep van $G,*$ en $N$ een normaaldeler van $G,*$, dan gelden volgende beweringen.
@@ -2095,6 +2079,8 @@
   \[ |AB| = \frac{|A|\cdot|B|}{|A\cap B|} \]
   \extra{bewijs, je mag gebruiken dat $B$ een normaaldeler is van $G$, maar het kan zonder.}
 \end{st}
+
+\subsection{Derde isomorfismestelling}
 
 \begin{st}
   \term{Derde isomorfismestelling}\\
@@ -2144,6 +2130,9 @@
 \clarify{Dit kan duidelijker en gedetailleerder!}
   \end{proof}
 \end{st}
+
+\subsection{Commutatordeelgroep}
+\label{sec:commutatordeelgroep}
 
 \begin{st}
   \label{st:herformulering-commutativiteit}

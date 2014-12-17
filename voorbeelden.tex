@@ -549,8 +549,135 @@ In deze sectie geven we voorbeelden van groepsmorfismen
 \extra{oefening}
 \end{vb}
 
+\subsection{Isomorfismestellingen}
 
-\extra{isomorfismestellingen p 33 ev}
+\subsubsection{Eerste isomorfismestelling}
+
+\begin{vb}
+  \[ \nicefrac{\mathcal{S}_{n},\circ}{\mathcal{A}_{n},\circ} \cong \mathbb{Z}_{2} \]
+  
+  \begin{proof}
+    Kies als morfisme $sgn: \mathcal{S}_{n} \rightarrow \{ 1,-1 \}$.
+    De kern hiervan is $\mathcal{A}_{n}$.\prref{pr:sgn-groepsmorfisme}
+  \end{proof}
+\end{vb}
+
+\begin{vb}
+  \[ \nicefrac{GL_{n}(\mathbb{R}),\cdot}{SL_{n}(\mathbb{R}),\cdot} \cong \mathbb{R}_{0},\cdot \]
+  
+  \begin{proof}
+    Kies als morfisme $det: GL_{n}(\mathbb{R}) \rightarrow
+    \mathbb{R}_{0}$.  De kern hiervan is $SL_{n}(\mathbb{R})$.
+  \end{proof}
+\end{vb}
+
+\begin{vb}
+  \[ \nicefrac{\mathbb{R}_{0},\cdot}{\{1,-1\},\cdot} \cong \mathbb{R}_{0}^{+},\cdot \]
+
+  \begin{proof}
+    Kies als morfisme $|\cdot|: \mathbb{R}_{0} \rightarrow \mathbb{R}_{0}^{+}$.
+    De kern hiervan is $\{1,-1\}$.
+  \end{proof}
+\end{vb}
+
+\begin{vb}
+  \[ \nicefrac{\mathbb{R},+}{\mathbb{Z},+} \cong \{ z \in \mathbb{C} \ |\ |z| = 1 \} \]
+
+  \begin{proof}
+    Kies als morfisme $f:\ \mathbb{R} \rightarrow \mathbb{C}:\ r \mapsto e^{2i\pi r}$.
+    De kern hiervan is $\mathbb{Z}$.
+  \end{proof}
+\end{vb}
+
+\subsubsection{Voortbrengers van een groep}
+
+\begin{vb}
+  \[ grp\{ (1,0),(1,1) \} = \mathbb{Z}\oplus\mathbb{Z} \]
+\end{vb}
+
+\begin{vb}
+  \[ grp\{ (1,0),(1,2) \} \subsetneq \mathbb{Z}\oplus\mathbb{Z} \]
+\end{vb}
+
+\begin{vb}
+  \[ \mathbb{Z}_{n} \oplus \mathbb{Z}_{m} = grp\{(1,0),(0,1)\} = grp\{(-1,0),(1,1)\} \]
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{D}_{n} = grp\{a,b\} = grp\{ a^{n-1},b \} \]
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{Q} = grp\{ i,j\} = grp\{ i,k \} = grp\{ j,k\} \]
+\end{vb}
+
+\begin{vb}
+  \[ \mathbb{Q},+ = grp\{ \nicefrac{1}{n} \ |\ n \in \mathbb{N}\} \]
+\end{vb}
+\extra{bewijs dat $\mathbb{Q}$ niet eindig voortgebracht kan worden}
+\extra{geldt $\mathbb{Q},+=grp\{\nicefrac{1}{p} \ |\ p \text{ is een priemgetal.} \}$}
+
+\begin{vb}
+  \[ \mathcal{S}_n = <(12),(13),(14),\dotsc, (1\, n-1), (1n)> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{S}_n = <(12),(23),(34),\dotsc, (n-2\, n-1), (n-1\,n)> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{S}_n = <(12), (123\dotsc n-1\,n)> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{A}_n = <(ab)(cd)\ |\ a\neq b \wedge c \neq d> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\begin{vb}
+  \[ n \ge 3 \Rightarrow \mathcal{A}_n = <(abc)\ |\ a,b,c \in \{1,2,\dotsc,n\}> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\subsubsection{Tweede isomorfismestelling}
+
+\begin{vb}
+  Zij $H$ een deelgroep van $\mathcal{S}_{n}$.
+  Ofwel is $H$ een deel van $\mathcal{A}_{n}$, ofwel bevat $H$ een oneven permutatie en dan geldt $H\mathcal{A}_{n} = \mathcal{S}_{n}$.
+  De tweede isomorfismestelling zegt nu het volgende:
+  \[ H \cap \mathcal{A}_{n} \triangleleft H \]
+  \[ \mathcal{A}_{n} \triangleleft \mathcal{S}_{n} \]
+  \[ \nicefrac{H}{H\cap \mathcal{A}_{n}} \cong \nicefrac{\mathcal{S}_{n}}{\mathcal{A}_{n}} \]
+  Met andere woorden: de even permutaties in $H$ vormen een normaaldeler van $H$ met index $2$.
+\end{vb}
+
+\subsubsection{Derde isomorfismestelling}
+\label{sec:derde-isom}
+
+\begin{vb}
+  Zij $G = \mathbb{Z} \oplus \mathbb{Z}$, $N = <(1,0)>$ en $H=<(1,0),(0,5)>$.
+  De derde isomorfismestelling zegt het volgende:
+  \[
+  \nicefrac{\nicefrac{\mathbb{Z} \oplus \mathbb{Z}}{<(1,0)>}}{\nicefrac{<(1,0),(0,5)>}{<(1,0)>}} \cong \nicefrac{\mathbb{Z} \oplus \mathbb{Z}}{<(1,0),(0,5)>}
+  \]
+  Kies het volgende isomorfisme om dit in te zien:
+  \[ f:\ \nicefrac{\nicefrac{\mathbb{Z} \oplus \mathbb{Z}}{<(1,0)>}}{\nicefrac{<(1,0),(0,5)>}{<(1,0)>}} \rightarrow \nicefrac{\mathbb{Z} \oplus \mathbb{Z}}{<(1,0),(0,5)>}:\ \]
+\end{vb}
+
+\question{hoe doen we dit?}
+
+\subsection{Commutatordeelgroep}
+
+\begin{vb}
+  In $\mathcal{D}_{n}$ zijn de commutatoren de elementen $a^{2i}$ met $i\in\mathbb{Z}$.
+  De commutatordeelgroep $\mathcal{D}'$ of $\mathcal{D}_{n}$ is dus $grp\{a^{2}\}$.
+\end{vb}
+
+
+
 \section{Ringen}
 \label{sec:ringen}
 
