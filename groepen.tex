@@ -1293,8 +1293,13 @@
 \extra{bekijk expliciet wat er gebeurt in commutatieve groepen voor bovenstaande begrippen.}
 
 \begin{de}
-  Zij $G,*$ een groep en $g$ een element van $G$, dan is de \term{centralisator} van $g$ in $G,*$ de verzameling $C_{G,*}(g)$ van de elemneten in $G$ die commuteren met $g$.
+  Zij $G,*$ een groep en $g$ een element van $G$, dan is de \term{centralisator} van $g$ in $G,*$ de verzameling $C_{G,*}(g)$ van de elementen in $G$ die commuteren met $g$.
   \[ C_{G,*}(g) = \{ x \in G\ |\ gx = xg \} \]
+\end{de}
+
+\begin{de}
+  Zij $G,*$ een groep, dan noteren we de \term{centralisator van een deelverzameling} $A$ als $C_{G,*}(A)$.
+  \[ C_{G,*}(A) = \{ c\in G \ |\ \forall a\in A:\ a*c = c*a \} = \bigcap_{g\in A}C_{G,*}(g) \]
 \end{de}
 
 \begin{ei}
@@ -1338,7 +1343,7 @@
 
 \begin{de}
   \label{de:centrum}
-  Zij $G$ een groep, dan is het \term{centrum} van $G$ de deelverzameling van $G$ van elementen die met alle elementen van de groep commuteren.
+  Zij $G,*$ een groep, dan is het \term{centrum} van $G$ de deelverzameling van $G$ van elementen die met alle elementen van de groep commuteren.
   \[ Z(G) = \{ x \in G\ |\ \forall g \in G:\ gx = xg\} = \bigcap_{g \in G}C_{G}(g) \]
 \end{de}
 
@@ -1480,8 +1485,13 @@
 \label{sec:normaaldelers-en-quotientgroepen}
 
 \begin{de}
+  Zij $G,*$ een groep, dan is de \term{normalisator} van een deelverzameling $A$ de verzameling $N_{G,*}(A)$ als volgt:
+  \[ N_{G,*}(A) = \{ c\in G \ |\ c*A = A*c \}\]
+\end{de}
+
+\begin{de}
   Een \term{normaaldeler} $H,*$ is een deelgroep $H,*$ van $G,*$ met de volgende eigenschap:
-  \[ N \triangleleft G \Leftrightarrow \forall g \in G: g*H = H*g \]
+  \[ N \triangleleft G \Leftrightarrow \forall g \in G: g*H = H*g \Leftrightarrow N_{G,*}(N) = G \]
   In woorden: ``De linker en rechter nevenklasse van $N$ bepaald door elk element $g\in G$ zijn gelijk.''
 \end{de}
 

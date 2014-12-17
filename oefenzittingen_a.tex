@@ -15,16 +15,6 @@ Nu heeft $(12) \circ (23) = (132)$ orde $3$.
 
 \subsection*{Oefening 2}
 \label{oza:oz1-oef2}
-Zij $G,*$ een groep.
-Stel dat $\forall x \in G: x^{2} = e$ geldt.
-Toon aan dat $G,*$ commutatief is.
-
-\begin{proof}
-  Inderdaad\stref{st:groep-alles-orde-2-commutatief}
-\end{proof}
-
-\subsection*{Oefening 3}
-\label{oza:oz1-oef3}
 Zij $G$ een groep.
 Toon aan dat $G$ commutatief is als en slechts als het volgende geldt:
 \[ \forall a,b \in G, \forall n \in \mathbb{N}:\ (ab)^{n} = a^{n}b^{n} \]
@@ -47,8 +37,8 @@ Toon aan dat $G$ commutatief is als en slechts als het volgende geldt:
   \end{itemize}
 \end{proof}
 
-\subsection*{Oefening 4}
-\label{oza:oz1-oef4}
+\subsection*{Oefening 3}
+\label{oza:oz1-oef3}
 
 \subsubsection*{(a)}
 Bepaal alle deelgroepen van $\mathbb{Z}_{12},+$.\\\\
@@ -113,8 +103,8 @@ $\mathcal{A}_{4},\circ$ heeft orde $12$.
 \end{array}
 \]
 
-\subsection*{Oefening 5}
-\label{oza:oz1-oef5}
+\subsection*{Oefening 4}
+\label{oza:oz1-oef4}
 
 Zij $G$ een cyclische groep van orde $n$ en $H$ een cyclische groep van orde $m$ met $ggd(m,n)=1$.
 Bewijs dat $G \oplus H$ cyclisch is van orde $mn$.
@@ -129,8 +119,8 @@ Bewijs dat $G \oplus H$ cyclisch is van orde $mn$.
   Dit betekent dat $(g,h)$ $G \oplus H$ genereert met orde $mn$.
 \end{proof}
 
-\subsection*{Oefening 6}
-\label{oza:oz1-oef6}
+\subsection*{Oefening 5}
+\label{oza:oz1-oef5}
 
 Beschouw de deelgroep $G$ van $Gl_{2}(\mathbb{R})$.
 \[
@@ -196,33 +186,20 @@ G =
 \]
 $G$ is isomorf met de quaternionengroep.
 
-
-\subsection*{Oefening 7}
-\label{oza:oz1-oef7}
-\subsubsection*{(a)}
-Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
-Als een verzameling $A$ een deelgroep is van $G$, dan is $f(A)$ een deelgroep van $H$.\\\\
-Inderdaad,\stref{st:fa-deelgroep-h}
-\subsubsection*{(b)}
-Zij $G,*$ en $H,\Box$ groepen met een morfisme $f: G \rightarrow H$.
-Als een verzameling $B$ een deelgroep is van $H$, dan is $f^{-1}(B)$ een deelgroep van $G$.\\\\
-Inderdaad\stref{st:fbm-deelgroep-g}
-
-\subsection*{Oefening 8}
-\label{oza:oz1-oef8}
+\subsection*{Oefening 6}
+\label{oza:oz1-oef6}
 Zij $G,\cdot$ een niet-cyclische groep van orde $6$.
 
 \subsubsection*{(a)}
 $G$ heeft een element van orde $3$.
 
 \begin{proof}
-De orde van een element van een groep is een deler van de orde van de groep.\gevref {gev:orde-van-element-deelt-orde-van-groep}
-Elk element heeft dus een orde in $\{ 1, 2, 3, 6 \}$.
-Enkel $e$ heeft als orde $1$, en er zijn geen elementen van orde $6$ want dan zou $G$ cyclisch zijn.
-Stel dat elk element orde $2$ heeft, dan is $G$ commutatief.\stref{st:groep-alles-orde-2-commutatief}
-Dit zou betekenen dat $\{ e,a,b,ab \}$ een deelgroep was van $G$ met orde $4$, maar $4$ is geen deler van $6$. Contradictie\stref{st:stelling-van-lagrange}
-Bijgevolg bestaat er minstens \'e\'en element van orde $3$ en is de orde van $G$ dus $3$.\stref{st:orde-van-generator-is-orde-van-groep}
-
+  De orde van een element van een groep is een deler van de orde van de groep.\gevref {gev:orde-van-element-deelt-orde-van-groep}
+  Elk element heeft dus een orde in $\{ 1, 2, 3, 6 \}$.
+  Enkel $e$ heeft als orde $1$, en er zijn geen elementen van orde $6$ want dan zou $G$ cyclisch zijn.
+  Stel dat elk element orde $2$ heeft, dan is $G$ commutatief.\stref{st:groep-alles-orde-2-commutatief}
+  Dit zou betekenen dat $\{ e,a,b,ab \}$ een deelgroep was van $G$ met orde $4$, maar $4$ is geen deler van $6$. Contradictie\stref{st:stelling-van-lagrange}
+  Bijgevolg bestaat er minstens \'e\'en element van orde $3$ en is de orde van $G$ dus $3$.\stref{st:orde-van-generator-is-orde-van-groep}
 \end{proof}
 
 \subsubsection*{(b)}
@@ -503,9 +480,232 @@ Voor $|Z(P)|$ $3$ zou immers betekenen dat $P$ abels is.
 De orde van $P$ kan bovendien niet $p^{2}$ zijn, want dan zou $P$ abels zijn.\stref{st:priemgroep-kwadraat-abels}
 
 
+\section{Oefenzitting 4: Normaaldelers}
+
+\subsection*{Oefening 1}
+\label{sec:oz4-oef1}
+
+\subsubsection*{(a)}
+Is $\{ Id, (12)(34),(13)(24),(14)(23) \}$ een normaaldeler van $\mathcal{A},\circ$?
+ 
+Ja
+\waarom
+\subsubsection*{(b)}
+Is $\{ Id, (12)(34) \}$ een normaaldeler van $\mathcal{A},\circ$?
+Nee
+\waarom
+
+\subsection*{Oefening 2}
+\label{sec:oz4-oef2}
+Is $SL_{n}(\mathbb{R})$ een normaaldeler van $GL_{n}(\mathbb{R})$?
+
+Ja.
+\begin{proof}
+  \[ \forall g\in GL_{n}(\mathbb{R}), n\in SL_{n}(\mathbb{R}): \det(g\cdot n \cdot g^{-1}) = \det(g) \cdot \det(n) \cdot \det(g^{-1}) = 1 \]
+\end{proof}
+
+\subsection*{Oefening 3}
+\label{sec:oz4-oef3}
+Zij $H$ een normaaldeler van een groep $G,*$.
+Bewijs: $H$ is de unie van de conjugatieklassen van alle $h\in H$.
+\[ H \triangleleft G \Rightarrow H = \bigcup_{h\in H}Cl_{G}(h) \]
+\begin{proof}
+  $H$ is een normaaldeler van $G$, dus het volgende geldt. \stref{st:criteria-voor-normaaldeler}
+  \[ \forall g\in G: gHg^{-1} = H \]
+  Bekijk $H$ nu als volgt:
+  \[
+  \begin{array}{rll}
+    H &= \bigcup_{g\in G} gHg^{-1} &\\
+      &= \bigcup_{g\in G} \bigcup_{h\in H} ghg^{-1} &\\
+      &= \bigcup_{h\in H} \bigcup_{g\in G} ghg^{-1} &\\
+      &= \bigcup_{h\in H} \{ ghg^{-1} \ |\ g\in G \} &= \bigcup_{h\in H}Cl(h)
+  \end{array}
+  \]
+\end{proof}
+
+\subsection{Oefening 4}
+\label{sec:oz4-oef4}
+Geldt het volgende?
+\[ \mathbb{Q},+=grp\{\nicefrac{1}{p} \ |\ p \text{ is een priemgetal.} \} \] 
+\question{hoe begin ik hieraan?}
+
+\subsection*{Oefening 5}
+\label{sec:oz4-oef5}
+Zij $H,*$ een deelgroep van $G,*$ met index $3$ zodat er een $x\in G\setminus H$ bestaat waarvoor $x*H = H*x$ geldt.
+Bewijs dat $H$ een normaaldeler is van $G,*$.
+
+\begin{proof}
+  Merk op dat $G/H$ orde $3$ heeft.\stref{st:stelling-van-lagrange}.
+  Dit betekent dat er een $y$ bestaat in $G\setminus H$ zodat $G/H$ er als volgt uitziet:
+  \[ G/H = \{ xH, yH, H \} \]
+\question{hoe??}
+\end{proof}
+
+\subsection*{Oefening 6}
+\label{sec:oz4-oef6}
+Zij $G,*$ een groep met normaaldelers $A$ en $B$.
+Bewijs dat $A*B$ een normaaldeler is van $G,*$.
+
+\begin{proof}
+  Kies een willekeurige $g$ uit $G$ en een willekeurig element $a*b$ uit $A*B$.
+  \[ g*a*b*g^{-1} = g*a*g^{-1}*g*b*g^{-1} \in A*B\]
+  Hierboven is $g*a*g^{-1}$ een element van $A$ omdat $A$ een normaaldeler is van $G$ en $g*b*g^{-1}$ analoog een element van $B$.
+\end{proof}
+
+\subsection*{Oefening 7}
+\label{sec:oz4-oef7}
+Zij $G,*$ een groep.
+Waar of niet waar?
+\[ (A \triangleleft B \wedge B \triangleleft C) \Rightarrow A \triangleleft C \]
+Waar
+\begin{proof}
+  \[
+  \begin{array}{rl}
+    & (\forall c\in C,\forall b\in B: cbc^{-1} \in B) \wedge (\forall b\in B,\forall a\in A: bab^{-1} \in A)\\
+    \Rightarrow & \forall c\in C,\forall a\in A: cac^{-1} \in B)\\
+    \Rightarrow & \forall c\in C,\forall a\in A: (cac^{-1})a(cac^{-1})^{-1} \in A\\
+  \end{array}
+  \]
+  \[
+  \begin{array}{rll}
+    (cac^{-1})a(cac^{-1})^{-1} &= cac^{-1}a(c(ac^{-1}))^{-1} &\\
+                             &= cac^{-1}a((ac)c^{-1}) &\\
+                             &= cac^{-1}aacc^{-1} &\\
+                             &= ca(c^{-1}a)(ac)c^{-1} &\\
+                             &= ca(ac)^{-1}(ac)c^{-1} &\\
+                             &= caec^{-1} &= cac^{-1}\\
+  \end{array}
+  \]
+  \[ \forall c\in C, a\in A: cac^{-1} \in A \]
+\end{proof}
 
 
+\subsection{Oefening 8}
+\label{sec:oz4-oef8}
+Zij $G,*$ een groep en $A\subseteq$.
+\begin{itemize}
+\item $C(A),*$ is een deelgroep van $G,*$.
+  \begin{proof}
+    De centralisator van elk element van $g$ is een deelgroep van $G,*$.\eiref{ei:centralisator-is-deelgroep} en de doorsnede van deelgroepen is een deelgroep.\stref{st:doorsnede-deelgroepen}
+  \end{proof}
+\item $A$ is een commutatieve deelgroep van $G \Rightarrow A \triangleleft C(A)$.
+  \[ \forall c\in C(A), \forall a\in A:\ cac^{-1} = cc^{-1}a = e_{G}a = a \in A \]
+\end{itemize}
+\extra{nog drie deeloefeningen}
 
+\subsection{Oefening 9}
+\label{sec:oz4-oef9}
+Zij $G$ een groep en zij $H$ een deelgroep van index $n$.
+Stel dat $\{e\}$ de enigge normaaldeler is van $G$ die bevat is in $H$.
+Toon aan dat $G$ isomorf is met een deelgroep van $\mathcal{S}_{n}$.
+\extra{hint p 5 oef 30 in oefeningen bundel}
+
+\section{Oefenzitting 5: Quoti\"enten en isomorfismestellingen}
+
+\subsection*{Oefening 1}
+\label{sec:oz5-oef1}
+Waar of niet?
+\[ \nicefrac{\mathbb{Q}}{\mathbb{Z}},+ \cong \mathbb{Q},+ \]
+Niet waar.\\
+We zoeken een morfisme van $\mathbb{Q},+$ naar een groep isomorf met $\mathbb{Q},+$ waarvan $\mathbb{Z},+$ de kern is.
+Stel dat $f$ zo'n isomorfisme is.
+$f(\frac{1}{2} + \frac{1}{2})$ moet dan $0$ zijn, maar $f(\frac{1}{2})$ niet. Contradictie.
+
+\subsection*{Oefening 2}
+\label{sec:oz5-oef2}
+Zij $\sigma$ een endomorfisme van $\mathbb{Q}_{0},\cdot$ als volgt. Wat zegt de eerste isomorfismestelling?
+\[ \sigma:\ \mathbb{Q}_{0} \rightarrow \mathbb{Q}_{0}:\ x \mapsto |x| \]
+De kern van $\sigma$ is $\{ 1,-1\}$.
+De eerste isomorfismestelling zegt dus dat $\nicefrac{\mathbb{Q}_{0}}{\{ 1,-1\}},\cdot$ isomorf is met $\mathbb{Q}_{0}^{+}$.
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+    {
+      \mathbb{Q}_{0} & \mathbb{Q}_{0} \\
+      \nicefrac{\mathbb{Q}_{0}}{\{ 1,-1\}} & \mathbb{Q}_{0}^{+} \\};
+    \path[-stealth]
+    (m-1-1) edge node [left] {$\pi$} (m-2-1)
+    edge [double] node [above] {$\sigma$} (m-1-2)
+    (m-2-1.east|-m-2-2) edge node [below] {$\sigma'$} (m-2-2)
+    (m-2-2) edge node [right] {$i$} (m-1-2)
+    (m-2-1) edge [dashed] node [above] {$\bar{\sigma}$} (m-1-2);
+  \end{tikzpicture}
+\end{figure}
+
+\subsection*{Oefening 3}
+\label{sec:oz5-oef3}
+Zij $G= grp\{a\}$ een cyclische groep van orde $12$.
+Zij $M= grp\{a^{2}\}$ en $N=grp\{a^{6}\}$.
+Waar of niet waar?
+\[ \nicefrac{\nicefrac{G}{N}}{\nicefrac{M}{N}} \cong \nicefrac{G}{M} \]
+Waar.
+\begin{proof}
+  $N$ en $M$ zijn normaaldelers van $G$ want het zijn deelgroepen van een commutatieve \stref{st:cyclishe-groep-is-commutatief} groep.
+  Beschouw dan de derde isomorfismestelling.
+\end{proof}
+
+\subsection*{Oefening 4}
+\label{sec:oz5-oef4}
+Gegeven de deelgroepen $N = \{ 1,-1\}$ en $H= grp\{ \frac{1}{2} \}$ van $\mathbb{Q},\cdot$.
+Waar of niet waar?
+\[ \nicefrac{HN}{N},\cdot \cong \nicefrac{H}{H\cap N} \]
+Waar.
+\begin{proof}
+  $H$ is een deelgroep van $\mathbb{Q},\cdot$ en $N$ een normaaldeler van $\mathbb{Q},\cdot$.
+  Beschouw dan de tweede isomorfismestelling.
+\end{proof}
+
+\subsection*{Oefening 5}
+\label{sec:oz5-oef5} 
+Zij $G,*$ een groep, $H,*$ een deelgroep van $G,*$ en $N$ een normaaldeler van $G$ zodat $\nicefrac{G}{N}$ en $N$ Abels zijn.
+Bewijs dat er een normaaldeler $D$ van $H$ bestaat zodat $\nicefrac{H}{D}$ en $D$ Abels zijn.
+\question{hoe?? oef 35}
+
+\subsection*{Oefening 6}
+\label{sec:oz5-oef6}
+Zij $G,*$ een groep met normaaldelers $M$ en $N$ en een deelgroep $H,*$. 
+Bewijs volgende bewering:
+\[ H \cap M = H \cap N \Rightarrow \nicefrac{HM}{M} \cong \nicefrac{HN}{N} \]
+\begin{proof}
+  Volgens de tweede isomorfismestelling geldt het volgende:
+  \[ \nicefrac{HN}{N} = \nicefrac{H}{H\cap N} = \nicefrac{H}{H\cap M} = \nicefrac{HM}{M} \]
+\end{proof}
+
+\subsection*{Oefening 7}
+\label{sec:oz5-oef7}
+Beschouw $\mathbb{Z}^{2\times 2},+$ als additieve groep.
+Beschouw $\phi$ als volgt. Wat zegt de isomorfismestelling hierover?
+\[
+\phi: \mathbb{Z}^{2\times 2} \rightarrow \mathbb{Z}:\
+\begin{pmatrix}
+  a & b\\
+  c & d
+\end{pmatrix}
+\mapsto a + d
+\]
+De kern van $\phi$ is de verzameling van diagonaalmatrices: $\{Diag\}$.
+De eerste isomorfismestelling zegt dan het volgende:
+\[ \nicefrac{\mathbb{Z}^{2\times 2}}{\{Diag\}} \cong \mathbb{Z} \]
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+    {
+      \mathbb{Z}^{2\times 2} & \mathbb{Z} \\
+      \nicefrac{\mathbb{Z}^{2\times 2}}{\{Diag\}} & \mathbb{Z} \\};
+    \path[-stealth]
+    (m-1-1) edge node [left] {$\pi$} (m-2-1)
+    edge [double] node [above] {$\phi$} (m-1-2)
+    (m-2-1.east|-m-2-2) edge node [below] {$\phi'$} (m-2-2)
+    (m-2-2) edge node [right] {$i$} (m-1-2)
+    (m-2-1) edge [dashed] node [above] {$\bar{\phi}$} (m-1-2);
+  \end{tikzpicture}
+\end{figure}
+
+\subsection*{Oefening 8}
+Zij $G,*$ een eindige groep en $p$ een priemgetal dat de orde van $|G|$ deelt, bewijs dan dat $G$ een element van orde $p$ heeft. Je mag (/zal moeten) gebruiken dat $G$ commutatief is.
+\question{Hoe??}
 
 
 \end{document}
