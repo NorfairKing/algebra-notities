@@ -1487,7 +1487,7 @@
 \begin{opm}
   Merk op dat volgende bewering niet noodzakelijk geldt voor een normaaldeler $H,*$ van een groep $G,*$:
   \[ \forall h \in H, g \in G:\ g*h = h*g \]
-  \clarify{is dit equivalent met: ``en normaaldeler is niet noodzakelijk het centrum van een groep.'' ?}
+  Een normaaldeler is met andere woorden niet noodzakelijk het centrum van een groep.
 \end{opm}
 
 \begin{de}
@@ -1530,7 +1530,7 @@
 
 \begin{st}
   \label{st:criteria-voor-normaaldeler}
-  Criteria voor een normaaldeler\\
+  De \term{criteria voor normaaldelers}\\
   Zij $G,*$ een groep en $H$ een deelgroep van $G$.
   \[
   \begin{array}{rcl}
@@ -1833,30 +1833,28 @@
 \end{de}
 
 \begin{st}
-  Zonder bewijs\\
-  De compositiefactoren van een niet-enkelvoudige groep $G$ zijn onafhankelijk (op isomorfisme na) van de keuze van de normaaldelers.\\\\
-  Geen bewijs. Zie Jordan en H\"older.
-\extra{ toch eens het bewijs proberen? }
+  De compositiefactoren van een niet-enkelvoudige groep $G$ zijn onafhankelijk (op isomorfisme na) van de keuze van de normaaldelers.
+  \zb Zie Jordan en H\"older.
 \end{st}
 
 \begin{st}
-  Zonder bewijs\\
-  Structuurstelling voor eindige commutatieve groepen\\
+  \label{st:structuurstelling}
+  De \term{structuurstelling voor eindige commutatieve groepen}\\
   Elke eindige commutatieve groep is isomorf met een directe som van cyclische groepen.
   \[ \bigoplus_{i=1}^{r} Z_{p_{i}^{k_{i}}} \]
   Hierin is elke $p_{i}^{k_{i}}$ een macht van een priemgetal.
-\extra{ toch eens het bewijs proberen? }
+  \zb
 \end{st}
-
-\question{Het ziet ernaar uit dat de $p_{i}^{k_{i}}$ delers moeten zijn van de orde van $G$, waarom is dat?}
 
 \begin{pr}
   De enkelvoudige eindige commutatieve groepen zijn de groepen $\mathbb{Z}_{p},+$ met $p$ een priemgetal en de triviale groep $\{e_{G}\},*$.
   \begin{proof}
-    $\mathbb{Z}_{p}$ heeft geen niet-triviale normaaldelers. De enige directe som die mogelijk is om $\mathbb{Z}_{p}$ te bekomen is immers enkel $\mathbb{Z}_{p}$ zelf.
-    \waarom
+    De orde van $\mathbb{Z}_{p}$ is $p$, dus elke deelgroep (en kandidaat normaaldeler) heeft als orde een deler van $p$\stref{st:stelling-van-lagrange}.
+    De enige delers van $p$ zijn $1$ of $p$, dus $\mathbb{Z}_{p}$ heeft geen niet-triviale normaaldelers.
+    $\mathbb{Z}_{p}$ is bijgevolg enkelvoudig.
     Elke andere (niet-triviale) eindige commutatieve groep heeft een niet-triviale normaaldeler.
-\waarom
+    Zij $n$ de orde van een niet-triviale eindige commutatieve groep, dan heeft $n$ minstens \'e\'en deler verschillend van $1$ en van $n$.
+\question{waarom heeft $\mathbb{Z}_{n}$ zeker normaaldelers?}
   \end{proof}
 \end{pr}
 
@@ -1871,20 +1869,18 @@
 \end{de}
 
 \begin{st}
-  Zonder bewijs\\
   Een eindige groep $G,*$ is oplosbaar als en slechts als alle compositiefactoren van $G$ commutatief zijn.
-\extra{ toch eens het bewijs proberen? }
+  \zb
 \end{st}
 
 \begin{st}
-  Zonder bewijs\\
   Een eindige groep $G$ van orde $n$ is oplosbaar als \'e\'en van de volgende voorwaarden geldt:
   \begin{itemize}
   \item $n < 60$.
   \item $n$ is oneven.
   \item $n$ is een macht van een priemgetal.
   \end{itemize}
-  \extra{ bewijs bekijken }
+  \zb 
 \end{st}
 
 \section{De isomorfismestellingen}

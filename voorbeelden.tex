@@ -5,7 +5,6 @@
 \label{cha:voorbeelden}
 
 \section{Groepen}
-\label{sec:groepen}
 
 \begin{de}
   De \term{triviale groep} is de groep met enkel een neutraal element.
@@ -323,7 +322,7 @@
 \end{vb}
 
 \subsection{Deelgroepen}
-\label{sec:deelgroepen}
+
 
 In dit deel voorbeelden duiden we de relatie ``... is een deelgroep van ...'' aan als $\underset{g}{\subseteq}$.
 
@@ -352,7 +351,7 @@ In dit deel voorbeelden duiden we de relatie ``... is een deelgroep van ...'' aa
 \end{vb} 
 
 \subsection{Groepsmorfisme}
-\label{sec:groepsmorfisme}
+
 
 In deze sectie geven we voorbeelden van groepsmorfismen
 
@@ -403,7 +402,7 @@ In deze sectie geven we voorbeelden van groepsmorfismen
 
 
 \subsection{Orde}
-\label{sec:orde}
+
 
 \begin{vb}
   In $\mathbb{Z}_{30},+$ is de orde van $5$ $6$ en de orde van $8$ $15$.
@@ -414,7 +413,7 @@ In deze sectie geven we voorbeelden van groepsmorfismen
 \end{vb}
 
 \subsection{Nevenklassen}
-\label{sec:nevenklassen}
+
 
 \begin{vb}
   Beschouw $H= <3>$ als deelgroep van $\mathbb{Z}_{12},+$.
@@ -427,7 +426,7 @@ In deze sectie geven we voorbeelden van groepsmorfismen
 \end{vb}
 
 \subsection{Directe som}
-\label{sec:directe-som}
+
 
 \begin{vb}
   De viergroep $V$ is isomorf met $\mathbb{Z}_{2} \oplus \mathbb{Z}_{2}$.
@@ -438,7 +437,7 @@ In deze sectie geven we voorbeelden van groepsmorfismen
 \end{vb}
 
 \subsection{Permutatiegroepen}
-\label{sec:permutatiegroepen}
+
 
 \begin{vb}
   De groepsautomorfismen van de een groep $G,*$ vormen een permutatiegroep van $G,+$.
@@ -449,7 +448,7 @@ In deze sectie geven we voorbeelden van groepsmorfismen
 \end{vb}
 
 \subsection{Conjugatie}
-\label{sec:conjugatie}
+
 
 \begin{vb}
   De conjugatieklassen van $\mathcal{S}_{3}$:
@@ -466,7 +465,91 @@ In deze sectie geven we voorbeelden van groepsmorfismen
 \extra{oefening}
 \end{vb}
 
-\extra{normaaldelers p 26}
+\extra{centralisators}
+
+\subsection{Normaaldelers}
+\begin{vb}
+  In $\mathcal{S}_{3},\circ$ is $\{I,(123),(132)\}$ een normaaldeler.
+\end{vb}
+
+\begin{vb}
+  In $\mathcal{D}_{4},\cdot$ zijn $\{e,a,a^{2},a^{3}\}$ en $\{e,a^{2}\}$ normaaldelers.
+\end{vb}
+
+\begin{vb}
+  In $\mathcal{A}_{4},\circ$ is $\{I,(12)(34),(13)(24),(14)(23)\}$ een normaaldeler.
+\end{vb}
+
+\subsection{Quotientgroepen}
+
+\begin{vb}
+  \[ \mathbb{Z}_{n},+ = \nicefrac{\mathbb{Z}}{n\mathbb{Z}},+\]
+\end{vb}
+
+\begin{vb}
+  Zij $G,*$ een groep.
+  \[ G/\{ e_{G} \} \cong G,* \text{ en } \nicefrac{G}{G} \cong \{ e_{G}\},*\]
+\end{vb}
+
+\begin{vb}
+ \extra{Cayleytabel van $\nicefrac{\mathcal{D}_{4}}{\{e,a^{2}\}}$}
+\end{vb}
+
+\begin{vb}
+  \extra{Cayleytabel van $\nicefrac{\mathcal{A}_{4}}{\{I,(12)(34),(13)(24),(14)(23)\}}$}
+\end{vb}
+
+\begin{vb}
+  \extra{Cayleytabel van $\nicefrac{\mathbb{Z}_{20}}{\{0,4,8,12,16\}}$}
+\end{vb}
+
+\subsection{Enkelvoudige groepen}
+
+\begin{vb}
+  $\mathbb{Z}_{7},+$ is een enkelvoudige groep.
+  Zijn enige normaaldelers zijn immers $\{0\},+$ en $\mathbb{Z}_{7},+$.
+\end{vb}
+
+\begin{vb}
+  $\mathbb{Z}_{6},+$ is een niet-enkelvoudige groep.
+  Hij heeft immers $\{0,3\}$ en $\{0,2,4\}$ als normaaldelers.
+\end{vb}
+
+\subsection{Oplosbare groepen}
+\label{sec:oplosbare-groepen}
+
+\begin{vb}
+  $\mathcal{S}_{3}$ is oplosbaar.
+
+  \begin{proof}
+    We kiezen een (niet-triviale) normaaldeler van $\mathcal{S}_{3}$ van maximale orde: $G_{0}=\{I,(123),(132)\}$.
+    $\nicefrac{\mathcal{S}_{3}}{\{I,(123),(132)\}}$ zou nu enkelvoudig moeten zijn en bovendien commutatief.
+    \[
+    \nicefrac{\mathcal{S}_{3}}{\{I,(123),(132)\}} =
+    \left\{
+      \begin{array}{c}
+        \{I,(123),(132)\},\\ 
+        \{(12), (13), (23)\},\\
+        \{ (23), (12), (13)\},\\
+        \{ (13), (23), (12)\},\\
+        \{ (123), (132), Id\},\\
+        \{ (132), Id, (123)\}
+      \end{array}
+    \right\},\bar{\circ}
+    \]
+\question{hoe controleren we of dit commutatief is?}
+    $G_{0}=\{I,(123),(132)\}$ heeft geen niet-triviale normaaldelers meer.
+    We hebben dus een eindige keten deelgroepen van $\mathcal{S}_{3}$ geconstrueerd om oplosbaarheid aan te tonen.
+    \[ \{ I\},\circ \subseteq \{I,(123),(132)\},\circ \subseteq \mathcal{S}_{3},\circ \]
+  \end{proof}
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{4}$ is oplosbaar.
+\extra{oefening}
+\end{vb}
+
+
 \extra{isomorfismestellingen p 33 ev}
 \section{Ringen}
 \label{sec:ringen}
