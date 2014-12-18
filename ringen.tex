@@ -22,7 +22,7 @@
 \end{de}
 
 \begin{de}
-  In de context van een ring $R,+,\cdot$ noemen we het neutraal element van $R,+$ het \term{nulelement} van $R,+,\cdot$.
+  In de context van een ring $R,+,\cdot$ noemen we het neutraal element van $R,+$ het \term{nulelement} van $R,+,\cdot$ en noteren we het met $e_{R,+}$.
 \end{de}
 
 \begin{ei}
@@ -75,7 +75,7 @@
 \end{ei}
 
 \begin{ei}
-  Zij $R,+,\cdot$ een ring met nulelement.
+  Zij $R,+,\cdot$ een ring met nulelement $e$.
   \[ \forall a,b \in R:\ (-a) \cdot (-b) = a \cdot b \]
 
   \begin{proof}
@@ -105,10 +105,7 @@
   \item ... een \term{linker nuldeler} van $y$ als $x\cdot y$ het neutraal element is van $R,+$.
   \item ... een \term{rechter nuldeler} van $y$ als $y\cdot x$ het neutraal element is vn $R,+$.
   \end{itemize}
-\end{de}
-
-\begin{de}
-  Zij $R,+,\cdot$ een ring met nulelement $e$, dan noemen we $x\in R$ een \term{nuldeler} van $y\in R$ als $x$ zowel een linker als rechter nuldeler is van $y$.
+  We noemen $x\in R$ een \term{nuldeler} van $y\in R$ als $x$ zowel een linker als rechter nuldeler is van $y$.
   \[ x \cdot y = e = y \cdot x \]
 \end{de}
 
@@ -199,12 +196,7 @@
   Zij $R,+,\cdot$ een ring met eenheidselement $i$.
   We noemen een element $u$ van $R$ een \term{eenheid} als er een element $v$ bestaat van $R$ zodat het volgende geldt:
   \[ u \cdot v = i = v \cdot u \]
-\end{de}
-
-\begin{de}
-  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
-  Zij $u$ een eenheid van $R,+,\cdot$ met $v$, dan noemen we $v$ de \term{inverse} van $u$.
-  \[ u \cdot v = i = v \cdot u \]
+  We noemen $v$ dan de \term{inverse} van $u$.
 \end{de}
 
 \begin{st}
@@ -324,7 +316,7 @@
     Stel nu dat er element $x$ en $y$ in $R$ bestaan zodat $x\cdot y = e$ of $y \cdot x = e$ geldt.
     \[
     \begin{array}{rrl}
-      x \cdot y &= e\\
+      & x \cdot y &= e\\
       \Rightarrow & x^{-1} \cdot (x \cdot y) \cdot y^{-1} &= x^{-1} \cdot e \cdot y^{-1}\\
       \Rightarrow & (x^{-1} \cdot x) \cdot (y \cdot y^{-1}) &= e\\
       \Rightarrow & i \cdot i &= e\\
@@ -349,6 +341,7 @@
 \label{sec:velden}
 
 \begin{de}
+  \label{de:veld}
   Een \term{veld} is een commutatief lichaam.
 \end{de}
 
@@ -394,7 +387,6 @@
 \begin{de}
   De additieve orde van de van $0$ verschillende elementen van een veld noemt met de \term{karakteristiek} van het veld.
 \end{de}
-
 
 \subsection{Direct product}
 \label{sec:direct-product}
@@ -1640,6 +1632,29 @@
 \end{opm}
 
 \TODO{zeker een voorbeeld maken, wss examenvraag!}
+
+
+\begin{figure}[p]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+    \draw (0,0) circle (5.5cm);
+    \draw (0,5.75) node {Ringen};
+    \draw (-1,0) circle (4cm);
+    \draw (-1.75,4.25) node {Eenheidselement};
+    \draw (1,0) circle (4cm);
+    \draw (1.75,4.25) node {Commutatief};
+    \draw (0,0) circle (2.5cm);
+    \draw (0,2.75) node {Integriteitsdomein};
+    \draw (0,0) circle (2cm);
+    \draw (0,2.25) node {UFD};
+    \draw (0,0) circle (1.5cm);
+    \draw (0,1.75) node {PID};
+    \draw (0,0) circle (0.5cm);
+    \draw (0,0.75) node {Velden};
+  \end{tikzpicture}
+  \caption{Ringen}
+  \label{fig:ringen}  
+\end{figure}
 
 
 \end{document}

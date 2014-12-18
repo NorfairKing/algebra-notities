@@ -35,13 +35,17 @@
 \newcommand{\term}[1]{\index{#1}\textbf{#1}}
 \newcommand{\zb}[0]{{\footnotesize {\it Zonder bewijs\/}}}
 
-
-
-
 %badges
-\newcommand{\commj}[0]{\framebox[1.1\width]{Commutatief: Ja} }
-\newcommand{\commn}[0]{\framebox[1.1\width]{Commutatief: Nee} }
-\newcommand{\cyclj}[1]{\framebox[1.1\width]{Cyclisch: #1} }
-\newcommand{\cycln}[0]{\framebox[1.1\width]{Cyclisch: Nee} }
-\newcommand{\eenhj}[1]{\framebox[1.1\width]{Eenheidselement: #1} }
-\newcommand{\eenhn}[0]{\framebox[1.1\width]{Eenheidselement: Nee} }
+\newcommand{\bx}[1]{ \framebox[1.1\width]{#1} }
+\newcommand{\commj}[0]{\bx{Commutatief: Ja} }
+\newcommand{\commn}[0]{\bx{Commutatief: Nee} }
+
+\newcommand{\cyclj}[1]{\bx{Cyclisch: #1} }
+\newcommand{\cycln}[0]{\bx{Cyclisch: Nee} }
+
+\newcommand{\eenhj}[1]{\bx{Eenheidselement: #1} }
+\newcommand{\eenhn}[0]{\bx{Eenheidselement: Nee} }
+
+\newcommand{\veld}[0]{\bx{Veld}}
+\newcommand{\lichaam}[0]{\bx{Lichaam}}
+\newcommand{\domein}[0]{\bx{Integriteitsdomein}}
