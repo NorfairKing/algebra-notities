@@ -256,7 +256,9 @@
 \begin{st}
   \label{st:nulring-nul-is-een}
   Een ring $R,+,\cdot$ met eenheidselement $i$ en nulelement $e$ waarbij $i$ gelijk is aan $e$ is de nulring.
-  \extra{bewijs}
+  \begin{proof}
+    \[ \forall x \in R:\ x \cdot e = x = e \cdot x \Rightarrow x = e \]
+  \end{proof}
 \end{st}
 
 \subsection{Commutatieve ring}
@@ -272,30 +274,6 @@
   We noemen $a$ een \term{deler} van $b$ (in $R,+,\cdot$) als er een $q$ in $R$ bestaat zodat het volgende geldt:
   \[ b = q \cdot a \]
 \end{de}
-
-\subsection{Integriteitsdomeinen}
-\label{sec:integriteitsdomeinen}
-
-\begin{de}
-  \label{de:integriteitsdomein}
-  Een \term{(integriteits)domein} $R,+,\cdot$ is een (niet-triviale) commutatieve ring $R,+,\cdot$ met eenheidselement, zonder nuldelers.
-  Zij $e$ het nulelement van $R,+,\cdot$:
-  \[ \forall a, b \in R:\ (a \cdot x = e) \Rightarrow (x = e \vee y = e) \]
-\end{de}
-
-\begin{ei}
-  Zij $R,+,\cdot$ een intergiteitsdomein met nulelement $e$
-  \[ \forall a,b,c \in R:\ (a\cdot b = a\cdot c \wedge a \neq e) \Rightarrow b = c \]
-
-  \begin{proof}
-    Er zijn geen nuldelers in $R,+,\cdot$, want het is een integriteitsdomein, dus elk element is schrapbaar.\eiref{ei:nuldeler-asa-niet-schrapbaar}
-  \end{proof}
-\end{ei}
-
-\begin{opm}
-  In een willekeurige ring zijn niet alle elementen schrapbaar.
-  In $\mathbb{Z}_{10}$ geldt $5\cdot 3 = 5 \cdot 7$ maar $3 \neq 7$.
-\end{opm}
 
 \subsection{Lichaam}
 \label{sec:lichaam}
@@ -336,6 +314,30 @@
   Een eindig lichaam is commutatief en dus een veld.
   \zb
 \end{st}
+
+\subsection{Integriteitsdomeinen}
+\label{sec:integriteitsdomeinen}
+
+\begin{de}
+  \label{de:integriteitsdomein}
+  Een \term{(integriteits)domein} $R,+,\cdot$ is een (niet-triviale) commutatieve ring $R,+,\cdot$ met eenheidselement, zonder nuldelers.
+  Zij $e$ het nulelement van $R,+,\cdot$:
+  \[ \forall a, b \in R:\ (a \cdot x = e) \Rightarrow (x = e \vee y = e) \]
+\end{de}
+
+\begin{ei}
+  Zij $R,+,\cdot$ een intergiteitsdomein met nulelement $e$
+  \[ \forall a,b,c \in R:\ (a\cdot b = a\cdot c \wedge a \neq e) \Rightarrow b = c \]
+
+  \begin{proof}
+    Er zijn geen nuldelers in $R,+,\cdot$, want het is een integriteitsdomein, dus elk element is schrapbaar.\eiref{ei:nuldeler-asa-niet-schrapbaar}
+  \end{proof}
+\end{ei}
+
+\begin{opm}
+  In een willekeurige ring zijn niet alle elementen schrapbaar.
+  In $\mathbb{Z}_{10}$ geldt $5\cdot 3 = 5 \cdot 7$ maar $3 \neq 7$.
+\end{opm}
 
 \subsection{Velden}
 \label{sec:velden}
@@ -1643,14 +1645,16 @@
     \draw (-1.75,4.25) node {Eenheidselement};
     \draw (1,0) circle (4cm);
     \draw (1.75,4.25) node {Commutatief};
-    \draw (0,0) circle (2.5cm);
-    \draw (0,2.75) node {Integriteitsdomein};
-    \draw (0,0) circle (2cm);
-    \draw (0,2.25) node {UFD};
-    \draw (0,0) circle (1.5cm);
-    \draw (0,1.75) node {PID};
-    \draw (0,0) circle (0.5cm);
-    \draw (0,0.75) node {Velden};
+    \draw (-1,0) circle (3cm);
+    \draw (-0.5,3.25) node {Lichaam};
+    \draw (-.5,0) circle (2.25cm);
+    \draw (-.5,2.5) node {Integriteitsdomein};
+    \draw (-.5,0) circle (1.75cm);
+    \draw (-.5,2) node {UFD};
+    \draw (-.5,0) circle (1.25cm);
+    \draw (-.5,1.5) node {PID};
+    \draw (-.5,0) circle (0.5cm);
+    \draw (-.5,0.75) node {Velden};
   \end{tikzpicture}
   \caption{Ringen}
   \label{fig:ringen}  
