@@ -433,6 +433,19 @@
 \extra{bewijs}
 \end{st}
 
+\begin{opm}
+  Het eenheidselement van een deelring van een ring hoeft niet gelijk zijn aan het eenheidselement van de ring.
+  De volgende deelring van $M^{2\times 2}(\mathbb{Z}),+,\cdot$ heeft een ander eenheidselement dan $M^{2\times 2}(\mathbb{Z}),+,\cdot$ 
+  \[
+  \left\{
+    x & 0\\
+    0 & 0\\
+  \ |\ x \in \mathbb{Z}
+  \right\},+,\cdot
+  \]
+\end{opm}
+
+
 \subsection{Ringmorfismen}
 \label{sec:ringmorfismen}
 
@@ -480,6 +493,7 @@
 \begin{ei}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
   \[ \forall a \in R: f(-a) = -f(a) \]
+
   \begin{proof}
     $f$ moet de groep $R,+$ afbeelden op $S,\star$, dus $f$ moet de inverse behouden.\stref{st:groepsmorfisme-behoudt-inverse}
   \end{proof}
@@ -488,46 +502,95 @@
 \begin{ei}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
   Zij $A$ een deelring van $R$, dan is $f(A)$ een deelring van $S$.
-  \extra{bewijs}
+
+  \begin{proof}
+    We gaan het criterium voor deelringen na:
+    \begin{itemize}
+    \item Omdat $A,+,\cdot$ een deelring is van $R,+,\cdot$ is $A,+$ een deelgroep van $R,+$.
+      $f(A),\star$ is dan een deelgroep van $S,\star$.\stref{st:fa-deelgroep-h}
+    \item $*$ is intern in $f(A)$:
+      \[ \forall a,b \in A: f(a) * f(b) = f(a\cdot b) \in f(A) \]
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
   Zij $B$ een deelring van $S$, dan is $f^{-1}(B)$ een deelring van $R$.
-  \extra{bewijs}
+
+  \begin{proof}
+    We gaan het criterium voor deelringen na:
+    \begin{itemize}
+    \item Omdat $B,\star,*$ een deelring is van $S,\star,*$, is $B,\star$ een deelgroep van $S,\star$.
+      $f^{-1}(B)$ is dan een deelgroep van $R,+$. \stref{st:fbm-deelgroep-g}
+    \item $\cdot$ is intern in $f^{-1}(B)$:
+      \[ \forall a,b \in f^{-1}(B):\ f(a) \cdot f(b) = f(a \cdot b) \in B \Rightarrow a \cdot b \in f^{-1}(B) \]
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   Zij $R,+,\cdot$ een ring met eenheidselement $i$, $S,\star,*$ een ring en $f:R \rightarrow S$ een morfisme.
   De deelring $f(R)$ heeft $f(i)$ als eenheidselement.
-  \extra{bewijs}
-\end{ei}
 
-\begin{opm}
-  Het eenheidselement van een deelring van een ring hoeft niet gelijk zijn aan het eenheidselement van de ring.
-  \clarify{hoeft de ring er \'e\'en te hebben?}
-  \extra{verwijzen naar vb op p 47 A}
-\end{opm}
+  \begin{proof}
+    \[ \forall x\in R: f(x) *f(i) = f(x \cdot i) = f(x) = f(i \cdot x) = f(i) * f(x) \]
+  \end{proof}
+\end{ei}
 
 \begin{ei}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
-  Zij $e$ het nulelement van $R$.
-  $f$ is injectief als en slechts als $Ker(f) = \{e\}$.
-  \extra{bewijs}
+  Zij $e_{R}$ het nulelement van $R$ en $e_{S}$ het nulelement van $S$.
+  $f$ is injectief als en slechts als $Ker(f) = \{e_{R}\}$.
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Stel dat er twee verschillende elementen $x$ en $y$ zouden zijn in de kern van $f$, dan geldt $f(x) = f(y) = e_{R}$, maar ook $x \neq y$.
+      $f$ is dan niet injectief, dus de kern van $f$ kan maar \'e\'en element bevatten.
+      Dat ene element moet $e_{R}$ zijn, anders is $f$ geen morfisme.
+    \item $\Leftarrow$\\
+      Stel dat er twee elementen $x$ en $y$ zijn die op hetzefde element worden afgebeeldt onder $f$, dan geldt ook het volgende en moeten $x$ en $y$ dus gelijk zijn.
+      \[
+      \begin{array}{rl}
+        & f(x) = f(y)\\ 
+        \Rightarrow & f(x) \star (-f(y)) = e_{S}\\
+        \Rightarrow & f(x + (-y)) = e_{S} \\
+        \Rightarrow & x-y = e_{R} \\
+        \Rightarrow & x = y
+      \end{array}
+      \]
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{ei}
+  \label{ei:inverse-afbeelding-ook-isomorfisme}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f$ een ringisomorfisme van $R$ naar $S$, dan is ook $f^{-1}: S \rightarrow R$ een ringisomorfisme.
-  \extra{bewijs}
+
+  \begin{proof}
+    Stel dat $f$ isomorf is, dan bestaan er voor alle koppels elementen $y_{1}$ en $y_{2}$ uit $S$ elementen $x_{1}$ en $x_{2}$ uit $R$ zodat $x_{1}$ op $y_{1}$ wordt afgebeeldt en $x_{2}$ op $y_{2}$.
+    \[
+    \begin{array}{rll}
+    f^{-1}(y_{1}\cdot y_{2}) &= f^{-1}(f(x_{1})*f(x_{2})) &\\
+                           &= f^{-1}(f(x_{1} \cdot x_{2})) &\\
+                           &= x_{1} \cdot x_{2} &= f^{-1}(y_{1}) * f^{-1}(y_{2})
+    \end{array}
+    \]
+  \end{proof}
 \end{ei}
 
 \begin{ei}
   \label{ei:ringmorfisme-behoudt-multiplicatieve-inverse}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen met eenheidselement $i_{R}$ en $i_{S}$ en zij $f: R\rightarrow S$ een isomorfisme dat het eenheidselement $i_{R}$ van $R,+,\cdot$ afstuurt op het eenheidselement $i_{S}$ van $S,+,\cdot$.
-  Als $u$ een eenheid is in $R$, dan is $f(u)$ een eenheid in $S$.
+  Als een element $u\in R$ een eenheid is in $R,+,\cdot$, dan is $f(u)$ een eenheid in $S$.
   Bovendien geldt het volgende:
   \[ (f(u))^{-1} = f(u^{-1}) \]
-  \TODO{bewijs}
+
+  \begin{proof}
+    \[ \forall x \in R:\ f(x^{-1}) \cdot f(x) = f(x^{-1}\cdot x) = f(I_{R}) = i_{S} = f(I_{R}) = f(x\cdot x^{-1}) = f(x) \cdot f(x^{-1}) \]
+  \end{proof}
 \end{ei}
 
 
@@ -564,14 +627,41 @@
   Zij $R,+,\cdot$ een ring met eenheidselement $i_{R}$ en nulelement $e_{R}$ en zij $S,\star,*$ een integriteitsdomein met eenheidselement $i_{S}$ en nulelement $e_{S}$.
   Zij $f: R \rightarrow S$ een ringmorfisme.
   \[ f(R) = \{e_{S}\} \quad\vee\quad f(i_{R}) = i_{S} \]
-\TODO{bewijs p 47 A}
+  
+  \begin{proof}
+    $i_{R}$ wordt ofwel wel afgebeeldt op $e_{S}$, ofwel niet.
+    \begin{itemize}
+    \item $f(i_{R}) = e_{S}$\\
+      \[ \forall r \in R:\ f(r) = f(r\cdot i_{R}) = f(r) * f(i_{R}) = f(r) * e_{S} = e_{S} \]
+    \item $f(i_{R}) \neq e_{S}$\\
+      \[ f(i_{R}) * i_{S} = f(i_{R}) = f(i_{R} \cdot i_{R}) = f(i_{R}) * f(i_{R}) \Rightarrow f(i_{R}) = i_{S} \]
+      Merk op dat de implicatie enkel geldt omdat een integriteitsdomein geen nuldelers heeft.
+    \end{itemize}
+  \end{proof}
 \end{pr}
 
 \begin{pr}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R \rightarrow S$ een morfisme.
   $f$ is een isomorfisme als en slechts als en een morfisme $g: S \rightarrow R$ bestaat zodat het volgende geldt:
   \[ g \circ f = I_{R} \quad\wedge\quad f \circ g = I_{S} \]
-\TODO{bewijs}
+
+  \begin{proof}
+    Bewijs van een equivalentie.\\
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $f$ een isomorfisme is, is $f^{-1}$ dat ook.\eiref{ei:inverse-afbeelding-ook-isomorfisme}
+      \[ f \circ f^{-1} = I_{R} \wedge f^{-1} \circ f = I_{S} \]
+    \item $\Leftarrow$\\
+      \begin{itemize}
+      \item $f$ is injectief.\\
+        Stel immers dat er twee elementen $r_{1}$ en $r_{2}$ zouden bestaan die op hetzelfde element worden afgebeeldt onder $f$, dan moeten die gelijk zijn vanuit de definitie van $g$.
+        \[ r_{1} = g(f(r_{1})) = g(f(r_{2})) = r_{2} \]
+      \item $f$ is surjectief.\\
+        Stel immers dat er een element $s\in S$ bestaat waarop geen enkel element uit $R$ afgebeeld wordt onder $f$, dan volgt uit de definitie van $g$ dat $s$ toch wordt afgebeeldt op $f(g(s))$.
+        Contradictie.
+      \end{itemize}
+    \end{itemize}
+  \end{proof}
 \end{pr}
 
 \subsection{Breukenveld van een integriteitsdomein}
@@ -1777,9 +1867,5 @@
 \end{figure}
 
 \end{document}
-
-
-
-
 
 
