@@ -329,8 +329,6 @@
 \end{vb}
 
 \subsection{Deelgroepen}
-
-
 In dit deel voorbeelden duiden we de relatie ``... is een deelgroep van ...'' aan als $\underset{g}{\subseteq}$.
 
 \begin{vb}
@@ -714,13 +712,13 @@ In deze sectie geven we voorbeelden van groepsmorfismen
 \begin{vb}
   De complexe getallen, uitgerust met de optelling en de vermenigvuldiging, vormen een veld:
   \[ \mathbb{C},+,\cdot \]
-\commj \eenhj{$1$} \domein \lichaam \veld
+  \commj \eenhj{$1$} \domein \lichaam \veld
 \end{vb}
 
 \begin{vb}
   De reele veeltermen, uitgerust met de optelling en de vermenigvuldiging, vormen een integriteitsdomein: 
   \[ \mathbb{R}[X_{1},\dotsc,X_{n}],+,\cdot \]
-  \commj
+  \commj \eenhj{$1$} \domein
 \end{vb}
 
 \begin{vb}
@@ -734,19 +732,54 @@ In deze sectie geven we voorbeelden van groepsmorfismen
   \eenhj{$(1,0,\dotsc)$} \commj
 \end{vb}
 
+\begin{vb}
+  De quatiernionen vormen een niet-commutatief lichaam.
+  \[ \mathbb{H} = \{ a + bi + cj + dk \ |\ a,b,c,d \in \mathbb{R} \} \]
+  \commn \eenhj{$1$} \lichaam 
+\end{vb}
+
 \subsection{Deelringen}
 \label{sec:deelringen}
 
+In dit deel voorbeelden duiden we de relatie ``... is een deelring van ...'' aan als $\underset{r}{\subseteq}$.
+
 \begin{vb}
-  De diagonaalmatrices vormen een deelring van de vierkante matrices.
-  extra{commutatief?}
+  \[ n\mathbb{Z}\underset{r}{\subseteq} \mathbb{Z} \underset{r}{\subseteq} \mathbb{Q} \underset{r}{\subseteq} \mathbb{R} \underset{r}{\subseteq} \mathbb{C},+,\cdot \]
+\end{vb}
+
+\begin{vb}
+  \[ \{ r\mathbb{I}_{n} \ |\ r \in \mathbb{R} \} \underset{r}{\subseteq} \{diagonaalmatrix\} \underset{r}{\subseteq}  \{bovendriehoeksmatrx\} \underset{r}{\subseteq} \mathbb{R}^{n\times n},+,\cdot \]
+\end{vb}
+
+\begin{vb}
+  Afbeeldingen met bepaalde eigenschappen:
+  \[ \{ f:\ \mathbb{R}^{n} \rightarrow \mathbb{R} \ |\ f \text{differentieerbaar} \} \underset{r}{\subseteq} \{ f:\ \mathbb{R}^{n} \rightarrow \mathbb{R} \ |\ f \text{continu} \}  \underset{r}{\subseteq} \{ f:\ \mathbb{R}^{n} \rightarrow \mathbb{R} \},+,\cdot \]
+\end{vb}
+
+\subsection{Ringmorfismen}
+\label{sec:ringmorfismen}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{Z} \rightarrow \mathbb{Z}_{n}:\ x \mapsto \bar{x} \]
+\end{vb}
+
+\begin{vb}
+  Automorfisme
+  \[ \mathbb{C} \rightarrow \mathbb{C}:\ x \mapsto \bar{x} \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{R}[X] \rightarrow \mathbb{R}:\ f \mapsto f(a) \text{ met } a \in \mathbb{R} \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{Z}_{4} \rightarrow \mathbb{Z}_{10}:\ \bar{x} \mapsto \bar{5x} \]
 \end{vb}
 
 
-\TODO{nog voorbelden op pagina 42 A}
-\TODO{quaternionen $\mathbb{H}$ p 45 A}
-\TODO{deelringen p 46 A}
-\TODO{ringmorfismen p 46 A}
 \TODO{breukenvelden p 49 A}
 \TODO{priemidealen en maximale idealen p 55 A}
 
