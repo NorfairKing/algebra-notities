@@ -668,57 +668,117 @@
 \label{sec:breukenveld-van-een-integriteitsdomein}
 
 \begin{de}
-  Zij $R$ een integriteitsdomein, $F$ een veld en $i: R \rightarrow F$ een ringmorfisme als volgt:
+  Zij $R,+,\cdot$ een integriteitsdomein, $F,\star,*$ een veld en $i: R \rightarrow F$ een ringmorfisme als volgt:
   \begin{enumerate}
   \item $i$ is injectief
   \item $\forall q \in F,\ \exists a \in R, b\in R_{e}:\ q = i(a)\cdot i(b)^{-1}$
   \end{enumerate}
-  $F$ is dan het \term{breukenveld} van $R$.
+  $F$ is dan het \term{breukenveld} of \term{quoti\"entenveld} van $R$.
 \end{de}
 
 \begin{st}
   Constructie van een breukenveld\\
-\TODO{p 48 algebra}
-\end{st}
-
-\begin{st}
-  We kunnen een integriteitsdomein identificeren met zijn beeld onder de inbedding $i$ en dus als deelring van $F$ beschouwen.
-  \TODO{bewijs p 48 A}
+  We kunnen voor elk integriteitsdomein $R,+,\cdot$ een breukenveld $F,\star,*$ construeren.
+  Noem $e_{R}$, respectievelijk $e_{F}$ het nulelement van $R,+,\cdot$, respectievelijk $F,\star,*$ en $i_{R}$, respectievelijk $i_{F}$ het eenheidselement van $R,+,\cdot$, repspectievelijk $F,\star,*$.
+  \begin{proof}
+    Bewijs door constructie.
+    \begin{itemize}
+    \item We voeren eerst een relatie $\sim$ in als op $V\subsetneq R^{2}$:
+      \[ R:\ V = \{ (a,b) \in R^{2} \ |\ b \neq e_{R} \}:\ (a,b) \sim (c,d) \Leftrightarrow a\cdot d = b\cdot c \]
+      Merk op dat $\sim$ een equivalentierelatie is.
+      \begin{itemize}
+      \item $\sim$ is reflexief: $\forall (a,b) \in V:\ (a,b) \sim (a,b)$ want $ab = ab$.
+      \item $\sim$ is symmetrisch.\\
+        \[
+        \begin{array}{rl}
+          \forall (a,b), (b,c), (d,e) \in V:\ & (a,b) \sim (b,c) \wedge (b,c) \sim (d,e)\\
+          \Leftrightarrow & a\cdot d = b\cdot c \wedge c\cdot f = d\cdot e\\
+          \Leftrightarrow & a\cdot c \cdot f = a\cdot d \cdot e = b \cdot c \cdot e\\
+          \Rightarrow & a\cdot f = b \cdot e\\
+          \Leftrightarrow & (a,b) = (c,f)
+        \end{array}
+        \]
+        Merk op dat de implicatie enkel geldt omdat een integriteitsdomein geen nuldelers heeft.
+      \item $\sim$ is transitief.\\
+        \[ \forall (a,b), (c,d) \in V:\ (a,b) \sim (c,d) \LeftRigtharrow ad = bc \Leftrightarrow cb = da \Leftrightarrow (c,d) \sim (a,b) \]
+        Merk op dat de tweede equivalentie enkel geldt omdat $\cdot$ commutatief is in een integriteitsdomein. 
+      \end{itemize}
+    \item Beschouw nu de equivalentieklassen van $V$ onder $\sim$ en noem ze $F$.
+      \[ F = V/\sim \]
+      Noteer bovendien de equivalentieklasse van een element $(a,b)\in V$ als $[a,b]$.
+      \begin{itemize}
+      \item We voeren nu op $F$ de bewerkingen $+$ en $\cdot$ is als volgt:
+        \[ +:\ F \times F \rightarrow F:\ [a,b] + [c,d] = [ad + ca, bd] \]
+        \[ \cdot:\ F \times F \rightarrow F:\ [a,b] \cdot [c,d] = [ac,bd] \]
+        $+$ en $\cdot$ zijn op deze manier goed gedefini\"eerd, 't is te zeggen onafhankelijk van de keuze van de representanten van de equivalentieklassen.
+        Merk allereerst het volgende op.
+        \[ \forall x \in R: (a,b) \sim (xa,xb) \sim (ax,bx) \]
+        Kies twee elementen uit $Z$ met representanten $(a,b)$ en $(x,y)$ respectievelijk.
+        Zij $(c,d)$ een andere representant van $[a,b]$.
+        We bewijzen nu dat het resultaat hetzelfde blijft, onafhankelijk van de representanten.
+        \begin{itemize}
+        \item 
+          \[
+          \begin{array}{rll}
+            [c,d] + [x,y] &= [cy+xd,dy] &\\
+                          &= [acy + axd,ady] &\\
+                          &= [acy + bcx, bcy] &\\
+                          &= [c(ay+xb),cby] &\\
+                          &= [ay + xb,by] &= [a,b] + [x,y]
+          \end{array}
+          \]
+        \item
+          \[
+          \begin{array}{rll}
+            [c,d] + [x,y] &= [cx,dy] &\\
+                          &= [acx, ady] &\\
+                          &= [acx,bcy] &= [ax, by]
+          \end{array}
+          \]
+        \end{itemize}
+      \item $F,+\cdot$ is nu een veld met eenheidselement $i_{F} = [i_{R},i_{R}]$ en nulelement $e_{F} = [e_{R},i_{R}]$.
+        \waarom
+      \end{itemize}
+    \item Beschouw nu de afbeelding $i$ als volgt:
+      \[ i:\ R \rightarrow F:\ r \mapsto [r,i_{R}] \]
+      \begin{itemize}
+      \item $i$ is een ringmorfisme. \waarom
+      \item $i$ is injectief.\\
+        We bewijzen dit door aan te tonen dat de kern enkel het nulelelement $e_{R}$ van $R,+,\cdot$ bevat.
+        \[ \forall r\in R: i(r) = [r,i_{R}] = e_{F} \Rightarrow r = e_{R} \]
+      \item Elk element $[x,y]\in F$ valt als volgt te schrijven:
+        \[ [x,y] = [x,i_{R}] \cdot [i_{R},y] = [x,i_{R}] \cdot [y,i_{R}]^{-1} = i(x) \cdot i(y)^{-1} \]
+      \end{itemize}
+    \end{itemize}
+  \end{proof}
+\TODO{bewijs p 139 TAI bekijken}
 \end{st}
 
 \begin{ei}
   Het breukenveld van een integriteitsdomein is uniek.
-  \TODO{bewijs p 49 A}
+  \zb
 \end{ei}
 
 \begin{ei}
   Zij $F$ het breukenveld van een integriteitsdomein $R$ met inbedding $i: R \rightarrow F$.
   Er bestaat voor elk injectief ringmorfisme $f: R \rightarrow K$ met $K$ een veld een uniek ringmorfisme $f': F \rightarrow K$ zodat $f = f' \circ i$ geldt.
-  \TODO{bewijs p 49 A}
+  \zb
 \end{ei}
 
-
-\begin{st}
-  Zij $D,+,\cdot$ een integriteitsdomein, dan is het mogelijk om een veld $F,\star,*$ te construeren zodat ...
-  \begin{itemize}
-  \item ... $R,+,\cdot$ isomorf is met een deelring $R'$ van $F$.
-  \item ... ieder element in $F$ te schrijven valt als $p\star q^{-1}$ met $p,q \in R'$.
-  \end{itemize}
-\TODO{bewijs p 139}
-\end{st}
-
 \begin{de}
-  Het veld $F$ uit de vorige stelling noemt met het \term{veld der breuken} of het \term{veld der quoti\"enten} van $R$.
+  We schrijven in het vervolg de equivalentieklasse $[a,b]$ als $\frac{a}{b}$ of $\nicefrac{a}{b}$.
 \end{de}
 
 \begin{opm}
-  Men kan $F$ zien als een uitbreiding van $R$ (isomorf met $R'$) zodat in $F$ elk niet-nulelement van $R$ een inverse heeft gekregen.
+  We kunnen een integriteitsdomein identificeren met zijn beeld onder de inbedding $i$ en dus als deelring van $F$ beschouwen.
+  We identificeren elk element $a$ uit $R$ met $\frac{a}{i_{R}}$ in $F$.
+  \extra{meer uitleg}
 \end{opm}
 
-\begin{st}
-  Het breukenveld van een integriteitsdomein is op isomorfisme na uniek.
-\extra{zeker? bewijs!}
-\end{st}
+\begin{opm}
+  Men kan $F$ zien als een uitbreiding (zie later) van $R$ (isomorf met $R'$) zodat in $F$ elk niet-nulelement van $R$ een inverse heeft gekregen.
+\end{opm}
+
 
 \section{Idealen}
 \label{sec:idealen}
@@ -1821,7 +1881,7 @@
         to ($(bll) + (0,-1)$)
         to[out=180,in=270] ($(bll) + (-1,0) $);
 
-	\filldraw[fill=yellow!15] ($(bld) + (-1,0)$) 
+	\filldraw[fill=yellow!15] ($(bld) + (-1,-1)$) 
     	to ($(tld) + (-1,1)$)
         to ($(trd) + (0,1)$)
         to[out=0,in=90] ($(trd) + (1,0)$)
@@ -1867,5 +1927,4 @@
 \end{figure}
 
 \end{document}
-
 
