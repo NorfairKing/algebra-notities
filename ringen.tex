@@ -438,8 +438,10 @@
   De volgende deelring van $M^{2\times 2}(\mathbb{Z}),+,\cdot$ heeft een ander eenheidselement dan $M^{2\times 2}(\mathbb{Z}),+,\cdot$ 
   \[
   \left\{
-    x & 0\\
-    0 & 0\\
+    \begin{pmatrix}
+      x & 0\\
+      0 & 0\\
+    \end{pmatrix}
   \ |\ x \in \mathbb{Z}
   \right\},+,\cdot
   \]
@@ -700,7 +702,7 @@
         \]
         Merk op dat de implicatie enkel geldt omdat een integriteitsdomein geen nuldelers heeft.
       \item $\sim$ is transitief.\\
-        \[ \forall (a,b), (c,d) \in V:\ (a,b) \sim (c,d) \LeftRigtharrow ad = bc \Leftrightarrow cb = da \Leftrightarrow (c,d) \sim (a,b) \]
+        \[ \forall (a,b), (c,d) \in V:\ (a,b) \sim (c,d) \Leftrightarrow ad = bc \Leftrightarrow cb = da \Leftrightarrow (c,d) \sim (a,b) \]
         Merk op dat de tweede equivalentie enkel geldt omdat $\cdot$ commutatief is in een integriteitsdomein. 
       \end{itemize}
     \item Beschouw nu de equivalentieklassen van $V$ onder $\sim$ en noem ze $F$.
@@ -783,20 +785,19 @@
 \section{Idealen}
 \label{sec:idealen}
 
-\TODO{linker, en rechterideaal}
-
 \begin{de}
-  Zij $R,+,\cdot$ een ring en $I$ een deelverzameling van $R$.
-  $I$ is een \term{ideaal} van $R$ als het volgende geldt:
+  Zij $R,+,\cdot$ een ring en $I,+$ een deelgroep van $R,+$.
+  We noemen $I,+,\cdot$...
   \begin{itemize}
-  \item $I,+$ is een deelgroep van $R,+$.
-  \item $\forall a \in R, \forall b \in I:\ a\cdot b \subseteq I \wedge b\cdot a \subseteq I$. 
+  \item ... een \term{linkerideaal} als $\forall r\in R, \forall i\in I;\ r \cdot x \in I$ geldt.
+  \item ... een \term{rechterideaal} als $\forall r\in R, \forall i\in I;\ x \cdot r \in I$ geldt.
   \end{itemize}
-  \[ I \triangleleft R \]
+  We noemen $I,+,\cdot$ een \term{ideaal} of \term{tweezijdig ideaal} als $I,+,\cdot$ zowel een linker- als rechterideaal is van $R,+,\cdot$
+  \[ I,+,\cdot \triangleleft R,+,\cdot \]
 \end{de}
 
 \begin{st}
-  In elke ring $R,+,\cdot$ zijn de triviale deelringen idealen.
+  Elke ring $R,+,\cdot$ heeft twee idealen:
   \begin{enumerate}
   \item De ring met enkel het nulelement: $\{e_{R,+}\},+,\cdot$
   \item Heel de ring: $R,+,\cdot$
@@ -804,15 +805,44 @@
 \extra{bewijs}
 \end{st}
 
+\begin{de}
+  We noemen $\{e_{R,+}\},+,\cdot$ en $R,+,\cdot$ de \term{triviale idealen} van $R,+,\cdot$.
+\end{de}
+
+\begin{st}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$ en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
+  \[ i \in I \Leftrightarrow I = R \]
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\forall r\in R: r\cdot i = i \cdot r \in I$ geldt, dus alle $r\in R$ moeten in $I$ zitten.
+    \item $\forall r\in R,\ \forall i\in I: r\cdot i \in I \wedge i \cdot r \in I$ geldt, dus ook $i \in I$.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  De \term{criteria voor idealen}.\\
+  Zij $I$ een niet-lege deelverzameling van $R$ waarbij $R,+,\cdot$ een ring is.
+  $I,+,\cdot$ is een ideaal als aan \'e\'en van de volgende criteria voldaan is.
+  \begin{itemize}
+  \item $\forall x,y \in I,\ \forall r\in R:\ x+y\in I\ \wedge\ -x \in I\ \wedge\  r\cdot x\in I\ \wedge\ x\cdot r \in I$
+  \item $\forall x,y \in I,\ \forall r\in R:\ x-y\in I\ \wedge\ \quad \quad \quad \quad\   r\cdot x\in I\ \wedge\ x\cdot r \in I$
+  \item $\forall x,y \in I,\ \forall r\in R:\ x-y\in I\ \wedge\ \quad \quad \quad \quad\   r\cdot x\in I\ \wedge\ x\cdot r \in I$ en $R,+,\cdot$ heeft een eenheidselement.
+  \end{itemize}
+\TODO{bewijs p 51}
+\end{st}
+
+\begin{st}
+  Elk ideaal is een deelring.
+\extra{bewijs}
+\end{st}
+
 \begin{ei}
   Een ideaal $I$ van een ring $R,+,\cdot$ is een normaaldeler van de groep $R,+$.
 \extra{bewijs}
 \end{ei}
-
-\begin{de}
-  De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
-\end{de}
-
 
 \begin{de}
   Zij $a$ een element van een commutatieve ring $R,+,\cdot$ met eenheidselement.
@@ -841,6 +871,10 @@
   Een ideaal voortgebracht door een deelverzameling $A$ van $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement is in feite gelijk aan de doorsnede van alle idealen van $R$ die $A$ omvatten.
   Of nog: ``het kleinste ideaal van $R$ dat $A$ omvat''.
 \end{opm}
+
+\begin{de}
+  De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
+\end{de}
 
 \extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
 
@@ -1928,3 +1962,9 @@
 
 \end{document}
 
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
