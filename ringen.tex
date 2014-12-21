@@ -1460,7 +1460,7 @@
   We definieren het product van twee veeltermen $a(X)$ en $b(X)$ als volgt:
   \[ a(X) = \sum_{i=0}^{m}a_{i}X^{i} \]
   \[ b(X) = \sum_{i=0}^{n}b_{i}X^{i} \]
-  \[  a(X)\cdot b(X) = \sum_{i=0}^{n+m}\left(\sum_{k=0}^{q+r}a_{q+r-i}b_{i}\right)X^{i} \]
+  \[  a(X)\cdot b(X) = \sum_{i=0}^{n+m}\left(\sum_{k=0}^{i}a_{i-k}b_{k}\right)X^{i} \]
   Uiteraard zijn $a_{i}$ en $b_{i}$ voor $i$ groter dan $m$, respectievelijk $n$ nulelementen.
 \end{de}
 
@@ -1523,34 +1523,49 @@
 \end{de}
 
 \begin{st}
-  Als de ring $R,+,\cdot$ commutatief is, dan is $R[x],+,\cdot$ ook commutatief.
-\extra{bewijs}
+  \label{st:veeltermen-comm-asa-ring-comm}
+  Als de ring $R,+,\cdot$ commutatief is, dan is $R[X],+,\cdot$ ook commutatief.
+  \begin{proof}
+    \[ \forall a(X), b(X) \in R[X]:\ a(X) + b(X) = \sum_{i=0}^{\max(m,n)}(a_{i} + b_{i})X^{i} = \sum_{i=0}^{\max(m,n)}(b_{i} + a_{i})X^{i} = b(X) + a(X) \]
+  \end{proof}
 \end{st}
 
 \begin{st}
-  Het nulelement $e$ van $R,+,\cdot$ is ook het nulelement van $R[x],+,\cdot$.
-\extra{bewijs}
+  \label{st:veeltermen-eenh-asa-ring-eenh}
+    Het eenheidselement $i$ van $R,+,\cdot$(, als het bestaat,) is dat element, als constante veelterm beschouwd, ook het eenheidselement van $R[X],+,\cdot$.
+    \begin{proof}
+      \[ \forall a(X) \in R[X]: a(X) \cdot i = \sum_{i=0}^{n}a_{i}\cdot i = a(X) = \sum_{i=0}^{n}i \cdot a_{i} = i \cdot a(X) \]
+  \end{proof}
 \end{st}
 
 \begin{st}
-  Het eenheidselement $i$ van $R,+,\cdot$(, als het bestaat,) is ook het eenheidselement van $R[x],+,\cdot$.
-\extra{bewijs}
+  $R[X],+,\cdot$ heeft geen nuldelers als en slechts als $R,+,\cdot$ geen nuldelers heeft.
+
+  \begin{proof}
+    Kies twee verschillende niet-nul-veeltermen $a(X)$ en $b(X)$ uit $R[X]$ van graad $m$, respectievelijk $m$.
+    De veelterm $a(X)\cdot b(X)$ heeft leidende term $a_{m}\cdot b_{m}$ waarin $a_{m}$ en $b_{n}$ beide niet het nulelement van $R,+,\cdot$ zijn.
+    Als en slechts als $a$ en $b$ geen nuldelers zijn in $R,+,\cdot$, is $a_{m}\cdot b_{n}$ niet het nulelement van $R,+,\cdot$.
+    Dit betekent precies dat $R[X],+,\cdot$ geen nuldelers heeft als en slechts als $R,+,\cdot$ geen nuldelers heeft.
+  \end{proof}
 \end{st}
 
 \begin{st}
-  $R[x],+,\cdot$ heeft geen nuldelers als en slechts als $R,+,\cdot$ geen nuldelers heeft.
-  \TODO{bewijs p 58 A}
-\end{st}
-
-\begin{ei}
+  \label{st:veeltermen-geen-nuldelers-asa-ring-geen-nuldelers}
   Zij $R,+,\cdot$ een ring zonder nuldelers.
-  \[ \forall x,y \in R[X]:\ gr(f\cdot g) = gr(f) \cdot gr(g) \]
-  \TODO{bewijs p 58 A}
-\end{ei}
+  \[ \forall x,y \in R[X]:\ gr(f\cdot g) = gr(f) + gr(g) \]
+
+  \begin{proof}
+    Dit volgt meteen uit de definitie van het veeltermproduct.
+    Let wel op: dit geldt enkel als $R,+,\cdot$ geen nuldelers heeft.
+  \end{proof}
+\end{st}
 
 \begin{gev}
-  $R[x],+,\cdot$ is een integriteitsdomein als en slechts als $R,+,\cdot$ een integriteitsdomein is.
-\extra{bewijs}
+  $R[X],+,\cdot$ is een integriteitsdomein als en slechts als $R,+,\cdot$ een integriteitsdomein is.
+
+  \begin{proof}
+    $R[X],+,\cdot$ is commutatief\stref{st:veeltermen-comm-asa-ring-comm}, heeft een eenheidselement\stref{st:veeltermen-eenh-asa-ring-eenh} en geen nuldelers\stref{st:veeltermen-geen-nuldelers-asa-ring-geen-nuldelers} als hetzelfde geldt voor $R,+,\cdot$.
+  \end{proof}
 \end{gev}
 
 
