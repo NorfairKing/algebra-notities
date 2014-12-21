@@ -1,0 +1,735 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Algebra I: Oefenzittingen}
+\label{cha:algebra-i-oefenzittingen}
+
+\section{Oefenzitting 1: Herhalingen en Aanvullingen}
+\subsection*{Oefening 1}
+\label{oza:oz1-oef1}
+Kies de groep $\mathcal{S}_{3}$.
+Beschouw nu de elementen $(12)$ en $(23)$, deze hebben beide orde $2$.
+\[ (12)^{2} = Id \quad\text{ en }\quad (23)^{2} \]
+Nu heeft $(12) \circ (23) = (132)$ orde $3$.
+\[ (132)^{3} = (132)(123) = Id \]
+
+\subsection*{Oefening 2}
+\label{oza:oz1-oef2}
+Zij $G$ een groep.
+Toon aan dat $G$ commutatief is als en slechts als het volgende geldt:
+\[ \forall a,b \in G, \forall n \in \mathbb{N}:\ (ab)^{n} = a^{n}b^{n} \]
+
+\begin{proof}
+  Kies twee willekeurige elementen $a$ en $b$ uit $G$:
+  \begin{itemize}
+  \item $\Rightarrow$\\
+    Kies een willekeurige $n\in \mathbb{N}$
+    \[ (ab)^{n} = ababab \ldots abab = aaaaa \ldots bbbbb \]
+  \item $\Leftarrow$\\
+    Kies $n=2$:
+    \[ 
+    \begin{array}{rl}
+       abab &= aabb\\
+       bab &= abb\\
+       ba &= ab
+    \end{array}
+    \]
+  \end{itemize}
+\end{proof}
+
+\subsection*{Oefening 3}
+\label{oza:oz1-oef3}
+
+\subsubsection*{(a)}
+Bepaal alle deelgroepen van $\mathbb{Z}_{12},+$.\\\\
+$\mathbb{Z}_{12},+$ heeft orde $12$.
+\[
+\begin{array}{c}
+  \{ 0,2,4,6,8,10 \},+\\
+  \{ 0,3,6,9 \},+\\
+  \{ 0,4,8 \},+\\
+  \{ 0,6 \},+\\
+  \{ 0 \},+\\
+\end{array}
+\]
+
+\subsubsection*{(b)}
+Bepaal alle deelgroepen van $\mathcal{D}_{5},\circ$.\\\\
+$\mathcal{D}_{5},+$ heeft orde $10$.
+\[
+\begin{array}{c}
+  \{ e, a, a^{2}, a^{3}, a^{4} \},\circ\\
+  \{ e, b^{5} \},\circ\\
+  \{ e, b^{4} \},\circ\\
+  \{ e, b^{3} \},\circ\\
+  \{ e, b^{2} \},\circ\\
+  \{ e, b \},\circ\\
+  \{ e \},\circ\\
+\end{array}
+\]
+
+\subsubsection*{(c)}
+Bepaal alle deelgroepen van $\mathcal{Q},\cdot$.\\\\
+$\mathcal{Q},\cdot$ heeft orde $8$.
+\[
+\begin{array}{c}
+  \{ 1, -1, k, -k \},\cdot\\
+  \{ 1, -1, j, -j \},\cdot\\
+  \{ 1, -1, i, -i \},\cdot\\
+  \{ 1, -1 \},\cdot\\
+  \{ 1 \},\cdot\\
+\end{array}
+\]
+
+\subsubsection*{(d)}
+Bepaal alle deelgroepen van $\mathcal{A}_{4},\circ$.\\\\
+$\mathcal{A}_{4},\circ$ heeft orde $12$.
+\[
+\begin{array}{c}
+  \{ Id, (123), (132) \},\circ\\
+  \{ Id, (124), (142) \},\circ\\
+  \{ Id, (134), (143) \},\circ\\
+  \{ Id, (234), (243) \},\circ\\
+  \{ Id, (12)(34) \},\circ\\
+  \{ Id, (13)(24) \},\circ\\
+  \{ Id, (14)(23) \},\circ\\
+  \{ Id, (34) \},\circ\\
+  \{ Id, (24) \},\circ\\
+  \{ Id, (23) \},\circ\\
+  \{ Id, (14) \},\circ\\
+  \{ Id, (13) \},\circ\\
+  \{ Id, (12) \},\circ\\
+  \{ Id \},\circ\\
+\end{array}
+\]
+
+\subsection*{Oefening 4}
+\label{oza:oz1-oef4}
+
+Zij $G$ een cyclische groep van orde $n$ en $H$ een cyclische groep van orde $m$ met $ggd(m,n)=1$.
+Bewijs dat $G \oplus H$ cyclisch is van orde $mn$.
+
+\begin{proof}
+  Zij $g$ een generator voor $G$ en $h$ een generator voor $H$.
+  \[ g^{n} = e_{G} \quad\text{ en }\quad h^{m} = e_{H} \]
+  Dit betekent dat in $G \oplus H$ het volgende geldt:
+  \[ (g,e_{H})^{n} = (e_{G},e_{H}) \quad\text{ en }\quad (e_{G},h)^{m} = (e_{G},e_{H}) \]
+  We bewijzen nu dat $(g,h)$ een generator is voor $G \oplus H$ met orde $mn$.
+  \[ (g,h)^{mn} = (e_{G},h^{n}) = (g^{m},e_{H}) = (e_{G},e_{H}) \]
+  Dit betekent dat $(g,h)$ $G \oplus H$ genereert met orde $mn$.
+\end{proof}
+
+\subsection*{Oefening 5}
+\label{oza:oz1-oef5}
+
+Beschouw de deelgroep $G$ van $Gl_{2}(\mathbb{R})$.
+\[
+G =
+\left<
+  \begin{pmatrix}
+     0 & 1\\
+    -1 & 0\\
+  \end{pmatrix}
+  ,
+  \begin{pmatrix}
+    0 & 1\\
+    1 & 0
+  \end{pmatrix}
+\right>
+\]
+Bepaal $G$.
+Met welke bekende groep is $G$ isomorf?
+
+\[ 
+G = 
+\left\{ 
+  \begin{pmatrix}
+    1 & 0\\
+    0 & 1
+  \end{pmatrix}
+,
+  \begin{pmatrix}
+    -1 & 0\\
+    0 & -1
+  \end{pmatrix}
+,
+  \begin{pmatrix}
+    0 & 1\\
+    1 & 0
+  \end{pmatrix}
+,
+  \begin{pmatrix}
+    0 & -1\\
+    -1 & 0
+  \end{pmatrix}
+,
+  \begin{pmatrix}
+     0 & 1\\
+    -1 & 0\\
+  \end{pmatrix}
+,
+  \begin{pmatrix}
+     0 & -1\\
+    1 & 0\\
+  \end{pmatrix}
+,
+  \begin{pmatrix}
+    1 & 0\\
+    0 & -1
+  \end{pmatrix}
+,
+  \begin{pmatrix}
+    -1 & 0\\
+    0 & 1
+  \end{pmatrix}
+\right\}
+\]
+$G$ is isomorf met de quaternionengroep.
+
+\subsection*{Oefening 6}
+\label{oza:oz1-oef6}
+Zij $G,\cdot$ een niet-cyclische groep van orde $6$.
+
+\subsubsection*{(a)}
+$G$ heeft een element van orde $3$.
+
+\begin{proof}
+  De orde van een element van een groep is een deler van de orde van de groep.\gevref {gev:orde-van-element-deelt-orde-van-groep}
+  Elk element heeft dus een orde in $\{ 1, 2, 3, 6 \}$.
+  Enkel $e$ heeft als orde $1$, en er zijn geen elementen van orde $6$ want dan zou $G$ cyclisch zijn.
+  Stel dat elk element orde $2$ heeft, dan is $G$ commutatief.\stref{st:groep-alles-orde-2-commutatief}
+  Dit zou betekenen dat $\{ e,a,b,ab \}$ een deelgroep was van $G$ met orde $4$, maar $4$ is geen deler van $6$. Contradictie\stref{st:stelling-van-lagrange}
+  Bijgevolg bestaat er minstens \'e\'en element van orde $3$ en is de orde van $G$ dus $3$.\stref{st:orde-van-generator-is-orde-van-groep}
+\end{proof}
+
+\subsubsection*{(b)}
+Zij $a$ een element van orde $3$ en $b \not\in \{ e,a,a^{2} \}$, dan geldt $G= \{ e,a,a^{2},b,ab,a^{2}b \}$.
+
+\begin{proof}
+  We bewijzen dat $\{ e,a,a^{2},b,ab,a^{2}b \}$ enkel verschillende elementen bevat.
+  \begin{itemize}
+  \item $\{ e,a,a^{2} \}$ is een verzameling van onderling verschillende elementen, en bovendien een groep.
+  \item $\{ e,a,a^{2},b \}$ is een verzameling van onderling verschillende elementen omdat $b$ niet in$\{ e,a,a^{2} \}$ zit en $\{ e,a,a^{2} \}$ een groep is.
+  \item $\{ e,a,a^{2},b,ab \}$ is een verzameling van onderling verschillende elementen:\\
+    \begin{tabular}[H]{cl}
+      \centering
+      $ab \neq e$ & $b$ zou immers de inverse zijn van $a$ en niet in de groep $\{ e,a,a^{2} \}$ zitten.\\
+      $ab \neq a$ & want dan zou $b$ het neutraal element zijn.\\
+      $ab \neq a$ & want dan zou $b$ gelijk zijn aan $a$.\\
+      $ab \neq b$ & want dan zou $a$ het neutraal element zijn.\\
+    \end{tabular}
+  \item $\{ e,a,a^{2},b,ab,a^{2}b \}$ is een verzameling van onderling verschillende elementen:\\
+    \begin{tabular}[H]{cl}
+      $a^{2}b \neq e$ & $b$ zou immers de inverse zijn van $a^{2}$ en niet in de groep $\{ e,a,a^{2} \}$\\
+      $ab^{2} \neq a$ & want dan zou $b^{2}$ het neutraal element zijn.\\
+      $ab^{2} \neq a^{2}$ & want dan zou $b^{2}$ gelijk zijn aan $a$ en $b^{3}=ab$ dus gelijk aan $b$\\
+      $ab^{2} \neq b$ & want dan zou $ab$ gelijk zijn aan $b$.\\
+      $ab^{2} \neq ab$ & want dan zou $b$ het neutraal element zijn.\\
+    \end{tabular}
+  \end{itemize}
+\end{proof}
+
+\subsubsection*{(c)}
+De orde van $b$ is $2$.
+
+\begin{proof}
+  We gaan na aan welk element van $\{ e,a,a^{2},b,ab,a^{2}b \}$ $b^{2}$ gelijk moet zijn.\\
+  \begin{tabular}[H]{cl}
+    \centering
+    $b^{2} \neq  a$ & want ???\\
+    $b^{2} \neq  a^{2}$ & want dan zou $b^{2}a$ het neutraal element zijn en ???\\
+    $b^{2} \neq  ab$ & want dan zou $a$ gelijk zijn aan $b$.\\
+    $b^{2} \neq  a^{2}b$ & want dan zou $a^{2}$ gelijk zijn aan $b$.\\
+  \end{tabular}\\
+  Bijgevolg geldt $b^{2} = e$.
+\end{proof}
+
+
+\subsubsection*{(d)}
+$ba$ is gelijk aan $a^{2}b$.
+
+\begin{proof}
+  \[
+  \begin{array}{rll}
+    ba &\neq e &\text{want dan zou } \{ e,a,a^{2} \} \text{ geen groep zijn.}\\ 
+    ba &\neq a &\text{(gegeven)}\\ 
+    ba &\neq a^{2} &\text{want dan zou } b=a \text{ gelden.} \\ 
+    ba &\neq b &\text{want dan zou } a=e \text{ gelden.} \\ 
+    ba &\neq ab &\text{want ???} \\ 
+    ba &\neq a^{2}b &\text{want dan zou } b=a^{2} \text{ gelden.} \\ 
+  \end{array}
+  \]
+\clarify{Waarom?}
+\end{proof}
+
+\subsubsection*{(e)}
+$G \cong \mathcal{D}_{3} \cong \mathcal{S}_{3}$ geldt.
+
+\begin{proof}
+  Constructief bewijs.
+  \begin{itemize}
+  \item Er bestaat een bijectie tussen $G$ en $\mathcal{S}_{3}$:
+    \[
+    \begin{pmatrix}
+      e & a     & a^{2} & b    & ab   & a^{2}b\\
+      e & (123) & (132) & (12) & (13) & (23)\\
+    \end{pmatrix}
+    \]
+  \item $G$ is gelijk aan $D_{3}$.
+  \end{itemize}
+\end{proof}
+
+\section{Oefenzitting 2: Permutatiegroepen}
+
+\subsection*{Oefening 1}
+\label{oza:oz2-oef1}
+Geef alle mogelijke permutaties $\pi$ op de verzameling $\{1,2,3,4,5\}$ die orde $5$ hebben en voldoen aan $\pi(1) = 5$, $\pi(2) = 3$ en $\pi(3) = 4$.\\\\
+De permutaties die we zoeken zien er als volgt uit:
+\[
+\begin{pmatrix}
+  1 & 2 & 3 & 4 & 5\\
+  5 & 3 & 4 & a & b
+\end{pmatrix}
+\] 
+Om een permutatie te zijn moet $\{a,b\}$ gelijk zijn aan $\{1,2\}$.
+Als $a$ $1$ is en $b$ $2$, voldoet de permutatie aan de opgelegde eigenschappen.
+Als $a$ $2$ is en $b$ $1$, heeft de permutatie orde $6$.
+Antwoord:
+\[
+\begin{pmatrix}
+  1 & 2 & 3 & 4 & 5\\
+  5 & 3 & 4 & 1 & 2
+\end{pmatrix}
+\] 
+
+\subsection*{Oefening 2}
+\label{oza:oz2-oef2}
+Beschouw het volgend geheim schrift.
+De vercijfering van een tekst gebeurt door in de tekst de letters van het alfabet te permuteren volgens de permutatie $\pi$.
+\[
+\pi =
+\left(
+\begin{array}{cccccccccccccccccccccccccc}
+  a & b & c & d & e & f & g & h & i & j & k & l & m & n & o & p & q & r & s & t & u & v & w & x & y & z\\
+  b & c & d & e & f & g & h & i & a & z & x & m & l & o & p & n & s & r & t & q & j & w & v & k & u & y\\ 
+\end{array}
+\right)
+\]
+
+\subsubsection*{(a)}
+Zoek de disjuncte cykel-schrijfwijze van de permutatie $\pi$.
+\[ (abcdefghi)(jzyuj)(kx)(lm)(nop)(qst)(vw) \] 
+
+\subsubsection*{(b)}
+Wat is de orde van $\pi$?
+\[ kgv(9,5,2,2,3,3,2) = 90 \]
+
+\subsubsection*{(c)}
+Wat is het teken van $\pi$?
+$-1$ want er is een oneven aantal cykels met even lengte.
+\extra{verwijzing naar stelling.}
+
+\subsection*{Oefening 3}
+\label{oza:oz2-oef3}
+Waar of niet?
+Er bestaat geen permutatie $\pi$ van $9$ elementen met orde $15$.\\\\
+Niet waar:
+\[ (abc)(efghi) \]
+
+\subsection*{Oefening 4}
+\label{oza:oz2-oef4}
+Onder welke voorwaarden is de afbeelding $\pi:\ \{ 0,\dotsc, n-1 \} \rightarrow \{ 0,\dotsc, n-1 \}:\ i \mapsto ai + b \mod n$ een permutatie. ($a,b \in \mathbb{Z}$).\\\\
+$a$ en $b$ moeten relatief priem zijn.
+\waarom
+
+\subsection*{Extra oefening}
+\label{oza:oz2-extra}
+Zij $\sigma$ en $\tau$ permutaties in $\mathcal{S}_{n}$.
+Zoek de nodige en voldoende voorwaarden op $\sigma$ en $\tau$ opdat zo zouden commuteren.
+Hint: $\sigma \tau = \tau \sigma$ geldt als en slechts als $\tau$ en $\sigma$ disjunct zijn \emph{of} ...
+\extra{oefening}
+
+\section{Oefenzitting 3: Conjugatie en klasvergelijking}
+
+\subsection*{Oefening 1}
+\label{sec:oz3-oef1}
+Geef alle conjugatieklassen van een Abelse groep $G,*$.
+Controleer de klasvergelijking voor een eindige abelse groep.\\\\
+De conjugatie met $a$ is in een Abelse groep de identieke transformatie $Id$.
+De conjugatieklassen van $G,*$ zijn dus singletons van alle respectievelijke elementen in $G$.
+De klasvergelijking is bijzonder simpel voor een Abelse groep omdat dan het centrum van $G,*$ heel $G$ is.
+
+\subsection*{Oefening 2}
+\label{sec:oz3-oef2}
+Geef de conjugatieklassen van $\mathcal{S}_{3}$ en controleer de klasvergelijking.
+\[ 
+\left\{ 
+  \begin{array}{c}
+\{ Id \},\\
+\{ (12),(13),(23) \},\\
+\{ (123),(132) \},\\
+\end{array}
+\right\}
+\]
+\[
+\begin{array}{ccccc}
+  |G| &=& |Z(G)| &+& \sum|Cl(a_{i})|\\
+  |\mathcal{S}_{3}| &=& 1 &+& 5\\
+\end{array}
+\]
+
+
+\subsection*{Oefening 3}
+\label{sec:oz3-oef2}
+Geef de conjugatieklassen van $\mathcal{S}_{4}$ en controleer de klasvergelijking.
+\[ 
+\left\{ 
+  \begin{array}{c}
+\{ Id \},\\
+\{ (12),(13),(14),(23),(24),(34) \},\\
+\{ (123),(132),(124),(142),(234),(243),(134),(143) \},\\
+\{ (12)(34),(13)(24),(14)(23) \},\\
+\{ (1234),(1342),(1423),(1432),(1243),(1324) \}\\
+\end{array}
+\right\}
+\]
+\[
+\begin{array}{ccccc}
+  |G| &=& |Z(G)| &+& \sum|Cl(a_{i})|\\
+  |\mathcal{S}_{4}| &=& 1 &+& 23\\
+\end{array}
+\]
+
+\subsection*{Oefening 4}
+\label{sec:oz3-oef3}
+Geef de conjugatieklassen van de quaternionengroep en controleer de klasvergelijking.
+\[ 
+\left\{ 
+  \begin{array}{c}
+\{ 1 \},\\
+\{ -1 \},\\
+\{ i,-i \},\\
+\{ j,-j \},\\
+\{ k,-k \}\\
+\end{array}
+\right\}
+\]
+\[
+\begin{array}{ccccc}
+  |G| &=& |Z(G)| &+& \sum|Cl(a_{i})|\\
+  |\mathcal{Q}| &=& 2 &+& 6\\
+\end{array}
+\]
+
+\subsection*{Oefening 5}
+\label{sec:oz3-oef4}
+Geef de conjugatieklassen van de didi\"edergroep $\mathcal{D}_{4}$ met $8$ elementen en controleer de klasvergelijking.
+\[ 
+\left\{ 
+  \begin{array}{c}
+\{ Id \},\\
+\{ a^{2} \},\\
+\{ a,a^{3} \},\\
+\{ b,a^{2}b \},\\
+\{ ab,a^{3}b \}\\
+\end{array}
+\right\}
+\]
+\[
+\begin{array}{ccccc}
+  |G| &=& |Z(G)| &+& \sum|Cl(a_{i})|\\
+  |\mathcal{D}_{4}| &=& 2 &+& 6\\
+\end{array}
+\]
+
+\subsection*{Oefening 6}
+\label{sec:oz3-oef5}
+Bepaal alle eindige groepen met precies $2$ conjugatieklassen.\\\\
+Zij $G,*$ een eindige groep met precies $2$ conjugatieklassen.
+Elk element in het centrum heeft zijn eigen conjugatieklas.
+Er zit minstens $1$ element in het centrum: $e_{G}$.
+$e_{G}$ zit dus al zeker in zijn eigen conjugatieklas.
+Alle andere elementen zitten in dus samen in een conjugatieklas.
+De groep is van orde minstens twee omdat alle conjugatieklassen niet-leeg zijn.
+Noem $C$ de conjugatieklas van $G,*$ waar $e_{G}$ niet in zit.
+\[ |C| = |G| - 1 \]
+We weten dat de orde van elke conjugatieklas een deler moet zijn van de orde van $G$\gevref{gev:orde-conjugatieklasse-deelt-orde-groep}.
+$|G| - 1$ is alleen een deler van $|G|$ als $|G|$ precies $2$ is.
+Er is maar $1$ groep van orde $2$, op isomorfisme na: $\mathbb{Z}_{2}$.
+
+\subsection*{Oefening 7}
+\label{sec:oz3-oef6}
+Bepaal alle eindige groepen met precies $3$ conjugatieklassen.\\\\
+Verdergaand op de redenering in de vorige oefening moet een groep $G,*$ met precies $3$ conjugatieklassen minstens drie elementen.
+$G$ heeft dan als orde $1+a+b$ zodat zowel $a$ als $b$ $|G|$ delen.
+De mogelijkheden voor $(a,b)$ zijn dan $\{(1,1),(1,2),(2,3)\}$.
+\begin{itemize}
+\item Als $a = b = 1$ geldt, is $G$ abels, en dan is $G$ isomorf met $\mathbb{Z}_{3}$.
+\item Als $a=1$ en $b=2$ gelden, is $G$ een groep van orde $4$ die niet abels. Zo'n groep bestaat niet.
+  Elke groep van orde $4$ is immers isomorf met ofwel de viergroep, ofwel $\mathbb{Z}_{4}$.\eiref{ei:groep-orde-vier}
+\item Als $a=2$ en $b=3$ gelden, is $G$ een groep van orde $6$. $G$ is dan ofwel isomorf met $\mathcal{S}_{3}$ ofwel met $\mathbb{Z}_{6}$.\eiref{ei-groep-orde-zes}
+\end{itemize}
+
+\subsection*{Oefening 8}
+\label{sec:oz3-oef7}
+Bepaal de orde van het centrum van een niet-abelse groep $P$ van orde $p^{3}$ met $p$ een priemgetal.
+Controleer dit voor de didi\"edergroep $\mathcal{D}_{4}$ en de quaternionengroep.\\\\
+De orde van het centrum is een deler van de orde van $P$\eiref{ei:centrum-is-deelgroep} \stref{st:stelling-van-lagrange} en bovendien groter dan $1$.\prref{pr:orde-centrum-pgroep-groter-dan-een}.
+$|Z(P)|$ moet dus $p$ of $p^{2}$ zijn.
+Voor $|Z(P)|$ $3$ zou immers betekenen dat $P$ abels is.
+De orde van $P$ kan bovendien niet $p^{2}$ zijn, want dan zou $P$ abels zijn.\stref{st:priemgroep-kwadraat-abels}
+
+
+\section{Oefenzitting 4: Normaaldelers}
+
+\subsection*{Oefening 1}
+\label{sec:oz4-oef1}
+
+\subsubsection*{(a)}
+Is $\{ Id, (12)(34),(13)(24),(14)(23) \}$ een normaaldeler van $\mathcal{A},\circ$?
+ 
+Ja
+\waarom
+\subsubsection*{(b)}
+Is $\{ Id, (12)(34) \}$ een normaaldeler van $\mathcal{A},\circ$?
+Nee
+\waarom
+
+\subsection*{Oefening 2}
+\label{sec:oz4-oef2}
+Is $SL_{n}(\mathbb{R})$ een normaaldeler van $GL_{n}(\mathbb{R})$?
+
+Ja.
+\begin{proof}
+  \[ \forall g\in GL_{n}(\mathbb{R}), n\in SL_{n}(\mathbb{R}): \det(g\cdot n \cdot g^{-1}) = \det(g) \cdot \det(n) \cdot \det(g^{-1}) = 1 \]
+\end{proof}
+
+\subsection*{Oefening 3}
+\label{sec:oz4-oef3}
+Zij $H$ een normaaldeler van een groep $G,*$.
+Bewijs: $H$ is de unie van de conjugatieklassen van alle $h\in H$.
+\[ H \triangleleft G \Rightarrow H = \bigcup_{h\in H}Cl_{G}(h) \]
+\begin{proof}
+  $H$ is een normaaldeler van $G$, dus het volgende geldt. \stref{st:criteria-voor-normaaldeler}
+  \[ \forall g\in G: gHg^{-1} = H \]
+  Bekijk $H$ nu als volgt:
+  \[
+  \begin{array}{rll}
+    H &= \bigcup_{g\in G} gHg^{-1} &\\
+      &= \bigcup_{g\in G} \bigcup_{h\in H} ghg^{-1} &\\
+      &= \bigcup_{h\in H} \bigcup_{g\in G} ghg^{-1} &\\
+      &= \bigcup_{h\in H} \{ ghg^{-1} \ |\ g\in G \} &= \bigcup_{h\in H}Cl(h)
+  \end{array}
+  \]
+\end{proof}
+
+\subsection{Oefening 4}
+\label{sec:oz4-oef4}
+Geldt het volgende?
+\[ \mathbb{Q},+=grp\{\nicefrac{1}{p} \ |\ p \text{ is een priemgetal.} \} \] 
+\question{hoe begin ik hieraan?}
+
+\subsection*{Oefening 5}
+\label{sec:oz4-oef5}
+Zij $H,*$ een deelgroep van $G,*$ met index $3$ zodat er een $x\in G\setminus H$ bestaat waarvoor $x*H = H*x$ geldt.
+Bewijs dat $H$ een normaaldeler is van $G,*$.
+
+\begin{proof}
+  Merk op dat $G/H$ orde $3$ heeft.\stref{st:stelling-van-lagrange}.
+  Dit betekent dat er een $y$ bestaat in $G\setminus H$ zodat $G/H$ er als volgt uitziet:
+  \[ G/H = \{ xH, yH, H \} \]
+\question{hoe??}
+\end{proof}
+
+\subsection*{Oefening 6}
+\label{sec:oz4-oef6}
+Zij $G,*$ een groep met normaaldelers $A$ en $B$.
+Bewijs dat $A*B$ een normaaldeler is van $G,*$.
+
+\begin{proof}
+  Kies een willekeurige $g$ uit $G$ en een willekeurig element $a*b$ uit $A*B$.
+  \[ g*a*b*g^{-1} = g*a*g^{-1}*g*b*g^{-1} \in A*B\]
+  Hierboven is $g*a*g^{-1}$ een element van $A$ omdat $A$ een normaaldeler is van $G$ en $g*b*g^{-1}$ analoog een element van $B$.
+\end{proof}
+
+\subsection*{Oefening 7}
+\label{sec:oz4-oef7}
+Zij $G,*$ een groep.
+Waar of niet waar?
+\[ (A \triangleleft B \wedge B \triangleleft C) \Rightarrow A \triangleleft C \]
+Waar
+\begin{proof}
+  \[
+  \begin{array}{rl}
+    & (\forall c\in C,\forall b\in B: cbc^{-1} \in B) \wedge (\forall b\in B,\forall a\in A: bab^{-1} \in A)\\
+    \Rightarrow & \forall c\in C,\forall a\in A: cac^{-1} \in B)\\
+    \Rightarrow & \forall c\in C,\forall a\in A: (cac^{-1})a(cac^{-1})^{-1} \in A\\
+  \end{array}
+  \]
+  \[
+  \begin{array}{rll}
+    (cac^{-1})a(cac^{-1})^{-1} &= cac^{-1}a(c(ac^{-1}))^{-1} &\\
+                             &= cac^{-1}a((ac)c^{-1}) &\\
+                             &= cac^{-1}aacc^{-1} &\\
+                             &= ca(c^{-1}a)(ac)c^{-1} &\\
+                             &= ca(ac)^{-1}(ac)c^{-1} &\\
+                             &= caec^{-1} &= cac^{-1}\\
+  \end{array}
+  \]
+  \[ \forall c\in C, a\in A: cac^{-1} \in A \]
+\end{proof}
+
+
+\subsection{Oefening 8}
+\label{sec:oz4-oef8}
+Zij $G,*$ een groep en $A\subseteq$.
+\begin{itemize}
+\item $C(A),*$ is een deelgroep van $G,*$.
+  \begin{proof}
+    De centralisator van elk element van $g$ is een deelgroep van $G,*$.\eiref{ei:centralisator-is-deelgroep} en de doorsnede van deelgroepen is een deelgroep.\stref{st:doorsnede-deelgroepen}
+  \end{proof}
+\item $A$ is een commutatieve deelgroep van $G \Rightarrow A \triangleleft C(A)$.
+  \[ \forall c\in C(A), \forall a\in A:\ cac^{-1} = cc^{-1}a = e_{G}a = a \in A \]
+\end{itemize}
+\extra{nog drie deeloefeningen}
+
+\subsection{Oefening 9}
+\label{sec:oz4-oef9}
+Zij $G$ een groep en zij $H$ een deelgroep van index $n$.
+Stel dat $\{e\}$ de enigge normaaldeler is van $G$ die bevat is in $H$.
+Toon aan dat $G$ isomorf is met een deelgroep van $\mathcal{S}_{n}$.
+\extra{hint p 5 oef 30 in oefeningen bundel}
+
+\section{Oefenzitting 5: Quoti\"enten en isomorfismestellingen}
+
+\subsection*{Oefening 1}
+\label{sec:oz5-oef1}
+Waar of niet?
+\[ \nicefrac{\mathbb{Q}}{\mathbb{Z}},+ \cong \mathbb{Q},+ \]
+Niet waar.\\
+We zoeken een morfisme van $\mathbb{Q},+$ naar een groep isomorf met $\mathbb{Q},+$ waarvan $\mathbb{Z},+$ de kern is.
+Stel dat $f$ zo'n isomorfisme is.
+$f(\frac{1}{2} + \frac{1}{2})$ moet dan $0$ zijn, maar $f(\frac{1}{2})$ niet. Contradictie.
+
+\subsection*{Oefening 2}
+\label{sec:oz5-oef2}
+Zij $\sigma$ een endomorfisme van $\mathbb{Q}_{0},\cdot$ als volgt. Wat zegt de eerste isomorfismestelling?
+\[ \sigma:\ \mathbb{Q}_{0} \rightarrow \mathbb{Q}_{0}:\ x \mapsto |x| \]
+De kern van $\sigma$ is $\{ 1,-1\}$.
+De eerste isomorfismestelling zegt dus dat $\nicefrac{\mathbb{Q}_{0}}{\{ 1,-1\}},\cdot$ isomorf is met $\mathbb{Q}_{0}^{+}$.
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+    {
+      \mathbb{Q}_{0} & \mathbb{Q}_{0} \\
+      \nicefrac{\mathbb{Q}_{0}}{\{ 1,-1\}} & \mathbb{Q}_{0}^{+} \\};
+    \path[-stealth]
+    (m-1-1) edge node [left] {$\pi$} (m-2-1)
+    edge [double] node [above] {$\sigma$} (m-1-2)
+    (m-2-1.east|-m-2-2) edge node [below] {$\sigma'$} (m-2-2)
+    (m-2-2) edge node [right] {$i$} (m-1-2)
+    (m-2-1) edge [dashed] node [above] {$\bar{\sigma}$} (m-1-2);
+  \end{tikzpicture}
+\end{figure}
+
+\subsection*{Oefening 3}
+\label{sec:oz5-oef3}
+Zij $G= grp\{a\}$ een cyclische groep van orde $12$.
+Zij $M= grp\{a^{2}\}$ en $N=grp\{a^{6}\}$.
+Waar of niet waar?
+\[ \nicefrac{\nicefrac{G}{N}}{\nicefrac{M}{N}} \cong \nicefrac{G}{M} \]
+Waar.
+\begin{proof}
+  $N$ en $M$ zijn normaaldelers van $G$ want het zijn deelgroepen van een commutatieve \stref{st:cyclishe-groep-is-commutatief} groep.
+  Beschouw dan de derde isomorfismestelling.
+\end{proof}
+
+\subsection*{Oefening 4}
+\label{sec:oz5-oef4}
+Gegeven de deelgroepen $N = \{ 1,-1\}$ en $H= grp\{ \frac{1}{2} \}$ van $\mathbb{Q},\cdot$.
+Waar of niet waar?
+\[ \nicefrac{HN}{N},\cdot \cong \nicefrac{H}{H\cap N} \]
+Waar.
+\begin{proof}
+  $H$ is een deelgroep van $\mathbb{Q},\cdot$ en $N$ een normaaldeler van $\mathbb{Q},\cdot$.
+  Beschouw dan de tweede isomorfismestelling.
+\end{proof}
+
+\subsection*{Oefening 5}
+\label{sec:oz5-oef5} 
+Zij $G,*$ een groep, $H,*$ een deelgroep van $G,*$ en $N$ een normaaldeler van $G$ zodat $\nicefrac{G}{N}$ en $N$ Abels zijn.
+Bewijs dat er een normaaldeler $D$ van $H$ bestaat zodat $\nicefrac{H}{D}$ en $D$ Abels zijn.
+\question{hoe?? oef 35}
+
+\subsection*{Oefening 6}
+\label{sec:oz5-oef6}
+Zij $G,*$ een groep met normaaldelers $M$ en $N$ en een deelgroep $H,*$. 
+Bewijs volgende bewering:
+\[ H \cap M = H \cap N \Rightarrow \nicefrac{HM}{M} \cong \nicefrac{HN}{N} \]
+\begin{proof}
+  Volgens de tweede isomorfismestelling geldt het volgende:
+  \[ \nicefrac{HN}{N} = \nicefrac{H}{H\cap N} = \nicefrac{H}{H\cap M} = \nicefrac{HM}{M} \]
+\end{proof}
+
+\subsection*{Oefening 7}
+\label{sec:oz5-oef7}
+Beschouw $\mathbb{Z}^{2\times 2},+$ als additieve groep.
+Beschouw $\phi$ als volgt. Wat zegt de isomorfismestelling hierover?
+\[
+\phi: \mathbb{Z}^{2\times 2} \rightarrow \mathbb{Z}:\
+\begin{pmatrix}
+  a & b\\
+  c & d
+\end{pmatrix}
+\mapsto a + d
+\]
+De kern van $\phi$ is de verzameling van diagonaalmatrices: $\{Diag\}$.
+De eerste isomorfismestelling zegt dan het volgende:
+\[ \nicefrac{\mathbb{Z}^{2\times 2}}{\{Diag\}} \cong \mathbb{Z} \]
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+    {
+      \mathbb{Z}^{2\times 2} & \mathbb{Z} \\
+      \nicefrac{\mathbb{Z}^{2\times 2}}{\{Diag\}} & \mathbb{Z} \\};
+    \path[-stealth]
+    (m-1-1) edge node [left] {$\pi$} (m-2-1)
+    edge [double] node [above] {$\phi$} (m-1-2)
+    (m-2-1.east|-m-2-2) edge node [below] {$\phi'$} (m-2-2)
+    (m-2-2) edge node [right] {$i$} (m-1-2)
+    (m-2-1) edge [dashed] node [above] {$\bar{\phi}$} (m-1-2);
+  \end{tikzpicture}
+\end{figure}
+
+\subsection*{Oefening 8}
+Zij $G,*$ een eindige groep en $p$ een priemgetal dat de orde van $|G|$ deelt, bewijs dan dat $G$ een element van orde $p$ heeft. Je mag (/zal moeten) gebruiken dat $G$ commutatief is.
+\question{Hoe??}
+
+\TODO{hoeveel ringmorfismen $f: \mathbb{Z} \rightarrow \mathbb{R}$ zijn er die $1$ op $1$ afbeelden?}
+\TODO{bewijs de deelbaarheidstesten door $9$ en $11$ uit de lagere school. p 48}
+
+\section{Oefenzitting 5: Basisbegrippen}
+
+\subsection*{Oefening 1}
+Gegeven een verzameling $U$.
+Bewijs dat $\mathcal{P}(U)\Delta,\cap$ een commutatieve ring is met eenheidselement.
+
+\subsection*{Oefening 2}
+Gegeven een ring $R,+,\cdot$ als volgt.
+We noemen dit een \term{Boolering}.
+\[ \forall a\in R:\ a^{2} = a \]
+Bewijs dat $R,+,\cdot$ een commutatieve ring is en het volgende:
+\[ \forall a \in R:\ a+a = e_{R}\]
+
+\extra{bewijs dat $I=\{  \begin{pmatrix}    a & b\\c & d  \end{pmatrix} \ |\ a,b,c,d \in 2\mathbb{Z}\}$ een ideaal is van $M^{2\times 2}(\mathbb{Z})$. Hoeveel elementen heeft $\nicefrac{M^{2\times 2}(\mathbb{Z})}{I}$?}
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

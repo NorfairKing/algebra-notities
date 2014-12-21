@@ -5,11 +5,47 @@
 \newtheorem{ei}[thm]{Eigenschap}
 \newtheorem{st}[thm]{Stelling}
 \newtheorem{gev}[thm]{Gevolg}
+\newtheorem{pr}[thm]{Propositie}
+\newtheorem{opm}[thm]{Opmerking}
+\newtheorem{vb}[thm]{Voorbeeld}
+\newtheorem{lem}[thm]{Lemma}
+\newmdtheoremenv{al}[thm]{Algoritme}
+
+
+\newcommand{\deref}[1]{\footnote{Zie definitie \ref{#1} op pagina \pageref{#1}.}}
+\newcommand{\stref}[1]{\footnote{Zie stelling \ref{#1} op pagina \pageref{#1}.}}
+\newcommand{\eiref}[1]{\footnote{Zie eigenschap \ref{#1} op pagina \pageref{#1}.}}
+\newcommand{\gevref}[1]{\footnote{Zie gevolg \ref{#1} op pagina \pageref{#1}.}}
+\newcommand{\prref}[1]{\footnote{Zie propositie \ref{#1} op pagina \pageref{#1}.}}
+\newcommand{\opmref}[1]{\footnote{Zie opmerking \ref{#1} op pagina \pageref{#1}.}}
+\newcommand{\vbref}[1]{\footnote{Zie voorbeeld \ref{#1} op pagina \pageref{#1}.}}
+\newcommand{\lemref}[1]{\footnote{Zie lemma \ref{#1} op pagina \pageref{#1}.}}
+\newcommand{\alref}[1]{\footnote{Zie algoritme \ref{#1} op pagina \pageref{#1}.}}
+
+\newcommand{\hint}[1]{Hint: #1}
 
 % Mooiere TODO's
 \newcommand{\TODO}[1]{\todo[color=red,inline,size=\small]{TODO: #1}}
+\newcommand{\extra}[1]{\todo[color=orange,inline,size=\small]{EXTRA: #1}}
 \newcommand{\clarify}[1]{\todo[color=yellow,inline,size=\small]{CLARIFY: #1}}
+\newcommand{\question}[1]{\todo[color=green,inline,size=\small]{QUESTION: #1}}
 
-% Nuttigere emph
-\let\oldemph\emph
-\renewcommand\emph[1]{{\textbf{\oldemph{#1}}}}
+\newcommand{\waarom}[0]{\clarify{waarom?}}
+
+\newcommand{\term}[1]{\index{#1}\textbf{#1}}
+\newcommand{\zb}[0]{{\footnotesize {\it Zonder bewijs\/}}}
+
+%badges
+\newcommand{\bx}[1]{ \framebox[1.1\width]{#1} }
+\newcommand{\commj}[0]{\bx{Commutatief: Ja} }
+\newcommand{\commn}[0]{\bx{Commutatief: Nee} }
+
+\newcommand{\cyclj}[1]{\bx{Cyclisch: #1} }
+\newcommand{\cycln}[0]{\bx{Cyclisch: Nee} }
+
+\newcommand{\eenhj}[1]{\bx{Eenheidselement: #1} }
+\newcommand{\eenhn}[0]{\bx{Eenheidselement: Nee} }
+
+\newcommand{\veld}[0]{\bx{Veld}}
+\newcommand{\lichaam}[0]{\bx{Lichaam}}
+\newcommand{\domein}[0]{\bx{Integriteitsdomein}}

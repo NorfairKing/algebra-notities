@@ -1,0 +1,691 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\chapter{Velden}
+\label{cha:velden}
+
+\TODO{morfismen van velden, zie toledo}
+\section{Karakteristiek van een ring}
+\label{sec:karakt-van-een}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring met nulelement $e$.
+  De \term{karakteristiek} $char(R)$ van een ring $R,+,\cdot$ is ...
+  \begin{itemize}
+  \item ... de kleinste $n\in \mathbb{N}_{0}$ zodat $nx=e$ geldt voor alle elementen $x\in R$.
+  \item ... $0$ indien er niet zo'n $n$ bestaat.
+  \end{itemize}
+\end{de} 
+
+\begin{ei}
+  Zij $R,+,\cdot$ een ring  en karakteristiek $char(R) = n \neq 0$, dan is de (additieve) orde van elk element in $R,+$ een deler van $n$.
+\TODO{bewijs p 74}
+\end{ei}
+
+\begin{st}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  \[ char(R) = n \neq 0 \Leftrightarrow i \text{ heeft orde } n \]
+\TODO{bewijs p74}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  \[ char(R) = 0 \Leftrightarrow i \text{ heeft orde } \infty \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een niet-triviale ring zonder nuldelers met nulelement $e$, dan hebben alle elementen uit $R_{e}$ hebben dezelfde orde in $R,+$
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+ Zij $R,+,\cdot$ een niet-triviale ring zonder nuldelers, dan is de karakteristiek van $R,+,\cdot$ nul of een priemgetal.
+\TODO{bewijs p 75}
+\end{st}
+
+\begin{gev}
+  De karakteristiek van een integriteitsdomein (of veld) is nul of een priemgetal.
+\extra{bewijs}
+\end{gev}
+
+\begin{gev}
+  Zij $R,+,\cdot$ een integriteitsdomein met nulelement $e$.
+  \[ char(R) = 0 \Leftrightarrow \text{ alle elementen in } R\setminus \{e\} \text{ hebben orde } \infty \text{ in } R,+ \]
+\extra{bewijs}
+\end{gev}
+
+\begin{gev}
+  Zij $R,+,\cdot$ een integriteitsdomein met nulelement $e$ en $p$ een priemgetal.
+  \[ char(R) = p \Leftrightarrow \text{ alle elementen in } R\setminus \{e\} \text{ hebben orde } p \text{ in } R,+ \]
+\extra{bewijs}
+\end{gev}
+
+\begin{st}
+  Een \term{rekenregel in ring met priemkarakteristiek}\\
+  Zij $R,+,\cdot$ een ring met priemkarakteristiek $p$.
+  \[ \forall a,b \in R:\ (a+b)^{p} = a^{p}+b^{p} \]
+\TODO{bewijs p 75}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een ring met priemkarakteristiek $p$.
+  \[ \forall a,b \in R:\ (a-b)^{p} = a^{p}-b^{p} \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een ring met priemkarakteristiek $p$.
+  \[ \forall a,b \in R, \forall k \in \mathbb{N}:\ (a+b)^{p^{k}} = a^{p^{k}}+b^{p^{k}} \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een ring met priemkarakteristiek $p$.
+  \[ \forall a,b \in R, \forall k \in \mathbb{N}:\ (a-b)^{p^{k}} = a^{p^{k}}-b^{p^{k}} \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Het \term{Frobeniusmorfisme}\\
+  \begin{itemize}
+  \item Zij $R,+,\cdot$ een integriteitsdomein van karakteristiek $p\neq 0$.
+    De afbeelding $\phi$ is een injectief ringmorfisme.
+    We noemen het het \term{Frobeniusmorfisme}.
+    \[ \phi:\ R \rightarrow R:\ x \mapsto x^{p} \]
+  \item Als $|R|$ eindig is (en dus een veld \clarify{referentie aub}), dan is $\phi$ een isomorfisme.
+  \end{itemize}
+\TODO{bewijs p 76}
+\end{st}
+
+\subsection{Priemdeling en Priemdeelveld}
+\label{sec:priemd-en-priemd}
+
+\begin{de}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
+  De doorsnede van alle deelringen van $R,+,\cdot$ die $i$ bevatten is zelf een deelring van $R,+,\cdot$ (die $i$ bevat).
+  Deze `kleinste deelring die $i$ bevat' de \term{priemdeelring} van $R,+,\cdot$.
+\end{de}
+
+\begin{ei}
+  De priemdeelring van een ring met eenheidselement $i$ is $<1>$:
+  \[ <1> = \{ zi \ |\ z \in \mathbb{Z} \} \]
+\extra{bewijs}
+\end{ei}
+
+\begin{st}
+  Zij $R,+,\cdot$ een ring met eenheidselement.
+  \begin{itemize}
+  \item Als $char(R) = n \neq 0$ geldt, dan is de priemdeelring van $R$ isomorf met $\mathbb{Z}_{n}$.
+  \item Als $char(R) = 0$ geldt, dan is de priemdeelring van $R$ isomorf met $\mathbb{Z}$.
+  \end{itemize}
+\TODO{bewijs p 76}
+\end{st}
+
+\begin{de}
+  Zij $E,+,\cdot$ een veld en $F$ een niet-lege deelverzameling van $E$.
+  We noemen $F,+,\cdot$ een \term{deelveld} van $E,+,\cdot$ als $F,+,\cdot$ zelf een veld is (voor dezelfde bewerkingen).
+\end{de}
+
+\TODO{criteria voor deelvelden}
+
+\begin{de}
+  Zij $F,+,\cdot$ een veld.
+  De doorsnede van alle deelvelden van $F$ is zelf een deelveld van $F$.
+  Di kleinste deelveld heet het \term{priemdeelveld} van $F,+,\cdot$.
+\end{de}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld.
+  \begin{itemize}
+  \item Als $char{F}$ een priemgetal is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Z}_{p}$.
+  \item Als $chap{F}$ nul is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Q}$.
+  \end{itemize}
+\TODO{bewijs p 77}
+\end{st}
+
+\begin{st}
+  Zij $K,+,\cdot$ een deelveld van een veld $L,+,\cdot$.
+  \[ char(K) = char(L) \]
+\extra{bewijs}
+\end{st}
+
+\section{Velduitbreidingen: basisbegrippen}
+\label{sec:veld-basisb}
+
+\begin{de}
+  Zij $F,+,\cdot$ een deelveld van een veld $E,+,\cdot$.
+  Men noemt $E,+,\cdot$ een \term{velduitbreiding} of \term{uitbreiding} van $F$.
+\end{de}
+
+\begin{de}
+  Zij $F,+,\cdot$ een deelveld van een veld $E,+,\cdot$.
+  $E$ is een vectorruimte over $F$.
+\end{de}
+
+\begin{de}
+  Zij $F,+,\cdot$ een deelveld van een veld $E,+,\cdot$.
+  De \term{uitbreidingsgraad} of \term{graad} $[E:F]$ van $E$ over $F$ is de dimensie van $E$ als $F$-vectorruimte.
+\end{de}
+
+\begin{de}
+  Een uitbreiding $E,+,\cdot$ van een veld $F,+,\cdot$ met een eindige uitbreidingsgraad noemen we een \term{eindige uitbreiding}.
+\end{de}
+
+\begin{de}
+  Binnen een veld $F,+,\cdot$ noteren we $a\cdot b^{-1}$ vaak als $\frac{a}{b}$.
+\end{de}
+
+\begin{st}
+  Het aantal elementen van een eindig veld is een macht van een priemgetal.
+\TODO{bewijs p 78}
+\end{st}
+
+\begin{st}
+  De \term{fundamentele stelling van de veldentheorie}\\
+  Zij $K,+,\cdot$ een veld en $f$ een niet-constante veelterm in $K[X]$, dan bestaat er een uitbreiding $E$ van $K$ zodat $f$ een wortel heeft in $E$.
+\TODO{bewijs p 79}
+\end{st}
+
+\begin{opm}
+  Deze stelling geldt ook voor integriteitsdomeinen
+\extra{bewijs}
+  maar niet voor algemene commutatieve ringen met eenheidselement.
+\extra{voorbeeld}
+\end{opm}
+
+\begin{st}
+  De \term{productformule}\\
+  Zij $F,+,\cdot$, $L,+,\cdot$ en $E,+,\cdot$ velden waarbij $L,+,\cdot$ een uitbreiding is van $F,+,\cdot$ en $E,+,\cdot$ een uitbreiding is van $L,+,\cdot$.
+  Als zowel $[L:F]$ als $[E:L]$ eindig zijn, geldt het volgende:
+  \[ [E:F] = [E:L] \cdot [L:F]\]
+\TODO{bewijs p 79}
+\end{st}
+
+\subsection{Algebraische en transcendente elementen}
+\label{sec:algebr-en-transc}
+
+\begin{de}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Een element $u\in E$ is \term{algebra\"isch} over $F,+,\cdot$ als er een veelterm $f\in F[X], f\neq 0$ bestaat zodat $u$ een wortel is van $f$.
+  Anders noemen we $u$ \term{transcendent}.
+\end{de}
+
+
+\subsection{Enkelvoudige uitbreidingen}
+\label{sec:enkelv-uitbr}
+
+\begin{de}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u\in E$ een element van $E$.
+  Het veld bekomen door \term{adjunctie} of \term{toevoeging} van $u$ aan $F$: $F(u)$ is de doorsnede van alle velden $L$ die tussen $F$ en $E$ liggen en $u$ bevatten.
+  Dit is dus het ``kleinste deelveld van $E$ dat $F$ en $u$ omvat''.
+\end{de}
+
+\begin{ei}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u\in E$ een element van $E$.
+  \[
+  f(u) = 
+  \left\{
+      \frac
+        {a_{r}u^{r} + \dotsb + a_{1} u + a_{0}}
+        {b_{s}u^{s} + \dotsb + b_{1} u + b_{0}}
+  \ |\ r,s \in \mathbb{N},\ a_{i},b_{i} \in F
+  \right\}
+  \]
+  In bovenstaande formule mogen natuurijk niet alle $b_{i}$ het nulelement zijn.
+\extra{bewijs}
+\end{ei}
+
+\begin{de}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u$ een element van $E$, algebra\"isch over $F,+,\cdot$.
+  Een \term{minimale veelterm} van $u$ over $F$ is een veelterm $f\in F[X]$ van minimale graad waarvoor $f\neq e$ en $f(u) = 0$ gelden.
+\end{de}
+
+\begin{pr}
+  De minimale veelterm is uniek bepaald op een constante factor (verschillend van nul) na.
+\TODO{bewijs p 82}
+\end{pr}
+
+\begin{ei}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u$ een element van $E$, algebra\"isch over $F,+,\cdot$.
+  Zij $f$ een minimale veelterm van $u$ over $F,+,\cdot$.
+  \begin{itemize}
+  \item Als $g \in F[X]$ ook een veelterm is over $F,+,\cdot$ met waarde nul in $u$, dan is $f$ een deler van $g$.
+  \item $f$ is irreducibel in $F[X]$.
+  \end{itemize}
+\TODO{bewijs p 82}
+\end{ei}
+
+\begin{ei}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u\in E$ een element van $E$.
+  Zij $f\in F[X]$ een veelterm over $F[X]$ is met waarde nul in $u$.
+  \[ f \text{ is irreducibel } \Rightarrow f \text{ is de minimale veelterm van } u \text{ over } F,+,\cdot \]
+\extra{bewijs}
+\end{ei}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u\in E$ een element van $E$, transcendent over $F,+,\cdot$.
+  \begin{itemize}
+  \item $F(u) \cong F(X)$
+  \item $[F(u):F]$ is oneindig.
+  \end{itemize}
+\TODO{bewijs p 83}
+\end{st}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld met eenheidselement $i$ en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u\in E$ een element van $E$, transcendent over $F,+,\cdot$ en $f$ een minimale veelterm van $u$ over $F,+,\cdot$.
+  \begin{itemize}
+  \item $F(u) \cong F(X)/(f)$
+  \item $[F(u):F] = deg(f)$
+  \item De volgende verzameling vormt een basis van $F(u)$ over $F$.
+  \[ \{ i,u,u^{2},\dotsc u^{deg(f)-1} \}\]
+  \end{itemize}
+\TODO{bewijs p 83}
+\end{st}
+
+\begin{gev}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  \[ u \text{ is algebra\"isch over } F \Leftrightarrow [F(u):F] \text{ is eindig } \]
+  \extra{bewijs}
+\end{gev}
+
+\section{Algebra\"ische uitbreidingen en ontbindingsvelden}
+\label{sec:algebr-uitbr-en}
+
+\begin{de}
+  Zij $F,+,\cdot$ en $S,+,\cdot$ velden en $E,+,\cdot$ een uitbreiding van zowal $F,+,\cdot$ als $S,+,\cdot$.
+  Het veld verkregen door toevoeging van alle elementen van $S$ aan $F$: $F(S)$ is de doorsnede van alle velden $L$ die tussen $F,+,\cdot$ en $E,+,\cdot$ zitten en $S,+,\cdot$ uitbreiden.
+  Dit is dus het ``kleinste deelveld van $E,+,\cdot$ dat $F,+,\cdot$ en $S,+,\cdot$ omvat''.
+  \[ S = \{ u_{1},\dotsc,u_{n} \}:\ F(u_{1},\dotsc,u_{n}) = F(S) \]
+\end{de}
+
+\extra{formulering p 85 algebra}
+
+\begin{st}
+  Zij $F,+,\cdot$ en $S,+,\cdot$ velden en $E,+,\cdot$ een uitbreiding van zowal $F,+,\cdot$ als $S,+,\cdot$.
+  \[ S = S_{1} \cup S_{2} \Rightarrow F(S) = F(S_{1})(S_{2}) \]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u_{1},u_{2}$ elementen van $E$.
+  \[ F(u_{1},u_{2}) = F(u_{2})(u_{1})\]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u_{1},\dotsc,u_{n}$ elementen van $E$.
+  \[ F(u_{1},\dotsc,u_{n}) = F(u_{1},\dotsc,u_{n-1})(u_{n})\]
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  De \term{stelling van het primitieve element}\\
+  Zij $F,+,\cdot$ een veld van karakteristiek $0$.
+  Zij $a$ en $b$ elementen in een uitbreiding van $F$ die algebra\"isch zijn over $F$,
+  dan bestaat er een element $c\in F(a,b)$ zodat het volgende geldt:
+  \[ F(a,b) = F(c) \]
+  \zb
+\end{st}
+
+\begin{opm}
+  Elke eindige uitbreiding is dus in feite een enkelvoudige uitbreiding.
+\end{opm}
+
+\begin{de}
+  Het element dat van een eindige uitbreiding een enkelvoudige uitbreiding maakt noemt men een \term{primitief element}.
+\end{de}
+
+\subsection{Algebra\"ische uitbreidingen}
+\label{sec:algebr-uitbr}
+\begin{de}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  $E$ is \term{algebra\"isch} over $F$ als elk element $u\in E$ algebra\"isch is over $F$.
+  Anders noemen we $E,+,\cdot$ \term{transcendent}.
+\end{de}
+
+\begin{pr}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een eindige uitbreiding van $F,+,\cdot$, dan is $E,+,\cdot$ algebra\"isch over $F,+,\cdot$.
+\TODO{bewijs p 86}
+\end{pr}
+
+\begin{opm}
+  Het omgekeerde van deze eigenschap geldt niet.
+\extra{voorbeeld}
+\end{opm}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $u_{1},\dotsc,u_{n}$ elementen van $E$.
+  \[ F(u) \text{ is algebra\"isch } over F \Leftrightarrow u \text{ is algebra\"isch over } F \]
+\TODO{bewijs p 86}
+\end{st}
+
+\begin{st}
+  Zij $F,+,\cdot$ een veld met nulelement $e$ en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Zij $a$ en $b$ elementen van $E$.
+  Als $a$ en $b$ algebra\"isch zijn over $F$, dan zijn ook de volgende elementen algebra\"isch over $F$:
+  \begin{itemize}
+  \item $a+b$
+  \item $a-b$
+  \item $a\cdot b$
+  \item $\frac{a}{b}$ als $b \neq e$
+  \end{itemize}
+\TODO{bewijs p 87}
+\end{st}
+
+\begin{gev}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  De elementen van $E$ die algebra\"isch zijn over $F,+,\cdot$ vormen een deelveld van $E,+,\cdot$ en een uitbreiding van $F,+,\cdot$.
+\extra{bewijs}
+\end{gev}
+
+\begin{de}
+  Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
+  Het deelveld van de elementen van $E$ die algebra\"isch zijn over $F,+,\cdot$ noemen we de algebra\"ische sluiting van $F,+,\cdot$ in $E,+,\cdot$.
+\end{de}
+
+\begin{st}
+  De transitiviteit van het algebra\"isch zijn.\\
+  Zij $F,+,\cdot$ een veld, $L,+,\cdot$ een uitbreiding van $F,+,\cdot$ en $E,+,\cdot$ een uitbreiding van $L,+,\cdot$.
+  Als $E,+,\cdot$ algebra\"isch is over $L,+,\cdot$ en $L,+,\cdot$ algebra\"isch over $F,+,\cdot$, dan is $E,+,\cdot$ algebra\"isch over $F,+,\cdot$.
+ \TODO{bewijs p 88}
+\end{st}
+
+\subsection{Ontbindingsvelden}
+\label{sec:ontbindingsvelden}
+
+\begin{de}
+  Zij $K,+,\cdot$ een veld en $f$ een niet-constante veelterm in $K[X]$.
+  Een \term{ontbindingsveld} van $f$ over $K,+,\cdot$ is een uitbreidingsveld $E,+,\cdot$ van $K,+,\cdot$ met de volgende eigenschappen.
+  \begin{itemize}
+  \item $\exists c, a_{i} \in E:\ f = c(X-a_{1})(X-a_{2})\dotsc(X-a_{n})$
+  \item Er is geen enkel veld $L,+,\cdot$, strikt tussen $K,+,\cdot$ en $E,+,\cdot$.
+  \end{itemize}
+\end{de}
+
+\begin{st}
+  Zij $K,+,\cdot$ een veld en $f$ een niet-constante veelterm in $K[X]$.
+  De volgende eigenschappen vormen voor een uitbreidingsveld $E,+,\cdot$ van $K,+,\cdot$ een equivalente definite van een ontbindingsveld.
+  \begin{itemize}
+  \item $\exists c, a_{i} \in E:\ f = c(X-a_{1})(X-a_{2})\dotsc(X-a_{n})$
+  \item $E = K(a_{1},a_{2},\dotsc,a_{n})$
+  \end{itemize} 
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $K,+,\cdot$ een veld en $f$ een niet-constante veelterm in $K[X]$ van graad $n$.
+  Er bestaat een ontbindingsveld $E,+,\cdot$ van $f$ over $K,+,\cdot$ zodat het volgende geldt:
+  \[ [E:K] \le n! \]
+\TODO{bewijs p 89}
+\end{st}
+
+\begin{st}
+  Zij $K,+,\cdot$ een veld en $f$ een niet-constante veelterm in $K[X]$.
+  Het ontbindingsveld van $f$ over $K,+,\cdot$ is uniek op isomorfisme na.
+  \zb
+\end{st}
+
+\subsection{Cyclotome uitbreidingen en Cyclotome veeltermen}
+\label{sec:cycl-uitbr-en}
+
+\begin{de}
+  Definieer $\omega=\omega_{n}$ als de eenheidswortel van $X^{n}-1$ in $\mathbb{C},+,\cdot$.
+  \[ \omega = e^{\frac{2\pi i}{n}} = \cos\frac{2\pi}{n} + i\sin\frac{2\pi}{n} \]
+\end{de}
+
+\begin{st}
+  Het ontbindingsveld van $X^{n}-1$ over $\mathbb{Q}$ is de enkelvoudige uitbreiding $\mathbb{Q}(\omega)$.
+\extra{bewijs}
+\end{st}
+
+\begin{de}
+  Voor $n\in \mathbb{N}_{0}$ noemt men $\mathbb{Q}(\omega_{n})$ het $n$-de \term{cyclotome veld}.
+\end{de}
+
+\begin{de}
+  Voor elk deelveld $F,+,\cdot$ van $\mathbb{C},+,\cdot$ noemt men $F(\omega_{n})$ de $n$-de \term{cyclotome uitbreiding} van $F,+,\cdot$.
+\end{de}
+
+\begin{st}
+  Een regelmatige $n$-hoek is construeerbaar met enkel passer in lineaal als en slechts als $n$ van de volgende vorm is.
+  \[ n = 2^{k}p_{1}p_{2}\dotsc p_{r} \text{ met } k\ge 0 \]
+  In bovenstaande formule zijn de $p_{i}$ onderling verschillende priemgetallen van de vorm $p^{2^{m}} +1$.
+  \zb
+\end{st}
+
+\begin{de}
+  Zij $n\in \mathbb{N}_{0}$ een getal.
+  De $n$-de \term{cyclotome veelterm} (over $\mathbb{Q}$) is $\Phi_{n}$.
+  \[ \Phi_{n} = \prod_{0\le i \le n-1,\ ggd(i,n)= 1}(X-\omega_{n}^{i})\]
+  Merk op dat $\Phi_{n}$ monisch is in graad $\phi(n)$.
+\end{de}
+
+\begin{ei}
+  Zij $n\in \mathbb{N}_{0}$ een getal.
+  \[ X^{n}-1 = \prod_{1\le d\le n,\ d|n}\Phi_{d} \]
+\TODO{bewijs p 91}
+\end{ei}
+
+\begin{pr}
+  Voor elke $n\in \mathbb{N}_{0}$ geldt $\Phi_{n} \in \mathbb{Z}[X]$.
+\TODO{bewijs p 91}
+\end{pr}
+
+\begin{st}
+  De cyclotome veelterm $\Phi_{n}$ is irreducibel in $\mathbb{Z}[X]$ voor elke $n\in \mathbb{N}_{0}$.
+  \zb
+\end{st}
+
+\begin{gev}
+  De minimalee veelterm van $\omega_{n}$ over $\mathbb{Q}$ is de cyclotome veelterm $\Phi_{n}$.
+\extra{bewijs}
+\end{gev}
+
+\begin{gev}
+  \[ \mathbb{Q}(\omega_{n}) \cong \mathbb{Q}[X]/(\Phi_{n}) \quad\text{ en }\quad [\mathbb{Q}(\omega_{n}):\mathbb{Q}] = \phi_{n} \]
+\extra{bewijs}
+\end{gev}
+
+\subsection{Meervoudige wortels}
+\label{sec:meervoudige-wortels}
+
+\begin{de}
+  Zij $K,+,\cdot$ een veld en $f\in K[X]$ een veelterm over $K,+,\cdot$.
+  De veelterm $f$ heeft een \term{meervoudige wortel} $a$ in een uitbreiding $L,+,\cdot$ van $K,+,\cdot$ als er een veelterm $g\in L[X]$ over $L,+,\cdot$ bestaat zodat het volgende geldt binnen $L[X]$:
+  \[ f = (X-a)^{2}g\]
+\end{de}
+
+\begin{de}
+  Zij $K,+,\cdot$ een veld en $f\in K[X]$ een veelterm over $K,+,\cdot$.
+  De \term{afgeleide} van $f$ is $f'\in K[X]$:
+  \[ f= \sum_{i=0}^{n}a_{i}X^{i} \longrightarrow f' = \sum_{i=1}^{n}ia_{i}X^{i-1} \]
+\end{de}
+
+\begin{st}
+  Rekenregels voor afgeleiden\\
+  Zij $K,+,\cdot$ een veld, $c$ een element van $F$(???) en $f,g$ veeltermen over $K,+,\cdot$.
+  \begin{itemize}
+  \item $(cf)'= cf'$
+  \item $(f+g)' = f'+g'$
+  \item $(fg)' = f'g+ fg'$
+  \end{itemize}
+\extra{bewijs}
+\end{st}
+
+\begin{st}
+  Het \term{criterium voor een meervoudige wortel}\\
+  Zij $K,+,\cdot$ een veld en $f\in K[X]$ een veelterm over $K,+,\cdot$.
+  $f$ heeft een meervoudige wortel (in een uitbreiding van $K,+,\cdot$) als en slechts als $f$ en $f'$ een gemeenschappelijke niet-constante deler hebben in $K[X]$.
+\TODO{bewijs p 93}
+\end{st}
+
+\begin{st}
+  Zij $K,+,\cdot$ een veld en $f$ een irriducibele veelterm in $K[X]$.
+  \begin{itemize}
+  \item Als $char(K)$ nul is, dan heeft $f$ geen meervoudige wortel.
+  \item Als $char(K)$ niet nul is, dan eeft $f$ een meervoudige wortel als en slechts als er een $g\in K[X]$ bestaat zodat $f=g(X^{p})$ geldt.
+\TODO{bewijs p 93}
+  \end{itemize}
+\end{st}
+
+\begin{st}
+  Een irreducibele veelterm over een eindig veld van karakteristiek niet nul heeft geen meervoudige wortel.
+  \zb
+\end{st}
+
+\section{Algebra\"isch gesloten velden}
+\label{sec:algebr-gesl-veld}
+
+\begin{de}
+  Een veld $F,+,\cdot$ is \term{algebra\"isch gesloten} als en slechts als elke niet-constante veelterm in $F[X]$ een wortel heeft in $F,+,\cdot$.
+\end{de}
+
+\begin{st}
+  Alsternatieve definitie 1\\
+  Een veld $F,+,\cdot$ is \term{algebra\"isch gesloten} als en slechts als elke niet-constante veelterm in $F[X]$ een product is van lineaire veeltermen in $F[X]$.
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Alsternatieve definitie 1\\
+  Een veld $F,+,\cdot$ is \term{algebra\"isch gesloten} als en slechts als alle irreducibele veeltermen in $F[X]$ graad $1$ hebben.
+  \extra{bewijs}
+\end{st}
+
+\begin{ei}
+  Een veld $F,+,\cdot$ is algebra\"isch gesloten als en slechts als voor elke algebra\"ische uitbreiding $E,+,\cdot$ van $F,+,\cdot$ $E$ gelijk is aan $F$.
+\TODO{bewijs p 95}
+\end{ei}
+
+\begin{st}
+  De \term{hoofdstelling van de algebra}\\
+  $\mathbb{C}$ is algebra\"isch gesloten.
+\zb 
+\extra{referentie naar bewijs?}
+\end{st}
+
+
+\begin{pr}
+  Het veld der algebra\"ische getallen is algebra\"isch gesloten.
+  \[ \mathbb{Q} = \{ a \in \mathbb{C} \ |\ a \text{ is algebra\"isch over } \mathbb{Q} \} \]
+\TODO{bewijs p 96}
+\end{pr}
+
+\begin{de}
+  Zij $F,+,\cdot$ een veld.
+  Een \term{algebra\"ische sluiting} van $F,+,\cdot$ is een algebra\"isch gesloten uitbreiding $\overline{F},+,\cdot$ van $F,+,\cdot$ die algebra\"isch is over $F,+,\cdot$.
+\end{de}
+
+\begin{lem}
+  Zij $K,+,\cdot$ een veld, dan bestaat er een algebra\"ische sluiting $K_{1},+,\cdot$ zodat elke niet-constante veelterm in $K[X]$ een wortel heeft in $K_{1}$.
+\TODO{bewijs p 96}
+\end{lem}
+
+\begin{st}
+  Elk veld heeft een algebra\"ische sluiting.
+\TODO{bewijs p 97}
+\end{st}
+
+\section{Eindige velden}
+\label{sec:eindige-velden}
+
+\begin{st}
+  De multiplicatieve groep $F^{\times},\cdot$ van een eindig veld $F,+,\cdot$ is cyclisch.
+\TODO{bewijs p 99}
+\TODO{bewijs op toledo}
+\end{st}
+
+\begin{opm}
+  Bovenstaand bewijs is niet constructief.
+  Er is hiervan geen constructief bewijs gekend.
+\end{opm}
+
+\begin{gev}
+  Zij $F,+,\cdot$ een veld van orde $q$, dan is de multiplicatieve groep $F^{\times},\cdot$ ervan isomorf met $\mathbb{Z}_{q-1},+$.
+\extra{bewijs}
+\end{gev}
+
+\begin{de}
+  Een generator van de multiplicatieve groep $F^{\times},\cdot$ van een eindig veld $F,+,\cdot$ noemt men soms een \term{primitief element} van $F,+,\cdot$.
+\end{de}
+
+\subsection{Bestaan en uniciteit}
+\label{sec:bestaan-en-uniciteit}
+
+\begin{st}
+  Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
+  Er bestaat een veld met $q$ elementen, namelijk een ontbindingsveld van $X^{q}-X$ over $\mathbb{Z}_{p}$.
+\TODO{bewijs p 100}
+\end{st}
+
+\begin{st}
+  Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
+  Elk veld $F,+,\cdot$ met $q$ elementen is een ontbindingsveld van $X^{q}-X$ over $\mathbb{Z}_p$
+\TODO{bewijs p 100}
+\end{st}
+
+\begin{st}
+  Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
+  Twee verschillende velden met $q$ elementen zijn isomorf.
+\TODO{bewijs p 100}
+\end{st}
+
+\begin{de}
+  Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
+  Het veld met $q$ elementen noteert men als $\mathbb{F}_{q}$ of $GF(p)$.
+\end{de}
+
+\begin{st}
+  Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
+  Er bestaat een irreducibele veelterm van graad $r$ in $\mathbb{F}_{p}[X]$.
+\TODO{bewijs p 101}
+\end{st}
+
+\begin{st}
+  Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
+  Elke irreducibele veelterm van graad $r$ in $\mathbb{F}_{p}[X]$ is een deler van $X^{p}-X$ in $\mathbb{F}_{p}[X]$.
+\TODO{bewijs p 101}
+\end{st}
+
+\begin{st}
+  Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
+  De irreducibele factoren van $X^{q}-X$ in $\mathbb{F}_{p}[X]$ zijn precies de irreducibele veeltermen in $\mathbb{F}_{p}[X]$.
+\TODO{bewijs p 101}
+\end{st}
+
+\begin{lem}
+  Zij $k$ een deler van $r$ in $\mathbb{N}_{0}$ en $p$ een priemgetal.
+  Definieer $q$ en $q'$ als $q=p^{r}$ en $q'=p^{k}$.
+  \[ X^{q'}-X | X^{q}-X \]
+  \TODO{bewijs p 102}
+\end{lem}
+
+
+\subsection{Onderlinge inclusies}
+\label{sec:onderlinge-inclusies}
+
+\begin{st}
+  Zij $p$ een priemgetal.
+  Een veld met $p^{r}$ elementen heeft een uniek deelveld met $p^{k}$ elementen als en slechs als $k|r$ geldt.
+\TODO{bewijs p 103}
+\end{st}
+
+\begin{pr}
+  Zij $p$ een priemgetal.
+  Beschouw voor elke $k$ en $r$ in $\mathbb{N}$ waarbij $k|r$ geldt het veld $\mathbb{F}_{p^{k}}$ als deelveld van $\mathbb{F}_{p^{r}}$.
+  $\overline{\mathbb{F}_{p}}$ is dan een algebra\"ische sluiting van $\mathbb{F}_{p}$.
+  \[ \overline{\mathbb{F}_{p}} = \cup_{i\in \mathbb{N}_{0}}\mathbb{F}_{p^{i}} \]
+\TODO{bewijs p 104}
+\end{pr}
+
+\end{document}

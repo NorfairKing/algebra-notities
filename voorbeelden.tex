@@ -1,0 +1,912 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Voorbeelden}
+\label{cha:voorbeelden}
+
+\section{Groepen}
+
+\subsection{Monoiden}
+
+\TODO{vb van monoiden}
+
+
+\subsection{Groepen}
+
+\begin{de}
+  De \term{triviale groep} is de groep met enkel een neutraal element.
+  \[ G,* = \{ e_{G} \},* \]
+\commj \cyclj{$e_{G}$}
+\end{de}
+
+\begin{de}
+  De \term{viergroep} of \term{groep van Klein} $V,\cdot$ heeft als neutraal element $e$.
+  \[ V = \{ e, a, b, c \} \]
+  Er gelden drie eenvoudige regels: 
+  \begin{itemize}
+  \item $ab = c$
+  \item $bc = a$
+  \item $ca = b$
+  \end{itemize}
+  \[
+  \begin{array}{c|cccc}
+    \circ & e & a & b & c \\
+    \hline
+    e & e & a & b & c \\
+    a & a & e & c & b \\
+    b & b & c & e & a \\
+    c & c & b & a & e \\
+  \end{array}
+  \]
+\commj \cycln
+\end{de}
+
+\begin{de}
+  $Q,\cdot$,: De \term{quaternionengroep}.\\
+  \[ Q = \{ 1,-1,i,-i,j,-j,k,-k \} \]
+  Er gelden vier eenvoudige regels:
+  \begin{itemize}
+  \item $i^{2}=j^{2}=k^{2}= -1$
+  \item $ij=k$
+  \item $jk=i$
+  \item $ki=j$
+  \end{itemize}
+  \[
+  \begin{array}{r|rrrrrrrr}
+    \cdot & 1 & -1 & i & -i & j & -j & k & -k\\
+    \hline
+    1 & 1 & -1 & i & -i & j & -j & k & -k\\
+    -1 & -1 & 1 & -i & i & -j & j & -k & k\\
+    i & i & -i & -1 & 1 & k & -k & -j & j\\
+    -i & -i & i & 1 & -1 & -k & k & j & -j\\
+    j & j & -j & -k & k & -1 & 1 & i & -i\\
+    -j & -j & j & k & -k & 1 & -1 & -i & i\\
+    k & k & -k & j & -j & -i & i & -1 & 1\\
+    -k & -k & k & -j & j & i & -i & 1 & -1
+  \end{array}
+  \]
+\commn \cycln
+\end{de}
+
+
+\begin{de}
+  De \term{symmetrische groep} van graad $n$: $\mathcal{S}_{n},\circ$ is de groep van permutaties van $\{ 1,\dotsc,n \}$.
+  \[ |\mathcal{D}_{n}| = n! \]
+  \commn \cycln
+\end{de}
+
+\begin{vb}
+  $\mathcal{S}_{1},\circ$: De groep van permutaties van $\{ 1 \}$.
+  \[ \mathcal{S}_{3} = \left\{ Id \right\} \]
+  \[
+  \begin{array}{c|c}
+    \circ & Id \\
+    \hline
+    Id & Id\\
+  \end{array}
+  \]
+\commj \cyclj{$Id$}
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{1},\circ$: De groep van permutaties van $\{ 1 \}$.
+  \[ \mathcal{S}_{3} = \left\{ Id \right\} \]
+  \[
+  \begin{array}{c|c}
+    \circ & Id \\
+    \hline
+    Id & Id\\
+  \end{array}
+  \]
+\commj \cyclj{$Id$}
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{2},\circ$: De groep van permutaties van $\{ 1,2 \}$.
+  \[ \mathcal{S}_{3} = \left\{ Id, (12) \right\} \]
+  \[
+  \begin{array}{c|cc}
+    \circ & Id & (12) \\
+    \hline
+    Id & Id & (12)\\
+    (12) & (12) & Id
+  \end{array}
+  \]
+\commj \cyclj{$(12)$}
+\end{vb}
+
+\begin{vb}
+  \label{vb:groep-s3}
+  $\mathcal{S}_{3},\circ$: De groep van permutaties van $\{ 1,2,3 \}$.
+  \[ \mathcal{S}_{3} = \left\{ Id, (12), (13), (23), (123), (132) \right\} \]
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & (12) & (13) & (23) & (123) & (132) \\
+    \hline
+    Id & Id & (12) & (13) & (23) & (123) & (132)\\
+    (12) & (12) & Id & (132) & (123) & (23) & (13)\\
+    (13) & (13) & (123) & Id & (132) & (12) & (23)\\
+    (23) & (23) & (132) & (123) & Id & (13) & (12)\\
+    (123) & (123) & (13) & (23) & (12) & (132) & Id\\
+    (132) & (132) & (23) & (12) & (13) & Id & (123)\\
+  \end{array}
+  \]
+\commn \cycln
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{4},\circ$: De groep van permutaties van $\{ 1,2,3,4 \}$.
+  \[
+  \mathcal{S}_{4} =
+  \left\{
+  \begin{array}{l}
+     Id,\\
+     (12), (13), (14), (23), (24), (34),\\
+     (123), (124), (132), (134), (142), (143), (234), (243)\\
+     (12)(34), (13)(42), (14)(23),\\
+     (1234), (1243), (1324), (1342), (1423), (1432)
+  \end{array}
+  \right\}
+  \]
+\commn \cycln
+\end{vb}
+
+\begin{ei}
+  $\mathcal{S}_{n}$ is een deelgroep van $\mathcal{S}_{n+1}$.
+  \TODO{bewijs}
+\end{ei}
+
+\extra{$\mathcal{A}_{n}$}
+
+\begin{de}
+  De \term{Di\"edergroep} of \term{Dihedrale groep} van graad $n$: $\mathcal{D}_{n},\circ$ is de groep van starre bewegingen die een regelmatige $n$-hoek op zichzelf afbeelden.
+  $\mathcal{D}_{n}$ bevat $n$ rotaties $Id, a, \dotsc, a^{n-1}$ en $n$ spiegelingen $b,ab,\dotsc,a^{n-1}b$.
+  \[ |\mathcal{D}_{n}| = 2n \]
+  Er gelden drie eenvoudige regels:
+  \begin{itemize}
+  \item $a^{n} = Id$
+  \item $b^{2} = Id$
+  \item $ba = a^{-1}b$
+  \end{itemize}
+\commn \cycln
+\end{de}
+
+\begin{vb}
+  $\mathcal{D}_{1},\circ$: De groep van starre bewegingen die een regelmatige $1$-hoek op zichzelf afbeelden.
+  \[ \mathcal{D}_{1} = \{ Id, b \} \]
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & b\\
+    \hline
+    Id & Id & b\\
+    b & b & Id\\
+  \end{array}
+  \]
+\commj \cyclj{$b$}
+\end{vb}
+
+\begin{vb}
+  $\mathcal{D}_{2},\circ$: De groep van starre bewegingen die een regelmatige $2$-hoek op zichzelf afbeelden.
+  \[ \mathcal{D}_{2} = \{ Id, a, b, ab \} \]
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & a & b & ab\\
+    \hline
+    Id & Id & a & b & ab\\
+    a & a & Id & ab & b\\
+    b & b & ab & Id & a\\
+    ab & ab & b & a & Id
+  \end{array}
+  \]
+\commj \cycln
+\end{vb}
+
+\begin{vb}
+  $\mathcal{D}_{3},\circ$: De groep van starre bewegingen die een regelmatige $3$-hoek op zichzelf afbeelden.
+  \[ \mathcal{D}_{3} = \{ Id, a, a^{2}, b, ab, a^{2}b \} \]
+  \[
+  \begin{array}{c|cccccc}
+    \circ & Id & a & a^{2} & b & ab & a^{2}b\\
+    \hline
+    Id & Id & a & a^{2} & b & ab & a^{2}b \\
+    a & a & a^{2} & Id & ab & a^{2}b & b \\
+    a^{2} & a^{2} & Id & a & a^{2}b & b & ab \\
+    b & b & a^{2}b & ab & Id & a^{2} & a \\
+    ab & ab & b & a^{2}b & a & Id & a^{2} \\
+    a^{2}b & a^{2}b & ab & b & a^{2} & a & Id \\
+  \end{array}
+  \]
+\commn \cycln
+\end{vb}
+
+\begin{vb}
+  $\mathcal{D}_{4},\circ$: De groep van starre bewegingen die een regelmatige $4$-hoek op zichzelf afbeelden.
+  \[ \mathcal{D}_{4} = \{ Id, a, a^{2}, a^{3}, b, ab, a^{2}b, a^{3}b \} \]
+  \[
+  \begin{array}{c|cccccccc}
+    \circ & Id & a & a^{2} & a^{3} & b & ab & a^{2}b & a^{3}b \\
+    \hline
+    Id & Id & a  & a^{2} & a^{3} & b & ab & a^{2}b & a^{3}b \\
+    a & a & a^{2} & a^{3} & Id & ab & a^{2} & a^{3}b & b \\
+    a^{2} & a^{2} & a^{3} & Id & a & a^{2}b & a^{3}b & b & ab \\
+    a^{3} & a^{3} & Id & a & a^{2} & a^{3}b & b & ab & a^{2}b \\
+    b & b & a^{3}b & a^{2}b & ab & Id & a^{3} & a^{2} & a \\
+    ab & ab & b & a^{3}b & a^{2}b & a & Id & a^{3} & a^{2} \\
+    a^{2}b & a^{2}b & ab & b & a^{3}b & a^{2} & a & Id & a^{3} \\
+    a^{3}b & a^{3}b & a^{2}b & ab & b & a^{3} & a^{2} & a & Id \\
+  \end{array}
+  \]
+\commn \cycln
+\end{vb}
+
+\begin{st}
+  Voor elke $\mathcal{A}_{i}$ met $i>2$ bestaat er een deelgroep $\mathcal{A}_{i-1}$.
+\extra{bewijs, zeker?}
+\end{st}
+
+\begin{vb}
+  De getallen, uitgerust met de optelling, vormen groepen met $0$ als neutraal element.
+  \[ \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C} \]
+  \begin{itemize}
+  \item $\mathbb{Z}$: \cyclj{$1$}
+  \item $\mathbb{Q}$: \cycln
+  \item $\mathbb{R}$: \cycln
+  \item $\mathbb{C}$: \cycln
+  \end{itemize}
+\commj 
+\end{vb}
+
+\begin{vb}
+  De complexe en re\"ele niet-nul getallen, uitgerust met de vermeningvuldiging, vormen groepen met $1$ als neutraal element.
+  \[ \mathbb{R}_{0} \subseteq \mathbb{C}_{0} \]
+\commj \cycln
+\end{vb}
+
+\begin{vb}
+  De $n$-tallen, uitgerust met de optelling, vormen groepen met $\vec{0}$ als neutraal element.
+  \[ \mathbb{Z}^{n} \subseteq \mathbb{Q}^{n} \subseteq \mathbb{R}^{n} \subseteq \mathbb{C}^{n} \]
+  \begin{itemize}
+  \item $\mathbb{Z}^{n}$: \cyclj{$(1,\dotsb,1)$}
+  \item $\mathbb{Q}^{n}$: \cycln
+  \item $\mathbb{R}^{n}$: \cycln
+  \item $\mathbb{C}^{n}$: \cycln
+  \end{itemize}
+\commj
+\end{vb}
+
+\begin{vb}
+  De re\"ele en complexe $n$-tallen, uitgerust met de vermenigvuldiging, vormen groepen met $(1,\dotsc,1)$ als neutraal element.
+  \[ \mathbb{R}^{n} \subseteq \mathbb{C}^{n} \]
+\commj \cycln
+\end{vb}
+
+\begin{vb}
+  De $n$-de eenheidswortels $\{ z \in \mathbb{C}\ |\ z^{n} = 1 \}$, uitgerust met de vermeningvuldiging is een groep met neutraal element $1$.\\
+\commj \cyclj{Ja}\footnote{Een generator is bijvoorbeeld de eerste eenheidswortel na $1$.}
+\end{vb}
+
+\begin{de}
+  De \term{cirkelgroep} $S^{1}$ is de verzameling van complexe getallen met modulus $1$, uitgerust met de vermenigvuldiging.
+  \[ S^{1} = \{ z \in c\ |\ |z| = 1 \} \]
+\commj \cycln
+\end{de}
+
+\begin{vb}
+  De matrixes van dezelfde vorm, uitgerust met de optelling, vormen groepen met $[0]$ als neutraal element.
+  \[ \mathbb{Z}^{m \times n} \subseteq \mathbb{Q}^{m \times n} \subseteq \mathbb{R}^{m \times n} \subseteq \mathbb{C}^{m \times n} \]
+  \begin{itemize}
+  \item $\mathbb{Z}^{n \times n}$: \cyclj{$\mathbb{I}_{n}$}
+  \item $\mathbb{Q}^{n \times n}$: \cycln
+  \item $\mathbb{R}^{n \times n}$: \cycln
+  \item $\mathbb{C}^{n \times n}$: \cycln
+  \end{itemize}
+\commn
+\end{vb}
+
+\begin{vb}
+  De verzameling $GL_{n}(\mathbb{R})$ van inverteerbare re\"ele $n\times n$-matrices, uitgerust met de matrix vermeningvuldiging, vormen een groep met $\mathbb{I}_{n}$ als neutraal element.\\
+\commn \cycln
+\end{vb}
+
+\begin{vb}
+  De verzameling van inverteerbare transformaties van een vectorruimte $V$, uitgerust met de samenstelling, vormen een groep: $GL(V),\circ$.
+\commn \cycln
+\end{vb}
+
+\begin{vb}
+  De verzameling $\mathbb{R}[x]$ van re\"ele veeltermen in de veranderlijke $x$, uitgeruist met de optelling, is een groep met neutraal element $0$.\\
+\commj \cycln
+\end{vb}
+
+\begin{vb}
+  De re\"ele getallen $\mathbb{Z}$, uitgerust met de optelling modulo $n\in \mathbb{N}_{0}$, vormen een groep $\mathbb{Z}_{n}$ met neutraal element $[0]_{n}$. Zo een groep heet de \term{restklassengroep} van graad $n$.\\
+\commj \cyclj{$\bar{1}$}
+\end{vb}
+
+\begin{vb}
+  De machtsverzameling $\mathcal{P}(X)$ van een verzameling $X$, uitgerust met het symmetrisch verschil, vormt een groep.
+\commj \cycln
+\end{vb}
+
+\subsection{Deelgroepen}
+In dit deel voorbeelden duiden we de relatie ``... is een deelgroep van ...'' aan als $\underset{g}{\subseteq}$.
+
+\begin{vb}
+  \[ n\mathbb{Z},+ \underset{g}{\subseteq} \mathbb{Z},+ \underset{g}{\subseteq} \mathbb{Q},+ \underset{g}{\subseteq} \mathbb{R},+ \underset{g}{\subseteq} \mathbb{C},+ \]
+\end{vb}
+
+\begin{vb}
+  \[ \{ 1,-1\},\cdot \underset{g}{\subseteq} \mathbb{Q}_{0},\cdot \underset{g}{\subseteq} \mathbb{R}_{0},\cdot \underset{g}{\subseteq} \mathbb{C}_{0},\cdot \]
+\end{vb}
+
+\begin{vb}
+  \[ \{ 0,4,8\},+ \underset{g}{\subseteq} \{ 0,2,4,6,8,10,12\},+ \underset{g}{\subseteq} \mathbb{Z}_{12},+ \]
+\end{vb}
+
+\begin{vb}
+  \[ \{0_{n\times n}\},+ \underset{g}{\subseteq} \{ n\mathbb{I}_{n} \ |\ n \in \mathbb{N} \},+ \underset{g}{\subseteq} \{ Diag \},+ \underset{g}{\subseteq} \{ Bovendriehoeks \},+ \underset{g}{\subseteq} \mathbb{R}^{n\times n},+ \]
+\end{vb}
+
+\begin{vb}
+  \[ SL_{n}(\mathbb{R}),\cdot \underset{g}{\subseteq} GL_{n}(\mathbb{R}),\cdot \]
+\end{vb}
+
+\begin{vb}
+  \[ \{f \in \mathbb{R}[X] \ |\ gr(f) \le r\},+ \underset{g}{\subseteq} \mathbb{R}[X],+ \]
+\end{vb} 
+
+\subsection{Groepsmorfisme}
+
+
+In deze sectie geven we voorbeelden van groepsmorfismen
+
+\begin{vb}
+  Automorfisme
+  \[ \mathbb{Z},+ \rightarrow \mathbb{Z},+:\ x \mapsto 3x \]
+\end{vb}
+
+\begin{vb}
+  Automorfisme
+  \[ \mathbb{C},+ \rightarrow \mathbb{Z},+:\ z \mapsto \bar{z} \]
+\end{vb}
+
+\begin{vb}
+  Automorfisme
+  \[ \mathbb{C}_{0},\cdot \rightarrow \mathbb{C}_{0},\cdot:\ z \mapsto \bar{z} \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{R}^{2},+ \rightarrow \mathbb{R},+:\ (x,y) \mapsto x \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{R}_{0},\cdot \rightarrow \mathbb{R}^{+}_{0},+:\ x \mapsto |x| \]
+\end{vb}
+
+\begin{vb}
+  Isomorfisme
+  \[ \mathbb{R},+ \rightarrow \mathbb{R}^{+}_{0},+:\ x \mapsto 2^{x} \]
+\end{vb}
+
+\begin{vb}
+  Isomorfisme
+  \[ \mathbb{R}^{+}_{0},\cdot \rightarrow \mathbb{R},+:\ x \mapsto ln(x) \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{R},+ \rightarrow \mathbb{C}_{0},\cdot:\ x \mapsto e^{2\pi x} \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ GL_{n}(\mathbb{R}),\cdot \rightarrow \mathbb{R}_{0},\cdot:\ A \mapsto det(A) \]
+\end{vb}
+
+
+\subsection{Orde}
+
+
+\begin{vb}
+  In $\mathbb{Z}_{30},+$ is de orde van $5$ $6$ en de orde van $8$ $15$.
+\end{vb}
+
+\begin{vb}
+  De orde van $7$ in $\mathbb{Z},+$ is $\infty$.
+\end{vb}
+
+\subsection{Nevenklassen}
+
+
+\begin{vb}
+  Beschouw $H= <3>$ als deelgroep van $\mathbb{Z}_{12},+$.
+  \[ 2 + H = \{ 2,5,8,11 \} = 5 + H = 8 + H = 11 + H \]
+\end{vb}
+
+\begin{vb}
+  Beschouw $H = \{e,b\}$ als deelgroep van $\mathcal{D}_{4}$.
+  \[ a\cdot H = \{a,ab\} \text{ en } H \cdot a = \{ a,a^{3}b \} \]
+\end{vb}
+
+\subsection{Directe som}
+
+
+\begin{vb}
+  De viergroep $V$ is isomorf met $\mathbb{Z}_{2} \oplus \mathbb{Z}_{2}$.
+\end{vb}
+
+\begin{vb}
+  $\mathbb{Z}_{6}$ is isomorf met $\mathbb{2} \oplus \mathbb{Z}_{3}$.
+\end{vb}
+
+\subsection{Permutatiegroepen}
+
+
+\begin{vb}
+  De groepsautomorfismen van de een groep $G,*$ vormen een permutatiegroep van $G,+$.
+\end{vb}
+
+\begin{vb}
+  De inverteerbare lineaire afbeeldingen van een vectorruimte $V$ naar zichzelf vormen een permutatiegroep van $V$.
+\end{vb}
+
+\subsection{Conjugatie}
+
+
+\begin{vb}
+  De conjugatieklassen van $\mathcal{S}_{3}$:
+  \[ \{I\}, \{(12),(13),(23)\}, \{(123),(132)\} \]
+\end{vb}
+
+\begin{vb}
+  De conjugatieklassen van $\mathcal{D_{4}}$:
+  \[ \{e\}, \{a,a^{3}\}, \{a^{2}\}, \{b,a^{2}b\}, \{ab,a^{3}b\} \]
+\end{vb}
+
+\begin{vb}
+  De conjugatieklassen van de quatiernionengroep:
+\extra{oefening}
+\end{vb}
+
+\extra{centralisators}
+
+\subsection{Normaaldelers}
+\begin{vb}
+  In $\mathcal{S}_{3},\circ$ is $\{I,(123),(132)\}$ een normaaldeler.
+\end{vb}
+
+\begin{vb}
+  In $\mathcal{D}_{4},\cdot$ zijn $\{e,a,a^{2},a^{3}\}$ en $\{e,a^{2}\}$ normaaldelers.
+\end{vb}
+
+\begin{vb}
+  In $\mathcal{A}_{4},\circ$ is $\{I,(12)(34),(13)(24),(14)(23)\}$ een normaaldeler.
+\end{vb}
+
+\subsection{Quotientgroepen}
+
+\begin{vb}
+  \[ \mathbb{Z}_{n},+ = \nicefrac{\mathbb{Z}}{n\mathbb{Z}},+\]
+\end{vb}
+
+\begin{vb}
+  Zij $G,*$ een groep.
+  \[ G/\{ e_{G} \} \cong G,* \text{ en } \nicefrac{G}{G} \cong \{ e_{G}\},*\]
+\end{vb}
+
+\begin{vb}
+ \extra{Cayleytabel van $\nicefrac{\mathcal{D}_{4}}{\{e,a^{2}\}}$}
+\end{vb}
+
+\begin{vb}
+  \extra{Cayleytabel van $\nicefrac{\mathcal{A}_{4}}{\{I,(12)(34),(13)(24),(14)(23)\}}$}
+\end{vb}
+
+\begin{vb}
+  \extra{Cayleytabel van $\nicefrac{\mathbb{Z}_{20}}{\{0,4,8,12,16\}}$}
+\end{vb}
+
+\subsection{Enkelvoudige groepen}
+
+\begin{vb}
+  $\mathbb{Z}_{7},+$ is een enkelvoudige groep.
+  Zijn enige normaaldelers zijn immers $\{0\},+$ en $\mathbb{Z}_{7},+$.
+\end{vb}
+
+\begin{vb}
+  $\mathbb{Z}_{6},+$ is een niet-enkelvoudige groep.
+  Hij heeft immers $\{0,3\}$ en $\{0,2,4\}$ als normaaldelers.
+\end{vb}
+
+\subsection{Oplosbare groepen}
+\label{sec:oplosbare-groepen}
+
+\begin{vb}
+  $\mathcal{S}_{3}$ is oplosbaar.
+
+  \begin{proof}
+    We kiezen een (niet-triviale) normaaldeler van $\mathcal{S}_{3}$ van maximale orde: $G_{0}=\{I,(123),(132)\}$.
+    $\nicefrac{\mathcal{S}_{3}}{\{I,(123),(132)\}}$ zou nu enkelvoudig moeten zijn en bovendien commutatief.
+    \[
+    \nicefrac{\mathcal{S}_{3}}{\{I,(123),(132)\}} =
+    \left\{
+      \begin{array}{c}
+        \{I,(123),(132)\},\\ 
+        \{(12), (13), (23)\},\\
+        \{ (23), (12), (13)\},\\
+        \{ (13), (23), (12)\},\\
+        \{ (123), (132), Id\},\\
+        \{ (132), Id, (123)\}
+      \end{array}
+    \right\},\bar{\circ}
+    \]
+\question{hoe controleren we of dit commutatief is?}
+    $G_{0}=\{I,(123),(132)\}$ heeft geen niet-triviale normaaldelers meer.
+    We hebben dus een eindige keten deelgroepen van $\mathcal{S}_{3}$ geconstrueerd om oplosbaarheid aan te tonen.
+    \[ \{ I\},\circ \subseteq \{I,(123),(132)\},\circ \subseteq \mathcal{S}_{3},\circ \]
+  \end{proof}
+\end{vb}
+
+\begin{vb}
+  $\mathcal{S}_{4}$ is oplosbaar.
+\extra{oefening}
+\end{vb}
+
+\subsection{Isomorfismestellingen}
+
+\subsubsection{Eerste isomorfismestelling}
+
+\begin{vb}
+  \[ \nicefrac{\mathcal{S}_{n},\circ}{\mathcal{A}_{n},\circ} \cong \mathbb{Z}_{2} \]
+  
+  \begin{proof}
+    Kies als morfisme $sgn: \mathcal{S}_{n} \rightarrow \{ 1,-1 \}$.
+    De kern hiervan is $\mathcal{A}_{n}$.\prref{pr:sgn-groepsmorfisme}
+  \end{proof}
+\end{vb}
+
+\begin{vb}
+  \[ \nicefrac{GL_{n}(\mathbb{R}),\cdot}{SL_{n}(\mathbb{R}),\cdot} \cong \mathbb{R}_{0},\cdot \]
+  
+  \begin{proof}
+    Kies als morfisme $det: GL_{n}(\mathbb{R}) \rightarrow
+    \mathbb{R}_{0}$.  De kern hiervan is $SL_{n}(\mathbb{R})$.
+  \end{proof}
+\end{vb}
+
+\begin{vb}
+  \[ \nicefrac{\mathbb{R}_{0},\cdot}{\{1,-1\},\cdot} \cong \mathbb{R}_{0}^{+},\cdot \]
+
+  \begin{proof}
+    Kies als morfisme $|\cdot|: \mathbb{R}_{0} \rightarrow \mathbb{R}_{0}^{+}$.
+    De kern hiervan is $\{1,-1\}$.
+  \end{proof}
+\end{vb}
+
+\begin{vb}
+  \[ \nicefrac{\mathbb{R},+}{\mathbb{Z},+} \cong \{ z \in \mathbb{C} \ |\ |z| = 1 \} \]
+
+  \begin{proof}
+    Kies als morfisme $f:\ \mathbb{R} \rightarrow \mathbb{C}:\ r \mapsto e^{2i\pi r}$.
+    De kern hiervan is $\mathbb{Z}$.
+  \end{proof}
+\end{vb}
+
+\subsubsection{Voortbrengers van een groep}
+
+\begin{vb}
+  \[ grp\{ (1,0),(1,1) \} = \mathbb{Z}\oplus\mathbb{Z} \]
+\end{vb}
+
+\begin{vb}
+  \[ grp\{ (1,0),(1,2) \} \subsetneq \mathbb{Z}\oplus\mathbb{Z} \]
+\end{vb}
+
+\begin{vb}
+  \[ \mathbb{Z}_{n} \oplus \mathbb{Z}_{m} = grp\{(1,0),(0,1)\} = grp\{(-1,0),(1,1)\} \]
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{D}_{n} = grp\{a,b\} = grp\{ a^{n-1},b \} \]
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{Q} = grp\{ i,j\} = grp\{ i,k \} = grp\{ j,k\} \]
+\end{vb}
+
+\begin{vb}
+  \[ \mathbb{Q},+ = grp\{ \nicefrac{1}{n} \ |\ n \in \mathbb{N}\} \]
+\end{vb}
+\extra{bewijs dat $\mathbb{Q}$ niet eindig voortgebracht kan worden}
+
+\begin{vb}
+  \[ \mathcal{S}_n = <(12),(13),(14),\dotsc, (1\, n-1), (1n)> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{S}_n = <(12),(23),(34),\dotsc, (n-2\, n-1), (n-1\,n)> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{S}_n = <(12), (123\dotsc n-1\,n)> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\begin{vb}
+  \[ \mathcal{A}_n = <(ab)(cd)\ |\ a\neq b \wedge c \neq d> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\begin{vb}
+  \[ n \ge 3 \Rightarrow \mathcal{A}_n = <(abc)\ |\ a,b,c \in \{1,2,\dotsc,n\}> \]
+  \extra{bewijs p 34}
+\end{vb}
+
+\subsubsection{Tweede isomorfismestelling}
+
+\begin{vb}
+  Zij $H$ een deelgroep van $\mathcal{S}_{n}$.
+  Ofwel is $H$ een deel van $\mathcal{A}_{n}$, ofwel bevat $H$ een oneven permutatie en dan geldt $H\mathcal{A}_{n} = \mathcal{S}_{n}$.
+  De tweede isomorfismestelling zegt nu het volgende:
+  \[ H \cap \mathcal{A}_{n} \triangleleft H \]
+  \[ \mathcal{A}_{n} \triangleleft \mathcal{S}_{n} \]
+  \[ \nicefrac{H}{H\cap \mathcal{A}_{n}} \cong \nicefrac{\mathcal{S}_{n}}{\mathcal{A}_{n}} \]
+  Met andere woorden: de even permutaties in $H$ vormen een normaaldeler van $H$ met index $2$.
+\end{vb}
+
+\subsubsection{Derde isomorfismestelling}
+\label{sec:derde-isom}
+
+\begin{vb}
+  Zij $G = \mathbb{Z} \oplus \mathbb{Z}$, $N = <(1,0)>$ en $H=<(1,0),(0,5)>$.
+  De derde isomorfismestelling zegt het volgende:
+  \[
+  \nicefrac{\nicefrac{\mathbb{Z} \oplus \mathbb{Z}}{<(1,0)>}}{\nicefrac{<(1,0),(0,5)>}{<(1,0)>}} \cong \nicefrac{\mathbb{Z} \oplus \mathbb{Z}}{<(1,0),(0,5)>}
+  \]
+  Kies het volgende isomorfisme om dit in te zien:
+  \[ f:\ \nicefrac{\nicefrac{\mathbb{Z} \oplus \mathbb{Z}}{<(1,0)>}}{\nicefrac{<(1,0),(0,5)>}{<(1,0)>}} \rightarrow \nicefrac{\mathbb{Z} \oplus \mathbb{Z}}{<(1,0),(0,5)>}:\ \]
+\end{vb}
+
+\question{hoe doen we dit?}
+
+\subsection{Commutatordeelgroep}
+
+\begin{vb}
+  In $\mathcal{D}_{n}$ zijn de commutatoren de elementen $a^{2i}$ met $i\in\mathbb{Z}$.
+  De commutatordeelgroep $\mathcal{D}'$ of $\mathcal{D}_{n}$ is dus $grp\{a^{2}\}$.
+\end{vb}
+
+
+
+\section{Ringen}
+\label{sec:ringen}
+
+\begin{de}
+  De \term{nulring} $\boldsymbol{0}$ is de ring met \'e\'en enkel element zodat zowel $\{0\},+$ als $\{0\},\cdot$ een groep zijn met hetzelfde neutraal element.
+  \[ \boldsymbol{0} = \{0\},+,\cdot \]
+  \commj \eenhj{$0$}
+\end{de}
+
+\begin{vb}
+  De gehele getallen, uitgeruist met de optelling en de vermenigvuldiging, vormen een integriteitsdomein:
+  \[ \mathbb{Z},+,\cdot \]
+  \commj \eenhj{$1$} \domein
+\end{vb}
+
+\begin{vb}
+  De rationale getallen, uitgerust met de optelling en de vermenigvuldiging, vormen een veld 
+  \[ \mathbb{Q},+,\cdot \]
+\commj \eenhj{$1$} \domein \lichaam \veld
+\end{vb}
+
+\begin{vb}
+  De re\"ele getallen, uitgerust met de optelling en de vermenigvuldiging, vormen een veld:
+  \[ \mathbb{R},+,\cdot \]
+\commj \eenhj{$1$} \domein \lichaam \veld
+\end{vb}
+
+\begin{vb}
+  De complexe getallen, uitgerust met de optelling en de vermenigvuldiging, vormen een veld:
+  \[ \mathbb{C},+,\cdot \]
+  \commj \eenhj{$1$} \domein \lichaam \veld
+\end{vb}
+
+\begin{vb}
+  De reele veeltermen, uitgerust met de optelling en de vermenigvuldiging, vormen een integriteitsdomein: 
+  \[ \mathbb{R}[X_{1},\dotsc,X_{n}],+,\cdot \]
+  \commj \eenhj{$1$} \domein
+\end{vb}
+
+\begin{vb}
+  De verzameling van re\"ele vierkante matrices, uitgerust met de optelling en de matrixvermenigvuldiging vormen een ring. 
+  \[ \mathbb{R}^{n\times n},+,\cdot \]
+  \commn \eenhj{$\mathbb{I}_{n}$}
+\end{vb}
+
+\begin{vb}
+  De verzameling $\mathbb{R}^{\mathbb{N}}$ der oneindige rijen in $\mathbb{R}$, uitgerust met de optelling $+$ van rijen als en de convolutie $*$ van rijen vormen een ring.\\
+  \eenhj{$(1,0,\dotsc)$} \commj
+\end{vb}
+
+\begin{vb}
+  De quatiernionen vormen een niet-commutatief lichaam.
+  \[ \mathbb{H} = \{ a + bi + cj + dk \ |\ a,b,c,d \in \mathbb{R} \} \]
+  \commn \eenhj{$1$} \lichaam 
+\end{vb}
+
+\subsection{Eenhedengroepen}
+\label{sec:eenhedengroepen}
+
+\begin{vb}
+  De eenhedengroep $\mathbb{Z}^{\times},\cdot$ van $\mathbb{Z},+,\cdot$ is de groep $\{1,-1\},\cdot$.
+  \[ \mathbb{Z}^{\times} = \{1,-1\}\]
+\end{vb}
+
+\begin{vb}
+  De eenhedengroep $(\mathbb{R}^{n\times n})^{\times},\cdot$ van $\mathbb{R}^{n\times n},+,\cdot$ is de groep $GL_{n}(\mathbb{R}),\cdot$ van inverteerbare matrices.
+  \[ (\mathbb{R}^{n\times n})^{\times} = GL_{n}(\mathbb{R}) \]
+\end{vb}
+
+\begin{vb}
+  De eenhedengroep van $\mathbb{R}[x],+,\cdot$ en die van $\mathbb{R},+,\cdot$ zijn beide gelijk aan  $\mathbb{R}_{0},\cdot$.
+\end{vb}
+
+
+\subsection{Deelringen}
+\label{sec:deelringen}
+
+In dit deel voorbeelden duiden we de relatie ``... is een deelring van ...'' aan als $\underset{r}{\subseteq}$.
+
+\begin{vb}
+  \[ n\mathbb{Z}\underset{r}{\subseteq} \mathbb{Z} \underset{r}{\subseteq} \mathbb{Q} \underset{r}{\subseteq} \mathbb{R} \underset{r}{\subseteq} \mathbb{C},+,\cdot \]
+\end{vb}
+
+\begin{vb}
+  \[ \{ r\mathbb{I}_{n} \ |\ r \in \mathbb{R} \} \underset{r}{\subseteq} \{diagonaalmatrix\} \underset{r}{\subseteq}  \{bovendriehoeksmatrx\} \underset{r}{\subseteq} \mathbb{R}^{n\times n},+,\cdot \]
+\end{vb}
+
+\begin{vb}
+  Afbeeldingen met bepaalde eigenschappen:
+  \[ \{ f:\ \mathbb{R}^{n} \rightarrow \mathbb{R} \ |\ f \text{differentieerbaar} \} \underset{r}{\subseteq} \{ f:\ \mathbb{R}^{n} \rightarrow \mathbb{R} \ |\ f \text{continu} \}  \underset{r}{\subseteq} \{ f:\ \mathbb{R}^{n} \rightarrow \mathbb{R} \},+,\cdot \]
+\end{vb}
+
+\subsection{Ringmorfismen}
+\label{sec:ringmorfismen}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{Z} \rightarrow \mathbb{Z}_{n}:\ x \mapsto \bar{x} \]
+\end{vb}
+
+\begin{vb}
+  Automorfisme
+  \[ \mathbb{C} \rightarrow \mathbb{C}:\ x \mapsto \bar{x} \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{R}[X] \rightarrow \mathbb{R}:\ f \mapsto f(a) \text{ met } a \in \mathbb{R} \]
+\end{vb}
+
+\begin{vb}
+  Morfisme
+  \[ \mathbb{Z}_{4} \rightarrow \mathbb{Z}_{10}:\ \bar{x} \mapsto \bar{5x} \]
+\end{vb}
+
+
+\subsection{Breukenvelden}
+\label{sec:breukenvelden}
+
+\begin{vb}
+  Het breukenveld van $\mathbb{Z},+,\cdot$ is $\mathbb{Q},+,\cdot$.
+\end{vb}
+
+\begin{vb}
+  Het breukenveld van $\mathbb{R}[X]$ is $\mathbb{R}(X)$.
+\TODO{definieer beide ergens}
+\end{vb}
+
+\begin{vb}
+  Het breukenveld van $\mathbb{Z}_{p}[X]$ is $\mathbb{Z}_{p}(X)$.
+\TODO{definieer beide ergens}
+\end{vb}
+
+\subsection{Idealen}
+\label{sec:idealen}
+
+\begin{vb}
+  \[ n\mathbb{Z},+,\cdot \triangleleft \mathbb{Z},+,\cdot \]
+\end{vb}
+
+\begin{vb}
+  \[ \{\text{veelterm met constante term } 0 \},+,\cdot \triangleleft \mathbb{R}[X],+,\cdot \]
+\end{vb}
+
+\begin{vb}
+  \[ \{ (x,y,0) \ |\ x,y \in \mathbb{R} \},+,\cdot \triangleleft \mathbb{R}^{3},+,\cdot \]
+\end{vb}
+
+\subsection{Quoti\"entringen}
+\label{sec:quotientringen}
+ 
+\begin{vb}
+  \[ \mathbb{Z}_{n},+,\cdot = \nicefrac{\mathbb{Z}}{n\mathbb{Z}},+,\cdot \]
+\end{vb}
+
+\begin{vb}
+  \[ \nicefrac{R}{\{e_{R}\}},+,\cdot \cong R  \]
+\end{vb}
+
+\begin{vb}
+  \[ \nicefrac{R}{R} = \boldsymbol{0} \]
+\end{vb}
+
+\begin{vb}
+  \[ \nicefrac{\mathbb{Z}_{20}}{\{0,4,8,12,16\}} = \nicefrac{\mathbb{Z}_{20}}{(4)}  \]
+\end{vb}
+
+\begin{vb}
+  \[ \mathbb{R}/(X) \cong \mathbb{R} \]
+\end{vb}
+\clarify{uitleg hier?}
+
+\begin{vb}
+  \[ \nicefrac{\mathbb{Z} + \mathbb{Z}i}{(2-i)} \cong \mathbb{Z}_{5} \]
+\end{vb}
+
+\subsection{Isomorfismestellingen}
+\label{sec:isom}
+
+\subsection{Priemidealen en Maximale idealen}
+\label{sec:priem-en-maxim}
+
+\begin{vb}
+  $(n)$ is een priemideaal als en slechts als $n$ een priemgetal is.
+  \[ (n) = n\mathbb{Z} \]
+\extra{bewijs}
+\end{vb}
+
+\begin{vb}
+  In $\mathbb{Z}_{36}$ zijn $(2)$ en $(3)$ de enige twee maximale idealen.
+\extra{bewijs}
+\end{vb}
+
+\begin{vb}
+  Alle priemidealen zijn maximale idealen in $\mathbb{Z}$.
+\end{vb}
+
+\begin{vb}
+  In $\mathbb{R}[X]$ is $(X^{2}+1)$ een maximaal ideaal.
+\extra{zie uitleg p 55}
+\end{vb}
+
+\TODO{breukenvelden p 49 A}
+\TODO{priemidealen en maximale idealen p 55 A}
+
+\TODO{complexe getallen p 199 TAI}
+ 
+\TODO{euclidische ring p 125}
+
+
+\section{Booleaanse algebra}
+\label{sec:booleaanse-algebra}
+
+\begin{vb}
+  $2^{A},\cup,\cap,^{C}$ is een booleaanse algebra voor elke verzameling $A$ met $\emptyset$ als nulelement en $A$ als eenheidselement.
+\end{vb}
+
+\begin{vb}
+  $\{0,1\},\cdot,+,\neg$ is een booleaanse algebra. ($\neg 0 = 1$ en $\neg 1 = 0$)
+  We korten deze algebra vaak af als $B_{2}$.
+\end{vb}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,8 +1,360 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
-\chapter{Functies}
-\label{cha:functies}
+\chapter{Functies en afbeeldingen}
+\label{cha:functies-en-afbeeldingen}
 
+\begin{opm}
+  Na dit hoofdstuk en in andere lectuur wordt met ``functie'' vaak ``volledige functie'' bedoelt, en wordt er dus geen onderscheid meer gemaakt tussen een functie en een afbeelding.
+\end{opm}
+
+\begin{de}
+  Een (partiele) \term{functie} $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een relatie tussen $A$ en $B$ die 1-waardig is.
+  \begin{enumerate}
+  \item $f \in A \times B$ ($f$ is een relatie van $A$ naar $B$.)
+  \item $(x,y_{1}) \in f \wedge (x,y_{2}) \in f \Rightarrow y_{1} = y_{2}$ ($f$ is 1-waardig.)
+  \end{enumerate}
+  Vaak worden $A$ en $B$ opgenomen in de definitie van een functie om over surjecties te kunnen spreken. Een functie $f: A \rightarrow B$ is dan het drietal $(f,A,B)$.
+\end{de}
+
+\begin{de}
+  De \term{definitie van een functie} ziet er als volgt uit:
+  \[ f: A \rightarrow B: a \mapsto b \]
+  Hier noemen we $B$ het codomein van $f$ en er geldt $dom f \subseteq A$.
+  We lezen: ``$f$ is een functie van $A$ naar $B$ die $a$ afbeeldt op $b$.''
+\end{de}
+
+\begin{de}
+  Wanneer er geen koppel $(x,y)$ in $f$ bestaat zeggen we dat de functie $f$ \term{ongedefinieerd} is in $x$.
+\end{de}
+
+\begin{de}
+  Wanneer we over functies spreken gebruiken we soms de volgende afkorting. Zij $f$ een functie $f: A \rightarrow B$ en $C \subseteq A$ een verzameling.
+  \[ f(C) = \{ f(c)\ |\ c \in C \} \] 
+\end{de}
+
+\begin{de}
+  Zij $f$ een functie: $f: A \rightarrow B$. 
+  In $y = f(x)$ noemen we $x$ het \term{argument} en $y$ het \term{beeld} van $x$ onder $f$.
+\end{de}
+
+\begin{de}
+  Het \term{beeld} $f(A)$ van een verzameling $A$ onder een functie $f$ is de verzameling van alle beelden van de elementen van $A$.
+  \[ f(A) = \{ y \in Y \ |\ \exists x \in A:\ f(x) = y \} \]
+\end{de}
+
+\begin{de}
+  Het \term{invers beeld $f^{-1}(A)$ van een verzameling} $B$ onder een functie $f$ is de verzameling van alle elementen uit $X$ die op een element in $B$ afgebeeldt worden.
+  \[ f^{-1}(B) = \{ x \in X \ |\ f(x) \in B \} \]
+\end{de}
+
+\begin{de}
+  Een \term{afbeelding} (of volledige functie) $f$ van $A$ naar $B$: $f: A \rightarrow B$ is een functie die overal gedefini\"eerd is.
+  \[ \forall x \in A,\ \exists y \in B: (x,y) \in f \]
+\end{de} 
+ 
+\begin{de}
+  De \term{definitie van een afbeelding} ziet er als volgt uit:
+  \[ f: A \rightarrow B: a \mapsto b \]
+  Hier noemen we $B$ het codomein van $f$ en $A$ het domein van $f$.
+  We lezen: ``$f$ is een functie afbeelding van $A$ op $B$ die $a$ afbeeldt op $b$.''
+\end{de} 
+ 
+\begin{de}
+  Wanneer we over afbeeldingen spreken noteren we vaak $f(x) = y$ in plaats van $x f y$ of $(x,y) \in f$.
+\end{de}
+
+
+\begin{st}
+  Zij $f$ en $g$ functies van $A$ naar $B$: $f: A \rightarrow B$, dan geldt:
+  \[ \forall x \in A: f = g \Leftrightarrow f(x) = g(x) \]  
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als de verzamelingen $f$ en $g$ gelijk zijn is het beeld van elke $x$ inderdaad hetzelfde onder $f$ als onder $g$.
+    \item $\Leftarrow$\\
+      Geldt er voor koppel $(x,y_{1}) \in f$ en $(x,y_{2})$ dat $y_{1}$ gelijk is aan $y_{2}$, dan moeten $f$ en $g$ wel dezelfde verzameling zij.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Zij $f: A \rightarrow A$ een functie van $A$ naar zichzelf.
+  We noemen $x$ een \term{vast punt} van $f$ als $f$ $x$ op zichzelf afbeeldt.
+  \[ f(x) = x \]
+\end{de}
+
+\begin{de}
+  Zij $f: A \rightarrow A$ een functie van $A$ naar zichzelf.
+  We noemen een deelverzameling $X$ van $A$ een \term{invariante of stabiele deelverzameling} voor $f$ als $f$ $X$ op een deelverzameling van zichzelf afbeeldt.
+  \[ f(X) \subseteq X \]
+\end{de}
+
+\section{Jecties}
+\label{sec:jecties}
+
+\begin{opm}
+  De ``jecties'' worden soms enkel gedefinieerd voor afbeeldingen, maar ze kunnen al over relaties gedefinieerd worden.
+\end{opm}
+
+\begin{de}
+  \label{de:afbeelding-injectief}
+  Een afbeelding $f: A \rightarrow B$ is \term{injectief} (een injectie) als ze voor verschillende argumenten nooit hetzelfde beeld geeft.
+  \[ \forall x_{1},x_{2} \in A:\ f(x_{1}) = f(x_{2}) \Rightarrow x_{1}= x_{2} \]
+\end{de}
+
+\begin{de}
+  \label{de:afbeelding-surjectief}
+  Een afbeelding $f: A \rightarrow B$ is \term{surjectief} (een surjectie) als elk element in het codomein $B$ een beeld is van een element uit $A$.
+  \[ \forall y \in B:\ \exists x \in A:\ y = f(x) \]
+\end{de}
+
+\begin{de}
+  \label{de:afbeelding-bijectief}
+  Een afbeelding $f: A \rightarrow B$ is \term{bijectief} (een bijectie) als het een injectie en een surjectie is.
+\end{de}
+
+\begin{de}
+  We noemen twee verzamelingen $X$ en $Y$ equipotent als er een bijectie $f: X \rightarrow Y$ bestaat.
+\end{de}
+
+\begin{de}
+  Een afbeelding $f: A \rightarrow A$ van een verzameling op zichzelf noemen we een transformatie.
+\end{de}
+
+\section{Speciale afbeeldingen}
+\label{sec:spec-afbe}
+
+\begin{de}
+  Een bijectieve functie van een eindige verzameling $A$ naar een eindige verzameling $B$ noemen we een substitutie. 
+\end{de}
+
+\begin{de}
+  \label{identieke-transformatie}
+  De \term{identieke transformatie} $id_{A}$ van een verzameling $A$ is de (bijectieve) afbeelding die elk element op zichzelf afbeeldt.
+  \[ id_{A}: A \rightarrow A \text{ met } \forall x \in A: f(x) = x \]
+\end{de}
+
+\begin{de}
+  De \term{inlassing} $i_{AB}$ van $A$ in $B$ met $A \subseteq B$ beeldt elk element ook op zichzelf af, maar heeft een ander codomein.
+  \[ i_{AB}: A \rightarrow B \text{ met } \forall x \in A: f(x) = x \]
+\end{de}
+
+\begin{de}
+  Een \term{constante afbeelding} $f$ beeldt elk argument af op \'e\'enzelfde beeld $b$.
+  \[ f: A \rightarrow B \text{ met } \forall x \in dom f: f(x) = b \]
+\end{de}
+
+\begin{de}
+  De karacteristieke afbeelding van $A$ in $C$ is gedefinieerd voor $A \subseteq C$ in $B = \{0,1\}$ als volgt:
+  \[
+  E_{A}: C \rightarrow B:
+  \left \lbrace
+    \begin{array}{cc}
+      x \mapsto 1 &\text{ als } x \in A\\
+      x \mapsto 0 &\text{ als } x \not\in A\\
+    \end{array}
+  \right \rbrace
+  \]
+\end{de}
+
+\begin{de}
+  De \term{beperking} $f|_{C}$ van $f$ tot $C$ is gedefinieerd voor $f: A \rightarrow B$ en $C \in A$ als volgt:
+  \[ f|_{C}: C \rightarrow B: x \mapsto f(x), \forall x \in C\]
+  Een functie, beperkt tot haar domein is een afbeelding.
+\end{de}
+
+\begin{st}
+  Zij $f: A \rightarrow B$ en $g: B \rightarrow C$ twee afbeeldingen, dan is de samenstelling $g \circ f$ ervan ook een afbeelding.
+
+  \begin{proof}
+    Inderdaad, $z = (g \circ f)(x) = g(f(x))$ en zowel $f(x)$ en $g(f(x))$ zijn goed gedefinieerd omdat $f$ en $g$ afbeeldingen zijn. 
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $f$ en $g$ injecties, dan is hun samenstelling $g \circ f$ ook een injectie.
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $f$ en $g$ surjectie, dan is hun samenstelling $g \circ f$ ook een surjectie.
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  Zij $f$ en $g$ bijectie, dan is hun samenstelling $g \circ f$ ook een bijectie.
+\TODO{bewijs}
+\end{st}
+
+\begin{de}
+  Assymetrische inversen\\
+  De \term{linker inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding zodat het volgende geldt:
+  \[ g \circ f = I_{A} \]
+  De \term{rechter inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding zodat het volgende geldt:
+  \[ f \circ g = I_{B}\]
+\end{de}
+
+\begin{de}
+  De (algemene) \term{inverse} $g:B \rightarrow A$ van een afbeelding $f:A \rightarrow B$ is een afbeelding die zowel de linker- als rechter inverse is van $f$.
+\end{de}
+
+\begin{de}
+  Een afbeelding $f: A \rightarrow B$ is \term{inverteerbaar} als en slechts als $f^{-1}: B \rightarrow A$ ook een afbeelding is. $f^{-1}$ noemen we dan de inverse afbeelding.
+\end{de}
+
+\begin{st}
+  \label{st:afb-inverse-asa-bijectief}
+  Een afbeelding is inverteerbaar als en slechts als ze bijectief is.
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:afb+inverse=identieke}
+  De samenstelling van een inverteerbare afbeelding en haar inverse is de identieke transformatie.
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  Ontbindingsstelling voor afbeeldingen\\
+  Iedere afbeelding $f:A\rightarrow B$ valt te schrijven als een samenstelling:
+  \[ f = i \circ b \circ p \]
+  \begin{itemize}
+  \item $p$: de projectie van $f$ op $A/R_{f}$.
+  \item $b$: een bijectie tussen $A/R_{f}$ en $f(A)$,
+  \item $i$: de inlassing van $f(A)$ in $B$,
+  \end{itemize}
+
+\TODO{bewijs}
+\end{st}
+
+\begin{st}
+  \label{st:f-bijec-asa-f-1-bijec}
+  Een afbeelding $f$ is bijectief als en slechts als $f^{-1}$ bijectief is.
+\extra{bewijs}
+\end{st}
+
+\section{Permutaties}
+\label{sec:permutaties}
+
+\begin{de}
+  Een \term{transpositie} is een permutatie die elementen verwisselt en de rest op zichzelf afbeeldt.
+  Het is met andere woorden een cykel van lengte 2.
+\end{de}
+
+\begin{de}
+  Een bijectieve afbeelding van een eindige verzameling naar zichzelf noemen we een \term{permutatie}.
+\end{de}
+
+\begin{st}
+  Een permutatie is een samenstelling van transposities.
+
+\TODO{bewijs zie p 15}
+\end{st}
+
+\begin{de}
+  We noemen de verzameling van permutaties van $n$ elementen $\mathcal{S}_{n}$.
+\end{de}
+
+\begin{de}
+  We noteren het voorschrift van een permutatie $\sigma: A\rightarrow A$ van een verzameling $A = a_{1},\dotsc,a_{n}$ soms als volgt:
+  \[
+  \sigma = 
+  \begin{pmatrix}
+    a_{1}         & \hdots & a_{n}         \\
+    \sigma(a_{1}) & \hdots & \sigma(a_{n}) \\
+  \end{pmatrix}
+  \]
+  Dit heet de twee-lijnen notatie van Cauchy.
+\end{de}
+
+\begin{de}
+  We kunnen een permutatie van $\{1,\dotsc,n\}$ eenvoudig noteren als volgt:
+  Zij $i_{1},\dotsc,i_{r}$ elementen uit $\{1,\dotsc,n\}$.
+  \[ \sigma = (i_{1}i_{2}\dotsc i_{r}) \]
+  Bovenstaande gelijkheid is de notatie voor $\sigma$, zijnde de volgende permutatie:
+  \[ \sigma(i_{i}) = i_{(i+1) mod\ r} \]
+  Dit heet de cykelnotatie.
+\end{de}
+
+\begin{de}
+  Twee cykels zijn disjunct als ze geen gemeenschappelijke symbolen hebben. 
+\end{de}
+
+\begin{ei}
+  \label{ei:disjuncte-cykels-commuteren}
+  Disjuncte cykels commuteren.
+\extra{bewijs}
+\end{ei}
+
+\begin{st}
+  Elke permutatie in $\mathcal{S}_{n}$, verschillend van de identieke, is de samenstelling van twee aan twee disjuncte cykels.
+
+\TODO{bewijs zie p 14}
+\end{st}
+
+\begin{de}
+  Zij $\pi: A \rightarrow A$ een permutatie en $i$ en $j$ twee elementen van $A$ met $i < j$.
+  We zeggen dat $i$ en $j$ geinverteerd worden door $\pi$ als het volgende geldt:
+  \[ \pi(i) > \pi(j) \]
+\end{de}
+
+\begin{de}
+  Het aantal inversies van een permutatie $\pi$ tellen we als volgt:
+  \[
+  \phi(i,j) =
+  \left\{
+  \begin{array}{lc}
+    0 \text{ als } \pi(i) < \pi(j)\\
+    1 \text{ als } \pi(i) < \pi(j)
+  \end{array}
+  \right.
+  \]
+  \[ I(\pi) = \sum_{1\le i < j \le n}\phi(i,j) \]
+  Het \term{teken} van de permutatie $\pi$ noteren we als $sign(\pi)$ en is ofwel $1$ ofwel $-1$.
+  \[ sign(\pi) = (-1)^{I(\pi)}\] 
+\end{de}
+
+\begin{ei}
+  \label{ei:samenstelling-permutaties-teken}
+  Zij $\pi$ en $\rho$ permutaties.
+  \[ sign(\pi\circ\rho) = sign(\pi)sign(\rho) \] 
+  \begin{proof}
+    \[
+    \begin{array}{rll}
+      sign(\pi)sign(\rho) &= (-1)^{I(\pi)} (-1)^{I(\rho)} &\\
+                          &= (-1)^{I(\pi\circ\rho)}      &=sign(\pi\circ\rho)\\
+    \end{array}
+    \]
+  \end{proof}
+\end{ei}
+
+\begin{de}
+  We noemen een permutatie \term{even}/\term{oneven} als het aantal inversies even/oneven is.
+\end{de}
+
+\begin{de}
+  We noemen een cykel van $r$ elementen even/oneven als $r$ even/oneven is.
+\end{de}
+
+\begin{de}
+  \label{de:even-permutaties}
+  We noemen de verzameling van even permutaties van $n$ elementen $A_{n}$.
+\end{de}
+
+\begin{st}
+  Een transpositie is steeds oneven.
+  \begin{proof}
+    Een transpositie inverteert precies \'e\'en element.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:even-asa-aantal-even-cykels-even}
+  Een permutatie in disjuncte cykelnotatie is even als en slechts als het aantal even cykels even is.
+
+\TODO{bewijs}
+\end{st}
 
 \end{document}

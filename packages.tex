@@ -13,13 +13,17 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
+
+% Voor mooiere breuken
+\usepackage{nicefrac}
+
 % Voor urls
 \usepackage{hyperref}
 
 % Voor svg illustraties
-\usepackage[clean,pdf]{svg}
-\setsvg{svgpath = illustraties/}
-\setsvg{inkscape = inkscape -z -D}
+%\usepackage[clean,pdf]{svg}
+%\setsvg{svgpath = illustraties/}
+%\setsvg{inkscape = inkscape -z -D}
 
 % Een mooier bestand met wiskunde ondersteuning
 \usepackage{libertine}
@@ -34,9 +38,14 @@
 \usetikzlibrary{decorations}
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows.meta}
+\usetikzlibrary{matrix}
+\usetikzlibrary{fit}
+\usetikzlibrary{shapes}
+\usetikzlibrary{topaths}
 
 % Nog tekeningen
-\usepackage{pgfplots}
+%\usepackage{pgfplots}
+%\pgfplotsset{compat=1.11}
 
 % Om figuren op de juiste plaats te krijgen
 \usepackage{float}
@@ -65,3 +74,7 @@ filecolor=black,
 linkcolor=black,
 urlcolor=black
 }
+
+%indices
+\usepackage{makeidx}
+\makeindex
