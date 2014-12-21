@@ -1420,15 +1420,16 @@
 
 \begin{de}
   Een \term{veelterm over een ring} $R,+,\cdot$ is een uitdrukking $a(x)$ van de volgende vorm.
-  \[ a(x) = \sum_{i=0}^{n}a_{i}x^{i} \text{ met } n \ge 0 \]
-  In $a(x)$ zijn alle $a_{i}$ elementen van $R$ en $a_{n}$ niet het nulelement. 
-  De $a_{i}$ noemt met de \term{co\"efficienten} en $x$ de \term{onbepaalde}.
+  \[ a(X) = \sum_{i=0}^{n}a_{i}X^{i} \text{ met } n \ge 0 \]
+  In $a(X)$ zijn alle $a_{i}$ elementen van $R$ en $a_{n}$ niet het nulelement. 
+  De $a_{i}$ noemt met de \term{co\"efficienten} en $X$ de \term{onbepaalde}.
+  We zeggen dat $a(X)$ een veelterm is \textbf{in} $X$.
   $n$ noemt men de \term{graad} van $a(x)$.
-  $a_{n}$ noemt met de \term{leidende co\"efficient} en $a_{n}x^{n}$ de \term{leidende term}.
+  $a_{n}$ noemt met de \term{leidende co\"efficient} en $a_{n}X^{n}$ de \term{leidende term}.
 \end{de}
 
 \begin{de}
-  De \term{graad} van een veelterm $a(x)$ noteren we als $gr(a(x))$.
+  De \term{graad} van een veelterm $a(X)$ noteren we als $gr(a(X))$ of $deg(a(X))$.
 \end{de}
 
 \begin{de}
@@ -1448,30 +1449,78 @@
 \end{de}
 
 \begin{de}
-  We definieren de som van twee veeltermen $a(x)$ en $b(x)$ als volgt:
-  \[ a(x) = \sum_{i=0}^{m}a_{i}x^{i} \]
-  \[ b(x) = \sum_{i=0}^{n}b_{i}x^{i} \]
-  \[  a(x) + b(x) = \sum_{i=0}^{\max(m,n)}(a_{i} + b_{i})x^{i} \]
+  We definieren de som van twee veeltermen $a(X)$ en $b(X)$ als volgt:
+  \[ a(X) = \sum_{i=0}^{m}a_{i}X^{i} \]
+  \[ b(X) = \sum_{i=0}^{n}b_{i}X^{i} \]
+  \[  a(X) + b(X) = \sum_{i=0}^{\max(m,n)}(a_{i} + b_{i})X^{i} \]
   Uiteraard zijn $a_{i}$ en $b_{i}$ voor $i$ groter dan $m$, respectievelijk $n$ nulelementen.
 \end{de}
 
 \begin{de}
-  We definieren het product van twee veeltermen $a(x)$ en $b(x)$ als volgt:
-  \[ a(x) = \sum_{i=0}^{m}a_{i}x^{i} \]
-  \[ b(x) = \sum_{i=0}^{n}b_{i}x^{i} \]
-  \[  a(x)\cdot b(x) = \sum_{i=0}^{n+m}(a_{i} \cdot b_{i})x^{i} \]
+  We definieren het product van twee veeltermen $a(X)$ en $b(X)$ als volgt:
+  \[ a(X) = \sum_{i=0}^{m}a_{i}X^{i} \]
+  \[ b(X) = \sum_{i=0}^{n}b_{i}X^{i} \]
+  \[  a(X)\cdot b(X) = \sum_{i=0}^{n+m}\left(\sum_{k=0}^{q+r}a_{q+r-i}b_{i}\right)X^{i} \]
   Uiteraard zijn $a_{i}$ en $b_{i}$ voor $i$ groter dan $m$, respectievelijk $n$ nulelementen.
-\end{de}
-
-\begin{de}
-  Men noteert de verzameling van veeltermen in $x$ over een ring $R,+,\cdot$ als $R[x]$.
-  We noemen deze ring de \term{veeltermring}.
 \end{de}
 
 \begin{ei}
-  De verzameling van veeltermen $R[x]$ in een variabele $x$ over een ring $R,+,\cdot$, uitgerust met de veelterm-som en het veelterm-product, vormt een ring $R[x],+,\cdot$.
-\TODO{bewijs}
+  De verzameling van veeltermen $R[X]$ in een variabele $X$ over een ring $R,+,\cdot$ met nulelement $e_{R}$, uitgerust met de veelterm-som en het veelterm-product, vormt een ring $R[X],+,\cdot$.
+
+  \begin{proof}
+    We bewijzen elke defini\"erende eigenschap van een ring.
+    \begin{itemize}
+    \item $R[X],+$ is een commutatieve groep.
+      \begin{itemize}
+      \item De veelterm-som is associatief omdat $+$ in $R,+,\cdot$ associatief is.
+      \item De veelterm-som is commutatief omdat $+$in $R,+,\cdot$ commutatief is.
+      \item Het neutraal element voor $R[X],+$ is de nulveelterm.
+        \[ \forall a(X) \in R[X]:\ \sum_{i=0}^{m}a_{i}X^{i} + e_{R} = \sum_{i=0}^{m}(a_{i}+e_{R})X^{i} = \sum_{i=0}^{m}a_{i}X^{i} \]
+      \item Elk element $a(X)$ in $R[X]$ heeft een neutraal element $-a(X)$ in $R[X]$.
+        \[ -a(X)  = \sum_{i=0}^{m}(-a_{i}) X^{i} \]
+        \[ \forall a(X) \in R[X]:\ a(X) - a(X) = \sum_{i=0}^{m}(-a_{i}) X^{i} + \sum_{i=0}^{m}a_{i} X^{i} = \sum_{i=0}^{m}(a_{i}-a_{i}) X^{i}= \sum_{i=0}^{m}e_{R} X^{i} = e_{R}\]
+      \end{itemize}
+    \item Het veelterm-product is associatief:
+      Kies drie veeltermen $a(X)$, $b(X)$ en $c(X)$ uit $R[X]$.
+      \[ \sum_{i=0}^{p}a_{i} X^{i} \cdot \left(\sum_{i=0}^{q}b_{i} X^{i}  \cdot \sum_{i=0}^{r}c_{i} X^{i}\right) \]
+      \[
+      \begin{array}{rc}
+        =&
+           \sum_{i=0}^{p}a_{i} X^{i} \cdot \left(\sum_{i=0}^{q+r}\left(\sum_{k=0}^{i}b_{i-k}c_{k}\right)X^{i}\right) \\
+        =&
+           \sum_{j=0}^{p+q+r}\left(\sum_{i=0}^{j}a_{j-i}\left(\sum_{k=0}^{i}b_{i-k}c_{k}\right)\right)X^{i}\\
+        =&
+           \sum_{j=0}^{p+q+r}\left(\sum_{i=0}^{j}\left(\sum_{k=0}^{j-i}a_{j-i-k}b_{k}\right)\cdot c_{i}\right)X^{i}\\
+        =&
+           \left(\sum_{j=0}^{p+q}\left(\sum_{k=0}^{j}a_{j-k}b_{k}\right)X^{j}\right) \cdot \sum_{i=0}^{r}c_{i} X^{i} \\
+      \end{array}
+      \]
+      \[ = \left( \sum_{i=0}^{p}a_{i} X^{i} \cdot \sum_{i=0}^{q}b_{i} X^{i} \right) \cdot \sum_{i=0}^{r}c_{i} X^{i} \]
+    \item Het veelterm-product is distributief ten opzichte van de veelterm som:
+      \[ \left(\sum_{i=0}^{p}a_{i} X^{i} + \sum_{i=0}^{q}b_{i} X^{i}\right)  \cdot \sum_{i=0}^{r}c_{i} X^{i} \]
+      \[
+      \begin{array}{rc}
+        =&
+           \sum_{i=0}^{max(p,q)}(a_{i}+b_{i}) X^{i}  \cdot \sum_{i=0}^{r}c_{i} X^{i}\\
+        =&
+           \sum_{i=0}^{max(p,q)+r} \left(\sum_{k=0}^{i}(a_{i-k}+b_{i-k})\cdot c_{k}\right) X^{i}\\
+        =&
+           \sum_{i=0}^{max(p,q)+r} \left(\sum_{k=0}^{i}(a_{i-k}c_{k})+(b_{i-k}c_{k})\right) X^{i}\\
+        =&
+           \sum_{i=0}^{max(p,q)+r} \left(\sum_{k=0}^{i}(a_{i-k}c_{k}) + \sum_{k=0}^{i}\left(b_{i-k}c_{k}\right)\right) X^{i}\\
+        =&
+           \sum_{i=0}^{max(p,q)+r} \left(\sum_{k=0}^{i}(a_{i-k}c_{k})\right)X^{i} +  \sum_{i=0}^{max(p,r)+r} \left(\sum_{k=0}^{i}\left(b_{i-k}c_{k}\right)\right) X^{i}\\
+      \end{array}
+\]
+      \[ = \left(\sum_{i=0}^{p}a_{i} X^{i} \cdot \sum_{i=0}^{r}c_{i} X^{i}\right)  + \left(\sum_{i=0}^{q}b_{i} X^{i} \cdot \sum_{i=0}^{r}c_{i} X^{i}\right) \]
+    \end{itemize}
+  \end{proof}
 \end{ei}
+
+\begin{de}
+  Men noteert de verzameling van veeltermen in $X$ over een ring $R,+,\cdot$ als $R[X],+,\cdot$.
+  We noemen deze ring de \term{veeltermring}.
+\end{de}
 
 \begin{st}
   Als de ring $R,+,\cdot$ commutatief is, dan is $R[x],+,\cdot$ ook commutatief.
