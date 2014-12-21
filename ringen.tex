@@ -1568,6 +1568,12 @@
   \end{proof}
 \end{gev}
 
+\begin{st}
+  Zij $R,+,\cdot$ een integriteitsdomein, dan geldt het volgende:
+  \[ (R[X])^{\times} = R^{\times} \]
+\extra{bewijs p 59}
+\end{st}
+
 
 \subsection{Veeltermfuncties}
 \label{sec:veeltermfuncties}
@@ -1589,11 +1595,38 @@
 \end{de}
 
 \begin{st}
+  \label{st:delingsalgoritme}
   Het \term{delingsalgoritme} voor veeltermen over een ring met eenheidselement.
   Zij $R,+,\cdot$ een ring met eenheidselement $i$ en zij $f,g\in R[X]$ veeltermen over $R$.
   Als $g$ monisch is, dan bestaan er unieke veeltermen $q$ en $r$ in $R[X]$ zodat het volgende geldt:
   \[ f = qg + r \text{ en } gr(r) \le gr(g) \]
-\TODO{bewijs p 58 algebra}
+
+  \begin{proof}
+    Als de ring $R,+,\cdot$ (en dus ook $R[X],+,\cdot$) een integriteitsdomein is, dan is $R[X],+,\cdot,gr$ een euclidische ring en kunnen we het algoritme van Euler gebruiken.\alref{al:algoritme-van-euclides}
+    We bewijzen deze stelling toch appart.
+    We bewijzen eerst dat dergelijke $q$ en $r$ bestaan en daarna dat ze uniek zijn.
+    \begin{itemize}
+    \item Als de graad van $f$ kleiner is dan de graad van $g$, is het nogal nutteloos om een deling te proberen uitvoeren.
+      We gaan er daarom van uit dat de graad van $f$ groter of gelijk is aan de graad van $g$.
+      We bewijzen dat $q$ en $r$ bestaan door inductie op de graad van $f$.
+      \begin{itemize}
+      \item De bewering geldt voor $gr(f)=0$.
+      \item We gaan ervan uit dat de bewering geldt voor een bepaalde graad $gr(k) \in N_{0}$.
+      \item We bewijzen dat daaruit zou volgend dat de bewering geldt voor graad $gr(k+i)$ van $f$.
+        \[ f = \sum_{i=0}^{k+1}a_{i}X^{i} \]
+        Noteer nu $m$ voor de graad van en beschouw de veelterm $f'$.
+        \[ f' = f - a_{n}X^{n-m}g \]
+        We zien dat de graad van $f'$ kleiner is dan $n$ en dus bestaan er een $q'$ en $r'$ met $gr(r')<gr(g)$ als volgt:
+        \[ f' = q'g+r' \]
+        Hieruit volgt dat we $f$ als volgt kunnen schrijven.
+        \[ f = (a_{n}X^{n-m} + q')g + r' \]
+        We kiezen dan voor $q$ $a_{n}X^{n-m} + q'$ en voor $r$ $r'$.
+      \end{itemize}
+    \item Tenslotte bewijzen we de uniciteit.
+      Stel dat er twee paar veeltermen $q$ en $r$ en $q'$ en $r'$ zouden bestaan zoals gevraagd, dan betekent dat het volgende:
+      \[ (q-q')g = r' - r \]
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -1602,7 +1635,8 @@
 \end{de}
 
 \begin{st}
-  De term{reststelling}\\
+  \label{st:reststelling}
+  De \term{reststelling}\\
   Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$.
   Zij $f\in R[X]$ een veelterm over $R,+,\cdot$ en $a$ een element van $R$.
   \begin{itemize}
@@ -1610,14 +1644,41 @@
     \[ f = q(X-a) + f(a) \]
   \item $f$ is deelbaar door $X-a$ ($X-a|f$) als en slechts als a een nulpunt is van $f$.
   \end{itemize}
-\TODO{bewijs p 60 algebra}
+
+  \begin{proof}
+    We gebruiken het delingsalgoritme om dit te bewijzen.
+    \begin{itemize}
+    \item Het delingsalgoritme\stref{st:delingsalgoritme} van $f$ door $(X-a)$ levert een $q$ en $r$ op zodat het volgende geldt.
+      \[ f = q(X-a) + r \text{ met } gr(r) < 1 \]
+      $r$ is dus een element van $R$.
+      De substitutie van $a$ in $f$ geeft $f(a) = r$.
+    \item Als $f(a)$ het nulelement is, vormt de substitutie van $f$ in a de definitie van deelbaarheid.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $R,+,\cdot$ een integriteitsdomein en $f\in R[X]$ een veelterm over $R,+,\cdot$.
   Zij $a_{1},a_{2},\dotsc,a_{r}$ onderling verschillende nulpunten van $f$.
   $(X-a_{1})(X-a_{2}) \dotsc (X-a_{n})$ is een deler van $f$.
-\TODO{bewijs p 60 algebra}
+
+  \begin{proof}
+    We bewijzen dit door inductie op het aantal verschillende nulpunten van $f$.
+    \begin{itemize}
+    \item De bewering geldt voor $n=1$.\stref{st:reststelling}
+    \item We gaan ervan uit dat de bewering geldt voor een bepaalde $n=k$...
+    \item ... en bewijzen dat daaruit volgt dat de bewering geldt voor $n=k+1$.
+      Eerst delen we $f$ door $(X-a_{1})(X-a_{2})\dotsc(X-a_{k})$.
+      De inductiehypothese zegt dan dat er een $g\in R[X]$ bestaat zodat $f$ als volgt geschreven kan worden:
+      \[ f = (X-a_{1})(X-a_{2})\dotsc(X-a_{k}) g \]
+      De substitutie van $a_{k+1}$ levert ons het volgende op:
+      \[ e_{R} = f(a_{k+1}) = (a_{k+1}-a_{1})(a_{k+1}-a_{2})\dotsc(a_{k+1}-a_{k})g(a_{k+1}) \]
+      Omdat de $a_{i}$ onderling verschillend zijn en $R,+,\cdot$ geen nuldelers heeft is $g(a_{r})$ ook het nulelement $e_{R}$.
+      $a_{r}$ is een nulpunt van $g$ en dus is $X-a_{k+1}$ een deler van $g$.\stref{st:reststelling}
+      Dit houdt natuurlijk ook in dat $(X-a_{1})(X-a_{2})\dotsc(X-a_{k})(X-a_{k+1})$ een deler is van $f$.
+    \end{itemize}
+    Bij krachte van het concept van inductiehypothese is de bewering nu bewezen voor elke $n\in \mathbb{N}$.
+  \end{proof}
 \end{st}
 
 \subsection{Veeltermen over velden}
