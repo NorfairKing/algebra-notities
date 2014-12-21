@@ -152,6 +152,7 @@
 \end{de}
 
 \begin{ei}
+  \label{ei:rekenregels-eenheidselement}
   Zij $R,+,\cdot$ een ring met eenheidselement $i$ en nulelement $e$.
   \[ \forall a \in R:\ (-i)\cdot a = -a = a \cdot (-i) \]
 
@@ -825,13 +826,50 @@
 \begin{st}
   De \term{criteria voor idealen}.\\
   Zij $I$ een niet-lege deelverzameling van $R$ waarbij $R,+,\cdot$ een ring is.
-  $I,+,\cdot$ is een ideaal als aan \'e\'en van de volgende criteria voldaan is.
-  \begin{itemize}
+  $I,+,\cdot$ is een ideaal als aan \'e\'en van de volgende (equivalente) criteria voldaan is.
+  \begin{enumerate}
   \item $\forall x,y \in I,\ \forall r\in R:\ x+y\in I\ \wedge\ -x \in I\ \wedge\  r\cdot x\in I\ \wedge\ x\cdot r \in I$
   \item $\forall x,y \in I,\ \forall r\in R:\ x-y\in I\ \wedge\ \quad \quad \quad \quad\   r\cdot x\in I\ \wedge\ x\cdot r \in I$
-  \item $\forall x,y \in I,\ \forall r\in R:\ x-y\in I\ \wedge\ \quad \quad \quad \quad\   r\cdot x\in I\ \wedge\ x\cdot r \in I$ en $R,+,\cdot$ heeft een eenheidselement.
-  \end{itemize}
-\TODO{bewijs p 51}
+  \item $\forall x,y \in I,\ \forall r\in R:\ x-y\in I\ \wedge\ \quad \quad \quad \quad\   r\cdot x\in I\ \wedge\ x\cdot r \in I$ als $R,+,\cdot$ een eenheidselement heeft.
+  \end{enumerate}
+
+  \begin{proof}
+    Bewijs van equivalenties
+    \begin{enumerate}
+    \item
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        $I,+$ is een deelgroep van $R,+$, dus aan de eerste twee voorwaarden is al voldaan.
+        De andere twee voorwaarden staan rechtstreeks in de definitie van een ideaal.
+      \item $\Leftarrow$\\
+        Het neutraal element $e_{R}$ behoort tot $I$ omwille van de eerste twee voorwaarden.
+        Verder vervolledigen de eerste twee voorwaarden het criterium voor de deelgroep $I,+$ van $R,+$.
+        De laatste twee voorwaarden vervolledigen de definitie van een ideaal.
+      \end{itemize}
+    \item 
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        $I,+$ is een deelgroep van $R,+$, dus aan de eerste voorwaarde is al voldaan.
+        De andere twee voorwaarden staan rechtstreeks in de definitie van een ideaal.
+      \item $\Leftarrow$\\
+        Het neutraal element $e_{R}$ behoort tot $I$ omwille van de eerste voorwaarde.
+        Voor elk elementen $x\in I$ behoort de inverse ook tot $I$, kies immers in de eerste voorwaarde $e_{R}$ voor $x$.
+        De additieve bewerking is bovendien intern in $I$ omwille van de eerste voorwaarde en omdat de inverse intern is in $I$.
+        De laatste twee voorwaarden vervolledigen de definitie van een ideaal.
+      \end{itemize}
+    \item 
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        $I,+$ is een deelgroep van $R,+$, dus aan de eerste voorwaarde is al voldaan.
+        De andere twee voorwaarden staan rechtstreeks in de definitie van een ideaal.
+      \item $\Leftarrow$\\
+        Omdat $R$ een eenheidselement heeft, (en dat eenheidselement een additieve inverse), heeft elk element in $R$ (en bijgevolg ook in $I$) een interne additieve inverse.\eiref{ei:rekenregels-eenheidselement}
+\clarify{waarom heeft elk element een interne inverse in $I$?}
+        $I,+$ is dus een deelgroep van $R,+$.
+        De laatste twee voorwaarden vervolledigen de definitie van een ideaal.
+      \end{itemize}
+    \end{enumerate}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -843,6 +881,10 @@
   Een ideaal $I$ van een ring $R,+,\cdot$ is een normaaldeler van de groep $R,+$.
 \extra{bewijs}
 \end{ei}
+
+\begin{opm}
+  Dit verantwoordt de notatie die we gebruiken voor ``... is een ideaal van ...'': $\triangleleft$
+\end{opm}
 
 \begin{de}
   Zij $a$ een element van een commutatieve ring $R,+,\cdot$ met eenheidselement.
@@ -879,23 +921,49 @@
 \extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
 
 \begin{pr}
+  \label{pr:kern-ringmorfisme-is-ideaal}
   De kern van een ringmorfisme is een ideaal.
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R\rightarrow S$ een ringmorfisme.
+  Noteer de nullementen van $R,+,\cdot$ en $S,\star,*$ respectievelijk $e_{R}$ en $e_{S}$.
   \[ Ker(f) \triangleleft R \]
-\extra{bewijs}
+
+  \begin{proof}
+    Merk eerst op dat $Ker(f),+$ een normaaldeler is van $R,+$\prref{pr:kern-is-normaaldeler}.
+    Er rest ons nu nog te bewijzen dat het volgende geldt:
+    \[ \forall r\in R,\ \forall k\in Ker(f):\ r\cdot k \in Ker(f) \wedge k\cdot r \in Ker(f) \]
+    Kies daarom een willekeurige $r\in R$ en $k\in Ker(f)$.
+    \[ f(r\cdot k) = f(r) * f(k) = f(r) * f(k) = f(r) * e_{S} = e_{S} \]
+    \[ f(k\cdot r) = f(k) * f(r) = f(k) * f(r) = e_{S} * f(r) = e_{S} \]
+    Bovenstaande berekeningen tonen aan dat zowel $r\cdot k$ als $k\cdot r$ in de kern van $f$ zitten.
+  \end{proof}
 \end{pr}
 
-\begin{pr}
+\begin{ei}
+  \label{ei:ringmorfisme-behoudt-ideaal-zijn}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R\rightarrow S$ een ringmorfisme.
   \[ I \triangleleft R \Rightarrow f(I) \triangleleft f(R) \]
-\extra{bewijs}
-\end{pr}
 
-\begin{pr}
+  \begin{proof}
+    We weten alsvast dat $f(I),\star$ een normaaldeler is van $f(R),\star$.\eiref{ei:morfisme-behoudt-normaaldelen}
+    Kies vervolgens een willekeurige $s\in f(R)$ en $i\in f(I)$ zodat $f(r) = s$ en $f(k) = i$ gelden.
+    \[ s * i = f(r) * f(k) = f(r\cdot k) \in f(I) \]
+    \[ i * s = f(x) * f(r) = f(k\cdot r) \in f(I) \]
+  \end{proof}
+\end{ei}
+
+\begin{ei}
+  \label{ei:invers-ringmorfisme-behoudt-ideaal-zijn}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f: R\rightarrow S$ een ringmorfisme.
   \[ J \triangleleft S \Rightarrow f^{-1}(J) \triangleleft R \]
-\extra{bewijs}
-\end{pr}
+
+  \begin{proof}
+    We weten alsvast dat $f^{-1}(J),+$ een normaaldeler is van $R,+$.\eiref{ei:isvers-morfisme-behoudt-normaaldelen}
+    Kies vervolgens een willekeurige $s\in f^{-1}(J)$ en $i\in R$ zodat $f(r) = s$ en $f(k) = i$ gelden.
+    \[ s * i = f(r) * f(k) = f(r\cdot k) \in J \]
+    \[ i * s = f(x) * f(r) = f(k\cdot r) \in J \]
+    Bovenstaande beweringen betekenen precies dat $r \cdot k$ en $k\cdot r$ in $f^{-1}(J)$ zitten.
+  \end{proof}
+\end{ei}
 
 
 \subsection{Quotientringen}
