@@ -811,6 +811,7 @@
 \end{de}
 
 \begin{st}
+  \label{st:eenheidselement-in-ideaal-maakt-hele-ring}
   Zij $R,+,\cdot$ een ring met eenheidselement $i$ en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
   \[ i \in I \Leftrightarrow I = R \]
 
@@ -1033,7 +1034,20 @@
   \item Er bestaat een uniek ringmorfisme $f': R/I \rightarrow S$ zodat $f$ factoriseert als $f \circ \pi$.
   \item $f'$ is injectief als en slechts als $I$ gelijk is aan de kern van $f$.
   \end{itemize}
-\TODO{bewijs p 54 A}
+
+  \begin{proof}
+    De factorisatie-eis impliceert dat we $f'$ moeten defini\"eren als volgt:
+    \[ f':\ \nicefrac{R}{I} \rightarrow S:\ r+I \mapsto f(r) \]
+    Voor $r\in R$ betekent de eis t $(f' \circ \pi) (r) = f(r)$ immers precies dat $f'(r+I) = f(r)$ geldt.
+    We gaan nog na dat $f'$ een goed gedefinieerd ringmorfisme is.
+    Voor elke twee elementen $r+I$ en $s+I$ uit $\nicefrac{R}{I}$ geldt het volgende:
+    \[ f'((r+I)+(s+I)) = f'((r+s)+I) = f(r+s) = f(r) \star f(s) = f'(r+I) \star f'(s+I) \]
+    \[ f'((r+I) \cdot (s+I)) = f'((r\cdot s) + I) = f(r\cdot s) = f(r) * f(s) = f'(r+I) * f'(s+I) \]
+    \question{wat moet hier nog bij?}
+    De nevenklassen van $I$ die door $f'$ op $e_{S}$ worden afgebeeldt, zijn de nevenklassen $r+I$ met $r\in Ker(f)$.
+    $f'$ is dus injectief als en slechts als $\{ r+I\ |\ r\in Ker(f)\}$ gelijk is aan $\{I\}$.
+    Dit is precies wanneer $I$ de kern is van $f'$.
+  \end{proof}
 \end{st}
 
 \begin{gev}
@@ -1042,7 +1056,7 @@
   \[ \bar{\phi}: R/Ker(\phi) \rightarrow S:\ xKer(\phi) \mapsto \phi(x) \]
   Bijgevolg geldt het volgende.
   \[ R/Ker(\phi) \cong \phi(R) \]
-\TODO{bewijs}
+\extra{bewijs}
 \end{gev}
 
 \begin{st}
@@ -1079,22 +1093,79 @@
 
 \begin{ei}
   In een commutatieve ring met eenheidselement is een maximaal ideaal ook een priemideaal.
-\TODO{bewijs p 55 A}
+
+  \begin{proof}
+    Zij $R,+\cdot$ een commutatieve ring met eenheidselement en $J,+,\cdot$ een maximaal ideaal ervan.
+    We nemen twee willekeurige element $x$ en $y$ uit $R$ zodat $x\cdot y$ in $J$ zit, maar $x$ niet.
+    We moeten dan aantonen dat $y$ wel in $J$ zit.
+    Beschouw in $R,+,\cdot$ het ideaal $J+(x)$.
+    \[ J + (x) = \{ j + rx\ |\ j\in J,\ r\in R \} \]
+    $J+(x)$ is strikt groter dan $J$. \waarom
+    Omdat $J$ een maximaal ideaal is , moet $J+(x)$ heel $R$ zijn. \waarom
+    In het bijzonder bestaan er dan een $j\in J$ en $r\in R$ zodat $j+rx$ het eenheidselement $i_{R}$ is van $R,+,\cdot$.
+    \[ y = y\cdot i_{R} = y \cdot (j+rx) = yj + yrx \in J \]
+  \end{proof}
 \end{ei}
 
 \begin{st}
-  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$ en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
   \begin{itemize}
   \item $R/I$ is een integriteitsdomein $\Leftrightarrow$ $I$ is een priemideaal.
   \item $R/I$ is een veld $\Leftrightarrow$ $I$ is een maximaal ideaal.
   \end{itemize}
-\TODO{bewijs p 56 A}
+  Noem $e_{R}$ het neutraal element van $R,+,\cdot$.
+
+  \begin{proof}
+    Bewijs van equivalenties.
+    \begin{itemize}
+    \item 
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        Kies twee elementen $x$ en $y$ uit $R$ zodat $x\cdot y$ in $I$ zit maar $x$ niet.
+        We moeten dan bewijzen dat $y$ wel in $I$ zit.
+        Uit $x\cdot y \in I$ volgt dat $((x\cdot y)+I) = e_{R}+I$ geldt.
+        Omdat $\nicefrac{R}{I}$ geen nuldelers heeft, moet ofwel $x+I = e_{R}+I$, ofwel $y+I=e_{R}+I$ gelden.
+        Aangezien $x$ niet in $I$ zit, geldt $x+I = e_{R}+I$ zeker niet, dus $y+I=e_{R}+I$ moet gelden.
+        $I$ is bijgevolg een priemideaal.
+      \item $\Leftarrow$\\
+        Kies twee elementen $x$ en $y$ uit $R$ zodat $(x\cdot y)+I = e_{R}+I$ geldt maar $x+I = e_{R}+I$ niet.
+        We moeten aantonen dat $y+I$ dan gelijk is aan $e_{R}+I$.
+        Uit $(x\cdot y)+I= e_{R}+ I$ volgt dan $x\cdot y$ in $I$ zit.
+        Omdat $I$ een priemideaal is, zit dus ofwel $x$, ofwel $y$ in $I$, maar omdat $x+I=e_{R}+I$ niet geldt, moet het $y$ zijn die in $I$ zit.
+        Bijgevolg moet $y+I = e_{R}+I$ gelden, en heeft $\nicefrac{R}{I}$ dus geen nuldelers.
+        Dit betekent dat $\nicefrac{R}{I}$ een domein is.\waarom
+      \end{itemize}
+    \item 
+      \begin{itemize}
+      \item $\Rightarrow$\\
+        Zij $J,+,\cdot$ een strikt groter ideaal van $R,+,\cdot$, dan moeten we aantonen dat $J$ precies $R$ is.
+        Omdat $J$ strikt groter is dan $I$, moet er minstens een element $x\in J$ bestaan dat niet in $I$ zit.
+        Dit betekent dat $x+I$ zeker niet $e_{R}+I$ is in $\nicefrac{R}{I}$.
+        Omdat $\nicefrac{R}{I}$ een veld is (en dus enkel eenheden bevat), bestaat er een $y\in R$ zodat $(x\cdot y) + I$ gelijk is aan $i + I$.
+        Anders geformuleerd wordt dit het volgende.
+        \[ xy-i \in I \subsetneq J \]
+        Dit betekent precies dat $i$ tot $J$ behoort, en dus is $J$ gelijk aan $R$.\stref{st:eenheidselement-in-ideaal-maakt-hele-ring}
+      \item $\Leftarrow$\\
+        Kies een $b\in R$ zodat $b$ niet in $I$ zit. 
+        Beschouw de verzameling $B$:
+        \[ B = I+(b) = \{ a + rx \ |\ r\in R,\ a \in I \}\]
+        $B,+,\cdot$ is een ideaal dat $I$ bevat.
+        Omdat $I$ maximaal is, moet $B$ gelijk zijn aan $R$.
+        Dit betekent dat $i$ een element is van $B$ en dus als volgt geschreven kan worden waarbij $a'\in I$ en $r'\in R$ gelden.
+        \[ i = a' + br'\]
+        Beschouw nu $i+I$ in $\nicefrac{R}{I}$.
+        \[ i+I = (a' + br') + I = br' + I = (b+I) \cdot (r'+I) \]
+        Dit betekent precies dat $b$ en $r'$ elkaars inversen zijn, dus $\nicefrac{R}{I}$ is een veld.\waarom \question{wut? how did that work??}
+      \end{itemize}
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $R,+,\cdot$ een commutatieve ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$ met $I\neq R$, dan bestaat er een maximaal ideaal $M,+,\cdot$ van $R,+,\cdot$ zodat $I \subseteq M$.
   \zb
 \end{st}
+
 
 \subsection{deelbaarheid binnen integriteitsdomeinen}
 \label{sec:deelbaarheid-binnen-integriteitsdomeinen}
