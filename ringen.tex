@@ -969,7 +969,6 @@
 \subsection{Quotientringen}
 \label{sec:quotientringen}
 
-
 \begin{de}
   De \term{quotientring} $R/I$ van een ring $R,+,\cdot$ ten opzichte van een ideaal is de partitie van $R$ in restklassen van $I$, uitgerust met de quotientwetten:
   \begin{itemize}
@@ -982,12 +981,29 @@
   Zij $R,+,\cdot$ een ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
   De (kandidiaat-)bewerking $\bar{\cdot}$ op $R/I$ met $x'\in x+I$ en $y'\in y+I$ willekeurige representanten is goed gedefinieerd.
   \[ \scalebox{1.5}{$\cdot$}:\ R/I \times R/I \rightarrow R/I:\ (x+I) \cdot (y+I) = (x'\cdot y') + I \]
-\extra{bewijs}
+
+  \begin{proof}
+    Kies twee verschillende representanten voor elke restklasse: $x+I = x'+I$ en $y+I = y'+I$.
+    Noem vervolgens $x+x'$ $d_{x}$ en $y+y'$ $d_{y}$.
+    \[ x\cdot y = x'\cdot y' - x'\cdot d_{2} - y'\cdot d_{1} + d_{1}d_{2} \]
+    Hierboven is $ - x'\cdot d_{2} - y'\cdot d_{1} + d_{1}d_{2}$ wel degelijk een element uit $I$.
+\clarify{meer uitleg!}
+  \end{proof}
 \end{pr}
 
+\begin{st}
+  De verzameling van restklassen $R/I$ van een ideaal $I,+,\cdot$ van $R,+,\cdot$, uitgerust met de bewerkingen $\scalebox{1.5}{$+$}$ en $\scalebox{1.5}{$\cdot$}$ vormen een ring.
+\extra{bewijs}
+\end{st}
+
 \begin{opm}
-  De bewerking $\bar{\cdot}$ is niet goed gedefinieerd als $I$ geen ideaal is.
-\extra{bewijs ( 53 algebra)}
+  De bewerking $\bar{\cdot}$ is niet goed gedefinieerd als $I,+,\cdot$ geen ideaal is van $R,+,\cdot$.
+
+  \begin{proof}
+    Als $I,+,\cdot$ geen ideaal is van $R,+,\cdot$ bestaan er elementen $a\in I$ en $r\in R$ zodat $a\cdot r$ of $r\cdot a$ niet in $I$ zitten.
+    Beschouw de elementen $I$ en $r+I$ in $R/I$.
+    Kies als representanten $a$ en $e_{R}$ in $I$ en de representant $r$ in $r+I$, dan behoren $a\cdot r$ en $e\cdot r$ niet tot dezelfde nevenklas.
+  \end{proof}
 \end{opm}
 
 \begin{pr}
@@ -998,6 +1014,7 @@
 
 \begin{st}
   Zij $R,+,\cdot$ een ring met eenheidselement $i$ en $I$ een ideaal van $R$, dan is $\bar{i} = i + I$ het eenheidselement van $R/I$ en voor $x\in R^{\times}$ is de ivers van $\bar{x} + I$ gelijk aan $\overline{x^{-1}} = x^{-1} + I$. 
+  \extra{bewijs}
 \end{st}
 
 \begin{opm}
