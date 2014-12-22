@@ -1561,6 +1561,7 @@
 \end{st}
 
 \begin{gev}
+  \label{gev:veeltermen-domein-asa-ring-domein}
   $R[X],+,\cdot$ is een integriteitsdomein als en slechts als $R,+,\cdot$ een integriteitsdomein is.
 
   \begin{proof}
@@ -1718,6 +1719,10 @@
 \clarify{waar loopt het mis als je geen commutativiteit eist?}
 \end{opm}
 
+\subsection{Irreducibiliteit}
+\label{sec:irreducibiliteit}
+
+
 \begin{de}
   Zij $K,+,\cdot$ een veld.
   Een veelterm $f\in K[X]$ is \term{irreduceerbaar} of \term{irreducibel} over $K$ (of in $K[X]$) als $f$ niet constant is en niet geschreven kan worden als een product van twee veeltermen van graad kleiner dan $gr(f)$.
@@ -1730,7 +1735,7 @@
   Beschouww dan het volgend ringmorfisme:
   \[ Z[X] \rightarrow Z_{p}[X]: f = \sum_{i=0}^{n}a_{i}X^{i} \mapsto \bar{f} = \sum_{i=0}^{n}\overline{a_{i}}X^{i} \]
   Als $gr(f)$ gelijk is aan $gr(\bar{f})$ en $\bar{f}$ is irreducibel in $\mathbb{Z}_{p}[X]$, dan is $f$ irreducibel in $\mathbb{Q}[X]$.
-\TODO{bewijs}
+\extra{bewijs}
 \end{ei}
 
 \begin{opm}
@@ -1744,19 +1749,28 @@
   Zij $f\in \mathbb{Z}[X]$ een veelterm over $\mathbb{Z}$:
   \[ f = \sum_{i=0}^{n}a_{i}X^{i}\]
   Als er een priemgetal $p$ bestaat als volgt, is $f$ irreducibel in $\mathbb{Q}[X]$.
-  \[ p \nmid a_{n} \wedge (\forall i \in \{0,\dotsc,n-1\}:\ p |a_{i}) \wedge p^{2} \nmid a_{0} \]
+  \[ p \nmid a_{n} \quad\wedge\quad (\forall i \in \{0,\dotsc,n-1\}:\ p |a_{i}) \quad\wedge\quad p^{2} \nmid a_{0} \]
 \extra{bewijs}
 \end{ei}
-
-\begin{vb}
-  De veelterm $f= 2X^{5} + 6X^{3} + 9X + 30$ is irreducibel in $\mathbb{Q}[X]$ met $p=3$.
-  \TODO{verplaats later naar voorbeelden}
-\end{vb}
 
 \begin{ei}
   Het \term{derde criterium}\\
   Zij $K,+,\cdot$ een veld en $f\in K[X]$ een veelterm van graad $2$ of $3$, dan is $f$ reducibel over $K$ als en slechts als $f$ een nulpunt heeft in $K$.
-\TODO{bewijs}
+
+  \begin{proof}
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      $f$ is van graad $2$ of $3$, dus $f$ zien er als volgt uit, waarbij $a_{3}$ al dan niet $e_{K}$ is.
+      \[ a_{3}X^{3}+a_{2}X^{2}+a_{1}X+a_{0} \]
+      Als $f$ reducibel is, betekent dit dat we $f$ als volgt kunnen schrijven:
+      \[ f = a_{3}(X-b_{1})(X^{2} + b_{2}X + b_{3}) \text{ met } (b_{2}-b_{1})a_{3} = a_{2},\ (b_{2}-b_{1}b_{2})a_{3} = a_{1}\text{ en } a_{3}b_{1}b_{2}= a_{0} \]
+      $b_{1}$ is dan een nulpunt van $f$.\stref{st:reststelling}
+    \item $\Leftarrow$\\
+      Als $f$ een nulpunt heeft, geldt $X-a \mid f$ \stref{st:reststelling} voor $a$ een nulpunt van $f$.
+      $f$ valt dan te schrijven als $f-(X-a)q$ met $q\in K[X]$.
+      $f$ is dus reducibel.
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{st}
@@ -1793,13 +1807,6 @@
 \begin{opm}
   Zij $F,+,\cdot$ een veld, dan is $F[x]$ niet noodzakelijk een veld.
 \end{opm}
-
-\begin{st}
-  \label{st:deling-veelterm-over-veld}
-  Zij $a$ en $b$ veeltermen over een veld $F,+,\cdot$ met $b$ niet het nulelement van $F[X]$, dan bestaat er precies \'e\'en veelterm $q \in F[x]$ en een $r \in F[x]$ zodat het volgende geldt:
-  \[ a = qb + r \quad\text{ met }\quad gr(r) < gr(b) \]
-\TODO{bewijs p 131 TAI}
-\end{st}
 
 \begin{st}
   De veeltermen in een variabele $x$ over een veld $F,+,\cdot$, uitgerust met $gr$ als afbeelding $d$, vormen een euclidische ring.
@@ -1839,6 +1846,18 @@
   De \term{polynomenring} of \term{veeltermenring} over $R,+,\cdot$ in de veranderlijken $X_{1},\dotsc,X_{n}$, genoteerd $R[X_{1},\dotsc,X_{n}]$ is de verzameling van alle formele sommen van de volgende vorm:
   \[ \sum_{i\in \mathbb{N}^{n}}a_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}\]
 \TODO{formuleer de bewerkingen op $R[X_{1},\dotsc,X_{n}]$ en bewijs de zinnigheid}
+  De optelling van twee veeltermen zien er als volgt uit:
+  \[
+  \sum_{i\in \mathbb{N}^{n}}a_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}} + \sum_{i\in \mathbb{N}^{n}}b_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}
+  = \sum_{i\in \mathbb{N}^{n}}(a_{i}+b_{i})X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}
+  \]
+  De vermenigvuldiging is iets ingewikkelder:
+  \[
+  \sum_{i\in \mathbb{N}^{n}}a_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}} \cdot\sum_{i\in \mathbb{N}^{n}}b_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}
+  = \sum_{i\in \mathbb{N}^{n}}c_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}
+  \]
+  \[ c_{i} = ??? \]
+  \question{wat moet er hier?}
 \end{de}
 
 \begin{ei}
@@ -1861,7 +1880,7 @@
 \begin{de}
   Zij $R$ een ring en $V$ een verzameling.
   Benoem nu voor elk element $j$ van $V$ een veranderlijke $X_{j}$.
-  De \term{polynomenring} of \term{veeltermenring} over $R$ in de veranderlijken $X_{j}$, genoteerd $R[X_{j}]_{j\in V}$ is de verzameling van alle formele sommen van de volgende vorm:
+  De \term{polynomenring} of \term{veeltermenring} over $R$ in de veranderlijken $X_{j}$, genoteerd $R[X_{j}]_{j\in V}$ is de verzameling van alle formele sommen van de volgende vorm, uitgerust met de veelterm-som en het veelterm-product:
   \[ \sum_{i\in \mathbb{N}^{n}}a_{i}X_{j_{1}}^{i_{1}}X_{j_{2}}^{i_{2}}\dotsc X_{j_{n}}^{i_{n}}\]
   Zij hierin $n$ het aantal elementen van $V$. en $a_{i}$ een element van $R$ voor elk $n$-tel van $\mathbb{N}^{n}$. 
 \end{de}
@@ -1870,19 +1889,38 @@
 \label{sec:hid-en-ufd}
 
 \begin{de}
-  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$ en nulelement $e$.
-  Een element $x\in R$ is \term{irreduceerbaar} of \term{irreducibel} in $R,+,\cdot$ als de velgende bewering gelden:
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement.
+  Een element $x\in R$ is \term{irreduceerbaar} of \term{irreducibel} in $R,+,\cdot$ als het volgende geldt:
   \begin{itemize}
-  \item $x \neq e$
+  \item $x$ is niet het nulelement.
   \item $x$ is geen eenheid in $R,+,\cdot$
   \item Als er twee elementen $a$ en $b$ in $R$ bestaan zodat $a\cdot b = x$ geldt, dan is $a$ of $b$ een eenheid in $R,+,\cdot$.
   \end{itemize}
 \end{de}
 
 \begin{ei}
-  Zij $x$ een irreduceerbaar element van een commutatieve ring $R,+,\cdot$ met eenheidselement $i$.
-  Elke deler van $x$ is ofwel een eenheid, ofwel geassocieerd met $x$.
-\TODO{bewijs p 63 algebra}
+  Een equivalente formulering in een integeriteitsdomein $R,+,\cdot$ met nulelement $e$.\\
+  Een element $x\in R$ is irreducibel in $R,+,\cdot$ als en slechts als het volgende geldt:
+  \begin{itemize}
+  \item $x$ is niet het nulelement.
+  \item $x$ is geen eenheid in $R,+,\cdot$
+  \item Elke deler van $x$ is een eenheid of geassocieerd met $x$.
+  \end{itemize}
+
+  \begin{proof}
+    Bewijs van een equivalentie\\
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $x$ irreducibel is, nemen we een deler $d\in R$ van $x$ en moeten we aantonen dat $d$ een eenheid is of geassocieerd met $x$.
+      $d$ is een deler van $x$, dus er bestaat een $q\in R$ zodat $x=dq$ geldt.
+      Per definitie van irreduceerbaarheid is dan $d$ of $q$ een eenheid.
+      Als $q$ de eenheid is, dan is $d$ geassocieerd met $x$.
+    \item $\Leftarrow$\\
+      Uit het ongerijmde.
+      Stel dat $x$ reducibel is, dan is $x$ te schrijven als $x=yz$ waarbij $y$ en $z$ geen eenheden zijn ook niet geassocieerd zijn met $x$.
+      Dit is in tegenspraak met de definitie van ireduceerbaarheid.
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{gev}
@@ -1912,7 +1950,8 @@
 
 \begin{opm}
   Een grootst gemene deler hoeft niet altijd te bestaan.
-  \TODO{voorbeeld p 64 algebra}
+ 
+  In $\mathbb{Z}+i\sqrt{5}\mathbb{Z}$ hebben $3+3i\sqrt{5}$ en $3-3i\sqrt{5}$ geen grootste gemene deler.
 \end{opm}
 
 \begin{opm}
@@ -1927,33 +1966,79 @@
   Zij $R,+,\cdot$ een integriteitsdomein, dan noemen we $R,+,\cdot$ een \term{hoofdideaaldomein} (\term{HID}) als elk ideaal van $R$ een hoodideaal is.
 \end{de}
 
-\begin{st}
-  Zij $F,+,\cdot$ een veld, dan is $F[X]$ een HID.
-\TODO{bewijs p 65 algebra}
-\end{st}
+\begin{lem}
+  \label{lem:minimale-veelterm-brengt-ideaal-voort}
+  Zij $F,+,\cdot$ een veld en $I,+,\cdot$ een niet-triviale ideaal van $F[X]$, dan is $g\in I$ een voortbrenger van $I$ als en slechts als $g$ een veelterm is van minimale graad in $I\setminus \{e_{F}\}$.
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      \extra{bewijs}
+    \item $\Leftarrow$\\
+      Stel dat $g$ een veelterm is van minimale graad in $I\setminus \{e_{F}\}$.
+      \begin{itemize}
+      \item $\subseteq$\\
+        Omdat $g$ een element is van $I$ is $(g)$ zeker een deel van $I$.
+      \item $\supseteq$\\
+        Kies een willekeurig element $f\in I$.
+        Het delingsalgoritme van $f$ door $g$ levert een $q$ en $r$ in $F[X]$ op als volgt:
+        \[ f = gq + r \quad\text{ en }\quad gr(r) < gr(g) \]
+        Dit houdt in dat $r=f-gq$ geldt, en $r$ daardoor in $I$ zit, impliceert de minimaliteit van $gr(g)$ dat $r$ het nulelement is.
+        $f$ zit dus ook is $(g)$.
+      \end{itemize}
+      Stel dat $g$ een veelterm is van minimale graad in $I\setminus \{e_{F}\}$.
+    \end{itemize}
+  \end{proof}
+\end{lem}
 
 \begin{st}
-  Het criterium voor een HID\\
-  Zij $F,+,\cdot$ een veld met nulelement $e$ en $I \neq \{e\}$ een ideaal in $F[X]$, dan is een element $g\in I$ een voortbrenger van $I$ als en slechts als $g$ een veelterm is van minimale graad in $I\setminus \{ e \}$.
-\TODO{bewijs}
+  Zij $F,+,\cdot$ een veld, dan is $F[X]$ een HID.
+
+  \begin{proof}
+    We weten als dat $F[X]$ een integriteitsdomein is.\gevref{gev:veeltermen-domein-asa-ring-domein}
+    Kies een willekeurig ideaal $I,+,\cdot$ van $F[X],+,\cdot$, dan moeten we aantonen dat $I,+,\cdot$ een hoofdideaal is.
+    Als $I,+,\cdot$ de nulring is, wordt $I,+,\cdot$ voortgebracht door het nulelement.
+    Kies dus een element $g$ uit $I\setminus \{e_{F}\}$ van minimale graad, dan wordt $I$ voortgebracht door $g$.\lemref{lem:minimale-veelterm-brengt-ideaal-voort}
+  \end{proof}
+\clarify{waarom geldt dit enkel voor een veld?}
 \end{st}
 
 \begin{st}
   Zij $F,+,\cdot$ een veld met nulelement $e$ en $I \neq \{e\}$ een ideaal in $F[X]$.
-  Als twee elementen $g$ en $g'$ van $F$ voortbrengers zijn van $I$, dan bestaat er een (eenheid?) $c\in F^{\times}$ zodat $g'=cg$ geldt.
+  Als twee elementen $g$ en $g'$ van $F$ voortbrengers zijn van $I,+,\cdot$, dan bestaat er een (eenheid?) $c\in F^{\times}$ zodat $g'=cg$ geldt.
 \extra{bewijs}
 \end{st}
 
 \begin{st}
   Zij $R,+,\cdot$ een hoofdideaaldomein en $p\in R_{e}$, dan is $(p)$ een maximaal ideaal als en slechts als $p$ irreducibel is.
-  \TODO{bewijs p 66}
+
+  \begin{proof}
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Zij $(p)$ een maximaal ideaal van $R,+,\cdot$, dan is $p$ geen eenheid in $R,+,\cdot$.
+      Als $p$ immers wel een eenheid zijn zou $p$ heel $R$ voortbrengen. \waarom
+      We nemen nu een deler $a$ van $p$ en tonen aan dat $a$ ofwel een eenheid is, ofwel geassocieerd met $p$.
+      \[ a \mid p \Rightarrow p \in (a) \Rightarrow (p) \subseteq (a) \subseteq R \]
+      \waarom
+      Omdat $(p)$ een maximaal ideaal is moet $(a)$ ofwel gelijk zijn aan $(p)$, ofwel aan $R$.
+      In het eerste geval zijn $a$ en $p$ geassocieerd, in het andere is $a$ een eenheid.\waarom
+    \item $\Leftarrow$\\
+      Zij $p$ irreducibel.
+      We nemen een ideaal $I,+,\cdot$ van $R,+,\cdot$ tussen $(p)$ en $R$.
+      \[ (p) \subseteq I \subseteq R \]
+      Kies nu een element $a$ uit $I$ dat $I$ voortbrengt (want $R,+,\cdot$ is een HID).
+      Er bestaat dan een $b\in R$ zodat $p$ te schrijven valt als $p=ab$.
+      $a$ is dan een deler van $p$.
+      $p$ is echter irreducibel, dus ofwel is $a$ een eenheid, en dan geldt $I=R$, ofwel is $b$ een eenheid, en dan geldt $I=(p)$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{gev}
   Zij $F,+,\cdot$ een veld en $p$ een irreducibele veelterm $F[X]$, dan is $F[X]/(p)$ een veld.
+\extra{bewijs}
 \end{gev}
-
-\TODO{oefeningen p 66}
 
 \begin{st}
   $\mathbb{Z} + \mathbb{Z}i$ is een HID.
@@ -1962,13 +2047,26 @@
 
 \begin{st}
   De \term{Stelling van Bezout}\\
-  Zij $R,+,\cdot$ een hoofdideaaldomein en $x_{1},\dotsc,x_{n}$ elementen van $R$.
+  Zij $R,+,\cdot$ een HID en $x_{1},\dotsc,x_{n}$ elementen van $R$.
   \begin{itemize}
   \item Er bestaat een grootste gemene deler van $x_{1},\dotsc,x_{n}$.
   \item Voor elke grootste gemene deler $d$ van $x_{1},\dotsc,x_{n}$ bestaan er elementen $r_{1},\dotsc,r_{n}$ in $R$ zodat het volgende geldt:
     \[ d = \sum_{i=1}^{n}r_{i}x_{i} \]
   \end{itemize}
-\TODO{bewijs p 67 algebra}
+
+  \begin{proof}
+    Omdat $R,+,\cdot$ een HID is, is het ideaal $(x_{1},x_{2},\dotsc,x_{n})$ een hoofdidiaal.
+    Er bestaat dus een $d\in R$ zodat het volgende geldt:
+    \[ (d) = (x_{1},x_{2},\dotsc,x_{n}) \]
+    Hieruit volgt meteen al dat $d$ elke $x_{i}$ deelt.
+    Anderzijds is $d$ ook een element van $(x_{1},x_{2},\dotsc,x_{n})$, dus bestaan er $r_{i} \in R$ als volgt:
+    \[ d = \sum_{i=1}^{n}r_{i}x_{i} \]
+    Stel nu dat er nog een $a\in R$ aelke $x_{i}$ deelt, dan deelt $a$ ook $d$.
+    Dit bewijst dat $d$ een grootst gemene deler is van de $x_{i}$.
+    Voor elke andere grootst gemene deler $d'$ bestaat er een eenheid $u\in R$ als volgt:\waarom
+    \[ d' = ud \]
+    Dan zijn de $r_{i}$ voor $d'$ respectievelij $ur_{i}$.
+  \end{proof}
 \end{st}
 
 \subsection{Unieke factorisatiedomeinen}
