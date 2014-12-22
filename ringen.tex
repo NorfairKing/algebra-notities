@@ -2046,6 +2046,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:stelling-van-bezout}
   De \term{Stelling van Bezout}\\
   Zij $R,+,\cdot$ een HID en $x_{1},\dotsc,x_{n}$ elementen van $R$.
   \begin{itemize}
@@ -2080,17 +2081,22 @@
     \[ x = \prod_{i=1}^{n} r_{i} \]
   \item Deze ontbinding is bovendien uniek.
     Als er immers nog elementen $r_{1}',r_{2}',\dotsc,r_{m}'$ in $R$ bestaan als volgt, geldt $m=n$ en zijn de overeenkomstige $r_{i}$ en $r'_{i}$ geassocieerd.
-    \[ x = \prod_{i=1}^{n} r_{i} = \prod_{i=1}^{m} r_{i} \]
+    \[ x = \prod_{i=1}^{n} r_{i} = \prod_{i=1}^{m} r'_{i} \]
   \end{itemize}
 \end{de}
 
 \begin{ei}
   Zij $R,+,\cdot$ een uniek factorisatiedomein met nulelement $e$, en $r_{1},r_{2},\dotsc,r_{n}$ elementen uit $R_{e}$, dan bestaat er een grootst gemene deler van $x_{1},\dotsc,x_{n}$.
   \begin{proof}
-  \[ x_{i} = u_{i}\prod_{j}r_{j}^{e_{ij}} \]
-\waarom
-\TODO{bewijs afmaken p 67}    
-\question{waar komen de eenheden $u_{i}$ vandaan?}
+    Omdat $R$ een UFD is kunnen we alle $x_{i}$ ondbinden als volgt:
+    \[ x_{i} = u_{i}\prod_{j}r_{j}^{e_{ij}} \]
+    Hierboven is $u_{i}$ een eenheid, elke $r_{j}$ irreducibel, de $r_{j}$ onderling niet geassocieerd en elke $e_{ij}\in \mathbb{N}$.
+    Benoem nu $e_{j}$ als volgt:
+    \[ e_{j} = \min \{ e_{ij} \ |\ i \in \{ 1,\dotsc, n\} \} \]
+    Nu volgt uit de uniciteit van de factorisatie dat $d$ een grootst gemene deler is van de $x_{i}$.
+    \[ d = \prod_{j}r_{j}^{e_{j}}\]
+    \question{waar komen de eenheden $u_{i}$ vandaan?}
+    \clarify{hier moet veel meer uitleg!!}
   \end{proof}
 \end{ei}
 
@@ -2106,25 +2112,99 @@
 \begin{st}
   Zij $R,+,\cdot$ een UDF en $a$, $b$ elementen van $R$.
   Als $d$ een grootste gemene deler is van $a$ en $b$ en $v$ een kleinst gemeen veelvoud van $a$ en $b$, dan zijn $d\cdot v$ en $a\cdot b$ geassocieerd.
-\extra{bewijs}
+\extra{bewijs p 68 katelijne}
 \end{st}
+
+\begin{lem}
+  \label{lem:hid-keten-van-idealen-stabiliseert}
+  Zij $I_{0} \subseteq I_{1} \subseteq \dotsb \subseteq I_{n} \subseteq \dotsb $ een keten van idealen in een HID $R,+,\cdot$, dan bestaat er een index $k$ zodat $I_{k} = I_{n}$ voor alle $n$ groter dan $k$.
+  In andere woorden: ``De keten stabiliseert''.
+
+  \begin{proof}
+    Beschouw $I$ als volgt.
+    Nu is $I,+,\cdot$ zelf een ideaal van $R,+,\cdot$. 
+    \[ I = \bigcup_{n}I_{n} \]
+    $I$ is immers gelijk aan de grootste $I_{n}$ waarvan de unie genomen wordt.
+    Omdat $I$ een HID is, bestaat er een $a\in I$ die $I$ voortbrengt.
+    Als die $a$ voor een gegeven $k$ in $I_{k}$ zit, geldt het volgende:
+    \[ I = (a) \subseteq I_{k} \]
+    Dan is $I_{j}$ voor elke $j$ groter dan $k$ gelijk aan $I_{k}$.
+  \end{proof}
+\end{lem}
+
+\begin{lem}
+  \label{lem:irreducibel-element-in-HID-deelt}
+  Zij $p$ een irreducibel element in een HID $R,+,\cdot$ met eenheidselement $i$.
+  \[ p\mid ab \Rightarrow p\mid a \vee p\mid b \]
+
+  \begin{proof}
+    Beschouw een grootst gemene deler $d$ van $p$ en $a$.
+    Omdat $d\mid p$ geldt is $d$ ofwel geassocieerd met $p$, ofwel een eenheid.
+    \begin{itemize}
+    \item Als $d$ geassocieerd is met $p$, dan is geldt ook $p \mid d$. Dit houdt in dat $p \mid a$ ook geldt.
+    \item Als $d$ een eenheid is, bestaan er elementen $u$ en $v$ in $R$ zodat het volgende geldt\stref{st:stelling-van-bezout}:
+      \[ i = ua + vp \]
+\clarify{waarom niet $d$ ipv $i$?!}
+      We stellen beide kanten samen met $b$ om het volgende te bekomen:
+      \[ b= uab + vpb \]
+      Omdat $p$ een deler is van $a$b volgt hieruit dat $p \mid b$ geldt.
+\clarify{meeeer uitleeeeeeg}
+    \end{itemize}
+  \end{proof}
+\end{lem}
+
 
 \begin{st}
   Elk HID is een UDF.
-\TODO{bewijs p 68}
+
+  \begin{proof}
+    Zij $R,+,\cdot$ een HID.
+    Kies een element $x_{0}$ uit $R$, verschillend van het nulelement, dat geen eenheid is.
+    We bewijzen eerst dat we $x_{0}$ kunnen ontbinden in irreducibele elementen en daarna dat die ontbinding uniek is.
+    \begin{itemize}
+    \item Bestaan\\
+      Bewijs uit het ongerijmde.
+      Stel dat $x_{0}$ niet te ontbinden valt in irreducibele elementen (dan is $x_{0}$ niet irreducibel), dan bestaan er elementen $x_{1}$ en $y_{1}$ in $R$ zodat $x_{0}$ als volgt te schrijven valt.
+      \[ x_{0} = x_{1}y_{1} \]
+      Hierin zijn $x_{1}$ en $y_{1}$ geen eenheden \waarom en kan ofwel $x_{1}$ ofwel $y_{1}$ zelf ook niet ontbonden worden in irreducibele elementen.
+      Stel dat $x_{1}$ het element is van $x_{1}$ en $y_{1}$ dat niet te ontbinden valt in irreducibele elementen (anders wisselen we gewoon de naam om).
+      Nu is de hoofdideaal door $x_{0}$ een deel van de hoofdideaal door $x_{1}$ \waarom, maar niet gelijk.
+      Anders zou er immers een eenheid $u\in R$ bestaan zodat $x_{0}=x_{1}u$ geldt.
+      Omdat $R,+,\cdot$ een integriteitsdomein is, volgt hieruit dat $y_{1}$ gelijk is aan $u$, maar dat kan niet want $y_{1}$ is geen eenheid.
+\clarify{veel meer uitleg nodig!!}
+      Analoog kunnen we uit $x_{1}$ een element $x_{2}$ construeren dat niet te ontbinden valt in irreducibele elementen. zodat $(x_{1}) \subsetneq (x_{2})$ geldt.
+      Op die manier kunnen we uiteindelijk in $R,+,\cdot$ een aftelbaar oneindige keten van hoofdidealen $(x_{i})$ construeren als volgt.
+      \[ (x_{0}) \subsetneq (x_{1}) \subsetneq (x_{2}) \subsetneq \dotsb \subsetneq (x_{n}) \subsetneq (x_{n+1}) \]
+      Dit is natuurlijk onmogelijk.\lemref{lem:hid-keten-van-idealen-stabiliseert}
+    \item Uniciteit\\
+      Stel dat $x_{0}$ ontbonden kan worden in irreducibele $p_{i}$'s en ook in irreducibele $q_{i}$'s.
+      \[ x = \prod_{i=1}^{m}p_{i} = \prod_{i=1}^{n}q_{i} \]
+      De overeenkomstige $p_{i}$ en $q_{i}$ moeten dan geassocieerd zijn en $m$ moet gelijk zijn aan $n$.
+      We bewijzen de uniciteit per inductie op $m$.
+      \begin{itemize}
+      \item De bewering geldt voor $m=1$.
+        \[ x = p_{1} = \prod_{i=1}^{n}q_{i} \]
+        Aangezien $p_{1}$ irreducibel is, moet $n$ ook $1$ zijn.
+        \[ x = p_{1} = q_{1} \]
+        $p_{1}$ en $q_{1}$ zijn nu inderdaad geassocieerd.
+      \item We gaan ervan uit dat de bewering geldt voor een bepaalde $m=k$ ...
+      \item ... en bewijzen dan dat de bewering ook geldt voor $m=k+1$.\\
+        Omdat $ \prod_{i=1}^{k+1}p_{i} = \prod_{i=1}^{n}q_{i}$ geldt is $p$ zeker ook een deler van $\prod_{i=1}^{n}q_{i}$.
+        Dit betekent ook het volgende\lemref{lem:irreducibel-element-in-HID-deelt}:
+        \[ \bigvee_{i=1}^{n}p \mid q_{i}\]
+        Na eventuele hernummering van $p$ geldt zeker $p_{k+1} \mid q_{n}$.
+        Omdat $p_{k+1} \mid q_{n}$ geldt, $p_{k+1}$ geen eenheid is en $q_{n}$ irreducibel, moet $p_{k+1}$ geassocieerd zijn met $q_{n}$.
+        Er bestaat dus een eenheid $u\in R$ als volgt:
+        \[ q_{k+1} = up_{n}\]
+        We vereenvoudigen dan de originele gelijkheid als volgt:
+        \[ \prod_{i=1}^{k}p_{i} = \left(\prod_{i=1}^{n-1}q_{i}\right) \cdot u\]
+        Merk nu op dat $q_{n-1}u$ irreducibel is.\waarom
+        De inductiehypothese impliceert dat $k$ gelijk is aan $n-1$ en dat $p_{i}$ geassocieerd is mat $q_{i}$ voor $i \in \{ 1,dotsc,k\}$.
+      \end{itemize}
+    \end{itemize}
+\clarify{bij dit bewijs moet veel meer uitleg!!}
+  \end{proof}
 \end{st}
-
-\begin{lem}
-  Zij $I_{0} \subseteq I_{1} \subseteq \dotsb \subseteq I_{n} \subseteq \dotsb $ een keten van idealen in een HID $R,+,\cdot$, dan bestaat er een index $k$ zodat $I_{k} = I_{n}$ voor alle $n$ groter dan $k$.
-  In andere woorden: ``De keten stabiliseert''.
-\TODO{bewijs p 68}
-\end{lem}
-
-\begin{lem}
-  Zij $p$ een irreducibel element in een HID $R,+,\cdot$
-  \[ p|ab \Rightarrow p|a \vee p|b \]
-\TODO{bewijs p 68}
-\end{lem}
 
 \begin{gev}
   Zij $F$ een veld, dan is $F[X]$ een UFD.
