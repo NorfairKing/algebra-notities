@@ -18,59 +18,98 @@
 
 \begin{ei}
   Zij $R,+,\cdot$ een ring  en karakteristiek $char(R) = n \neq 0$, dan is de (additieve) orde van elk element in $R,+$ een deler van $n$.
-\TODO{bewijs p 74}
+
+  \begin{proof}
+    Zij $s$ orde van een willekeurig element $x$ uit $R$.
+    Omdat $nx$ het nulelement is, is $n$ een kandidaat voor de orde, maar groter dan $s$, dus is $s$ een deler van $n$.\eiref{ei:groep-eindige-orde-deelbaarheid}
+  \end{proof}
 \end{ei}
 
 \begin{st}
   Zij $R,+,\cdot$ een ring met eenheidselement $i$.
   \[ char(R) = n \neq 0 \Leftrightarrow i \text{ heeft orde } n \]
-\TODO{bewijs p74}
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$: Dit volgt rechtstreeks uit de definitie van de karakteristiek.
+    \item $\Leftarrow$\\
+      Voor een gegeven $k\in \mathbb{N}_{0}$ geldt het volgende:
+      \[ \forall x \in R: kx = k(i\cdot x) = (k \cdot i) \cdot x \]
+      Dit betekent precies dat $kx$ het nulelement is als en slechts als $k$ de orde is van $i$ in $R,+,\cdot$.
+      $k$ is dus ook de charakteristiek van $R,+,\cdot$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
-\begin{st}
+\begin{gev}
   Zij $R,+,\cdot$ een ring met eenheidselement $i$.
   \[ char(R) = 0 \Leftrightarrow i \text{ heeft orde } \infty \]
-\extra{bewijs}
-\end{st}
+
+  \begin{proof}
+    Dit volgt rechtstreeks.
+    Als er immers geen enkele $k\in \mathbb{N}_{0}$ bestaat zodat $ki$ het nulelement is, kan er ook geen $k$ bestaan zodat voor elke $x\in R$ $kx$ het nuleleement is.
+  \end{proof}
+\end{gev}
 
 \begin{st}
   Zij $R,+,\cdot$ een niet-triviale ring zonder nuldelers met nulelement $e$, dan hebben alle elementen uit $R_{e}$ hebben dezelfde orde in $R,+$
+
+  \begin{proof}
+    Als alle elementen in $R_{e}$ als orde $\infty$ hebben is de stelling evident.
+    Stel daarom dat er een element $a\in R_{e}$ bestaat met eindige orde $n$.
+    We moeten dan aantonen dat elk ander element $x\in R_{e}$ ook orde $n$ heeft.
+    Beschouw nu $a \cdot (nx)$:
+    \[ a \cdot (nx) = (na) \cdot x = e \cdot x = e \]
+    Omdat $R$ geen nulderes heeft volgt hieruit dat $nx$ het nulelement is
+    \clarify{waarom is $n$ minimaal?}
+  \end{proof}
 \extra{bewijs}
 \end{st}
 
 \begin{st}
  Zij $R,+,\cdot$ een niet-triviale ring zonder nuldelers, dan is de karakteristiek van $R,+,\cdot$ nul of een priemgetal.
-\TODO{bewijs p 75}
+ 
+ \begin{proof}
+   Bewijs uit het ongerijmde.
+   Stel dat de karakteristiek $n\neq 0$ van $R,+,\cdot$ valt te schrijven als $r\cdot s$ met $r, s \in \mathbb{N}_{0}$.
+   Voor elk niet-nul-element $a$ uit $R$ geldt nu het volgende:
+   \[ ra \cdot sa = (rs)a^{2} = na^{2} = 0 \]
+   Dit betekent dat ofwel $ra$, ofwel $sa$ het nulelement is.
+   $r$ of $s$ moet dan gelijk zijn aan $n$ (en de andere aan $1$).
+   Dit houdt precies in dat $n$ een priemgetal is.
+ \end{proof}
 \end{st}
 
 \begin{gev}
   De karakteristiek van een integriteitsdomein (of veld) is nul of een priemgetal.
-\extra{bewijs}
-\end{gev}
-
-\begin{gev}
-  Zij $R,+,\cdot$ een integriteitsdomein met nulelement $e$.
-  \[ char(R) = 0 \Leftrightarrow \text{ alle elementen in } R\setminus \{e\} \text{ hebben orde } \infty \text{ in } R,+ \]
-\extra{bewijs}
-\end{gev}
-
-\begin{gev}
-  Zij $R,+,\cdot$ een integriteitsdomein met nulelement $e$ en $p$ een priemgetal.
-  \[ char(R) = p \Leftrightarrow \text{ alle elementen in } R\setminus \{e\} \text{ hebben orde } p \text{ in } R,+ \]
-\extra{bewijs}
 \end{gev}
 
 \begin{st}
-  Een \term{rekenregel in ring met priemkarakteristiek}\\
-  Zij $R,+,\cdot$ een ring met priemkarakteristiek $p$.
+  \label{st:rekenregel-in-integriteitsdomein}
+  Een \term{rekenregel in integriteitsdomein}\\
+  Zij $R,+,\cdot$ een integriteitsdomein van karakteristiek $p$.
   \[ \forall a,b \in R:\ (a+b)^{p} = a^{p}+b^{p} \]
-\TODO{bewijs p 75}
+
+  \begin{proof}
+    De (normale) binomiaalontwikkeling van $(a+b)^{p}$ ziet er als volgt uit:
+    \[ (a+b)^{p} = \sum_{i=0}^{p}\frac{p!}{i!(p-i)!} a^{i}b^{p-i} \]
+    Merk nu op dat $p$ een deler is van $binom{p}{i}$ voor alle $i$ van $1$ tot en met $p-1$.
+    Voor elk van die $i$'s wordt de term dan het nulelement.
+    Er blijft dan enkel nog $a^{p} + b^{p}$ over in het rechterlid.
+  \end{proof}
 \end{st}
 
 \begin{st}
-  Zij $R,+,\cdot$ een ring met priemkarakteristiek $p$.
+  Zij $R,+,\cdot$ een integriteitsdomein van karakteristiek $p$.
   \[ \forall a,b \in R:\ (a-b)^{p} = a^{p}-b^{p} \]
-\extra{bewijs}
+
+  \begin{proof}
+    \[ (a-b)^{p} = (a+(-b))^{p} = a^{p} + (-b)^{p} = a^{p} - b^{p} \]
+    De derde gelijkheid geldt omwille van de rekenregel in integriteitsdomeinen.\stref{st:rekenregel-in-integriteitsdomein}
+    De laatste gelijkheid geldt enkel omdat $p$ een priemgetal is.
+\clarify{waarom mag dit ook voor $p=2$??}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -92,9 +131,19 @@
     De afbeelding $\phi$ is een injectief ringmorfisme.
     We noemen het het \term{Frobeniusmorfisme}.
     \[ \phi:\ R \rightarrow R:\ x \mapsto x^{p} \]
-  \item Als $|R|$ eindig is (en dus een veld \clarify{referentie aub}), dan is $\phi$ een isomorfisme.
+  \item Als $|R|$ eindig is (en dus een veld\stref{st:eindig-integriteitsdomein-is-veld}), dan is $\phi$ een isomorfisme.
   \end{itemize}
-\TODO{bewijs p 76}
+
+  \begin{proof}
+    \begin{itemize}
+    \item Zij $e$ het nulelement van $R,+,\cdot$.  $\phi$ is een
+      ringmorfisme vanwege de rekenregel in
+      integriteitsdomeinen\stref{st:rekenregel-in-integriteitsdomein}.
+      Uit de implicatie $x^{p} = e \Rightarrow x = 0$ volgt dat $\phi$
+      injectief is.  \clarify{vanwaar komt die implicatie?}
+    \item Een injectieve afbeelding van een verzameling naar zichzelf is surjectief en bijgevolg ook een bijectie. \clarify{referentie naar bewijs?}
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \subsection{Priemdeling en Priemdeelveld}
@@ -689,3 +738,8 @@
 \end{pr}
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
