@@ -714,17 +714,57 @@ Zij $G,*$ een eindige groep en $p$ een priemgetal dat de orde van $|G|$ deelt, b
 
 \subsection*{Oefening 1}
 Gegeven een verzameling $U$.
-Bewijs dat $\mathcal{P}(U)\Delta,\cap$ een commutatieve ring is met eenheidselement.
+Bewijs dat $\mathcal{P}(U),\Delta,\cap$ een commutatieve ring is met eenheidselement.
+
+\begin{proof}
+  We gaan elke definierende eigenschap van een ring af.
+  \begin{itemize}
+  \item $\mathcal{P}(U)$ is een commutatieve groep:
+    \begin{itemize}
+    \item $\Delta$ is associatief.
+    \item Er bestaat een neutraal element: $\emptyset$
+    \item Elk element $X$ in $\mathcal{P}(U)$ heeft een inverse: $X^{c}$
+    \end{itemize}
+  \item $\cap$ is associatief. 
+  \item $\cap$ is distributief ten opzichte von $+$.
+  \item $\cap$ is commutatief.
+  \end{itemize}
+\end{proof}
 
 \subsection*{Oefening 2}
-Gegeven een ring $R,+,\cdot$ als volgt.
+Gegeven een ring $R,+,\cdot$ met nulelement $e_{R}$ als volgt.
 We noemen dit een \term{Boolering}.
 \[ \forall a\in R:\ a^{2} = a \]
 Bewijs dat $R,+,\cdot$ een commutatieve ring is en het volgende:
 \[ \forall a \in R:\ a+a = e_{R}\]
 
-\extra{bewijs dat $I=\{  \begin{pmatrix}    a & b\\c & d  \end{pmatrix} \ |\ a,b,c,d \in 2\mathbb{Z}\}$ een ideaal is van $M^{2\times 2}(\mathbb{Z})$. Hoeveel elementen heeft $\nicefrac{M^{2\times 2}(\mathbb{Z})}{I}$?}
+\begin{proof}
+  Voor elke twee elementen $x$ en $y$ uit $R$ geldt het volgende:
+  \[
+  \begin{array}{rl}
+    (x \cdot y)^{2} &= x \cdot y\\
+    x \cdot y \cdot x \cdot y &= x \cdot y\\
+    y \cdot x &= x \cdot y
+  \end{array}
+  \]
+  $R,+,\cdot$ is dus al een commutatieve ring.
+  \[
+  \begin{array}{rll}
+    a + a &= a^{2} + a^{2} &\\
+          &= a \cdot (a+a) &\\
+          &= a^{2} \cdot e_{R} = e_{R}
+  \end{array}
+  \]
+\end{proof}
 
+\section{Oefenzitting 6: Idealen}
+\question{geen echte oefeningen?}
+
+
+
+\subsection{Oefening U}
+bewijs dat $I=\{  \begin{pmatrix}    a & b\\c & d  \end{pmatrix} \ |\ a,b,c,d \in 2\mathbb{Z}\}$ een ideaal is van $M^{2\times 2}(\mathbb{Z})$. Hoeveel elementen heeft $\nicefrac{M^{2\times 2}(\mathbb{Z})}{I}$?
+\extra{oefening}
 
 \subsection*{Oefening X}
 Zij $R$ een deelverzameling van $\mathbb{Q}$ als volgt:
@@ -737,6 +777,124 @@ Zij $R$ een deelverzameling van $\mathbb{Q}$ als volgt:
 \item Neem een ideaal $I \neq \{0\}$ van $R,+,\cdot$ en bewijs dat $I$ voortgebracht wordt door $2^{m}$ waarbij $m$ het kleinste getal is waarvoor $2^{m}$ in $I$ zit.
 \item Besluit dat $R,+,\cdot$ een HID is.
 \end{itemize}
+\extra{oefening}
+
+\section{Oefenzitting 7: Quotientringen}
+
+\subsection*{Oefening 1}
+Zij $R = \nicefrac{\mathbb{Q}[X]}{I}$ met $I=(X^{2}+X+1)$.
+
+\begin{itemize}
+\item Gelden volgende beweringen?
+  \begin{itemize}
+  \item $-2X^{2}+I \overset{?}{=} 2X^{3}+2X+I$
+  \item $3+I\overset{?}{=} X+I$
+  \item $X^{3}+2X^{2}+I \overset{?}{=} 3X+2+I$
+  \end{itemize}
+\item Toon aan dat elk element van $R$ op een unieke wijze geschreven kan worden als $aX+b+I$ met $a,b\in \mathbb{Q}$.
+\item Reken uit en schrijf het resultaat in de vorm $aX+b+I$.
+  \begin{itemize}
+  \item $(X+I) + (X^{2}+I)$
+  \item $(X+3+I)\cdot (X^{2}+1+I)$
+  \end{itemize}
+\item Men kan aantonen dat $R,+,\cdot$ een veld is.
+  Wat is het invers van $X+I$ voor de vermenigvuldiging in $R,+,\cdot$?
+\end{itemize}
+
+Voor de duidelijkheid:
+\[
+\nicefrac{\mathbb{Q}[X]}{I} =
+\left\{
+  x + 
+  (X^{2}+X+1)
+  \ |\ a \in \mathbb{Q}[X]
+\right\}
+\ \text{ en }\ 
+(X^{2}+X+1) = \left\{ r \cdot (X^{2}+X+1) \ |\ r \in \mathbb{Q}[X] \right\}
+\]
+\begin{itemize}
+\item
+  \[ -2X^{2}+I = \left\{ -2X^{2} + (r \cdot (X^{2}+X+1)) \ |\ r \in \mathbb{Q}[X] \right\}\]
+\end{itemize}
+\question{hoe??}
+
+\subsection*{Oefening 2}
+Bereken $\nicefrac{\mathbb{Z}[X]}{(2)}$.
+\[ \nicefrac{\mathbb{Z}[X]}{(2)} = \left\{ f + \left\{ (g \cdot 2)\ |\ g\in \mathbb{Z}[X] \right\} f \in \mathbb{Z}[X] \right\} \]
+\question{en nu?}
+\subsection*{Oefening 3}
+Bereken $\nicefrac{\mathbb{Z}[X]}{(2,X)}$.
+
+\subsection*{Oefening 4}
+Bereken $\nicefrac{\mathbb{Z}_{2}[X]}{(X^{2}+X+1)}$.
+
+\subsection*{Oefening 5}
+Bereken $\nicefrac{\mathbb{Z}[X,Y,Z]}{(X-Y,X^{3}-Z)}$.
+
+\subsection*{Oefening 6}
+Zij $R,+,\cdot$ een willekeurige ring met eenheidselement.
+Bereken $\nicefrac{R[X]}{(X)}$.
+
+\subsection*{Oefening 7}
+Zij $P=X^{3}+X+1 \in \mathbb{Z}_{2}[X]$.
+Bereken voor elk element verschillen van $0$ van $\nicefrac{\mathbb{Z}_{2}[X]}{(P)}$ het inverse voor de vermenigvuldiging.
+
+\section{Oefenzitting 8: Veeltermringen, HID's en UFD's}
+
+\subsection*{Oefening 1}
+Zoek de wortels in $\mathbb{Z}_{5}$ van $3+X+X^{64}\in \mathbb{Z}_{5}[X]$.
+$\mathbb{Z}_{5}$ is klein genoeg om dit \'e\'en voor \'e\'en te doen, maar we willen $4^{64}$ natuurlijk niet hoeven uit te rekenen.
+Noem $3+X+X^{64}$ $f$.
+\[
+\begin{array}{rll}
+  f(0) &= 3 + 0 + 0^{64} &\neq 0\\
+  f(1) &= 3 + 1 + 1^{64} &= 0\\
+  f(2) &= 3 + 2 + 2^{64} &\neq 0 \text{ want } 2^{64} \nmid 5\\
+  f(3) &= 3 + 3 + 3^{64} &\neq 0 \text{ want } 3^{66} \nmid 5\\
+  f(4) &= 3 + 4 + 4^{64} &\neq 0 \text{ want } 2^{129} \nmid 5\\
+\end{array}
+\]
+ 
+\subsection*{Oefening 2}
+Geef een voorbeeld van waarom het derde criterium niet geldt in $\mathbb{Z}_{8}[X]$ (dat geen veld is).
+\question{hoe?}
+
+\subsection*{Oefening 3}
+Schrijf $f=X^{3}+6\in \mathbb{Z}_{7}[X]$ als product van irreducibele veeltermen over $\mathbb{Z}_{7}$.
+\question{hoe??}
+
+\subsection*{Oefening 4}
+Zij $p$ een priemgetal, hoeveel irreducibele veeltermen over $\mathbb{Z}_{p}$ van de vorm $X^{2}+aX+b$ bestaan er?
+\question{wut??}
+
+\subsection*{Oefening 5}
+Vindt een grootst gemeenschappelijke deler van $X^{3}+2X^{2}+4X-7$ en $X^{2}+X-2$ in $\mathbb{Q}[X]$.
+\extra{oefening}
+
+\extra{rest van de oefeningen van dit deel}
+
+\subsection*{Oefening X}
+\begin{itemize}
+\item Toon aan dat $X^{3}+5X^{2}+25X+5$ irreducibel is over $\mathbb{Q}$.
+  \begin{proof}
+    Kies $p=5$ in het criterium van Einstein.
+  \end{proof}
+\question{dit was te makkelijk?}
+\item Toon aan dat $5x^{3}+9x+3$ irreducibel is over $\mathbb{Q}$.
+  \begin{proof}
+    Kies $p=3$ in het criterium van Einstein.
+  \end{proof}
+\question{dit was te makkelijk?}
+\item Toon aan dat $5X^{3}-15X^{2}+24X-11$ irreducibel is over $\mathbb{Q}$.
+\question{hoe? einstein kan hier niet want $11$ is priem.}
+\item Zij $p$ een priemgetal, toon aan dat $f(x)= \prod_{i=1} x^{p-i}$ irreducibel is over $\mathbb{Q}$.
+  Hint: bekijk $f(x+1)$??
+\extra{oefening}
+\end{itemize}
+
+
+
+
 
 \end{document}
 

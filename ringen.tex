@@ -448,6 +448,20 @@
   \]
 \end{opm}
 
+\begin{st}
+  Zij $R,+,\cdot$
+  Het centrum $Z(R)$ van $R,+$, ook uitgerust met $\cdot$ is een deelring van $R,+,\cdot$.
+  \begin{proof}
+    We bewijzen de eigenschappen in het criterium van deelringen.
+    \begin{itemize}
+    \item $Z(R),+$ is een commutatieve deelgroep van $R,+$.\eiref{ei:centrum-is-deelgroep}
+    \item $Z(R)$ is niet leeg want $Z(R)$ bevat minstens $e_{R}$.
+    \item $\cdot$ is intern in $Z(R)$.
+      Kies immers twee elementen $a$ en $b$ uit $Z(R)$:
+      \[ \forall x\in R: (a\cdot b) \cdot x = a \cdot x \cdot b = b \cdot (a \cdot b) \]
+    \end{itemize}
+  \end{proof}
+\end{st}
 
 \subsection{Ringmorfismen}
 \label{sec:ringmorfismen}
@@ -887,33 +901,6 @@
   Dit verantwoordt de notatie die we gebruiken voor ``... is een ideaal van ...'': $\triangleleft$
 \end{opm}
 
-\begin{de}
-  Zij $a$ een element van een commutatieve ring $R,+,\cdot$ met eenheidselement.
-  Het \term{ideaal voortgebracht door een element} $a$ of \term{hoofdideaal} door $a$ is $(a)$.
-  \[ (a) = \{r \cdot a \ |\ r \in R \},+,\cdot \]
-\end{de}
-
-\begin{de}
-  Zij $a_{1},\dotsc,a_{n}$ elementen van een commutatieve ring $R,+,\cdot$ met eenheidselement.
-  Het \term{ideaal voortgebracht door elementen} $a_{1},\dotsc,a_{n}$ is $(a_{1},\dotsc,a_{n})$
-  \[ (a_{1},\dotsc,a_{n}) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R \right\} \]
-\end{de}
-
-\begin{de}
-  Zij $A$ een deelverzameling van een $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement.
-  Het \term{ideaal voortgebracht door een verzameling} $A$ is $(A)$..
-  \[ (A) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R, a_{i} \in A, n\in \{1 \dotsc, |A|\} \right\}\]
-\end{de}
-
-\begin{st}
-  Voortgebrachte idealen zijn wel degelijk idealen.
-\extra{bewijs}
-\end{st}
-
-\begin{opm}
-  Een ideaal voortgebracht door een deelverzameling $A$ van $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement is in feite gelijk aan de doorsnede van alle idealen van $R$ die $A$ omvatten.
-  Of nog: ``het kleinste ideaal van $R$ dat $A$ omvat''.
-\end{opm}
 
 \begin{de}
   De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
@@ -966,6 +953,128 @@
   \end{proof}
 \end{ei}
 
+\begin{st}
+  De doonsnede van twee idealen is een ideaal.
+  \[ I \triangleleft R,+,\cdot\ \wedge\ J \triangleleft R,+,\cdot \Rightarrow I \cap J \triangleleft R,+,\cdot \]
+
+  \begin{proof}
+    Zij $I,+,\cdot$ en $J,+,\cdot$ twee idealen van een ring $R,+,\cdot$.
+    Er geldt dan het volgende:
+    \[ \forall r \in R,\ \forall k\in I\cap J:\ r\cdot k\in I \cap J\ \wedge\ k\cdot r \in I \cap J \]
+    Dit is precies de definitie van een ideaal.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  De `som' van twee idealen is een ideaal.
+  \[ I \triangleleft R,+,\cdot\ \wedge\ J \triangleleft R,+,\cdot \Rightarrow I + J \triangleleft R,+,\cdot \]
+
+  \begin{proof}
+    Zij $I,+,\cdot$ en $J,+,\cdot$ twee idealen van een ring $R,+,\cdot$.
+    Er geldt dan het volgende:
+    \[ \forall r \in R,\ \forall i+j\in (I + J):\ r\cdot (i+j) = r\cdot i + r\cdot j \in (I+J) \]
+    \[ \forall r \in R,\ \forall i+j\in (I + J):\ (i+j)\cdot r = i\cdot r + j\cdot r \in (I+J) \]
+    Dit is precies de definitie van een ideaal.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$.
+  Zij $u$ een eenheid in $R,+,\cdot$ en $I,+,\cdot$ een eenheid in $R,+,\cdot$.
+  Als $u$ een element is in $I$, dan is $I$ gelijk aan $R$.
+
+  \begin{proof}
+    Voor elk element $r$ in $R$ moet het volgende gelden:
+    \[ u \cdot r \in I\]
+    In het bijzonder moet het ook gelden voor $u^{-1}$, dus $i$ zit ook in $I$.
+    Daaruit volgt meteen dat $I$ gelijk is aan $R$.\stref{st:eenheidselement-in-ideaal-maakt-hele-ring}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Een niet-triviale commutatieve ring $R,+,\cdot$ met eenheidselement is een veld als en slechts als $R,+,\cdot$ geen niet-triviale idealen heeft.
+
+  \begin{proof}
+    Zij $i$ het eenheidselement van $R,+,\cdot$ en $e$ het nulelement.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Uit het ongerijmde:
+      Zij $I,+,\cdot$ een niet-triviaal ideaal van een veld $R,+,\cdot$, dan moet er een niet-nulement in zitten en bijgevolg ook $i$.
+      Er geldt immers in het bijzonder het volgende:
+      \[ x \in I \Rightarrow x \cdot x^{-1} \in I \]
+      $I$ moet dan heel $R$ zijn.\stref{st:eenheidselement-in-ideaal-maakt-hele-ring}
+    \item $\Leftarrow$\\
+      Uit het ongerijmde:
+      Stel dat $R,+,\cdot$ geen niet-triviale idealen heeft en toch geen veld is.
+      Dan bestaat er een element $x\in R$ zonder inverse in $R,+,\cdot$.
+      Beschouw nu $(x)$:
+      \[ (x) = \{ r\cdot x \ |\ r \in R \} \]
+      $(x)$ is niet de nulring, want $(x)$ bevat $x$ (omdat $R,+,\cdot$ een eenheidselement heeft), maar ook niet heel $R$ want $i$ zit niet in $(x)$ (omdat $x$ geen eenheid is).
+      $(x)$ is dus een niet-triviaal ideaal van $R,+,\cdot$, wat in tegenspraak is met de aanname.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\subsection{Voortgebrachte idealen}
+
+\begin{de}
+  Zij $a$ een element van een commutatieve ring $R,+,\cdot$ met eenheidselement.
+  Het \term{ideaal voortgebracht door een element} $a$ of \term{hoofdideaal} door $a$ is $(a)$.
+  \[ (a) = \{r \cdot a \ |\ r \in R \},+,\cdot \]
+\end{de}
+
+\begin{st}
+  De doorsnede van alle idealen die $a$ omvatten is $(a)$.
+
+  \begin{proof}
+    Inderdaad, voor elk ideaal $I$ dat $a$ omvat geldt het volgende;
+    \[ \forall r \in R: a\cdot r \in I \wedge r \cdot a \in I \]
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Zij $a_{1},\dotsc,a_{n}$ elementen van een commutatieve ring $R,+,\cdot$ met eenheidselement.
+  Het \term{ideaal voortgebracht door elementen} $a_{1},\dotsc,a_{n}$ is $(a_{1},\dotsc,a_{n})$
+  \[ (a_{1},\dotsc,a_{n}) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R \right\} \]
+\end{de}
+
+\begin{de}
+  Zij $A$ een deelverzameling van een $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement.
+  Het \term{ideaal voortgebracht door een verzameling} $A$ is $(A)$..
+  \[ (A) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R, a_{i} \in A, n\in \{1 \dotsc, |A|\} \right\}\]
+\end{de}
+
+\begin{st}
+  Voortgebrachte idealen zijn wel degelijk idealen.
+\extra{bewijs}
+\end{st}
+
+\begin{opm}
+  Een ideaal voortgebracht door een deelverzameling $A$ van $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement is in feite gelijk aan de doorsnede van alle idealen van $R$ die $A$ omvatten.
+  Of nog: ``het kleinste ideaal van $R$ dat $A$ omvat''.
+\end{opm}
+
+\begin{st}
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement en $u$ een eenheid in $R,+,\cdot$.
+  \[ \forall r\in R: (ur) = (r) \]
+
+  \begin{proof}
+    \begin{itemize}
+    \item $(ur) \subseteq (r)$\\
+      Voor elk element $x\cdot u \cdot r$ met $x\in R$ in $(ur)$ geldt per definitie het volgende:
+      \[ \forall y\in R:\ x \cdot u \cdot r \cdot y \in (ur) \]
+    \item $(ur) \supseteq (r)$\\
+    \end{itemize}
+  \end{proof}
+\question{hoe??}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een integriteitsdomein.
+  Zij $r$ en $s$ elementen uit $R$.
+  \[ (r) = (s) \Leftrightarrow (\exists u \in R^{\times}: s= u\cdot r) \]
+\extra{bewijs}
+\end{st}
 
 \subsection{Quotientringen}
 \label{sec:quotientringen}
@@ -1307,6 +1416,19 @@
 \begin{opm}
   Een priemgetal heeft dus geen echte delers.
 \end{opm}
+
+\begin{st}
+  \label{st:veld-alles-geassocieerd}
+  In een veld zijn elke twee elementen geassocieerd.
+  
+  \begin{proof}
+    Kies twee willekeurige elementen $x$ en $y$ uit een velf $F,+,\cdot$.
+    We bewijzen dat er een eenheid $z$ bestaat zodat $x$ als volgt te schrijven valt:
+    \[ x = zy \]
+    Kies $z = xy^{-1}$, dit kan omdat $y$ een eenheid is (want in een veld is elk element een eenheid).
+    \[ x = xy^{-1}y = x \]
+  \end{proof}
+\end{st}
 
 \subsubsection{Euclidische Ring}
 \label{sec:euclidische-ring}
@@ -1758,13 +1880,12 @@
   Zij $K,+,\cdot$ een veld en $f\in K[X]$ een veelterm van graad $2$ of $3$, dan is $f$ reducibel over $K$ als en slechts als $f$ een nulpunt heeft in $K$.
 
   \begin{proof}
+    Bewijs van een equivalentie.
     \begin{itemize}
     \item $\Rightarrow$\\
-      $f$ is van graad $2$ of $3$, dus $f$ zien er als volgt uit, waarbij $a_{3}$ al dan niet $e_{K}$ is.
-      \[ a_{3}X^{3}+a_{2}X^{2}+a_{1}X+a_{0} \]
-      Als $f$ reducibel is, betekent dit dat we $f$ als volgt kunnen schrijven:
-      \[ f = a_{3}(X-b_{1})(X^{2} + b_{2}X + b_{3}) \text{ met } (b_{2}-b_{1})a_{3} = a_{2},\ (b_{2}-b_{1}b_{2})a_{3} = a_{1}\text{ en } a_{3}b_{1}b_{2}= a_{0} \]
-      $b_{1}$ is dan een nulpunt van $f$.\stref{st:reststelling}
+      Als $f$ van graad $2$ of $3$ is kan $f$ ontbonden worden in een veelterm van graad $1$ en een (al dan niet reducibele) veelterm van graad $\le 2$.
+      De veelterm van graad $1$ ziet er dan uit als $X-b$.\waarom
+      Dit betekent dat $b$ een nulpunt is van $f$.
     \item $\Leftarrow$\\
       Als $f$ een nulpunt heeft, geldt $X-a \mid f$ \stref{st:reststelling} voor $a$ een nulpunt van $f$.
       $f$ valt dan te schrijven als $f-(X-a)q$ met $q\in K[X]$.
@@ -1773,10 +1894,10 @@
   \end{proof}
 \end{ei}
 
-\begin{st}
-  Een veelterm $p$ van graad $2$ over een veld $F,+,\cdot$ is irreduceerbaar als en slechts $p$ geen wortel heeft in $F$.
-\extra{bewijs}
-\end{st}
+\begin{opm}
+  Merk op dat deze stelling niet zonder meer geldt voor veeltermen van graad $4$ of meer.
+  De redenering gaat immers enkel op als \'e\'en van de ontbindingsveeltermen graad $1$ heeft.
+\end{opm}
 
 \begin{st}
   \label{st:fundamentele-stelling-van-de-algebra}
@@ -2202,12 +2323,13 @@
         De inductiehypothese impliceert dat $k$ gelijk is aan $n-1$ en dat $p_{i}$ geassocieerd is mat $q_{i}$ voor $i \in \{ 1,dotsc,k\}$.
       \end{itemize}
     \end{itemize}
-\clarify{bij dit bewijs moet veel meer uitleg!!}
+    \clarify{bij dit bewijs moet veel meer uitleg!!}
   \end{proof}
 \end{st}
 
 \begin{gev}
   Zij $F$ een veld, dan is $F[X]$ een UFD.
+\extra{bewijs}
 \end{gev}
 
 \begin{st}
