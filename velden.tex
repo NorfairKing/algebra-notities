@@ -26,6 +26,7 @@
 \end{ei}
 
 \begin{st}
+  \label{st:eenheidselement-orde-karakteristiek}
   Zij $R,+,\cdot$ een ring met eenheidselement $i$.
   \[ char(R) = n \neq 0 \Leftrightarrow i \text{ heeft orde } n \]
 
@@ -146,7 +147,37 @@
   \end{proof}
 \end{st}
 
-\subsection{Priemdeling en Priemdeelveld}
+
+\subsection{Deelvelden}
+\label{sec:deelvelden}
+
+\begin{de}
+  Zij $E,+,\cdot$ een veld en $F$ een niet-lege deelverzameling van $E$.
+  We noemen $F,+,\cdot$ een \term{deelveld} van $E,+,\cdot$ als $F,+,\cdot$ zelf een veld is (voor dezelfde bewerkingen).
+\end{de}
+
+\begin{st}
+  Het \term{criterium voor deelvelden}\\
+  Zij $F,+,\cdot$ een veld met eenheidselement $i$ en $E$ een deelverzameling van $F$, dan is $E,+,\cdot$ een deelveld van $f$ als en slechts als aan volgende voorwaarden voldaan is.
+  \begin{itemize}
+  \item $E$ is een deelring van $F$ met hetzelfde eenheidselement.
+  \item $\forall x\in E:\ \exists y\in E:\ xy =i = yx$ (Elk element heeft een interne inverse.)
+  \item $\forall x,y\in E:\ x\cdot y \in E$ (De multiplicatieve bewerking is intern.)
+  \end{itemize}
+
+  \begin{proof}
+    \begin{itemize}
+    \item $\Rightarrow$: Dit volgt rechtstreeks uit de definitie.
+\clarify{waarom heeft $E$ noodzakelijk hetzelfde eenheidselement?}
+    \item $\Leftarrow$\\
+      Omdat $E$ een deelring is die $i$ bevat, volgt uit de twede voorwaarde dat $E$ een lichaam is.
+      $E,+,\cdot$ is bovendien commutatief want het is een deelring van een commutatieve ring. \needed
+      $E,+,\cdot$ is een commutatief lichaam en $E$ een deelverzameling van $F$, dus een deelveld.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\subsection{Priemdeelring en Priemdeelveld}
 \label{sec:priemd-en-priemd}
 
 \begin{de}
@@ -156,26 +187,41 @@
 \end{de}
 
 \begin{ei}
-  De priemdeelring van een ring met eenheidselement $i$ is $<1>$:
+  \label{ei:priemdeelring-voortgebracht-door-eenheidselement}
+  De priemdeelring van een ring $R,+,\cdot$ met eenheidselement $i$ is $<1>$:
   \[ <1> = \{ zi \ |\ z \in \mathbb{Z} \} \]
-\extra{bewijs}
+
+  \begin{proof}
+    Kies $I$ zodat $I,+,\cdot$ een deelring is van $R,+,\cdot$.
+    $I$ moet dan $<i>$ omvatten.
+\question{en nu?}
+  \end{proof}
 \end{ei}
 
 \begin{st}
-  Zij $R,+,\cdot$ een ring met eenheidselement.
+  \label{st:karakteristiek-isomorfisme-met-zn}
+  Zij $R,+,\cdot$ een ring met eenheidselement $i$.
   \begin{itemize}
   \item Als $char(R) = n \neq 0$ geldt, dan is de priemdeelring van $R$ isomorf met $\mathbb{Z}_{n}$.
   \item Als $char(R) = 0$ geldt, dan is de priemdeelring van $R$ isomorf met $\mathbb{Z}$.
   \end{itemize}
-\TODO{bewijs p 76}
+
+  \begin{proof}
+    Beschouw de afbeelding $\phi$:
+    \[ \phi:\ \mathbb{Z} \rightarrow \mathbb{R}: z \mapsto z\cdot i \]
+    $\phi$ is nu een ringmorfisme:
+    \[ \forall x,y\in \mathbb{Z}: \phi(x+y) = (x+y) \cdot i = (x \cdot i) + (y \cdot i) = \phi(x) + \phi(y) \]
+    \[ \forall x,y\in \mathbb{Z}: \phi(x\cdot y) = (x\cdot y) \cdot i = (x \cdot i) \cdot (y \cdot i) = \phi(x) \cdot \phi(y) \]
+    Merk op dat $\phi(\mathbb{Z}),+,\cdot$ de priemdeelring is van $R,+,\cdot$.\eiref{ei:priemdeelring-voortgebracht-door-eenheidselement}
+    \begin{itemize}
+    \item Als de karakteristiek van $R$ $n\neq 0$ is, dan wordt de kern van $\phi$ voortgebracht door $n$ in $\mathbb{Z}$ want $n$ is de orde van $i$ in $R,+$.
+      \[ Ker(\phi) = (n) \]
+      De priemdeelring is dan isomorf met $\nicefrac{\mathbb{Z}}{(n)} \cong \mathbb{Z}_{n}$.\needed
+    \item Als de karakteristiek van $R,+,\cdot$ nul is,dan is $\phi$ injectief \waarom en is de priemdeelring van $R,+,\cdot$ dus isomorf met $\mathbb{Z}$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
-\begin{de}
-  Zij $E,+,\cdot$ een veld en $F$ een niet-lege deelverzameling van $E$.
-  We noemen $F,+,\cdot$ een \term{deelveld} van $E,+,\cdot$ als $F,+,\cdot$ zelf een veld is (voor dezelfde bewerkingen).
-\end{de}
-
-\TODO{criteria voor deelvelden}
 
 \begin{de}
   Zij $F,+,\cdot$ een veld.
@@ -186,16 +232,82 @@
 \begin{st}
   Zij $F,+,\cdot$ een veld.
   \begin{itemize}
-  \item Als $char{F}$ een priemgetal is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Z}_{p}$.
-  \item Als $chap{F}$ nul is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Q}$.
+  \item Als $char(F)$ een priemgetal is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Z}_{p}$.
+  \item Als $char(F)$ nul is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Q}$.
   \end{itemize}
-\TODO{bewijs p 77}
+
+  \begin{proof}
+    \begin{itemize}
+    \item Als $char(F)$ een priemgetal $p$ is, weten we al dat de priemdeelring van $F,+,\cdot$ isomorf is met het veld $\mathbb{Z}_{p}$.
+      Die deelring is dan ook een deelveld.\stref{st:karakteristiek-isomorfisme-met-zn}
+    \item Als $char(F)$ nul is, dan is $\phi$ een injectief ringmorfisme:
+      \[ \phi:\ \mathbb{Z} \rightarrow \mathbb{R}: z \mapsto z\cdot i \]
+      Beschouw nu de afbeelding $\phi'$:
+      \[ \phi':\ \mathbb{Q} \rightarrow F:\ \frac{a}{b} \mapsto \phi(a) \cdot (\phi(b))^{-1} = (ai) \cdot (bi)^{-1} \]
+      Merk nu op dat $\phi'$ en ringmorfisme is:
+      \[
+      \forall \left(\frac{a}{b}\right),\left(\frac{c}{d}\right) \in
+      \mathbb{Q}:\
+      \begin{array}{rll}
+        \phi'(\nicefrac{a}{b} + \nicefrac{c}{d}) &=  \phi'\left(\frac{ad+bc}{bd}\right) &\\
+                                                 &= \phi(ad+bc) \cdot (\phi(bd))^{-1} &\\
+                                                 &= ((ad+bc)\cdot i) \cdot ((bd)\cdot i)^{-1} &\\
+                                                 &= ((ad \cdot i) + (bc \cdot i)) \cdot ((bd)\cdot i)^{-1} &\\
+                                                 &= ((ad \cdot i)\cdot ((bd)\cdot i)^{-1}) +  ((bc \cdot i) \cdot ((bd)\cdot i)^{-1}) &\\
+                                                 &= \phi'(\nicefrac{ad}{bd}) + \phi'(\nicefrac{bc}{bd}) &= \phi'(\nicefrac{a}{b}) + \phi'(\nicefrac{c}{d}) \\
+      \end{array}
+      \]
+      \[
+      \forall \left(\frac{a}{b}\right),\left(\frac{c}{d}\right) \in
+      \mathbb{Q}:\
+      \begin{array}{rll}
+        \phi'(\nicefrac{a}{b} \cdot \nicefrac{c}{d}) &= \phi'(\nicefrac{ac}{bd}) &\\
+                                                     &= \phi(ac) \cdot (\phi(bd))^{-1} &\\
+                                                     &= (ac \cdot i) \cdot (bd \cdot i)^{-1} &\\
+                                                     &= ((a \cdot i) \cdot (c \cdot i)) \cdot ((b \cdot i) \cdot (d \cdot i))^{-1} &\\
+                                                     &= (a \cdot i) \cdot (b\cdot i)^{-1} \cdot (c \cdot i) \cdot (d \cdot i)^{-1} &\\
+                                                     &= \phi(a) \cdot (\phi(b))^{-1} \cdot \phi(c) \cdot (phi(d))^{-1} &= \phi'(\nicefrac{a}{b}) \cdot \phi'(\nicefrac{c}{d})
+      \end{array}
+      \]
+      $\phi'$ is bovendien injectief.  Kies immers twee verschillende
+      elementen $\frac{a}{b}$ en $\frac{c}{d}$ uit $\mathbb{Q}$ die op
+      hetzelfde element van $F$ afgebeeld worden onder $\phi'$, dan
+      geldt het volgende:
+      \[ (a\cdot i) \cdot (b\cdot i)^{-1} = (c \cdot i) \cdot (d \cdot
+      i)^{-1} \]
+      \[ \phi(a) \cdot \phi(d) = \phi(b) \cdot \phi(c) \]
+      Omdat $\phi$ injectief is geldt $ad = bc$ en bijgevolg
+      $\frac{a}{b} = \frac{c}{d}$.
+      Het priemdeelveld van $F$ is nu precies het beeld van $\mathbb{Q}$ onder $\phi'$. \waarom
+      De kern van $\phi$ is bovendien $\{0\}$, dus het priemdeelveld is isomorf met $\nicefrac{\mathbb{Q}}{\{0}\}} \cong \mathbb{Q}$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $K,+,\cdot$ een deelveld van een veld $L,+,\cdot$.
   \[ char(K) = char(L) \]
-\extra{bewijs}
+
+  \begin{proof}
+    Noem de karakteristiek van $L,+,\cdot$ $n$.
+    De orde van het eenheidselement in $L$ is dan ook $n$.\stref{st:eenheidselement-orde-karakteristiek}
+    Omdat $K,+,\cdot$ een deelveld is van $L,+,\cdot$ is $n$ ook de orde van het eenheidselement in $K,+,\cdot$.
+  \end{proof}
+\end{st}
+
+\section{Veldmorfismen}
+\label{sec:veldmorfismen}
+
+\begin{de}
+  Zij $F,+,\cdot$ en $E,\star,*$ velden, dan is een afbeelding $\phi: F \rightarrow E$ een \term{veld(homo)morfisme} als $\phi$ een ringmorfisme is dat het eenheidselement van $F$ op het eenheidselement van $E$ afbeeldt.
+\end{de}
+
+\begin{de}
+  Een bijectief veldmorfisme noemen we een \term{veldisomorfisme}.
+\end{de}
+
+\begin{st}
+  Een veldmorfisme is steeds injectief.
 \end{st}
 
 \section{Velduitbreidingen: basisbegrippen}
