@@ -228,13 +228,14 @@
   De doorsnede van alle deelvelden van $F$ is zelf een deelveld van $F$.
   Di kleinste deelveld heet het \term{priemdeelveld} van $F,+,\cdot$.
 \end{de}
+\begin{st}
+  Zij $F,+,\cdot$ een veld.
+  Als $char(F)$ een priemgetal is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Z}_{p}$.
+\end{st}
 
 \begin{st}
   Zij $F,+,\cdot$ een veld.
-  \begin{itemize}
-  \item Als $char(F)$ een priemgetal is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Z}_{p}$.
-  \item Als $char(F)$ nul is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Q}$.
-  \end{itemize}
+  Als $char(F)$ nul is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Q}$.
 
   \begin{proof}
     \begin{itemize}
@@ -251,9 +252,9 @@
       \begin{array}{rll}
         \phi'(\nicefrac{a}{b} + \nicefrac{c}{d}) &=  \phi'\left(\frac{ad+bc}{bd}\right) &\\
                                                  &= \phi(ad+bc) \cdot (\phi(bd))^{-1} &\\
-                                                 &= ((ad+bc)\cdot i) \cdot ((bd)\cdot i)^{-1} &\\
-                                                 &= ((ad \cdot i) + (bc \cdot i)) \cdot ((bd)\cdot i)^{-1} &\\
-                                                 &= ((ad \cdot i)\cdot ((bd)\cdot i)^{-1}) +  ((bc \cdot i) \cdot ((bd)\cdot i)^{-1}) &\\
+                                                 &= ((ad+bc)i) \cdot ((bd)i)^{-1} &\\
+                                                 &= ((ad)i) + ((bc)i)) \cdot ((bd)i)^{-1} &\\
+                                                 &= ((ad)i)\cdot ((bd)i)^{-1}) +  ((bc)i) \cdot ((bd)\cdot i)^{-1}) &\\
                                                  &= \phi'(\nicefrac{ad}{bd}) + \phi'(\nicefrac{bc}{bd}) &= \phi'(\nicefrac{a}{b}) + \phi'(\nicefrac{c}{d}) \\
       \end{array}
       \]
@@ -263,9 +264,9 @@
       \begin{array}{rll}
         \phi'(\nicefrac{a}{b} \cdot \nicefrac{c}{d}) &= \phi'(\nicefrac{ac}{bd}) &\\
                                                      &= \phi(ac) \cdot (\phi(bd))^{-1} &\\
-                                                     &= (ac \cdot i) \cdot (bd \cdot i)^{-1} &\\
-                                                     &= ((a \cdot i) \cdot (c \cdot i)) \cdot ((b \cdot i) \cdot (d \cdot i))^{-1} &\\
-                                                     &= (a \cdot i) \cdot (b\cdot i)^{-1} \cdot (c \cdot i) \cdot (d \cdot i)^{-1} &\\
+                                                     &= ((ac)i) \cdot ((bd) \cdot i)^{-1} &\\
+                                                     &= ((ai) \cdot (ci)) \cdot ((bi) \cdot (di))^{-1} &\\
+                                                     &= (ai) \cdot (bi)^{-1} \cdot (ci) \cdot (di)^{-1} &\\
                                                      &= \phi(a) \cdot (\phi(b))^{-1} \cdot \phi(c) \cdot (phi(d))^{-1} &= \phi'(\nicefrac{a}{b}) \cdot \phi'(\nicefrac{c}{d})
       \end{array}
       \]
@@ -273,14 +274,40 @@
       elementen $\frac{a}{b}$ en $\frac{c}{d}$ uit $\mathbb{Q}$ die op
       hetzelfde element van $F$ afgebeeld worden onder $\phi'$, dan
       geldt het volgende:
-      \[ (a\cdot i) \cdot (b\cdot i)^{-1} = (c \cdot i) \cdot (d \cdot
-      i)^{-1} \]
+      \[ (ai) \cdot (bi)^{-1} = (ci) \cdot (di)^{-1} \]
       \[ \phi(a) \cdot \phi(d) = \phi(b) \cdot \phi(c) \]
       Omdat $\phi$ injectief is geldt $ad = bc$ en bijgevolg
       $\frac{a}{b} = \frac{c}{d}$.
       Het priemdeelveld van $F$ is nu precies het beeld van $\mathbb{Q}$ onder $\phi'$. \waarom
-      De kern van $\phi$ is bovendien $\{0\}$, dus het priemdeelveld is isomorf met $\nicefrac{\mathbb{Q}}{\{0}\}} \cong \mathbb{Q}$.
+      De kern van $\phi$ is bovendien $\{0\}$, dus het priemdeelveld is isomorf met $\nicefrac{\mathbb{Q}}{\{0\}} \cong \mathbb{Q}$.
     \end{itemize}
+  \end{proof}
+  \begin{proof}
+    Zij $F,+,\cdot$ een veld van karakteristiek $0$ en zij $P,+,\cdot$ het priemdeelveld van $F,+,\cdot$.
+    $P$ omvat dan de priemdeelring van $F,+,\cdot$.
+    We weten al dat die priemdeelring isomorf is met $\mathbb{Z}$ volgens $\phi$.\stref{st:karakteristiek-isomorfisme-met-zn}
+    \[ \phi::\ \mathbb{Z} \Rightarrow F:\ z \mapsto (zi)\]
+    Vermits het beeld tot $P$ behoort, kunnen we $\phi$ ook als volgt bekijken:
+    \[ \mathbb{Z} \rightarrow P \]
+    Er bestaat dan ook een ringmorfisme $\phi'$ zodat $\phi$ factoriseert als $\phi' \circ i$ waarbij $i$ de inclusie is van $\mathbb{Z}$ in $\mathbb{Q}$. \eiref{ei:factorisatie-breukenveld}
+    \[ \phi': \mathbb{Q} \rightarrow P \]
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}
+        \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+        {
+          \mathbb{Z} & \mathbb{Q} \\
+          P & \\};
+        \path[-stealth]
+        (m-1-1) edge node [left] {$\phi$} (m-2-1)
+        edge node [above] {$i$} (m-1-2)
+        (m-1-2) edge node [right] {$\phi'$} (m-2-1);
+      \end{tikzpicture}
+    \end{figure}
+    Nu beeldt $\phi'$ $1$ af op het neutraal element van $P$.
+    $\phi'$ is dus een veldmorfisme.
+    OMdat $\phi'$ ook injectief is, is het beeld van $\mathbb{Q}$ onder $\phi'$ een deelveld van $P,+,\cdot$ en van $F,+,\cdot$.
+    $P$ is echter het priemdeelveld van $F$, dus $\phi'$ moet ook surjectief zijn en bijgevolg een isomorfisme.
   \end{proof}
 \end{st}
 
@@ -307,8 +334,15 @@
 \end{de}
 
 \begin{st}
+  \label{st:veldmorfisme-is-injectief}
   Een veldmorfisme is steeds injectief.
+\extra{bewijs}
 \end{st}
+
+
+\begin{opm}
+  We zullen daarom een veld vaak identificeren met zijn beeld onder een veldmorfisme.
+\end{opm}
 
 \section{Velduitbreidingen: basisbegrippen}
 \label{sec:veld-basisb}
@@ -318,10 +352,12 @@
   Men noemt $E,+,\cdot$ een \term{velduitbreiding} of \term{uitbreiding} van $F$.
 \end{de}
 
-\begin{de}
+\begin{st}
   Zij $F,+,\cdot$ een deelveld van een veld $E,+,\cdot$.
   $E$ is een vectorruimte over $F$.
-\end{de}
+  
+\extra{bewijs}
+\end{st}
 
 \begin{de}
   Zij $F,+,\cdot$ een deelveld van een veld $E,+,\cdot$.
@@ -338,20 +374,45 @@
 
 \begin{st}
   Het aantal elementen van een eindig veld is een macht van een priemgetal.
-\TODO{bewijs p 78}
+
+  \begin{proof}
+    Zij $F,+,\cdot$ eeneindig veld, dan moet het priemdeelveld $P,+,\cdot$ van $F,+,\cdot$ isomorf zijn met een $\mathbb{Z}_{p}$ waarbij $p$ een priemgetal is.
+    $F$ is een noodzakelijk eindigdimensionale vectorruimte over $P$.
+    Noem de uitbreidingsgraad van $F,+,\cdot$ over $P,+,\cdot$ $n$.
+    \[ |F| = |P|^{n} = p^{n} \]
+\clarify{hoe komen we aan dit laatste??}
+  \end{proof}
 \end{st}
 
 \begin{st}
+  \examen
   De \term{fundamentele stelling van de veldentheorie}\\
   Zij $K,+,\cdot$ een veld en $f$ een niet-constante veelterm in $K[X]$, dan bestaat er een uitbreiding $E$ van $K$ zodat $f$ een wortel heeft in $E$.
-\TODO{bewijs p 79}
+
+  \begin{proof}
+    Kies een irreducibele factor $p$ van $f$ in het UFD\stref{gev:veeltermen-over-veld-ufd} $K[X]$.
+    Beschouw nu de quoti\"entring $\nicefrac{K[X]}{(p)}$.
+    We beweren dat $p$ een wortel zal hebben $\nicefrac{K[X]}{(p)}$.
+    \begin{itemize}
+    \item $\nicefrac{K[X]}{(p)}$ is een veld omdat $p$ irreducibel is\gevref{gev:veld-door-hoofdideaal-van-irreducibele-veelterm-veld} en $(p)$ daarom een maximaal ideaal\stref{st:hoofdidiaal-van-irreducibele-veelterm-maximaal} in het HID\stref{st:veeltermen-over-veld-hid} $K[X]$.
+    \item De afbeelding $f$ is een veldmorfisme en bijgevolg injectief.\stref{st:veldmorfisme-is-injectief}
+      \[ f:\ K \rightarrow \nicefrac{K[X]}{(p)}:\ a \mapsto \bar{a} \]
+      We identificeren daarom $K$ met het deelveld $\{ \bar{a} \mid a\in K \}$ van $\nicefrac{K[X]}{(p)}$.
+      We beschouwen $\nicefrac{K[X]}{(p)}$ met andere woorden als een uitbreiding van $K$.
+    \item $\bar{X}$ is nu een wortel van $p$ in $\nicefrac{K[X]}{(p)}$.
+      \[ p(\bar{X}) = \sum_{i}\overline{a_{i}}(\overline{X})^{i}= \overline{\sum_{i}a_{i}X^{i}} = \bar{p} = \bar{e_{K}} \]
+      Merk op dat we de identificatie gebruiken.
+      We beschouwen $p\in K[X]$ als $p = \sum_{i}\bar{a_{i}}X^{i}$.
+    \end{itemize}
+\clarify{meer uitleg nodig!}
+  \end{proof}
 \end{st}
 
 \begin{opm}
   Deze stelling geldt ook voor integriteitsdomeinen
-\extra{bewijs}
+\extra{bewijs: elk domein kan worden uitgebreid tot een breukenveld}
   maar niet voor algemene commutatieve ringen met eenheidselement.
-\extra{voorbeeld}
+\extra{voorbeeld p 79}
 \end{opm}
 
 \begin{st}
@@ -359,7 +420,22 @@
   Zij $F,+,\cdot$, $L,+,\cdot$ en $E,+,\cdot$ velden waarbij $L,+,\cdot$ een uitbreiding is van $F,+,\cdot$ en $E,+,\cdot$ een uitbreiding is van $L,+,\cdot$.
   Als zowel $[L:F]$ als $[E:L]$ eindig zijn, geldt het volgende:
   \[ [E:F] = [E:L] \cdot [L:F]\]
-\TODO{bewijs p 79}
+
+  \begin{proof}
+    Kies een basis $\alpha = \{ u_{1},\dotsc,u_{n}\}$ van $E$ als vectorruimte over $L$ en een basis $\beta = \{ v_{1},\dotsc,v_{m}\}$.
+    We zullen aantonen dat $\gamma = \{ u_{i}\cdot v_{i} \mid i\in \{1,\dotsc,n\}, j \in \{1,dotsc,m\} \}$ een basis vormt voor $E$ als vectorruimte over $F$.
+  \begin{itemize}
+  \item $\gamma$ is vrij.\\
+    Stel dat $\gamma$ niet vrij zou zijn, dan bestaan er co\"efficienten $a_{ij}\in L$ als volgt:
+    \[ \sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij}u_{i}\cdot v_{j} = e_{F} \]
+    Omdat $E,+,\cdot$ een veld is kunnen we dit herschrijven als volgt:
+    \[ \sum_{i=1}^{m}\left(\sum_{j=1}^{n}(a_{ij}v_{i})\right)\cdot u_{j} = e_{F} \]
+    Omdat $\alpha$ linear onafhankelijk is moeten de co\"efficienten $\sum_{j=1}^{m}a_{ij}v_{i}$ elk het nulelement zijn.
+    Omdat $\beta$ lineair afankelijk is moeten ook nog eens alle $a_{ij}$ dan het nulelement zijn.
+  \item $\gamma$ is voortbrengend.\\
+\extra{bewijs}
+  \end{itemize}
+\end{proof}
 \end{st}
 
 \subsection{Algebraische en transcendente elementen}
@@ -371,6 +447,15 @@
   Anders noemen we $u$ \term{transcendent}.
 \end{de}
 
+\begin{st}
+  Elk element van een veld $F,+,\cdot$ is transcendent over $F,+,\cdot$.
+  \extra{bewijs}
+\end{st}
+
+\begin{st}
+  Elk element van de vorm $\sqrt[n]{q}$ met $n\in \mathbb{N}_{0}$ en $q\in \mathbb{Q}^{+}$ is algebra\"isch over $\mathbb{Q}$.
+  \extra{bewijs}
+\end{st}
 
 \subsection{Enkelvoudige uitbreidingen}
 \label{sec:enkelv-uitbr}
@@ -382,16 +467,20 @@
   Dit is dus het ``kleinste deelveld van $E$ dat $F$ en $u$ omvat''.
 \end{de}
 
+\begin{opm}
+  $F(X)$ kunnen we dan zien als de verzameling van rationale veeltermen over $F,+,\cdot$.
+\end{opm}
+
 \begin{ei}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
   Zij $u\in E$ een element van $E$.
   \[
-  f(u) = 
+  F(u) = 
   \left\{
       \frac
         {a_{r}u^{r} + \dotsb + a_{1} u + a_{0}}
         {b_{s}u^{s} + \dotsb + b_{1} u + b_{0}}
-  \ |\ r,s \in \mathbb{N},\ a_{i},b_{i} \in F
+  \mid r,s \in \mathbb{N},\ a_{i},b_{i} \in F
   \right\}
   \]
   In bovenstaande formule mogen natuurijk niet alle $b_{i}$ het nulelement zijn.
@@ -405,11 +494,21 @@
 \end{de}
 
 \begin{pr}
-  De minimale veelterm is uniek bepaald op een constante factor (verschillend van nul) na.
-\TODO{bewijs p 82}
+  \label{pr:minimale-veelterm-uniek}
+  Zi $F,+,\cdot$ een $E$-vectorruimte en $u$ algebra\"isch over $F$.
+  De minimale veelterm van $u$ over $v$ is uniek bepaald op een constante factor (verschillend van het nulelement) na.
+
+  \begin{proof}
+    Beschouw $J$:
+    \[ J = \{ g\in F[X] \mid g(u) = 0 \} \]
+    $J$ is een ideaal van $F[X],+,\cdot$.
+    Omdat $u$ algebra\"isch is over $F,+,\cdot$ bevat $g$ meer dan enkel het nulelement.
+    De voortbrengers van een niet-triviaal-ideaal in een veeltermenring zijn precies de minimale veeltermen \lemref{lem:minimale-veelterm-brengt-ideaal-voort} en deze zijn allemaal gelijk op een constante factor na.\stref{st:minimale-veeltermen-bijna-uniek}
+  \end{proof}
 \end{pr}
 
 \begin{ei}
+  \label{ei:minimale-veelterm-uniek-en-irreducibel}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
   Zij $u$ een element van $E$, algebra\"isch over $F,+,\cdot$.
   Zij $f$ een minimale veelterm van $u$ over $F,+,\cdot$.
@@ -417,7 +516,15 @@
   \item Als $g \in F[X]$ ook een veelterm is over $F,+,\cdot$ met waarde nul in $u$, dan is $f$ een deler van $g$.
   \item $f$ is irreducibel in $F[X]$.
   \end{itemize}
-\TODO{bewijs p 82}
+
+  \begin{proof}
+    \begin{itemize}
+    \item Inderdaad\prref{pr:minimale-veelterm-uniek}
+    \item Stel dat $f$ reducibel zou zijn in $F[X]$, dan bestaan er veeltermen $g$ en $h$ over $F,+,\cdot$ van lagere graad zodat $f$ als volgt geschreven kan worden:
+      \[ f = gh \]
+      Omdat $u$ een nulpunt is van $f$ moet $u$ een nulpunt zijjn van $g$ of $h$, maar dat is in tegenspraak met de minimaliteit van $gr(f)$.
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{ei}
@@ -425,7 +532,12 @@
   Zij $u\in E$ een element van $E$.
   Zij $f\in F[X]$ een veelterm over $F[X]$ is met waarde nul in $u$.
   \[ f \text{ is irreducibel } \Rightarrow f \text{ is de minimale veelterm van } u \text{ over } F,+,\cdot \]
-\extra{bewijs}
+
+  \begin{proof}
+    Bewijs via contrapositie:
+    Stel dat $f$ niet de minimale veelterm is van $u$, maar $p$, is $p$ deelbaar door $f$\eiref{ei:minimale-veelterm-uniek-en-irreducibel}. En bestaat dan dus een veelterm $q$ zodat $f=gq$ geldt.
+    Bijgevolg is $f$ reducibel.
+  \end{proof}
 \end{ei}
 
 \begin{st}
@@ -433,9 +545,27 @@
   Zij $u\in E$ een element van $E$, transcendent over $F,+,\cdot$.
   \begin{itemize}
   \item $F(u) \cong F(X)$
-  \item $[F(u):F]$ is oneindig.
+  \item $[F(u):F]$ is niet eindig.
   \end{itemize}
-\TODO{bewijs p 83}
+
+  \begin{proof}
+    \begin{itemize}
+    \item Beschouw het substitutie-ringmorfisme $\phi$:
+      \[ \phi:\ F[X] \rightarrow F(u):\ g \mapsto g(u) \]
+      $u$ is transcendent als en slechts als $\phi$ injectief
+      is.\waarom Omdat $\phi$ injectief is, kunnen we $\phi$
+      uitbreiden tot een, nog steeds injectied, ringmorfisme $\phi'$.
+      \[ \phi':\ F(X) \rightarrow F(u):\ \frac{g}{h} \mapsto
+      \frac{g(u)}{h(u)} \]
+      $\phi'(F(X))$ omvat nu duidelijk $F$ en $u$. \waarom Bovendien
+      is veld omdat $\phi'$ injectief is. \waarom We besluiten dat
+      $\phi'(F(X))$ een deelveld is van $F(u)$ dat $F$ en $u$ omvat
+      \clarify{reken uit} $\phi'$ is nu ook surjectief en dus een
+      isomorfisme \waarom \clarify{veel meer uitleg nodig!}
+    \item De dimensie van $F[X]$ is niet eindig, dus de dimensie van $F(X)$ zeker niet.
+      Er bestaat bovendien een bijectie van $F[X]$ naar $F(X)$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -447,7 +577,34 @@
   \item De volgende verzameling vormt een basis van $F(u)$ over $F$.
   \[ \{ i,u,u^{2},\dotsc u^{deg(f)-1} \}\]
   \end{itemize}
-\TODO{bewijs p 83}
+
+  \begin{proof}
+    \begin{itemize}
+    \item Beschouw opnieuw het substitutie-ringmorfisme $\phi$:
+      \[ \phi:\ F[X] \rightarrow F(u):\ g \mapsto g(u) \]
+      De kern van $\phi$ is nu het (hoofd\stref{st:veeltermen-over-veld-hid})ideaal van $F[X]$ voortgebracht door $f$.\prref{pr:minimale-veelterm-uniek}
+      Dit betekent precies dat $\phi(F[X])$ isomorf is met $\nicefrac{F[X]}{(f)}$.\gevref{gev:eerste-ringmorfismestelling}
+      Omdat $f$ irreducibel is, is $(f)$ ene makimaal in $F[X]$ en $\frac{F[X]}{(f)}$ bijgevolg een veld.
+      $\phi(F[X])$ is dan een deelveld van $F(u)$ dat $F$ en $u$ omvat en bijgevolg is $\phi(F[X])$ gelijk aan $F(u)$.
+    \item Vanwege het volgende isomofirme is het voldoende om te bewijzen dat de verzameling $\{ i,u,u^{2},\dotsc u^{deg(f)-1} \}$ een basis vormt van $\nicefrac{F[X]}{(f)}$ als vectorruimte over $F$.
+      \[ \nicefrac{F[X]}{(f)} \rightarrow F(u): \bar{g} \mapsto g(u) \]
+      \begin{itemize}
+      \item Voortbrengend\\
+        Kies een willekeurig element $\bar{g}$ uit $\nicefrac{F[X]}{(f)}$.
+        $g$ zit dus in $F[X]$.
+        Vanwege het delingsalgoritme in $F[X]$ kunnen we $g$ schrijven als $g=qf+r$ met $q$ en $r$ $\in F[X]$ en $gr(r) < gr(f)$.
+        We noteren verder $d=gr(f)$ en $r$ als volgt:
+        \[ r = \sum_{i=0}^{d-1}a_{i}X^{i} \]
+        Er geld dan het volgende:\waarom
+        \[ \bar{g} = \bar{q}\bar{f} + \bar{r} = \bar{r} = \overline{\sum_{i=0}^{d-1}a_{i}X^{i}} = \sum_{i=0}^{d-1}\bar{a}_{i}\bar{X}^{i} \]
+        $\{ i,u,u^{2},\dotsc u^{deg(f)-1} \}$ is dus inderdaad een voortbrengende verzameling over $F,+,\cdot$.
+        Merk op dat we hier de identificatie van $F$ met $\{ \bar{a}\mid a\in F\}$ gebruiken.
+      \item Vrij\\
+\extra{bewijs}
+      \end{itemize}
+      
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{gev}
@@ -455,6 +612,7 @@
   \[ u \text{ is algebra\"isch over } F \Leftrightarrow [F(u):F] \text{ is eindig } \]
   \extra{bewijs}
 \end{gev}
+\extra{vb p 84}
 
 \section{Algebra\"ische uitbreidingen en ontbindingsvelden}
 \label{sec:algebr-uitbr-en}

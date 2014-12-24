@@ -348,6 +348,7 @@
 \end{de}
 
 \begin{st}
+  \label{st:eindig-integriteitsdomein-is-veld}
   Een eindig integriteitsdomein is een veld.
 
   \begin{proof}
@@ -777,6 +778,7 @@
 \end{ei}
 
 \begin{ei}
+  \eiref{ei:factorisatie-breukenveld}
   Zij $F$ het breukenveld van een integriteitsdomein $R$ met inbedding $i: R \rightarrow F$.
   Er bestaat voor elk injectief ringmorfisme $f: R \rightarrow K$ met $K$ een veld een uniek ringmorfisme $f': F \rightarrow K$ zodat $f = f' \circ i$ geldt.
   \zb
@@ -1160,6 +1162,7 @@
 \end{st}
 
 \begin{gev}
+  \label{gev:eerste-ringmorfismestelling}
   De \term{morfismestelling} of \term{eerste isomorfismestellng}\\
   Zij $\phi:\ R \rightarrow S$ een ringmorfisme, dan is $\phi$ een injectief ringmorfisme.
   \[ \bar{\phi}: R/Ker(\phi) \rightarrow S:\ xKer(\phi) \mapsto \phi(x) \]
@@ -2114,6 +2117,15 @@
 \end{lem}
 
 \begin{st}
+  \label{st:minimale-veeltermen-bijna-uniek}
+  Zij $F,+,\cdot$ een veld met nulelement $e$ en $I \neq \{e\}$ een ideaal in $F[X]$.
+  Als twee elementen $g$ en $g'$ van $F$ voortbrengers zijn van $I,+,\cdot$, dan bestaat er een (eenheid?) $c\in F^{\times}$ zodat $g'=cg$ geldt.
+\extra{bewijs}
+\end{st}
+
+
+\begin{st}
+  \label{st:veeltermen-over-veld-hid}
   Zij $F,+,\cdot$ een veld, dan is $F[X]$ een HID.
 
   \begin{proof}
@@ -2126,12 +2138,7 @@
 \end{st}
 
 \begin{st}
-  Zij $F,+,\cdot$ een veld met nulelement $e$ en $I \neq \{e\}$ een ideaal in $F[X]$.
-  Als twee elementen $g$ en $g'$ van $F$ voortbrengers zijn van $I,+,\cdot$, dan bestaat er een (eenheid?) $c\in F^{\times}$ zodat $g'=cg$ geldt.
-\extra{bewijs}
-\end{st}
-
-\begin{st}
+  \label{st:hoofdidiaal-van-irreducibele-veelterm-maximaal}
   Zij $R,+,\cdot$ een hoofdideaaldomein en $p\in R_{e}$, dan is $(p)$ een maximaal ideaal als en slechts als $p$ irreducibel is.
 
   \begin{proof}
@@ -2157,6 +2164,7 @@
 \end{st}
 
 \begin{gev}
+  \label{gev:veld-door-hoofdideaal-van-irreducibele-veelterm-veld}
   Zij $F,+,\cdot$ een veld en $p$ een irreducibele veelterm $F[X]$, dan is $F[X]/(p)$ een veld.
 \extra{bewijs}
 \end{gev}
@@ -2328,6 +2336,7 @@
 \end{st}
 
 \begin{gev}
+  \label{gev:veeltermen-over-veld-ufd}
   Zij $F$ een veld, dan is $F[X]$ een UFD.
 \extra{bewijs}
 \end{gev}
