@@ -3,7 +3,6 @@
 \chapter{Velden}
 \label{cha:velden}
 
-\TODO{morfismen van velden, zie toledo}
 \section{Karakteristiek van een ring}
 \label{sec:karakt-van-een}
 
@@ -306,7 +305,7 @@
     \end{figure}
     Nu beeldt $\phi'$ $1$ af op het neutraal element van $P$.
     $\phi'$ is dus een veldmorfisme.
-    OMdat $\phi'$ ook injectief is, is het beeld van $\mathbb{Q}$ onder $\phi'$ een deelveld van $P,+,\cdot$ en van $F,+,\cdot$.
+    Omdat $\phi'$ ook injectief is, is het beeld van $\mathbb{Q}$ onder $\phi'$ een deelveld van $P,+,\cdot$ en van $F,+,\cdot$.
     $P$ is echter het priemdeelveld van $F$, dus $\phi'$ moet ook surjectief zijn en bijgevolg een isomorfisme.
   \end{proof}
 \end{st}
@@ -335,10 +334,10 @@
 
 \begin{st}
   \label{st:veldmorfisme-is-injectief}
-  Een veldmorfisme is steeds injectief.
+  Een veldmorfisme $\phi: F \rightarrow E$ is steeds injectief.
+  In het bijzonder is $\phi(F)$ een deelveld van $E$ dat isomorf is met $F$.
 \extra{bewijs}
 \end{st}
-
 
 \begin{opm}
   We zullen daarom een veld vaak identificeren met zijn beeld onder een veldmorfisme.
@@ -360,6 +359,7 @@
 \end{st}
 
 \begin{de}
+  \label{de:uitbreidingsgraad}
   Zij $F,+,\cdot$ een deelveld van een veld $E,+,\cdot$.
   De \term{uitbreidingsgraad} of \term{graad} $[E:F]$ van $E$ over $F$ is de dimensie van $E$ als $F$-vectorruimte.
 \end{de}
@@ -443,7 +443,7 @@
 
 \begin{de}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
-  Een element $u\in E$ is \term{algebra\"isch} over $F,+,\cdot$ als er een veelterm $f\in F[X], f\neq 0$ bestaat zodat $u$ een wortel is van $f$.
+  Een element $u\in E$ is \term{algebra\"isch} over $F,+,\cdot$ als er een niet-nul-veelterm $f\in F[X]$ bestaat zodat $u$ een wortel is van $f$.
   Anders noemen we $u$ \term{transcendent}.
 \end{de}
 
@@ -467,10 +467,6 @@
   Dit is dus het ``kleinste deelveld van $E$ dat $F$ en $u$ omvat''.
 \end{de}
 
-\begin{opm}
-  $F(X)$ kunnen we dan zien als de verzameling van rationale veeltermen over $F,+,\cdot$.
-\end{opm}
-
 \begin{ei}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
   Zij $u\in E$ een element van $E$.
@@ -486,6 +482,10 @@
   In bovenstaande formule mogen natuurijk niet alle $b_{i}$ het nulelement zijn.
 \extra{bewijs}
 \end{ei}
+
+\begin{opm}
+  $F(X)$ kunnen we dan zien als de verzameling van rationale veeltermen over $F,+,\cdot$.
+\end{opm}
 
 \begin{de}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
@@ -541,6 +541,7 @@
 \end{ei}
 
 \begin{st}
+  \label{st:uitbreiding-van-transcendente-u-aan-veld-graad-oneindig}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
   Zij $u\in E$ een element van $E$, transcendent over $F,+,\cdot$.
   \begin{itemize}
@@ -552,25 +553,31 @@
     \begin{itemize}
     \item Beschouw het substitutie-ringmorfisme $\phi$:
       \[ \phi:\ F[X] \rightarrow F(u):\ g \mapsto g(u) \]
-      $u$ is transcendent als en slechts als $\phi$ injectief
-      is.\waarom Omdat $\phi$ injectief is, kunnen we $\phi$
-      uitbreiden tot een, nog steeds injectied, ringmorfisme $\phi'$.
-      \[ \phi':\ F(X) \rightarrow F(u):\ \frac{g}{h} \mapsto
-      \frac{g(u)}{h(u)} \]
-      $\phi'(F(X))$ omvat nu duidelijk $F$ en $u$. \waarom Bovendien
-      is veld omdat $\phi'$ injectief is. \waarom We besluiten dat
-      $\phi'(F(X))$ een deelveld is van $F(u)$ dat $F$ en $u$ omvat
-      \clarify{reken uit} $\phi'$ is nu ook surjectief en dus een
-      isomorfisme \waarom \clarify{veel meer uitleg nodig!}
+      $u$ is transcendent als en slechts als enkel de nulveelterm op het nelelement wordt afgebeeld.
+      Dit is precies wanneer $\phi$ injectief is.\eiref{ei:ringmorfisme-injectief-asa-kern-nul}
+      Omdat $\phi$ injectief is, kunnen we $\phi$
+      uitbreiden tot een, nog steeds injectief, ringmorfisme $\phi'$.
+      \[ \phi':\ F(X) \rightarrow F(u):\ \frac{g}{h} \mapsto \frac{g(u)}{h(u)} \]
+      Kies immers twee elementen die op hetzelfde element uit $F(u)$ worden afgebeeldt onder $\phi'$.
+      Die elementen moeten dan hetzelfde zijn (, maar enkel omdat $\phi$ al injectief is).
+      \[ \forall g,h,i,j \in F(u): \frac{g(u)}{h(u)} = \frac{i(u)}{j(u)} \Rightarrow \frac{g}{h} = \frac{i}{j} \]
+      $\phi'(F(X))$ omvat nu duidelijk zowel $F$ als $u$.
+      \[ \phi'(X) = u \quad\text{ en }\quad F \subseteq \phi'(F(X)) \]
+      Bovendien $\phi'F(X)$ is veld omdat $\phi'$ injectief is.\stref{st:veldmorfisme-injectief}
+      We besluiten dat $\phi'(F(X))$ een deelveld is van $F(u)$ dat $F$ en $u$ omvat.
+      \[ \phi'(F(X)) = F(u) \]
+      $\phi'$ is nu ook surjectief en dus een isomorfisme.
+      Dit betekent precies dat $F(u)$ isomorf is met $F(X)$.
     \item De dimensie van $F[X]$ is niet eindig, dus de dimensie van $F(X)$ zeker niet.
-      Er bestaat bovendien een bijectie van $F[X]$ naar $F(X)$.
+      Er bestaat bovendien een bijectie van $F[X]$ naar $F(X)$ (zie hierboven).
     \end{itemize}
   \end{proof}
 \end{st}
 
 \begin{st}
+  \label{st:uitbreiding-van-algebraische-u-aan-veld-graad-minimale-veelterm}
   Zij $F,+,\cdot$ een veld met eenheidselement $i$ en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
-  Zij $u\in E$ een element van $E$, transcendent over $F,+,\cdot$ en $f$ een minimale veelterm van $u$ over $F,+,\cdot$.
+  Zij $u\in E$ een element van $E$, algebra\"isch over $F,+,\cdot$ en $f$ een minimale veelterm van $u$ over $F,+,\cdot$.
   \begin{itemize}
   \item $F(u) \cong F(X)/(f)$
   \item $[F(u):F] = deg(f)$
@@ -579,19 +586,22 @@
   \end{itemize}
 
   \begin{proof}
+    Ingewikkeld, let op!
     \begin{itemize}
     \item Beschouw opnieuw het substitutie-ringmorfisme $\phi$:
       \[ \phi:\ F[X] \rightarrow F(u):\ g \mapsto g(u) \]
       De kern van $\phi$ is nu het (hoofd\stref{st:veeltermen-over-veld-hid})ideaal van $F[X]$ voortgebracht door $f$.\prref{pr:minimale-veelterm-uniek}
       Dit betekent precies dat $\phi(F[X])$ isomorf is met $\nicefrac{F[X]}{(f)}$.\gevref{gev:eerste-ringmorfismestelling}
-      Omdat $f$ irreducibel is, is $(f)$ ene makimaal in $F[X]$ en $\frac{F[X]}{(f)}$ bijgevolg een veld.
-      $\phi(F[X])$ is dan een deelveld van $F(u)$ dat $F$ en $u$ omvat en bijgevolg is $\phi(F[X])$ gelijk aan $F(u)$.
-    \item Vanwege het volgende isomofirme is het voldoende om te bewijzen dat de verzameling $\{ i,u,u^{2},\dotsc u^{deg(f)-1} \}$ een basis vormt van $\nicefrac{F[X]}{(f)}$ als vectorruimte over $F$.
-      \[ \nicefrac{F[X]}{(f)} \rightarrow F(u): \bar{g} \mapsto g(u) \]
+      \[ \phi(F[X]) \cong \nicefrac{F[X]}{(f)} \]
+      Omdat $f$ irreducibel is, is $(f)$ een maximaal ideaal in $F[X]$\stref{st:hoofdidiaal-van-irreducibele-veelterm-maximaal} en $\frac{F[X]}{(f)}$ bijgevolg een veld.\gevref{gev:veld-door-hoofdideaal-van-irreducibele-veelterm-veld}
+      $\phi(F[X])$ is dan een deelveld van $F(u)$\stref{st:veldmorfisme-is-injectief} dat $F$ en $u$ omvat en bijgevolg is $\phi(F[X])$ gelijk aan $F(u)$.
+    \item Vanwege het isomofirme tussen $\nicefrac{F[X]}{(f)}$ en $\phi(F[X]) = F(u)$ is het voldoende om te bewijzen dat de verzameling $\{ i,u,u^{2},\dotsc u^{deg(f)-1} \}$ een basis vormt van $\nicefrac{F[X]}{(f)}$ als vectorruimte over $F$.
+      Er geldt dan het volgende\deref{de:uitbreidingsgraad}:
+      \[ [F(u):F] = deg(f) \]
       \begin{itemize}
       \item Voortbrengend\\
         Kies een willekeurig element $\bar{g}$ uit $\nicefrac{F[X]}{(f)}$.
-        $g$ zit dus in $F[X]$.
+        $g$ zit dan in $F[X]$.
         Vanwege het delingsalgoritme in $F[X]$ kunnen we $g$ schrijven als $g=qf+r$ met $q$ en $r$ $\in F[X]$ en $gr(r) < gr(f)$.
         We noteren verder $d=gr(f)$ en $r$ als volgt:
         \[ r = \sum_{i=0}^{d-1}a_{i}X^{i} \]
@@ -602,7 +612,6 @@
       \item Vrij\\
 \extra{bewijs}
       \end{itemize}
-      
     \end{itemize}
   \end{proof}
 \end{st}
@@ -610,9 +619,11 @@
 \begin{gev}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
   \[ u \text{ is algebra\"isch over } F \Leftrightarrow [F(u):F] \text{ is eindig } \]
-  \extra{bewijs}
+
+  \begin{proof}
+    Dit is een combinatie van de vorige twee stellingen.\stref{st:uitbreiding-van-transcendente-u-aan-veld-graad-oneindig} \stref{st:uitbreiding-van-algebraische-u-aan-veld-graad-minimale-veelterm}
+  \end{proof}
 \end{gev}
-\extra{vb p 84}
 
 \section{Algebra\"ische uitbreidingen en ontbindingsvelden}
 \label{sec:algebr-uitbr-en}

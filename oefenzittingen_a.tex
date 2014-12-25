@@ -710,7 +710,7 @@ Zij $G,*$ een eindige groep en $p$ een priemgetal dat de orde van $|G|$ deelt, b
 \TODO{hoeveel ringmorfismen $f: \mathbb{Z} \rightarrow \mathbb{R}$ zijn er die $1$ op $1$ afbeelden?}
 \TODO{bewijs de deelbaarheidstesten door $9$ en $11$ uit de lagere school. p 48}
 
-\section{Oefenzitting 5: Basisbegrippen}
+\section{Oefenzitting 6: Basisbegrippen}
 
 \subsection*{Oefening 1}
 Gegeven een verzameling $U$.
@@ -757,16 +757,8 @@ Bewijs dat $R,+,\cdot$ een commutatieve ring is en het volgende:
   \]
 \end{proof}
 
-\section{Oefenzitting 6: Idealen}
-\question{geen echte oefeningen?}
 
-
-
-\subsection{Oefening U}
-bewijs dat $I=\{  \begin{pmatrix}    a & b\\c & d  \end{pmatrix} \ |\ a,b,c,d \in 2\mathbb{Z}\}$ een ideaal is van $M^{2\times 2}(\mathbb{Z})$. Hoeveel elementen heeft $\nicefrac{M^{2\times 2}(\mathbb{Z})}{I}$?
-\extra{oefening}
-
-\subsection*{Oefening X}
+\subsection*{Oefening 3}
 Zij $R$ een deelverzameling van $\mathbb{Q}$ als volgt:
 \[ R = \left\{ \frac{a}{b} \ |\ a,b \in \mathbb{Z} \text{ en } b \text{ oneven } \right\} \]
 \begin{itemize}
@@ -777,6 +769,12 @@ Zij $R$ een deelverzameling van $\mathbb{Q}$ als volgt:
 \item Neem een ideaal $I \neq \{0\}$ van $R,+,\cdot$ en bewijs dat $I$ voortgebracht wordt door $2^{m}$ waarbij $m$ het kleinste getal is waarvoor $2^{m}$ in $I$ zit.
 \item Besluit dat $R,+,\cdot$ een HID is.
 \end{itemize}
+\extra{oefening}
+
+\section{Oefenzitting 6: Idealen}
+
+\subsection{Oefening 1}
+bewijs dat $I=\{  \begin{pmatrix}    a & b\\c & d  \end{pmatrix} \ |\ a,b,c,d \in 2\mathbb{Z}\}$ een ideaal is van $M^{2\times 2}(\mathbb{Z})$. Hoeveel elementen heeft $\nicefrac{M^{2\times 2}(\mathbb{Z})}{I}$?
 \extra{oefening}
 
 \section{Oefenzitting 7: Quotientringen}
@@ -801,35 +799,142 @@ Zij $R = \nicefrac{\mathbb{Q}[X]}{I}$ met $I=(X^{2}+X+1)$.
   Wat is het invers van $X+I$ voor de vermenigvuldiging in $R,+,\cdot$?
 \end{itemize}
 
-Voor de duidelijkheid:
-\[
-\nicefrac{\mathbb{Q}[X]}{I} =
-\left\{
-  x + 
-  (X^{2}+X+1)
-  \ |\ a \in \mathbb{Q}[X]
-\right\}
-\ \text{ en }\ 
-(X^{2}+X+1) = \left\{ r \cdot (X^{2}+X+1) \ |\ r \in \mathbb{Q}[X] \right\}
-\]
+Merk allereerst op dat $\mathbb{Q}$ een veld is\vbref{vb:q}.
+Merk dan op dat er eenvoudige manier bestaat om na te kijken of twee veeltermen in dezelfde restklasse zitten.
+\[ \forall f,g \in \nicefrac{\mathbb{Q[X]}}{I}: f+I = g+I \Leftrightarrow f=g + r \cdot (X^{2}+X+1) \]
+Dit betekent dat als we $f-g$ `delen' door $X^{2}+X+1$, en als rest $0$ krijgen, $f$ en $g$ in dezelfde restklasse zitten.
 \begin{itemize}
+\item 
+  Om deze beweringen na te kijken moeten we het delings
+  \begin{itemize}
+  \item $-2X^{2} - (2X^{3}+2X) = -2X^{3}-2X^{2}-2X$
+    \[
+    \begin{array}{ccc|l}
+      -2X^{3} & -2X^{2} & -2X & X^{2}+X+1\\ \hline
+      -2X^{3} & -2X^{2} & -2X & -2X \\\cline{1-3}
+      &        &  0  & \\ 
+    \end{array}
+    \]
+    Deze bewering geldt.
+  \item $3+I$ en $X+I$ zijn niet gelijk. $\bar{3} = 3+I \neq X+I = \bar{X}$.
+  \item $X^{3}+2X^{2} - (3X+2) = X^{3} +2X^{2}-3X - 2$
+    \[
+    \begin{array}{cccc|l}
+      X^{3} & +2X^{2} & -3X & -2 & X^{2}+X+1\\ \hline
+      X^{3} & +X^{2} & + X & \vdots & X +1 \\\cline{1-3}
+      & +X^{2} & -4X & -2 & \\
+      & +X^{2} & + X & +1 & \\\cline{2-4}
+      &       & -5X & -3 
+    \end{array}
+    \]
+    De rest is hier niet nul, dus de bewering geldt niet.
+
+  \end{itemize}
+\item De nevenklasse van de rest bij deling door $X^{2}+X+1$ moet gelijk zijn aan de nevenklasse van $f$, en de rest moet van graad $1$ of lager zijn.
 \item
-  \[ -2X^{2}+I = \left\{ -2X^{2} + (r \cdot (X^{2}+X+1)) \ |\ r \in \mathbb{Q}[X] \right\}\]
+  \begin{itemize}
+  \item $(X+I)+(X^{2}+I) = (X^{2}+X)+I = -1 +I$
+    \[
+    \begin{array}{ccc|l}
+      X^{2} & +X &    & X^{2}+X+1\\ \hline
+      X^{2} & +X & +1 & 1 \\\cline{1-3}
+      &    & -1
+    \end{array}
+    \]
+  \item $(X+3+I)\cdot (X+1+I) = (X^{3}+3X^{2}+X+3+I) = (-2X+1)+I$
+    \[ 
+    \begin{array}{cccc|l}
+      X^{3} & +3X^{2} & +X & +3 & X^{2}+X+1\\ \hline
+      X^{3} & + X^{2} & +X & \vdots & X \\\cline{1-3}
+      & +2X^{2} &    & +3 & \\
+      & +2X^{2} & +2X & +2 & \\\cline{2-4}
+      &         & -2X & +1 & \\
+    \end{array}
+    \]
+  \end{itemize}
+\item We weten nu al dat het invers van $X+I$ er uitziet als $aX+b +I$ met $a$ en $b$ in $\mathbb{Q}$.
+  \[ (X+I) \cdot (aX+b+I) = 1+X \]
+  \[ X\cdot(aX+b) = aX^{2} +bX \]
+  De rest bij deling van $aX^{2} +bX$ door $X^{2}+X+1$ moet dus $1$ zijn.
+  \[
+  \begin{array}{ccc|l}
+    aX^{2} & +bX & & X^{2}+X+1\\\hline
+    aX^{2} & +aX & +a & a \\\cline{1-3}
+          & (b-a)X & -a &  \\ 
+  \end{array}
+  \]
+  Dit betekent dat $(b-a)$ nul moet zijn en $a$ $-1$.
+  De inverse van $X+I$ is dus $-X-1+I$.\\
+  Inderdaad: $X\cdot(-X+1) = -X^{2}-X$
+  \[
+  \begin{array}{ccc|l}
+    -X^{2} & -X & & X^{2}+X+1\\\hline
+    -X^{2} & -X & -1 & -1\\\cline{1-3}
+          &    &  1 & 
+  \end{array}
+  \]
 \end{itemize}
-\question{hoe??}
 
 \subsection*{Oefening 2}
 Bereken $\nicefrac{\mathbb{Z}[X]}{(2)}$.
-\[ \nicefrac{\mathbb{Z}[X]}{(2)} = \left\{ f + \left\{ (g \cdot 2)\ |\ g\in \mathbb{Z}[X] \right\} f \in \mathbb{Z}[X] \right\} \]
-\question{en nu?}
+\[ \nicefrac{\mathbb{Z}[X]}{(2)} = \left\{ f + \left\{ (g \cdot 2)\ |\ g\in \mathbb{Z}[X] \right\}, f \in \mathbb{Z}[X] \right\} \]
+Merk allereerst op dat dit de veeltermen over $\mathbb{Z}$ met even co\"efficienten zijn.
+We zoeken nu een ringmorfisme waarvan $(2)$ de kern is, dat begint in $\mathbb{Z}[X]$.
+Kies bijvoorbeeld $\phi$ voor dit morfisme:
+\[ \phi: \mathbb{Z}[X] \rightarrow \mathbb{Z}_{2}[X]:\ \sum_{i=0}^{n}a_{i}X^{i} \mapsto \sum_{i=0}^{n}(a_{i} \mod 2)X^{i} \]
+$(2)$ is inderdaad de kern van dit morfisme, dus geldt het volgende isomorfisme:\gevref{gev:eerste-ringmorfismestelling}
+\[ \nicefrac{\mathbb{Z}[X]}{(2)} \cong \mathbb{Z}_{2}[X] \]
+
 \subsection*{Oefening 3}
 Bereken $\nicefrac{\mathbb{Z}[X]}{(2,X)}$.
+\[ \nicefrac{\mathbb{Z}[X]}{(2,X)} = \left\{ f + \left\{ (g \cdot 2 + h \cdot X)\ |\ g,h\in \mathbb{Z}[X] \right\}, f \in \mathbb{Z}[X] \right\}\]
+Merk allereerst op dat dit de veeltermen zijn met een even constante term.
+We zoeken nu een ringmorfisme waarvan $(2,X)$ de kern is, dat begint in $\mathbb{Z}[X]$.
+Kies bijvoorbeeld $\phi$ voor dit morfisme:
+\[ \phi: \mathbb{Z}[X] \rightarrow \mathbb{Z}_{2}:\ \sum_{i=0}^{n}a_{i}X^{i} \mapsto (a_{0}\mod 2) \]
+$(2,X)$ is inderdaad de kern van dit morfisme, dus geldt het volgende isomorfisme:\gevref{gev:eerste-ringmorfismestelling}
+\[ \nicefrac{\mathbb{Z}[X]}{(2)} \cong \mathbb{Z}_{2} \]
 
 \subsection*{Oefening 4}
 Bereken $\nicefrac{\mathbb{Z}_{2}[X]}{(X^{2}+X+1)}$.
+\[ \nicefrac{\mathbb{Z}_{2}[X]}{(X^{2}+X+1)} =  \left\{ f + \left\{ (g \cdot (X^{2}+X+1))\ |\ g\in \mathbb{Z}_{2}[X] \right\}, f \in \mathbb{Z}_{2}[X] \right\} \]
+Dit zijn de binaire veeltermen zijn van graad $1$.
 
 \subsection*{Oefening 5}
 Bereken $\nicefrac{\mathbb{Z}[X,Y,Z]}{(X-Y,X^{3}-Z)}$.
+\noindent
+Dit is niet evident!
+We zoeken een ringmorfisme waarvan $(X-Y,X^{3}-Z)$ de kern is, dat begint in $\mathbb{Z}[X,Y,Z]$.
+\[ (X-Y,X^{3}-Z) = \{ f\cdot (X-Y) + g\cdot (X^{3}-Z) \mid f,g \in \mathbb{Z}[X,Y,Z] \}\]
+Nu vragen we ons daarom af wat er waar moet zijn over een veelterm in $X$, $Y$ en $Z$ opdat $f\cdot (X-Y) + g\cdot (X^{3}-Z)$ nul is.
+Wel, $f\cdot (X-Y)$ en $g \cdot (X^{3}-Z)$ moeten dan beide nul zijn.
+\[ f \cdot (X-Y) = 0 \Leftrightarrow X = Y \vee f = 0\]
+\[ g \cdot (X^{3}-Z) = 0 \Leftrightarrow X^{3} = Z \vee g = 0 \]
+Deze voorwaarden zijn equivalent met de volgende:
+\[ X = Y \wedge X^{3} = Z \]
+We zoeken dus een morfisme dat veeltermen die hieraan voldoen op nul afbeeldt.
+Beschouw bijvoorbeeld $\phi$:
+\[ \phi:\ \mathbb{Z}[X,Y,Z] \rightarrow \mathbb{Z}[X]:\ f(X,Y,Z) \mapsto f(X,X,X^{3}) \]
+We tonen nu aan dat $(X-Y,X^{3}-Z)$ inderdaad de kern is van $\phi$:
+\begin{itemize}
+\item $(X-Y,X^{3}-Z) \subseteq Ker(\phi)$\\
+  Elk element uit $(X-Y,X^{3}-Z)$ ziet er uit als $f(X,Y,Z)\cdot (X-Y) + g(X,Y,Z)\cdot (X^{3}-Z)$.
+  \[ \phi(f(X,Y,Z)\cdot (X-Y) + g(X,Y,Z)\cdot (X^{3}-Z)) = f(X,X,X^{3})\cdot (X-X) + g(X,X,X^{3})\cdot (X^{3}-X^{3}) = 0 \]
+\item $Ker(\phi) \subseteq(X-Y,X^{3}-Z) $\\
+  We moeten bewijzen dat elk element uit $Ker(\phi)$ eruit ziet als $f(X,Y,Z)\cdot (X-Y) + g(X,Y,Z)\cdot (X^{3}-Z)$.
+  Kies een willekeurige $h\in \mathbb{Z}[X,Y,Z]$.
+  We zullen eerst $h$ delen door $Z-X^{3}\neq 0$, de rest zal dan nog steeds in $Ker(\phi)$ zitten.
+  Noem de quotient van die deling $f$.
+  \[ h(X,Y,Z) = f(X,Y,Z)\cdot(X^{3}-Z) + r(X,Y) \]
+  Merk ook op dat de rest $r(X,Y)$ onafhankelijk is van $Z$:
+  \[ \mathbb{Z}[X,Y,Z] \cong (\mathbb{Z}[X,Y])[Z] \]
+  We delen daarna $r$ nog door $Y-X \neq 0$. Opnieuw zal de rest nog steeds in $Ker(\phi)$ zitten.
+  Noem de quotient van deze deling $g$.
+  \[ h(X,Y,Z) = f(X,Y,Z)\cdot (X^{3}-Z) + g(X,Y) \cdot (Y-X) + r'(X) \]
+  Merk nu op dat de rest $r'(X)$ onafhankelijk is van $Y$ en $Z$.
+  \[ \mathbb{Z}[X,Y,Z] \cong (\mathbb{Z}[X,Y])[Z] \]
+\clarify{hier moet meer uitleg bij!}
+\end{itemize}
 
 \subsection*{Oefening 6}
 Zij $R,+,\cdot$ een willekeurige ring met eenheidselement.

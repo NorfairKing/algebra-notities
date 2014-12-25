@@ -557,6 +557,7 @@
 \end{ei}
 
 \begin{ei}
+  \label{ei:ringmorfisme-injectief-asa-kern-nul}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
   Zij $e_{R}$ het nulelement van $R$ en $e_{S}$ het nulelement van $S$.
   $f$ is injectief als en slechts als $Ker(f) = \{e_{R}\}$.
@@ -982,7 +983,7 @@
 
 \begin{st}
   Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$.
-  Zij $u$ een eenheid in $R,+,\cdot$ en $I,+,\cdot$ een eenheid in $R,+,\cdot$.
+  Zij $u$ een eenheid in $R,+,\cdot$ en $I,+,\cdot$ een ideaal in $R,+,\cdot$.
   Als $u$ een element is in $I$, dan is $I$ gelijk aan $R$.
 
   \begin{proof}
@@ -1029,8 +1030,14 @@
   De doorsnede van alle idealen die $a$ omvatten is $(a)$.
 
   \begin{proof}
-    Inderdaad, voor elk ideaal $I$ dat $a$ omvat geldt het volgende;
-    \[ \forall r \in R: a\cdot r \in I \wedge r \cdot a \in I \]
+    Voor elk ideaal $I_{i},+,\cdot$ dat $a$ bevat geldt het volgende vanuit de definitie van een ideaal.
+    \[ \forall r\in R:\ r\cdot a \in I_{i}\]
+    Noem nu $I$ de doorsnede van al die $I_{i}$.
+    \[ I = \bigcap_{i}I_{i}\]
+    We weten dan dat $(a) = \{r \cdot a \ |\ r \in R \}$ een deelverzameling is van $I$, want $(a)$ is een deelverzameling van elke $I_{i}$.
+    We bewijzen tenslotte nog aan dat elk element uit $I$ ook in $(a)$ zit.
+    Stel immers dat er een $x$ bestaat die in $I$ zit maar niet in $(a)$, dan zit die $x$ ook niet in $I \cap (a)$.
+\clarify{Ik ben nog niet overtuigd.}
   \end{proof}
 \end{st}
 
@@ -1061,22 +1068,38 @@
   \[ \forall r\in R: (ur) = (r) \]
 
   \begin{proof}
+    Bewijs van gelijkheid van verzameling.
     \begin{itemize}
     \item $(ur) \subseteq (r)$\\
       Voor elk element $x\cdot u \cdot r$ met $x\in R$ in $(ur)$ geldt per definitie het volgende:
-      \[ \forall y\in R:\ x \cdot u \cdot r \cdot y \in (ur) \]
-    \item $(ur) \supseteq (r)$\\
+      \[ \forall y\in R:\ y \cdot x \cdot (u \cdot r) \in (ur) \]
+    \item $(r) \subseteq (ur)$\\
+      Voor elk element $x\in (r)$ bestaat er een $a\in R$ zodat $x=a\cdot r$ geldt.
+      \[ x = u^{-1}\cdot u \cdot a \cdot r = u^{-1}\cdot a \cdot u \cdot r = (u^{-1}a)\cdot (u\cdot r) \in (ur) \]
     \end{itemize}
   \end{proof}
-\question{hoe??}
 \end{st}
 
-\begin{st}
-  Zij $R,+,\cdot$ een integriteitsdomein.
-  Zij $r$ en $s$ elementen uit $R$.
-  \[ (r) = (s) \Leftrightarrow (\exists u \in R^{\times}: s= u\cdot r) \]
-\extra{bewijs}
-\end{st}
+\begin{gev}
+  Zij $a$ en $b$ voortbrengers van hetzelfde hoodideaal in een integriteitsdomein $R,+,\cdot$, dan zijn $a$ en $b$ geassocieerd.
+  \[ (a) = (b) \Leftrightarrow a\text{ is geassocieerd met } b \]
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Elk element $r$ in $(a)$ ziet er uit als $a \cdot t$ met $t\in R$ en elk element $s$ in $(b)$ ziet er uit als $b \cdot u$ met $u\in R$.
+      Dit betekent dat er niet-nulementen $u$ en $t$ in $R$ bestaan als volgt:
+      \[ a = b\cdot u \text{ en } b = a \cdot t \]
+      \[ a = a \cdot t \cdot u \]
+      Dit betekent dat $t$ en $u$ elkaars inverse zijn.
+      Er bestaat dus een eenheid (dit is $u$) zodat $a$ gelijk is aan $b\cdot u$.
+      Bijgevolg zijn $a$ en $b$ geassocieerd.      
+    \item $\Leftarrow$\\
+      Als $a$ geassocieerd is met $b$, dan bestaat er een eenheid $u\in R$ zodat $a = ub$ geldt.
+    \end{itemize}
+  \end{proof}
+\end{gev}
 
 \subsection{Quotientringen}
 \label{sec:quotientringen}
@@ -1700,7 +1723,6 @@
 \extra{bewijs p 59}
 \end{st}
 
-
 \subsection{Veeltermfuncties}
 \label{sec:veeltermfuncties}
 
@@ -2047,11 +2069,6 @@
   \end{proof}
 \end{ei}
 
-\begin{gev}
-  Zij $a$ en $b$ voortbrengers van hetzelfde hoodideaal in een integriteitsdomein $R,+,\cdot$, dan zijn $a$ en $b$ geassocieerd.
-  \[ (a) = (b) \Leftrightarrow a|b \wedge b|a \]
-\extra{bewijs}
-\end{gev}
 
 \begin{de}
   Zij $R,+,\cdot$ een commutatieve ring en $x_{1},\dotsc,x_{n}$ elementen van $R$.
