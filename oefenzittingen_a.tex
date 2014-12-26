@@ -966,39 +966,86 @@ Geef een voorbeeld van waarom het derde criterium niet geldt in $\mathbb{Z}_{8}[
 
 \subsection*{Oefening 3}
 Schrijf $f=X^{3}+6\in \mathbb{Z}_{7}[X]$ als product van irreducibele veeltermen over $\mathbb{Z}_{7}$.
-\question{hoe??}
+
+$\mathbb{Z}_{7}$ is een veld, want $7$ is een priemgetal.\gevref{gev:zp-veld}
+$\mathbb{Z}_{7}$ is dus een UFD\stref{st:veeltermen-over-veld-hid}, de vraag is dus zinvol.
+Bereken eerst de nulpunten van $f$:\stref{st:domein-nulpunten-delen-veelterm}
+\[
+\begin{array}{rll}
+  f(0) &= 0 + 6 = 6&\\
+  f(1) &= 1 + 6 = 0&\\
+  f(2) &= 8 + 6 = 0&\\
+  f(3) &= 33 + 6 = 4&\\
+  f(4) &= 64 + 6 = 0&\\
+\end{array}
+\]
+We weten al dat $f$ deelbaar is door $X-1$, $X-2$ en $X-4$.
+\[
+\begin{array}{cccc|l}
+  X^{3} & & & +6 & X-1\\\hline
+  X^{3} & -X^{2} &  &\vdots & X^{2}+X+1\\\cline{1-2}
+       & X^{2} & & \vdots & \\
+       & X^{2} & -X & \vdots &\\\cline{2-3}
+       &       & X & +6 &\\
+       &       & X & -1 &\\\cline{3-4}
+       &       &   & 0 
+\end{array}
+\]
+\[
+\begin{array}{ccc|l}
+  X^{2} & +X & +1 & X-2\\\hline
+  X^{2} & -2X & \vdots & X+3\\\cline{1-2} 
+       & 3X & +1 & \\
+       & 3X & -6 &\\\cline{2-3}
+       &    & 0
+\end{array}
+\]
+$X^{3}+6$ is in $\mathbb{Z}_{7}$ dus gelijk aan $(X+6)(X+5)(X+3)$.
+
 
 \subsection*{Oefening 4}
 Zij $p$ een priemgetal, hoeveel irreducibele veeltermen over $\mathbb{Z}_{p}$ van de vorm $X^{2}+aX+b$ bestaan er?
-\question{wut??}
+\extra{oefening}
 
 \subsection*{Oefening 5}
 Vindt een grootst gemeenschappelijke deler van $X^{3}+2X^{2}+4X-7$ en $X^{2}+X-2$ in $\mathbb{Q}[X]$.
 \extra{oefening}
 
-\extra{rest van de oefeningen van dit deel}
+\subsection*{Oefening 6}
+Bekijk de veelterm $X^{2}+1$ over $\mathbb{H}$.
+De wortel $i$ kunnen we afsplitsen:
+\[ X^{2}+1 = (X-i)(X+i) \]
+Omdat $j$ ook een wortel is, bekomen we na substitutie ook nul:
+\[ (j-i)(j+i) = 0 \]
+De laatste gelijkheid kan niet omdat $\mathbb{H}$ geen nuldelers heeft.
+Waar zit de fout?
 
-\subsection*{Oefening X}
+De rekenregels in $\mathbb{H}$ zijn fout toegepast.
+\[ (j-i)(j+i) \neq j^{2}+1 \text{ maar wel } -2k \]
+
+
+\subsection*{Oefening 7}
 \begin{itemize}
 \item Toon aan dat $X^{3}+5X^{2}+25X+5$ irreducibel is over $\mathbb{Q}$.
   \begin{proof}
     Kies $p=5$ in het criterium van Einstein.
   \end{proof}
-\question{dit was te makkelijk?}
 \item Toon aan dat $5x^{3}+9x+3$ irreducibel is over $\mathbb{Q}$.
   \begin{proof}
     Kies $p=3$ in het criterium van Einstein.
   \end{proof}
-\question{dit was te makkelijk?}
 \item Toon aan dat $5X^{3}-15X^{2}+24X-11$ irreducibel is over $\mathbb{Q}$.
-\question{hoe? einstein kan hier niet want $11$ is priem.}
-\item Zij $p$ een priemgetal, toon aan dat $f(x)= \prod_{i=1} x^{p-i}$ irreducibel is over $\mathbb{Q}$.
-  Hint: bekijk $f(x+1)$??
-\extra{oefening}
+  \begin{proof}
+    We tonen eerst aan dat als $f(X+1)$ irreducibel is, $f(X)$ dan ook.
+    Stel immers dat $f(X)$ reducibel is, dan zals $f(X+1)$ ook reducibel zijn.
+    \[ f(X) = g(X) \cdot h(X) \Rightarrow f(X+1) = g(X+1) \cdot h(X+1)\]
+    \[ f(X+1) = 5X^{3}+9X+3 \]
+    Kies $p=3$ in het criterium van Einstein.
+  \end{proof}
 \end{itemize}
 
 
-\subsection*{Oefening X}
+\subsection*{Oefening 8}
 
 Definieer op $F$ als volgt:
 \[ F = \{ a + b\alpha \ |\ a,b \in \mathbb{Z}_{2} \} = \{ 0,1,\alpha,\alpha+1 \} \]
