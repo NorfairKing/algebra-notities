@@ -1116,26 +1116,66 @@
 
 \begin{st}
   Alsternatieve definitie 1\\
-  Een veld $F,+,\cdot$ is \term{algebra\"isch gesloten} als en slechts als elke niet-constante veelterm in $F[X]$ een product is van lineaire veeltermen in $F[X]$.
-  \extra{bewijs}
+  Een veld $F,+,\cdot$ is algebra\"isch gesloten als en slechts als elke niet-constante veelterm in $F[X]$ een product is van lineaire veeltermen in $F[X]$.
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Kies een niet-constante veelterm $f$ in $F[X]$.
+      We bewijzen dat $f$ een product is van lineaire veeltermen in $F[X]$.
+      Omdat $F,+,\cdot$ algebra\"isch gesloten is, bestaat er een wortel $u$ van $f$ in $F$.
+      $X-u$ is dan een deler van $f$\stref{st:domein-nulpunten-delen-veelterm} en bijgevolg bestaat er een $g$ als volgt:
+      \[ f= (X-u)g \]
+      Als $g$ constant is de bewering bewezen.
+      Anders kunnen we opnieuw een wortel van $g$ nemen in $F$.
+      We zetten deze redenering verder tot de bewering bewezen is.
+    \item $\Leftarrow$: Omgekeerd zorgen de delers $(X-u_{i})$ voor elke niet-constante veelterm $f$ in $F[X]$ voor nulpunten $u_{i}$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
-  Alsternatieve definitie 1\\
-  Een veld $F,+,\cdot$ is \term{algebra\"isch gesloten} als en slechts als alle irreducibele veeltermen in $F[X]$ graad $1$ hebben.
-  \extra{bewijs}
+  Alsternatieve definitie 2\\
+  Een veld $F,+,\cdot$ is algebra\"isch gesloten als en slechts als alle irreducibele veeltermen in $F[X]$ graad $1$ hebben.
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Kies een veelterm $f$ uit $F[X]$ van graad groter dan $1$, anders is $f$ per definitie irreducibel.
+      $f$ kan dan geschreven worden als een product van lineare veeltermen, en is bijgevolg reducibel.
+    \item $\Leftarrow$\\
+      Elke niet-constante veelterm $f$ uit $F[X]$ kan geschreven worden als een product van eerstegraads (irreducibele) veeltermen.
+      Elk van die veeltermen is van de vorm $aX+b$ en $-frac{b}{a}$ is er dan een wortel van.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{ei}
   Een veld $F,+,\cdot$ is algebra\"isch gesloten als en slechts als voor elke algebra\"ische uitbreiding $E,+,\cdot$ van $F,+,\cdot$ $E$ gelijk is aan $F$.
-\TODO{bewijs p 95}
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Elk element $u\in E$ zit dan ook in $F$.
+      Zij immers $f$ een minimale veelterm van $u$ over $F,+,\cdot$, dan moet $f$ graad $1$ hebben omdat $F,+,\cdot$ algebra\"isch gesloten is.
+    \item $\Leftarrow$\\
+    Zij $E,+,\cdot$ een algebra\"ische uitbreiding van $F,+,\cdot$.
+      Kies een willekeurige irreducibele veelterm $f\in F[X]$.
+      $f$ moet dan graad $1$ hebben. Bijgevolg is $F,+,\cdot$ algebra\"isch gesloten.
+      Kies immers een uitbreiding $E,+,\cdot$ van $F,+,\cdot$ met een wortel $u$ van $f$ in $E$(die bestaat immers altijd\stref{st:fundamentele-stelling-van-veldentheorie}).
+      $F(u)$ is dan een algebra\"ische uitbreiding van $F,+,\cdot$ met uitbreidingsgraad $gr(f)$.\stref{st:uitbreiding-van-algebraische-u-aan-veld-graad-minimale-veelterm}
+      Omdat $F,+,\cdot$ algebra\"isch gesloten is, is $F(u)$ gelijk aan $F$ en is $gr(f)$ bijgevolg $1$. 
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \begin{st}
-  De \term{hoofdstelling van de algebra}\\
+  De \term{hoofdstelling van de (klassieke) algebra}\\
   $\mathbb{C}$ is algebra\"isch gesloten.
-\zb 
-\extra{referentie naar bewijs?}
+\zb
 \end{st}
 
 
