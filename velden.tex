@@ -164,6 +164,7 @@
 \end{de}
 
 \begin{st}
+  \label{st:criterium-deelveld}
   Het \term{criterium voor deelvelden}\\
   Zij $F,+,\cdot$ een veld met eenheidselement $i$ en $E$ een deelverzameling van $F$, dan is $E,+,\cdot$ een deelveld van $f$ als en slechts als aan volgende voorwaarden voldaan is.
   \begin{itemize}
@@ -410,6 +411,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:fundamentele-stelling-van-veldentheorie}
   \examen
   De \term{fundamentele stelling van de veldentheorie}\\
   Zij $K,+,\cdot$ een veld en $f$ een niet-constante veelterm in $K[X]$, dan bestaat er een uitbreiding $E$ van $K$ zodat $f$ een wortel heeft in $E$.
@@ -441,6 +443,7 @@
 \end{opm}
 
 \begin{st}
+  \label{st:productformule}
   De \term{productformule}\\
   Zij $F,+,\cdot$, $L,+,\cdot$ en $E,+,\cdot$ velden waarbij $L,+,\cdot$ een uitbreiding is van $F,+,\cdot$ en $E,+,\cdot$ een uitbreiding is van $L,+,\cdot$.
   Als zowel $[L:F]$ als $[E:L]$ eindig zijn, geldt het volgende:
@@ -660,11 +663,27 @@
 \begin{de}
   Zij $F,+,\cdot$ en $S,+,\cdot$ velden en $E,+,\cdot$ een uitbreiding van zowal $F,+,\cdot$ als $S,+,\cdot$.
   Het veld verkregen door toevoeging van alle elementen van $S$ aan $F$: $F(S)$ is de doorsnede van alle velden $L$ die tussen $F,+,\cdot$ en $E,+,\cdot$ zitten en $S,+,\cdot$ uitbreiden.
-  Dit is dus het ``kleinste deelveld van $E,+,\cdot$ dat $F,+,\cdot$ en $S,+,\cdot$ omvat''.
+  Dit is dus het ``kleinste deelveld van $E$ dat $F$ en $S$ omvat''.
   \[ S = \{ u_{1},\dotsc,u_{n} \}:\ F(u_{1},\dotsc,u_{n}) = F(S) \]
 \end{de}
 
-\extra{formulering p 85 algebra}
+\begin{ei}
+  Net als bij enkelvoudige uitbreidingen kan de uitbreiding van een veld met een verzameling beschreven worden met een formule.
+  \[
+  F(S) =
+  \left\{
+    \dfrac
+      {
+        \sum_{j=0}^{k}\sum_{i=0}^{r_{j}}a_{i,r_{j}}s_{j}^{i}
+      }
+      {
+        \sum_{g=0}^{k}\sum_{f=0}^{f_{g}}b_{f,f_{g}}s_{g}^{f}
+      }
+    \mid a_{i,r_{j}},b_{f,f_{g}}, \in F \text{ en } s_{j}, s_{f} \in S 
+  \right\}
+  \]
+  \zb
+\end{ei}
 
 \begin{st}
   Zij $F,+,\cdot$ en $S,+,\cdot$ velden en $E,+,\cdot$ een uitbreiding van zowal $F,+,\cdot$ als $S,+,\cdot$.
@@ -673,6 +692,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:rekenregel-uitbreidingen-basis}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
   Zij $u_{1},u_{2}$ elementen van $E$.
   \[ F(u_{1},u_{2}) = F(u_{2})(u_{1})\]
@@ -680,6 +700,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:rekenregel-uitbreidingen}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
   Zij $u_{1},\dotsc,u_{n}$ elementen van $E$.
   \[ F(u_{1},\dotsc,u_{n}) = F(u_{1},\dotsc,u_{n-1})(u_{n})\]
@@ -696,7 +717,7 @@
 \end{st}
 
 \begin{opm}
-  Elke eindige uitbreiding is dus in feite een enkelvoudige uitbreiding.
+  Elke eindige uitbreiding, in een veld van karakteristiek $0$, is dus in feite een enkelvoudige uitbreiding.
 \end{opm}
 
 \begin{de}
@@ -712,20 +733,60 @@
 \end{de}
 
 \begin{pr}
+  \label{st:uitbreiding-eindig-dan-algebraisch}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een eindige uitbreiding van $F,+,\cdot$, dan is $E,+,\cdot$ algebra\"isch over $F,+,\cdot$.
-\TODO{bewijs p 86}
+
+  \begin{proof}
+    Noem $i$ het eenheidselement van $F,+,\cdot$ (en dus ook van $E,+,\cdot$\stref{st:criterium-deelveld}).
+    Zij $n$ de dimensie van $E,+,\cdot$ over $F,+,\cdot$:
+    \[ n = [E:F] \]
+    We kiezen nu een willekeurig element $u$ uit $E$ en tonen aan dat $u$ algebra\"isch is over $F,+,\cdot$.
+    Beschouw de $n+1$ elementen $i,u,u^{2},\dotsc,u^{n}$.
+    Deze zijn lineair onafhankelijk over $F,+,\cdot$.\waarom
+    Er bestaan dus elementen $a_{i}\in F$ die niet allemaal nul zijn als volgt:
+    \[ \sum_{i=0}^{n}a_{n}u^{n} = 0 \]
+    Dit betekent dat de veelterm $\sum_{i=0}^{n}a_{n}X^{n}$, een niet-nul-veelterm in $F[X]$, $u$ als nulpunt heeft.
+  \end{proof}
+  \begin{proof}
+    Bewijs uit het ongerijmde:\\
+    Stel dat $E,+,\cdot$ niet algebra\"isch is over $F,+,\cdot$, dan bestaat er een element $u\in E$ dat transcendent is over $F,+,\cdot$.
+    De velduibreiding $F(u)$ van $F,+,\cdot$ is dan zeker niet eindig\stref{st:uitbreiding-van-transcendente-u-aan-veld-graad-oneindig}, laat staan de uitbreiding $E,+,\cdot$ van $F,+,\cdot$.\stref{st:productformule}
+    \[ F \subseteq F(u) \subseteq E \]
+  \end{proof}
 \end{pr}
 
-\begin{opm}
+\begin{tvb}
   Het omgekeerde van deze eigenschap geldt niet.
-\extra{voorbeeld}
-\end{opm}
+  
+  \begin{proof}
+    We moeten aantonen dat er een uitbreiding $E,+,\cdot$ van een veld $F,+,\cdot$ bestaat zodat $E,+,\cdot$ algebra\"isch is over $F,+,\cdot$, die niet eindig is.
+
+    Beschouw de uitbreiding $E,+,\cdot$ van $\mathbb{Q},+,\cdot$:
+    \[ E = \mathbb{Q}(\{\sqrt[n]{2} \mid n\in \mathbb{N}_{0}\}) \]
+    \begin{itemize}
+    \item $E,+,\cdot$ is algebra\"isch over $\mathbb{Q}$.
+      $\sqrt[n]{k}$ is algebra\"isch over $\mathbb{Q}$ voor elke $k\in \mathbb{N}_{0}$.
+      De veelterm $X^{n}-k$ heeft immers $\sqrt[n]{k}$ als wortel.
+      Dit betekent dat $\mathbb{Q}(\sqrt[n]{k})$ algebra\"isch is over $\mathbb{Q}$ voor elke $n\in \mathbb{N}_{0}$. Omdat $\mathbb{Q}(\sqrt[n]{k})(\sqrt[m]{k})$ gelijk is aan  $\mathbb{Q}(\sqrt[n]{k},\sqrt[m]{k})$\stref{st:rekenregel-uitbreidingen} voor elke $n$ en $m$ en algebra\"isch over $\mathbb{Q}(\sqrt[n]{k})$, kunnen we besluiten dat $\mathbb{Q}(\{\sqrt[n]{2} \mid n\in \mathbb{N}_{0}\})$ algebra\"isch is over $\mathbb{Q}$. \clarify{waarom moeten we het enkel bewijzen voor deze en niet voor alle elementen?}
+    \item $[E:\mathbb{Q}]$ is niet eindig.
+      \extra{bewijs}
+    \end{itemize}
+  \end{proof}
+\end{tvb}
 
 \begin{st}
+\label{st:element-asa-uitbreiding-algebraisch}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
   Zij $u_{1},\dotsc,u_{n}$ elementen van $E$.
-  \[ F(u) \text{ is algebra\"isch } over F \Leftrightarrow u \text{ is algebra\"isch over } F \]
-\TODO{bewijs p 86}
+  \[ F(u) \text{ is algebra\"isch over } F \Leftrightarrow u \text{ is algebra\"isch over } F \]
+
+  \begin{proof}
+    Bewijs van een equivalentie
+    \begin{itemize}
+    \item $\Rightarrow$: dit staat in de definitie.
+    \item $\Leftarrow$: De uitbreiding van $F$ tot $F(u)$ is eindig omdat $u$ algebra\"isch is over $F$\stref{st:uitbreiding-van-algebraische-u-aan-veld-graad-minimale-veelterm}, en bijgevolg eindig.\stref{st:uitbreiding-eindig-dan-algebraisch}
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -738,7 +799,18 @@
   \item $a\cdot b$
   \item $\frac{a}{b}$ als $b \neq e$
   \end{itemize}
-\TODO{bewijs p 87}
+
+  \begin{proof}
+    We beschouwen de volgende velduitbreidingen:
+    \[
+    F \subseteq F(a) \subseteq F(a)(b)
+    \]
+    Omdat $a$ algebra\"isch is over $F,+,\cdot$ is $[F(a):F]$ eindig.\stref{st:uitbreiding-van-algebraische-u-aan-veld-graad-minimale-veelterm}
+    Emdat $b$ ook algebra\"isch is over $F,+,\cdot$ en dus zeker over $F(a)$, is $[f(a)(b):F(a)]$ eveneens eindig.
+    Vanwege de productformule\stref{st:productformule} is $[F(a)(b):F]$ dan ook eindig.
+    Als deelruimte van de eindigdimensionale vectorruimte $F(a)(b)$ is $F(a+b)$ ook eindigdimensionaal over $F,+,\cdot$. $F(a+b)$ is dus algebra\"isch over $F,+,\cdot$ {st:uitbreiding-eindig-dan-algebraisch}
+    De andere beweringen zijn geheel analoog te bewijzen.
+  \end{proof}
 \end{st}
 
 \begin{gev}
@@ -753,10 +825,35 @@
 \end{de}
 
 \begin{st}
-  De transitiviteit van het algebra\"isch zijn.\\
+\label{st:transitiviteit-algebraisch-zijn}
+  De \term{transitiviteit van het algebra\"isch zijn}.\\
   Zij $F,+,\cdot$ een veld, $L,+,\cdot$ een uitbreiding van $F,+,\cdot$ en $E,+,\cdot$ een uitbreiding van $L,+,\cdot$.
   Als $E,+,\cdot$ algebra\"isch is over $L,+,\cdot$ en $L,+,\cdot$ algebra\"isch over $F,+,\cdot$, dan is $E,+,\cdot$ algebra\"isch over $F,+,\cdot$.
- \TODO{bewijs p 88}
+
+  \begin{proof}
+    Kies een willekeurig element $u\in E$ uit.
+    We moeten dan aantonen dat $u$ algebra\"isch is over $F,+,\cdot$ en zullen dit doen via de eindigheid van $[F(u):F]$.\stref{st:uitbreiding-eindig-dan-algebraisch}
+    \begin{itemize}
+    \item Omdat $u$ algebra\"isch is over $L$, bestaat er een
+      niet-nul-veelterm $p\in L[X]$ met $u$ als nulpunt.
+      \[ p = \sum_{i=1}^{n}a_{i}X^{i} \] We beschouwen nu de volgende
+      keten van velduitbreidingen:
+      \[ F \subseteq F(a_{0}) \subseteq F(a_{0},a_{1}) \dotsb
+      \subseteq F(a_{0},a_{1},\dotsc,a_{n}) \] Omdat $a_{0}$
+      algebra\"isch is over $F,+,\cdot$ (want het is er een element
+      van) is de eerste uitbreiding $F \subseteq F(a_{0})$ eindig.
+      Ook $a_{1}$ is algebra\"isch over $F,+,\cdot$, dus $F(a_{0})
+      \subseteq F(a_{0},a_{1})$ is ook eindig.  Bij wijze van
+      voortzetting van deze redenering is heel de keten eindig,
+      waardoor $F \subseteq F(a_{0},a_{1},\dotsc,a_{n})$ eindig is via
+      de productformule.\stref{st:productformule}
+    \item Kijk nu terug naar $p$.
+      $u$ is algebra\"isch over het deelveld $F(a_{0},a_{1},\dotsc,a_{n})$ van $L,+,\cdot$.
+      De uitbreiding van $F(a_{0},a_{1},\dotsc,a_{n})$ tot $F(a_{0},a_{1},\dotsc,a_{n},u)$ is dus opnieuw eindig en bijgevolg is de uitbreiding van $F$ tot $F(a_{0},a_{1},\dotsc,a_{n},u)$ ook eindig.
+    \item Vanwege de rekenregel van uitbreidingen\stref{st:rekenregel-uitbreidingen} is $F(u)$ ook eindig.
+      \[ F(a_{0},a_{1},\dotsc,a_{n},u) = F(u)(a_{0},a_{1},\dotsc,a_{n}) \]
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \subsection{Ontbindingsvelden}
@@ -769,6 +866,7 @@
   \item $\exists c, a_{i} \in E:\ f = c(X-a_{1})(X-a_{2})\dotsc(X-a_{n})$
   \item Er is geen enkel veld $L,+,\cdot$, strikt tussen $K,+,\cdot$ en $E,+,\cdot$.
   \end{itemize}
+  Met andere woorden is het ontbindingsveld van een veelterm in een veld het kleinste veld waarin $f$ ontbonden kan worden in eerstegraadsveeltermen.
 \end{de}
 
 \begin{st}
@@ -778,14 +876,51 @@
   \item $\exists c, a_{i} \in E:\ f = c(X-a_{1})(X-a_{2})\dotsc(X-a_{n})$
   \item $E = K(a_{1},a_{2},\dotsc,a_{n})$
   \end{itemize} 
-\extra{bewijs}
+
+  \begin{proof}
+    Bewijs van een equivalentie
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Noem $E,+,\cdot$ het ontbindindingsveld van $f$ in $K[X]$, dan is $E$ zeker een deel van $ K(a_{1},a_{2},\dotsc,a_{n})$.\waarom
+      Ook is $K(a_{1},a_{2},\dotsc,a_{n})$ een deel van $E$, want alle $a_{i}$ en $k$ zitten in $E$.
+      \waarom
+    \item $\Leftarrow$\\
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $K,+,\cdot$ een veld en $f$ een niet-constante veelterm in $K[X]$ van graad $n$.
   Er bestaat een ontbindingsveld $E,+,\cdot$ van $f$ over $K,+,\cdot$ zodat het volgende geldt:
   \[ [E:K] \le n! \]
-\TODO{bewijs p 89}
+
+  \begin{proof}
+    We bewijzen dit per inductie op de graad $n$ van $f$.
+    \begin{itemize}
+    \item De bewering geldt voor $n=1$.
+      Elke veelterm van graad $1$ is zichzelf na ontbinding in eerstegraadsveeltermen.
+      Het ontbindingsveld is dus $K,+,\cdot$ zelf.
+    \item Als we ervan uitgaan dat de bewering geldt voor een bepaalde $n=k$ ...
+    \item ... dan bewijzen we nu dat daaruit volgt dat de bewering geldt voor $n=k+1$.
+      Als alle irreducibele factoren van $f$ in $K[X]$ graad $1$ hebben, is het ontbindingsveld opnieuw $K,+,\cdot$ zelf.
+      Stel daarom dat $f$ deelbaar is door minstens \'e\'en irreducibele veelterm $p\in K[X]$ van graad groter dan $1$. 
+      Er bestaat een uitbreiding van $K,+,\cdot$ waarin $p$ een wortel $u$ heeft.\stref{st:fundamentele-stelling-van-veldentheorie}
+      Omdat $p$ een minimale veelterm is van $u$ over $K,+,\cdot$ is geldt het volgende.\stref{st:uitbreiding-van-algebraische-u-aan-veld-graad-minimale-veelterm}
+      \[ [K(u):K] = gr(p) \le n \]
+      We werken nu verder over $K(u)$.
+      Aangezien $u$ een wortel is van $p$ is $X-u$ een deler van $p$ in $K(u)[X]$.
+      Hieruit volgt dan dat ook $f$ deelbaar is door $X-u$ in $K(u)[X]$.
+      Er bestaat dus een $h\in K(u)[X]$ van graad $k$ als volgt:
+      \[ f = (X-u)h \]
+      De inductiehypothese zegt ons dan dat er een ontbindingsveld $E,+,\cdot$ van $h$ over $K(u)$ bestaat als volgt:
+      \[ [E:K(u)] \le (n-1)! \]
+      $E,+,\cdot$ is nu een ontbindingsveld van $f$ over $K,+,\cdot$.
+      Alle wortel van $h$: $a_{1},\dotsc a_{k}$ zitten immers in $E$, alsook $u$.
+      Omdat $E,+,\cdot$ het kleinste deelveld is dat $K(u)$ en de $a_{i}$ omvat, moet $E$ als volgt geschreven kunnen worden:
+      \[ E = K(u,a_{1},\dotsc,a_{k}) \]
+      Uit de productformule volgt dan de bewering voor $n=k+1$.      
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -798,13 +933,16 @@
 \label{sec:cycl-uitbr-en}
 
 \begin{de}
-  Definieer $\omega=\omega_{n}$ als de eenheidswortel van $X^{n}-1$ in $\mathbb{C},+,\cdot$.
+  Definieer $\omega=\omega_{n}$ als de $n$-de eenheidswortel van $X^{n}-1$ in $\mathbb{C},+,\cdot$.
   \[ \omega = e^{\frac{2\pi i}{n}} = \cos\frac{2\pi}{n} + i\sin\frac{2\pi}{n} \]
 \end{de}
 
 \begin{st}
   Het ontbindingsveld van $X^{n}-1$ over $\mathbb{Q}$ is de enkelvoudige uitbreiding $\mathbb{Q}(\omega)$.
-\extra{bewijs}
+
+  \begin{proof}
+    De $n$-de machten van $\omega$ zijn de nulpunten van $X^{n}-1$, dus $\mathbb{Q}(1,\omega,\omega^{2},\dotsc,\omega^{n-1}) = \mathbb{Q}(\omega)$. is het ontbindingsveld over $\mathbb{Q}$.
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -823,6 +961,16 @@
 \end{st}
 
 \begin{de}
+  De $n$ machten van de $n$-de eenheidswortel, uitgerust met de vermenigvuldiging, vormen een cyclische deelgroep van $\mathbb{C}^{\times}$.
+  De generatoren van deze groep noemen we de priemitieve $n$-de eenheidswortels.
+\end{de}
+
+\begin{ei}
+  De primitieve $n$-de eenheidswortels zijn de $\omega^{k}$ waarbij $k$ en $n$ relatief priem zijn.
+\extra{bewijs}
+\end{ei}
+
+\begin{de}
   Zij $n\in \mathbb{N}_{0}$ een getal.
   De $n$-de \term{cyclotome veelterm} (over $\mathbb{Q}$) is $\Phi_{n}$.
   \[ \Phi_{n} = \prod_{0\le i \le n-1,\ ggd(i,n)= 1}(X-\omega_{n}^{i})\]
@@ -832,12 +980,24 @@
 \begin{ei}
   Zij $n\in \mathbb{N}_{0}$ een getal.
   \[ X^{n}-1 = \prod_{1\le d\le n,\ d|n}\Phi_{d} \]
-\TODO{bewijs p 91}
+  \begin{proof}
+    Het rechterlid heet precies alle $n$-de eenheidswortels (zonder herhalingen).\waarom
+    Aangezien beide veeltermen monisch zijn met juist dezelfde wortels moeten ze gelijk zijn.\stref{st:veeltermen-n-gelijke-beelden-gelijk}
+  \end{proof}
 \end{ei}
 
 \begin{pr}
   Voor elke $n\in \mathbb{N}_{0}$ geldt $\Phi_{n} \in \mathbb{Z}[X]$.
-\TODO{bewijs p 91}
+
+  \begin{proof}
+    Bewijs door inductie op $n$.
+    \begin{itemize}
+    \item De bewering geldt voor $n=1$: $\Phi_{1} = X-1 \in \mathbb{Z}[X]$. 
+    \item Als de bewering geldt voor een bepaalde $n=k$ ...
+    \item ... dan bewijzen we nu dat daaruit volgt dat de bewering geldt voor $n=k+1$.
+      
+    \end{itemize}
+  \end{proof}
 \end{pr}
 
 \begin{st}
