@@ -978,6 +978,7 @@
 \end{de}
 
 \begin{ei}
+  \label{ei:formule-n-degraads-eenheidsveelterm}
   Zij $n\in \mathbb{N}_{0}$ een getal.
   \[ X^{n}-1 = \prod_{1\le d\le n,\ d|n}\Phi_{d} \]
   \begin{proof}
@@ -994,8 +995,13 @@
     \begin{itemize}
     \item De bewering geldt voor $n=1$: $\Phi_{1} = X-1 \in \mathbb{Z}[X]$. 
     \item Als de bewering geldt voor een bepaalde $n=k$ ...
-    \item ... dan bewijzen we nu dat daaruit volgt dat de bewering geldt voor $n=k+1$.
-      
+    \item ... dan bewijzen we nu dat daaruit volgt dat de bewering geldt voor $n=k+1$.\\
+      De inductiehypothese zegt dat alle $\Phi_{d}$ voor $d<n$ gehele co\"efficienten hebben.
+      Beschouw nu $g$:
+      \[ X^{k}-1 = g = \prod_{1\le d\le k,\ d|k}\Phi_{d}\]
+      De vorige eigenschap\eiref{ei:formule-n-degraads-eenheidsveelterm} zegt ons nu het volgende:
+      \[ X^{k+1}-1 = \Phi_{k+1}\cdot g\]
+      Hieruit volgt meteen dat $\Phi_{k+1}$ een gehele veelterm is.
     \end{itemize}
   \end{proof}
 \end{pr}

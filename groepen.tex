@@ -2051,6 +2051,7 @@
 \end{pr}
 
 \begin{gev}
+  \label{gev:hk-deelgroep-als-h-of-k-normaaldeler}
   Zij $H$ en $K$ deelgroepen van een groep $G,*$, dan geldt het volgende als $H$ of $K$ een normaaldeler is.
   \[ HK = KH = <H\cup K> \]
 \end{gev}
@@ -2059,15 +2060,14 @@
 
 
 \begin{st}
-  \term{Tweede isomorfismestelling} of \term{parallellogramisomorfismestelling}\\
+  De \term{tweede isomorfismestelling} of \term{parallellogramisomorfismestelling}\\
   Zij $G,*$ een groep. Zij $H$ een deelgroep van $G,*$ en $N$ een normaaldeler van $G,*$, dan gelden volgende beweringen.
   \[ N \triangleleft HN \]
   \[ (H \cap N) \triangleleft H \]
   \[ \frac{H}{H\cap N} \cong \frac{HN}{N} \]
 
   \begin{proof}
-    $N$ is een normaaldeler van $G$, en $HN$ is een deelgroep van $G$, tussen $N$ en $G$, dus $N$ is ook een 'normaaldeler' van $NH$.
-    \clarify{ waarom zijn we er hier plots wel zeker van dat $HN$ een deelgroep is? zie opmerking \ref{opm:verm-deelgroepen-niet-noodzakelijk-deelgroep}.}
+    $N$ is een normaaldeler van $G$, en $HN$ is daarom een deelgroep van $G$\gevref{gev:hk-deelgroep-als-h-of-k-normaaldeler}, tussen $N$ en $G$, dus $N$ is ook een 'normaaldeler' van $NH$.
     \[ N \triangleleft NH \]
     Beschouw nu de afbeelding $p$:
     \[ p: H \rightarrow \frac{HN}{N}:\ h \mapsto hN \]
@@ -2088,7 +2088,7 @@
 \begin{st}
   Zij $A$ en $B$ deelgroepen van een eindige groep $G$.
   \[ |AB| = \frac{|A|\cdot|B|}{|A\cap B|} \]
-  \extra{bewijs, je mag gebruiken dat $B$ een normaaldeler is van $G$, maar het kan zonder.}
+  \zb
 \end{st}
 
 \subsection{Derde isomorfismestelling}
@@ -2174,11 +2174,10 @@
 
   \begin{proof}
     \hint{Probeer dit niet direct te bewijzen aan de hand van de definitie van een normaaldeler.}
-    Kies een element $g$ uit $G$ en een element $h$ uit $H$.
+    Kies een element $g$ uit $G$ en een element $h$ uit $G'$.
     We bewijzen nu dat $ghg^{-1}$ in $G'$ zit.\stref{st:criteria-voor-normaaldeler}
     We schrijven $ghg^{-1}$ eerst als $ghg^{-1}h^{-1}h$
     $ghg^{-1}h^{-1}$ en $h$ zijn beide elementen van $G'$, dus $ghg^{-1}h^{-1}h$ ook.
-\clarify{waarom zit $h$ in $G'$?}
   \end{proof}
 \end{st}
 
