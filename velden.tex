@@ -35,7 +35,7 @@
     \item $\Rightarrow$: Dit volgt rechtstreeks uit de definitie van de karakteristiek.
     \item $\Leftarrow$\\
       Voor een gegeven $k\in \mathbb{N}_{0}$ geldt het volgende:
-      \[ \forall x \in R: kx = k(i\cdot x) = (k \cdot i) \cdot x \]
+      \[ \forall x \in R: kx = k(i\cdot x) = (ki) \cdot x \]
       Dit betekent precies dat $kx$ het nulelement is als en slechts als $k$ de orde is van $i$ in $R,+,\cdot$.
       $k$ is dus ook de charakteristiek van $R,+,\cdot$.
     \end{itemize}
@@ -49,6 +49,14 @@
   \begin{proof}
     Dit volgt rechtstreeks.
     Als er immers geen enkele $k\in \mathbb{N}_{0}$ bestaat zodat $ki$ het nulelement is, kan er ook geen $k$ bestaan zodat voor elke $x\in R$ $kx$ het nuleleement is.
+  \end{proof}
+\end{gev}
+
+\begin{gev}
+  De karakteristiek van een eindig veld $F,+,\cdot$ is een deler van $|F|$.
+  
+  \begin{proof}
+    De karakteristiek van $F,+,\cdot$ is de orde van het eenheidselement in $F$ en de orde van het eenheidselement is een deler van $|F|$.\stref{st:stelling-van-lagrange}
   \end{proof}
 \end{gev}
 
@@ -71,7 +79,6 @@
  Zij $R,+,\cdot$ een niet-triviale ring zonder nuldelers, dan is de karakteristiek van $R,+,\cdot$ nul of een priemgetal.
  
  \begin{proof}
-   Bewijs uit het ongerijmde.
    Stel dat de karakteristiek $n\neq 0$ van $R,+,\cdot$ valt te schrijven als $r\cdot s$ met $r, s \in \mathbb{N}_{0}$.
    Voor elk niet-nul-element $a$ uit $R$ geldt nu het volgende:
    \[ ra \cdot sa = (rs)a^{2} = na^{2} = 0 \]
@@ -135,6 +142,7 @@
   \end{itemize}
 
   \begin{proof}
+    in delen.
     \begin{itemize}
     \item Zij $e$ het nulelement van $R,+,\cdot$.  $\phi$ is een
       ringmorfisme vanwege de rekenregel in
@@ -151,8 +159,8 @@
 \label{sec:deelvelden}
 
 \begin{de}
-  Zij $E,+,\cdot$ een veld en $F$ een niet-lege deelverzameling van $E$.
-  We noemen $F,+,\cdot$ een \term{deelveld} van $E,+,\cdot$ als $F,+,\cdot$ zelf een veld is (voor dezelfde bewerkingen).
+  Zij $F,+,\cdot$ een veld en $E$ een niet-lege deelverzameling van $F$.
+  We noemen $E,+,\cdot$ een \term{deelveld} van $F,+,\cdot$ als $E,+,\cdot$ zelf een veld is (voor dezelfde bewerkingen).
 \end{de}
 
 \begin{st}
@@ -165,9 +173,26 @@
   \end{itemize}
 
   \begin{proof}
+    Bewijs van een equivalentie
     \begin{itemize}
-    \item $\Rightarrow$: Dit volgt rechtstreeks uit de definitie.
-\clarify{waarom heeft $E$ noodzakelijk hetzelfde eenheidselement?}
+    \item $\Rightarrow$\\
+      Dit volgt bijna rechtstreeks uit de definitie.
+      We bewijzen nog dat $E,+,\cdot$ en $F,+,\cdot$ hetzelfde eenheidselement hebben.
+      Noem voorlopig het eenheidselement van $E,+,\cdot$ en $F,+,\cdot$ respectievelijk $i_{E}$ en $i_{F}$.
+      Noteer de inverse in $F,+,\cdot$ als $^{-1}$ en de inverse in $E,+,\cdot$ als $\bar{}$.
+      \[
+      \begin{array}{rll}
+        i_{F} &= i_{E}\cdot i_{E}^{-1} &\\
+              &= i_{E} \cdot i_{E} \cdot i_{E}^{-1} &\\
+              &= i_{E} \cdot i_{F} &= i_{E}
+      \end{array}
+      \]
+      Merk goed op dat alle bewerkingen in $F,+,\cdot$ gebeuren.
+      Enkel in de tweede gelijkheid gebruiken we dat $i_{E}$ het eenheidselement is in $E,+,\cdot$.
+      Voor de rest beschouwen we $i_{E}$ gewoon als een element van $F$.
+      Merk ook op dat we niet zomaar het volgende mogen zeggen:
+      \[ i_{F} = i_{E} \cdot i_{F} = i_{E} \]
+      De linker gelijkheid geldt immers niet zomaar omdat we a priori niet weten of $i_{F}$ wel een element is van $E$.
     \item $\Leftarrow$\\
       Omdat $E$ een deelring is die $i$ bevat, volgt uit de twede voorwaarde dat $E$ een lichaam is.
       $E,+,\cdot$ is bovendien commutatief want het is een deelring van een commutatieve ring. \needed
@@ -207,13 +232,13 @@
 
   \begin{proof}
     Beschouw de afbeelding $\phi$:
-    \[ \phi:\ \mathbb{Z} \rightarrow \mathbb{R}: z \mapsto z\cdot i \]
+    \[ \phi:\ \mathbb{Z} \rightarrow \mathbb{R}: z \mapsto zi \]
     $\phi$ is nu een ringmorfisme:
-    \[ \forall x,y\in \mathbb{Z}: \phi(x+y) = (x+y) \cdot i = (x \cdot i) + (y \cdot i) = \phi(x) + \phi(y) \]
-    \[ \forall x,y\in \mathbb{Z}: \phi(x\cdot y) = (x\cdot y) \cdot i = (x \cdot i) \cdot (y \cdot i) = \phi(x) \cdot \phi(y) \]
+    \[ \forall x,y\in \mathbb{Z}: \phi(x+y) = (x+y) i = (xi) + (yi) = \phi(x) + \phi(y) \]
+    \[ \forall x,y\in \mathbb{Z}: \phi(x\cdot y) = (x\cdot y)i = (xi) \cdot (yi) = \phi(x) \cdot \phi(y) \]
     Merk op dat $\phi(\mathbb{Z}),+,\cdot$ de priemdeelring is van $R,+,\cdot$.\eiref{ei:priemdeelring-voortgebracht-door-eenheidselement}
     \begin{itemize}
-    \item Als de karakteristiek van $R$ $n\neq 0$ is, dan wordt de kern van $\phi$ voortgebracht door $n$ in $\mathbb{Z}$ want $n$ is de orde van $i$ in $R,+$.
+    \item Als de karakteristiek van $R,+,\cdot$ $n\neq 0$ is, dan wordt de kern van $\phi$ voortgebracht door $n$ in $\mathbb{Z}$ want $n$ is de orde van $i$ in $R,+$.
       \[ Ker(\phi) = (n) \]
       De priemdeelring is dan isomorf met $\nicefrac{\mathbb{Z}}{(n)} \cong \mathbb{Z}_{n}$.\needed
     \item Als de karakteristiek van $R,+,\cdot$ nul is,dan is $\phi$ injectief \waarom en is de priemdeelring van $R,+,\cdot$ dus isomorf met $\mathbb{Z}$.
@@ -468,6 +493,7 @@
 \end{de}
 
 \begin{ei}
+  \label{ei:toevoeging-formule}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.
   Zij $u\in E$ een element van $E$.
   \[
@@ -486,6 +512,9 @@
 \begin{opm}
   $F(X)$ kunnen we dan zien als de verzameling van rationale veeltermen over $F,+,\cdot$.
 \end{opm}
+
+\subsection{Minimale veelterm}
+\label{sec:minimale-veelterm}
 
 \begin{de}
   Zij $F,+,\cdot$ een veld en $E,+,\cdot$ een uitbreiding van $F,+,\cdot$.

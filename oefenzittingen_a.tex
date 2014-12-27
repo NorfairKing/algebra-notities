@@ -523,7 +523,7 @@ Bewijs: $H$ is de unie van de conjugatieklassen van alle $h\in H$.
   \]
 \end{proof}
 
-\subsection{Oefening 4}
+\subsection*{Oefening 4}
 \label{sec:oz4-oef4}
 Geldt het volgende?
 \[ \mathbb{Q},+=grp\{\nicefrac{1}{p} \ |\ p \text{ is een priemgetal.} \} \] 
@@ -580,7 +580,7 @@ Waar
 \end{proof}
 
 
-\subsection{Oefening 8}
+\subsection*{Oefening 8}
 \label{sec:oz4-oef8}
 Zij $G,*$ een groep en $A\subseteq$.
 \begin{itemize}
@@ -593,7 +593,7 @@ Zij $G,*$ een groep en $A\subseteq$.
 \end{itemize}
 \extra{nog drie deeloefeningen}
 
-\subsection{Oefening 9}
+\subsection*{Oefening 9}
 \label{sec:oz4-oef9}
 Zij $G$ een groep en zij $H$ een deelgroep van index $n$.
 Stel dat $\{e\}$ de enigge normaaldeler is van $G$ die bevat is in $H$.
@@ -773,7 +773,7 @@ Zij $R$ een deelverzameling van $\mathbb{Q}$ als volgt:
 
 \section{Oefenzitting 6: Idealen}
 
-\subsection{Oefening 1}
+\subsection*{Oefening 1}
 bewijs dat $I=\{  \begin{pmatrix}    a & b\\c & d  \end{pmatrix} \ |\ a,b,c,d \in 2\mathbb{Z}\}$ een ideaal is van $M^{2\times 2}(\mathbb{Z})$. Hoeveel elementen heeft $\nicefrac{M^{2\times 2}(\mathbb{Z})}{I}$?
 \extra{oefening}
 
@@ -1070,6 +1070,93 @@ Definieer op $F$ als volgt:
 \item Bewijs dat $F,+,\cdot$ een veld is.
 \extra{bewijs}
 \end{itemize}
+
+\section{Oefenzitting 9: Velden}
+
+\subsection*{Oefening 1}
+Bereken de karakteristiek $k$ van $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$.
+
+Merk eerst op dat de karakteristiek van $\mathbb{Z}_{n}$ en $\mathbb{Z}_{m}$ respectievelijk $n$ en $m$ zijn.
+Voor elk element $(a,b) \in \mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ moet het volgende gelden
+\[ k(a,b) = (0,0) \]
+We weten echter dat $a$ enkel nul is als het een veelvoud van $n$ keer bij zichzelf wordt opgeteld.
+Analoog geldt dat voor $b$.
+$k$ moet dus $kgv(n,m)$ zijn.
+
+
+\subsection*{Oefening 2}
+Wanneer is de priemdeelring van $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ niet heel $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$?
+
+Zij $k=kgv(n,m)$ de karakteristiek van $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$, dan is de priemdeelring isomorf met $\mathbb{z}_{k}$.\stref{st:karakteristiek-isomorfisme-met-zn}
+Als $k$ $n\cdot m$ is, dan is $\mathbb{z}_{k}$ isomorf met $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ en de priemdeelring van $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ dus $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ zelf.
+$k$ is $n\cdot m$ als en slechts als $n$ en $m$ relatief priem zijn:
+\[ kgv(n,m) = n \cdot m \Leftrightarrow ggd(n,m) = 1 \]
+
+\subsection*{Oefening 3}
+
+Zij $F,+,\cdot$ een veld van orde een macht $p^{r}$ van een priemgetal $p$.
+Met welke 'bekende' groep is $F,+,\cdot$ isomorf?
+
+We berekenen eerst de karakteristiek $k$ van $F$ en beschouwen daarna $F$ als een vectorruimte over zijn priemdeelveld.
+$F$ is eindig, dus $k$ eindig.
+$k$ is bovendien een deler van de orde van $F$, en ook een priemgetal, dus $k$ moet gelijk zijn aan $p$.
+Het priemdeelveld $P,+,\cdot$ van $F$ is isomorf met $\mathbb{Z}_{k} = \mathbb{Z}_{p}$ 
+We bewijzen nu dat de uitbreidingsgraad van het priemdeelveld van $F,+,\cdot$ over $F,+,\cdot$ daarom $r$ is.
+\begin{proof}
+  Kies een basis $\{x_{i},\dotsc,x_{n}\}$ waarin $n$ de dimensie is van $F$ als vectorruimte.
+  Elk element $f$ van $F$ ziet er dan als volgt uit:
+  \[ f = \sum_{i=1}^{n}a_{i}x_{i} \text { met } \forall i:\ a_{i} \in P\]
+  \[ P^{n} \rightarrow F:\ (a_{1},\dotsc,a_{n})\mapsto \sum_{i=1}^{n}a_{i}x_{i} \]
+  Dit morfisme is injectief omdat het een veldmorfisme is\stref{st:veldmorfisme-is-injectief} en surjectief omdat de $x_{i}$ een basis vormen.
+  \[ p^{r} = |F| = |\mathbb{Z}_{p}^{n}| = p^{n}\]
+  $r$ moet dus gelijk zijn aan $n$.
+\end{proof}
+
+\subsection*{Oefening 4}
+Zij $F,+,\cdot$ een veld.
+Zij $a$ en $b$ elementen van $F$ waarbij $a$ een niet-nulelement is.
+Zij bovendien $c$ een element in een uitbreiding van $F,+,\cdot$ naar $E,+,\cdot$.
+\[ F(c) = F(ac+b) \]
+
+\begin{proof}
+  Het volstaat om aan te tonen dat $F(c)$ $ac+b$ bevat, omdat $F(ac+b)$ $F$ omvat.
+  \[ c  = \frac{(ac+b)-b}{a} \in F(ac+b) \]
+\end{proof}
+
+\begin{gev}
+  Voor elke $a,b \in \mathbb{R}$ met $b$ niet nul geldt $\mathbb{R}(a+bi) = \mathbb{C}$.
+\end{gev}
+
+\subsection*{Oefening 5}
+Zij $a$ en $b$ twee getallen uit $\mathbb{Q}^{+}_{0}$.
+Bewijs het volgende:
+\[ \mathbb{Q(\sqrt{a})} = \mathbb{Q(\sqrt{b})} \Leftrightarrow \exists c\in \mathbb{Q}:\ a = bc^{2} \]
+
+\begin{proof}
+  \begin{itemize}
+  \item $\Rightarrow$\\
+    Er bestaat een $c\in \mathbb{Q}$ zodat $\sqrt{a}$ geschreven kan worden als volgt:
+    \[ \frac{\sqrt{a}}{1} = \frac{c\sqrt{b}}{1} \]
+    Dit is precies wanneer, voor die $c$, het volgende geldt:
+    \[ a = bc^{2}\]
+  \item $\Leftarrow$\\
+    \begin{itemize}
+    \item Voor alle elementen uit $\mathbb{Q}$ die geschreven kunnen worden als $\sqrt{a}$ met $a \in \mathbb{Q}$ geldt de bewering.
+    \item Voor alle andere elementen, kies een basis voor $\mathbb{Q}(\sqrt{a})$ over $\mathbb{Q}$: $\{1,\sqrt{a}\}$.\clarify{moeten we niet bewijzen dat dit inderdaad een basis is?}
+      Nu moeten we bewijzen dat $b$ te schrijven valt als lineaire combinatie van de elementen in die basis. \clarify{waarom enkel $b$ en niet elk element in $\mathbb{Q}(\sqrt{b})$}
+      \[ \sqrt{b} = x + y\sqrt{a} \]
+      \[ b = x^{2} + 2xy+2xy\sqrt{a} +ay^{2}\]
+      \[ b = (x^{2}+y^{2})\cdot 1 + (2xy) \cdot \sqrt{a} \]
+    \end{itemize}
+  \end{itemize}
+\end{proof}
+
+
+
+
+
+
+
 
 
 
