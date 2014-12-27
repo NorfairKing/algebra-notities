@@ -89,6 +89,7 @@
 \end{st}
 
 \begin{gev}
+  \label{gev:karakteristiek-van-domein-is-priem}
   De karakteristiek van een integriteitsdomein (of veld) is nul of een priemgetal.
 \end{gev}
 
@@ -875,7 +876,8 @@
   \begin{itemize}
   \item $\exists c, a_{i} \in E:\ f = c(X-a_{1})(X-a_{2})\dotsc(X-a_{n})$
   \item $E = K(a_{1},a_{2},\dotsc,a_{n})$
-  \end{itemize} 
+  \end{itemize}
+  We kunnen het ontbindingsveld van een veelterm $f$ over een veld $K,+,\cdot$ dus ook zien als ``de toevoeging van de wortels van $f$ aan $K,+,\cdot$''.
 
   \begin{proof}
     Bewijs van een equivalentie
@@ -1012,13 +1014,11 @@
 \end{st}
 
 \begin{gev}
-  De minimalee veelterm van $\omega_{n}$ over $\mathbb{Q}$ is de cyclotome veelterm $\Phi_{n}$.
-\extra{bewijs}
+  De minimale veelterm van $\omega_{n}$ over $\mathbb{Q}$ is de cyclotome veelterm $\Phi_{n}$.
+  \zb
 \end{gev}
 
-\begin{gev}
-  \[ \mathbb{Q}(\omega_{n}) \cong \mathbb{Q}[X]/(\Phi_{n}) \quad\text{ en }\quad [\mathbb{Q}(\omega_{n}):\mathbb{Q}] = \phi_{n} \]
-\extra{bewijs}
+\begin{gev} $\mathbb{Q}(\omega_{n}) \cong \mathbb{Q}[X]/(\Phi_{n})$ en $[\mathbb{Q}(\omega_{n}):\mathbb{Q}] = \phi_{n}$ \zb
 \end{gev}
 
 \subsection{Meervoudige wortels}
@@ -1048,19 +1048,58 @@
 \end{st}
 
 \begin{st}
+  \label{st:criterium-meervoudige-wortel}
   Het \term{criterium voor een meervoudige wortel}\\
   Zij $K,+,\cdot$ een veld en $f\in K[X]$ een veelterm over $K,+,\cdot$.
   $f$ heeft een meervoudige wortel (in een uitbreiding van $K,+,\cdot$) als en slechts als $f$ en $f'$ een gemeenschappelijke niet-constante deler hebben in $K[X]$.
-\TODO{bewijs p 93}
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Stel dat $f$ een meervoudige wortel $a$ heeft in een uitbreiding $E,+,\cdot$ van $K,+,\cdot$. (Merk op dat het niet uitmaakt welke uitbreiding.)
+      Er bestaat dan een veelterm $g\in E[X]$ zodat $f$ als volgt gescreven kan worden:
+      \[ f = (X-a)^{2}g \]
+      Vanwege de rekenregels voor afgelijden kunnen we $f'$ schrijven als volgt:
+      \[ f' = (X-a)^{2}g' + 2(X-a)g \]
+      $X-a$ is dus een deler van zowel $f$ als $f'$ in $E[X]$.
+      Stel nu dat $f$ en $f'$ geen gemeenschappelijke niet-constante deler zouden hebben in het HID $K[X]$.\stref{st:veeltermen-over-veld-hid}
+      De grootste gemeenschappelijke deler van $f$ en $f'$ in $K[X]$ is dan $1$.
+      Dit betekent dat er veeltermen $h_{1}$ en $h_{2}\in K[X]$ bestaan als volgt.\stref{st:stelling-van-bezout}
+      \[ f\cdot h_{1}+ f'\cdot h_{2} = 1 \]
+      Wanneer we deze gelijkheid beschouwen in $E[X]$, maar dat zou betekenen dat $X-a$ een deler is van $1$ in $E[X]$. 
+      \[ (X-a)^{2}gh_{1} + (X-a)^{2}g' + 2(X-a)gh_{2} = 1 \]
+      Contradictie.
+    \item $\Leftarrow$\\
+      Stel dat $f$ en $f'$ een niet-constante gemeenschappelijke deler hebben in $K[X]$.
+      Neem dan een wertel $a$ van deze deler in een uitbreiding $E,+,\cdot$ van $K,+,\cdot$ (die bestaat immers altijd\stref{st:fundamentele-stelling-van-veldentheorie}).
+      Er bestaat dan een veelterm $g\in E[X]$ zodat $f$ als volgt geschreven kan worden:
+      \[ f=(X-a)\cdot g\]
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $K,+,\cdot$ een veld en $f$ een irriducibele veelterm in $K[X]$.
   \begin{itemize}
   \item Als $char(K)$ nul is, dan heeft $f$ geen meervoudige wortel.
-  \item Als $char(K)$ niet nul is, dan eeft $f$ een meervoudige wortel als en slechts als er een $g\in K[X]$ bestaat zodat $f=g(X^{p})$ geldt.
-\TODO{bewijs p 93}
+  \item Als $char(K)$ niet nul is, dan heeft $f$ een meervoudige wortel als en slechts als er een $g\in K[X]$ bestaat zodat $f=g(X^{p})$ geldt.
   \end{itemize}
+
+  \begin{proof}
+    Het criterium voor meervoudige delers zegt ons dat $f$ een meervoudige wortel heeft als en slechts als $f$ en $f'$ een niet-constante gemeenschappelijke deler hebben in $K[X]$.\stref{st:criterium-meervoudige-wortel}
+    Omdat $f$ irredicibel is, is echter enkel $f$ een niet-constante deler van $f$ (op eenheid na).\deref{de:irreducibel}
+    $f$ heeft dus een meervoudige wortel als en slechts als $f'$ de nulveelterm is (want dan alleen is $f'$ deelbaar door $f$).
+    Noteer verder $f$ en $f'$ als volgt:
+    \[ f = \sum_{i=0}^{n}a_{i}X^{i} \text{ en } f' = \sum_{i=1}^{n}ia_{i}X^{i-1} \]
+    \begin{itemize}
+    \item Als de karakteristiek van $K,+,\cdot$ nul is, dan kan dit alleen als alle $a_{i}$ met $i\neq 0$ nul zijn, maar dat kan niet want dan dan zou $f=a_{0}$ een constante zijn.
+    \item Als de karakteristiek van $K,+,\cdot$ (een priemgetal\gevref{gev:karakteristiek-van-domein-is-priem}) $p$ is, dan is dit equivalent mat $a_{i}=0$ wanneer $p$ $i$ niet deelt (anders is $ia_{i}$ al zeker nul).
+      \[ f = \sum_{i=0,\ p\mid i}^{n}a_{i}X^{i} \]
+      \clarify{hoe komen we aan deze $f$ en daarna aan de $g$?}
+      Dit is precies wanneer $x$ van de vorm $f=g(X^{p})$ is met $g\in K[X]$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
