@@ -79,26 +79,54 @@
 \end{de}
 
 \begin{st}
+  \label{st:invers-element-uniek}
   Zij $\top:\ A\times A\rightarrow A$ een associatieve bewerking gedefinieerd op een verzameling $A$ met een neutraal element $e$.
   Voor elk element $x \in A$ geldt dat het symmtrisch element uniek is als het bestaat.
   \[ !\exists y:\ y = sym(x) \]
-
-  \TODO{ bewijs}
+  \begin{proof}
+    Bewijs uit het ongerijmde\\
+    Stel dat er twee verschillende inversen $y$ en $z$ zijn van $x$ in $G$.
+    \[  
+    \begin{array}{rl}
+      y &= y * e\\
+      &= y * (x * z)\\
+      &= (y * x) * z\\
+      &= e * z\\
+      &= z
+    \end{array}
+    \]
+    De derde gelijkheid geldt omdat de bewerking $*$ associatief is.
+    De vierde gelijkheid geldt omdat het neutraal element van een uniek is.\stref{st:neutraal-element-uniek}
+  \end{proof}
 \end{st}
 
 \begin{st}
+  \label{st:symmetrisch-element-schrapbaar}
   Zij $\top:\ A\times A\rightarrow A$ een associatieve bewerking gedefinieerd op een verzameling $A$ met een neutraal element $e$.
   Elk symmetrisch element is schrapbaar.
-  \[ \exists y:\ y = sym(x) \Rightarrow (\forall a,b \in A:\ (a\top x = b \top x \Rightarrow a = b) \wedge( x\top a = x \top b \Rightarrow a = b)) \]
-
-  \TODO{ bewijs}
+  \[ \exists y:\ y = sym(x) \Rightarrow (\forall a,b \in A:\ (a\top x = b \top x \Rightarrow a = b) \wedge( x\top a = x \top b \Rightarrow a = \]
 \end{st}
 
 \begin{st}
+  \label{st:rekenregel-symmetrische-elementen}
   Zij $\top:\ A\times A\rightarrow A$ een associatieve bewerking gedefinieerd op een verzameling $A$ met een neutraal element $e$.
-  \[ \forall x, y \in A: sym(x\top y) = sym(x) \top sym(y) \]
+  \[ \forall x, y \in A: sym(x\top y) = sym(y) \top sym(x) \]
 
-  \TODO{ bewijs}
+  \begin{proof}
+    \[
+    \begin{array}{rrl}
+                      & sym(x\top y) \top (x\top y)  &= e \\
+      \Leftrightarrow & (sym(x\top y) \top x) \top y &= e \\
+      \Leftrightarrow & sym(y) &= (sym(x\top y) \top x) \\
+      \Leftrightarrow & sym(y) \top sym(x) &= (sym(x\top y) \top x) \top sym(x) \\
+      \Leftrightarrow & sym(y) \top sym(x) &= sym(x\top y) \top (x \top sym(x)) \\
+      \Leftrightarrow & sym(y) \top sym(x) &= sym(x\top y) \top e \\
+      \Leftrightarrow & sym(y) \top sym(x) &= sym(x\top y) \\
+    \end{array}
+    \]
+    Merk op dat we meermaals gebruik maken van de associativiteit van $\top$.
+    In de omgekeerde implicatie in de derde equivalentie maken we bovendien gebruik van het feit dat symmetrische elementen schrapbaar zijn.\stref{st:symmetrisch-element-schrapbaar}
+  \end{proof}
 \end{st}
 
 
@@ -190,29 +218,29 @@
 \begin{st}
     Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
     De quotientbewerking $\bar{\top}$ voor $\top$ door $B$ is wel degelijk een inwendige bewerking.
-  
-    \TODO{ bewijs}
+ 
+    \extra{ bewijs}
 \end{st}
 
 \begin{st}
     Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
     Als de quotientbewerking $\bar{\top}$ associatief is, dan is $\top$ associatief.
   
-    \TODO{ bewijs}
+    \extra{ bewijs}
 \end{st}
 
 \begin{st}
     Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
     Als de quotientbewerking $\bar{\top}$ commutatief is, dan is $\top$ commutatief.
   
-    \TODO{ bewijs}
+    \extra{ bewijs}
 \end{st}
 
 \begin{st}
     Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
     Als de equivalentieklasse $\sim_{e}$ van een element het neutraal element is van $\bar{\top}$, dan is $e$ het neutraal element van $\top$. 
   
-    \TODO{ bewijs}
+    \extra{ bewijs}
 \end{st}
 
 
@@ -220,7 +248,7 @@
     Zij $A$ een verzameling met een inwendige bewerking $\top$ en een equivalentierelatie $\sim$ die verenigbaar is met $\top$.
     Voor elk element $x$ van $A$ geldt als $y$ het symmetrisch element is van $x$ in $A$, dat $\sim_{x}$ dan het symmetrisch element is van $\sim_{y}$ is in $A/R$.
   
-    \TODO{ bewijs}
+    \extra{ bewijs}
 \end{st}
-
+ 
 \end{document}

@@ -175,17 +175,14 @@
 
 \begin{st}
   Zij $f$ en $g$ injecties, dan is hun samenstelling $g \circ f$ ook een injectie.
-\TODO{bewijs}
 \end{st}
 
 \begin{st}
   Zij $f$ en $g$ surjectie, dan is hun samenstelling $g \circ f$ ook een surjectie.
-\TODO{bewijs}
 \end{st}
 
 \begin{st}
   Zij $f$ en $g$ bijectie, dan is hun samenstelling $g \circ f$ ook een bijectie.
-\TODO{bewijs}
 \end{st}
 
 \begin{de}
@@ -207,13 +204,11 @@
 \begin{st}
   \label{st:afb-inverse-asa-bijectief}
   Een afbeelding is inverteerbaar als en slechts als ze bijectief is.
-\TODO{bewijs}
 \end{st}
 
 \begin{st}
   \label{st:afb+inverse=identieke}
   De samenstelling van een inverteerbare afbeelding en haar inverse is de identieke transformatie.
-\TODO{bewijs}
 \end{st}
 
 \begin{st}
@@ -221,18 +216,29 @@
   Iedere afbeelding $f:A\rightarrow B$ valt te schrijven als een samenstelling:
   \[ f = i \circ b \circ p \]
   \begin{itemize}
-  \item $p$: de projectie van $f$ op $A/R_{f}$.
-  \item $b$: een bijectie tussen $A/R_{f}$ en $f(A)$,
+  \item $p$: de projectie van $f$ op $\{ (x,y) \mid f(x) = f(y) \}$.
+  \item $b$: een bijectie tussen $\{ (x,y) \mid f(x) = f(y) \}$ en $f(A)$,
   \item $i$: de inlassing van $f(A)$ in $B$,
   \end{itemize}
-
-\TODO{bewijs}
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+      {
+        A & B \\
+        G/Ker(\phi) & \phi(G) \\};
+      \path[-stealth]
+      (m-1-1) edge node [left] {$p$} (m-2-1)
+      edge node [above] {$f$} (m-1-2)
+      (m-2-1.east|-m-2-2) edge node [below] {$b$} (m-2-2)
+      (m-2-2) edge node [right] {$i$} (m-1-2);
+    \end{tikzpicture}
+  \end{figure}
 \end{st}
 
 \begin{st}
   \label{st:f-bijec-asa-f-1-bijec}
   Een afbeelding $f$ is bijectief als en slechts als $f^{-1}$ bijectief is.
-\extra{bewijs}
 \end{st}
 
 \section{Permutaties}
@@ -246,12 +252,6 @@
 \begin{de}
   Een bijectieve afbeelding van een eindige verzameling naar zichzelf noemen we een \term{permutatie}.
 \end{de}
-
-\begin{st}
-  Een permutatie is een samenstelling van transposities.
-
-\TODO{bewijs zie p 15}
-\end{st}
 
 \begin{de}
   We noemen de verzameling van permutaties van $n$ elementen $\mathcal{S}_{n}$.
@@ -278,6 +278,15 @@
   Dit heet de cykelnotatie.
 \end{de}
 
+\begin{st}
+  Een permutatie is een samenstelling van transposities.
+
+  \begin{proof}
+    Het is voldoende om aan te tonen dat elke cykel in $\mathcal{S}_{n}$ een samenstellinng is van transposities:
+    \[ (i_{1}i_{2}\dotsc i_{r}) = (i_{1}i_{r}) \circ \dotsb \circ (i_{1}i_{3}) \circ (i_{1}i_{2})\]
+  \end{proof}
+\end{st}
+
 \begin{de}
   Twee cykels zijn disjunct als ze geen gemeenschappelijke symbolen hebben. 
 \end{de}
@@ -285,14 +294,17 @@
 \begin{ei}
   \label{ei:disjuncte-cykels-commuteren}
   Disjuncte cykels commuteren.
-\extra{bewijs}
 \end{ei}
 
 \begin{st}
-  Elke permutatie in $\mathcal{S}_{n}$, verschillend van de identieke, is de samenstelling van twee aan twee disjuncte cykels.
+  Elke permutatie in $\mathcal{S}_{n}$, verschillend van de identieke, is de samenstelling van onderlingdisjuncte cykels.
 
 \TODO{bewijs zie p 14}
 \end{st}
+
+\begin{de}
+  We noemen de notatie van een permutatie als onderling disjuncte cykels de \term{disjuncte cykelnotatie}.
+\end{de}
 
 \begin{de}
   Zij $\pi: A \rightarrow A$ een permutatie en $i$ en $j$ twee elementen van $A$ met $i < j$.

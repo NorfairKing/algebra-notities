@@ -21,49 +21,11 @@
   \[ \forall g \in G: e_{G} * g = g = g * e_{G} \]
 \end{de}
 
-\begin{st}
-  \label{st:neutraal-element-uniek}
-  Het neutraal element van mono\"ide $G,*$ is uniek.
-
-  \begin{proof}
-    Bewijs uit het ongerijmde\\
-    Stel dat er twee verschillende neutrale elementen $e$ en $e'$ zijn van $G,*$.
-    \[ e = e * e' = e' \]
-    Contradictie.
-  \end{proof}
-\end{st}
-
 \begin{de}
   \label{de:groep}
   Een \term{groep} $G,*$ is een mono\"ide waarin elk element symmetriseerbaar is.
   \[ \forall x \in G, \exists x' \in G:\ x * x' = e = x' * x \]
 \end{de}
-
-\begin{st}
-  \label{st:groep-uniek-invers-element}
-  De inverse $x^{-1}$ van een element $x$ van een groep $G,*$ is uniek.
-  
-  \begin{proof}
-    Bewijs uit het ongerijmde\\
-    Stel dat er twee verschillende inversen $y$ en $z$ zijn van $x$ in $G$.
-    \[  
-    \begin{array}{rl}
-      y &= y * e_{G}\\
-        &= y * (x * z)\\
-        &= (y * x) * z\\
-        &= e_{G} * z\\
-        &= z
-    \end{array}
-    \]
-    De derde gelijkheid geldt omdat de bewerking $*$ associatief is.\deref{de:groep} De vierde gelijkheid geldt omdat het neutraal element van een groep uniek is.\stref{st:neutraal-element-uniek}
-  \end{proof}
-\end{st}
-
-\begin{st}
-  Zij $G,*$ een groep.
-  \[ (a*b)^{-1} = b^{-1} * a^{-1} \]
-\extra{bewijs}
-\end{st}
 
 \begin{de}
   Een \term{commutatieve groep} of \term{abelse groep} $G,*$ is een groep waarbij de bewerking $*$ commutatief is.
@@ -2132,7 +2094,9 @@
     \item Dit volgt uit de eigenschap over beelden en inverse beelden van normaaldelers onder een groepsmorfisme. \extra{dit is me niet duidelijk}
     \item Beschouw de afbeelding $f$:
       \[ f:\ G/N \rightarrow G/H: gN \mapsto gH \]
-      $f$ is een goed gedefinieerd groepsmorfisme. \waarom
+      $f$ is een goed gedefinieerd groepsmorfisme.
+      Kies immers twee verschillende representanten $g$ en $k$ van $G/N$.
+      $gH$ is dan gelijk aan $kH$ omdat $g$ en $H$ uit dezelfde nevenklasse komen. \clarify{nog meer uitleg nodig?}
       $f$ is surjectief.\\ \waarom \clarify{ en waarom is dit nodig?}
       De kern van $f$ is $H/N$.
       \[ Ker(f) = \{ gN \in G/N \ |\ gH = H \} = \{ gN \in G/N \ |\ g \in H \} = H/N \]
