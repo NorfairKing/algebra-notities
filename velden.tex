@@ -367,6 +367,7 @@
 \end{st}
 
 \begin{opm}
+  \label{opm:veldmorfisme-is-injectief}
   We zullen daarom een veld vaak identificeren met zijn beeld onder een veldmorfisme.
 \end{opm}
 
@@ -1180,9 +1181,15 @@
 
 
 \begin{pr}
-  Het veld der algebra\"ische getallen is algebra\"isch gesloten.
-  \[ \mathbb{Q} = \{ a \in \mathbb{C} \ |\ a \text{ is algebra\"isch over } \mathbb{Q} \} \]
-\TODO{bewijs p 96}
+  Het veld der algebra\"ische getallen in $\mathbb{C}$ over $\mathbb{Q}$ is algebra\"isch gesloten.
+  \[ \overline{\mathbb{Q}} = \{ a \in \mathbb{C} \ |\ a \text{ is algebra\"isch over } \mathbb{Q} \} \]
+
+  \begin{proof}
+    Merk eerst op dat $\overline{\mathbb{Q}}$ per definitie algebra\"isch is over $\mathbb{Q}$.
+    Zij $f$ een niet-constante veelterm over $\overline{\mathbb{Q}}$, dan heeft $f$ zeker een wortel $u$ in $\mathbb{C}$ want $\mathbb{C}$ is algebra\"isch gesloten.
+    Omdat $\overline{\mathbb{Q}}$, algebra\"isch is over $\overline{Q}$ en $\overline{Q}$ algebra\"isch is over $\mathbb{Q}$, is $\overline{\mathbb{Q}}(u)$ ook algebra\"isch over $\mathbb{Q}$.\stref{st:transitiviteit-algebraisch-zijn}
+    In het bijzonder is dan $u$ algebra\"isch over $\mathbb{Q}$ en dus een element van $\overline{\mathbb{Q}}$.
+  \end{proof}
 \end{pr}
 
 \begin{de}
@@ -1191,13 +1198,73 @@
 \end{de}
 
 \begin{lem}
+  \label{lem:bestaan-algebraische-sluiting}
   Zij $K,+,\cdot$ een veld, dan bestaat er een algebra\"ische sluiting $K_{1},+,\cdot$ zodat elke niet-constante veelterm in $K[X]$ een wortel heeft in $K_{1}$.
-\TODO{bewijs p 96}
+
+  \begin{proof}
+    Beschouw eerst $I$:
+    \[ I = \{ f\in K[X] \mid f \text{ is irreducibel } \} \]
+    Beschouw vervolgens voor elke veellterm $f$ in $I$ een veranderlijke $X_{f}$.
+    We zullen verder de veeltermenring $R$ beschouwen:
+    \[ R = K[X_{f}] \]
+    Zij $J$ het ideaal van $R$ voortgebracht door de elementen $f(X_{f})$, met andere woorden de irreducibele veeltermen in hun eigen veranderlijke.
+    We beweren nu dat $J$ verschillend is van $R$.
+    \begin{itemize}
+    \item 
+      Stel immers dat $J$ gelijk is aan $R$, dan zit het eenheidselement $i$ van $K,+,\cdot$ in $J$.
+      Dit betekent dat er (een eindig aantal\waarom) voortbrengers $f_{i}(X_{f_{i}})$ en elementen $r_{i}\in R$ bestaan als volgt:
+      \[ i = \sum_{i}r_{i}f_{i}(X_{f_{i}}) \] Merk hierin op dat de
+      veeltermen $r_{i}$ andere veranderlijken kunnen bevatten dat de
+      $X_{f_{i}}$.  Neem nu een algebra\"ische uitbreiding $K'$ van $K$
+      waarin elke $f_{i}$ een wortel $u_{i}$ in $K'$ heeft. (dit kan
+      altijd \stref{st:fundamentele-stelling-van-veldentheorie}, maar
+      enkel omdat we maar een eindig aantal $f_{i}$ beschouwen\waarom.)
+      We substitueren nu in de gelijkheid hierboven de veranderlijken
+      $X_{f_{i}}$ door $u_{i}$ en de andere optredende veranderlijken
+      door een element naar keuze.  We verkrijgen dan dat het
+      eenheidselement gelijk is aan het nulelement.  Contradictie.
+    \end{itemize}
+    Omdat $J$ niet gelijk is aan $R$, bestaat er een maximaal ideaal $M,+,\cdot$ van $R,+,\cdot$ als volgt \waarom:
+    \[ J \subseteq M \subsetneq R \]
+    Het veld $K_{1} = \nicefrac{R}{M}$ zal voldoen aan de gewenste voorwaarden.
+    We beschouwen hiervoor het morfisme $j$ dat de samenstelling is van de inbedding van $K$ in $R$ en de natuurlijke afbeelding $R\rightarrow R/M$:
+    \[ j: K \hookrightarrow R \rightarrow K_{1}: a \rightarrow \bar{a} \]
+    \begin{itemize}
+    \item $j$ is injectief.\stref{st:veldmorfisme-is-injectief}
+      \begin{itemize}
+      \item 
+      \end{itemize}
+      We kunnen daarom $K$ identificeren met zijn beeld $j(K)$ en dus als deelveld van $K_{1}$ beschouwen.\opmref{opm:veldmorfisme-is-injectief}
+    \item Elke irreducibele veelterm $f\in K[X]$ heeft nu en worte in $K_{1}$, namelijk $\bar{X_{f}}$.\clarify{verifieer!}
+      Bijgevolg heeft ook elke niet-constante veelterm in $K[X]$ een wortel in $K_{1}$.\waarom
+    \item Alle $\bar{X_{f}}$ zijn algebra\"isch over $K,+,\cdot$.
+      Nu is elk element van $K_{1}$ een veelterm-uitdrukkingin een eindig aantal van deze $\bar{X}_{f}$ met co\"efficienten in $K$ en dus ook algebra\"isch over $K,+,\cdot$.
+    \end{itemize}
+  \end{proof}
+\TODO{bekijk dit opnieuw, en goed! Schrijf er ook de gebruikte strategie bij.}
 \end{lem}
 
 \begin{st}
   Elk veld heeft een algebra\"ische sluiting.
-\TODO{bewijs p 97}
+  \begin{proof}
+    Kies een algebra\"ische uitbreiding $K_{1}$ van $K_{0}=K$ die voldoet aan de voorwaarden uit het lemma.\lemref{lem:bestaan-algebraische-sluiting}
+    Neem dan analoog een dergelijke uitbreiding $K_{2}$ van $K_{1}$.
+    We construeren op die manier een keten algebra\"ische uitbreidingen $K_{i}$ zodat elke niet-constante veelterm in $K_{i}[X]$ een wortel heeft in $K_{i+1}$.
+    \[ K_{i} \subseteq K_{i+1} \]
+    Definieer nu $E$:
+    \[ E = \cup_{i}K_{i} \]
+    \begin{itemize}
+    \item $E$ is een veld. (want een algebra\"ische uitbreiding is opnieuw een veld.)
+    \item $E,+,\cdot$ is algebra\"isch over $K,+,\cdot$.
+      Elk element van $E$ behoort immers tot een $K_{i}$ en is dus algebra\"isch over $K,+,\cdot$.
+    \item $E,+,\cdot$ is algebra\"isch gesloten.
+      Elke niet-constante veelterm $g\in E[X]$ heeft immers een wortel in $E,+,\cdot$:
+      Er bestaat een $i$ zodat alle co\"efficienten van $g$ tot $K_{i}$ behoren (want er zijn er maar eindig veel.)
+      $g$ is dan ook een element van $K_{i}[X]$.
+      Per constructie van $K_{i+1}$ heeft $g$ nu een wortel in $K_{i+1} \subseteq E$.
+    \end{itemize}
+  \end{proof}
+  \TODO{bekijk dit opnieuw, en goed!}
 \end{st}
 
 \section{Eindige velden}
