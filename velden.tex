@@ -254,7 +254,9 @@
   De doorsnede van alle deelvelden van $F$ is zelf een deelveld van $F$.
   Di kleinste deelveld heet het \term{priemdeelveld} van $F,+,\cdot$.
 \end{de}
+
 \begin{st}
+  \label{st:char-priem-priemdeelveld-zp}
   Zij $F,+,\cdot$ een veld.
   Als $char(F)$ een priemgetal is, dan is het priemdeelveld van $F,+,\cdot$ isomorf met $\mathbb{Z}_{p}$.
 \end{st}
@@ -401,6 +403,7 @@
 \end{de}
 
 \begin{st}
+  \label{st:eindig-veld-orde-macht-van-priemgetal}
   Het aantal elementen van een eindig veld is een macht van een priemgetal.
 
   \begin{proof}
@@ -1271,19 +1274,53 @@
 \label{sec:eindige-velden}
 
 \begin{st}
+  \label{st:multiplicatieve-groep-van-veld-is-cyclisch}
   De multiplicatieve groep $F^{\times},\cdot$ van een eindig veld $F,+,\cdot$ is cyclisch.
-\TODO{bewijs p 99}
-\TODO{bewijs op toledo}
+  
+  \begin{proof}
+    Merk eerst op dat de orde $q$ van $F$ een macht van een priemgetal is.\stref{st:eindig-veld-orde-macht-van-priemgetal}
+    De orde van $F^{\times}$ is dan $q-1$ omdat $F$, naast het nulelement enkel eenheden bevat.\deref{de:veld}
+    Voor $q=2$ is de multiplicatieve groep van orde $1$ en dus zeker cyclisch.
+    Stel dus dat $q$ groter is dan $2$.
+    \begin{itemize}
+    \item We ontbinden $q-1 = |F^{\times}|$ in priemfactoren:
+      \[ q-1 = \prod_{i=1}^{k}p_{i}^{r_{i}}\]
+      De $p_{i}$ zijn hier verschillende priemgetallen.
+    \item Voor elke $i\in \{1,\dotsc,k\}$ geldt nu het volgende:
+      Aangezien $\frac{q-1}{p_{i}}$ kleiner is dan $q-1$, bestaat er een element $a_{i}\in F^{\times}$ dat geen wortel is van de veelterm $X^{\frac{q-1}{p_{i}}}-1$. \waarom
+      Beschouw nu het element $b_{i}$:
+      \[ b_{i} = a_{i}^{\left(\frac{q-1}{p_{i}^{r_{i}}}\right)}\]
+      \begin{itemize}
+      \item De orde van $b_{i}$ in $F^{\times},\cdot$ is nu $p_{i}^{r_{i}}$.
+        \[ b^{p_{i}^{r_{i}}} = a^{q-1} = 1 \quad\text{ en }\quad b^{p_{i}^{r_{i}-1}} = a_{i}^{\frac{q-1}{p_{i}}} \neq 1 \]
+      \item De orde van $b$ is $q-1$.
+        \[ b = \prod_{i=1}^{k}b_{i}\]
+        Stel immers dat de orde van $b$ een echte deler is van $q-1$, dan is deze orde een deler van \'e\'en van de $\frac{q-1}{p_{i}}$.
+        Noem deze $\frac{q-1}{p_{a}}$.
+        \[ 1 = b^{\frac{q-1}{p_{a}}} = b_{a}^{\frac{q-1}{p_{1}}} \cdot \prod_{i=1, i\neq a}^{k}b_{i}^{\frac{q-1}{p_{1}}} \]
+        Nu geldt voor elke $i\neq a$ dat $p_{i}^{r_{i}}$ een deler is van $\frac{q-1}{p_{1}}$.
+        Vanwege het vorig puntje is $b_{i}^{\frac{q-1}{p_{a}}}$ dan gelijk aan $1$, zodat de orde van $b_{1}$ een deler moet zijn van $\frac{q-1}{p_{a}}$.
+        Dit is echter in tegenspraak met het vorig puntje.
+      \end{itemize}
+    \item $F^{\times},\cdot$ is cyclisch want $b$ is er een generator voor.
+    \end{itemize}
+  \end{proof}
+\TODO{wutwut, wut uun bewuis, opnieuw doen!}
+\extra{nog een bewijs van deze stelling}
 \end{st}
 
 \begin{opm}
   Bovenstaand bewijs is niet constructief.
-  Er is hiervan geen constructief bewijs gekend.
+  (We construeren geen generator)
+  Er is hiervan immers geen constructief bewijs gekend.
 \end{opm}
 
 \begin{gev}
   Zij $F,+,\cdot$ een veld van orde $q$, dan is de multiplicatieve groep $F^{\times},\cdot$ ervan isomorf met $\mathbb{Z}_{q-1},+$.
-\extra{bewijs}
+
+  \begin{proof}
+    $F^{\times},\cdot$ is cyclisch en van orde $q-1$, dus isomorf met $\mathbb{Z}_{q-1},+$. \needed
+  \end{proof}
 \end{gev}
 
 \begin{de}
@@ -1294,22 +1331,70 @@
 \label{sec:bestaan-en-uniciteit}
 
 \begin{st}
+  \label{st:priemveld-bestaat}
   Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
   Er bestaat een veld met $q$ elementen, namelijk een ontbindingsveld van $X^{q}-X$ over $\mathbb{Z}_{p}$.
-\TODO{bewijs p 100}
+
+  \begin{proof}
+    Zij $K,+,\cdot$ een ontbindingsveld van $X^{q}-X$ over $\mathbb{Z}_{p}$.
+    We zullen aantonen dat $K$ $q$ elementen bevat.
+    \begin{itemize}
+    \item De afgeleide van $X^{q}-X$ is $qX^{q-1}-1 = -1\in \mathbb{Z}_{p}[X]$.
+      Hieruit volgt meteen dat $X^{q}-X$ geen meervoudige wortels bevat.
+      Noem de verzameling van wortels van $X^{q}-X$ nu $W$:
+      \[ W = \{ x\in K \mid x^{q} = x\} \]
+      $W$ bevat nu $q$ elementen omdat er geen herhalingen in voorkomen.
+    \item $W$ is nu een deelveld van $K$ dat $\mathbb{Z}_{p}$ omvat. \waarom
+      Per definitie van het ontbindingsveld is $K$ dan gelijk aan $W$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
+  \label{st:priemveld-is-ontbindingsveld}
   Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
-  Elk veld $F,+,\cdot$ met $q$ elementen is een ontbindingsveld van $X^{q}-X$ over $\mathbb{Z}_p$
-\TODO{bewijs p 100}
+  Elk veld $F,+,\cdot$ met $q$ elementen is (isomorf met) een ontbindingsveld van $X^{q}-X$ over $\mathbb{Z}_p$.
+  \[ X^{q}-X = \prod_{a\in F}(X-a) \]
+
+  \begin{proof}
+    Zij $F,+,\cdot$ een veld met $q$ elementen.
+    We identificeren het priemdeelveld van $F$ met $\mathbb{Z}_{p}$.\gevref{gev:karakteristiek-van-domein-is-priem} \stref{st:char-priem-priemdeelveld-zp}.
+    Omdat $F^{\times}$ een cyclische\stref{st:multiplicatieve-groep-van-veld-is-cyclisch} groep is\eiref{ei:eenhedengroep-is-groep} van orde $q-1$\deref{de:groep} geldt voor elke $x\in F^{\times}$ dat $x^{q-1}$ gelijk is aan $1$ en dus ook het volgende:
+    \[ x^{q} = x \]
+    Dit laatste geldt natuurlijk ook voor het nulelementen en bijgevolg voor alle $x\in F$.
+    Anders gezegd heeft de veelterm $X^{q}-X$ van graad $q$ $q$ verschillende wortels in $F$.
+    Omdat $F$ $q$ elementen heeft is $F$ dan precies de verzameling wortels van $X^{q}-X$ en dus een ontbindingsveld van $X^{q}-X$ over $\mathbb{Z}_{p}$.
+  \end{proof}
+\clarify{wat heeft dit met het priemdeelveld te maken??}
 \end{st}
 
+
+\begin{opm}
+  De uniciteit van het veld met $p^{r}$ elementen volgt onmiddelijk als we de uniciteit van het ontbindingsveld gebruiken.
+\end{opm}
+\clarify{waarom dan nog het volgend bewijs?}
+
 \begin{st}
+  \label{st:priemveld-is-uniek}
   Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
   Twee verschillende velden met $q$ elementen zijn isomorf.
-\TODO{bewijs p 100}
+
+  \begin{proof}
+    Zij $K,+,\cdot$ en $K',\star,*$ twee velden met $q$ elementen.
+    We identificeren beide velden hun priemdeelvelden met $\mathbb{Z}_{p}$.\gevref{gev:karakteristiek-van-domein-is-priem} \stref{st:char-priem-priemdeelveld-zp}.
+    Zij $u$ een generator\stref{st:multiplicatieve-groep-van-veld-is-cyclisch} van $K^{\times}$ met minimale veelterm $f$ over $\mathbb{Z}_{p}$.
+    In het bijzonder is $f$ irreducibel in $\mathbb{Z}_{p}[X]$. \waarom
+    $K$ is dan gelijk aan $\mathbb{Z}_{p}(u)$, precies omdat $u$ een generator is van de element in $K\setminus 0$.
+    We weten nu dat $u$ een wortel is van $X^{q}-X$ over $\mathbb{Z}_{p}$.\stref{st:priemveld-is-ontbindingsveld}
+    Nu volgt ook dat $X^{q}-X$ een product is van lineaire veeltermen in $K'[X]$.\waarom
+    $f$ heet dus ook een wortel $u'$ in $K'$.
+    Omdat $f$ bovendien irreducibel is over $\mathbb{Z}_{p}$ is $f$ ook de minimale veelterm van $u'$ over $\mathbb{Z}_{p}$.
+    De structuurstelling voor enkelvoudige algebra\"ische uitbreidingen zegt nu het volgende: \waarom
+    \[ K \cong \mathbb{Z}_{p}(u) \cong \nicefrac{\mathbb{Z}_{p}}{(f)} \cong \mathbb{Z}_{p}(u') \subseteq K' \]
+    Omdat $K$ en $K'$ evenveel elementen hebben moet $K$ dan isomorf zijn met $K'$.
+  \end{proof}
 \end{st}
+
 
 \begin{de}
   Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
@@ -1319,28 +1404,60 @@
 \begin{st}
   Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
   Er bestaat een irreducibele veelterm van graad $r$ in $\mathbb{F}_{p}[X]$.
-\TODO{bewijs p 101}
+
+  \begin{proof}
+    Kies de minimale veelterm van een generator $u$ van $\mathbb{F}_{p}^{\times}$ over $\mathbb{F}_{p}$.
+    Deze is dan inderdaad irreducibel met graad $[\mathbb{F}_{p}=\mathbb{F}_{p}(u) \mathbb{F}_{p}] = r$.
+    \clarify{meer uitleg?}
+  \end{proof}
 \end{st}
 
 \begin{st}
   Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
   Elke irreducibele veelterm van graad $r$ in $\mathbb{F}_{p}[X]$ is een deler van $X^{p}-X$ in $\mathbb{F}_{p}[X]$.
-\TODO{bewijs p 101}
-\end{st}
 
-\begin{st}
-  Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
-  De irreducibele factoren van $X^{q}-X$ in $\mathbb{F}_{p}[X]$ zijn precies de irreducibele veeltermen in $\mathbb{F}_{p}[X]$.
-\TODO{bewijs p 101}
+  \begin{proof}
+    Zij $f$ een irreducibele veelterm van graad $r$ in $\mathbb{F}_{p}[X]$.
+    Kies een velduitbreiding van $\mathbb{F}_{p}$ met daaring een wortel $a$ van $f$, dan geldt het volgende:
+    \[ [\mathbb{F}_{p}(a):\mathbb{F}_{p}] = r \quad\text{ en }\quad |\mathbb{F}_{p}(a)| = p^{r} = q \]
+    Uit de vorige stelling \needed volgt dat $a$ ook een wortel is van $X^{q}-X$ en dus is $X^{q}-X$ deelbaar door $f$.
+  \end{proof}
 \end{st}
 
 \begin{lem}
   Zij $k$ een deler van $r$ in $\mathbb{N}_{0}$ en $p$ een priemgetal.
   Definieer $q$ en $q'$ als $q=p^{r}$ en $q'=p^{k}$.
   \[ X^{q'}-X | X^{q}-X \]
-  \TODO{bewijs p 102}
+
+  \begin{proof}
+    We gebruiken tweemaal de volgende identiteit.
+    \[ y^{d} - 1= (y-1)(y^{d-1} + \dotsb + y+1) \text{ met } d\in \mathbb{N}_{0} \]
+    Kies $y=q'$ en $d=\frac{r}{k}$. hieruit volgt dat $q-1$ deelbaar is door $q'-1$.
+    Neem nu $y=X^{q'-1}$ en $d=\frac{q-1}{q'-1}$.
+    Dan verkrijgen we het volgende:
+    \[ X^{q'-1}-1 \mid X^{q-1}-1 \]
+    Dit impliceert onmiddelijk de bewering.
+  \end{proof}
 \end{lem}
 
+\begin{st}
+  Zij $p$ een priemgetal waarvoor $q=p^{r}$ geldt met $r\in \mathbb{N}_{0}$.
+  De irreducibele factoren van $X^{q}-X$ in $\mathbb{F}_{p}[X]$ zijn precies de irreducibele veeltermen in $\mathbb{F}_{p}[X]$.
+
+  \begin{proof}
+    Zij $f'$ een irreducibele veelterm in $\mathbb{F}_{p}[X]$ van graad $k$ waarbij $k$ een deler is van $r$.
+    Noteer nu $q'=p^{k}$.
+    Analoog als in de vorige stelling vinden we dat $f'$ een deler is van $X^{q'}-X$.
+    Vanwege het lemma is dan $X^{q}-X$ deelbaar door $X^{q'}-X$ en dus door $f$.
+    Zij anderzijds $g$ een irreducibele factor van $X^{q}-X$ in $\mathbb{F}_{p}[X]$ en noteer $l=gr(g)$.
+    Neem een wortel $w$ van $g$ in het ontbindingsveld $\mathbb{F}_{q}$ van $X^{q}-X$ over $\mathbb{F}_{p}$.
+    Omdat $g$ irreducibel is, is $g$ dan een minimale veelterm van $w$ over $\mathbb{F}_{p}$ en geldt $[\mathbb{F}_{p}(w):\mathbb{F}_{p}]=l$.
+    Door tenslotte de productformule \needed toe te passen op de volgende uitbreidingen verkrijgen we dat $r$ deelbaar is door $l$.
+    \[ \mathbb{F}_{p} \subseteq \mathbb{F}_{p}(w) \subseteq \mathbb{F}_{p} \]
+    De alternatieve formulering volgt dadelijk uit het feit dat $X^{q}-X$ geen meervoudige wortels heeft en elke irreducibele factor dus maar \'e\'en keer voorkomt.
+  \end{proof}
+\end{st}
+\TODO{deze sectie opnieuw!}
 
 \subsection{Onderlinge inclusies}
 \label{sec:onderlinge-inclusies}
@@ -1348,7 +1465,20 @@
 \begin{st}
   Zij $p$ een priemgetal.
   Een veld met $p^{r}$ elementen heeft een uniek deelveld met $p^{k}$ elementen als en slechs als $k|r$ geldt.
-\TODO{bewijs p 103}
+
+  \begin{proof}
+    Bewijs van een equivalentie
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $\mathbb{F}_{p^{k}}$ een deelveld is van $\mathbb{F}_{p^{r}}$, dan volgt uit de productformule voor de volgende keten van velduitbreidingen dat $r$ deelbaar is door $k$.
+      \[ \mathbb{F}_{P} \subseteq \mathbb{F}_{p^{r}} \subseteq \mathbb{F}_{p^{r}} \]
+    \item $\Leftarrow$\\
+      Als anderzijds $r$ deelbaar is door $k$, dan zegt het vorige lemma dat $X^{p^{k}}-X$ een deler is van $X^{p^{r}}-X$.
+      Alle wortel van de veelterm $X^{p^{k}}-X$ behoren dus tot een ontbindingsveld $\mathbb{F}_{p}$ van $X^{p^{r}}-X$.
+      Deze wortels vormen een deelveld met $p^{k}$ elementen.
+      Stel nu dat $\mathbb{F}_{p^{r}}$ twee verschillende deelvelden heeft met $p^{k}$ elementen, dan zou de veelterm $X^{p^{k}}$ meer dan $p^{k}$ nulpunten hebben in het veld $\mathbb{F}_{p^{r}}$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{pr}
@@ -1356,8 +1486,22 @@
   Beschouw voor elke $k$ en $r$ in $\mathbb{N}$ waarbij $k|r$ geldt het veld $\mathbb{F}_{p^{k}}$ als deelveld van $\mathbb{F}_{p^{r}}$.
   $\overline{\mathbb{F}_{p}}$ is dan een algebra\"ische sluiting van $\mathbb{F}_{p}$.
   \[ \overline{\mathbb{F}_{p}} = \cup_{i\in \mathbb{N}_{0}}\mathbb{F}_{p^{i}} \]
-\TODO{bewijs p 104}
+
+  \begin{proof}
+    \begin{itemize}
+    \item $\bar{\mathbb{F}_{p}}$ is een veld.
+      Neem twee elementen $x$ en $y$ uit $\bar{\mathbb{F}_{p}}$, dan bestaan er getallen $i$ en $j$ in $\mathbb{N}_{0}$ zodat $x$ een element is van $\mathbb{F}_{p^{i}}$ en $y$ een element van $\mathbb{F}_{p^{j}}$.
+      Via de de gegeven inbeddingen behoren $x$ en $y$ dan tot (bijvoorbeeld) $\mathbb{F}_{p^{ij}}$.
+      We kunnen $x+y$ en $x\cdot y$ nu beschouwen in $\mathbb{F}_{p^{ij}} \subseteq \bar{\mathbb{F}}_{p}$.
+      \extra{bewijs verder p 104}
+    \item $\bar{\mathbb{F}_{p}}$ is algebra\"isch over $\mathbb{F}_{p}$.
+      Neem immers een $u\in \bar{\mathbb{F}}_{p}$, dan bestaat er een $i\in \mathbb{N}_{0}$ zodat $u$ een element is van $\mathbb{F}_{p^{i}}$ en $u$ is dus algbera\"isch over $\mathbb{F}_{p}$.
+    \item $\bar{\mathbb{F}_{p}}$ is algebra\"isch gesloten.
+    \end{itemize}
+  \end{proof}
 \end{pr}
+
+\TODO{deze sectie opnieuw!}
 
 \end{document}
 
