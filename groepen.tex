@@ -1066,7 +1066,7 @@
   De orde van $\alpha$ in $\mathcal{S}_{n}$ is gelijk aan het kleinst gemeen veelvoud van de lengtes van de cykels in disjuncte cykelnotatie van $\alpha$.
 
   \begin{proof}
-    Merk eerst op dat een $r$-cykel orde $r$ heeft in $\mathcal{S}_{n}$.\waarom
+    Merk eerst op dat een $r$-cykel orde $r$ heeft in $\mathcal{S}_{n}$.\needed
     Zij $\alpha$ als volgt geschreven in disjuncte cykelnotatie.
     \[ \alpha = (i_{1}i_{2}\dotsc i_{r})(j_{1}j_{2}\dotsc j_{s})\dotsc(z_{1}z_{2}\dotsc z_{u}) \]
     Noteer $m$ voor het kleinst gemeen veelvoud $kgv(r,s,\dotsc,u)$ van de lengtes van de cykels.
@@ -1165,7 +1165,7 @@
       Het aantal elementen in de $m$-de cykel is $j_{m}$ en het totaal aantal cykels is $k$.
       Allereerst merken we het volgende op:
       \[ \alpha \circ (i_{m,1}\dotsc i_{m,j_{m}}) \circ \alpha^{-1} = (\alpha(i_{m,1})\dotsc\alpha(i_{m,j_{m}})) \]
-\clarify{waarom? maak algoritme voor samenstelling van cykels en toon dan aan.}
+\clarify{waarom? maak algoritme voor samenstelling van cykels en toon dan aan! Zie $(\alpha(i_{m,1})\dotsc\alpha(i_{m,j_{m}}))$ niet als (...) na $\alpha^{-1}$}
       Dit is bovendien opnieuw een $j_{m}$-cykel.
       Bekijk nu $\tau$:
       \[ 
@@ -1177,7 +1177,7 @@
       \end{array}
       \]
       Deze schrijfwijze bestaat opnieuw uit disjuncte cykels.
-      \clarify{waarom?}
+      \clarify{waarom? $\alpha$ is een permutate, dus zeker een bijectie}
       De cykelstructuur is bovendien gelijk aan die van $\sigma$.
     \item $\Leftarrow$\\
       Stel dat twee permutaties $\sigma$ en $\tau$ dezelfde cykelstructuur hebben.
@@ -1188,9 +1188,7 @@
         \forall p,q:\ \alpha(i_{p,q}) = i'_{p,q}\\
       \]
       De andere elementen beeldt $\alpha$ op zichzelf af.
-      \clarify{Zeker?}
       Nu conjugeert $\alpha$ $\tau$ met $\sigma$.
-      \clarify{Ja?}
     \end{itemize}
   \end{proof}
 \end{ei}
