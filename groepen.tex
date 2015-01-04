@@ -149,7 +149,7 @@
 
   \begin{proof}
     Om te bewijzen dat $G,*$ een groep is, moeten we nog bewijzen dat er een neutraal element bestaat in $G$ en dat elk element een inverse heeft in $G$.
-\TODO{ voor doorbijters: Bewijs }
+\extra{ voor doorbijters: Bewijs }
   \end{proof}
 \end{st}
 
@@ -182,7 +182,7 @@
 \begin{st}
   Zij $G,*$ een groep waarop een equivalentierelatie $\sim$ is gedefinieerd, dan is de verzameling van alle elementen equivalent met het neutraal element als $\sim$ links-(of rechts-)verenigbaar is met $*$.
   
-\TODO{bewijs p 106 tai}
+\extra{bewijs p 106 tai}
 \end{st}
 
 \begin{st}
@@ -197,7 +197,7 @@
 \begin{de}
   \label{de:groepsmorfisme}
   Zij $G,*$ en $H,\Box$ groepen.
-  Een (groeps)(homo)\term{morfisme} $f$ is een morfisme\deref{de:morfisme} tussen twee groepen $G,*$ en $H,\Box$.
+  Een (groeps)(homo)\term{morfisme} $f$ is een morfisme tussen twee groepen $G,*$ en $H,\Box$.
   \[ \forall x,y \in G: f(x*y) = f(x) \Box f(y) \]
 \end{de}
 
@@ -642,7 +642,7 @@
     \[ a^{kr\alpha} = a^{ggd(k,n)r - \beta nr} = a^{ggd(k,n)r}* a^{-\beta nr} = a^{ggd(k,n)r}\]
     Omdat $a^{ggd(k,n)r} = e$ geldt, is $n$ een deler van $ggd(k,n)r$.\stref{ei:groep-eindige-orde-deelbaarheid}
     Dat houdt in dat $\frac{n}{d}$ een deler is van $r$, en dus kleiner.
-    \TODO{bewijzen in hoofdstuk van deelbaarheid}
+    \extra{bewijzen in hoofdstuk van deelbaarheid}
   \end{proof}
 
 \end{st}
@@ -666,14 +666,14 @@
     $<a^{\frac{n}{m}}>$ is een deelgroep\stref{st:voortbrenging-is-groep} van $G$.
     Omdat $G$ cyclisch is, is $<a^{\frac{n}{m}}>$ ook cyclisch.\stref{st:deelgroep-van-cyclische-groep-is-cyclisch} De orde van $<a^{\frac{n}{m}}>$ is bovendien gelijk aan $\frac{n}{ggd({\frac{n}{m},n)}}$.\stref{st:orde-element-cyclische-groep}
     \[ \frac{n}{ggd({\frac{n}{m},n)}} = m \]
-\TODO{Bewijs in hoofdstuk van deelbaarheid}
+\extra{Bewijs in hoofdstuk van deelbaarheid}
     We moeten nu dus nog bewijzen dat elke deelgroep $H$ van orde $m$ gelijk is aan $<a^{\frac{n}{m}}>$.
     Kies zo'n deelgroep $H$ van orde $m$. $H$ is nu zeker cyclisch.
     Noem de generator van $H$ $a^{k}$.
     \[ H = <a^{k}> \]
     We weten nu opnieuw dat $H$ orde $\frac{n}{ggd(k,n)}$ heeft.
     \[ m = \frac{n}{ggd(k,n)} = \frac{kgv(k,n)}{k} \]
-\TODO{Bewijs in hoofdstuk van deelbaarheid}
+\extra{Bewijs in hoofdstuk van deelbaarheid}
     \[ k = \frac{kgv(k,n)}{m} \]
     $k$ is dus een veelvoud van $\frac{n}{m}$.
     Bijgevolg zit $a^{k}$ zeker in $<a^{k}>$.
@@ -685,7 +685,19 @@
   \label{st:stelling-van-ruffini}
   Stelling van Ruffini\\
   Zij $\alpha\in \mathcal{S}_{n}$ verschillend van $Id$. De orde van $\alpha$ in $\mathcal{S}_{n}$ is gelijk aan het kleinst gemeen veelvoud van de lengtes van de cykels in de disjuncte cykelnotatie van $\alpha$.
-\TODO{bewijs p 15}
+
+  \begin{proof}
+    Merk eerst op dat een $r$-cykel orde $r$ heeft in $\mathcal{S}_{n}$.\stref{st:r-cykel-orde-r}
+    Schrijf nu $\sigma$ in de disjuncte cykelnotatie als volgt:
+    \[ \sigma = (i_{1,1}\dotsc i_{1,j_{1}})(i_{2,1}\dotsc i_{2,j_{2}}) \dotsc (i_{k,1}\dotsc i_{k,j_{k}}) \]
+    Het aantal elementen in de $m$-de cykel is $j_{m}$ en het totaal aantal cykels is $k$.
+    Noem nu $m$ het kleinst gemeen veelvoud van de $j_{i}$.
+    \begin{itemize}
+    \item $\alpha^{m}$ is inderdaad $Id$.
+      $m$ is immers een veelvoud van elk van de $j_{i}$.
+    \item Stel dat er nog een getal $k$ $\alpha^{k}$ $Id$ maakt, dan is $k$ groter of gelijk aan $m$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
@@ -757,8 +769,6 @@
   \label{ei:rechter-nevenklasse-eig}
   Zij $G$ een groep en $H$ een deelgroep van $G$.
   \[ \forall a,b \in G:\ Ha = Hb \Leftrightarrow a \in Hb \Leftrightarrow ab^{-1} \in H \]
-
-\TODO{ bewijs analoog }
 \end{ei}
 
 \begin{ei}
@@ -786,12 +796,7 @@
 \end{ei}
 
 \begin{st}
-  De verzamelingen der linker en rechter nevenklassen van een deelgroep $H,*$ van een groep $G,*$ zijn equipotent.
-  \[ |\{ xH\ |\ x \in G \}| = |\{ Hx\ |\ x \in G \}| \]
-  \TODO{bewijs p 101 tai}
-\end{st}
-
-\begin{st}
+  \label{st:nevenklassen-partitie}
   Zij $G$ een groep en $H$ een deelgroep van $G$, De linkse(/rechter) nevenklassen van $H$ vormen een partitie van $G$.
 
   \begin{proof}
@@ -859,7 +864,7 @@
 \begin{st}
   Een groep $G,*$ heeft evenveel linkse als rechtse nevenklassen.
 
-\TODO{bewijs}
+\extra{bewijs p 106 tai}
 \end{st}
 
 \begin{st}
@@ -948,21 +953,21 @@
 \begin{st}
   De directe som van $n$ groepen $G_{1},\dotsc,G_{n}$ is een groep.
 
-\TODO{ bewijs }
+\extra{ bewijs }
 \end{st}
 
 \begin{ei}
   \label{ei:groep-orde-vier}
   Elke groep van orde $4$ is isomorf met $\mathbb{Z}_{4}$ of met de viergroep $V$.
 
-\TODO{ bewijs }
+\extra{ bewijs }
 \end{ei}
 
 \begin{ei}
   \label{ei-groep-orde-zes}
   Elke groep van orde $6$ is isomorf met $\mathbb{Z}_{6}$ of met $\mathcal{S}$. 
 
-\TODO{ bewijs }
+\extra{ bewijs }
 \end{ei}
 
 \begin{de}
@@ -989,39 +994,57 @@
 \begin{st}
   $\mathcal{S}V,\circ$ is een groep.
 
-\TODO{ bewijs }
+\extra{ bewijs }
 \end{st}
 
 \begin{st}
   De orde van $\mathcal{S}_{n}$ is $n!$.
 
-\TODO{ bewijs }
+\extra{ bewijs }
 \end{st}
 
 \begin{st}
   De orde van $\mathcal{A}_{n}$ is $\frac{n!}{2}$.
 
-\TODO{ bewijs }
+\extra{ bewijs }
 \end{st}
 
 \begin{st}
+  \label{st:r-cykel-orde-r}
   In een permutatiegroep heeft een element dat als een cykel van lengte $n$ wordt voorgesteld orde $n$
 
-\TODO{ bewijs }
+  \extra{ bewijs }
 \end{st}
 
 \begin{st}
+  \examen
   \label{st:stelling-van-cayley}
   \term{Stelling van Cayley}:\\
   Elke groep is isomorf met een permutatiegroep (een deelgroep van $S(G),\circ$).
 
-\TODO{ bewijs p 11}
+  \begin{proof}
+    Vool elke willekeurige groep $G,*$ geldt het volgende
+    Beschouw voor elk element $a\in G$ de linkse translatie $L_{a}$ bepaald door $a$:
+    \[ L_{a}:\ G \rightarrow G:\ x \mapsto a * x \]
+    $L_{a}$ is een permutatie van $G$ \extra{verifieer}
+    Beschouw nu $\phi$:
+    \[ \phi:\ G \rightarrow \mathcal{S}G:\ a \rightarrow L_{a} \] 
+    \begin{itemize}
+    \item $\phi$ is een groepsmorfisme.\\
+      \[ \forall a,b \in G:\ \phi(a*b) = L_{a*b} = L_{a}\circ L_{b} \]
+      Merk op dat dit echt enkel kan omdat $*$ associatief is in $G$.
+    \item $\phi$ is injectief.\\
+      We tonen aan dat de kern van $\phi$ enkel $e_{G}$ bevat.\stref{st:kern-triviaal-asa-morfisme-injectief}
+      Stel dat er een element van $G$ op $Id_{G}$ wordt afgebeeld onder $\phi$, dan is dat element het neutraal element van $G$:
+      \[ \phi(a) = L_{a} = Id_{G} \Rightarrow a = a * e_{G} = L_{a}(e_{G}) = Id_{G}(e_{G}) = e_{G} \]
+    \end{itemize}
+    $\phi$ bepaalt dus een isomorfisme van $G$ naar zijn beeld onder $\phi$, wat een deelgroep is van $\mathcal{S}G$.\stref{st:fa-deelgroep-h}
+  \end{proof}
 \end{st}
 
 \begin{gev}
   Elke eindige groep met $n$ elementen is isomorf met een deelgroep van $\mathcal{S}_{n}$.
-
-\TODO{ bewijs p 11}
+\extra{bewijs}
 \end{gev}
 
 \begin{pr}
@@ -1066,7 +1089,7 @@
   De orde van $\alpha$ in $\mathcal{S}_{n}$ is gelijk aan het kleinst gemeen veelvoud van de lengtes van de cykels in disjuncte cykelnotatie van $\alpha$.
 
   \begin{proof}
-    Merk eerst op dat een $r$-cykel orde $r$ heeft in $\mathcal{S}_{n}$.\needed
+    Merk eerst op dat een $r$-cykel orde $r$ heeft in $\mathcal{S}_{n}$.\stref{st:r-cykel-orde-r}
     Zij $\alpha$ als volgt geschreven in disjuncte cykelnotatie.
     \[ \alpha = (i_{1}i_{2}\dotsc i_{r})(j_{1}j_{2}\dotsc j_{s})\dotsc(z_{1}z_{2}\dotsc z_{u}) \]
     Noteer $m$ voor het kleinst gemeen veelvoud $kgv(r,s,\dotsc,u)$ van de lengtes van de cykels.
@@ -1086,7 +1109,12 @@
 
 \begin{st}
   $sgn: \mathcal{S}_{n},\circ \rightarrow \{1,-1\},\cdot$ is een groepsmorfisme met als kern $\mathcal{A}_{n}$.
-\TODO{bewijs p 18}
+
+  \begin{proof}
+    Kies twee permutaties $a$ en $b$ uit $\mathcal{S}_{n}$ en zij $s$ en $r$ respectievelijk het aantal transposities in $a$ en $b$.
+    
+    \[ sgn(a\circ b) = -1^{r+s} = (-1)^{r} + (-1)^{s} = sgn(a) + sgn(b) \]
+  \end{proof}
 \end{st}
 
 \section{Conjugatie}
@@ -1165,7 +1193,6 @@
       Het aantal elementen in de $m$-de cykel is $j_{m}$ en het totaal aantal cykels is $k$.
       Allereerst merken we het volgende op:
       \[ \alpha \circ (i_{m,1}\dotsc i_{m,j_{m}}) \circ \alpha^{-1} = (\alpha(i_{m,1})\dotsc\alpha(i_{m,j_{m}})) \]
-\clarify{waarom? maak algoritme voor samenstelling van cykels en toon dan aan! Zie $(\alpha(i_{m,1})\dotsc\alpha(i_{m,j_{m}}))$ niet als (...) na $\alpha^{-1}$}
       Dit is bovendien opnieuw een $j_{m}$-cykel.
       Bekijk nu $\tau$:
       \[ 
@@ -1177,7 +1204,7 @@
       \end{array}
       \]
       Deze schrijfwijze bestaat opnieuw uit disjuncte cykels.
-      \clarify{waarom? $\alpha$ is een permutate, dus zeker een bijectie}
+      $\alpha$ is immers een permutatie.
       De cykelstructuur is bovendien gelijk aan die van $\sigma$.
     \item $\Leftarrow$\\
       Stel dat twee permutaties $\sigma$ en $\tau$ dezelfde cykelstructuur hebben.
@@ -1220,6 +1247,7 @@
 \end{ei}
 
 \begin{ei}
+  \examen
   Zij $G,*$ een groep, dan is de afbeelding $\sigma$ een groepsmorfisme:
   \[ \sigma:\ G,* \rightarrow Aut G,\circ:\ a \mapsto \sigma_{a} \]
 
@@ -1249,8 +1277,6 @@
   De groep $InnG$ der inwendige automorfismen van een groep $G$ is wel degelijk een deelgroep van $AutG$.
 \extra{bewijs}
 \end{st}
-
-\extra{bekijk expliciet wat er gebeurt in commutatieve groepen voor bovenstaande begrippen.}
 
 \begin{de}
   Zij $G,*$ een groep en $g$ een element van $G$, dan is de \term{centralisator} van $g$ in $G,*$ de verzameling $C_{G,*}(g)$ van de elementen in $G$ die commuteren met $g$.
@@ -1462,6 +1488,7 @@
 \end{opm}
 
 \begin{de}
+  \examen
   Een \term{quotientgroep} $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G$ is de groep der linker nevenklassen van $H$ met een bewerking $\bar{*}$ die onafhankelijk is van de representantenkeuze.
   \[ (\bar{*}):\ G/H \rightarrow G/H:\ (x*H)\bar{*}(y*H) = (x' * y') * H \]
   In de bovenstaande definitie zijn $x'$ en $y'$ twee willekeurig gekozen representaten.
@@ -1558,17 +1585,16 @@
 \end{pr}
 
 \begin{pr}
+  \examen
   Zij $G,*$ een groep, dan is elke deelgroep van een groep $G,*$ met index $2$ een normaaldeler van $G,*$.
   \begin{proof}
     Zij $H,*$ een deelgroep van een groep $G,*$ met index $2$.
     \[ [G:H] = 2 \Leftrightarrow \frac{|G|}{|H|} = 2 \]
     Het aantal nevenklassen van $H$ in $G$ in dan precies $2$.\stref{st:stelling-van-lagrange}
-    De nevenklassen zijn dan $H$ en $G\setminus H$.
-\clarify{waarom?}
+    De nevenklassen zijn dan $H$ en $G\setminus H$.\stref{st:nevenklassen-partitie}
     We gaan nu na of $gH$ gelijk is aan $Hg$ voor elke $g\in G$.
     Als $g$ in $H$ zit, dan is $gH$ gelijk aan $H$ en $Hg$. $gH=Hg$ geldt dan.
     Als $g$ in $G\setminus H$ zit, dan zijn zowel $gH$ als $Hg$ niet gelijk aan $H$ geldt bijgevolg $gH = G\setminus H = Hg$.
-    \clarify{waarom?}
   \end{proof}
 \end{pr}
 
@@ -1579,9 +1605,8 @@
     Beschouw voor elke $g$ in $G$ het inwendig automorfisme $\sigma_{g}$:
     \[ \sigma_{g}:\ G \rightarrow G:\ x \mapsto gxg^{-1} \]
     Dit morfisme beeldt de deelgroep $N$ bijectief af op de deelgroep $gNg^{-1}$.
-    \clarify{waarom?}
     \[ |gNg^{-1}| = |N| \]
-    Omdat $N$ de enige deelgroep is met $|N|$ elementen en $gNg^{-1}$ een deelgroep is \waarom van $G,*$ moeten $gNg^{-1}$ en $N$ gelijk zijn.
+    Omdat $N$ de enige deelgroep is met $|N|$ elementen en $gNg^{-1}$ een deelgroep is\stref{st:beeld-is-deelgroep} van $G,*$ moeten $gNg^{-1}$ en $N$ gelijk zijn.
   \end{proof}
 \end{pr}
 
@@ -1620,6 +1645,7 @@
 \end{ei}
 
 \begin{ei}
+  \examen
   \label{ei:morfisme-behoudt-normaaldelen}
   Zij $f:\ G,* \rightarrow H,\Box$ een groepsmorfisme
   $f^{-1}$ behoudt het normaaldelen.
@@ -1644,6 +1670,7 @@
 \label{sec:quotientgroepen}
 
 \begin{de}
+  \examen
   Zij $G,*$ een groep en $N$ een normaaldeler van $G$.
   De (kandidaat-)bewerking $\bar{*}$ op $G/N$ is gedefinieerd als volgt:
   \[ (x*N)\bar{*}(y*N) = (x'*y')*N \]
@@ -1651,6 +1678,7 @@
 \end{de}
 
 \begin{pr}
+  \examen
   \label{pr:bewerking-quotientgroep-goed-gedefinieerd}
   De definitie van de quotientgroep $G/H,\bar{*}$ van een groep $G$ door een deelgroep $H$ van $G,*$ is enkel zinvol wanneer $H$ een normaaldeler is van $G,*$.
   't Is te zeggen. De bewerking $\bar{*}$ is enkel goed gedefinieerd, dus onafhankelijk van de representatenkeuze, wanneer $H$ een normaaldeler is.
@@ -1733,11 +1761,11 @@
 \begin{st}
   Zij $N,*$ een deelgroep van een groep $G,*$, dan is $N$ een normaaldeler als de bewerking $\bar{*}$ van $G/N$ een groep maakt:
   \[ \bar{*}:\ G/N \times G/N \rightarrow G/N:\ (x*N)\bar{*}(y*N) = (x*y)*N \]
-  
-\extra{bewijs}
+  \zb
 \end{st}
 
 \begin{st}
+  \examen
   \label{st:deelgroep-centrum-quotient-cyclisch-groep-commutatief}
   Als er een deelgroep $H,*$ van het centrum $Z(G)$ van een groep $G,*$ bestaat zodat $G/H$ cyclisch is, dan is $G$ commutatief.
   
@@ -1746,7 +1774,6 @@
     Zij $\bar{g}$ een generator voor $G/H$, dan bestaan er getallen $i$ en $j$ in $\mathbb{Z}$ zodat, in $G/H$ het volgende geldt:
     \[ \bar{a} = (\bar{g})^{i} = \overline{g^{i}} \quad\text{ en }\quad \bar{b} = (\bar{g})^{j} = \overline{g}^{j} \]
     Anders gezegd bestaan er $x$ en $y$ in $H$ zodat we $a$ en $b$ als volgt kunnen schrijven.
-\waarom
     \[ a = g^{i}x \quad\text{ en }\quad b = g^{j}y \]
     We kunnen nu rekenen met $a$ en $b$. Merk op dat, omdat $G/H$ cyclisch is, $G/Z(G)$ ook commutatief is.\stref{st:cyclishe-groep-is-commutatief}
     \[
@@ -1778,7 +1805,6 @@
     De orde van $Z(G)$ moet bovendien een deler zijn van de orde van $G$ omdat $Z(G)$ een deelgroep is van $G$.\stref{st:stelling-van-lagrange} \eiref{ei:centrum-is-deelgroep}
     De orde van $Z(G)$ moet dus $p$, $q$ of $1$ zijn. $p$ en $q$ zijn echter priemgetallen, en elke groep met een priemgetal als orde is cyclisch\stref{st:priemgroep-is-cyclisch}, dus de orde van $Z(G)$ moet $1$ zijn.
     Elke groep van orde $1$ is de groep met enkel het neutraal element.
-    \waarom
   \end{proof}
 \end{gev}
 
@@ -1792,12 +1818,17 @@
 \begin{st}
   We kunnen elke niet-enkelvoudige groep $G$ ontbinden in enkelvoudige groepen.
   \begin{proof}
-    Kies van $G=G_{0}$ een niet-triviale normaaldeler $G_{1}$ van maximale orde, dan is $G_{0}/G_{1}$ enkelvoudig.
-\waarom
-    Kies nu, opnieuw, als $G_{1}$ niet enkelvoudig is, een niet-triviale normaaldeler (van $G_{1}$) van maximale orde.
-    $G_{1}/G_{2}$ is dan ook enkelvoudig.
-\waarom
-    We kunnen zo verder groepen $G_{i}$ kiezen met $G_{i+1} \triangleleft G_{i}$ tot $G_{n}$ uiteindelijk enkelvoudig is.
+    \begin{itemize}
+    \item Kies van $G=G_{0}$ een niet-triviale normaaldeler $G_{1}$ van maximale orde, dan is $G_{0}/G_{1}$ enkelvoudig.
+      Stel immers dat $\nicefrac{G_{0}}{G_{1}}$ niet enkelvoudig is, dan kunnen we  een niet-triviale noraaldeler $H$ in $\nicefrac{G_{0}}{G_{1}}$ vinden.
+      Noem $G_{2}= \nicefrac{H}{G_{1}}$. Dit is een normaaldeler van $\nicefrac{G_{0}}{G_{1}}$. \stref{st:groepen-derde-isomorfismestelling}
+      \[ \nicefrac{\nicefrac{G_{0}}{G_{1}}}{\nicefrac{H}{G_{1}}} = \nicefrac{G_{0}}{H} \]
+      Dit zou echter betekenen dat $H$ een grotere orde heeft dan $G_{1}$, maar dat kan niet want $G_{1}$ heeft een maximale orde.
+      \clarify{duidelijk zo?}
+    \item $G_{2}$ is Kies nu, opnieuw, als $G_{1}$ niet enkelvoudig is, een niet-triviale normaaldeler (van $G_{1}$) van maximale orde.
+      $G_{1}/G_{2}$ is dan ook enkelvoudig.
+      We kunnen zo verder groepen $G_{i}$ kiezen met $G_{i+1} \triangleleft G_{i}$ tot $G_{n}$ uiteindelijk enkelvoudig is.
+    \end{itemize}
   \end{proof}
 \end{st}
 
@@ -1807,7 +1838,7 @@
 
 \begin{st}
   De compositiefactoren van een niet-enkelvoudige groep $G$ zijn onafhankelijk (op isomorfisme na) van de keuze van de normaaldelers.
-  \zb Zie Jordan en H\"older.
+  \zb
 \end{st}
 
 \begin{st}
@@ -1862,6 +1893,7 @@
 \subsection{Eerste isomorfismestelling}
 
 \begin{st}
+  \examen
   \label{st:eerste-isomorfismestelling}
   \term{Eerste isomorfismestelling}\\
   Zij $G.*$ en $H,\Box$ twee groepen.
@@ -1889,23 +1921,39 @@
   Met dezelde notaties: een groepsmorfisme $\phi$ kan ontbonden worden als een samenstelling van een surjectie $\pi$ en de injectie $\bar{\phi} = i \circ \phi'$, of nog, een surjectie $\pi$, een bijectie $\phi'$ en een injectie (inbedding) $i$.
 
   \begin{proof}
-    Eerst bewijzen we dat $\phi$ goed gedefinieerd is. We tonen aan dat voor twee verschillende representanten $x$ en $y$ uit $gKer(\phi)$ het beeld onder $\phi$ hetzelfde is.
-    Omdat $x$ en $y$ beide in dezelfde nevenklasse van $Ker(\phi)$ zitten, bestaat er een element $h\in Ker(\phi)$ zodat $x$ gelijk is aan $y*h$.
-    \[
-    \begin{array}{rll}
-      \phi(x) &= \phi(y*h) &\\
-      &= \phi(y) \Box \phi(h) &\\
-      &= \phi(y) \Box e_{H} = \phi(y)
-    \end{array}
-    \]
-    Vervolgens bewijzen we dat $\bar{\phi}$ een groepsmorfisme is.
-    Inderdaad, omdat $\phi$ een groepsmorfisme is, en \waarom.
-    Tenslotte bewijzen we dat $\bar{\phi}$ een injectie is.
-    Kies een $\bar{g} = gKer(\phi)$ in $G/Ker(\phi)$ zodat $\bar{\phi}$ $\bar{g}$ afbeeldt op $e_{H}$.
-    We moeten nu aantonen dat daaruit volgt dat $\bar{g}$ het neutraal element ($Ker(\phi)$) is van $G/Ker(\phi)$.\stref{st:kern-triviaal-asa-morfisme-injectief}
-    Omdat $\bar{\phi}$ $\bar{g}$ afbeeldt op $e_{H}$, moet $\phi$ $g$ ook afbeelden op $e_{H}$.
-    \waarom
-    Dit betekent dat $g$ tot $Ker(\phi)$ behoort. Bijgevolg is $\bar{g}$ gelijk aan $Ker(\phi)$, het neutraal element van $G/Ker(\phi)$.\eiref{ei:nevenklasse-eigen-element-gelijk}.
+    Belangrijk bewijs in delen.
+    \begin{itemize}
+    \item 
+      Eerst bewijzen we dat $\bar{\phi}$ goed gedefinieerd is.
+      We tonen aan dat voor twee verschillende representanten $x$ en $y$ uit $gKer(\phi)$ (voor een bepaalde $g\in G$), het beeld onder $\phi$ hetzelfde is.
+      Omdat $x$ en $y$ in dezelfde nevenklasse van $Ker(\phi)$ zitten, bestaat er een element $h\in Ker(\phi)$ zodat $x$ gelijk is aan $y*h$.
+      \[
+      \begin{array}{rll}
+        \phi(x) &= \phi(y*h) &\\
+        &= \phi(y) \Box \phi(h) &\\
+        &= \phi(y) \Box e_{H} = \phi(y)
+      \end{array}
+      \]
+    \item 
+      Vervolgens bewijzen we dat $\bar{\phi}$ een groepsmorfisme is.
+      \[
+      \forall gKer(\phi),g'Ker(\phi) \in \nicefrac{G}{Ker{\phi}}:\
+      \begin{array}{rll}
+        \bar{\phi}(gKer(\phi)\ \bar{*}\ g'Ker(\phi)) &= \bar{\phi}((g*g')Ker(\phi)) &\\
+                                                     &= \phi(g*g') &= \phi(g) * \phi(g')
+      \end{array}
+      \]
+      In de tweede gelijkheid gebruiken we dat $\bar(\phi)$ goed gedefinieerd is.
+    \item 
+      Tenslotte bewijzen we dat $\bar{\phi}$ een injectie is.  Kies een
+      $\bar{g} = gKer(\phi)$ in $G/Ker(\phi)$ zodat $\bar{\phi}$
+      $\bar{g}$ afbeeldt op $e_{H}$.  We moeten nu aantonen dat daaruit
+      volgt dat $\bar{g}$ het neutraal element ($e_{G}Ker(\phi)$) is van
+      $G/Ker(\phi)$.\stref{st:kern-triviaal-asa-morfisme-injectief}
+      Omdat $\bar{\phi}$ $\bar{g}$ afbeeldt op $e_{H}$, moet $\phi$ $g$
+      ook afbeelden op $e_{H}$ (anders was $\bar{\phi}$ niet goed gedefinieerd). Dit betekent dat $g$ tot
+      $Ker(\phi)$ behoort. Bijgevolg is $\bar{g}$ gelijk aan $Ker(\phi)$, het neutraal element van $G/Ker(\phi)$.\eiref{ei:nevenklasse-eigen-element-gelijk}.
+    \end{itemize}
   \end{proof}
 \end{st}
 
@@ -1916,33 +1964,48 @@
   \begin{proof}
     We passen de eerste morfismestelling\stref{st:eerste-isomorfismestelling} toe op het groepsmorfisme $\sigma$.
     \[ \sigma: G \rightarrow Aut G:\ a \mapsto \sigma_{a} \]
-    $Z(G)$ is nu de kern van $\sigma$ \waarom , dus is $G/Z(G)$ isomorf met $Inn G$.
+    $Z(G)$ is nu de kern van $\sigma$, dus is $G/Z(G)$ isomorf met $Inn G$.
+\extra{nagaan dat $\sigma$ goed gedefinieerd is}
   \end{proof}
 \end{pr}
 
 \begin{st}
-  De \term{factorisatiestelling} deel 1\\
+  \label{st:factorisatiestelling}
+  \examen
+  De \term{factorisatiestelling}\\
   Zij $f: G\rightarrow H$ een groepsmorfisme en $N\subseteq Ker(f)$ een normaaldeler van $G$.
-  Er bestaan dan een uniek groepsmorfisme $f':\ G/N \rightarrow H$ zodat $f$ kan ontbonden worden als $f'\circ \pi$.
-
+  Er bestaan dan een uniek groepsmorfisme $f':\ G/N \rightarrow H$ als volgt
+  \begin{itemize}
+  \item $f$ kan ontbonden worden als $f=f'\circ \pi$
+  \item $f'$ is injectief als en slechts als $N$ gelijk is aan $Ker(f)$
+  \end{itemize}
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+      {
+        G & H \\
+        G/N &  \\};
+      \path[-stealth]
+      (m-1-1) edge node [left] {$\pi$} (m-2-1)
+      edge  node [above] {$f$} (m-1-2)
+      (m-2-1) edge [dashed] node [above] {$f'$} (m-1-2);
+    \end{tikzpicture}
+  \end{figure}
   \begin{proof}
-    Inderdaad:
-    \[ f':\ G/N \rightarrow H:\ aN \mapsto f(a) \]
-    Voor elke $a$ in $G$ geldt nu dat $a$ door $f= (f' \circ \pi)$ afgebeeld wordt op $f'(aN) = f(a)$.
-  \end{proof}
-\end{st}
-
-\begin{st}
-  De \term{factorisatiestelling} deel 2\\
-  Zij $f: G\rightarrow H$ een groepsmorfisme en $N\subseteq Ker(f)$ een normaaldeler van $G$.
-  Het groepsmorfisme $f'$ met $f = f'\circ \pi$ is injectief als en slechts als $N$ gelijk is aan de kern van $f$.
-  \[ f':G/N \rightarrow H \text{ is injectief } \Leftrightarrow N = Ker(f) \]
-
-  \begin{proof}
-    De nevenklassen van $N$ die door $f'$ op $e_{H}$ worden afgebeeld zijn de nevenklassen $aN$ met $a$ in de kern van $f$.
-    $f'$ is dus injectief als en slechts als de verzameling $\{ aN \ |\ a \in Ker(f) \}$ gelijk is aan $\{ N \}$.
-    Dit is precies wanneer $N$ de kern is van $f$.
-\clarify{ik ben nog niet overtuigd}
+    Bewijs in delen.
+    \begin{itemize}
+    \item 
+      De factorisatie-eis impliceert dat we $f'$ als volgt moeten defini\"eren.
+      \[ f':\ G/N \rightarrow H:\ aN \mapsto f(a) \]
+      Voor elke $a$ in $G$ geldt nu dat $a$ door $f= (f' \circ \pi)$ afgebeeld wordt op $f'(aN) = f(a)$.
+    \item 
+      De nevenklassen van $N$ die door $f'$ op $e_{H}$ worden afgebeeld
+      zijn de nevenklassen $aN$ met $a$ in de kern van $f$.  $f'$ is dus
+      injectief als en slechts als de verzameling $\{ aN \ |\ a \in
+      Ker(f) \}$ gelijk is aan $\{ N \}$.\stref{st:kern-triviaal-asa-morfisme-injectief}
+      Dit is precies wanneer $N$ de kern is van $f$.
+    \end{itemize}
   \end{proof}
 \end{st}
 
@@ -1970,8 +2033,8 @@
     Elke deelgroep van $G$ die $X$ omvat moet alle elementen van $X$, hun inversen, en onderlinge samenstellingen bevatten.
     \[ X' \subseteq <X> \]
     Anderzijds is $X'$ ook een deelgroep van $G$ die $X$ omvat.
-\waarom
     \[ <X> \subseteq X' \]
+    \extra{ga dit na met het criterium van deelgroepen}
   \end{proof}
 \end{ei}
 
@@ -1995,6 +2058,7 @@
 \end{st}
 
 \begin{st}
+  \examen
   Zij $H$ en $K$ deelgroepen van een commutatieve groep $G,*$, dan is $HK$ gelijk aan de groep voortgebracht door $H\cup K$.
   \[ HK = <H\cup K> \]
   \extra{bewijs}
@@ -2054,10 +2118,11 @@
 \subsection{Derde isomorfismestelling}
 
 \begin{st}
+  \label{st:groepen-derde-isomorfismestelling}
   \term{Derde isomorfismestelling}\\
   Zij $G,*$ een groep en $N$ een normaaldeler van $G,*$.
   \begin{itemize}
-  \item De afbeelding $H \rightarrow H/N$ bepaalt een bijectie tussen de deelgroepen van $G,*$ die $N$ omvatten en de deelgroepen van $G/N$.
+  \item De afbeelding $H \mapsto H/N$ bepaalt een bijectie tussen de deelgroepen van $G,*$ die $N$ omvatten en de deelgroepen van $G/N$.
   \item Onder deze bijectie corresponderen normaaldelers van $G$ met normaaldelers van $G/N$.
   \item Zij $H$ nog een normaaldeler van $G$ zodat $N$ een deelverzameling is van $H$, dan geldt het volgende:
     \[ \nicefrac{(G/N)}{(H/N)} \cong G/H\]
@@ -2067,7 +2132,7 @@
     Bewijs in delen.
     \begin{itemize}
     \item
-      Zij $A$ de verzameling van alle deelgroepen $H$ van $G$ waarvan $N$ een deelverzameling is en $B$ de verzameling van deelgroepen van $G/N$.
+      Zij $A$ de verzameling van alle deelgroepen $H$ van $G$ die $N$ omvatten en $B$ de verzameling van deelgroepen van $G/N$.
       $A$ en $B$ zijn dan de verzamelingen waartussen we een bijectie zoeken.
       We bewijzen dat de afbeelding $p$ een (die) bijectie is.
       \[ p:\ A \rightarrow B:\ H \mapsto \pi(H) \quad\text{ met }\quad \pi: G \rightarrow G/N: g \mapsto gN \]
@@ -2086,21 +2151,26 @@
         \end{itemize}
       \item $p$ is surjectief.\\
         Kies een $H'$ uit $B$.
-        Omdat $\pi$ surjectief is, \waarom geldt $H' = \pi(\pi^{-1}(H'))$.
+        Omdat $\pi$ surjectief is\stref{st:nevenklassen-partitie} geldt $H' = \pi(\pi^{-1}(H'))$.
         Er bestaat dus steeds een element $a$ uit $A$ zodat $p(a)=H'$ geldt. 
       \end{itemize}
     \item Dit volgt uit de eigenschap over beelden en inverse beelden van normaaldelers onder een groepsmorfisme. \extra{dit is me niet duidelijk}
     \item Beschouw de afbeelding $f$:
       \[ f:\ G/N \rightarrow G/H: gN \mapsto gH \]
-      $f$ is een goed gedefinieerd groepsmorfisme.
-      Kies immers twee verschillende representanten $g$ en $k$ van $G/N$.
-      $gH$ is dan gelijk aan $kH$ omdat $g$ en $H$ uit dezelfde nevenklasse komen. \clarify{nog meer uitleg nodig?}
-      $f$ is surjectief.\\ \waarom \clarify{ en waarom is dit nodig?}
-      De kern van $f$ is $H/N$.
-      \[ Ker(f) = \{ gN \in G/N \ |\ gH = H \} = \{ gN \in G/N \ |\ g \in H \} = H/N \]
-      Omdat $H/N$ de kern van $f$ is, en $G/H$ het beeld van $G/N$ onder $f$, $geldt \nicefrac{(G/N)}{(H/N)} \cong G/H$.\stref{st:eerste-isomorfismestelling}
+      \begin{itemize}
+      \item 
+        $f$ is een goed gedefinieerd groepsmorfisme.
+        Kies immers twee verschillende representanten $g$ en $k$ van $G/N$.
+        $gH$ is dan gelijk aan $kH$ omdat $g$ en $H$ uit dezelfde nevenklasse komen.
+      \item $f$ is surjectief.
+        (Kies immers een $gH$ uit $G/H$, dan geldt $g(gN)=gH$.)
+      \item De kern van $f$ is $H/N$.
+        \[ Ker(f) = \{ gN \in G/N \ |\ gH = H \} = \{ gN \in G/N \ |\ g
+        \in H \} = H/N \] Omdat $H/N$ de kern van $f$ is, en $G/H$ het
+        beeld van $G/N$ onder $f$, geldt $\nicefrac{(G/N)}{(H/N)} \cong G/H$.\stref{st:eerste-isomorfismestelling}
+      \end{itemize}
     \end{itemize}
-\clarify{Dit kan duidelijker en gedetailleerder!}
+    \clarify{Dit kan duidelijker en gedetailleerder!}
   \end{proof}
 \end{st}
 
@@ -2131,6 +2201,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:commutatordeelgroep-is-normaaldeler}
   Zij $G$ een groep.
   \[ G' \triangleleft G \]
 
@@ -2144,6 +2215,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:quotientgroep-commutatief-asa-eerste-afgeleide-deelgroep}
   Zij $G$ een groep en $N$ een normaaldeler van $G$, dan is $G/N$ commutatief als en slechts als $G'$ een deel is van $N$.
 
   \[ G/N \text{ is commutatief } \Leftrightarrow G' \subseteq N \]
@@ -2180,7 +2252,13 @@
   \[ p:\ G \rightarrow G/G':\ g \mapsto gG' \]
   Zij $f$ nu een groepsmorfisme van $G$ naar een commutatieve groep $A$, dan bestaat er een uniek morfisme $f'$ als volgt:
   \[ f':\ G/G' \rightarrow A \text{ met } f = f'\circ p \]
-  \extra{bewijs, hint p 39}
+
+  \begin{proof}
+    Kies twee willekeurige elementen $x$ en $y$ uit $G$.
+    \[ f(x*y*x^{-1}y^{-1} = f(x) * f(y) * f(x)^{-1} * f(y)^{-1} = e_{A} \]
+    $G'$ is dus een deelgroep van $Ker(f)$.
+    De factorisatiestelling levert ons dan de stelling.\stref{st:factorisatiestelling}
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -2200,18 +2278,15 @@
        \[ \{ e_{G} \} = H_{n} \triangleleft H_{n-1} \triangleleft \dotsb \triangleleft H_{i+1} \triangleleft H_{i} \triangleleft \dotsb \triangleleft H_{1} \triangleleft H_{0} = G \]
        We tonen nu per inductie op $i$ aan dat elke deelgroep $H_{i}$ een deelverzameling is van de $i$-de afgeleide groep $G^{(i)}$ van $G$.
        \begin{itemize}
-       \item $G^{(1)}$ is een deelverzameling van $H_{1}$ want $G/H_{1}$ is commutatief.
-\waarom
+       \item $G^{(1)}$ is een deelverzameling van $H_{1}$ want $G/H_{1}$ is commutatief.\stref{st:quotientgroep-commutatief-asa-eerste-afgeleide-deelgroep}
        \item Stel dat $G^{(i)} \subseteq H_{i}$ geldt, dan bewijzen we nu dat daaruit volgt dat $G^{(i+1)} \subseteq H_{i+1}$ geldt.
-         Omdat $G^{(i)}$ een deelverzameling is van $H_{i}$, is $G^{(i+1)}$ een deelverzameling van $H_{i}'$
-\waarom
-         Omdat $H_{i}/H_{i+1}$ commutatief is, is $H_{i}'$ een deelverzameling van $H_{i+1}$.
-\waarom
-         $G^{(i+1)}$ is dus inderdaad een deelverzameling van $H_{i+1}$.
+         Omdat $G^{(i)}$ een deelgroep is van $H_{i}$, is $G^{(i+1)}$ een deelgroep van $H_{i}'$ (vanuit de basis en de inductiehypothese samen).
+         Omdat $H_{i}/H_{i+1}$ commutatief is, is $H_{i}'$ een deelgroep van $H_{i+1}$.\stref{st:quotientgroep-commutatief-asa-eerste-afgeleide-deelgroep}
+         $G^{(i+1)}$ is dus inderdaad een deelgroep van $H_{i+1}$.
        \end{itemize}
     \item $\Leftarrow$\\
-      De keten van deelgroepen voldoet aan de definitie van oplosbaarheid.\deref{de:oplosbaar} \gevref{gev:afgeleide-door-groep-is-commutatief} \stref{st:commutatordeelgroep-is-deelgroep}
-\clarify{Iets meer uitschrijven?}
+      De keten van deelgroepen voldoet aan de definitie van oplosbaarheid.\deref{de:oplosbaar}
+      $\nicefrac{G^{(k)}}{G^{(k-1)}}$ is immers commutatief{gev:afgeleide-door-groep-is-commutatief} en $G^{(k)}$ een normaaldeler van $G^{(k-1)}$.\stref{st:commutatordeelgroep-is-normaaldeler}
     \end{itemize}
   \end{proof}
 \end{pr}
