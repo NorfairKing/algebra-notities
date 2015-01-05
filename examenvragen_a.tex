@@ -1,0 +1,181 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+
+\chapter{Examenvragen: Algebra I}
+\label{cha:examen-a}
+
+\section{Snelheidsvraagjes}
+\label{sec:snelheidsvraagjes}
+
+\begin{itemize}
+\item Waar of niet?
+  \begin{center}
+    ``Een groep is eindig als alle elementen eindige orde hebben.''
+  \end{center}
+
+  Niet waar.\\
+  Tegenvoorbeeld: In $\bigoplus_{i=1}^{\infty}\mathbb{Z}_{2}$ heeft elk element orde $2$.
+\item Waar of niet?
+  \begin{center}
+    ``Als een groep eindig is, dan hebben al diens elementen een eindige orde.''
+  \end{center}
+  Waar.\\
+  Als een groep eindig is met orde $n$ , hebben alle elementen een deler van $n$ als orde.\gevref{gev:orde-van-element-deelt-orde-van-groep}
+\item Waar of niet?
+  \begin{center}
+    Zij $R$ een ring met eenheidselement, dan hebben $u$ en $v$ elk een inverse als en slechts als $uw$ een inverse heeft.
+  \end{center}
+  Wat verandert er als de ring commutatief is?
+\item Waar of niet?
+  \begin{center}
+    In een integriteitsdomein geldt $(R[X])^{\times} = R^{\times}$.
+  \end{center}
+\extra{antwoord?}
+\item Waar of niet?
+  \begin{center}
+    Zij $E,+,\cdot$ een velduitbreiding van een veld $K,+,\cdot$. 
+    Zij $a$ en $b$ transcendente elementen in $E$ over $K,+,\cdot$
+    $a\cdot b$ is transcendent over $K,+,cdot$.
+  \end{center}
+  Niet waar. Tegenvoorbeeld: $e$ en $\frac{1}{e}$ zij beide transcendent over $\mathbb{Q}$, maar $e \cdot \frac{1}{e}=1$ is algebra\"isch over $\mathbb{Q}$.
+\item Bestaat er een algebra\"isch gesloten veld dat $\mathbb{C}$ strikt omvat?
+\item Geef alle $2\times 2$ matrices oven $\mathbb{C}$ die zowel hermetisch als unitair zijn.
+\[ A = A^{*} \text{ en } A^{-1}=A^{*} \Rightarrow A=A^{-1}\]
+\[ A = 
+\begin{pmatrix}
+  \cos\theta & i\sin\theta\\
+  -i\sin\theta & -\cos\theta
+\end{pmatrix}
+\vee 
+A =
+\begin{pmatrix}
+  \cos\theta & \sin\theta\\
+  \sin\theta & -\cos\theta
+\end{pmatrix}
+\vee 
+A = I
+\vee 
+A = -I
+\]
+\item Geef alle maximale idealen in $\mathbb{C}[X]$.
+\extra{antwoord?}
+\item Welke inclusies gelden er tussen $\mathbb{F}_{2}$, $\mathbb{F}_{4}$, $\mathbb{F}_{6}$ en $\mathbb{F}_{8}$
+\extra{antwoord?}
+\item Wat is $\mathbb{F}_{16}\cap \mathbb{F}_{64}$?
+$64=2^{6}$ dus de strikte deelvelden van $\mathbb{F}_{64}$ zijn die met $2^{1}$, $2^{2}$ en $2^{3}$ elementen.
+$16=2^{4}$ dus de strikte deelvelden van $\mathbb{F}_{16}$ zijn die met $2^{1}$ en $2^{2}$ elementen.
+Antwoord: $\mathbb{F}_{4}$.
+\item Geef de grootst gemene deler van $X$ en $Y$ in $\mathbb{R}[X,Y]$
+\extra{antwoord?}
+\item Zij $\mathbb{F}_{q}$ een eindig veld met $q$ elementen.
+  Welke groepen $\mathbb{F}_{q},+$ en $\mathbb{F}_{q}^{\times},\cdot$ zijn cyclisch?
+\extra{antwoord?}
+\item Geef alle idealen van $\mathbb{Z}$.
+\extra{antwoord?}
+\item Als $\mathbb{Z}$ een $HID$ is, is $(4,7)$ dan ook een hoofdideaal?
+\extra{antwoord?}
+\item Wat is de priemdeelring van $\mathbb{Z}$?
+\extra{antwoord?}
+\item Wat is de doorsnede van alle deelringen van $\mathbb{Z}$?
+\extra{antwoord?}
+\item Wat zijn de maximale idealen in $\mathbb{Z}$?
+\extra{antwoord?}
+\item Bespreek de inclusies tussen de volgende verzamelingen van $\mathbb{C}^{n \times n}$ matrices:
+  \begin{center}
+    Diagonaliseerbaar, Unitair, Normaal, Hermetisch
+  \end{center}
+\extra{antwoord?}
+\end{itemize}
+
+\section{Lineaire algebra}
+\label{sec:lineaire-algebra}
+
+\begin{itemize}
+\item Zij $K,+,\cdot$ een veld en $A$ een nilpotente transformatie van een $K$-vectorruimte van index $k$.
+  Bewijs het volgende:
+  \[ \{0\} \subsetneq Ker(A) \subsetneq Ker(A)^{2} \subsetneq \dotsb \subsetneq Ker(A^{k-1}) \subsetneq Ker(A)^{k} = V \]
+\extra{examenvraag}
+\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
+  \[
+  \begin{pmatrix}
+    2 & -1 & 0 & 1 & 0 & 0\\
+    0 & 2 & 0 & 0 & 0 & 0\\
+    0 & -1 & 2 & 0 & 0 & 0\\
+    -1 & 0 & 1 & 4 & 1 & 1\\
+    1 & 0 & -1 & -1 & 1 & -1\\
+     0 & 0 & 0 & 0 & 0 & 2
+  \end{pmatrix}
+  \]
+  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+  Geef ook de karakteristieke veelterm en de minimale veelterm van $A$.
+\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
+  \[
+  \begin{pmatrix}
+      0 & 0 & 0 & 0 & 1\\
+      2 & 1 & -1 & -1 & -1\\
+      0 & 0 & 2 & 1 &0\\
+      0 & 0 & 0 & 2 & 0\\
+      -1 & 0 & 0 & 0 & 2
+  \end{pmatrix}
+  \]
+  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+\item Zij $A\in \mathbb{C}^{3\times 3}$ een diagonaliseerbare matrix met $3$ verschillende eigenwaarden $\lambda_{1}$, $\lambda_{2}$ en $\lambda_{3}$ en bijhorende eigenvectoren $v_{1}$,$v_{2}$ en $v_{3}$.
+  Beschouw $C \in \mathbb{C}^{6\times 6}$.
+  \[ C =
+  \begin{pmatrix}
+    A & I \\
+    0 & A
+  \end{pmatrix}
+  \]
+  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+\item Zij $A\in \mathbb{C}^{n \times n}$ een matrix en zij $f_{A} = (X-i)\phi_{A}$ en $\phi_{A}^{2} = (X^{2}+1)f_{a}$.
+  Bereken $f_{A}$ en $\phi_{A}$ en geef de Jordanvorm van $A$.
+\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
+  \[
+  \begin{pmatrix}
+      1 & 0 & 0 & 0 & 0\\
+      1 & 2 & -1 & 1 & 1\\
+      -2 & 0 & 3 & -1 &0\\
+      -1 & 0 & 1 & 1 & 0\\
+      0 & 0 & 0 & 0 & 2
+  \end{pmatrix}
+  \]
+  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
+  \[
+  \begin{pmatrix}
+    i & 0 & -2\\
+    0 & i+\frac{1}{2} & \frac{1}{2}\\
+    0 & -\frac{1}{2} & -\frac{1}{2}+i
+  \end{pmatrix}
+  \]
+  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+\item Voor welke $n$ bestaat er een matrix $M\in \mathbb{C}^{n\times n}$ zodat de minimale veelterm van $M$ $(x-1)(x-2)^{2}(x-3)^{3}$ is?
+\item Zij $A$ een nilpotente matrix in $\mathbb{C}^{6\times 6}$ zodat $dim(Ker(A^{2}))=4$ geldt, geef alle mogelijke invariante systemen van $A$.
+\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
+  \[
+  \begin{pmatrix}
+    0 & 1 & 2 & 0\\
+    -2 & 4 & 1 & 0\\
+    -2 & 1 & 4  &0\\
+    -2 & 0 & 3 &3
+  \end{pmatrix}
+  \]
+  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+\item Zij $A:\ \mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ een lineaire afbeelding met karakteristieke veelterm $f_{A}(X)=X^{2}+aX+b$ waarbij de discriminant $a^{2}-4b$ kleiner is dan nul.
+  Toon aan dat er een basis $\beta$ van $\mathbb{R}^{2}$ bestaat zodat $A$ de volgende matrix krijgt ten opzichte van $\beta$.
+\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
+  \[
+  \begin{pmatrix}
+    2 & 1 & 0 & -1\\
+    0 & 3 & 0 & 0\\
+    -3 & 1 & 1 &-5\\
+    1 & -1 & 0 & 4
+  \end{pmatrix}
+  \]
+  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+\end{itemize}
+
+
+\end{document}
