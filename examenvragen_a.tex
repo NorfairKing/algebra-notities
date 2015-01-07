@@ -1,4 +1,4 @@
-\documentclass[main.tex]{subfiles}
+ \documentclass[main.tex]{subfiles}
 \begin{document}
 
 
@@ -26,7 +26,15 @@
   \begin{center}
     Zij $R$ een ring met eenheidselement, dan hebben $u$ en $v$ elk een inverse als en slechts als $uw$ een inverse heeft.
   \end{center}
-  Wat verandert er als de ring commutatief is?
+  Wat verandert er als de ring commutatief is?\\
+  Waar, maar enkel als de ring commutatief is.
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$: Als $u$ en $v$ elk een inverse hebben, dan heeft $uv$ als inverse $v^{-1}u^{-1}$.
+    \item $\Leftarrow$: Zij $x$ de inverse van $uv$, dan is $vx$ de inverse van $u$ en (maar dit enkel als $R,+,\cdot$ commutatief is) $ux$ de inverse van $v$.
+    \end{itemize}
+  \end{proof}
 \item Waar of niet?
   \begin{center}
     In een integriteitsdomein geldt $(R[X])^{\times} = R^{\times}$.
@@ -58,7 +66,14 @@ A = I
 \vee 
 A = -I
 \]
-\item Geef alle maximale idealen in $\mathbb{C}[X]$.
+\item In $\mathbb{Z}$:
+  \begin{itemize}
+  \item Geef alle idealen.
+  \item Geef alle maximale idealen.
+  \item Geef de priemdeelring.
+  \item Geef de doorsnede van alle deelringen.
+  \item $\mathbb{Z}$ is een HID, Is $(4,7)$ dan een hoofdideaal? \extra{bekijk de stelling van het primitief element.}
+  \end{itemize}
 \extra{antwoord?}
 \item Welke inclusies gelden er tussen $\mathbb{F}_{2}$, $\mathbb{F}_{4}$, $\mathbb{F}_{6}$ en $\mathbb{F}_{8}$
 \extra{antwoord?}
@@ -70,16 +85,6 @@ Antwoord: $\mathbb{F}_{4}$.
 \extra{antwoord?}
 \item Zij $\mathbb{F}_{q}$ een eindig veld met $q$ elementen.
   Welke groepen $\mathbb{F}_{q},+$ en $\mathbb{F}_{q}^{\times},\cdot$ zijn cyclisch?
-\extra{antwoord?}
-\item Geef alle idealen van $\mathbb{Z}$.
-\extra{antwoord?}
-\item Als $\mathbb{Z}$ een $HID$ is, is $(4,7)$ dan ook een hoofdideaal?
-\extra{antwoord?}
-\item Wat is de priemdeelring van $\mathbb{Z}$?
-\extra{antwoord?}
-\item Wat is de doorsnede van alle deelringen van $\mathbb{Z}$?
-\extra{antwoord?}
-\item Wat zijn de maximale idealen in $\mathbb{Z}$?
 \extra{antwoord?}
 \item Bespreek de inclusies tussen de volgende verzamelingen van $\mathbb{C}^{n \times n}$ matrices:
   \begin{center}
@@ -151,8 +156,23 @@ Antwoord: $\mathbb{F}_{4}$.
   \[ \forall a\in R,\ \exists b\in R:\ a^{2}b=a \]
   Toon aan dat elk priemideaal van $R,+,\cdot$ ook een maximaal ideaal van $R,+,\cdot$.\\\\
   Zij $I,+,\cdot$ een priemideaal van $R,+,\cdot$, dan is $R/I$ een integriteitsdomein.
-  Vanwege de voorwaarde op $R$ bevat $R$ enkel eenheden (en $R/I$ dus ook).
+  In $R/I$ geldt hetzelfde als in $R$:
+  \[ a^{2}b=a \Rightarrow a(ab-i)=e \]
+  Omdat $R/I$ een domein is moeten $a$ en $b$ inversen zijn (als $a$ niet $e$ is).
   Een integriteitsdomein $R/I$ met enkel eenheden is een veld, dus $I$ is een maximaal ideaal.\stref{st:quotientgroepen-asa-idealen-stelling}
+\end{itemize}
+
+\section{Velden}
+\label{sec:velden}
+
+\begin{itemize}
+\item Bereken $[\mathbb{Q}(\sqrt{2},\sqrt[3]{4}):\mathbb{Q}]$.
+  \begin{itemize}
+  \item $[\mathbb{Q}(\sqrt{2}):\mathbb{Q}] = 2$ want $X^{2}-2$ is de minimale veelterm van $\sqrt{2}$ over $\mathbb{Q}$.
+  \item $[\mathbb{Q}(\sqrt[3]{4}):\mathbb{Q}] = 3$ want $X^{3}-2$ is de minimale veelterm van $\sqrt{3}$ over $\mathbb{Q}$.
+  \end{itemize}
+  Omdat $2$ en $3$ relatief priem zijn kunnen we deze gewoon vermenigvuldigen.
+  Het antwoord is dus $6$.
 \end{itemize}
 
 

@@ -1121,6 +1121,7 @@
 \end{de}
 
 \begin{pr}
+  \examen
   Zij $R,+,\cdot$ een ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
   De (kandidiaat-)bewerking $\bar{\cdot}$ op $R/I$ met $x'\in x+I$ en $y'\in y+I$ willekeurige representanten is goed gedefinieerd.
   \[ \scalebox{1.5}{$\cdot$}:\ R/I \times R/I \rightarrow R/I:\ (x+I) \cdot (y+I) = (x'\cdot y') + I \]
@@ -1140,6 +1141,7 @@
 \end{st}
 
 \begin{opm}
+  \examen
   De bewerking $\bar{\cdot}$ is niet goed gedefinieerd als $I,+,\cdot$ geen ideaal is van $R,+,\cdot$.
 
   \begin{proof}
@@ -1169,6 +1171,7 @@
 \label{sec:isomorfismestellingen}
 
 \begin{st}
+  \examen
   De \term{Factorisatiestelling}\\
   Zij $f: R \rightarrow S$ een ringmorfisme en $I \subseteq Ker(f)$ een ideaal van $R$.
   Noteer $\pi$ voor de natuurlijke afbeelding $R \rightarrow R/I:\ x \mapsto x+I$.
@@ -1193,6 +1196,7 @@
 \end{st}
 
 \begin{gev}
+  \examen
   \label{gev:eerste-ringmorfismestelling}
   De \term{morfismestelling} of \term{eerste isomorfismestellng}\\
   Zij $\phi:\ R \rightarrow S$ een ringmorfisme, dan is $\phi$ een injectief ringmorfisme.
@@ -1203,11 +1207,13 @@
 \end{gev}
 
 \begin{st}
+  \examen
   De \term{tweede isomorfismestelling} of \term{parrallellogramisomorfismestelling}
 \TODO{formuleer en bewijs}
 \end{st}
 
 \begin{st}
+  \examen
   De \term{derde isomorfismestelling}
   Zij $R,+,\cdot$ een ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
   Noteer $\pi$ voor de natuurlijke afbeelding $R \rightarrow R/I:\ x \mapsto x+I$.
@@ -1251,6 +1257,7 @@
 \end{ei}
 
 \begin{st}
+  \examen
   \stref{st:quotientgroepen-asa-idealen-stelling}
   Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$ en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
   \begin{itemize}
@@ -1299,7 +1306,7 @@
         \[ i = a' + br'\]
         Beschouw nu $i+I$ in $\nicefrac{R}{I}$.
         \[ i+I = (a' + br') + I = br' + I = (b+I) \cdot (r'+I) \]
-        Dit betekent precies dat $b$ en $r'$ elkaars inversen zijn, dus $\nicefrac{R}{I}$ is een veld.\waarom \question{wut? how did that work??}
+        Dit betekent precies dat $b$ en $r'$ elkaars inversen zijn, dus $\nicefrac{R}{I}$ is een veld.
       \end{itemize}
     \end{itemize}
   \end{proof}
@@ -1729,7 +1736,14 @@
 \begin{st}
   Zij $R,+,\cdot$ een integriteitsdomein, dan geldt het volgende:
   \[ (R[X])^{\times} = R^{\times} \]
-\extra{bewijs p 59}
+ 
+  \begin{proof}
+    $R,+,\cdot$ heeft geen nuldelers.
+    Zij $x$ een eenheid in $R[X]$, dan bestaat er een inverse $y$ zodat het volgende geldt (waarbij $i$ het eenheidselement is van $R,+,\cdot$ en dus ook van $R[X],+,\cdot$\stref{st:veeltermen-eenh-asa-ring-eenh}).
+    \[ x \cdot y = i\]
+    Vanwege de regel voor de graad van het product van veeltermen\stref{st:veeltermen-geen-nuldelers-asa-ring-geen-nuldelers} moeten zowel $x$ als $y$ graad $0$ hebben.
+    De enige elementen met een invers voor $\cdot$ zijn dus de constante veeltermen die een inverse hebben.
+  \end{proof}
 \end{st}
 
 \subsection{Veeltermfuncties}
@@ -2047,6 +2061,7 @@
 \label{sec:hid-en-ufd}
 
 \begin{de}
+  \label{de:irreducibel}
   Zij $R,+,\cdot$ een commutatieve ring met eenheidselement.
   Een element $x\in R$ is \term{irreduceerbaar} of \term{irreducibel} in $R,+,\cdot$ als het volgende geldt:
   \begin{itemize}
@@ -2154,6 +2169,7 @@
 
 
 \begin{st}
+  \examen
   \label{st:veeltermen-over-veld-hid}
   Zij $F,+,\cdot$ een veld, dan is $F[X]$ een HID.
 
@@ -2204,6 +2220,7 @@
 \end{st}
 
 \begin{st}
+  \examen
   \label{st:stelling-van-bezout}
   De \term{Stelling van Bezout}\\
   Zij $R,+,\cdot$ een HID en $x_{1},\dotsc,x_{n}$ elementen van $R$.
@@ -2313,6 +2330,7 @@
 
 
 \begin{st}
+  \examen
   Elk HID is een UDF.
 
   \begin{proof}
@@ -2324,15 +2342,16 @@
       Bewijs uit het ongerijmde.
       Stel dat $x_{0}$ niet te ontbinden valt in irreducibele elementen (dan is $x_{0}$ niet irreducibel), dan bestaan er elementen $x_{1}$ en $y_{1}$ in $R$ zodat $x_{0}$ als volgt te schrijven valt.
       \[ x_{0} = x_{1}y_{1} \]
-      Hierin zijn $x_{1}$ en $y_{1}$ geen eenheden \waarom en kan ofwel $x_{1}$ ofwel $y_{1}$ zelf ook niet ontbonden worden in irreducibele elementen.
+      Hierin zijn $x_{1}$ en $y_{1}$ geen eenheden\deref{de:irreducibel} en kan ofwel $x_{1}$ ofwel $y_{1}$ zelf ook niet ontbonden worden in irreducibele elementen.
+      Als zowel $x_{1}$ als $y_{1}$ immers een product waren van irreducibele elementen, dan was $x_{0}$ dat ook.
       Stel dat $x_{1}$ het element is van $x_{1}$ en $y_{1}$ dat niet te ontbinden valt in irreducibele elementen (anders wisselen we gewoon de naam om).
-      Nu is de hoofdideaal door $x_{0}$ een deel van de hoofdideaal door $x_{1}$ \waarom, maar niet gelijk.
+      Nu is de hoofdideaal door $x_{0}$ een deel van de hoofdideaal door $x_{1}$, maar niet gelijk.
+      \[ (x_{0}) \subsetneq (x_{1}) \]
       Anders zou er immers een eenheid $u\in R$ bestaan zodat $x_{0}=x_{1}u$ geldt.
       Omdat $R,+,\cdot$ een integriteitsdomein is, volgt hieruit dat $y_{1}$ gelijk is aan $u$, maar dat kan niet want $y_{1}$ is geen eenheid.
-\clarify{veel meer uitleg nodig!!}
       Analoog kunnen we uit $x_{1}$ een element $x_{2}$ construeren dat niet te ontbinden valt in irreducibele elementen. zodat $(x_{1}) \subsetneq (x_{2})$ geldt.
       Op die manier kunnen we uiteindelijk in $R,+,\cdot$ een aftelbaar oneindige keten van hoofdidealen $(x_{i})$ construeren als volgt.
-      \[ (x_{0}) \subsetneq (x_{1}) \subsetneq (x_{2}) \subsetneq \dotsb \subsetneq (x_{n}) \subsetneq (x_{n+1}) \]
+      \[ (x_{0}) \subsetneq (x_{1}) \subsetneq (x_{2}) \subsetneq \dotsb \subsetneq (x_{n}) \subsetneq (x_{n+1}) \subsetneq \dotsb\]
       Dit is natuurlijk onmogelijk.\lemref{lem:hid-keten-van-idealen-stabiliseert}
     \item Uniciteit\\
       Stel dat $x_{0}$ ontbonden kan worden in irreducibele $p_{i}$'s en ook in irreducibele $q_{i}$'s.
