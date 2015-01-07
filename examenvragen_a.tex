@@ -85,8 +85,76 @@ Antwoord: $\mathbb{F}_{4}$.
   \begin{center}
     Diagonaliseerbaar, Unitair, Normaal, Hermetisch
   \end{center}
-\extra{antwoord?}
+  \begin{itemize}
+  \item 
+    Bijna alle matrices in $\mathbb{C}^{n\times n}$ zijn diagonaliseerbaar.
+    Er zijn er ook die niet diagonaliseerbaar zijn, maar dat zijn er niet veel.
+    \[
+    \begin{pmatrix}
+      0 & 1\\
+      0 & 0
+    \end{pmatrix}
+    \]
+  \item Alle unitaire en hermetische matrices zijn normaal.
+  \item Er bestaan matrices die unitair zijn en ook hermetisch. 
+  \end{itemize}
 \end{itemize}
+
+\section{Groepen}
+\label{sec:groepen}
+
+\begin{itemize}
+\item 
+  Zij $p$ een priemgetal.
+  \begin{itemize}
+  \item Zij $H,+$ een abelse groep van orde $n$ en $p$ een priemfactor van $n$.
+    Maak gebruik van de structuurstelling voor eindige groepen om aan te tonen dat $H$ een element heeft van orde $p$.
+  \item Zij $G,*$ een groep van orde $p^{r}$ met $r\in \mathbb{N}_{0}$.
+    \begin{itemize}
+    \item Toon aan met behulp van de eerste deelvraag dat $G$ een element $g$ heeft van orde $p$ en dat de groep voortgebracht door $g$ een normaaldeler is van $G$.
+      \[ g \triangleleft G \]
+    \item 
+      Toon aan met inductie op $r$ aan dat er voor elke $s$ met $0\le s \le r$ een normaaldeler $N$ van $G$ met orde $p^{s}$.
+    \end{itemize}
+  \end{itemize}
+  \begin{itemize}
+  \item $H,+$ is vanwege de structuurstelling isomorf met
+    $\mathbb{Z}_{p^{r}} \oplus \mathbb{z}_{\nicefrac{n}{p^{r}}}$.  Er
+    is in $H$ dus een element dat overeenkomt met $(1,0)$, en dat
+    element heeft orde $p$:
+  \item
+    \begin{itemize}
+    \item $p$ is een priemfactor van de orde.
+      $G,*$ is een $p$-groep, dus het centrum van $G$ bevat meer dan \'e\'en element\prref{pr:orde-centrum-pgroep-groter-dan-een}
+      Het centrum $Z(G)$ is een (commutatieve) deelgroep van $G$\eiref{ei:centrum-is-deelgroep}, dus heeft een orde $p^{x}$ met $1\le x\le r$.\gevref{gev:orde-van-element-deelt-orde-van-groep}
+      Er bestaat in $Z(G) \subseteq G$ dus een element $g$ van orde $p$.
+      Het element $g$ heeft in $G$ dus ook een orde $p$ en bijgevolg heeft $<g>$ ook orde $p$.\stref{st:orde-van-generator-is-orde-van-groep}
+      $<g>$ is een deelgroep van $Z(G)$ dus zeker een normaaldeler.
+    \item 
+      \begin{itemize}
+      \item $r = 1$: OK, zie hierboven.
+      \item $r = k$: Inductiehypothese
+      \item $r = k+1$:
+        $G/N$ is ook een $p$-groep.
+        \extra{zit vast}
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+
+\end{itemize}
+
+\section{Ringen}
+\label{sec:ringen}
+
+\begin{itemize}
+\item Zij $R,+,\cdot$ een niet-triviale commutatieve ring met eenheidselement $i$ en nulelement $e$ waarin het volgende geldt:
+  \[ \forall a\in R,\ \exists b\in R:\ a^{2}b=a \]
+  Toon aan dat elk priemideaal van $R,+,\cdot$ ook een maximaal ideaal van $R,+,\cdot$.\\\\
+  Zij $I,+,\cdot$ een priemideaal van $R,+,\cdot$, dan is $R/I$ een integriteitsdomein.
+  Vanwege de voorwaarde op $R$ bevat $R$ enkel eenheden (en $R/I$ dus ook).
+  Een integriteitsdomein $R/I$ met enkel eenheden is een veld, dus $I$ is een maximaal ideaal.\stref{st:quotientgroepen-asa-idealen-stelling}
+\end{itemize}
+
 
 \section{Lineaire algebra}
 \label{sec:lineaire-algebra}
@@ -109,17 +177,170 @@ Antwoord: $\mathbb{F}_{4}$.
   \]
   Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
   Geef ook de karakteristieke veelterm en de minimale veelterm van $A$.
-\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
-  \[
-  \begin{pmatrix}
-      0 & 0 & 0 & 0 & 1\\
-      2 & 1 & -1 & -1 & -1\\
-      0 & 0 & 2 & 1 &0\\
-      0 & 0 & 0 & 2 & 0\\
-      -1 & 0 & 0 & 0 & 2
-  \end{pmatrix}
-  \]
-  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+
+  \begin{itemize}
+  \item
+    \[
+    \begin{array}{l}
+      \begin{vmatrix}
+        X-2 & 1 & 0 & -1 & 0 & 0\\
+        0 & X-2 & 0 & 0 & 0 & 0\\
+        0 & 1 & X-2 & 0 & 0 & 0\\
+        1 & 0 & -1 & X-4 & -1 & -1\\
+        -1 & 0 & 1 & 1 & X-1 & 1\\
+        0 & 0 & 0 & 0 & 0 & X-2
+      \end{vmatrix}\\
+      =
+      (X-2)
+      \begin{vmatrix}
+        X-2 & 1 & 0 & -1 & 0\\
+        0 & X-2 & 0 & 0 & 0\\
+        0 & 1 & X-2 & 0 & 0\\
+        1 & 0 & -1 & X-4 & -1\\
+        -1 & 0 & 1 & 1 & X-1
+      \end{vmatrix}\\
+      =
+      (X-2)^{2}
+      \begin{vmatrix}
+        X-2 & 0 & -1 & 0\\
+        0 & X-2 & 0 & 0\\
+        1 & -1 & X-4 & -1\\
+        -1 & 1 & 1 & X-1
+      \end{vmatrix}\\
+      =
+      (X-2)^{3}
+      \begin{vmatrix}
+        X-2 & -1 & 0\\
+        1 & X-4 & -1\\
+        -1 & 1 & X-1
+      \end{vmatrix}\\
+      =
+      (X-2)^{3}
+      \left(
+        (X-2)
+        \begin{vmatrix}
+          X-4 & -1\\
+          1 & X-1
+        \end{vmatrix}
+        +
+        \begin{vmatrix}
+          1 & -1\\
+          -1 & X-1
+        \end{vmatrix}
+      \right)\\
+      =
+      (X-2)^{3}
+      \left(
+        (X-2)\left((X-4)(X-1) +1\right)
+        + ((X-1)-1)
+      \right)\\
+      =
+      (X-2)^{3}
+      \left(
+        (X-2)\left(X^{2}-5X+5\right)
+        + ((X-2)
+      \right)\\
+      =
+      (X-2)^{4}
+      \left(X^{2}-5X+6\right)\\
+      =
+      (X-2)^{5}(X-3)\\
+    \end{array}
+    \]
+  \item De vectorruimte valt uiteen in twee componenten:
+    \[ \mathbb{C} \cong Ker(A-2I)^{p_{1}} \oplus Ker(A-3I)^{p_{2}} \]
+    \[ dim(V_{1}) = 5,\ dim(V_{2})=1 \]
+    \begin{itemize}
+    \item $V_{1}$: $p_{1}=2$.
+      \[
+      dim(A-2I) = dim 
+      \begin{pmatrix}
+        0 & -1 & 0 & 1 & 0 & 0\\
+        0 & 0 & 0 & 0 & 0 & 0\\
+        0 & -1 & 0 & 0 & 0 & 0\\
+        -1 & 0 & 1 & 2 & 1 & 1\\
+        1 & 0 & -1 & -1 & -1 & -1\\
+        0 & 0 & 0 & 0 & 0 & 0\\
+      \end{pmatrix}
+      =3 \Rightarrow dim(A-2I) = 3
+      \]
+      \[ dim(A-2I)^{2} = dim
+      \begin{pmatrix}
+        -1 & 0 & 1 & 2 & 1 & 1\\
+        0 & 0 & 0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 & 0 & 0\\
+        -1 & 0 & 1 & 2 & 1 & 1\\
+        0 & 0 & 0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 & 0 & 0\\
+      \end{pmatrix}
+      =1 \Rightarrow dim(A-2I)^{2} = 1 \Rightarrow dim(Ker(A-2I)^{2}) = 5
+      \]
+    \item $V_{2}$: $p=1$
+      \[
+      dim(A-3I) = dim
+      \begin{pmatrix}
+        -1 & -1 & 0 & 1 & 0 & 0\\
+        0 & -1 & 0 & 0 & 0 & 0\\
+        0 & -1 & -1 & 0 & 0 & 0\\
+        -1 & 0 & 1 & 1 & 1 & 1\\
+        1 & 0 & -1 & -1 & -2 & -1\\
+        0 & 0 & 0 & 0 & -1
+      \end{pmatrix}
+      =5 \Rightarrow dim(A-2I) = 1
+      \]
+    \end{itemize}
+  \item Diagram:
+    \begin{itemize}
+    \item $V_{1}$: $d_{1} = 3$, $d_{2} = 2$
+      \[
+      \begin{array}{ccc}
+        \boxed{v_{2}} & \boxed{v_{4}} & \boxed{v_{5}}\\
+        \boxed{v_{1}} & \boxed{v_{3}}
+      \end{array}
+      \]
+      Kies bijvoorbeeld de vectoren als volgt:
+      \[
+      \begin{array}{ccc}
+        \boxed{(-1,0,-1,0,0,0)} & \boxed{(0,0,0,-1,1,0)} & \boxed{(1,0,0,0,0,1)}\\
+        \boxed{(0,1,0,0,0,0)} & \boxed{(1,0,-1,0,1,0)}
+      \end{array}
+      \]
+    \item $V_{2}$: $d_{1}=1$
+      \[
+      \begin{array}{ccc}
+        \boxed{(1,0,0,1,0,0)}
+      \end{array}
+      \]
+
+    \item 
+      \[ P = 
+      \left(
+        \begin{array}{ccccc|c}
+          0 & -1 & 1 & 0 & 1 & 1\\
+          1 & 0 & 0 & 0 & 0 & 0\\
+          0 & -1 & -1 & 0 & 0 & 0\\
+          0 & 0 & 0 & -1 & 0 & 1\\
+          0 & 0 & 1 & 1 & 0 & 0 \\
+          0 & 0 & 0 & 0 & 0 & 1
+        \end{array}
+      \right)
+      \]
+    \item 
+      \[
+      J = 
+      \left(
+        \begin{array}{ccccc|c}
+          2 & 0 & 0 & 0 & 0 & 0\\
+          1 & 2 & 0 & 0 & 0 & 0\\
+          0 & 0 & 2 & 0 & 0 & 0\\
+          0 & 0 & 1 & 2 & 0 & 0\\
+          0 & 0 & 0 & 0 & 2 & 0\\\hline
+          0 & 0 & 0 & 0 & 0 & 3
+        \end{array}
+      \right)
+      \]
+    \end{itemize}
+  \end{itemize}
 \item Zij $A\in \mathbb{C}^{3\times 3}$ een diagonaliseerbare matrix met $3$ verschillende eigenwaarden $\lambda_{1}$, $\lambda_{2}$ en $\lambda_{3}$ en bijhorende eigenvectoren $v_{1}$,$v_{2}$ en $v_{3}$.
   Beschouw $C \in \mathbb{C}^{6\times 6}$.
   \[ C =
@@ -131,50 +352,9 @@ Antwoord: $\mathbb{F}_{4}$.
   Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
 \item Zij $A\in \mathbb{C}^{n \times n}$ een matrix en zij $f_{A} = (X-i)\phi_{A}$ en $\phi_{A}^{2} = (X^{2}+1)f_{a}$.
   Bereken $f_{A}$ en $\phi_{A}$ en geef de Jordanvorm van $A$.
-\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
-  \[
-  \begin{pmatrix}
-      1 & 0 & 0 & 0 & 0\\
-      1 & 2 & -1 & 1 & 1\\
-      -2 & 0 & 3 & -1 &0\\
-      -1 & 0 & 1 & 1 & 0\\
-      0 & 0 & 0 & 0 & 2
-  \end{pmatrix}
-  \]
-  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
-\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
-  \[
-  \begin{pmatrix}
-    i & 0 & -2\\
-    0 & i+\frac{1}{2} & \frac{1}{2}\\
-    0 & -\frac{1}{2} & -\frac{1}{2}+i
-  \end{pmatrix}
-  \]
-  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
 \item Voor welke $n$ bestaat er een matrix $M\in \mathbb{C}^{n\times n}$ zodat de minimale veelterm van $M$ $(x-1)(x-2)^{2}(x-3)^{3}$ is?
-\item Zij $A$ een nilpotente matrix in $\mathbb{C}^{6\times 6}$ zodat $dim(Ker(A^{2}))=4$ geldt, geef alle mogelijke invariante systemen van $A$.
-\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
-  \[
-  \begin{pmatrix}
-    0 & 1 & 2 & 0\\
-    -2 & 4 & 1 & 0\\
-    -2 & 1 & 4  &0\\
-    -2 & 0 & 3 &3
-  \end{pmatrix}
-  \]
-  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
-\item Zij $A:\ \mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ een lineaire afbeelding met karakteristieke veelterm $f_{A}(X)=X^{2}+aX+b$ waarbij de discriminant $a^{2}-4b$ kleiner is dan nul.
+\item Zij $A$ een nilpotente matrix in $\mathbb{C}^{6\times 6}$ zodat $dim(Ker(A^{2}))=4$ geldt, geef alle mogelijke invariante systemen van $A$. met karakteristieke veelterm $f_{A}(X)=X^{2}+aX+b$ waarbij de discriminant $a^{2}-4b$ kleiner is dan nul.
   Toon aan dat er een basis $\beta$ van $\mathbb{R}^{2}$ bestaat zodat $A$ de volgende matrix krijgt ten opzichte van $\beta$.
-\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
-  \[
-  \begin{pmatrix}
-    2 & 1 & 0 & -1\\
-    0 & 3 & 0 & 0\\
-    -3 & 1 & 1 &-5\\
-    1 & -1 & 0 & 4
-  \end{pmatrix}
-  \]
-  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
 \end{itemize}
 
 
