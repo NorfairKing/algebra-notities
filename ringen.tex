@@ -1241,6 +1241,7 @@
 \end{de}
 
 \begin{ei}
+  \label{ei:maximaal-dan-priemideaal}
   In een commutatieve ring met eenheidselement is een maximaal ideaal ook een priemideaal.
 
   \begin{proof}
@@ -1734,6 +1735,8 @@
 \end{gev}
 
 \begin{st}
+  \label{st:integriteitsdomein-veeltermring-eenheden}
+  \examen
   Zij $R,+,\cdot$ een integriteitsdomein, dan geldt het volgende:
   \[ (R[X])^{\times} = R^{\times} \]
  
@@ -2215,11 +2218,6 @@
 \end{gev}
 
 \begin{st}
-  $\mathbb{Z} + \mathbb{Z}i$ is een HID.
-  \zb
-\end{st}
-
-\begin{st}
   \examen
   \label{st:stelling-van-bezout}
   De \term{Stelling van Bezout}\\
@@ -2243,6 +2241,35 @@
     \[ d' = ud \]
     Dan zijn de $r_{i}$ voor $d'$ respectievelij $ur_{i}$.
   \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:z-is-hid}
+  $\mathbb{Z},+,\cdot$ is een HID.
+
+  \begin{proof}
+    Zij $I,+,\cdot$ een ideaal van $\mathbb{Z},+,\cdot$, dan is $I,+$ cyclisch omdat het een deelgroep is van de cyclische groep $\mathbb{Z},+$.\stref{st:deelgroep-van-cyclische-groep-is-cyclisch}
+    Er bestaat dus een generator $n$ voor $\mathbb{I}$:
+    \[ I = \{ k \cdot n \mid n \in \mathbb{Z} \} = (n) \]
+    $I$ is dus een hoofideaal.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Voor elke $n$ is $n\mathbb{Z}$ een ideaal van $\mathbb{Z}$.
+
+  \begin{proof}
+    Voor elke $n\in \mathbb{Z}$ beschouwen we de deelring $n\mathbb{Z}$.
+    Beschouw nu een willekeurig element $m \in \mathbb{Z}$:
+    \[ m\cdot n | n \Rightarrow m\cdot n \in n\mathbb{Z}\]
+    Bovendien zijn zowel $n+n'$ als $-n$ elementen van $n\mathbb{Z}$ voor elke $n'\in\mathbb{Z}$.
+    $n\mathbb{Z}$ is dus een ideaal van $\mathbb{Z},+,\cdot$.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  $\mathbb{Z} + \mathbb{Z}i$ is een HID.
+  \zb
 \end{st}
 
 \subsection{Unieke factorisatiedomeinen}

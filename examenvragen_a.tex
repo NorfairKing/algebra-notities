@@ -1,381 +1,431 @@
  \documentclass[main.tex]{subfiles}
-\begin{document}
+ \begin{document}
 
 
-\chapter{Examenvragen: Algebra I}
-\label{cha:examen-a}
+ \chapter{Examenvragen: Algebra I}
+ \label{cha:examen-a}
 
-\section{Snelheidsvraagjes}
-\label{sec:snelheidsvraagjes}
+ \section{Snelheidsvraagjes}
+ \label{sec:snelheidsvraagjes}
 
-\begin{itemize}
-\item Waar of niet?
-  \begin{center}
-    ``Een groep is eindig als alle elementen eindige orde hebben.''
-  \end{center}
+Deze vraagjes worden gesteld tijdens het mondelinge examen en moet u dus met gesloten boek kunnen beantwoorden.
 
-  Niet waar.\\
-  Tegenvoorbeeld: In $\bigoplus_{i=1}^{\infty}\mathbb{Z}_{2}$ heeft elk element orde $2$.
-\item Waar of niet?
-  \begin{center}
-    ``Als een groep eindig is, dan hebben al diens elementen een eindige orde.''
-  \end{center}
-  Waar.\\
-  Als een groep eindig is met orde $n$ , hebben alle elementen een deler van $n$ als orde.\gevref{gev:orde-van-element-deelt-orde-van-groep}
-\item Waar of niet?
-  \begin{center}
-    Zij $R$ een ring met eenheidselement, dan hebben $u$ en $v$ elk een inverse als en slechts als $uw$ een inverse heeft.
-  \end{center}
-  Wat verandert er als de ring commutatief is?\\
-  Waar, maar enkel als de ring commutatief is.
-  \begin{proof}
-    Bewijs van een equivalentie.
-    \begin{itemize}
-    \item $\Rightarrow$: Als $u$ en $v$ elk een inverse hebben, dan heeft $uv$ als inverse $v^{-1}u^{-1}$.
-    \item $\Leftarrow$: Zij $x$ de inverse van $uv$, dan is $vx$ de inverse van $u$ en (maar dit enkel als $R,+,\cdot$ commutatief is) $ux$ de inverse van $v$.
-    \end{itemize}
-  \end{proof}
-\item Waar of niet?
-  \begin{center}
-    In een integriteitsdomein geldt $(R[X])^{\times} = R^{\times}$.
-  \end{center}
-\extra{antwoord?}
-\item Waar of niet?
-  \begin{center}
-    Zij $E,+,\cdot$ een velduitbreiding van een veld $K,+,\cdot$. 
-    Zij $a$ en $b$ transcendente elementen in $E$ over $K,+,\cdot$
-    $a\cdot b$ is transcendent over $K,+,cdot$.
-  \end{center}
-  Niet waar. Tegenvoorbeeld: $e$ en $\frac{1}{e}$ zij beide transcendent over $\mathbb{Q}$, maar $e \cdot \frac{1}{e}=1$ is algebra\"isch over $\mathbb{Q}$.
-\item Bestaat er een algebra\"isch gesloten veld dat $\mathbb{C}$ strikt omvat?
-\item Geef alle $2\times 2$ matrices oven $\mathbb{C}$ die zowel hermetisch als unitair zijn.
-\[ A = A^{*} \text{ en } A^{-1}=A^{*} \Rightarrow A=A^{-1}\]
-\[ A = 
-\begin{pmatrix}
-  \cos\theta & i\sin\theta\\
-  -i\sin\theta & -\cos\theta
-\end{pmatrix}
-\vee 
-A =
-\begin{pmatrix}
-  \cos\theta & \sin\theta\\
-  \sin\theta & -\cos\theta
-\end{pmatrix}
-\vee 
-A = I
-\vee 
-A = -I
-\]
-\item In $\mathbb{Z}$:
-  \begin{itemize}
-  \item Geef alle idealen.
-  \item Geef alle maximale idealen.
-  \item Geef de priemdeelring.
-  \item Geef de doorsnede van alle deelringen.
-  \item $\mathbb{Z}$ is een HID, Is $(4,7)$ dan een hoofdideaal? \extra{bekijk de stelling van het primitief element.}
-  \end{itemize}
-\extra{antwoord?}
-\item Welke inclusies gelden er tussen $\mathbb{F}_{2}$, $\mathbb{F}_{4}$, $\mathbb{F}_{6}$ en $\mathbb{F}_{8}$
-\extra{antwoord?}
-\item Wat is $\mathbb{F}_{16}\cap \mathbb{F}_{64}$?
-$64=2^{6}$ dus de strikte deelvelden van $\mathbb{F}_{64}$ zijn die met $2^{1}$, $2^{2}$ en $2^{3}$ elementen.
-$16=2^{4}$ dus de strikte deelvelden van $\mathbb{F}_{16}$ zijn die met $2^{1}$ en $2^{2}$ elementen.
-Antwoord: $\mathbb{F}_{4}$.
-\item Geef de grootst gemene deler van $X$ en $Y$ in $\mathbb{R}[X,Y]$
-\extra{antwoord?}
-\item Zij $\mathbb{F}_{q}$ een eindig veld met $q$ elementen.
-  Welke groepen $\mathbb{F}_{q},+$ en $\mathbb{F}_{q}^{\times},\cdot$ zijn cyclisch?
-\extra{antwoord?}
-\item Bespreek de inclusies tussen de volgende verzamelingen van $\mathbb{C}^{n \times n}$ matrices:
-  \begin{center}
-    Diagonaliseerbaar, Unitair, Normaal, Hermetisch
-  \end{center}
-  \begin{itemize}
-  \item 
-    Bijna alle matrices in $\mathbb{C}^{n\times n}$ zijn diagonaliseerbaar.
-    Er zijn er ook die niet diagonaliseerbaar zijn, maar dat zijn er niet veel.
-    \[
-    \begin{pmatrix}
-      0 & 1\\
-      0 & 0
-    \end{pmatrix}
-    \]
-  \item Alle unitaire en hermetische matrices zijn normaal.
-  \item Er bestaan matrices die unitair zijn en ook hermetisch. 
-  \end{itemize}
-\end{itemize}
+ \begin{itemize}
+ \item Waar of niet?
+   \begin{center}
+     ``Een groep is eindig als alle elementen eindige orde hebben.''
+   \end{center}
 
-\section{Groepen}
-\label{sec:groepen}
+   Niet waar.\\
+   Tegenvoorbeeld: In $\bigoplus_{i=1}^{\infty}\mathbb{Z}_{2}$ heeft elk element orde $2$.
+ \item Waar of niet?
+   \begin{center}
+     ``Als een groep eindig is, dan hebben al diens elementen een eindige orde.''
+   \end{center}
+   Waar.\\
+   Als een groep eindig is met orde $n$ , hebben alle elementen een deler van $n$ als orde.\gevref{gev:orde-van-element-deelt-orde-van-groep}
+ \item Waar of niet?
+   \begin{center}
+     Zij $R$ een ring met eenheidselement, dan hebben $u$ en $v$ elk een inverse als en slechts als $uw$ een inverse heeft.
+   \end{center}
+   Wat verandert er als de ring commutatief is?\\
+   Waar, maar enkel als de ring commutatief is.
+   \begin{proof}
+     Bewijs van een equivalentie.
+     \begin{itemize}
+     \item $\Rightarrow$: Als $u$ en $v$ elk een inverse hebben, dan heeft $uv$ als inverse $v^{-1}u^{-1}$.
+     \item $\Leftarrow$: Zij $x$ de inverse van $uv$, dan is $vx$ de inverse van $u$ en (maar dit enkel als $R,+,\cdot$ commutatief is) $ux$ de inverse van $v$.
+     \end{itemize}
+   \end{proof}
+ \item Waar of niet?
+   \begin{center}
+     In een integriteitsdomein geldt $(R[X])^{\times} = R^{\times}$.
+   \end{center}
+   Waar.\stref{st:integriteitsdomein-veeltermring-eenheden}
+ \item Waar of niet?
+   \begin{center}
+     Zij $E,+,\cdot$ een velduitbreiding van een veld $K,+,\cdot$. 
+     Zij $a$ en $b$ transcendente elementen in $E$ over $K,+,\cdot$
+     $a\cdot b$ is transcendent over $K,+,cdot$.
+   \end{center}
+   Niet waar. Tegenvoorbeeld: $e$ en $\frac{1}{e}$ zij beide transcendent over $\mathbb{Q}$, maar $e \cdot \frac{1}{e}=1$ is algebra\"isch over $\mathbb{Q}$.
+ \item Bestaat er een algebra\"isch gesloten veld dat $\mathbb{C}$ strikt omvat?
+ \item Geef alle $2\times 2$ matrices oven $\mathbb{C}$ die zowel hermetisch als unitair zijn.
+   \[ A = A^{*} \text{ en } A^{-1}=A^{*} \Rightarrow A=A^{-1}\]
+   \[ A = 
+   \begin{pmatrix}
+     \cos\theta & i\sin\theta\\
+     -i\sin\theta & -\cos\theta
+   \end{pmatrix}
+   \vee 
+   A =
+   \begin{pmatrix}
+     \cos\theta & \sin\theta\\
+     \sin\theta & -\cos\theta
+   \end{pmatrix}
+   \vee 
+   A = I
+   \vee 
+   A = -I
+   \]
+ \item In $\mathbb{Z}$:
+   \begin{itemize}
+   \item Geef alle idealen.
+   \item Geef alle maximale idealen.
+   \item Geef alle priemidealen.
+   \item Geef de priemdeelring.
+   \item Geef de doorsnede van alle deelringen.
+   \item Is $(4,7)$ een hoofdideaal?
+   \end{itemize}
 
-\begin{itemize}
-\item 
-  Zij $p$ een priemgetal.
-  \begin{itemize}
-  \item Zij $H,+$ een abelse groep van orde $n$ en $p$ een priemfactor van $n$.
-    Maak gebruik van de structuurstelling voor eindige groepen om aan te tonen dat $H$ een element heeft van orde $p$.
-  \item Zij $G,*$ een groep van orde $p^{r}$ met $r\in \mathbb{N}_{0}$.
-    \begin{itemize}
-    \item Toon aan met behulp van de eerste deelvraag dat $G$ een element $g$ heeft van orde $p$ en dat de groep voortgebracht door $g$ een normaaldeler is van $G$.
-      \[ g \triangleleft G \]
-    \item 
-      Toon aan met inductie op $r$ aan dat er voor elke $s$ met $0\le s \le r$ een normaaldeler $N$ van $G$ met orde $p^{s}$.
-    \end{itemize}
-  \end{itemize}
-  \begin{itemize}
-  \item $H,+$ is vanwege de structuurstelling isomorf met
-    $\mathbb{Z}_{p^{r}} \oplus \mathbb{z}_{\nicefrac{n}{p^{r}}}$.  Er
-    is in $H$ dus een element dat overeenkomt met $(1,0)$, en dat
-    element heeft orde $p$:
-  \item
-    \begin{itemize}
-    \item $p$ is een priemfactor van de orde.
-      $G,*$ is een $p$-groep, dus het centrum van $G$ bevat meer dan \'e\'en element\prref{pr:orde-centrum-pgroep-groter-dan-een}
-      Het centrum $Z(G)$ is een (commutatieve) deelgroep van $G$\eiref{ei:centrum-is-deelgroep}, dus heeft een orde $p^{x}$ met $1\le x\le r$.\gevref{gev:orde-van-element-deelt-orde-van-groep}
-      Er bestaat in $Z(G) \subseteq G$ dus een element $g$ van orde $p$.
-      Het element $g$ heeft in $G$ dus ook een orde $p$ en bijgevolg heeft $<g>$ ook orde $p$.\stref{st:orde-van-generator-is-orde-van-groep}
-      $<g>$ is een deelgroep van $Z(G)$ dus zeker een normaaldeler.
-    \item 
-      \begin{itemize}
-      \item $r = 1$: OK, zie hierboven.
-      \item $r = k$: Inductiehypothese
-      \item $r = k+1$:
-        $G/N$ is ook een $p$-groep.
-        \extra{zit vast}
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
+   Merk eerst op dat $\mathbb{Z}$ een HID is.\stref{st:z-is-hid}
 
-\end{itemize}
+   \begin{itemize}
+   \item Elk ideaal van $\mathbb{Z}$ is een hoofdidieaal, en voor elke $n\in \mathbb{Z}$ is $n\mathbb{Z}$ een ideaal van $\mathbb{Z}$.
+     $\{ n\mathbb{Z} \mid n \in \mathbb{Z} \}$ zijn dus alle idealen van $\mathbb{Z}$.
+   \item De maximale idealen van $\mathbb{Z},+,\cdot$ zijn alle $n\mathbb{Z}$ waarvoor $n$ priem is.\stref{st:hoofdidiaal-van-irreducibele-veelterm-maximaal}
+   \item Alle maximale idealen van $\mathbb{Z},+,\cdot$ zijn priemidealen\eiref{ei:maximaal-dan-priemideaal} alsook de nulring.
+   \item De priemdeelring van $\mathbb{Z},+,\cdot$ is $\mathbb{Z},+,\cdot$ zelf.\eiref{ei:priemdeelring-voortgebracht-door-eenheidselement}
+   \item De doorsnede van alle deelringen van $\mathbb{Z},+,\cdot$ is de nulring.
+   \item Ja.
+     \[ (4,7) = \{ 4n + 7m \ |\ n,m \in \mathbb{Z}  \} = \mathbb{Z} \]
+   \end{itemize}
 
-\section{Ringen}
-\label{sec:ringen}
+ \item Welke inclusies gelden er tussen $\mathbb{F}_{2}$, $\mathbb{F}_{4}$, $\mathbb{F}_{6}$ en $\mathbb{F}_{8}$
 
-\begin{itemize}
-\item Zij $R,+,\cdot$ een niet-triviale commutatieve ring met eenheidselement $i$ en nulelement $e$ waarin het volgende geldt:
-  \[ \forall a\in R,\ \exists b\in R:\ a^{2}b=a \]
-  Toon aan dat elk priemideaal van $R,+,\cdot$ ook een maximaal ideaal van $R,+,\cdot$.\\\\
-  Zij $I,+,\cdot$ een priemideaal van $R,+,\cdot$, dan is $R/I$ een integriteitsdomein.
-  In $R/I$ geldt hetzelfde als in $R$:
-  \[ a^{2}b=a \Rightarrow a(ab-i)=e \]
-  Omdat $R/I$ een domein is moeten $a$ en $b$ inversen zijn (als $a$ niet $e$ is).
-  Een integriteitsdomein $R/I$ met enkel eenheden is een veld, dus $I$ is een maximaal ideaal.\stref{st:quotientgroepen-asa-idealen-stelling}
-\end{itemize}
+   Merk op dat $2$, $4$ en $8$ machten zijn van het priemgetal $2$ en $\mathbb{F}_{6}$ bestaat niet.\stref{st:eindig-veld-orde-macht-van-priemgetal} Er gelden dus de volgende inclusies.\prref{pr:veld-ondelinge-inclusies}
+   \[ \mathbb{F}_{2} \subsetneq \mathbb{F}_{4} \subsetneq \mathbb{F}_{8} \]
 
-\section{Velden}
-\label{sec:velden}
+ \item Wat is $\mathbb{F}_{16}\cap \mathbb{F}_{64}$?
 
-\begin{itemize}
-\item Bereken $[\mathbb{Q}(\sqrt{2},\sqrt[3]{4}):\mathbb{Q}]$.
-  \begin{itemize}
-  \item $[\mathbb{Q}(\sqrt{2}):\mathbb{Q}] = 2$ want $X^{2}-2$ is de minimale veelterm van $\sqrt{2}$ over $\mathbb{Q}$.
-  \item $[\mathbb{Q}(\sqrt[3]{4}):\mathbb{Q}] = 3$ want $X^{3}-2$ is de minimale veelterm van $\sqrt{3}$ over $\mathbb{Q}$.
-  \end{itemize}
-  Omdat $2$ en $3$ relatief priem zijn kunnen we deze gewoon vermenigvuldigen.
-  Het antwoord is dus $6$.
-\end{itemize}
+   $64=2^{6}$ dus de strikte deelvelden van $\mathbb{F}_{64}$ zijn die met $2^{1}$, $2^{2}$ en $2^{3}$ elementen.
+   $16=2^{4}$ dus de strikte deelvelden van $\mathbb{F}_{16}$ zijn die met $2^{1}$ en $2^{2}$ elementen.
+   Antwoord: $\mathbb{F}_{4}$.
+
+ \item Geef de grootst gemene deler en het kleinst gemeen veelvoud van $X$ en $Y$ in $\mathbb{R}[X,Y]$
+
+   Antwoord: $1$ en $XY$
+   Merk op dat inderdaad $1 | X$ en $1 | Y$ alsook $X | XY$ en $Y | XY$ gelden.
+
+ \item Zij $\mathbb{F}_{q}$ een eindig veld met $q$ elementen.
+   Welke groepen $\mathbb{F}_{q},+$ en $\mathbb{F}_{q}^{\times},\cdot$ zijn cyclisch?
+
+   $\mathbb{F}_{q}^{\times},\cdot$ is steeds een cyclische groep.\stref{st:multiplicatieve-groep-van-veld-is-cyclisch}
+   $\mathbb{F}_{q},+$ is enkel cyclisch als $\mathbb{F}$ isomorf is met $\mathbb{Z}_{p}$.
+
+ \item Bespreek de inclusies tussen de volgende verzamelingen van $\mathbb{C}^{n \times n}$ matrices:
+   \begin{center}
+     Diagonaliseerbaar, Unitair, Normaal, Hermetisch
+   \end{center}
+   \begin{itemize}
+   \item 
+     Bijna alle matrices in $\mathbb{C}^{n\times n}$ zijn diagonaliseerbaar.
+     Er zijn er ook die niet diagonaliseerbaar zijn, maar dat zijn er niet veel.
+     \[
+     \begin{pmatrix}
+       0 & 1\\
+       0 & 0
+     \end{pmatrix}
+     \]
+   \item Alle unitaire en hermetische matrices zijn normaal.
+   \item Er bestaan matrices die unitair zijn en ook hermetisch. 
+   \end{itemize}
+ \end{itemize}
+
+ \section{Groepen}
+ \label{sec:groepen}
+
+ \begin{itemize}
+ \item 
+   Zij $p$ een priemgetal.
+   \begin{itemize}
+   \item Zij $H,+$ een abelse groep van orde $n$ en $p$ een priemfactor van $n$.
+     Maak gebruik van de structuurstelling voor eindige groepen om aan te tonen dat $H$ een element heeft van orde $p$.
+   \item Zij $G,*$ een groep van orde $p^{r}$ met $r\in \mathbb{N}_{0}$.
+     \begin{itemize}
+     \item Toon aan met behulp van de eerste deelvraag dat $G$ een element $g$ heeft van orde $p$ en dat de groep voortgebracht door $g$ een normaaldeler is van $G$.
+       \[ g \triangleleft G \]
+     \item 
+       Toon aan met inductie op $r$ aan dat er voor elke $s$ met $0\le s \le r$ een normaaldeler $N$ van $G$ met orde $p^{s}$.
+     \end{itemize}
+   \end{itemize}
+   \begin{itemize}
+   \item $H,+$ is vanwege de structuurstelling isomorf met
+     $\mathbb{Z}_{p^{r}} \oplus \mathbb{z}_{\nicefrac{n}{p^{r}}}$.  Er
+     is in $H$ dus een element dat overeenkomt met $(1,0)$, en dat
+     element heeft orde $p$:
+   \item
+     \begin{itemize}
+     \item $p$ is een priemfactor van de orde.
+       $G,*$ is een $p$-groep, dus het centrum van $G$ bevat meer dan \'e\'en element\prref{pr:orde-centrum-pgroep-groter-dan-een}
+       Het centrum $Z(G)$ is een (commutatieve) deelgroep van $G$\eiref{ei:centrum-is-deelgroep}, dus heeft een orde $p^{x}$ met $1\le x\le r$.\gevref{gev:orde-van-element-deelt-orde-van-groep}
+       Er bestaat in $Z(G) \subseteq G$ dus een element $g$ van orde $p$.
+       Het element $g$ heeft in $G$ dus ook een orde $p$ en bijgevolg heeft $<g>$ ook orde $p$.\stref{st:orde-van-generator-is-orde-van-groep}
+       $<g>$ is een deelgroep van $Z(G)$ dus zeker een normaaldeler.
+     \item 
+       \begin{itemize}
+       \item $r = 1$: OK, zie hierboven.
+       \item $r = k$: Inductiehypothese
+       \item $r = k+1$:
+         $G/N$ is ook een $p$-groep.
+         \extra{zit vast}
+       \end{itemize}
+     \end{itemize}
+   \end{itemize}
+   
+ \item 
+   Zij $G$ een groep met $102 = 2 \cdot 3 \cdot 17$ elementen en $|Z(G)|=2$. 
+   Toon aan:
+   \begin{itemize}
+   \item $|Z(\nicefrac{G}{Z(G)})| = 1$
+   \item $\nicefrac{G}{Z(G)}$ heeft een deelgroep van orde $17$.
+   \item $G$ heeft een deelgroep van orde $34$.
+   \end{itemize}
+
+   Antwoord:
+   \begin{itemize}
+   \item
+     We moeten aantonen dat er maar $1$ element uit $\nicefrac{G}{Z(G)}$ commuteert met alle elementen in $\nicefrac{G}{Z(G)}$.
+     Enkel de elementen uit $Z(G)$ commuteren met alle elementen in $G$, dus enkel de elementen $zZ(G)$ uit $\nicefrac{G}{Z(G)}$ met $z\in Z(G)$ commuteren met alle elementen in $\nicefrac{G}{Z(G)}$.
+     Omdat $zZ(G)$ gelijk is aan $Z(G)$ voor alle $z\in Z(G)$ is er dus maar \'e\'en element in $\nicefrac{G}{Z(G)}$ dat commuteert met alle elementen in $\nicefrac{G}{Z(G)}$.
+   \item 
+     Omdat $|Z(G)|$ twee is, geldt $|\nicefrac{G}{Z(G)}| = 3 \cdot 17$.\stref{st:stelling-van-lagrange}
+     Volgens de structuurstelling is $\nicefrac{G}{Z(G)}$ isomorf met $\mathbb{Z}_{3} \oplus \mathbb{Z}_{17}$. De groep $\{ (0,n) \mid n \in \mathbb{Z}_{17} \}$ is nu een deelgroep van $\mathbb{Z}_{3} \oplus \mathbb{Z}_{17}$ van orde $17$, dus $\nicefrac{G}{Z(G)}$ heeft een overeenkomstige deelgroep van orde $17$.
+
+   \item Vanwege dezelfde redenering bevat $G$ een deelgroep van orde $34$.
+     Deze komt dan overeen met de deelgroep $\{ (x,0,y) \mid x\in \mathbb{Z}_{2}, y \in \mathbb{Z}_{17}\}$ van $\mathbb{Z}_{2} \oplus \mathbb{Z}_{3} \oplus \mathbb{Z}_{17}$ van orde $34$.
+   \end{itemize}
+
+ \end{itemize}
+
+ \section{Ringen}
+ \label{sec:ringen}
+
+ \begin{itemize}
+ \item Zij $R,+,\cdot$ een niet-triviale commutatieve ring met eenheidselement $i$ en nulelement $e$ waarin het volgende geldt:
+   \[ \forall a\in R,\ \exists b\in R:\ a^{2}b=a \]
+   Toon aan dat elk priemideaal van $R,+,\cdot$ ook een maximaal ideaal van $R,+,\cdot$.\\\\
+   Zij $I,+,\cdot$ een priemideaal van $R,+,\cdot$, dan is $R/I$ een integriteitsdomein.
+   In $R/I$ geldt hetzelfde als in $R$:
+   \[ a^{2}b=a \Rightarrow a(ab-i)=e \]
+   Omdat $R/I$ een domein is moeten $a$ en $b$ inversen zijn (als $a$ niet $e$ is).
+   Een integriteitsdomein $R/I$ met enkel eenheden is een veld, dus $I$ is een maximaal ideaal.\stref{st:quotientgroepen-asa-idealen-stelling}
+ \end{itemize}
+
+ \section{Velden}
+ \label{sec:velden}
+
+ \begin{itemize}
+ \item Bereken $[\mathbb{Q}(\sqrt{2},\sqrt[3]{4}):\mathbb{Q}]$.
+   \begin{itemize}
+   \item $[\mathbb{Q}(\sqrt{2}):\mathbb{Q}] = 2$ want $X^{2}-2$ is de minimale veelterm van $\sqrt{2}$ over $\mathbb{Q}$.
+   \item $[\mathbb{Q}(\sqrt[3]{4}):\mathbb{Q}] = 3$ want $X^{3}-2$ is de minimale veelterm van $\sqrt{3}$ over $\mathbb{Q}$.
+   \end{itemize}
+   Omdat $2$ en $3$ relatief priem zijn kunnen we deze gewoon vermenigvuldigen.
+   Het antwoord is dus $6$.
+ \end{itemize}
 
 
-\section{Lineaire algebra}
-\label{sec:lineaire-algebra}
+ \section{Lineaire algebra}
+ \label{sec:lineaire-algebra}
 
-\begin{itemize}
-\item Zij $K,+,\cdot$ een veld en $A$ een nilpotente transformatie van een $K$-vectorruimte van index $k$.
-  Bewijs het volgende:
-  \[ \{0\} \subsetneq Ker(A) \subsetneq Ker(A)^{2} \subsetneq \dotsb \subsetneq Ker(A^{k-1}) \subsetneq Ker(A)^{k} = V \]
-\extra{examenvraag}
-\item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
-  \[
-  \begin{pmatrix}
-    2 & -1 & 0 & 1 & 0 & 0\\
-    0 & 2 & 0 & 0 & 0 & 0\\
-    0 & -1 & 2 & 0 & 0 & 0\\
-    -1 & 0 & 1 & 4 & 1 & 1\\
-    1 & 0 & -1 & -1 & 1 & -1\\
+ \begin{itemize}
+ \item Zij $K,+,\cdot$ een veld en $A$ een nilpotente transformatie van een $K$-vectorruimte van index $k$.
+   Bewijs het volgende:
+   \[ \{0\} \subsetneq Ker(A) \subsetneq Ker(A)^{2} \subsetneq \dotsb \subsetneq Ker(A^{k-1}) \subsetneq Ker(A)^{k} = V \]
+   \extra{examenvraag}
+ \item Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{6} \rightarrow \mathbb{C}^{6}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
+   \[
+   \begin{pmatrix}
+     2 & -1 & 0 & 1 & 0 & 0\\
+     0 & 2 & 0 & 0 & 0 & 0\\
+     0 & -1 & 2 & 0 & 0 & 0\\
+     -1 & 0 & 1 & 4 & 1 & 1\\
+     1 & 0 & -1 & -1 & 1 & -1\\
      0 & 0 & 0 & 0 & 0 & 2
-  \end{pmatrix}
-  \]
-  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
-  Geef ook de karakteristieke veelterm en de minimale veelterm van $A$.
+   \end{pmatrix}
+   \]
+   Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+   Geef ook de karakteristieke veelterm en de minimale veelterm van $A$.
 
-  \begin{itemize}
-  \item
-    \[
-    \begin{array}{l}
-      \begin{vmatrix}
-        X-2 & 1 & 0 & -1 & 0 & 0\\
-        0 & X-2 & 0 & 0 & 0 & 0\\
-        0 & 1 & X-2 & 0 & 0 & 0\\
-        1 & 0 & -1 & X-4 & -1 & -1\\
-        -1 & 0 & 1 & 1 & X-1 & 1\\
-        0 & 0 & 0 & 0 & 0 & X-2
-      \end{vmatrix}\\
-      =
-      (X-2)
-      \begin{vmatrix}
-        X-2 & 1 & 0 & -1 & 0\\
-        0 & X-2 & 0 & 0 & 0\\
-        0 & 1 & X-2 & 0 & 0\\
-        1 & 0 & -1 & X-4 & -1\\
-        -1 & 0 & 1 & 1 & X-1
-      \end{vmatrix}\\
-      =
-      (X-2)^{2}
-      \begin{vmatrix}
-        X-2 & 0 & -1 & 0\\
-        0 & X-2 & 0 & 0\\
-        1 & -1 & X-4 & -1\\
-        -1 & 1 & 1 & X-1
-      \end{vmatrix}\\
-      =
-      (X-2)^{3}
-      \begin{vmatrix}
-        X-2 & -1 & 0\\
-        1 & X-4 & -1\\
-        -1 & 1 & X-1
-      \end{vmatrix}\\
-      =
-      (X-2)^{3}
-      \left(
-        (X-2)
-        \begin{vmatrix}
-          X-4 & -1\\
-          1 & X-1
-        \end{vmatrix}
-        +
-        \begin{vmatrix}
-          1 & -1\\
-          -1 & X-1
-        \end{vmatrix}
-      \right)\\
-      =
-      (X-2)^{3}
-      \left(
-        (X-2)\left((X-4)(X-1) +1\right)
-        + ((X-1)-1)
-      \right)\\
-      =
-      (X-2)^{3}
-      \left(
-        (X-2)\left(X^{2}-5X+5\right)
-        + ((X-2)
-      \right)\\
-      =
-      (X-2)^{4}
-      \left(X^{2}-5X+6\right)\\
-      =
-      (X-2)^{5}(X-3)\\
-    \end{array}
-    \]
-  \item De vectorruimte valt uiteen in twee componenten:
-    \[ \mathbb{C} \cong Ker(A-2I)^{p_{1}} \oplus Ker(A-3I)^{p_{2}} \]
-    \[ dim(V_{1}) = 5,\ dim(V_{2})=1 \]
-    \begin{itemize}
-    \item $V_{1}$: $p_{1}=2$.
-      \[
-      dim(A-2I) = dim 
-      \begin{pmatrix}
-        0 & -1 & 0 & 1 & 0 & 0\\
-        0 & 0 & 0 & 0 & 0 & 0\\
-        0 & -1 & 0 & 0 & 0 & 0\\
-        -1 & 0 & 1 & 2 & 1 & 1\\
-        1 & 0 & -1 & -1 & -1 & -1\\
-        0 & 0 & 0 & 0 & 0 & 0\\
-      \end{pmatrix}
-      =3 \Rightarrow dim(A-2I) = 3
-      \]
-      \[ dim(A-2I)^{2} = dim
-      \begin{pmatrix}
-        -1 & 0 & 1 & 2 & 1 & 1\\
-        0 & 0 & 0 & 0 & 0 & 0\\
-        0 & 0 & 0 & 0 & 0 & 0\\
-        -1 & 0 & 1 & 2 & 1 & 1\\
-        0 & 0 & 0 & 0 & 0 & 0\\
-        0 & 0 & 0 & 0 & 0 & 0\\
-      \end{pmatrix}
-      =1 \Rightarrow dim(A-2I)^{2} = 1 \Rightarrow dim(Ker(A-2I)^{2}) = 5
-      \]
-    \item $V_{2}$: $p=1$
-      \[
-      dim(A-3I) = dim
-      \begin{pmatrix}
-        -1 & -1 & 0 & 1 & 0 & 0\\
-        0 & -1 & 0 & 0 & 0 & 0\\
-        0 & -1 & -1 & 0 & 0 & 0\\
-        -1 & 0 & 1 & 1 & 1 & 1\\
-        1 & 0 & -1 & -1 & -2 & -1\\
-        0 & 0 & 0 & 0 & -1
-      \end{pmatrix}
-      =5 \Rightarrow dim(A-2I) = 1
-      \]
-    \end{itemize}
-  \item Diagram:
-    \begin{itemize}
-    \item $V_{1}$: $d_{1} = 3$, $d_{2} = 2$
-      \[
-      \begin{array}{ccc}
-        \boxed{v_{2}} & \boxed{v_{4}} & \boxed{v_{5}}\\
-        \boxed{v_{1}} & \boxed{v_{3}}
-      \end{array}
-      \]
-      Kies bijvoorbeeld de vectoren als volgt:
-      \[
-      \begin{array}{ccc}
-        \boxed{(-1,0,-1,0,0,0)} & \boxed{(0,0,0,-1,1,0)} & \boxed{(1,0,0,0,0,1)}\\
-        \boxed{(0,1,0,0,0,0)} & \boxed{(1,0,-1,0,1,0)}
-      \end{array}
-      \]
-    \item $V_{2}$: $d_{1}=1$
-      \[
-      \begin{array}{ccc}
-        \boxed{(1,0,0,1,0,0)}
-      \end{array}
-      \]
+   \begin{itemize}
+   \item
+     \[
+     \begin{array}{l}
+       \begin{vmatrix}
+         X-2 & 1 & 0 & -1 & 0 & 0\\
+         0 & X-2 & 0 & 0 & 0 & 0\\
+         0 & 1 & X-2 & 0 & 0 & 0\\
+         1 & 0 & -1 & X-4 & -1 & -1\\
+         -1 & 0 & 1 & 1 & X-1 & 1\\
+         0 & 0 & 0 & 0 & 0 & X-2
+       \end{vmatrix}\\
+       =
+       (X-2)
+       \begin{vmatrix}
+         X-2 & 1 & 0 & -1 & 0\\
+         0 & X-2 & 0 & 0 & 0\\
+         0 & 1 & X-2 & 0 & 0\\
+         1 & 0 & -1 & X-4 & -1\\
+         -1 & 0 & 1 & 1 & X-1
+       \end{vmatrix}\\
+       =
+       (X-2)^{2}
+       \begin{vmatrix}
+         X-2 & 0 & -1 & 0\\
+         0 & X-2 & 0 & 0\\
+         1 & -1 & X-4 & -1\\
+         -1 & 1 & 1 & X-1
+       \end{vmatrix}\\
+       =
+       (X-2)^{3}
+       \begin{vmatrix}
+         X-2 & -1 & 0\\
+         1 & X-4 & -1\\
+         -1 & 1 & X-1
+       \end{vmatrix}\\
+       =
+       (X-2)^{3}
+       \left(
+         (X-2)
+         \begin{vmatrix}
+           X-4 & -1\\
+           1 & X-1
+         \end{vmatrix}
+         +
+         \begin{vmatrix}
+           1 & -1\\
+           -1 & X-1
+         \end{vmatrix}
+       \right)\\
+       =
+       (X-2)^{3}
+       \left(
+         (X-2)\left((X-4)(X-1) +1\right)
+         + ((X-1)-1)
+       \right)\\
+       =
+       (X-2)^{3}
+       \left(
+         (X-2)\left(X^{2}-5X+5\right)
+         + ((X-2)
+       \right)\\
+       =
+       (X-2)^{4}
+       \left(X^{2}-5X+6\right)\\
+       =
+       (X-2)^{5}(X-3)\\
+     \end{array}
+     \]
+   \item De vectorruimte valt uiteen in twee componenten:
+     \[ \mathbb{C} \cong Ker(A-2I)^{p_{1}} \oplus Ker(A-3I)^{p_{2}} \]
+     \[ dim(V_{1}) = 5,\ dim(V_{2})=1 \]
+     \begin{itemize}
+     \item $V_{1}$: $p_{1}=2$.
+       \[
+       dim(A-2I) = dim 
+       \begin{pmatrix}
+         0 & -1 & 0 & 1 & 0 & 0\\
+         0 & 0 & 0 & 0 & 0 & 0\\
+         0 & -1 & 0 & 0 & 0 & 0\\
+         -1 & 0 & 1 & 2 & 1 & 1\\
+         1 & 0 & -1 & -1 & -1 & -1\\
+         0 & 0 & 0 & 0 & 0 & 0\\
+       \end{pmatrix}
+       =3 \Rightarrow dim(A-2I) = 3
+       \]
+       \[ dim(A-2I)^{2} = dim
+       \begin{pmatrix}
+         -1 & 0 & 1 & 2 & 1 & 1\\
+         0 & 0 & 0 & 0 & 0 & 0\\
+         0 & 0 & 0 & 0 & 0 & 0\\
+         -1 & 0 & 1 & 2 & 1 & 1\\
+         0 & 0 & 0 & 0 & 0 & 0\\
+         0 & 0 & 0 & 0 & 0 & 0\\
+       \end{pmatrix}
+       =1 \Rightarrow dim(A-2I)^{2} = 1 \Rightarrow dim(Ker(A-2I)^{2}) = 5
+       \]
+     \item $V_{2}$: $p=1$
+       \[
+       dim(A-3I) = dim
+       \begin{pmatrix}
+         -1 & -1 & 0 & 1 & 0 & 0\\
+         0 & -1 & 0 & 0 & 0 & 0\\
+         0 & -1 & -1 & 0 & 0 & 0\\
+         -1 & 0 & 1 & 1 & 1 & 1\\
+         1 & 0 & -1 & -1 & -2 & -1\\
+         0 & 0 & 0 & 0 & -1
+       \end{pmatrix}
+       =5 \Rightarrow dim(A-2I) = 1
+       \]
+     \end{itemize}
+   \item Diagram:
+     \begin{itemize}
+     \item $V_{1}$: $d_{1} = 3$, $d_{2} = 2$
+       \[
+       \begin{array}{ccc}
+         \boxed{v_{2}} & \boxed{v_{4}} & \boxed{v_{5}}\\
+         \boxed{v_{1}} & \boxed{v_{3}}
+       \end{array}
+       \]
+       Kies bijvoorbeeld de vectoren als volgt:
+       \[
+       \begin{array}{ccc}
+         \boxed{(-1,0,-1,0,0,0)} & \boxed{(0,0,0,-1,1,0)} & \boxed{(1,0,0,0,0,1)}\\
+         \boxed{(0,1,0,0,0,0)} & \boxed{(1,0,-1,0,1,0)}
+       \end{array}
+       \]
+     \item $V_{2}$: $d_{1}=1$
+       \[
+       \begin{array}{ccc}
+         \boxed{(1,0,0,1,0,0)}
+       \end{array}
+       \]
 
-    \item 
-      \[ P = 
-      \left(
-        \begin{array}{ccccc|c}
-          0 & -1 & 1 & 0 & 1 & 1\\
-          1 & 0 & 0 & 0 & 0 & 0\\
-          0 & -1 & -1 & 0 & 0 & 0\\
-          0 & 0 & 0 & -1 & 0 & 1\\
-          0 & 0 & 1 & 1 & 0 & 0 \\
-          0 & 0 & 0 & 0 & 0 & 1
-        \end{array}
-      \right)
-      \]
-    \item 
-      \[
-      J = 
-      \left(
-        \begin{array}{ccccc|c}
-          2 & 0 & 0 & 0 & 0 & 0\\
-          1 & 2 & 0 & 0 & 0 & 0\\
-          0 & 0 & 2 & 0 & 0 & 0\\
-          0 & 0 & 1 & 2 & 0 & 0\\
-          0 & 0 & 0 & 0 & 2 & 0\\\hline
-          0 & 0 & 0 & 0 & 0 & 3
-        \end{array}
-      \right)
-      \]
-    \end{itemize}
-  \end{itemize}
-\item Zij $A\in \mathbb{C}^{3\times 3}$ een diagonaliseerbare matrix met $3$ verschillende eigenwaarden $\lambda_{1}$, $\lambda_{2}$ en $\lambda_{3}$ en bijhorende eigenvectoren $v_{1}$,$v_{2}$ en $v_{3}$.
-  Beschouw $C \in \mathbb{C}^{6\times 6}$.
-  \[ C =
-  \begin{pmatrix}
-    A & I \\
-    0 & A
-  \end{pmatrix}
-  \]
-  Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
-\item Zij $A\in \mathbb{C}^{n \times n}$ een matrix en zij $f_{A} = (X-i)\phi_{A}$ en $\phi_{A}^{2} = (X^{2}+1)f_{a}$.
-  Bereken $f_{A}$ en $\phi_{A}$ en geef de Jordanvorm van $A$.
-\item Voor welke $n$ bestaat er een matrix $M\in \mathbb{C}^{n\times n}$ zodat de minimale veelterm van $M$ $(x-1)(x-2)^{2}(x-3)^{3}$ is?
-\item Zij $A$ een nilpotente matrix in $\mathbb{C}^{6\times 6}$ zodat $dim(Ker(A^{2}))=4$ geldt, geef alle mogelijke invariante systemen van $A$. met karakteristieke veelterm $f_{A}(X)=X^{2}+aX+b$ waarbij de discriminant $a^{2}-4b$ kleiner is dan nul.
-  Toon aan dat er een basis $\beta$ van $\mathbb{R}^{2}$ bestaat zodat $A$ de volgende matrix krijgt ten opzichte van $\beta$.
-\end{itemize}
+     \item 
+       \[ P = 
+       \left(
+         \begin{array}{ccccc|c}
+           0 & -1 & 1 & 0 & 1 & 1\\
+           1 & 0 & 0 & 0 & 0 & 0\\
+           0 & -1 & -1 & 0 & 0 & 0\\
+           0 & 0 & 0 & -1 & 0 & 1\\
+           0 & 0 & 1 & 1 & 0 & 0 \\
+           0 & 0 & 0 & 0 & 0 & 1
+         \end{array}
+       \right)
+       \]
+     \item 
+       \[
+       J = 
+       \left(
+         \begin{array}{ccccc|c}
+           2 & 0 & 0 & 0 & 0 & 0\\
+           1 & 2 & 0 & 0 & 0 & 0\\
+           0 & 0 & 2 & 0 & 0 & 0\\
+           0 & 0 & 1 & 2 & 0 & 0\\
+           0 & 0 & 0 & 0 & 2 & 0\\\hline
+           0 & 0 & 0 & 0 & 0 & 3
+         \end{array}
+       \right)
+       \]
+     \end{itemize}
+   \end{itemize}
+ \item Zij $A\in \mathbb{C}^{3\times 3}$ een diagonaliseerbare matrix met $3$ verschillende eigenwaarden $\lambda_{1}$, $\lambda_{2}$ en $\lambda_{3}$ en bijhorende eigenvectoren $v_{1}$,$v_{2}$ en $v_{3}$.
+   Beschouw $C \in \mathbb{C}^{6\times 6}$.
+   \[ C =
+   \begin{pmatrix}
+     A & I \\
+     0 & A
+   \end{pmatrix}
+   \]
+   Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+ \item Zij $A\in \mathbb{C}^{n \times n}$ een matrix en zij $f_{A} = (X-i)\phi_{A}$ en $\phi_{A}^{2} = (X^{2}+1)f_{a}$.
+   Bereken $f_{A}$ en $\phi_{A}$ en geef de Jordanvorm van $A$.
+ \item Voor welke $n$ bestaat er een matrix $M\in \mathbb{C}^{n\times n}$ zodat de minimale veelterm van $M$ $(x-1)(x-2)^{2}(x-3)^{3}$ is?
+ \item Zij $A$ een nilpotente matrix in $\mathbb{C}^{6\times 6}$ zodat $dim(Ker(A^{2}))=4$ geldt, geef alle mogelijke invariante systemen van $A$. met karakteristieke veelterm $f_{A}(X)=X^{2}+aX+b$ waarbij de discriminant $a^{2}-4b$ kleiner is dan nul.
+   Toon aan dat er een basis $\beta$ van $\mathbb{R}^{2}$ bestaat zodat $A$ de volgende matrix krijgt ten opzichte van $\beta$.
+ \end{itemize}
 
 
 \end{document}
