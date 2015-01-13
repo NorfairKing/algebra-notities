@@ -204,12 +204,30 @@ Deze vraagjes worden gesteld tijdens het mondelinge examen en moet u dus met ges
  \begin{itemize}
  \item Zij $R,+,\cdot$ een niet-triviale commutatieve ring met eenheidselement $i$ en nulelement $e$ waarin het volgende geldt:
    \[ \forall a\in R,\ \exists b\in R:\ a^{2}b=a \]
-   Toon aan dat elk priemideaal van $R,+,\cdot$ ook een maximaal ideaal van $R,+,\cdot$.\\\\
+   Toon aan dat elk priemideaal van $R,+,\cdot$ ook een maximaal ideaal van $R,+,\cdot$.
+
+   Antwoord:
    Zij $I,+,\cdot$ een priemideaal van $R,+,\cdot$, dan is $R/I$ een integriteitsdomein.
    In $R/I$ geldt hetzelfde als in $R$:
    \[ a^{2}b=a \Rightarrow a(ab-i)=e \]
    Omdat $R/I$ een domein is moeten $a$ en $b$ inversen zijn (als $a$ niet $e$ is).
    Een integriteitsdomein $R/I$ met enkel eenheden is een veld, dus $I$ is een maximaal ideaal.\stref{st:quotientgroepen-asa-idealen-stelling}
+ \item Zij $R,+,\cdot$ een HID, toon dan aan:
+   \begin{itemize}
+   \item Een priemideaal van $R,+,\cdot$ is een maximaal ideaal.
+   \item Zij $f$ een surjectief ringmorfismme van $R$ naar $S$ met $S,\star,*$ een integriteitsdomein, dan is ofwel $f$ een isomorfisme, ofwel $S,\star,*$ een veld.
+   \item Als $R[X],+,\cdot$ een HID is, dan moet $R,+,\cdot$ een veld zijn.
+   \end{itemize}
+
+   Antwoord.
+   \begin{itemize}
+   \item 
+     Kies een willekeurig priemideaal $P$ van $R,+,\cdot$.
+     Omdat $R,+,\cdot$ een HID is bestaat er dan een element $p$ dat $P$ genereert:
+     \[ P = (p) \]
+     Het element dat $P$ genereert moet irreducibel zijn, want $P$ is een priemideaal.\stref{st:priemideaal-gegenereert-door-priem-in-hid}
+     Het hoofdideaal $(p)$ gegenereerd door $p$ is dan zeker maximaal. \stref{st:hoofdidiaal-van-irreducibele-veelterm-maximaal}
+   \end{itemize}
  \end{itemize}
 
  \section{Velden}

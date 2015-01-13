@@ -1318,6 +1318,36 @@
   \zb
 \end{st}
 
+\begin{st}
+  \label{st:priemideaal-gegenereert-door-priem-in-hid}
+  Zij $P=(p)$ een priemideaal van een HID $R,+,\cdot$ met eenheidselement $i$ en nulelement $e$, dan is $p$ een irreducibel element in $R,+,\cdot$.
+
+  \begin{proof}
+    Zij $P$ een priemideaal gegenereert door een element $p$.
+    Zij $a$ en $b$ twee elementen in $R,+,\cdot$ zodat $a\cdot b = p$ geldt.
+    Dan moet \'e\'en van de twee in $P$ zitten omdat $P$ een priemideaal is.
+    Noem dat element nu $b$.
+    Er bestaat dan een element $r\in R$ zodat $rp=a$ geldt.
+    \[
+    \begin{array}{rrll}
+      & rp &= b\\
+      \Rightarrow & rab &= b & (p=ab) \\
+      \Rightarrow & rab - b &= e\\
+      \Rightarrow & (ra-1)b &= e\\
+      \Rightarrow & (ra-1) &= e & (R \text{ heeft geen nuldelers en } b\neq e)\\ 
+      \Rightarrow & ra &= i\\
+    \end{array}
+    \]
+    Dit houdt in dat $a$ een eenheid is.
+    $p$ is dus irreducibel.
+  \item $\Leftarrow$\\
+    Zij $p$ een irreducibel element in $R,+,\cdot$.
+    Beschouw nu het ideaal $P=(p)$, voortgebracht door $p$.
+    Kies een willekeurig element $x\in P$ en stel dat het geschreven kan worden als $ab=x$.
+    We moeten nu bewijzen dat ofwel $a$ in $P$ zit, ofwel $b$.
+  \end{proof}
+\end{st}
+
 
 \subsection{deelbaarheid binnen integriteitsdomeinen}
 \label{sec:deelbaarheid-binnen-integriteitsdomeinen}
