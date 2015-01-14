@@ -8,6 +8,7 @@
 \newtheorem{pr}[thm]{Propositie}
 \newtheorem{opm}[thm]{Opmerking}
 \newtheorem{vb}[thm]{Voorbeeld}
+\newtheorem{tvb}[thm]{Tegenvoorbeeld}
 \newtheorem{lem}[thm]{Lemma}
 \newmdtheoremenv{al}[thm]{Algoritme}
 
@@ -19,6 +20,7 @@
 \newcommand{\prref}[1]{\footnote{Zie propositie \ref{#1} op pagina \pageref{#1}.}}
 \newcommand{\opmref}[1]{\footnote{Zie opmerking \ref{#1} op pagina \pageref{#1}.}}
 \newcommand{\vbref}[1]{\footnote{Zie voorbeeld \ref{#1} op pagina \pageref{#1}.}}
+\newcommand{\tvbref}[1]{\footnote{Zie tegenvoorbeeld \ref{#1} op pagina \pageref{#1}.}}
 \newcommand{\lemref}[1]{\footnote{Zie lemma \ref{#1} op pagina \pageref{#1}.}}
 \newcommand{\alref}[1]{\footnote{Zie algoritme \ref{#1} op pagina \pageref{#1}.}}
 
@@ -31,6 +33,7 @@
 \newcommand{\question}[1]{\todo[color=green,inline,size=\small]{QUESTION: #1}}
 
 \newcommand{\waarom}[0]{\clarify{waarom?}}
+\newcommand{\needed}[0]{\clarify{referentie ?}}
 
 \newcommand{\term}[1]{\index{#1}\textbf{#1}}
 \newcommand{\zb}[0]{{\footnotesize {\it Zonder bewijs\/}}}
@@ -49,3 +52,5 @@
 \newcommand{\veld}[0]{\bx{Veld}}
 \newcommand{\lichaam}[0]{\bx{Lichaam}}
 \newcommand{\domein}[0]{\bx{Integriteitsdomein}}
+
+\newcommand{\examen}[0]{\bx{{\bf Examenvraag!}}\\}

@@ -523,7 +523,7 @@ Bewijs: $H$ is de unie van de conjugatieklassen van alle $h\in H$.
   \]
 \end{proof}
 
-\subsection{Oefening 4}
+\subsection*{Oefening 4}
 \label{sec:oz4-oef4}
 Geldt het volgende?
 \[ \mathbb{Q},+=grp\{\nicefrac{1}{p} \ |\ p \text{ is een priemgetal.} \} \] 
@@ -580,7 +580,7 @@ Waar
 \end{proof}
 
 
-\subsection{Oefening 8}
+\subsection*{Oefening 8}
 \label{sec:oz4-oef8}
 Zij $G,*$ een groep en $A\subseteq$.
 \begin{itemize}
@@ -593,7 +593,7 @@ Zij $G,*$ een groep en $A\subseteq$.
 \end{itemize}
 \extra{nog drie deeloefeningen}
 
-\subsection{Oefening 9}
+\subsection*{Oefening 9}
 \label{sec:oz4-oef9}
 Zij $G$ een groep en zij $H$ een deelgroep van index $n$.
 Stel dat $\{e\}$ de enigge normaaldeler is van $G$ die bevat is in $H$.
@@ -710,20 +710,457 @@ Zij $G,*$ een eindige groep en $p$ een priemgetal dat de orde van $|G|$ deelt, b
 \TODO{hoeveel ringmorfismen $f: \mathbb{Z} \rightarrow \mathbb{R}$ zijn er die $1$ op $1$ afbeelden?}
 \TODO{bewijs de deelbaarheidstesten door $9$ en $11$ uit de lagere school. p 48}
 
-\section{Oefenzitting 5: Basisbegrippen}
+\section{Oefenzitting 6: Basisbegrippen}
 
 \subsection*{Oefening 1}
 Gegeven een verzameling $U$.
-Bewijs dat $\mathcal{P}(U)\Delta,\cap$ een commutatieve ring is met eenheidselement.
+Bewijs dat $\mathcal{P}(U),\Delta,\cap$ een commutatieve ring is met eenheidselement.
+
+\begin{proof}
+  We gaan elke definierende eigenschap van een ring af.
+  \begin{itemize}
+  \item $\mathcal{P}(U)$ is een commutatieve groep:
+    \begin{itemize}
+    \item $\Delta$ is associatief.
+    \item Er bestaat een neutraal element: $\emptyset$
+    \item Elk element $X$ in $\mathcal{P}(U)$ heeft een inverse: $X^{c}$
+    \end{itemize}
+  \item $\cap$ is associatief. 
+  \item $\cap$ is distributief ten opzichte von $+$.
+  \item $\cap$ is commutatief.
+  \end{itemize}
+\end{proof}
 
 \subsection*{Oefening 2}
-Gegeven een ring $R,+,\cdot$ als volgt.
+Gegeven een ring $R,+,\cdot$ met nulelement $e_{R}$ als volgt.
 We noemen dit een \term{Boolering}.
 \[ \forall a\in R:\ a^{2} = a \]
 Bewijs dat $R,+,\cdot$ een commutatieve ring is en het volgende:
 \[ \forall a \in R:\ a+a = e_{R}\]
 
-\extra{bewijs dat $I=\{  \begin{pmatrix}    a & b\\c & d  \end{pmatrix} \ |\ a,b,c,d \in 2\mathbb{Z}\}$ een ideaal is van $M^{2\times 2}(\mathbb{Z})$. Hoeveel elementen heeft $\nicefrac{M^{2\times 2}(\mathbb{Z})}{I}$?}
+\begin{proof}
+  Voor elke twee elementen $x$ en $y$ uit $R$ geldt het volgende:
+  \[
+  \begin{array}{rl}
+    (x \cdot y)^{2} &= x \cdot y\\
+    x \cdot y \cdot x \cdot y &= x \cdot y\\
+    y \cdot x &= x \cdot y
+  \end{array}
+  \]
+  $R,+,\cdot$ is dus al een commutatieve ring.
+  \[
+  \begin{array}{rll}
+    a + a &= a^{2} + a^{2} &\\
+          &= a \cdot (a+a) &\\
+          &= a^{2} \cdot e_{R} = e_{R}
+  \end{array}
+  \]
+\end{proof}
+
+
+\subsection*{Oefening 3}
+Zij $R$ een deelverzameling van $\mathbb{Q}$ als volgt:
+\[ R = \left\{ \frac{a}{b} \ |\ a,b \in \mathbb{Z} \text{ en } b \text{ oneven } \right\} \]
+\begin{itemize}
+\item Bewijs dat $R,+,\cdot$ een deelring is van $\mathbb{Q}$.
+\item Merk op dat $R$ als volgt geschreven kan worden:
+  \[ \left\{ \frac{2^{n}a}{b}\ |\ n\in \mathbb{N}\text{ en } a,b \text { oneven } \right\} \cup \{0\} \]
+\item Geef de eenheden van $R,+,\cdot$.
+\item Neem een ideaal $I \neq \{0\}$ van $R,+,\cdot$ en bewijs dat $I$ voortgebracht wordt door $2^{m}$ waarbij $m$ het kleinste getal is waarvoor $2^{m}$ in $I$ zit.
+\item Besluit dat $R,+,\cdot$ een HID is.
+\end{itemize}
+\extra{oefening}
+
+\section{Oefenzitting 6: Idealen}
+
+\subsection*{Oefening 1}
+bewijs dat $I=\{  \begin{pmatrix}    a & b\\c & d  \end{pmatrix} \ |\ a,b,c,d \in 2\mathbb{Z}\}$ een ideaal is van $M^{2\times 2}(\mathbb{Z})$. Hoeveel elementen heeft $\nicefrac{M^{2\times 2}(\mathbb{Z})}{I}$?
+\extra{oefening}
+
+\section{Oefenzitting 7: Quotientringen}
+
+\subsection*{Oefening 1}
+Zij $R = \nicefrac{\mathbb{Q}[X]}{I}$ met $I=(X^{2}+X+1)$.
+
+\begin{itemize}
+\item Gelden volgende beweringen?
+  \begin{itemize}
+  \item $-2X^{2}+I \overset{?}{=} 2X^{3}+2X+I$
+  \item $3+I\overset{?}{=} X+I$
+  \item $X^{3}+2X^{2}+I \overset{?}{=} 3X+2+I$
+  \end{itemize}
+\item Toon aan dat elk element van $R$ op een unieke wijze geschreven kan worden als $aX+b+I$ met $a,b\in \mathbb{Q}$.
+\item Reken uit en schrijf het resultaat in de vorm $aX+b+I$.
+  \begin{itemize}
+  \item $(X+I) + (X^{2}+I)$
+  \item $(X+3+I)\cdot (X^{2}+1+I)$
+  \end{itemize}
+\item Men kan aantonen dat $R,+,\cdot$ een veld is.
+  Wat is het invers van $X+I$ voor de vermenigvuldiging in $R,+,\cdot$?
+\end{itemize}
+
+Merk allereerst op dat $\mathbb{Q}$ een veld is\vbref{vb:q}.
+Merk dan op dat er eenvoudige manier bestaat om na te kijken of twee veeltermen in dezelfde restklasse zitten.
+\[ \forall f,g \in \nicefrac{\mathbb{Q[X]}}{I}: f+I = g+I \Leftrightarrow f=g + r \cdot (X^{2}+X+1) \]
+Dit betekent dat als we $f-g$ `delen' door $X^{2}+X+1$, en als rest $0$ krijgen, $f$ en $g$ in dezelfde restklasse zitten.
+\begin{itemize}
+\item 
+  Om deze beweringen na te kijken moeten we het delings
+  \begin{itemize}
+  \item $-2X^{2} - (2X^{3}+2X) = -2X^{3}-2X^{2}-2X$
+    \[
+    \begin{array}{ccc|l}
+      -2X^{3} & -2X^{2} & -2X & X^{2}+X+1\\ \hline
+      -2X^{3} & -2X^{2} & -2X & -2X \\\cline{1-3}
+      &        &  0  & \\ 
+    \end{array}
+    \]
+    Deze bewering geldt.
+  \item $3+I$ en $X+I$ zijn niet gelijk. $\bar{3} = 3+I \neq X+I = \bar{X}$.
+  \item $X^{3}+2X^{2} - (3X+2) = X^{3} +2X^{2}-3X - 2$
+    \[
+    \begin{array}{cccc|l}
+      X^{3} & +2X^{2} & -3X & -2 & X^{2}+X+1\\ \hline
+      X^{3} & +X^{2} & + X & \vdots & X +1 \\\cline{1-3}
+      & +X^{2} & -4X & -2 & \\
+      & +X^{2} & + X & +1 & \\\cline{2-4}
+      &       & -5X & -3 
+    \end{array}
+    \]
+    De rest is hier niet nul, dus de bewering geldt niet.
+
+  \end{itemize}
+\item De nevenklasse van de rest bij deling door $X^{2}+X+1$ moet gelijk zijn aan de nevenklasse van $f$, en de rest moet van graad $1$ of lager zijn.
+\item
+  \begin{itemize}
+  \item $(X+I)+(X^{2}+I) = (X^{2}+X)+I = -1 +I$
+    \[
+    \begin{array}{ccc|l}
+      X^{2} & +X &    & X^{2}+X+1\\ \hline
+      X^{2} & +X & +1 & 1 \\\cline{1-3}
+      &    & -1
+    \end{array}
+    \]
+  \item $(X+3+I)\cdot (X+1+I) = (X^{3}+3X^{2}+X+3+I) = (-2X+1)+I$
+    \[ 
+    \begin{array}{cccc|l}
+      X^{3} & +3X^{2} & +X & +3 & X^{2}+X+1\\ \hline
+      X^{3} & + X^{2} & +X & \vdots & X \\\cline{1-3}
+      & +2X^{2} &    & +3 & \\
+      & +2X^{2} & +2X & +2 & \\\cline{2-4}
+      &         & -2X & +1 & \\
+    \end{array}
+    \]
+  \end{itemize}
+\item We weten nu al dat het invers van $X+I$ er uitziet als $aX+b +I$ met $a$ en $b$ in $\mathbb{Q}$.
+  \[ (X+I) \cdot (aX+b+I) = 1+X \]
+  \[ X\cdot(aX+b) = aX^{2} +bX \]
+  De rest bij deling van $aX^{2} +bX$ door $X^{2}+X+1$ moet dus $1$ zijn.
+  \[
+  \begin{array}{ccc|l}
+    aX^{2} & +bX & & X^{2}+X+1\\\hline
+    aX^{2} & +aX & +a & a \\\cline{1-3}
+          & (b-a)X & -a &  \\ 
+  \end{array}
+  \]
+  Dit betekent dat $(b-a)$ nul moet zijn en $a$ $-1$.
+  De inverse van $X+I$ is dus $-X-1+I$.\\
+  Inderdaad: $X\cdot(-X+1) = -X^{2}-X$
+  \[
+  \begin{array}{ccc|l}
+    -X^{2} & -X & & X^{2}+X+1\\\hline
+    -X^{2} & -X & -1 & -1\\\cline{1-3}
+          &    &  1 & 
+  \end{array}
+  \]
+\end{itemize}
+
+\subsection*{Oefening 2}
+Bereken $\nicefrac{\mathbb{Z}[X]}{(2)}$.
+\[ \nicefrac{\mathbb{Z}[X]}{(2)} = \left\{ f + \left\{ (g \cdot 2)\ |\ g\in \mathbb{Z}[X] \right\}, f \in \mathbb{Z}[X] \right\} \]
+Merk allereerst op dat dit de veeltermen over $\mathbb{Z}$ met even co\"efficienten zijn.
+We zoeken nu een ringmorfisme waarvan $(2)$ de kern is, dat begint in $\mathbb{Z}[X]$.
+Kies bijvoorbeeld $\phi$ voor dit morfisme:
+\[ \phi: \mathbb{Z}[X] \rightarrow \mathbb{Z}_{2}[X]:\ \sum_{i=0}^{n}a_{i}X^{i} \mapsto \sum_{i=0}^{n}(a_{i} \mod 2)X^{i} \]
+$(2)$ is inderdaad de kern van dit morfisme, dus geldt het volgende isomorfisme:\gevref{gev:eerste-ringmorfismestelling}
+\[ \nicefrac{\mathbb{Z}[X]}{(2)} \cong \mathbb{Z}_{2}[X] \]
+
+\subsection*{Oefening 3}
+Bereken $\nicefrac{\mathbb{Z}[X]}{(2,X)}$.
+\[ \nicefrac{\mathbb{Z}[X]}{(2,X)} = \left\{ f + \left\{ (g \cdot 2 + h \cdot X)\ |\ g,h\in \mathbb{Z}[X] \right\}, f \in \mathbb{Z}[X] \right\}\]
+Merk allereerst op dat dit de veeltermen zijn met een even constante term.
+We zoeken nu een ringmorfisme waarvan $(2,X)$ de kern is, dat begint in $\mathbb{Z}[X]$.
+Kies bijvoorbeeld $\phi$ voor dit morfisme:
+\[ \phi: \mathbb{Z}[X] \rightarrow \mathbb{Z}_{2}:\ \sum_{i=0}^{n}a_{i}X^{i} \mapsto (a_{0}\mod 2) \]
+$(2,X)$ is inderdaad de kern van dit morfisme, dus geldt het volgende isomorfisme:\gevref{gev:eerste-ringmorfismestelling}
+\[ \nicefrac{\mathbb{Z}[X]}{(2)} \cong \mathbb{Z}_{2} \]
+
+\subsection*{Oefening 4}
+Bereken $\nicefrac{\mathbb{Z}_{2}[X]}{(X^{2}+X+1)}$.
+\[ \nicefrac{\mathbb{Z}_{2}[X]}{(X^{2}+X+1)} =  \left\{ f + \left\{ (g \cdot (X^{2}+X+1))\ |\ g\in \mathbb{Z}_{2}[X] \right\}, f \in \mathbb{Z}_{2}[X] \right\} \]
+Dit zijn de binaire veeltermen zijn van graad $1$.
+
+\subsection*{Oefening 5}
+Bereken $\nicefrac{\mathbb{Z}[X,Y,Z]}{(X-Y,X^{3}-Z)}$.
+\noindent
+Dit is niet evident!
+We zoeken een ringmorfisme waarvan $(X-Y,X^{3}-Z)$ de kern is, dat begint in $\mathbb{Z}[X,Y,Z]$.
+\[ (X-Y,X^{3}-Z) = \{ f\cdot (X-Y) + g\cdot (X^{3}-Z) \mid f,g \in \mathbb{Z}[X,Y,Z] \}\]
+Nu vragen we ons daarom af wat er waar moet zijn over een veelterm in $X$, $Y$ en $Z$ opdat $f\cdot (X-Y) + g\cdot (X^{3}-Z)$ nul is.
+Wel, $f\cdot (X-Y)$ en $g \cdot (X^{3}-Z)$ moeten dan beide nul zijn.
+\[ f \cdot (X-Y) = 0 \Leftrightarrow X = Y \vee f = 0\]
+\[ g \cdot (X^{3}-Z) = 0 \Leftrightarrow X^{3} = Z \vee g = 0 \]
+Deze voorwaarden zijn equivalent met de volgende:
+\[ X = Y \wedge X^{3} = Z \]
+We zoeken dus een morfisme dat veeltermen die hieraan voldoen op nul afbeeldt.
+Beschouw bijvoorbeeld $\phi$:
+\[ \phi:\ \mathbb{Z}[X,Y,Z] \rightarrow \mathbb{Z}[X]:\ f(X,Y,Z) \mapsto f(X,X,X^{3}) \]
+We tonen nu aan dat $(X-Y,X^{3}-Z)$ inderdaad de kern is van $\phi$:
+\begin{itemize}
+\item $(X-Y,X^{3}-Z) \subseteq Ker(\phi)$\\
+  Elk element uit $(X-Y,X^{3}-Z)$ ziet er uit als $f(X,Y,Z)\cdot (X-Y) + g(X,Y,Z)\cdot (X^{3}-Z)$.
+  \[ \phi(f(X,Y,Z)\cdot (X-Y) + g(X,Y,Z)\cdot (X^{3}-Z)) = f(X,X,X^{3})\cdot (X-X) + g(X,X,X^{3})\cdot (X^{3}-X^{3}) = 0 \]
+\item $Ker(\phi) \subseteq(X-Y,X^{3}-Z) $\\
+  We moeten bewijzen dat elk element uit $Ker(\phi)$ eruit ziet als $f(X,Y,Z)\cdot (X-Y) + g(X,Y,Z)\cdot (X^{3}-Z)$.
+  Kies een willekeurige $h\in \mathbb{Z}[X,Y,Z]$.
+  We zullen eerst $h$ delen door $Z-X^{3}\neq 0$, de rest zal dan nog steeds in $Ker(\phi)$ zitten.
+  Noem de quotient van die deling $f$.
+  \[ h(X,Y,Z) = f(X,Y,Z)\cdot(X^{3}-Z) + r(X,Y) \]
+  Merk ook op dat de rest $r(X,Y)$ onafhankelijk is van $Z$:
+  \[ \mathbb{Z}[X,Y,Z] \cong (\mathbb{Z}[X,Y])[Z] \]
+  We delen daarna $r$ nog door $Y-X \neq 0$. Opnieuw zal de rest nog steeds in $Ker(\phi)$ zitten.
+  Noem de quotient van deze deling $g$.
+  \[ h(X,Y,Z) = f(X,Y,Z)\cdot (X^{3}-Z) + g(X,Y) \cdot (Y-X) + r'(X) \]
+  Merk nu op dat de rest $r'(X)$ onafhankelijk is van $Y$ en $Z$.
+  \[ \mathbb{Z}[X,Y,Z] \cong (\mathbb{Z}[X,Y])[Z] \]
+\clarify{hier moet meer uitleg bij!}
+\end{itemize}
+
+\subsection*{Oefening 6}
+Zij $R,+,\cdot$ een willekeurige ring met eenheidselement.
+Bereken $\nicefrac{R[X]}{(X)}$.
+
+\subsection*{Oefening 7}
+Zij $P=X^{3}+X+1 \in \mathbb{Z}_{2}[X]$.
+Bereken voor elk element verschillen van $0$ van $\nicefrac{\mathbb{Z}_{2}[X]}{(P)}$ het inverse voor de vermenigvuldiging.
+
+\section{Oefenzitting 8: Veeltermringen, HID's en UFD's}
+
+\subsection*{Oefening 1}
+Zoek de wortels in $\mathbb{Z}_{5}$ van $3+X+X^{64}\in \mathbb{Z}_{5}[X]$.
+$\mathbb{Z}_{5}$ is klein genoeg om dit \'e\'en voor \'e\'en te doen, maar we willen $4^{64}$ natuurlijk niet hoeven uit te rekenen.
+Noem $3+X+X^{64}$ $f$.
+\[
+\begin{array}{rll}
+  f(0) &= 3 + 0 + 0^{64} &\neq 0\\
+  f(1) &= 3 + 1 + 1^{64} &= 0\\
+  f(2) &= 3 + 2 + 2^{64} &\neq 0 \text{ want } 2^{64} \nmid 5\\
+  f(3) &= 3 + 3 + 3^{64} &\neq 0 \text{ want } 3^{66} \nmid 5\\
+  f(4) &= 3 + 4 + 4^{64} &\neq 0 \text{ want } 2^{129} \nmid 5\\
+\end{array}
+\]
+ 
+\subsection*{Oefening 2}
+Geef een voorbeeld van waarom het derde criterium niet geldt in $\mathbb{Z}_{8}[X]$ (dat geen veld is).
+\question{hoe?}
+
+\subsection*{Oefening 3}
+Schrijf $f=X^{3}+6\in \mathbb{Z}_{7}[X]$ als product van irreducibele veeltermen over $\mathbb{Z}_{7}$.
+
+$\mathbb{Z}_{7}$ is een veld, want $7$ is een priemgetal.\gevref{gev:zp-veld}
+$\mathbb{Z}_{7}$ is dus een UFD\stref{st:veeltermen-over-veld-hid}, de vraag is dus zinvol.
+Bereken eerst de nulpunten van $f$:\stref{st:domein-nulpunten-delen-veelterm}
+\[
+\begin{array}{rll}
+  f(0) &= 0 + 6 = 6&\\
+  f(1) &= 1 + 6 = 0&\\
+  f(2) &= 8 + 6 = 0&\\
+  f(3) &= 33 + 6 = 4&\\
+  f(4) &= 64 + 6 = 0&\\
+\end{array}
+\]
+We weten al dat $f$ deelbaar is door $X-1$, $X-2$ en $X-4$.
+\[
+\begin{array}{cccc|l}
+  X^{3} & & & +6 & X-1\\\hline
+  X^{3} & -X^{2} &  &\vdots & X^{2}+X+1\\\cline{1-2}
+       & X^{2} & & \vdots & \\
+       & X^{2} & -X & \vdots &\\\cline{2-3}
+       &       & X & +6 &\\
+       &       & X & -1 &\\\cline{3-4}
+       &       &   & 0 
+\end{array}
+\]
+\[
+\begin{array}{ccc|l}
+  X^{2} & +X & +1 & X-2\\\hline
+  X^{2} & -2X & \vdots & X+3\\\cline{1-2} 
+       & 3X & +1 & \\
+       & 3X & -6 &\\\cline{2-3}
+       &    & 0
+\end{array}
+\]
+$X^{3}+6$ is in $\mathbb{Z}_{7}$ dus gelijk aan $(X+6)(X+5)(X+3)$.
+
+
+\subsection*{Oefening 4}
+Zij $p$ een priemgetal, hoeveel irreducibele veeltermen over $\mathbb{Z}_{p}$ van de vorm $X^{2}+aX+b$ bestaan er?
+\extra{oefening}
+
+\subsection*{Oefening 5}
+Vindt een grootst gemeenschappelijke deler van $X^{3}+2X^{2}+4X-7$ en $X^{2}+X-2$ in $\mathbb{Q}[X]$.
+\extra{oefening}
+
+\subsection*{Oefening 6}
+Bekijk de veelterm $X^{2}+1$ over $\mathbb{H}$.
+De wortel $i$ kunnen we afsplitsen:
+\[ X^{2}+1 = (X-i)(X+i) \]
+Omdat $j$ ook een wortel is, bekomen we na substitutie ook nul:
+\[ (j-i)(j+i) = 0 \]
+De laatste gelijkheid kan niet omdat $\mathbb{H}$ geen nuldelers heeft.
+Waar zit de fout?
+
+De rekenregels in $\mathbb{H}$ zijn fout toegepast.
+\[ (j-i)(j+i) \neq j^{2}+1 \text{ maar wel } -2k \]
+
+
+\subsection*{Oefening 7}
+\begin{itemize}
+\item Toon aan dat $X^{3}+5X^{2}+25X+5$ irreducibel is over $\mathbb{Q}$.
+  \begin{proof}
+    Kies $p=5$ in het criterium van Einstein.
+  \end{proof}
+\item Toon aan dat $5x^{3}+9x+3$ irreducibel is over $\mathbb{Q}$.
+  \begin{proof}
+    Kies $p=3$ in het criterium van Einstein.
+  \end{proof}
+\item Toon aan dat $5X^{3}-15X^{2}+24X-11$ irreducibel is over $\mathbb{Q}$.
+  \begin{proof}
+    We tonen eerst aan dat als $f(X+1)$ irreducibel is, $f(X)$ dan ook.
+    Stel immers dat $f(X)$ reducibel is, dan zals $f(X+1)$ ook reducibel zijn.
+    \[ f(X) = g(X) \cdot h(X) \Rightarrow f(X+1) = g(X+1) \cdot h(X+1)\]
+    \[ f(X+1) = 5X^{3}+9X+3 \]
+    Kies $p=3$ in het criterium van Einstein.
+  \end{proof}
+\end{itemize}
+
+
+\subsection*{Oefening 8}
+
+Definieer op $F$ als volgt:
+\[ F = \{ a + b\alpha \ |\ a,b \in \mathbb{Z}_{2} \} = \{ 0,1,\alpha,\alpha+1 \} \]
+\begin{itemize}
+\item Bewijs dat $\alpha^{2}$ gelijk moet zijn aan $\alpha+1$.
+  \begin{itemize}
+  \item $\alpha^{2}$ kan niet gelijk zijn aan $0$ want dan zou $\alpha$ $0$ zijn.
+  \item $\alpha^{2}$ kan niet gelijk zijn aan alpha want dan zou $alpha$ nul of $1$ zijn.
+  \item $\alpha^{2}$ kan niet gelijk zijn aan $1$ want dan zou $\alpha(1+\alpha)$ gelijk zijn aan $\alpha+1$.
+    Dit zou dan betekenen dat $\alpha$ gelijk is aan $1$.
+  \item $\alpha^{2}$ moet dus gelijk zijn aan $\alpha+1$. 
+  \end{itemize}
+\item Maak de Cayleytabel van $F^{\times}$.
+  \[
+  \begin{array}{c|ccc}
+    & 1 & \alpha & 1+\alpha\\ \hline
+    1 & 1 & \alpha & 1 + \alpha\\
+    \alpha & \alpha &1 + \alpha & 1\\
+    1 + \alpha & 1 + \alpha & 1 & \alpha
+  \end{array}
+  \]
+\item Bewijs dat $F,+,\cdot$ een veld is.
+\extra{bewijs}
+\end{itemize}
+
+\section{Oefenzitting 9: Velden}
+
+\subsection*{Oefening 1}
+Bereken de karakteristiek $k$ van $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$.
+
+Merk eerst op dat de karakteristiek van $\mathbb{Z}_{n}$ en $\mathbb{Z}_{m}$ respectievelijk $n$ en $m$ zijn.
+Voor elk element $(a,b) \in \mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ moet het volgende gelden
+\[ k(a,b) = (0,0) \]
+We weten echter dat $a$ enkel nul is als het een veelvoud van $n$ keer bij zichzelf wordt opgeteld.
+Analoog geldt dat voor $b$.
+$k$ moet dus $kgv(n,m)$ zijn.
+
+
+\subsection*{Oefening 2}
+Wanneer is de priemdeelring van $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ niet heel $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$?
+
+Zij $k=kgv(n,m)$ de karakteristiek van $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$, dan is de priemdeelring isomorf met $\mathbb{z}_{k}$.\stref{st:karakteristiek-isomorfisme-met-zn}
+Als $k$ $n\cdot m$ is, dan is $\mathbb{z}_{k}$ isomorf met $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ en de priemdeelring van $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ dus $\mathbb{Z}_{n} \cdot \mathbb{Z}_{m}$ zelf.
+$k$ is $n\cdot m$ als en slechts als $n$ en $m$ relatief priem zijn:
+\[ kgv(n,m) = n \cdot m \Leftrightarrow ggd(n,m) = 1 \]
+
+\subsection*{Oefening 3}
+
+Zij $F,+,\cdot$ een veld van orde een macht $p^{r}$ van een priemgetal $p$.
+Met welke 'bekende' groep is $F,+,\cdot$ isomorf?
+
+We berekenen eerst de karakteristiek $k$ van $F$ en beschouwen daarna $F$ als een vectorruimte over zijn priemdeelveld.
+$F$ is eindig, dus $k$ eindig.
+$k$ is bovendien een deler van de orde van $F$, en ook een priemgetal, dus $k$ moet gelijk zijn aan $p$.
+Het priemdeelveld $P,+,\cdot$ van $F$ is isomorf met $\mathbb{Z}_{k} = \mathbb{Z}_{p}$ 
+We bewijzen nu dat de uitbreidingsgraad van het priemdeelveld van $F,+,\cdot$ over $F,+,\cdot$ daarom $r$ is.
+\begin{proof}
+  Kies een basis $\{x_{i},\dotsc,x_{n}\}$ waarin $n$ de dimensie is van $F$ als vectorruimte.
+  Elk element $f$ van $F$ ziet er dan als volgt uit:
+  \[ f = \sum_{i=1}^{n}a_{i}x_{i} \text { met } \forall i:\ a_{i} \in P\]
+  \[ P^{n} \rightarrow F:\ (a_{1},\dotsc,a_{n})\mapsto \sum_{i=1}^{n}a_{i}x_{i} \]
+  Dit morfisme is injectief omdat het een veldmorfisme is\stref{st:veldmorfisme-is-injectief} en surjectief omdat de $x_{i}$ een basis vormen.
+  \[ p^{r} = |F| = |\mathbb{Z}_{p}^{n}| = p^{n}\]
+  $r$ moet dus gelijk zijn aan $n$.
+\end{proof}
+
+\subsection*{Oefening 4}
+Zij $F,+,\cdot$ een veld.
+Zij $a$ en $b$ elementen van $F$ waarbij $a$ een niet-nulelement is.
+Zij bovendien $c$ een element in een uitbreiding van $F,+,\cdot$ naar $E,+,\cdot$.
+\[ F(c) = F(ac+b) \]
+
+\begin{proof}
+  Het volstaat om aan te tonen dat $F(c)$ $ac+b$ bevat, omdat $F(ac+b)$ $F$ omvat.
+  \[ c  = \frac{(ac+b)-b}{a} \in F(ac+b) \]
+\end{proof}
+
+\begin{gev}
+  Voor elke $a,b \in \mathbb{R}$ met $b$ niet nul geldt $\mathbb{R}(a+bi) = \mathbb{C}$.
+\end{gev}
+
+\subsection*{Oefening 5}
+Zij $a$ en $b$ twee getallen uit $\mathbb{Q}^{+}_{0}$.
+Bewijs het volgende:
+\[ \mathbb{Q(\sqrt{a})} = \mathbb{Q(\sqrt{b})} \Leftrightarrow \exists c\in \mathbb{Q}:\ a = bc^{2} \]
+
+\begin{proof}
+  \begin{itemize}
+  \item $\Rightarrow$\\
+    Er bestaat een $c\in \mathbb{Q}$ zodat $\sqrt{a}$ geschreven kan worden als volgt:
+    \[ \frac{\sqrt{a}}{1} = \frac{c\sqrt{b}}{1} \]
+    Dit is precies wanneer, voor die $c$, het volgende geldt:
+    \[ a = bc^{2}\]
+  \item $\Leftarrow$\\
+    \begin{itemize}
+    \item Voor alle elementen uit $\mathbb{Q}$ die geschreven kunnen worden als $\sqrt{a}$ met $a \in \mathbb{Q}$ geldt de bewering.
+    \item Voor alle andere elementen, kies een basis voor $\mathbb{Q}(\sqrt{a})$ over $\mathbb{Q}$: $\{1,\sqrt{a}\}$.\clarify{moeten we niet bewijzen dat dit inderdaad een basis is?}
+      Nu moeten we bewijzen dat $b$ te schrijven valt als lineaire combinatie van de elementen in die basis. \clarify{waarom enkel $b$ en niet elk element in $\mathbb{Q}(\sqrt{b})$}
+      \[ \sqrt{b} = x + y\sqrt{a} \]
+      \[ b = x^{2} + 2xy+2xy\sqrt{a} +ay^{2}\]
+      \[ b = (x^{2}+y^{2})\cdot 1 + (2xy) \cdot \sqrt{a} \]
+    \end{itemize}
+  \end{itemize}      
+\end{proof}
+
+\subsection*{Oefening 6}
+
+
+
+
+
+
+
+
+
 
 
 \end{document}

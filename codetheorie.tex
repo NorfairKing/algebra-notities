@@ -1,0 +1,392 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\chapter{Codetheorie}
+\label{cha:codetheorie}
+
+\section{Probleemstelling}
+
+We willen een boodschap versturen over een niet-foutloos kanaal zonder fouten.
+We ontwikkelen daarvoor een encodering van de boodschap die ons toelaat om de fouten op te sporen en/of te verbeteren.
+
+\begin{figure}[H]
+  \centering
+  \begin{tabular}{cl}
+    Boodschap\\
+    $\downarrow$\\
+    encoder \\
+    $\downarrow$\\
+    geencodeerde boodschap\\
+    $\downarrow$\\
+    kanaal &$\leftarrow$ fouten\\
+    $\downarrow$\\
+    ontvangen boodschap\\
+    $\downarrow$\\
+    gedecodeerde boodschap
+  \end{tabular}
+  \caption{Probleemstelling}
+  \label{fig:probleemstelling}
+\end{figure}
+
+\section{Begrippen}
+
+\begin{de}
+  Een \term{boodschap} van $n$ bits is een opeenvolging van $n$ elementen van een eindig veld $\mathbb{F}_{q}$ (meestal $\mathbb{Z}_{2}$).
+  Het is dus een $n$-tal uit $\mathbb{F}_{q}^{n}$.
+  We noemen $n$ de \term{lengte} van de boodschap
+\end{de}
+
+
+\begin{de}
+  Een \term{blokcode} $\mathbb{C}$ is een deelverzameling van de $n$-tallen over een eindig veld $\mathbb{F}_{q}$.
+  \[ \mathbb{C} \subseteq \mathbb{F}_{q}^{n} \]
+\end{de}
+
+\begin{de}
+  \label{de:code}
+  Een $(n,k)$-\term{code} is een afbeelding $c$ die een boodschap van $k$ bits afbeeldt op een boodschap van $n$ bits.
+  \[ c:\ \mathbb{F}_{q}^{k} \rightarrow \mathbb{F}_{q}^{n}:\ b \mapsto c(b) \]
+
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \tikzset{
+        elps/.style 2 args={draw,ellipse,minimum width=#1,minimum height=#2},
+        node distance=3cm,
+        font=\footnotesize,
+        >=latex,
+      }
+      \node(x)[elps={1.3cm}{1cm},label={below left:$\mathbb{Z}_{2}^{k}$}]{};
+      \node(y)[elps={2cm}{1.2cm},right=of x,label={below left:$\mathbb{Z}_{2}^{n}$}]{};
+      \fill[gray!50]($(y.center)-(5pt,5pt)$)circle[x radius=.7cm,y radius=.3cm]coordinate(im);
+      \node at (im){$\mathrm{Im}(c)$};
+      \draw[->](x)to[bend left=20]node[above]{$c$}(y);
+    \end{tikzpicture}
+    \caption{Een code, schematisch voorgesteld}
+    \label{fig:code}
+  \end{figure}
+  Een code is nooit surjectief, en steeds injectief.
+  Dit houdt in dat $n$ groter is dan $k$.
+\end{de}
+
+\begin{opm}
+  We identificeren een code vaak met de haar beeld (een blokcode).
+\end{opm}
+
+\begin{de}
+  Een \term{codewoord} is een boodschap $c(b)$ in het beeld van een code $c$.
+\end{de}
+
+\begin{de}
+  Een \term{ontvangen woord} $w$ van een codewoord $c(b)$ van een boodschap $b$ met een code $c$ is een (eventuele) afwijking van dat codewoord.
+  \[ w = c(b) + e \]
+  We noemen $e$ de \term{fout} op het ontvangen woord.
+\end{de}
+
+\begin{opm}
+  Een ontvangen woord hoeft dus niet tot $Im(c)$ te behoren.
+\end{opm}
+
+\begin{de}
+  Een $n$-tal uit $\mathbb{F}_{q}^{n}$ zullen we in deze contex vaak noteren als een opeenvolging van de meest eenvoudige overeenkomstige representanten in $\mathbb{Z}_{q}$.
+  Het heeft op die manier wel degelijk zin om te 'rekenen' met boodschappen.
+\end{de}
+
+\section{Foutdetectie}
+
+\begin{de}
+  Het \term{Hamming gewicht} $wt(x)$ van element uit $\mathbb{F}_{q}^{n}$ is het aantal plaatsen in het $n$-tal dat niet het nulelement is.
+\end{de}
+
+\begin{de}
+  De \term{Hamming afstand} $dt(x,y)$ tussen twee elementen uit $\mathbb{F}_{q}^{n}$ is het aantal plaatsen waar de $n$-tallen verschillen.
+\end{de}
+
+\begin{ei}
+  De Hamming afstand tussen twee $n$-tallen is het Hamming gewicht van het verschil tussen de $n$-tallen.
+  \[ \forall x,y \in \mathbb{F}_{q}^{n}:\ dt(x,y) = wt(x-y) \]
+\end{ei}
+
+\begin{de}
+  De \term{complete maximum likelihood decoding} (\term{CMLD}) van een ontvangen woord $w$ resulteert in het codewoord $c$ dat ten opzichte van $w$ de kleinste Hamming afstand heeft.
+\end{de}
+
+
+\begin{de}
+  Zij $\mathbb{C}$ een $(n,k)$-code over $\mathbb{F}_{q}$.
+  Zij $c\in \mathbb{C}$ een verzonden boodschap en $w$ het ontvangen woord.
+  $e= w-c$ is dan de fout.
+  We zeggen dat $\mathbb{C}$ de fout $e$ \term{detecteert} als $e$ niet het verschil is tussen twee woorden uit $\mathbb{C}$:
+  \[ \forall c \in \mathbb{C}:\ c+e \not\in \mathbb{C} \]
+\end{de}
+
+\begin{opm}
+  Intu\"itief is dit een passende definitie, dit immers is ook wat we (als mensen) doen als we een fout zien.
+  Als we bijvoorbeel het woord ``bat'' ontvangen terwijl er ``cat'' verstuurd werd, zullen we dit niet kunnen detecteren (zonder context) omdat ``bat'' een geldig woord is.
+  Een fout ontvangen woord als ``cxt'' zullen we wel kunnen detecteren.
+\end{opm}
+
+\begin{de}
+  De \term{afstand van een code} $\mathbb{C}$ is de kleinste afstand tussen de codewoorden.
+  \[ d = \min_{c_{1}\neq c_{2}}\ dt(c_{1},c_{2}) \]
+\end{de}
+
+\begin{st}
+  Een blokcode kan $s$ fouten detecteren als en slechts als de afstand ervan groter is dan $s+1$.
+  
+  \begin{proof}
+    Bewijs van een equivalentie
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      $s$ fouten houdt in dat elke fout $e$ een gewicht kleiner of gelijk aan $s$ heeft.
+      De code kan $e$ detecteren als en slechts als de minimale afstand tussun twee codewoorden groter is dan het gewicht van $e$.
+      Dit is precies wanneer de afstand van de code $1$ meer is dan $s$.
+    \item $\Leftarrow$\\
+      Zij $e$ een foutpatroon van gewicht kleiner of gelijk aan $s$ en $d$ de afstand van de code met $d> s+1$.
+      De afstand tussen $c$ en $c+e$ is precies $s$, maar $s$ is kleiner dan $d-1$, dus $\mathbb{C}$ detecteert $e$.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  Een blokcode van gewicht $d$ kan $d-1$ fouten detecteren.
+\end{gev}
+
+\section{Foutverbetering}
+
+\begin{de}
+  Een blokcode $\mathbb{C}$ \term{verbetert} foutpatroon $e$ als het volgende geldt:
+  \[ \exists c \in \mathbb{C},\ \forall c' \in \mathbb{C},\ c' \neq c \wedge dt(c+e,c) \le dt(c+e,c') \]
+  Met andere woorden, vanuit een ontvangen woord kan afgeleid worden welk de verstuurde boodschap was.
+\end{de}
+
+\begin{de}
+  We noemen een code $t$-\term{foutenverbeterend} als de code all foutpatronen met gewicht $t$ kan verbeteren, maar niet alle foutpatronen van gewicht $t+1$.
+\end{de}
+
+\begin{st}
+  Een blokcode kan $t$ fouten verbeteren als en slecht als het gewicht ervan groter is dan $2t+1$.
+
+  \begin{proof}
+    Bewijs van een equivalentie
+    \begin{itemize}
+    \item $\Rightarrow$\\
+    \item $\Leftarrow$\\
+    \end{itemize}
+  \end{proof}
+\TODO{bewijs p 38}
+\end{st}
+
+\begin{gev}
+  Een blokcode van gewicht $d$ kan $\frac{d-1}{2}$ fouten verbeteren.
+\end{gev}
+
+\section{Lineaire blokcodes}
+
+\begin{de}
+  We noemen een blokcode $\mathbb{C}$ (als deelverzameling) van $\mathbb{F}_{q}^{n}$ een \term{lineaire blokcode} als $\mathbb{C}$ een lineaire deelruimte is van de vectorruimte $\mathbb{F}_{q}^{n}$.
+\end{de}
+
+\begin{opm}
+  Dit houdt in dat de som en het scalair product van codewoorden opnieuw een codewoord is.
+\end{opm}
+
+\begin{st}
+  De afstand van een lineaire blokcode is het kleinste gewicht van een codewoord.
+  \[ d = \min_{c\in \mathbb{C}, c\neq 0} wt(c) \]
+\TODO{bewijs p 39}
+\end{st}
+
+\subsection{Matrixbeschrijving van een lineaire blokcode}
+
+\begin{de}
+  Vermits een lineaire blokcode een deelruimte is kunnen we de code beschrijven als een matrix (ten opzichte van een geschikte basis).
+  De generatormatrix is is steeds een $k\times n$ matrix met lineair onafhankelijke rijen.
+\end{de}
+
+\begin{de}
+  De \term{duale code} van een lineaire blokcode is het orthogonaal complement ervan.
+\end{de}
+
+\begin{ei}
+  De duale code van een $k$-dimensionale lineaire blokcode heeft dimensie $n-k$.
+\end{ei}
+
+\begin{de}
+  De  ($n-k\times n$) generatormatrix van een duale code noemen we de pariteitsmatrix.
+\end{de}
+
+\begin{opm}
+  Met behulp van de pariteitsmatrix $H$ is het heel eenvoudig om te testen of een ontvangen boodschap $x$ een codewoord is.
+  \[ x\in \mathbb{C} \Leftrightarrow xH^{T} = 0 \]
+\end{opm}
+
+\begin{st}
+  Zij $H$ een pariteitsmatrix van een lineaire blokcode $\mathbb{C}$, dan heeft $\mathbb{C}$ afstand $d$ als en slechts al elke verzameling van $d-1$ kolommen van $H$ lineair onafhankelijk is, maar niet alle verzamelinggen van $d$ kolommen.
+  \TODO{bewijs p 41}
+\end{st}
+
+\begin{de}
+  Een code $\mathbb{C}$ is \term{equivalent} met een code $\mathbb{C}'$ als de codewoorden dezelfde zijn (op een bepaalde permutatie van de elementen na).
+\end{de}
+
+\begin{opm}
+  Twee equivalente codes hebben een gelijkvormige (?) generatormatrix.
+\end{opm}
+
+\begin{de}
+  Een \term{systematische code} is zo bepaal dat de eerste $k$ symbolen van elk codewoord het overeenkomstig informatiewoord vormen.
+\end{de}
+
+\begin{st}
+  Elke lineaire blokcode is equivalent met een systematische code.
+\TODO{bewijs p 43}
+\end{st}
+
+\subsection{Decodering van lineaire blokcodes}
+
+\begin{de}
+  De (volledige) \term{tabel van een lineaire blokcode} construeren we als volgt:
+  \begin{itemize}
+  \item Zet op de eerste rij alle codewoorden.
+  \item Voor elke nevenklasse $x\mathbb{C}$ in $\nicefrac{\mathbb{F}_{q}^{n}}{\mathbb{C}},+$ zetten we in de eerste kolom (in volgorde) de kleinste representant.
+  \item De rest van de tabel wordt opgevuld door de som te nemen van het eerste element van die rij en kolom.
+  \end{itemize}
+  Elke rij bevat dan de elementen van \'e\'en nevenklasse.
+\end{de}
+
+\begin{de}
+  Een ontvangen woord $w$ \term{decoderen met een lineaire blokcode} gaat als volgt:
+  \begin{itemize}
+  \item Kijk na of $w$ een codewoord is (door het in de eerste rij te zoeken).
+  \item Zo nee: zoek het ok in de tabel en neem als bijhorend codewoord het woord in dezelfde kolom op de eerste rij.
+  \end{itemize}
+\end{de}
+
+\begin{st}
+  Als een lineaire blokcode $t$ fouten kan verbeteren (en dus afstand $d=2t+1$ heeft), staat elk woord van gewicht kleiner of gelijk aan $t$ in de eerste kolom.
+\TODO{bewijs p 45}
+\end{st}
+
+\begin{st}
+  De decodering van een ontvangen woord is volgens CMLD.
+\TODO{bewijs p 45}
+\end{st}
+
+\begin{opm}
+  In de praktijk is deze vorm van decoderen niet toepasbaar omdat de tabel veel te groot wordt.
+\end{opm}
+
+\begin{de}
+  Voor een ontvangen woord $w$ defini\"eren we het \term{syndroom} $s$ als volgt:
+  \[ s = wH^{t} \]
+\end{de}
+
+\begin{st}
+  Twee woorden $v$ en $w$ hebben hetzelfde syndroom als en slechts als ze in dezelfde nevenklasse zitten.
+\TODO{bewijs p 45}
+\end{st}
+
+\begin{de}
+  De \term{syndroomtabel} van een lineaire blokcode $\mathbb{C}$ is de tabel waarin voor elke (minimale) vertegenwoordiger van de neveklasse van de code het overeenkomstige syndroom staat.
+\end{de}
+
+\begin{de}
+  Een ontvangen woord $w$ \term{decoderen met een syndroomtabel} gaat als volgt:
+  \begin{itemize}
+  \item Bereken het syndroom $s$ van $w$
+  \item Zoek de vertegenwoordiger $e$ op met als syndroom $s$
+  \item $c=w-e$ is nu het codewoord.
+  \end{itemize}
+\end{de}
+
+\subsection{Hamming codes}
+
+\begin{de}
+  Een \term{Hamming code} is een lineaire blokcode die $1$ fout kan verbeteren.
+\end{de}
+
+\TODO{meer stellingen uit te tekst filteren}
+
+\subsection{Perfecte codes}
+\begin{de}
+  Zij $c$ een codewoord uit een lineaire blokcode $\mathbb{C}$, dan noemen we $S_{c}(r)$ als volgt een \term{bol} met straal $r$ rond $c$.
+  \[ S_{c}(r) = \{ v\in \mathbb{F}_{q}^{n} \mid dt(v,c) \le r \} \]
+\end{de}
+
+\begin{de}
+  De kleinste straal $r_{p}$ zodat alle bollen van straal $r$ rond de codewoorden disjunct zijn noemen we de \term{pakkingsstraal} van de code.
+\end{de}
+
+\begin{de}
+  De kleinste straal $r_{d}$ zodat de unie van alle bollen van straal $r$ heel $\mathbb{F}_{q}^{n}$ vormt noemen we de \term{dekkingsstraal} van de code.
+\end{de}
+
+\begin{de}
+  We noemen een code \term{perfect} als diens dekkingsstraal gelijk is aan de pakkingsstraal.
+\end{de}
+
+\begin{st}
+  Hamming codes zijn perfect.
+\TODO{bewijs p 49}
+\end{st}
+
+
+\begin{de}
+  We noemen een code \term{quasi-perfect} als de dekkingsstraal \'e\'en kleiner is dan de pakkingstraal.
+\end{de}
+
+
+\section{Cyclische codes}
+
+\begin{de}
+  Een $(n,k)$-code $\mathbb{C}$ is een \term{cyclische code} als het volgende geldt:
+  \[ \forall (a_{0}a_{1}\dotsc a_{n-2}a_{n-1}) \in \mathbb{C} \Rightarrow (a_{n-1}a_{0}a_{1}\dotsc a_{n-2}) \in \mathbb{C} \]
+\end{de}
+
+\begin{st}
+  Een lineaire deelruimte $\mathbb{C}$ van $\mathbb{F}_{q}^{n}$ is een cyclische code als en slechts als $\mathbb{C}$ isomorf is met een ideaal van $\nicefrac{\mathbb{F}_{q}[X]}{(X^{n}-1)}$
+  \TODO{bewijs p 51}
+\end{st}
+
+\begin{de}
+  De \term{generator} van een cyclische code is de minimale veelterm die de code voortbrengt.
+\end{de}
+
+\begin{opm}
+  Elk codewoorde is dan een veelvoud van de generatorveelterm.
+\end{opm}
+
+\begin{st}
+  De generator $g$ van een cyclische code $\mathbb{C}$ over $\mathbb{F}_{q}^{n}$ deelt $X^{n}-1$.
+\TODO{bewijs p 51}
+\end{st}
+
+\begin{de}
+  Het quotient $h$ van de deling van $X^{n}-1$ door de generatorveelterm van een cyclische code noemen we de pariteitsveelterm.
+  \[ X^{n}-1 = gh \]
+\end{de}
+
+
+
+
+
+
+
+\section{wut}
+
+
+
+
+\begin{de}
+  Een \term{code gegenereerd door een veelterm} $p(x)\in \mathbb{Z}_{2}[x]$ van graad $n-k$ is een $(n,k)$-code $c$:
+  \[ c:\ \mathbb{Z}_{2}^{k} \rightarrow \mathbb{Z}_{2}^{n}:\ b(x) \mapsto c(b) = r(x) + x^{n-k}x(x) \quad\text{ met }\quad x^{n-k}b(x) = p(x)q(x) + r(x) \]
+\end{de}
+
+\begin{opm}
+  Vermits de graad $gr(r(x))$ van de rest $r(x)$ een kleiner is dan $n-k$, passen de extra $n-k$ bits netjes na de boodschap-bits.
+\end{opm}
+
+\TODO{zeker een voorbeeld maken, wss examenvraag!}
+
+\end{document}

@@ -223,6 +223,12 @@
   \[ R^{\times} = U(R) = \{ u \in R \ |\ \exists v \in R:\ u \cdot v = i = v \cdot u \} \]
 \end{de}
 
+\begin{ei}
+  \label{ei:eenhedengroep-is-groep}
+  De eenhedengroep van een ring $R,+,\cdot$ is wel degelijk een groep.
+\extra{bewijs}
+\end{ei}
+
 \begin{st}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen met eenheidselement.
   \[ (R \times S)^{\times} = R^{\times}\times S^{\times} \]
@@ -348,6 +354,7 @@
 \end{de}
 
 \begin{st}
+  \label{st:eindig-integriteitsdomein-is-veld}
   Een eindig integriteitsdomein is een veld.
 
   \begin{proof}
@@ -364,6 +371,7 @@
 \end{st}
 
 \begin{gev}
+  \label{gev:zp-veld}
   Zij $p$ een priemgetal, dan is $\mathbb{Z}_{p},+,\cdot$ een veld.
 \extra{bewijs}
 \end{gev}
@@ -448,6 +456,20 @@
   \]
 \end{opm}
 
+\begin{st}
+  Zij $R,+,\cdot$
+  Het centrum $Z(R)$ van $R,+$, ook uitgerust met $\cdot$ is een deelring van $R,+,\cdot$.
+  \begin{proof}
+    We bewijzen de eigenschappen in het criterium van deelringen.
+    \begin{itemize}
+    \item $Z(R),+$ is een commutatieve deelgroep van $R,+$.\eiref{ei:centrum-is-deelgroep}
+    \item $Z(R)$ is niet leeg want $Z(R)$ bevat minstens $e_{R}$.
+    \item $\cdot$ is intern in $Z(R)$.
+      Kies immers twee elementen $a$ en $b$ uit $Z(R)$:
+      \[ \forall x\in R: (a\cdot b) \cdot x = a \cdot x \cdot b = b \cdot (a \cdot b) \]
+    \end{itemize}
+  \end{proof}
+\end{st}
 
 \subsection{Ringmorfismen}
 \label{sec:ringmorfismen}
@@ -542,6 +564,7 @@
 \end{ei}
 
 \begin{ei}
+  \label{ei:ringmorfisme-injectief-asa-kern-nul}
   Zij $R,+,\cdot$ en $S,\star,*$ ringen en $f:R \rightarrow S$ een morfisme.
   Zij $e_{R}$ het nulelement van $R$ en $e_{S}$ het nulelement van $S$.
   $f$ is injectief als en slechts als $Ker(f) = \{e_{R}\}$.
@@ -763,6 +786,7 @@
 \end{ei}
 
 \begin{ei}
+  \eiref{ei:factorisatie-breukenveld}
   Zij $F$ het breukenveld van een integriteitsdomein $R$ met inbedding $i: R \rightarrow F$.
   Er bestaat voor elk injectief ringmorfisme $f: R \rightarrow K$ met $K$ een veld een uniek ringmorfisme $f': F \rightarrow K$ zodat $f = f' \circ i$ geldt.
   \zb
@@ -887,39 +911,11 @@
   Dit verantwoordt de notatie die we gebruiken voor ``... is een ideaal van ...'': $\triangleleft$
 \end{opm}
 
-\begin{de}
-  Zij $a$ een element van een commutatieve ring $R,+,\cdot$ met eenheidselement.
-  Het \term{ideaal voortgebracht door een element} $a$ of \term{hoofdideaal} door $a$ is $(a)$.
-  \[ (a) = \{r \cdot a \ |\ r \in R \},+,\cdot \]
-\end{de}
-
-\begin{de}
-  Zij $a_{1},\dotsc,a_{n}$ elementen van een commutatieve ring $R,+,\cdot$ met eenheidselement.
-  Het \term{ideaal voortgebracht door elementen} $a_{1},\dotsc,a_{n}$ is $(a_{1},\dotsc,a_{n})$
-  \[ (a_{1},\dotsc,a_{n}) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R \right\} \]
-\end{de}
-
-\begin{de}
-  Zij $A$ een deelverzameling van een $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement.
-  Het \term{ideaal voortgebracht door een verzameling} $A$ is $(A)$..
-  \[ (A) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R, a_{i} \in A, n\in \{1 \dotsc, |A|\} \right\}\]
-\end{de}
-
-\begin{st}
-  Voortgebrachte idealen zijn wel degelijk idealen.
-\extra{bewijs}
-\end{st}
-
-\begin{opm}
-  Een ideaal voortgebracht door een deelverzameling $A$ van $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement is in feite gelijk aan de doorsnede van alle idealen van $R$ die $A$ omvatten.
-  Of nog: ``het kleinste ideaal van $R$ dat $A$ omvat''.
-\end{opm}
 
 \begin{de}
   De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
 \end{de}
 
-\extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
 
 \begin{pr}
   \label{pr:kern-ringmorfisme-is-ideaal}
@@ -966,6 +962,151 @@
   \end{proof}
 \end{ei}
 
+\begin{st}
+  De doonsnede van twee idealen is een ideaal.
+  \[ I \triangleleft R,+,\cdot\ \wedge\ J \triangleleft R,+,\cdot \Rightarrow I \cap J \triangleleft R,+,\cdot \]
+
+  \begin{proof}
+    Zij $I,+,\cdot$ en $J,+,\cdot$ twee idealen van een ring $R,+,\cdot$.
+    Er geldt dan het volgende:
+    \[ \forall r \in R,\ \forall k\in I\cap J:\ r\cdot k\in I \cap J\ \wedge\ k\cdot r \in I \cap J \]
+    Dit is precies de definitie van een ideaal.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  De `som' van twee idealen is een ideaal.
+  \[ I \triangleleft R,+,\cdot\ \wedge\ J \triangleleft R,+,\cdot \Rightarrow I + J \triangleleft R,+,\cdot \]
+
+  \begin{proof}
+    Zij $I,+,\cdot$ en $J,+,\cdot$ twee idealen van een ring $R,+,\cdot$.
+    Er geldt dan het volgende:
+    \[ \forall r \in R,\ \forall i+j\in (I + J):\ r\cdot (i+j) = r\cdot i + r\cdot j \in (I+J) \]
+    \[ \forall r \in R,\ \forall i+j\in (I + J):\ (i+j)\cdot r = i\cdot r + j\cdot r \in (I+J) \]
+    Dit is precies de definitie van een ideaal.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$.
+  Zij $u$ een eenheid in $R,+,\cdot$ en $I,+,\cdot$ een ideaal in $R,+,\cdot$.
+  Als $u$ een element is in $I$, dan is $I$ gelijk aan $R$.
+
+  \begin{proof}
+    Voor elk element $r$ in $R$ moet het volgende gelden:
+    \[ u \cdot r \in I\]
+    In het bijzonder moet het ook gelden voor $u^{-1}$, dus $i$ zit ook in $I$.
+    Daaruit volgt meteen dat $I$ gelijk is aan $R$.\stref{st:eenheidselement-in-ideaal-maakt-hele-ring}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Een niet-triviale commutatieve ring $R,+,\cdot$ met eenheidselement is een veld als en slechts als $R,+,\cdot$ geen niet-triviale idealen heeft.
+
+  \begin{proof}
+    Zij $i$ het eenheidselement van $R,+,\cdot$ en $e$ het nulelement.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Uit het ongerijmde:
+      Zij $I,+,\cdot$ een niet-triviaal ideaal van een veld $R,+,\cdot$, dan moet er een niet-nulement in zitten en bijgevolg ook $i$.
+      Er geldt immers in het bijzonder het volgende:
+      \[ x \in I \Rightarrow x \cdot x^{-1} \in I \]
+      $I$ moet dan heel $R$ zijn.\stref{st:eenheidselement-in-ideaal-maakt-hele-ring}
+    \item $\Leftarrow$\\
+      Uit het ongerijmde:
+      Stel dat $R,+,\cdot$ geen niet-triviale idealen heeft en toch geen veld is.
+      Dan bestaat er een element $x\in R$ zonder inverse in $R,+,\cdot$.
+      Beschouw nu $(x)$:
+      \[ (x) = \{ r\cdot x \ |\ r \in R \} \]
+      $(x)$ is niet de nulring, want $(x)$ bevat $x$ (omdat $R,+,\cdot$ een eenheidselement heeft), maar ook niet heel $R$ want $i$ zit niet in $(x)$ (omdat $x$ geen eenheid is).
+      $(x)$ is dus een niet-triviaal ideaal van $R,+,\cdot$, wat in tegenspraak is met de aanname.
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\subsection{Voortgebrachte idealen}
+
+\begin{de}
+  \label{de:hoofdideaal}
+  Zij $a$ een element van een commutatieve ring $R,+,\cdot$ met eenheidselement.
+  Het \term{ideaal voortgebracht door een element} $a$, \term{principaal ideaal} of \term{hoofdideaal} door $a$ is $(a)$.
+  \[ (a) = \{r \cdot a \ |\ r \in R \},+,\cdot \]
+\end{de}
+
+\begin{st}
+  De doorsnede van alle idealen die $a$ omvatten is $(a)$.
+
+  \begin{proof}
+    Voor elk ideaal $I_{i},+,\cdot$ dat $a$ bevat geldt het volgende vanuit de definitie van een ideaal.
+    \[ \forall r\in R:\ r\cdot a \in I_{i}\]
+    Noem nu $I$ de doorsnede van al die $I_{i}$.
+    \[ I = \bigcap_{i}I_{i}\]
+    We weten dan dat $(a) = \{r \cdot a \ |\ r \in R \}$ een deelverzameling is van $I$, want $(a)$ is een deelverzameling van elke $I_{i}$.
+    We bewijzen tenslotte nog aan dat elk element uit $I$ ook in $(a)$ zit.
+    Stel immers dat er een $x$ bestaat die in $I$ zit maar niet in $(a)$, dan zit die $x$ ook niet in $I \cap (a)$.
+\clarify{Ik ben nog niet overtuigd.}
+  \end{proof}
+\end{st}
+
+\begin{de}
+  Zij $a_{1},\dotsc,a_{n}$ elementen van een commutatieve ring $R,+,\cdot$ met eenheidselement.
+  Het \term{ideaal voortgebracht door elementen} $a_{1},\dotsc,a_{n}$ is $(a_{1},\dotsc,a_{n})$
+  \[ (a_{1},\dotsc,a_{n}) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R \right\} \]
+\end{de}
+
+\begin{de}
+  Zij $A$ een deelverzameling van een $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement.
+  Het \term{ideaal voortgebracht door een verzameling} $A$ is $(A)$..
+  \[ (A) = \left\{ \sum_{i=1}^{n}r_{i}a_{i} \ |\ r_{i} \in R, a_{i} \in A, n\in \{1 \dotsc, |A|\} \right\}\]
+\end{de}
+
+\begin{st}
+  Voortgebrachte idealen zijn wel degelijk idealen.
+\extra{bewijs}
+\end{st}
+
+\begin{opm}
+  Een ideaal voortgebracht door een deelverzameling $A$ van $R$ met $R,+,\cdot$ een commutatieve ring met eenheidselement is in feite gelijk aan de doorsnede van alle idealen van $R$ die $A$ omvatten.
+  Of nog: ``het kleinste ideaal van $R$ dat $A$ omvat''.
+\end{opm}
+
+\begin{st}
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement en $u$ een eenheid in $R,+,\cdot$.
+  \[ \forall r\in R: (ur) = (r) \]
+
+  \begin{proof}
+    Bewijs van gelijkheid van verzameling.
+    \begin{itemize}
+    \item $(ur) \subseteq (r)$\\
+      Voor elk element $x\cdot u \cdot r$ met $x\in R$ in $(ur)$ geldt per definitie het volgende:
+      \[ \forall y\in R:\ y \cdot x \cdot (u \cdot r) \in (ur) \]
+    \item $(r) \subseteq (ur)$\\
+      Voor elk element $x\in (r)$ bestaat er een $a\in R$ zodat $x=a\cdot r$ geldt.
+      \[ x = u^{-1}\cdot u \cdot a \cdot r = u^{-1}\cdot a \cdot u \cdot r = (u^{-1}a)\cdot (u\cdot r) \in (ur) \]
+    \end{itemize}
+  \end{proof}
+\end{st}
+
+\begin{gev}
+  Zij $a$ en $b$ voortbrengers van hetzelfde hoodideaal in een integriteitsdomein $R,+,\cdot$, dan zijn $a$ en $b$ geassocieerd.
+  \[ (a) = (b) \Leftrightarrow a\text{ is geassocieerd met } b \]
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Elk element $r$ in $(a)$ ziet er uit als $a \cdot t$ met $t\in R$ en elk element $s$ in $(b)$ ziet er uit als $b \cdot u$ met $u\in R$.
+      Dit betekent dat er niet-nulementen $u$ en $t$ in $R$ bestaan als volgt:
+      \[ a = b\cdot u \text{ en } b = a \cdot t \]
+      \[ a = a \cdot t \cdot u \]
+      Dit betekent dat $t$ en $u$ elkaars inverse zijn.
+      Er bestaat dus een eenheid (dit is $u$) zodat $a$ gelijk is aan $b\cdot u$.
+      Bijgevolg zijn $a$ en $b$ geassocieerd.      
+    \item $\Leftarrow$\\
+      Als $a$ geassocieerd is met $b$, dan bestaat er een eenheid $u\in R$ zodat $a = ub$ geldt.
+    \end{itemize}
+  \end{proof}
+\end{gev}
 
 \subsection{Quotientringen}
 \label{sec:quotientringen}
@@ -979,6 +1120,7 @@
 \end{de}
 
 \begin{pr}
+  \examen
   Zij $R,+,\cdot$ een ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
   De (kandidiaat-)bewerking $\bar{\cdot}$ op $R/I$ met $x'\in x+I$ en $y'\in y+I$ willekeurige representanten is goed gedefinieerd.
   \[ \scalebox{1.5}{$\cdot$}:\ R/I \times R/I \rightarrow R/I:\ (x+I) \cdot (y+I) = (x'\cdot y') + I \]
@@ -998,6 +1140,7 @@
 \end{st}
 
 \begin{opm}
+  \examen
   De bewerking $\bar{\cdot}$ is niet goed gedefinieerd als $I,+,\cdot$ geen ideaal is van $R,+,\cdot$.
 
   \begin{proof}
@@ -1027,6 +1170,7 @@
 \label{sec:isomorfismestellingen}
 
 \begin{st}
+  \examen
   De \term{Factorisatiestelling}\\
   Zij $f: R \rightarrow S$ een ringmorfisme en $I \subseteq Ker(f)$ een ideaal van $R$.
   Noteer $\pi$ voor de natuurlijke afbeelding $R \rightarrow R/I:\ x \mapsto x+I$.
@@ -1051,6 +1195,8 @@
 \end{st}
 
 \begin{gev}
+  \examen
+  \label{gev:eerste-ringmorfismestelling}
   De \term{morfismestelling} of \term{eerste isomorfismestellng}\\
   Zij $\phi:\ R \rightarrow S$ een ringmorfisme, dan is $\phi$ een injectief ringmorfisme.
   \[ \bar{\phi}: R/Ker(\phi) \rightarrow S:\ xKer(\phi) \mapsto \phi(x) \]
@@ -1060,11 +1206,26 @@
 \end{gev}
 
 \begin{st}
+  \examen
   De \term{tweede isomorfismestelling} of \term{parrallellogramisomorfismestelling}
-\TODO{formuleer en bewijs}
+  Zij $R,+,\cdot$ een ring en $S,+,\cdot$ een deelring van $R,+,\cdot$.
+  Zij bovendien $I$ een ideaal van $R,+,\cdot$
+  \[ I \triangleleft S+I \]
+  \[ S \cap I \triangleleft S \]
+  \[ \nicefrac{S}{S\cup I} = \nicefrac{S+I}{I} \]
+  \begin{proof}
+    \begin{itemize}
+    \item $S+I$ is alvast een deelgroep van $R,+$\stref{st:groep-commutatief-HK-is-H-unie-K}.
+      Omdat $I$ een ideaal is van $R,+,\cdot$ is $S+I$ bovendien een deelring van $R,+,\cdot$ en $I$ ook een ideaal van $S+I$.
+    \item
+    \item
+    \end{itemize}
+  \end{proof}
+\extra{zucht, bekijk gewoon de tweede isomorfismestelling van groepen!}
 \end{st}
 
 \begin{st}
+  \examen
   De \term{derde isomorfismestelling}
   Zij $R,+,\cdot$ een ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
   Noteer $\pi$ voor de natuurlijke afbeelding $R \rightarrow R/I:\ x \mapsto x+I$.
@@ -1072,6 +1233,7 @@
   \item De afbeelding $J\mapsto \pi(J)$ bepaalt een bijectie tussen de deelringen, respectievelijk idealen van $R$ die $I$ omvatten en de deelringen, respectievelijk idealen van $R/I$.
   \item Zij $J$ een ideaal van $R$ zodat $I \subseteq J$, dan geldt het volgende:
     \[ \nicefrac{R/I}{J/I} \cong R/J \]
+    
   \end{itemize}
 \TODO{bewijs p 54 ringen}
 \end{st}
@@ -1092,6 +1254,7 @@
 \end{de}
 
 \begin{ei}
+  \label{ei:maximaal-dan-priemideaal}
   In een commutatieve ring met eenheidselement is een maximaal ideaal ook een priemideaal.
 
   \begin{proof}
@@ -1108,6 +1271,8 @@
 \end{ei}
 
 \begin{st}
+  \examen
+  \stref{st:quotientgroepen-asa-idealen-stelling}
   Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$ en $I,+,\cdot$ een ideaal van $R,+,\cdot$.
   \begin{itemize}
   \item $R/I$ is een integriteitsdomein $\Leftrightarrow$ $I$ is een priemideaal.
@@ -1155,7 +1320,7 @@
         \[ i = a' + br'\]
         Beschouw nu $i+I$ in $\nicefrac{R}{I}$.
         \[ i+I = (a' + br') + I = br' + I = (b+I) \cdot (r'+I) \]
-        Dit betekent precies dat $b$ en $r'$ elkaars inversen zijn, dus $\nicefrac{R}{I}$ is een veld.\waarom \question{wut? how did that work??}
+        Dit betekent precies dat $b$ en $r'$ elkaars inversen zijn, dus $\nicefrac{R}{I}$ is een veld.
       \end{itemize}
     \end{itemize}
   \end{proof}
@@ -1164,6 +1329,36 @@
 \begin{st}
   Zij $R,+,\cdot$ een commutatieve ring en $I,+,\cdot$ een ideaal van $R,+,\cdot$ met $I\neq R$, dan bestaat er een maximaal ideaal $M,+,\cdot$ van $R,+,\cdot$ zodat $I \subseteq M$.
   \zb
+\end{st}
+
+\begin{st}
+  \label{st:priemideaal-gegenereert-door-priem-in-hid}
+  Zij $P=(p)$ een priemideaal van een HID $R,+,\cdot$ met eenheidselement $i$ en nulelement $e$, dan is $p$ een irreducibel element in $R,+,\cdot$.
+
+  \begin{proof}
+    Zij $P$ een priemideaal gegenereert door een element $p$.
+    Zij $a$ en $b$ twee elementen in $R,+,\cdot$ zodat $a\cdot b = p$ geldt.
+    Dan moet \'e\'en van de twee in $P$ zitten omdat $P$ een priemideaal is.
+    Noem dat element nu $b$.
+    Er bestaat dan een element $r\in R$ zodat $rp=a$ geldt.
+    \[
+    \begin{array}{rrll}
+      & rp &= b\\
+      \Rightarrow & rab &= b & (p=ab) \\
+      \Rightarrow & rab - b &= e\\
+      \Rightarrow & (ra-1)b &= e\\
+      \Rightarrow & (ra-1) &= e & (R \text{ heeft geen nuldelers en } b\neq e)\\ 
+      \Rightarrow & ra &= i\\
+    \end{array}
+    \]
+    Dit houdt in dat $a$ een eenheid is.
+    $p$ is dus irreducibel.
+  \item $\Leftarrow$\\
+    Zij $p$ een irreducibel element in $R,+,\cdot$.
+    Beschouw nu het ideaal $P=(p)$, voortgebracht door $p$.
+    Kies een willekeurig element $x\in P$ en stel dat het geschreven kan worden als $ab=x$.
+    We moeten nu bewijzen dat ofwel $a$ in $P$ zit, ofwel $b$.
+  \end{proof}
 \end{st}
 
 
@@ -1307,6 +1502,19 @@
 \begin{opm}
   Een priemgetal heeft dus geen echte delers.
 \end{opm}
+
+\begin{st}
+  \label{st:veld-alles-geassocieerd}
+  In een veld zijn elke twee elementen geassocieerd.
+  
+  \begin{proof}
+    Kies twee willekeurige elementen $x$ en $y$ uit een velf $F,+,\cdot$.
+    We bewijzen dat er een eenheid $z$ bestaat zodat $x$ als volgt te schrijven valt:
+    \[ x = zy \]
+    Kies $z = xy^{-1}$, dit kan omdat $y$ een eenheid is (want in een veld is elk element een eenheid).
+    \[ x = xy^{-1}y = x \]
+  \end{proof}
+\end{st}
 
 \subsubsection{Euclidische Ring}
 \label{sec:euclidische-ring}
@@ -1561,6 +1769,7 @@
 \end{st}
 
 \begin{gev}
+  \label{gev:veeltermen-domein-asa-ring-domein}
   $R[X],+,\cdot$ is een integriteitsdomein als en slechts als $R,+,\cdot$ een integriteitsdomein is.
 
   \begin{proof}
@@ -1568,6 +1777,20 @@
   \end{proof}
 \end{gev}
 
+\begin{st}
+  \label{st:integriteitsdomein-veeltermring-eenheden}
+  \examen
+  Zij $R,+,\cdot$ een integriteitsdomein, dan geldt het volgende:
+  \[ (R[X])^{\times} = R^{\times} \]
+ 
+  \begin{proof}
+    $R,+,\cdot$ heeft geen nuldelers.
+    Zij $x$ een eenheid in $R[X]$, dan bestaat er een inverse $y$ zodat het volgende geldt (waarbij $i$ het eenheidselement is van $R,+,\cdot$ en dus ook van $R[X],+,\cdot$\stref{st:veeltermen-eenh-asa-ring-eenh}).
+    \[ x \cdot y = i\]
+    Vanwege de regel voor de graad van het product van veeltermen\stref{st:veeltermen-geen-nuldelers-asa-ring-geen-nuldelers} moeten zowel $x$ als $y$ graad $0$ hebben.
+    De enige elementen met een invers voor $\cdot$ zijn dus de constante veeltermen die een inverse hebben.
+  \end{proof}
+\end{st}
 
 \subsection{Veeltermfuncties}
 \label{sec:veeltermfuncties}
@@ -1589,11 +1812,38 @@
 \end{de}
 
 \begin{st}
+  \label{st:delingsalgoritme}
   Het \term{delingsalgoritme} voor veeltermen over een ring met eenheidselement.
   Zij $R,+,\cdot$ een ring met eenheidselement $i$ en zij $f,g\in R[X]$ veeltermen over $R$.
   Als $g$ monisch is, dan bestaan er unieke veeltermen $q$ en $r$ in $R[X]$ zodat het volgende geldt:
   \[ f = qg + r \text{ en } gr(r) \le gr(g) \]
-\TODO{bewijs p 58 algebra}
+
+  \begin{proof}
+    Als de ring $R,+,\cdot$ (en dus ook $R[X],+,\cdot$) een integriteitsdomein is, dan is $R[X],+,\cdot,gr$ een euclidische ring en kunnen we het algoritme van Euler gebruiken.\alref{al:algoritme-van-euclides}
+    We bewijzen deze stelling toch appart.
+    We bewijzen eerst dat dergelijke $q$ en $r$ bestaan en daarna dat ze uniek zijn.
+    \begin{itemize}
+    \item Als de graad van $f$ kleiner is dan de graad van $g$, is het nogal nutteloos om een deling te proberen uitvoeren.
+      We gaan er daarom van uit dat de graad van $f$ groter of gelijk is aan de graad van $g$.
+      We bewijzen dat $q$ en $r$ bestaan door inductie op de graad van $f$.
+      \begin{itemize}
+      \item De bewering geldt voor $gr(f)=0$.
+      \item We gaan ervan uit dat de bewering geldt voor een bepaalde graad $gr(k) \in N_{0}$.
+      \item We bewijzen dat daaruit zou volgend dat de bewering geldt voor graad $gr(k+i)$ van $f$.
+        \[ f = \sum_{i=0}^{k+1}a_{i}X^{i} \]
+        Noteer nu $m$ voor de graad van en beschouw de veelterm $f'$.
+        \[ f' = f - a_{n}X^{n-m}g \]
+        We zien dat de graad van $f'$ kleiner is dan $n$ en dus bestaan er een $q'$ en $r'$ met $gr(r')<gr(g)$ als volgt:
+        \[ f' = q'g+r' \]
+        Hieruit volgt dat we $f$ als volgt kunnen schrijven.
+        \[ f = (a_{n}X^{n-m} + q')g + r' \]
+        We kiezen dan voor $q$ $a_{n}X^{n-m} + q'$ en voor $r$ $r'$.
+      \end{itemize}
+    \item Tenslotte bewijzen we de uniciteit.
+      Stel dat er twee paar veeltermen $q$ en $r$ en $q'$ en $r'$ zouden bestaan zoals gevraagd, dan betekent dat het volgende:
+      \[ (q-q')g = r' - r \]
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{de}
@@ -1602,7 +1852,8 @@
 \end{de}
 
 \begin{st}
-  De term{reststelling}\\
+  \label{st:reststelling}
+  De \term{reststelling}\\
   Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$.
   Zij $f\in R[X]$ een veelterm over $R,+,\cdot$ en $a$ een element van $R$.
   \begin{itemize}
@@ -1610,14 +1861,42 @@
     \[ f = q(X-a) + f(a) \]
   \item $f$ is deelbaar door $X-a$ ($X-a|f$) als en slechts als a een nulpunt is van $f$.
   \end{itemize}
-\TODO{bewijs p 60 algebra}
+
+  \begin{proof}
+    We gebruiken het delingsalgoritme om dit te bewijzen.
+    \begin{itemize}
+    \item Het delingsalgoritme\stref{st:delingsalgoritme} van $f$ door $(X-a)$ levert een $q$ en $r$ op zodat het volgende geldt.
+      \[ f = q(X-a) + r \text{ met } gr(r) < 1 \]
+      $r$ is dus een element van $R$.
+      De substitutie van $a$ in $f$ geeft $f(a) = r$.
+    \item Als $f(a)$ het nulelement is, vormt de substitutie van $f$ in a de definitie van deelbaarheid.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{st}
+  \label{st:domein-nulpunten-delen-veelterm}
   Zij $R,+,\cdot$ een integriteitsdomein en $f\in R[X]$ een veelterm over $R,+,\cdot$.
   Zij $a_{1},a_{2},\dotsc,a_{r}$ onderling verschillende nulpunten van $f$.
   $(X-a_{1})(X-a_{2}) \dotsc (X-a_{n})$ is een deler van $f$.
-\TODO{bewijs p 60 algebra}
+
+  \begin{proof}
+    We bewijzen dit door inductie op het aantal verschillende nulpunten van $f$.
+    \begin{itemize}
+    \item De bewering geldt voor $n=1$.\stref{st:reststelling}
+    \item We gaan ervan uit dat de bewering geldt voor een bepaalde $n=k$...
+    \item ... en bewijzen dat daaruit volgt dat de bewering geldt voor $n=k+1$.
+      Eerst delen we $f$ door $(X-a_{1})(X-a_{2})\dotsc(X-a_{k})$.
+      De inductiehypothese zegt dan dat er een $g\in R[X]$ bestaat zodat $f$ als volgt geschreven kan worden:
+      \[ f = (X-a_{1})(X-a_{2})\dotsc(X-a_{k}) g \]
+      De substitutie van $a_{k+1}$ levert ons het volgende op:
+      \[ e_{R} = f(a_{k+1}) = (a_{k+1}-a_{1})(a_{k+1}-a_{2})\dotsc(a_{k+1}-a_{k})g(a_{k+1}) \]
+      Omdat de $a_{i}$ onderling verschillend zijn en $R,+,\cdot$ geen nuldelers heeft is $g(a_{r})$ ook het nulelement $e_{R}$.
+      $a_{r}$ is een nulpunt van $g$ en dus is $X-a_{k+1}$ een deler van $g$.\stref{st:reststelling}
+      Dit houdt natuurlijk ook in dat $(X-a_{1})(X-a_{2})\dotsc(X-a_{k})(X-a_{k+1})$ een deler is van $f$.
+    \end{itemize}
+    Bij krachte van het concept van inductiehypothese is de bewering nu bewezen voor elke $n\in \mathbb{N}$.
+  \end{proof}
 \end{st}
 
 \subsection{Veeltermen over velden}
@@ -1635,6 +1914,7 @@
 \end{st}
 
 \begin{st}
+  \label{st:veeltermen-n-gelijke-beelden-gelijk}
   Zij $F,+,\cdot$ een veld.
   Als twee veeltermen van graad $n$ over $f$ dezelfde waarde aannemen in $n+1$ onderling verschillende elementen, dan zijn deze veeltermen gelijk.
   \extra{bewijs}
@@ -1657,7 +1937,12 @@
 \clarify{waar loopt het mis als je geen commutativiteit eist?}
 \end{opm}
 
+\subsection{Irreducibiliteit}
+\label{sec:irreducibiliteit}
+
+
 \begin{de}
+  \label{de:irreducibel}
   Zij $K,+,\cdot$ een veld.
   Een veelterm $f\in K[X]$ is \term{irreduceerbaar} of \term{irreducibel} over $K$ (of in $K[X]$) als $f$ niet constant is en niet geschreven kan worden als een product van twee veeltermen van graad kleiner dan $gr(f)$.
   Een niet-constante veelterm heet \term{reduceerbaar} of \term{reducibel} als hij niet irreduceerbaar is.
@@ -1666,10 +1951,10 @@
 \begin{ei}
   Het \term{eerste criterium}\\
   Zij $f\in \mathbb{Z}[X]$ een veelterm over $\mathbb{Z},+,\cdot$ met $gr(f) \ge 1$ en $p$ een priemgetal.
-  Beschouww dan het volgend ringmorfisme:
+  Beschouw dan het volgend ringmorfisme:
   \[ Z[X] \rightarrow Z_{p}[X]: f = \sum_{i=0}^{n}a_{i}X^{i} \mapsto \bar{f} = \sum_{i=0}^{n}\overline{a_{i}}X^{i} \]
   Als $gr(f)$ gelijk is aan $gr(\bar{f})$ en $\bar{f}$ is irreducibel in $\mathbb{Z}_{p}[X]$, dan is $f$ irreducibel in $\mathbb{Q}[X]$.
-\TODO{bewijs}
+\extra{bewijs}
 \end{ei}
 
 \begin{opm}
@@ -1683,25 +1968,33 @@
   Zij $f\in \mathbb{Z}[X]$ een veelterm over $\mathbb{Z}$:
   \[ f = \sum_{i=0}^{n}a_{i}X^{i}\]
   Als er een priemgetal $p$ bestaat als volgt, is $f$ irreducibel in $\mathbb{Q}[X]$.
-  \[ p \nmid a_{n} \wedge (\forall i \in \{0,\dotsc,n-1\}:\ p |a_{i}) \wedge p^{2} \nmid a_{0} \]
+  \[ p \nmid a_{n} \quad\wedge\quad (\forall i \in \{0,\dotsc,n-1\}:\ p |a_{i}) \quad\wedge\quad p^{2} \nmid a_{0} \]
 \extra{bewijs}
 \end{ei}
-
-\begin{vb}
-  De veelterm $f= 2X^{5} + 6X^{3} + 9X + 30$ is irreducibel in $\mathbb{Q}[X]$ met $p=3$.
-  \TODO{verplaats later naar voorbeelden}
-\end{vb}
 
 \begin{ei}
   Het \term{derde criterium}\\
   Zij $K,+,\cdot$ een veld en $f\in K[X]$ een veelterm van graad $2$ of $3$, dan is $f$ reducibel over $K$ als en slechts als $f$ een nulpunt heeft in $K$.
-\TODO{bewijs}
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $f$ van graad $2$ of $3$ is kan $f$ ontbonden worden in een veelterm van graad $1$ en een (al dan niet reducibele) veelterm van graad $\le 2$.
+      De veelterm van graad $1$ ziet er dan uit als $X-b$.\waarom
+      Dit betekent dat $b$ een nulpunt is van $f$.
+    \item $\Leftarrow$\\
+      Als $f$ een nulpunt heeft, geldt $X-a \mid f$ \stref{st:reststelling} voor $a$ een nulpunt van $f$.
+      $f$ valt dan te schrijven als $f-(X-a)q$ met $q\in K[X]$.
+      $f$ is dus reducibel.
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
-\begin{st}
-  Een veelterm $p$ van graad $2$ over een veld $F,+,\cdot$ is irreduceerbaar als en slechts $p$ geen wortel heeft in $F$.
-\extra{bewijs}
-\end{st}
+\begin{opm}
+  Merk op dat deze stelling niet zonder meer geldt voor veeltermen van graad $4$ of meer.
+  De redenering gaat immers enkel op als \'e\'en van de ontbindingsveeltermen graad $1$ heeft.
+\end{opm}
 
 \begin{st}
   \label{st:fundamentele-stelling-van-de-algebra}
@@ -1730,15 +2023,8 @@
 \end{opm}
 
 \begin{opm}
-  Zij $F,+,\cdot$ een veld, dan is $F[x]$ niet noodzakelijk een veld.
+  Zij $F,+,\cdot$ een veld, dan is $F[X]$ niet noodzakelijk een veld.
 \end{opm}
-
-\begin{st}
-  \label{st:deling-veelterm-over-veld}
-  Zij $a$ en $b$ veeltermen over een veld $F,+,\cdot$ met $b$ niet het nulelement van $F[X]$, dan bestaat er precies \'e\'en veelterm $q \in F[x]$ en een $r \in F[x]$ zodat het volgende geldt:
-  \[ a = qb + r \quad\text{ met }\quad gr(r) < gr(b) \]
-\TODO{bewijs p 131 TAI}
-\end{st}
 
 \begin{st}
   De veeltermen in een variabele $x$ over een veld $F,+,\cdot$, uitgerust met $gr$ als afbeelding $d$, vormen een euclidische ring.
@@ -1778,6 +2064,18 @@
   De \term{polynomenring} of \term{veeltermenring} over $R,+,\cdot$ in de veranderlijken $X_{1},\dotsc,X_{n}$, genoteerd $R[X_{1},\dotsc,X_{n}]$ is de verzameling van alle formele sommen van de volgende vorm:
   \[ \sum_{i\in \mathbb{N}^{n}}a_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}\]
 \TODO{formuleer de bewerkingen op $R[X_{1},\dotsc,X_{n}]$ en bewijs de zinnigheid}
+  De optelling van twee veeltermen zien er als volgt uit:
+  \[
+  \sum_{i\in \mathbb{N}^{n}}a_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}} + \sum_{i\in \mathbb{N}^{n}}b_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}
+  = \sum_{i\in \mathbb{N}^{n}}(a_{i}+b_{i})X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}
+  \]
+  De vermenigvuldiging is iets ingewikkelder:
+  \[
+  \sum_{i\in \mathbb{N}^{n}}a_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}} \cdot\sum_{i\in \mathbb{N}^{n}}b_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}
+  = \sum_{i\in \mathbb{N}^{n}}c_{i}X_{1}^{i_{1}}X_{2}^{i_{2}}\dotsc X_{n}^{i_{n}}
+  \]
+  \[ c_{i} = ??? \]
+  \question{wat moet er hier?}
 \end{de}
 
 \begin{ei}
@@ -1800,7 +2098,7 @@
 \begin{de}
   Zij $R$ een ring en $V$ een verzameling.
   Benoem nu voor elk element $j$ van $V$ een veranderlijke $X_{j}$.
-  De \term{polynomenring} of \term{veeltermenring} over $R$ in de veranderlijken $X_{j}$, genoteerd $R[X_{j}]_{j\in V}$ is de verzameling van alle formele sommen van de volgende vorm:
+  De \term{polynomenring} of \term{veeltermenring} over $R$ in de veranderlijken $X_{j}$, genoteerd $R[X_{j}]_{j\in V}$ is de verzameling van alle formele sommen van de volgende vorm, uitgerust met de veelterm-som en het veelterm-product:
   \[ \sum_{i\in \mathbb{N}^{n}}a_{i}X_{j_{1}}^{i_{1}}X_{j_{2}}^{i_{2}}\dotsc X_{j_{n}}^{i_{n}}\]
   Zij hierin $n$ het aantal elementen van $V$. en $a_{i}$ een element van $R$ voor elk $n$-tel van $\mathbb{N}^{n}$. 
 \end{de}
@@ -1809,26 +2107,41 @@
 \label{sec:hid-en-ufd}
 
 \begin{de}
-  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement $i$ en nulelement $e$.
-  Een element $x\in R$ is \term{irreduceerbaar} of \term{irreducibel} in $R,+,\cdot$ als de velgende bewering gelden:
+  \label{de:irreducibel}
+  Zij $R,+,\cdot$ een commutatieve ring met eenheidselement.
+  Een element $x\in R$ is \term{irreduceerbaar} of \term{irreducibel} in $R,+,\cdot$ als het volgende geldt:
   \begin{itemize}
-  \item $x \neq e$
+  \item $x$ is niet het nulelement.
   \item $x$ is geen eenheid in $R,+,\cdot$
   \item Als er twee elementen $a$ en $b$ in $R$ bestaan zodat $a\cdot b = x$ geldt, dan is $a$ of $b$ een eenheid in $R,+,\cdot$.
   \end{itemize}
 \end{de}
 
 \begin{ei}
-  Zij $x$ een irreduceerbaar element van een commutatieve ring $R,+,\cdot$ met eenheidselement $i$.
-  Elke deler van $x$ is ofwel een eenheid, ofwel geassocieerd met $x$.
-\TODO{bewijs p 63 algebra}
+  Een equivalente formulering in een integeriteitsdomein $R,+,\cdot$ met nulelement $e$.\\
+  Een element $x\in R$ is irreducibel in $R,+,\cdot$ als en slechts als het volgende geldt:
+  \begin{itemize}
+  \item $x$ is niet het nulelement.
+  \item $x$ is geen eenheid in $R,+,\cdot$
+  \item Elke deler van $x$ is een eenheid of geassocieerd met $x$.
+  \end{itemize}
+
+  \begin{proof}
+    Bewijs van een equivalentie\\
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Als $x$ irreducibel is, nemen we een deler $d\in R$ van $x$ en moeten we aantonen dat $d$ een eenheid is of geassocieerd met $x$.
+      $d$ is een deler van $x$, dus er bestaat een $q\in R$ zodat $x=dq$ geldt.
+      Per definitie van irreduceerbaarheid is dan $d$ of $q$ een eenheid.
+      Als $q$ de eenheid is, dan is $d$ geassocieerd met $x$.
+    \item $\Leftarrow$\\
+      Uit het ongerijmde.
+      Stel dat $x$ reducibel is, dan is $x$ te schrijven als $x=yz$ waarbij $y$ en $z$ geen eenheden zijn ook niet geassocieerd zijn met $x$.
+      Dit is in tegenspraak met de definitie van ireduceerbaarheid.
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
-\begin{gev}
-  Zij $a$ en $b$ voortbrengers van hetzelfde hoodideaal in een integriteitsdomein $R,+,\cdot$, dan zijn $a$ en $b$ geassocieerd.
-  \[ (a) = (b) \Leftrightarrow a|b \wedge b|a \]
-\extra{bewijs}
-\end{gev}
 
 \begin{de}
   Zij $R,+,\cdot$ een commutatieve ring en $x_{1},\dotsc,x_{n}$ elementen van $R$.
@@ -1851,7 +2164,8 @@
 
 \begin{opm}
   Een grootst gemene deler hoeft niet altijd te bestaan.
-  \TODO{voorbeeld p 64 algebra}
+ 
+  In $\mathbb{Z}+i\sqrt{5}\mathbb{Z}$ hebben $3+3i\sqrt{5}$ en $3-3i\sqrt{5}$ geen grootste gemene deler.
 \end{opm}
 
 \begin{opm}
@@ -1866,48 +2180,139 @@
   Zij $R,+,\cdot$ een integriteitsdomein, dan noemen we $R,+,\cdot$ een \term{hoofdideaaldomein} (\term{HID}) als elk ideaal van $R$ een hoodideaal is.
 \end{de}
 
-\begin{st}
-  Zij $F,+,\cdot$ een veld, dan is $F[X]$ een HID.
-\TODO{bewijs p 65 algebra}
-\end{st}
+\begin{lem}
+  \label{lem:minimale-veelterm-brengt-ideaal-voort}
+  Zij $F,+,\cdot$ een veld en $I,+,\cdot$ een niet-triviale ideaal van $F[X]$, dan is $g\in I$ een voortbrenger van $I$ als en slechts als $g$ een veelterm is van minimale graad in $I\setminus \{e_{F}\}$.
+
+  \begin{proof}
+    Bewijs van een equivalentie.
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      \extra{bewijs}
+    \item $\Leftarrow$\\
+      Stel dat $g$ een veelterm is van minimale graad in $I\setminus \{e_{F}\}$.
+      \begin{itemize}
+      \item $\subseteq$\\
+        Omdat $g$ een element is van $I$ is $(g)$ zeker een deel van $I$.
+      \item $\supseteq$\\
+        Kies een willekeurig element $f\in I$.
+        Het delingsalgoritme van $f$ door $g$ levert een $q$ en $r$ in $F[X]$ op als volgt:
+        \[ f = gq + r \quad\text{ en }\quad gr(r) < gr(g) \]
+        Dit houdt in dat $r=f-gq$ geldt, en $r$ daardoor in $I$ zit, impliceert de minimaliteit van $gr(g)$ dat $r$ het nulelement is.
+        $f$ zit dus ook is $(g)$.
+      \end{itemize}
+      Stel dat $g$ een veelterm is van minimale graad in $I\setminus \{e_{F}\}$.
+    \end{itemize}
+  \end{proof}
+\end{lem}
+\clarify{waarom geldt dit enkel voor een veld?}
 
 \begin{st}
-  Het criterium voor een HID\\
-  Zij $F,+,\cdot$ een veld met nulelement $e$ en $I \neq \{e\}$ een ideaal in $F[X]$, dan is een element $g\in I$ een voortbrenger van $I$ als en slechts als $g$ een veelterm is van minimale graad in $I\setminus \{ e \}$.
-\TODO{bewijs}
-\end{st}
-
-\begin{st}
+  \label{st:minimale-veeltermen-bijna-uniek}
   Zij $F,+,\cdot$ een veld met nulelement $e$ en $I \neq \{e\}$ een ideaal in $F[X]$.
-  Als twee elementen $g$ en $g'$ van $F$ voortbrengers zijn van $I$, dan bestaat er een (eenheid?) $c\in F^{\times}$ zodat $g'=cg$ geldt.
+  Als twee elementen $g$ en $g'$ van $F$ voortbrengers zijn van $I,+,\cdot$, dan bestaat er een (eenheid?) $c\in F^{\times}$ zodat $g'=cg$ geldt.
 \extra{bewijs}
 \end{st}
 
+
 \begin{st}
+  \examen
+  \label{st:veeltermen-over-veld-hid}
+  Zij $F,+,\cdot$ een veld, dan is $F[X]$ een HID.
+
+  \begin{proof}
+    We weten als dat $F[X]$ een integriteitsdomein is.\gevref{gev:veeltermen-domein-asa-ring-domein}
+    Kies een willekeurig ideaal $I,+,\cdot$ van $F[X],+,\cdot$, dan moeten we aantonen dat $I,+,\cdot$ een hoofdideaal is.
+    Als $I,+,\cdot$ de nulring is, wordt $I,+,\cdot$ voortgebracht door het nulelement.
+    Kies dus een element $g$ uit $I\setminus \{e_{F}\}$ van minimale graad, dan wordt $I$ voortgebracht door $g$.\lemref{lem:minimale-veelterm-brengt-ideaal-voort}
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:hoofdidiaal-van-irreducibele-veelterm-maximaal}
   Zij $R,+,\cdot$ een hoofdideaaldomein en $p\in R_{e}$, dan is $(p)$ een maximaal ideaal als en slechts als $p$ irreducibel is.
-  \TODO{bewijs p 66}
+
+  \begin{proof}
+    \begin{itemize}
+    \item $\Rightarrow$\\
+      Zij $(p)$ een maximaal ideaal van $R,+,\cdot$, dan is $p$ geen eenheid in $R,+,\cdot$.
+      Als $p$ immers wel een eenheid zijn zou $p$ heel $R$ voortbrengen. \waarom
+      We nemen nu een deler $a$ van $p$ en tonen aan dat $a$ ofwel een eenheid is, ofwel geassocieerd met $p$.
+      \[ a \mid p \Rightarrow p \in (a) \Rightarrow (p) \subseteq (a) \subseteq R \]
+      \waarom
+      Omdat $(p)$ een maximaal ideaal is moet $(a)$ ofwel gelijk zijn aan $(p)$, ofwel aan $R$.
+      In het eerste geval zijn $a$ en $p$ geassocieerd, in het andere is $a$ een eenheid.\waarom
+    \item $\Leftarrow$\\
+      Zij $p$ irreducibel.
+      We nemen een ideaal $I,+,\cdot$ van $R,+,\cdot$ tussen $(p)$ en $R$.
+      \[ (p) \subseteq I \subseteq R \]
+      Kies nu een element $a$ uit $I$ dat $I$ voortbrengt (want $R,+,\cdot$ is een HID).
+      Er bestaat dan een $b\in R$ zodat $p$ te schrijven valt als $p=ab$.
+      $a$ is dan een deler van $p$.
+      $p$ is echter irreducibel, dus ofwel is $a$ een eenheid, en dan geldt $I=R$, ofwel is $b$ een eenheid, en dan geldt $I=(p)$.
+    \end{itemize}
+  \end{proof}
 \end{st}
 
 \begin{gev}
+  \label{gev:veld-door-hoofdideaal-van-irreducibele-veelterm-veld}
   Zij $F,+,\cdot$ een veld en $p$ een irreducibele veelterm $F[X]$, dan is $F[X]/(p)$ een veld.
+\extra{bewijs}
 \end{gev}
 
-\TODO{oefeningen p 66}
-
 \begin{st}
-  $\mathbb{Z} + \mathbb{Z}i$ is een HID.
-  \zb
-\end{st}
-
-\begin{st}
+  \examen
+  \label{st:stelling-van-bezout}
   De \term{Stelling van Bezout}\\
-  Zij $R,+,\cdot$ een hoofdideaaldomein en $x_{1},\dotsc,x_{n}$ elementen van $R$.
+  Zij $R,+,\cdot$ een HID en $x_{1},\dotsc,x_{n}$ elementen van $R$.
   \begin{itemize}
   \item Er bestaat een grootste gemene deler van $x_{1},\dotsc,x_{n}$.
   \item Voor elke grootste gemene deler $d$ van $x_{1},\dotsc,x_{n}$ bestaan er elementen $r_{1},\dotsc,r_{n}$ in $R$ zodat het volgende geldt:
     \[ d = \sum_{i=1}^{n}r_{i}x_{i} \]
   \end{itemize}
-\TODO{bewijs p 67 algebra}
+
+  \begin{proof}
+    Omdat $R,+,\cdot$ een HID is, is het ideaal $(x_{1},x_{2},\dotsc,x_{n})$ een hoofdidiaal.
+    Er bestaat dus een $d\in R$ zodat het volgende geldt:
+    \[ (d) = (x_{1},x_{2},\dotsc,x_{n}) \]
+    Hieruit volgt meteen al dat $d$ elke $x_{i}$ deelt.
+    Anderzijds is $d$ ook een element van $(x_{1},x_{2},\dotsc,x_{n})$, dus bestaan er $r_{i} \in R$ als volgt:
+    \[ d = \sum_{i=1}^{n}r_{i}x_{i} \]
+    Stel nu dat er nog een $a\in R$ aelke $x_{i}$ deelt, dan deelt $a$ ook $d$.
+    Dit bewijst dat $d$ een grootst gemene deler is van de $x_{i}$.
+    Voor elke andere grootst gemene deler $d'$ bestaat er een eenheid $u\in R$ als volgt:\waarom
+    \[ d' = ud \]
+    Dan zijn de $r_{i}$ voor $d'$ respectievelij $ur_{i}$.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  \label{st:z-is-hid}
+  $\mathbb{Z},+,\cdot$ is een HID.
+
+  \begin{proof}
+    Zij $I,+,\cdot$ een ideaal van $\mathbb{Z},+,\cdot$, dan is $I,+$ cyclisch omdat het een deelgroep is van de cyclische groep $\mathbb{Z},+$.\stref{st:deelgroep-van-cyclische-groep-is-cyclisch}
+    Er bestaat dus een generator $n$ voor $\mathbb{I}$:
+    \[ I = \{ k \cdot n \mid n \in \mathbb{Z} \} = (n) \]
+    $I$ is dus een hoofideaal.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  Voor elke $n$ is $n\mathbb{Z}$ een ideaal van $\mathbb{Z}$.
+
+  \begin{proof}
+    Voor elke $n\in \mathbb{Z}$ beschouwen we de deelring $n\mathbb{Z}$.
+    Beschouw nu een willekeurig element $m \in \mathbb{Z}$:
+    \[ m\cdot n | n \Rightarrow m\cdot n \in n\mathbb{Z}\]
+    Bovendien zijn zowel $n+n'$ als $-n$ elementen van $n\mathbb{Z}$ voor elke $n'\in\mathbb{Z}$.
+    $n\mathbb{Z}$ is dus een ideaal van $\mathbb{Z},+,\cdot$.
+  \end{proof}
+\end{st}
+
+\begin{st}
+  $\mathbb{Z} + \mathbb{Z}i$ is een HID.
+  \zb
 \end{st}
 
 \subsection{Unieke factorisatiedomeinen}
@@ -1921,17 +2326,22 @@
     \[ x = \prod_{i=1}^{n} r_{i} \]
   \item Deze ontbinding is bovendien uniek.
     Als er immers nog elementen $r_{1}',r_{2}',\dotsc,r_{m}'$ in $R$ bestaan als volgt, geldt $m=n$ en zijn de overeenkomstige $r_{i}$ en $r'_{i}$ geassocieerd.
-    \[ x = \prod_{i=1}^{n} r_{i} = \prod_{i=1}^{m} r_{i} \]
+    \[ x = \prod_{i=1}^{n} r_{i} = \prod_{i=1}^{m} r'_{i} \]
   \end{itemize}
 \end{de}
 
 \begin{ei}
   Zij $R,+,\cdot$ een uniek factorisatiedomein met nulelement $e$, en $r_{1},r_{2},\dotsc,r_{n}$ elementen uit $R_{e}$, dan bestaat er een grootst gemene deler van $x_{1},\dotsc,x_{n}$.
   \begin{proof}
-  \[ x_{i} = u_{i}\prod_{j}r_{j}^{e_{ij}} \]
-\waarom
-\TODO{bewijs afmaken p 67}    
-\question{waar komen de eenheden $u_{i}$ vandaan?}
+    Omdat $R$ een UFD is kunnen we alle $x_{i}$ ondbinden als volgt:
+    \[ x_{i} = u_{i}\prod_{j}r_{j}^{e_{ij}} \]
+    Hierboven is $u_{i}$ een eenheid, elke $r_{j}$ irreducibel, de $r_{j}$ onderling niet geassocieerd en elke $e_{ij}\in \mathbb{N}$.
+    Benoem nu $e_{j}$ als volgt:
+    \[ e_{j} = \min \{ e_{ij} \ |\ i \in \{ 1,\dotsc, n\} \} \]
+    Nu volgt uit de uniciteit van de factorisatie dat $d$ een grootst gemene deler is van de $x_{i}$.
+    \[ d = \prod_{j}r_{j}^{e_{j}}\]
+    \question{waar komen de eenheden $u_{i}$ vandaan?}
+    \clarify{hier moet veel meer uitleg!!}
   \end{proof}
 \end{ei}
 
@@ -1947,28 +2357,106 @@
 \begin{st}
   Zij $R,+,\cdot$ een UDF en $a$, $b$ elementen van $R$.
   Als $d$ een grootste gemene deler is van $a$ en $b$ en $v$ een kleinst gemeen veelvoud van $a$ en $b$, dan zijn $d\cdot v$ en $a\cdot b$ geassocieerd.
-\extra{bewijs}
-\end{st}
-
-\begin{st}
-  Elk HID is een UDF.
-\TODO{bewijs p 68}
+\extra{bewijs p 68 katelijne}
 \end{st}
 
 \begin{lem}
+  \label{lem:hid-keten-van-idealen-stabiliseert}
   Zij $I_{0} \subseteq I_{1} \subseteq \dotsb \subseteq I_{n} \subseteq \dotsb $ een keten van idealen in een HID $R,+,\cdot$, dan bestaat er een index $k$ zodat $I_{k} = I_{n}$ voor alle $n$ groter dan $k$.
   In andere woorden: ``De keten stabiliseert''.
-\TODO{bewijs p 68}
+
+  \begin{proof}
+    Beschouw $I$ als volgt.
+    Nu is $I,+,\cdot$ zelf een ideaal van $R,+,\cdot$. 
+    \[ I = \bigcup_{n}I_{n} \]
+    $I$ is immers gelijk aan de grootste $I_{n}$ waarvan de unie genomen wordt.
+    Omdat $I$ een HID is, bestaat er een $a\in I$ die $I$ voortbrengt.
+    Als die $a$ voor een gegeven $k$ in $I_{k}$ zit, geldt het volgende:
+    \[ I = (a) \subseteq I_{k} \]
+    Dan is $I_{j}$ voor elke $j$ groter dan $k$ gelijk aan $I_{k}$.
+  \end{proof}
 \end{lem}
 
 \begin{lem}
-  Zij $p$ een irreducibel element in een HID $R,+,\cdot$
-  \[ p|ab \Rightarrow p|a \vee p|b \]
-\TODO{bewijs p 68}
+  \label{lem:irreducibel-element-in-HID-deelt}
+  Zij $p$ een irreducibel element in een HID $R,+,\cdot$ met eenheidselement $i$.
+  \[ p\mid ab \Rightarrow p\mid a \vee p\mid b \]
+
+  \begin{proof}
+    Beschouw een grootst gemene deler $d$ van $p$ en $a$.
+    Omdat $d\mid p$ geldt is $d$ ofwel geassocieerd met $p$, ofwel een eenheid.
+    \begin{itemize}
+    \item Als $d$ geassocieerd is met $p$, dan is geldt ook $p \mid d$. Dit houdt in dat $p \mid a$ ook geldt.
+    \item Als $d$ een eenheid is, bestaan er elementen $u$ en $v$ in $R$ zodat het volgende geldt\stref{st:stelling-van-bezout}:
+      \[ i = ua + vp \]
+\clarify{waarom niet $d$ ipv $i$?!}
+      We stellen beide kanten samen met $b$ om het volgende te bekomen:
+      \[ b= uab + vpb \]
+      Omdat $p$ een deler is van $a$b volgt hieruit dat $p \mid b$ geldt.
+\clarify{meeeer uitleeeeeeg}
+    \end{itemize}
+  \end{proof}
 \end{lem}
 
+
+\begin{st}
+  \examen
+  Elk HID is een UDF.
+
+  \begin{proof}
+    Zij $R,+,\cdot$ een HID.
+    Kies een element $x_{0}$ uit $R$, verschillend van het nulelement, dat geen eenheid is.
+    We bewijzen eerst dat we $x_{0}$ kunnen ontbinden in irreducibele elementen en daarna dat die ontbinding uniek is.
+    \begin{itemize}
+    \item Bestaan\\
+      Bewijs uit het ongerijmde.
+      Stel dat $x_{0}$ niet te ontbinden valt in irreducibele elementen (dan is $x_{0}$ niet irreducibel want als $x_{0}$ irreducibel was dan was $x_{0}$ zelf al de ontbinding van $x_{0}$ in irreducibele elementen), dan bestaan er elementen $x_{1}$ en $y_{1}$ in $R$ zodat $x_{0}$ als volgt te schrijven valt.
+      \[ x_{0} = x_{1}y_{1} \]
+      Hierin zijn $x_{1}$ en $y_{1}$ geen eenheden\deref{de:irreducibel} en kan ofwel $x_{1}$ ofwel $y_{1}$ zelf ook niet ontbonden worden in irreducibele elementen.
+      Als zowel $x_{1}$ als $y_{1}$ immers een product waren van irreducibele elementen, dan was $x_{0}$ dat ook.
+      Stel dat $x_{1}$ het element is van $x_{1}$ en $y_{1}$ dat niet te ontbinden valt in irreducibele elementen (anders wisselen we gewoon de naam om).
+      Nu is de hoofdideaal door $x_{0}$ een deel van de hoofdideaal door $x_{1}$, maar niet gelijk.
+      \[ (x_{0}) \subsetneq (x_{1}) \]
+      Anders zou er immers een eenheid $u\in R$ bestaan zodat $x_{0}=x_{1}u$ geldt.
+      Omdat $R,+,\cdot$ een integriteitsdomein is, volgt hieruit dat $y_{1}$ gelijk is aan $u$, maar dat kan niet want $y_{1}$ is geen eenheid.
+      Analoog kunnen we uit $x_{1}$ een element $x_{2}$ construeren dat niet te ontbinden valt in irreducibele elementen. zodat $(x_{1}) \subsetneq (x_{2})$ geldt.
+      Op die manier kunnen we uiteindelijk in $R,+,\cdot$ een aftelbaar oneindige keten van hoofdidealen $(x_{i})$ construeren als volgt.
+      \[ (x_{0}) \subsetneq (x_{1}) \subsetneq (x_{2}) \subsetneq \dotsb \subsetneq (x_{n}) \subsetneq (x_{n+1}) \subsetneq \dotsb\]
+      Dit is natuurlijk onmogelijk.\lemref{lem:hid-keten-van-idealen-stabiliseert}
+    \item Uniciteit\\
+      Stel dat $x_{0}$ ontbonden kan worden in irreducibele $p_{i}$'s en ook in irreducibele $q_{i}$'s.
+      \[ x = \prod_{i=1}^{m}p_{i} = \prod_{i=1}^{n}q_{i} \]
+      De overeenkomstige $p_{i}$ en $q_{i}$ moeten dan geassocieerd zijn en $m$ moet gelijk zijn aan $n$.
+      We bewijzen de uniciteit per inductie op $m$.
+      \begin{itemize}
+      \item De bewering geldt voor $m=1$.
+        \[ x = p_{1} = \prod_{i=1}^{n}q_{i} \]
+        Aangezien $p_{1}$ irreducibel is, moet $n$ ook $1$ zijn.
+        \[ x = p_{1} = q_{1} \]
+        $p_{1}$ en $q_{1}$ zijn nu inderdaad geassocieerd.
+      \item We gaan ervan uit dat de bewering geldt voor een bepaalde $m=k$ ...
+      \item ... en bewijzen dan dat de bewering ook geldt voor $m=k+1$.\\
+        Omdat $ \prod_{i=1}^{k+1}p_{i} = \prod_{i=1}^{n}q_{i}$ geldt is $p$ zeker ook een deler van $\prod_{i=1}^{n}q_{i}$.
+        Dit betekent ook het volgende\lemref{lem:irreducibel-element-in-HID-deelt}:
+        \[ \bigvee_{i=1}^{n}p \mid q_{i}\]
+        Na eventuele hernummering van $p$ geldt zeker $p_{k+1} \mid q_{n}$.
+        Omdat $p_{k+1} \mid q_{n}$ geldt, $p_{k+1}$ geen eenheid is en $q_{n}$ irreducibel, moet $p_{k+1}$ geassocieerd zijn met $q_{n}$.
+        Er bestaat dus een eenheid $u\in R$ als volgt:
+        \[ q_{k+1} = up_{n}\]
+        We vereenvoudigen dan de originele gelijkheid als volgt:
+        \[ \prod_{i=1}^{k}p_{i} = \left(\prod_{i=1}^{n-1}q_{i}\right) \cdot u\]
+        Merk nu op dat $q_{n-1}u$ irreducibel is.\waarom
+        De inductiehypothese impliceert dat $k$ gelijk is aan $n-1$ en dat $p_{i}$ geassocieerd is mat $q_{i}$ voor $i \in \{ 1,dotsc,k\}$.
+      \end{itemize}
+    \end{itemize}
+    \clarify{bij dit bewijs moet veel meer uitleg!!}
+  \end{proof}
+\end{st}
+
 \begin{gev}
+  \label{gev:veeltermen-over-veld-ufd}
   Zij $F$ een veld, dan is $F[X]$ een UFD.
+\extra{bewijs}
 \end{gev}
 
 \begin{st}

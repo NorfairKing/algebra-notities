@@ -4,6 +4,204 @@
 \chapter{Algoritmes}
 \label{cha:algoritmes}
 
+\section{Jordanmatrix berekenen}
+
+\subsection*{Abstract}
+
+\subsubsection*{Vraag}
+Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{n} \rightarrow \mathbb{C}^{n}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
+Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+Geef ook de karakteristieke veelterm en de minimale veelterm van $A$.
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item Bereken de karakteristieke veelterm van $A$.
+  \[ f_{A}(X) = \prod_{i=1}^{q}(X-c_{i})^{n_{i}} \]
+\item Componenten van de vectorruimten bepalen:
+  \[ V_{i} = Ker(A-c_{i}I)^{p_{i}} \]
+  We bepalen de $p_{i}$ als volgt:
+  Bepaal de dimensie van $A-c_{i}I$, $(A-c_{i}I)^{2}$,...
+  \[ dim(Ker(A-c_{i}I)^{j}) = n-dim((A-c_{i}I)^{j}) \]
+  Ga door met $j$ te verhogen tot $dim(Ker(A-c_{i}I)^{j})$ $dim(V_{i})$ is.
+  $p_{i}$ is dan $j$.
+\item Diagram voor elke $V_{i}$
+  Definieer nu $d_{i}$ als volgt:
+  \[ d_{1} = dim(Ker(A-c_{i}I)) \text{ en } d_{j} = dim(Ker(A-c_{i}I)^{j}-dim(Ker(A-c_{i}I)^{j-1} \]
+  Maak voor elke $V_{i}$ een diagram van rijen `doosjes' met op de $j$-de rij $d_{j}$ doosjes.
+  Vul dan het diagram in als volgt: (begin onderaan links)
+  \begin{itemize}
+  \item Vul de dozen in rij $k$ op met lineair onafhankelijke vectoren uit $Ker(A-c_{i}I)^{k}\setminus Ker(A-c_{i}I)^{k-1}$.
+  \item Vul de doos boven een gevulde doos met vector $v$ op met de vector $(A-c_{i}I)v$.
+  \item Als de huidige doos de onderste uit een rij is, vul deze dan in met een vector die onafhankelijk is van de vectoren links ervan.
+  \end{itemize}
+\item Maak een matrix $P$ door de collecties vectoren als de kolommen in een matrix te zetten.
+\item Maak de Jordanmatrix door de eigenwaarden op de diagonaal de zetten, en een $1$ er links van als de overeenkomstige vector in een doos zit waar nog een vector onder staat.
+\end{itemize}
+
+\subsection*{Voorbeeld}
+
+\subsubsection*{Vraag}
+Gegeven is de lineaire afbeelding $\mathcal{A}:\ \mathbb{C}^{5} \rightarrow \mathbb{C}^{5}$ met $A$ als matrix ten opzichte van de standaarbasis van $\mathbb{C}$.
+\[
+\begin{pmatrix}
+  1 & 1 & -2 & -3 & 0\\
+  0 & 3 & 0 & -2 & 0\\
+  0 & -1 & 3 & 3 & 0\\
+  0 & 0 & 0 & 1 & 0\\
+  -1 & 2 & -1 & -2 & 1
+\end{pmatrix}
+\]
+Bepaal de jordanvorm $J$ van $A$ en geef de $P$ zodat $J=P^{-1}AP$ geldt.
+Geef ook de karakteristieke veelterm en de minimale veelterm van $A$.
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item 
+  \[
+  \begin{array}{rll}
+    \begin{vmatrix}
+      X-1 & -1 & 2 & 3 & 0\\
+      0 & X-3 & 0 & 2 & 0\\
+      0 & 1 & X-3 & -3 & 0\\
+      0 & 0 & 0 & X-1 & 0\\
+      1 & -2 & 1 & 2 & X-1
+    \end{vmatrix}
+    &= 
+    (X-1) 
+    \begin{vmatrix}
+      X-1 & -1 & 2 & 3 \\
+      0 & X-3 & 0 & 2 \\
+      0 & 1 & X-3 & -3 \\
+      0 & 0 & 0 & X-1 
+    \end{vmatrix} &\\
+    &=
+    (X-1)^{2}
+    \begin{vmatrix}
+      X-1 & -1 & 2 \\
+      0 & X-3 & 0\\
+      0 & 1 & X-3
+    \end{vmatrix} &\\
+    &= 
+    (X-1)^{3}
+    \begin{vmatrix}
+      X-3 & 0\\
+      1 & X-3
+    \end{vmatrix} &\\
+    &=
+    (X-1)^{3}(X-3)^{2}
+  \end{array}
+  \]
+\item De vectorruimte valt uit elkaar in twee componenten:
+  \[ \mathbb{C}^{5} = Ker(A-I)^{p_{1}} \oplus Ker(A-3I )^{p_{2}} \]
+  De dimensies zijn als volgt:
+  \[ dim(V_{1})= 3 \text{ en } dim(V_{2}) = 2\]
+  \begin{itemize}
+  \item $V_{1}$
+    \begin{itemize}
+    \item
+      \[ dim(A-I) = dim
+      \begin{pmatrix}
+        0 & 1 & -2 & -3 & 0\\
+        0 & 1 & 0 & -2 & 0\\
+        0 & -1 & 2 & 3 & 0\\
+        0 & 0 & 0 & 0 & 0\\
+        -1 & 2 & -1 & -2 & 0
+      \end{pmatrix}
+      = 3 \Rightarrow dim(Ker(A-I)) = 2
+      \]
+    \item
+      \[ dim(A-I)^{2} = dim
+      \begin{pmatrix}
+        0 & 4 & -4 & -8 & 0\\
+        0 & 4 & 0 & -4 & 0\\
+        0 & -4 & 4 & 0 & 0\\
+        0 & 0 & 0 & 0 & 0\\
+        0 & 4 & 0 & -4 & 0
+      \end{pmatrix}
+      = 2 \Rightarrow dim(Ker(A-I)^{2}) = 3 \overset{!}{=} dim(V_{1})
+      \Rightarrow p_{1} = 2
+      \]
+    \end{itemize}
+  \item $V_{2}$
+    \begin{itemize}
+    \item
+      \[
+      dim(A-3I) = dim
+      \begin{pmatrix}
+        -2 & 1 & -2 & -3 & 0\\
+        0 & 0 & 0  & -2 & 0\\
+        0 & -1 & 0 & 3 & 0\\
+        0 & 0 & 0 & -2 & 0\\
+        -1 & 2 & -1 & -2 & -2
+      \end{pmatrix}
+      =  4 \Rightarrow dim(Ker(A-3I)) = 1
+      \]
+    \item 
+      \[ 
+      dim((A-3I)^{2}) = dim
+      \begin{pmatrix}
+        4 & 0 & 4 & 4 & 0\\
+        0 & 0 & 0 & 4 & 0\\
+        0 & 0 & 0 & -4& 0\\
+        0 & 0 & 0 & 4 & 0\\
+        4 & -4 & 4 & 4 & 4
+      \end{pmatrix}
+      = 3 \Rightarrow dim(Ker(A-3I)) = 2 \overset{!}{=} dim(V_{2}) \Rightarrow p_{2} = 2
+      \]
+    \end{itemize}
+  \end{itemize}
+\item diagram
+  \begin{itemize}
+  \item $V_{1}$\\
+    $d_{1} = 2$ en $d_{2} = 1$, dus het diagram ziet er al volgt uit:
+    \[
+    \begin{array}{cc}
+      \boxed{v_{2}} & \boxed{v_{3}}\\
+      \boxed{v_{1}}
+    \end{array}
+    \] 
+    $v_{1}$ moet in $Ker(A-I)^{2}\setminus Ker(A-I)$ zitten.
+    Kies bijvoorbeeld $v_{1} = (1,0,0,0,0)$.
+    $v_{2}$ staat boven $v_{1}$, dus $v_{2}$ moet $(A-I)v_{1}= (0,0,0,0,-1)$ zijn.
+    Kies nu een vector $v_{3}$, lineair onafhankelijk van $v_{2}$, uit $Ker(A-I)$.
+    Bijvoorbeeld $v_{3} = (1,1,-1,1,0)$.
+    
+  \item $V_{2}$\\
+    $d_{1} = 1$ en $d_{2} = 1$, dus het diagram ziet er als volgt uit:
+    \[
+    \begin{array}{c}
+      \boxed{v_{2}}\\
+      \boxed{v_{1}}
+    \end{array}
+    \]
+    $v_{1}$ moet in $Ker(A-3I)^{2}\setminus Ker(A-3I)$ zitten.
+    Kies bijvoorbeeld $v_{1}= (0,1,0,0,1)$.
+    $v_{2}$ staat boven $v_{1}$, dus $v_{2}$ moet $(A-3I)v_{1}= (1,0,-1,0,0)$ zijn.
+
+  \end{itemize}
+\item 
+  \[ P = 
+  \left(
+    \begin{array}{ccc|cc}
+      1 & 0 & 1 & 0 & 1\\
+      0 & 0 & 1 & 1 & 0\\
+      0 & 0 & -1& 0 &-1\\
+      0 & 0 & 1 & 0 & 0\\
+      0 & -1& 0 & 1 & 0\\
+    \end{array}
+  \right)
+  \]
+\item 
+  \[ J =
+  \left(
+    \begin{array}{ccc|cc}
+      1 & 0 & 0 & 0 & 0\\
+      1 & 1 & 0 & 0 & 0\\
+      0 & 0 & 1 & 0 & 0\\\hline
+      0 & 0 & 0 & 3 & 0\\
+      0 & 0 & 0 & 1 & 3\\
+    \end{array}
+  \right)
+  \]
+\end{itemize}
 
 
 

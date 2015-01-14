@@ -14,7 +14,11 @@
 In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vectorruimte $V,+,\cdot$ van eindige dimensie $n$.
 
 \begin{de}
-  Een $K$-lineaire afbeelding van $V$ naar $V$ noemen we ook een \term{lineaire transformatie}, \term{(lineaire) operator} of \term{endomorfisme} van $V$.
+  Een $K$-lineaire afbeelding $L$ is een afbeelding die lineair is in $K$:
+  \[ \forall \lambda_{1},\lambda_{2}\in K,\ \forall v_{1},v_{2}\in V:\ L(\lambda_{1}\cdot v_{1}+\lambda_{2}\cdot v_{2}) = \lambda_{1} \cdot  L(v_{1}) + \lambda_{2} \cdot L(v_{2}) \]
+\end{de}
+\begin{de}
+  Een $K$-lineaire afbeelding van $V$ naar zichzelf noemen we ook een \term{lineaire transformatie}, \term{(lineaire) operator} of \term{endomorfisme} van $V$.
 \end{de}
 
 \begin{st}
@@ -112,7 +116,7 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \end{de}
 
 \begin{de}
-  Een matrix $M\in M^{n\times n}(K)$ is diagonaliseerbaar over $K$ als er een matrix $P\in GL_{n}(K)$ bestaat zodat $P^{-1}MP$ een diagonaalmatrix is.
+  Een matrix $M\in M^{n\times n}(K)$ is diagonaliseerbaar over $K$ als er een inverteerbare matrix $P\in GL_{n}(K)$ bestaat zodat $P^{-1}MP$ een diagonaalmatrix is.
 \end{de}
 
 \begin{ei}
@@ -145,12 +149,12 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \end{de}
 
 \begin{st}
-  De karakteristieke veelterm van een lineaire transformatie is onafhankelijk van de gekozen veelterm.
+  De karakteristieke veelterm van een lineaire transformatie is onafhankelijk van de gekozen basis.
 \extra{bewijs}
 \end{st}
 
 \begin{pr}
-  Zij $K,+,\cdot$ een veld en $A$ een lineaire tranfformatie van een eindigdimensionale $K$-vectorruimte $V$, dan is $\lambda\in K$ een eigenwaarde van $A$ als en slechts als $\lambda$ een wortel is van de karakteristieke veelterm van $A$.
+  Zij $K,+,\cdot$ een veld en $A$ een lineaire transformatie van een eindigdimensionale $K$-vectorruimte $V$, dan is $\lambda\in K$ een eigenwaarde van $A$ als en slechts als $\lambda$ een wortel is van de karakteristieke veelterm van $A$.
 \extra{bewijs}
 \end{pr}
 
@@ -162,6 +166,10 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
   Zij $K,+,\cdot$ een veld en $V$ een eindigdimensionale $K$-vectorruimte van dimensie $n$ en $A$ een lineaire transformatie van $V$.
   Als de karakteristieke veelterm $f_{A}$ $n$ verschillende wortel heeft in $K$, dan is $A$ diagonaliseerbaar over $K$.
 \extra{bewijs}
+\end{gev}
+
+\begin{gev}
+  Als $K,+,\cdot$ een algebra\"isch gesloten veld is, dan zijn alle matrices en lineaire transformmaties van eindigdimensionale vectorruimtes over $K$ trianguleerbaar.
 \end{gev}
 
 \subsection{Triagulatie}
@@ -250,14 +258,96 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 
 \begin{ei}
   Zij $K,+,\cdot$ een veld en $A\in M^{n\times n}(K)$ een matrix, dan bestaat er een veelterm $g\in K[X]$ met $g$ verschillend van de nulveelterm zodat $A$ een wortel is van $g$.
-\TODO{bewijs p 111}
+
+  \begin{proof}
+    De dimensie van $M^{n \times n}(K)$ als vectorruimte over $K$ is $n^{2}$.\waarom
+    De $n^{2}+1$ matrices $A^{n^{2}},A^{n^{2}-1},\dotsc,A^{2},A,I$ lineair afhankelijk.\waarom
+    Er bestaan dus $c_{i}\in K$ als volgt:
+    \[ \sum_{i=0}^{n^{2}}c_{i}A^{i} = 0 \]
+    Kies dan $g= \sum_{i=0}^{n^{2}}c_{i}X^{i}$ als veelterm die $A$ als wortel heeft.
+  \end{proof}
 \end{ei}
 
 \begin{st}
+  De \term{stelling van Cayley-Hamilton}.\\
   Zij $K,+,\cdot$ een veld.
   Zij $A$ een lineaire transformatie van een eindigdimensionale $K$-vectorruimte (of een $n\times n$ matrix over $K$). Noteer met $f_{A}$ de karakteristieke veelterm van $A$.
   \[ f_{A}(A) = 0 \]
-\TODO{bewijs p 112}
+
+  \begin{proof}
+    Zij $V$ een $n$-dimensionale $K$-vectorruimte en $A$ een lineaire transformatie van $V$ met matrix $M$ ten opzichte van een basis $\{v_{1},\dotsc,v_{n}\}$ van $V$.
+    \[ \forall i \in \{1,\dotsc,n\}:\ A(v_{i}) = \sum_{j=1}^{n}m_{ij}v_{j} \]
+    We kunnen deze vergelijkingen als volgt opschrijven:
+    \[
+    \left\{
+      \begin{array}{cccccc}
+        A(v_{1}) &          &       && =\sum_{j=1}^{n}m_{1j}v_{j}\\
+        & A(v_{2}) &       && =\sum_{j=1}^{n}m_{2j}v_{j}\\
+        &         & \ddots && \vdots\\
+        &         &        & A(v_{n}) &=\sum_{j=1}^{n}m_{nj}v_{j}\\
+      \end{array}
+    \right.
+    \]
+    We kunnen de vergelijkingen opnieuw herschrijven als volgt:\clarify{wut?} (vraag nog niet waarom.)
+    \[
+    \left\{
+      \begin{array}{ccccccc}
+        (A-m_{11}I)(v_{1}) & -m_{12}I(v_{2}) & \hdots & -m_{1n}I(v_{n}) &=& 0\\
+        m_{21}I(v_{1}) & (A-m_{12}I)(v_{2}) & \hdots & -m_{1n}I(v_{n}) &=& 0\\
+        \vdots & \vdots &\ddots & \vdots & &\vdots\\
+        m_{n1}I(v_{1}) & m_{n2}I(v_{2}) & \hdots & (A-m_{nn}I)(v_{n}) &=& 0\\
+      \end{array}
+    \right.
+    \]
+    We definieren nu de $(n\times n)$-matrix $\Delta$ als volgt:
+    \[
+    \Delta = \delta_{ij}A - m_{ij}I = 
+    \begin{pmatrix}
+      A-m_{11}I & -m_{12}I & \hdots & -m_{1n}I\\
+      m_{21}I & A-m_{12}I & \hdots & -m_{1n}I\\
+      \vdots & \vdots &\ddots & \vdots & &\vdots\\
+      m_{n1}I & m_{n2}I & \hdots & A-m_{nn}I\\
+    \end{pmatrix}
+    \]
+    We kunnen de vergelijkingen dan nog eens herschrijven als volgt:
+    \[ \Delta
+    \begin{pmatrix}
+      v_{1}\\ v_{2}\\ \vdots \\ v_{n}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0\\ 0\\ \vdots \\ 0
+    \end{pmatrix}
+    \]
+    Merk op dat $\Delta$ elementen heeft in de commutatieve deelring $R_{A}$ van $Hom(V,V)$:
+    \[ R_{A} = \{g(A) \mid g \in K[X]\} \]
+    Beschouw nu de adjunctmatrix $adj(\Delta)$ van $\Delta$.
+    Deze bestaat ook uit elementen in $R_{A}$.
+    \[
+    adj(\Delta) \cdot \Delta = det(\Delta)I
+    \]
+    Hieruit halen we nu tenslotte het volgende:
+    \[ det(\Delta)I 
+    \begin{pmatrix}
+      v_{1}\\ v_{2}\\ \vdots \\ v_{n}
+    \end{pmatrix}
+    = adj(\Delta)\Delta 
+    \begin{pmatrix}
+      v_{1}\\ v_{2}\\ \vdots \\ v_{n}
+    \end{pmatrix}
+    = adj(\Delta)
+    \begin{pmatrix}
+      0\\ 0\\ \vdots \\ 0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      0\\ 0\\ \vdots \\ 0
+    \end{pmatrix}
+    \]
+    Dit betekent dat de lineaire transformatie $det(\Delta)I$ elke basisvector $v_{i}$ op $0$ afbeeldt.
+    Die determinant moet dus nul zijn, en die determinant is precies $f_{A}(A)$.
+  \end{proof}
+\clarify{holy shit!}
 \end{st}
 
 \section{Minimale veeltermen}
@@ -269,6 +359,11 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
   We noteren de minimale veelterm van $A$ als $\phi_{A}$.
 \end{de}
 
+\begin{st}
+  De minimale veelterm van een lineaire transformatie is een deler van de karakteristieke veelterm.
+\extra{bewijs, volgt uit Cayley-Hamilton}
+\end{st}
+
 \begin{ei}
   Zij $A$ een lineaire transformatie van een eindigdimensionale $K$-vectorruimte $V$ en $M$ de matrix van $A$ ten opzichte van een basis van $V$.
   \[ \phi_{A} = \phi_{M} \]
@@ -279,7 +374,24 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
   Zij $K'$ een velduidbreiding van een veld $K,+,\cdot$ en $M\in M^{n\times n}(K)$ een matrix over $K$ met minimale veelterm $\phi_{M} \in K[X]$.
   We kunnen $M$ ook beschouwen als element van $M^{n\times n}(K')$ met minimale veelterm $\phi'_{M} \in K'[X]$
   \[ \phi_{M} = \phi'_{M} \]
-\TODO{bewijs p 115}
+  \begin{proof}
+    \begin{itemize}
+    \item $\phi'_{M}$ is zeker een deler van $\phi_{M}$, mant we kunnen $\phi_{M}$ ook beschouwen als veelterm in $K'[X]$.
+    \item Neem een basis $\beta$ van $K'$ als $K$-vectorruimte.
+      \[ \phi'_{M}= \sum_{j}\lambda_{j}X^{j} \in K'[X] \]
+      We kunnen $\phi'_{M}$ dan herschrijven als volgt:
+      \[ \phi'_{M} = \sum_{j}\left(\sum_{i}a_{ji}b_{i}\right)X^{j} = \sum_{j}\left(\sum_{i}a_{ji}X\right)b_{i} \]
+      Hierein zijn de $a_{ji}\in K$ de co\"ordinaten van $\lambda_{j}$ ten opzichte van de basiselementen $b_{i}\in \beta$.
+      Noem nu $f_{i}=\sum_{j}a_{ji}X^{j}\in K[X]$:
+      \[ \sum_{j}f_{i}b_{i} \text{ met } f_{i}=\sum_{j}a_{ji}X^{j}\in K[X] \]
+      Wanneer we deze veelterm evalueren in $M'$ krijgen we de volgende gelijkheid:
+      \[0 = \phi'_{M}(M) = \sum_{i}f_{i}(M)b_{i} \]
+      Omdat de $b_{i}$ lineair onafhankelijk zijn over $K$ moeten alle $f_{i}(M)$ het nulelemente zijn in $M^{n\times n}(K)$.
+
+    \item Per definitie van $\phi_{M}$ is $\phi_{M}$ dan een deler van alle $f_{i}$ in $K[X]$.
+      $\phi_{M}$ is dus ook een deler van alle $f_{i}$ in $K'[X]$ en daarom ook van $\phi'_{M}$.      
+    \end{itemize}
+  \end{proof}
 \end{ei}
 
 \subsection{Decompositie via minimale veelterm}
@@ -296,7 +408,54 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
   \item $V = V_{1} \oplus V_{2}$, $A(V_{1}) \subseteq V_{1}$ en $A(V_{2}) \subseteq V_{2}$.
   \item De minimale veelterm van $A|_{V_{1}}$ is $\phi_{1}$ en de minimale veelterm van $A|_{V_{2}}$ is $\phi_{2}$.
   \end{itemize}
-\TODO{bewijs p 116}
+  
+  \begin{proof}
+    We merken eerst het volgende op...
+    \[ \phi_{1}(A) \circ \phi_{2}(A) = \phi_{2}(A) \circ \phi_{1}(A) = 0 \]
+    ... en dat er veeltermen $g$ en $h$ in $K[X]$ bestaan als volgt: ($\phi_{1}$ en $\phi_{2}$ zijn immers relatief priem.$ggd(\phi_{1},\phi_{2}) =1$)\needed
+    \[ g\phi_{1}+h\phi_{2} =1\]
+    \[ g(A) \circ \phi_{1}(A) + h(A) \circ \phi_{2}(A) = I \]
+    \begin{itemize}
+    \item We bewijzen dat $Im(\phi_{1}(A))$ gelijk is aan $Ker(\phi_{2}(A))$.
+      De andere gelijkheid geldt dan ook.
+      \begin{itemize}
+      \item $\subseteq$\\
+        Uit de eerste opmerking volgt dat $Im(\phi_{1}(A))$ een deel is van $Ker(\phi_{2}(A))$.
+      \item $\supseteq$\\
+        Kies nu een element $a$ uit $Ker(\phi_{2}(A))$, dan zit $a$ ook in $Im(\phi_{1}(A)$:
+        \[ a = \left(\phi_{1}(A) \circ g(A)\right)(a) + \left(h(A) \circ \phi_{2}(A)\right)(a) = \phi_{1}(A)(g(A)(a)) = 0\]
+      \end{itemize}
+    \item
+      \begin{itemize}
+      \item $V=V_{1}+V_{2}$\\
+        Kies een $v$ uit $V$:
+        \[
+        \begin{array}{rll}
+          v&= \left( \phi_{1}(A) \circ g(A) + h(A) \circ \phi_{2}(A)\right)(v) &\\
+          &= \phi_{1}(A)(g(A)(a))+\phi_{2}(A)(h(A)(a)) & \in Im(\phi_{1}(A))+Im(\phi_{2}(A))=V_{1}+V_{2} \\
+        \end{array}\]
+      \item $V_{1}\cap V_{2} = \{0\}$\\
+        Kies een $v$ uit $V_{1}\cap V_{2}$, dan geldt het volgende vanuit de tweede opmerking.
+        \[ \phi_{1}(A)(g(A)(v)) + \phi_{2}(A) (h(A)(v)) = v \]
+        $v$ moet dan het nulelement zijn.
+      \end{itemize}
+   We tonen nog aan dat $A(V_{1})$ een deel is van $V_{1}$.
+      Kies hiervoor een $v\in V_{1}$; dus met $(\phi_{1}(A))(v) = 0$.
+      \[
+      \phi_{1}(A)(A(v)) = (\phi_{1}(A) \circ A)(v) = (A \circ \phi_{1}(A))(v) = A(0) = 0
+      \]
+      Bijgevolg is $A(V_{1})$ inderdaad een deel van $Kep(\phi_{1}(A)) = V$.
+    \item Noteer voorlopig de minimale veeltermen van $A|_{V_{1}}$ en $A|_{V_{2}}$ als $\gamma_{1}$ en $\gamma_{2}$.
+      Uit de definitie van $V_{1}$ en $V_{2}$ volgt dan het volgende:
+      \[ \gamma_{1}|\phi_{1} \text{ en } \gamma_{2}|\phi_{2} \]
+      Anderzijds beweren we dat $\phi_{1}\phi_{2}|\gamma_{1}\gamma_{2}$ geldt.
+      Hieruit volgt dat $\gamma_{1}$ en $\gamma_{2}$ respectievelijk gelijk zijn aan $\phi_{1}$ en $\phi_{2}$.
+      Om tenslotte onze bewering te bewijzen zullen we nagaan dat $(\gamma_{1}\gamma_{2})(A) = 0$ geldt.
+      Neem hiervoor een willekeurige $v\in V$.
+      We kunnen $v$ dan ontbinden als $v=v_{1}+v_{2}$ met $v_{1}\in V_{1}$ en $v_{2}\in V_{2}$.
+      \[ ((\gamma_{1}\gamma_{2})(A))(v) = \gamma_{2}(A)(\gamma_{1}(A)(v_{1})) + \gamma_{1}(A)(\gamma_{2}(A)(v_{2})) = 0+ 0= 0 \]
+    \end{itemize}
+  \end{proof}
 \end{pr} 
 
 \begin{gev}
@@ -338,6 +497,7 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \label{sec:diagonaliseren}
 
 \begin{st}
+  \examen
   Zij $K,+,\cdot$ een willekeurig veld, $V$ een eindigdimensionale $K$-vectorruimte en $A$ een lineaire transformatie van $V$.
   $A$ is diagonaliseerbaar (over $K,+,\cdot$) als en slechts als de minimale veelterm $\phi_{A}\in K[X]$ van $A$ het product is van onderling verschillende lineaire veeltermen in $K[X]$.
   \[ \phi_{A} = \prod_{i=1}^{k}(X-c_{i}) \text{ met } \forall i,j:\ c_{i} \neq c_{j} \]
@@ -367,6 +527,7 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \end{ei}
 
 \begin{ei}
+  \examen
   Zij $K,+,\cdot$ een veld en $V$ een eindigdimensionale $K$-vectorruimte.
   Zij $A$ een nilpotente transformatie van $V$ van index $k$.
   Neem $v\in V$ een vector zodat $A^{k-1}(v) \neq \vec{0}$.
@@ -393,6 +554,7 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \end{de}
 
 \begin{gev}
+  \examen
   Zij $K,+,\cdot$ een veld en $V$ een eindigdimensionale $K$-vectorruimte.
   Zij $A$ een nilpotente transformatie van $V$ van index $k$ en met invariant systeem $\{k =k_{1},\dotsc,k_{p}\}$
   Er bestaat dan een basis van $V$ zodat de matrix van $A$ ten opzicte van die basis de volgende blokvorm heeft:
@@ -548,11 +710,11 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \begin{de}
   Zij $V$ een $\mathbb{C}$-vectorruimte.
   Een \term{hermetisch product} is een afbeelding $\langle \cdot, \cdot\rangle$ ...
-  \[ \langle \cdot , \cdot \rangle :\ V \times V \rightarrow \mathbb{R}:\ (v,w) \mapsto \langle v, w \rangle \]
+  \[ \langle \cdot , \cdot \rangle :\ V \times V \rightarrow \mathbb{C}:\ (v,w) \mapsto \langle v, w \rangle \]
   ... met de volgende eigenschappen:
   \begin{itemize}
   \item $\forall v, w \in V:\ \langle v,w \rangle = \overline{\langle w, v \rangle}$
-  \item $\forall v,v',w \in V,\ \forall \alpha,\beta \in \mathbb{C}:\ \langle \alpha v + \beta v', w \rangle = \overline{\alpha} \langle v,w \rangle + \overline{\beta} \langle v', w \rangle $ (toegevoegde lineariteit)
+  \item $\forall v,v',w \in V,\ \forall \alpha,\beta \in \mathbb{C}:\ \langle \alpha v + \beta v', w \rangle = \alpha \langle v,w \rangle + \beta \langle v', w \rangle $
   \item $\forall v\in V:\ \langle v,v \rangle \in \mathbb{R}^{+}$
   \item $\forall v\in V:\ \langle v,v \rangle = 0 \Leftrightarrow v = \vec{0}$
   \end{itemize}
@@ -588,7 +750,7 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \begin{de}
   Zij $V,\langle\cdot,\cdot\rangle$ en $W,[\cdot,\cdot]$ inproductruimten over hetzelfde veld.
   Een lineaire afbeelding $A:V \rightarrow W$ heet een \term{isometrie} als het volgende geldt:
-  \[ \forall v,w \in V: \langle v,w \rangle = [A(v),A(w)] \]
+  \[ \forall v,w \in V: \langle v,w \rangle =[A(v),A(w)] \]
 \end{de}
 
 \begin{ei}
@@ -607,6 +769,7 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \label{sec:de-adjunct-van}
 
 \begin{st}
+  \examen
   Zij $V,\langle\cdot,\cdot\rangle$ een eindigdimensionale re\"ele of complexe inproductruimte en zij $A\in Hom(V,V)$ een lineaire transformatie van $V$.
   Er bestaat een unieke lineaire transformatie $A^{*} \in Hom(V,V)$ zodat het volgende geldt:
   \[ \langle A(v),w \rangle = \langle v, A^{*}(w) \rangle \]
@@ -642,11 +805,13 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \TODO{eigenschappen p 7}
 
 \begin{lem}
+  \examen
   Zij $V,\langle\cdot,\cdot\rangle$ een inproductruimte en $A,B \in H(V,V)$ lineaire transformaties van $V$.
   \begin{itemize}
   \item $(A+B)^{*} = A^{*} + B^{*}$
   \item $(A^{k})^{*} = (A^{*})^{k}$
   \item $(\lambda A)^{*} = \overline{\lambda}A^{*}$ voor $\lambda \in F$.
+  \item $(A^{*})^{*}$
   \end{itemize}
 \TODO{bewijs p 8}
 \end{lem}
@@ -672,6 +837,7 @@ In heel deze sectie zullen we spreken over een veld $K,+,\cdot$ en een $K$-vecto
 \end{lem}
 
 \begin{st}
+  \examen
   Zij $V,\langle\cdot,\cdot\rangle$ een eindigdimensionale complexe improductruimte.
   $A$ is normaal als en slechts als $V$ een orthonormale basis van eigenvectoren voor $A$ heeft.
   \TODO{bewijs p 9}
