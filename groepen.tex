@@ -1031,7 +1031,6 @@
   Elke groep is isomorf met een permutatiegroep (een deelgroep van $S(G),\circ$).
 
   \begin{proof}
-    Vool elke willekeurige groep $G,*$ geldt het volgende
     Beschouw voor elk element $a\in G$ de linkse translatie $L_{a}$ bepaald door $a$:
     \[ L_{a}:\ G \rightarrow G:\ x \mapsto a * x \]
     $L_{a}$ is een permutatie van $G$ \extra{verifieer}
@@ -1661,17 +1660,12 @@
   \[ f(N) \triangleleft H \Rightarrow N \triangleleft G \]
 
   \begin{proof}
-    Omdat $N$ een normaaldeler is van $H$, geldt voor elk element $f(g)$ van $H$, dat er voor elk element $f(n)$ van $N$ een element $f(n')$ in $N$ bestaat zodat het volgende geldt:
-    \[ f(g) \Box f(n) = f(n') \Box f(g) \]
-    Gebruik nu de definierende eigenschap van een groepsmorfisme om het volgende te bekomen.
-    \[
-    \begin{array}{rl}
-      f(g*n) &= f(n'*g)\\
-      g*n &= n'*g
-    \end{array}
-    \]
-    \clarify{waarom moeten we hier niet eisen dat $f$ injectief is?}
-    
+    We bewijzen dat het volgende geldt\stref{st:criteria-voor-normaaldeler}:
+    \[ \forall g \in G: g*N*g^{-1} \subseteq N \]
+    Voor elke $g\in G$ geldt het volgende:
+    \[ f(g * N * g^{-1}) = f(g) \Box f(N) \Box f(g)^{-1} = f(N) \]
+    Beschouw nu het volgende, hieruit volgt de stelling.
+    \[ f^{-1}(f(g*N*g^{-1})) = f^{-1}(f(N)) \subseteq N \]
   \end{proof}
 \end{ei}
 

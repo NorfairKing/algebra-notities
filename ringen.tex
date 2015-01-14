@@ -916,7 +916,6 @@
   De nevenklassen van een ideaal, beschouwd als normaaldeler, noemen we \term{restklassen}.
 \end{de}
 
-\extra{eenhedengroepen van resklassenringen pagina 35 tot 49 structuren}
 
 \begin{pr}
   \label{pr:kern-ringmorfisme-is-ideaal}
@@ -1209,7 +1208,20 @@
 \begin{st}
   \examen
   De \term{tweede isomorfismestelling} of \term{parrallellogramisomorfismestelling}
-\TODO{formuleer en bewijs}
+  Zij $R,+,\cdot$ een ring en $S,+,\cdot$ een deelring van $R,+,\cdot$.
+  Zij bovendien $I$ een ideaal van $R,+,\cdot$
+  \[ I \triangleleft S+I \]
+  \[ S \cap I \triangleleft S \]
+  \[ \nicefrac{S}{S\cup I} = \nicefrac{S+I}{I} \]
+  \begin{proof}
+    \begin{itemize}
+    \item $S+I$ is alvast een deelgroep van $R,+$\stref{st:groep-commutatief-HK-is-H-unie-K}.
+      Omdat $I$ een ideaal is van $R,+,\cdot$ is $S+I$ bovendien een deelring van $R,+,\cdot$ en $I$ ook een ideaal van $S+I$.
+    \item
+    \item
+    \end{itemize}
+  \end{proof}
+\extra{zucht, bekijk gewoon de tweede isomorfismestelling van groepen!}
 \end{st}
 
 \begin{st}
@@ -1221,6 +1233,7 @@
   \item De afbeelding $J\mapsto \pi(J)$ bepaalt een bijectie tussen de deelringen, respectievelijk idealen van $R$ die $I$ omvatten en de deelringen, respectievelijk idealen van $R/I$.
   \item Zij $J$ een ideaal van $R$ zodat $I \subseteq J$, dan geldt het volgende:
     \[ \nicefrac{R/I}{J/I} \cong R/J \]
+    
   \end{itemize}
 \TODO{bewijs p 54 ringen}
 \end{st}
@@ -2192,6 +2205,7 @@
     \end{itemize}
   \end{proof}
 \end{lem}
+\clarify{waarom geldt dit enkel voor een veld?}
 
 \begin{st}
   \label{st:minimale-veeltermen-bijna-uniek}
@@ -2212,7 +2226,6 @@
     Als $I,+,\cdot$ de nulring is, wordt $I,+,\cdot$ voortgebracht door het nulelement.
     Kies dus een element $g$ uit $I\setminus \{e_{F}\}$ van minimale graad, dan wordt $I$ voortgebracht door $g$.\lemref{lem:minimale-veelterm-brengt-ideaal-voort}
   \end{proof}
-\clarify{waarom geldt dit enkel voor een veld?}
 \end{st}
 
 \begin{st}
@@ -2397,7 +2410,7 @@
     \begin{itemize}
     \item Bestaan\\
       Bewijs uit het ongerijmde.
-      Stel dat $x_{0}$ niet te ontbinden valt in irreducibele elementen (dan is $x_{0}$ niet irreducibel), dan bestaan er elementen $x_{1}$ en $y_{1}$ in $R$ zodat $x_{0}$ als volgt te schrijven valt.
+      Stel dat $x_{0}$ niet te ontbinden valt in irreducibele elementen (dan is $x_{0}$ niet irreducibel want als $x_{0}$ irreducibel was dan was $x_{0}$ zelf al de ontbinding van $x_{0}$ in irreducibele elementen), dan bestaan er elementen $x_{1}$ en $y_{1}$ in $R$ zodat $x_{0}$ als volgt te schrijven valt.
       \[ x_{0} = x_{1}y_{1} \]
       Hierin zijn $x_{1}$ en $y_{1}$ geen eenheden\deref{de:irreducibel} en kan ofwel $x_{1}$ ofwel $y_{1}$ zelf ook niet ontbonden worden in irreducibele elementen.
       Als zowel $x_{1}$ als $y_{1}$ immers een product waren van irreducibele elementen, dan was $x_{0}$ dat ook.
