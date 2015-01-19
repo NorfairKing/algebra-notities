@@ -203,6 +203,84 @@ Geef ook de karakteristieke veelterm en de minimale veelterm van $A$.
   \]
 \end{itemize}
 
+\newpage
+\section{Veelterm over veld ontbinden in priemfactoren}
+
+\subsection*{Abstract}
+\subsubsection*{Vraag}
+Ontbind een veelterm $g(X)$ in priemfactoren over een veld $\mathbb{Z}_{p^{n}}$.
+(De orde van het veld zal relatief klein zijn.)
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item Bepaal de nulpunten van $g(X)$.
+\item Deel $g(X)$ achtereenvolgens door $(X-a)$ voor elk nulpunt $a$.
+\item Herhaal tot $g(X)$ helemaal ontbonden is. (In deze stap kunnen er meervoudige nulpunten tevoorschijn komen.)\end{itemize}
+
+\subsection*{Voorbeeld}
+\subsubsection*{Vraag}
+Ontbind $g(X) = X^{4} + 2X^{3} + 2X^{2} + 2X + 1$ in priemfactoren over $\mathbb{Z}_{5}$.
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item Bepaal de nulpunten:
+  \[
+  \begin{array}{|c|c|}
+    \hline
+    a & g(a)\\
+    \hline
+    \hline
+    0 & 1\\ \hline
+    1 & 3\\ \hline
+    2 & 0\\ \hline
+    3 & 0\\ \hline
+    4 & 0\\ \hline
+  \end{array}
+  \]
+\item We delen $g(X)$ achtereenvolgens door $(X-2)$, $(X-3)$ en $(X-4)$.
+  Merk echter eerst op dat $(X-2)$ in $\mathbb{Z}_{5}$ eigenlijk $(X+3)$ is.
+  Zo zijn $(X-3)$ en $(X-4)$ eigenlijk $(X+2)$ en $(X+1)$.
+  \begin{itemize}
+  \item 
+    \[
+    \begin{array}{ccccc|c}
+      X^{4} &+2X^{3} &+2X^{2} &+2X    &+1     & X+3\\\hline
+      X^{4} &+3X^{3} &\vdots &\vdots &\vdots & X^{3}+4X^{2}+0X+2\\\cline{1-2}
+      &+4X^{3} & +2X^{2} &\vdots &\vdots &\\
+      &+4X^{3} & +2X^{2} &\vdots &\vdots &\\\cline{2-3}
+      &       & +0X^{2} & 2X    &\vdots &\\
+      &       & +0X^{2} & 0X    &\vdots &\\\cline{3-4}
+      &       &        & 2X    &+1     &\\
+      &       &        & 2X    &+1     &\\\cline{4-5}
+      &       &        &       & 0     &
+    \end{array}
+    \]
+    Er blijft $X^{3}+4X^{2}+0X+2$ over.
+  \item 
+    \[
+    \begin{array}{cccc|c}
+      X^{3} &+4X^{2} &+0X    &+2       & X+2\\\hline
+      X^{3} &+2X^{2} &\vdots &\vdots   & X^{2}+2X+1\\\cline{1-2}
+           &+2X^{2} &+0X    &\vdots   &\\
+           &+2X^{2} &+4X    &\vdots   &\\\cline{2-3}
+           &       &+X     &+2       &\\
+           &       &+X     &+2       &\\\cline{3-4}
+           &       &       &0        &\\
+    \end{array}
+    \]
+    Er blijft nog $X^{2}+2X+1$ over.
+  \item 
+    \[
+    \begin{array}{ccc|c}
+      X^{2} &+2X &+1     & X+1\\\hline
+      X^{2} &+X  &\vdots & X+1\\\cline{1-2}
+           & X  &+1     &\\
+           & X  &+1     &\\\cline{2-3}
+           &    &0      &\\
+    \end{array}
+    \]
+    Hier blijft nog $X+1$ over.
+  \end{itemize}
+\item Het resultaat is $X^{4} + 2X^{3} + 2X^{2} + 2X + 1 = (X+1)^{2}(X+2)(X+3)$.
+\end{itemize}
 
 
 \end{document}
