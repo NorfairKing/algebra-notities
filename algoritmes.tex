@@ -282,5 +282,107 @@ Ontbind $g(X) = X^{4} + 2X^{3} + 2X^{2} + 2X + 1$ in priemfactoren over $\mathbb
 \item Het resultaat is $X^{4} + 2X^{3} + 2X^{2} + 2X + 1 = (X+1)^{2}(X+2)(X+3)$.
 \end{itemize}
 
+\newpage
+
+\section{Systematische blokcodes}
+\subsection*{Abstract}
+\subsubsection*{Vraag}
+Gegeven een pariteitsmatrix $H$ van een systematische $(n,k)$ over $GF(q)$.
+\begin{itemize}
+\item Bereken de generatormatrix.
+\item Encodeer een vector $a$.
+\item Decodeer een vector $b$.
+\end{itemize}
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item 
+  \begin{itemize}
+  \item De pariteitsmatrix van een systematisch code $(n,k)$ code ziet er uit als $[-P^{T}|I_{n-k}]$.
+  \item De generatormatrix is dan $G=[I_{k}|P]$.
+  \end{itemize}
+\item $c(a) = aG$
+\item 
+  \begin{itemize}
+  \item Bereken de syndroomtabel.
+    De kolommen van 
+  \item Bereken het syndroom $s=bH^{T}$ van $b$.
+  \item Zoek de fout $e$ op in de syndroomtabel.
+  \item Het informatiefwoord is dan $c=b-e$.
+  \end{itemize}
+\end{itemize}
+\subsection*{Voorbeeld}
+\subsubsection*{Vraag}
+Gegeven een pariteitsmatrix $H$ van een $(6,4)$ systematische code over $\mathbb{Z}_{5}$.
+\[
+H =
+\begin{pmatrix}
+  1 & 2 & 3 & 4 & 1 & 0\\
+  1 & 1 & 1 & 1 & 0 & 1
+\end{pmatrix}
+\]
+\begin{itemize}
+\item Bereken de generatormatrix.
+\item Encodeer de vector $a=(1,1,1,1)$.
+\item Decodeer de vector $b=(1,2,3,2,1,1)$.
+\end{itemize}
+\subsubsection*{Antwoord}
+
+\begin{itemize}
+\item Bereken de generatormatrix.
+\[
+\begin{pmatrix}
+  1 & 0 & 0 & 0 & 4 & 4\\
+  0 & 1 & 0 & 0 & 3 & 4\\
+  0 & 0 & 1 & 0 & 2 & 4\\
+  0 & 0 & 0 & 1 & 1 & 4
+\end{pmatrix}
+\]
+\item
+  \[ 
+  c(a) = (1,1,1,1)
+  \begin{pmatrix}
+    1 & 0 & 0 & 0 & 4 & 4\\
+    0 & 1 & 0 & 0 & 3 & 4\\
+    0 & 0 & 1 & 0 & 2 & 4\\
+    0 & 0 & 0 & 1 & 1 & 4
+  \end{pmatrix}
+  = (1,1,1,1,0,1)
+  \]
+\item
+  \begin{itemize}
+  \item (Kolommen van $H$)
+    \[
+    \begin{array}{c|c}
+      \text{Vertegenwoordiger} & \text{syndroom}\\\hline
+      100000 & 11\\
+      010000 & 21\\
+      001000 & 31\\
+      000100 & 41\\
+      000010 & 10\\
+      000001 & 01
+    \end{array}
+    \]
+  \item 
+    \[
+    s = (1,2,3,2,1,1)
+    \begin{pmatrix}
+      1 & 2 & 3 & 4 & 1 & 0\\
+      1 & 1 & 1 & 1 & 0 & 1
+    \end{pmatrix}^{T}
+    = (3,4)
+    \]
+  \item Het syndroom $s$ moet een veelvoud zijn van \'e\'en van de syndromen in de syndroomtabel opdat de fout te verbeteren zou zijn..
+    In dit geval is $s$ gelijk aan $4\cdot (2,1)$.
+    De fout is dus $(0,4,0,0,0,0)$.
+  \item 
+    \[
+    c^{-1}(b) = b-e= (1,2,3,2,1,1) - (0,4,0,0,0,0)= (1,2,4,2,1,1)
+    \]
+  \end{itemize}
+\end{itemize}
+
+
+
+
 
 \end{document}
