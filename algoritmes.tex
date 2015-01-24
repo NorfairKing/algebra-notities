@@ -254,8 +254,10 @@ Ontbind een veelterm $g(X)$ in priemfactoren over een veld $\mathbb{Z}_{p^{n}}$.
 \begin{itemize}
 \item Bepaal de nulpunten van $g(X)$.
 \item Deel $g(X)$ achtereenvolgens door $(X-a)$ voor elk nulpunt $a$.
-\item Herhaal tot $g(X)$ helemaal ontbonden is. (In deze stap kunnen er meervoudige nulpunten tevoorschijn komen.)\end{itemize}
-
+\item Herhaal tot $g(X)$ helemaal ontbonden is. (In deze stap kunnen er meervoudige nulpunten tevoorschijn komen.)
+\item Verder kan het zijn dat de veelterm nog reducibel is in niet-eerstegraadsvectoren.
+Bereken daarvoor eerst de irreducidele veeltermen van graad $2$ etc...
+\end{itemize}
 \subsection*{Voorbeeld}
 \subsubsection*{Vraag}
 Ontbind $g(X) = X^{4} + 2X^{3} + 2X^{2} + 2X + 1$ in priemfactoren over $\mathbb{Z}_{5}$.
@@ -323,7 +325,41 @@ Ontbind $g(X) = X^{4} + 2X^{3} + 2X^{2} + 2X + 1$ in priemfactoren over $\mathbb
 \end{itemize}
 
 \newpage
+\section{Eindig veld opstellen}
+\subsection*{Abstract}
+\subsubsection*{Vraag}
+Stel het eindig veld $GF(p^{k})$ op (met $p$ een priemgetal).
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item Zoek een primitieve veelterm $f$ van $GF(p)$ van graad $k$.
+\item Noem $\alpha$ het nulpunt van $f$
+\item Het veld $GF(p^{k})$ is nu $0,1,\alpha,\alpha^{2},\dotsc,\alpha^{p^{k}-2}$.
+  We moeten de elementen wel vereenvoudigen aan de hand van de primitieve veelterm.
+\end{itemize}
+\subsection*{Voorbeeld}
+\subsubsection*{Vraag}
+Stel het eindig veld $GF(2^{3})$ op.
 
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item De primitieve veelterm van graad $3$ over $GF(2)$ is $f=X^{3}+X+1$
+\item Noem $\alpha$ het nulpunt van $f$: $\alpha^{3} + \alpha + 1=0$ geldt dus ook $alpha^{3} = \alpha + 1$ (in $\mathbb{Z}_{2}$).
+\item Het veld $GF(2^{3})$ is nu $0,1,\alpha,\alpha^{2},\dotsc,\alpha^{6}$.
+  \[
+  \begin{array}{rl}
+    0 &= 0\\
+    1 &= 1\\
+    \alpha &= \alpha\\
+    \alpha^{2} &= \alpha^{2}\\
+    \alpha^{3} &= \alpha + 1\\
+    \alpha^{4} &= \alpha^{2} + \alpha\\
+    \alpha^{5} &= \alpha^{2} + \alpha + 1\\
+    \alpha^{6} &= \alpha^{2} + 2\alpha + 1
+  \end{array}
+  \]
+\end{itemize}
+
+\newpage
 \section{Systematische blokcodes}
 \subsection*{Abstract}
 \subsubsection*{Vraag}
