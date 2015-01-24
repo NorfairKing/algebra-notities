@@ -354,10 +354,40 @@ Stel het eindig veld $GF(2^{3})$ op.
     \alpha^{3} &= \alpha + 1\\
     \alpha^{4} &= \alpha^{2} + \alpha\\
     \alpha^{5} &= \alpha^{2} + \alpha + 1\\
-    \alpha^{6} &= \alpha^{2} + 2\alpha + 1
+    \alpha^{6} &= \alpha^{2} + 1
   \end{array}
   \]
 \end{itemize}
+
+\newpage
+\section{Eindig veld opstellen}
+\subsection*{Abstract}
+\subsubsection*{Vraag}
+Gegeven een eindig veld $GF(p^{k})$, bereken de cyclotomische nevenklassen modulo $p^{k}-1$ over $GF(p)$.
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item Bepaal de nevenklassen abstract met de stelling die zegt dat $\gamma\in GF(p^{k})$ en $\gamma^{p}$ dezelfde minimaalveeltermen hebben en met $\alpha^{p^{k}} = \alpha$.
+\item Bepaal voor elke nevenklasse de minimaalveelterm door de $(x-a^{i})$ te vermenigvuldigen.
+\end{itemize}
+
+
+\subsection*{Voorbeeld}
+\subsubsection*{Vraag}
+Bereken de cyclotomische nevenklassen van $\alpha$ in $GF(2^{3})$ modulo $7$ over $GF(2)$.
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item De nevenklassen zijn $\{ \{0\}, \{\alpha^{0}, \alpha^{3}, \alpha^{5}, \alpha^{6}\}, \{\alpha^{1}, \alpha^{2}, \alpha^{4} \} \}$
+\item De minimaalveeltermen zijn als volgt:
+  \[
+  \begin{array}{rll}
+    \{0\} :& (X-0) &= X\\
+    \{\alpha^{0}, \alpha^{3}, \alpha^{5}, \alpha^{6}\} :& (X-\alpha^{0})(X-\alpha^{3})(X-\alpha^{5})(X-\alpha^{6}) &= X^4+X^2+X+1\\
+    \{\alpha^{1}, \alpha^{2}, \alpha^{4} \} :& (X-\alpha^{1})(X-\alpha^{2})(X-\alpha^{4}) &= X^{3}+X+1\\
+  \end{array}
+  \]
+  We kunnen eenvoudig nakijken dat dit klopt, inderdaad: $(X^{3}+X+1)(X^4+X^2+X+1) = X^{7}-1$
+\end{itemize}
+
 
 \newpage
 \section{Systematische blokcodes}
