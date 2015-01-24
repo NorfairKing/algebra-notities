@@ -1,0 +1,27 @@
+digraph finite_state_machine {
+    node [label="+", shape=circle];
+    s1;
+    s2;
+    node [label="", shape=square];
+    p1;
+    p2;
+
+    node [shape=none];
+    in[label="in"];
+    out1[label="1"];
+    out2[label="2"];
+    
+    edge [shape=arrow];
+
+    in -> p1 -> p2;
+    in -> s1 -> out1;
+    p1 -> s1;
+    p1 -> s2 -> out2;
+    p2 -> s2;
+    in -> s2;
+
+
+    rankdir="LR";
+}
+
+

@@ -381,6 +381,231 @@ H =
   \end{itemize}
 \end{itemize}
 
+\newpage
+
+\section{Convolutionele code}
+
+\subsection*{Abstract}
+
+\subsubsection*{Vraag}
+Gegeven een diagram van een encoder.
+\begin{itemize}
+\item Bepaal de generator veelterm voor elke output.
+\item Bepaal het toestandsdiagram
+\item Bepaal $d_{min}$ en $d_{free}$
+\item Encodeer een woord $w$
+\item Decodeer een ontvangen woord $v$ via het Viterbi algoritme.
+\end{itemize}
+
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item Voer in het diagram een $1$ in gevolgd door nullen.
+De uitvoer zal dan de coefficienten van de generatorveelterm beschrijven.
+\item Ga voor elke mogelijke invoer en staat na in welke staat de encoder zich zal bevinden, maak hier een diagram van.
+\item
+  \begin{itemize}
+  \item $d_{min}$ is het gewicht van het pad met het kleinste gewicht ($\neq 0$) van lengte $m+1$ met $m$ het aantal shift registers.
+  \item $d_{free}$ is het gewicht van het pad met he kleinste gewicht van oneindige lengte. We zoeken dus een licht pad dat eindigt op een nul-lus.
+  \end{itemize}
+\item Laat eenvoudigweg achtereenvolgens alle bits door het diagram gaan.
+  Of nog sneller, door de generatorveelterm, of NOG sneller, ga het toestandsdiagram af.
+\item TODO
+\end{itemize}
+
+\subsection*{Voorbeeld}
+
+\subsubsection*{Vraag}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=.5]{assets/conv}
+  \caption{Encoder}
+\end{figure}
+\begin{itemize}
+\item Bepaal de generator veelterm voor elke output.
+\item Bepaal het toestandsdiagram
+\item Bepaal $d_{min}$ en $d_{free}$
+\item Encodeer een woord $110010$
+\item Decodeer een ontvangen woord $v$ via het Viterbi algoritme: $10$ $01$ $10$ $00$
+\end{itemize}
+
+\subsubsection*{Antwoord}
+
+\begin{itemize}
+\item Generatorveeltermen:\\
+  De outputs zijn achtereenvolgens (bij input $100..$): $(1,1)$, $(1,1)$, $(0,1)$
+  \begin{itemize}
+  \item $g^{(s)} = 1 + X$
+  \item $g^{(p)} = 1 + X + X^{2}$:
+  \end{itemize}
+\item Toestandsdiagram:
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+      thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+
+      \node[main node] (10) {10};
+      \node[main node] (00) [below left of=10] {00};
+      \node[main node] (11) [below right of=10] {11};
+      \node[main node] (01) [below right of=00] {01};
+
+      \path[every node/.style={font=\sffamily\small}]
+      (00) edge [loop left] node {0/00} (00)
+      edge node [left] {1/10} (10)
+      (10) edge [bend left] node {0/11} (01)
+      edge node {1/00} (11)
+      (01) edge node [left] {0/01} (00)
+      edge [bend left] node {1/10} (10) 
+      (11) edge node [right] {0/10} (01)
+      edge [loop right] node {1/01} (11);
+    \end{tikzpicture}
+  \end{figure}
+\item 
+  \begin{itemize}
+  \item $d_{min}$\\
+    $m$ is $2$, dus we zoeken het lichtste pad van lengte $3$ (naast het pad met enkel nullen).
+    De lichtste paden zijn $00$ $10$ $11$ $11$ en $00$ $10$ $11$ $01$ met elk gewicht $2$.
+    $d_{min}$ is dus $2$.
+  \item $d_{free}$\\
+    Het lichtste pad dat terug naar $00$ gaat is $00$ $10$ $11$ $01$ met gewicht $3$.
+    $d_{free}$ is dus $3$.
+  \end{itemize}
+\item $c(110010) = $ $10$ $00$ $10$ $01$ $10$ $11$
+\item $m(10$ $01$ $10$ $01$ $11$ $11)$\\
+  Tabel van bogen
+  \begin{itemize}
+  \item end: einde van de boog
+  \item start: begin van de boog
+  \item o/p: output door de boog
+  \item err: verschil tussen de output en het te decoderen frame
+  \item $i$ path: totale afstand tot nu toe
+  \item $f$ path: som van err en $i$ path
+  \end{itemize}
+  \begin{itemize}
+  \item Start: State: $00$
+    \[
+    \begin{array}{ccccccc}
+      \hline
+      \text{end} & \text{start} & \text{o/p} & \text{err} & i \text{ path } & f \text{ path} & \text{keep}\\
+      \hline
+      00 & 00 & 00 & & 0 & \infty & \\
+      00 & 01 & 01 & & \infty & \infty & \\
+      01 & 10 & 11 & & \infty & \infty & \\
+      01 & 11 & 10 & & \infty & \infty & \\
+      10 & 00 & 10 & & 0 & \infty & \\
+      10 & 01 & 10 & & \infty & \infty & \\
+      11 & 10 & 00 & & \infty & \infty & \\
+      11 & 11 & 01 & & \infty & \infty & \\
+      \hline
+    \end{array}
+    \]
+  \item Frame: $10$
+    \[
+    \begin{array}{ccccccc}
+      \hline
+      \text{end} & \text{start} & \text{o/p} & \text{err} & i \text{ path } & f \text{ path} & \text{keep}\\
+      \hline
+      00 & 00 & 00 & 1 & 0 & 1 & Y\\
+      00 & 01 & 01 & 2 & \infty & \infty & \\
+      01 & 10 & 11 & 1 & \infty & \infty & Y\\
+      01 & 11 & 10 & 0 & \infty & \infty & \\
+      10 & 00 & 10 & 0 & 0 & 0 & Y\\
+      10 & 01 & 10 & 0 & \infty & \infty & \\
+      11 & 10 & 00 & 1 & \infty & \infty & Y\\
+      11 & 11 & 01 & 2 & \infty & \infty & \\
+      \hline
+    \end{array}
+    \]
+  \item Frame: $01$
+    \[
+    \begin{array}{ccccccc}
+      \hline
+      \text{end} & \text{start} & \text{o/p} & \text{err} & i \text{ path } & f \text{ path} & \text{keep}\\
+      \hline
+      00 & 00 & 00 & 1 & 1 & 2 & Y\\
+      00 & 01 & 01 & 0 & \infty & \infty & \\
+      01 & 10 & 11 & 1 & 0 & 1 & Y\\
+      01 & 11 & 10 & 2 & \infty & \infty & \\
+      10 & 00 & 10 & 2 & 1 & 3 & Y\\
+      10 & 01 & 10 & 2 & \infty & \infty & \\
+      11 & 10 & 00 & 1 & 0 & 1 & Y\\
+      11 & 11 & 01 & 0 & \infty & \infty & \\
+      \hline
+    \end{array}
+    \]
+  \item Frame: $10$
+    \[
+    \begin{array}{ccccccc}
+      \hline
+      \text{end} & \text{start} & \text{o/p} & \text{err} & i \text{ path } & f \text{ path} & \text{keep}\\
+      \hline
+      00 & 00 & 00 & 1 & 2 & 3 & \\
+      00 & 01 & 01 & 2 & 1 & 3 & Y\\
+      01 & 10 & 11 & 1 & 3 & 4 & \\
+      01 & 11 & 10 & 0 & 1 & 1 & Y\\
+      10 & 00 & 10 & 0 & 2 & 2 & \\
+      10 & 01 & 10 & 0 & 1 & 1 & Y\\
+      11 & 10 & 00 & 1 & 3 & 4 & \\
+      11 & 11 & 01 & 2 & 1 & 3 & Y\\
+      \hline
+    \end{array}
+    \]
+  \item Frame: $01$
+    \[
+    \begin{array}{ccccccc}
+      \hline
+      \text{end} & \text{start} & \text{o/p} & \text{err} & i \text{ path } & f \text{ path} & \text{keep}\\
+      \hline
+      00 & 00 & 00 & 1 & 3 & 4 & \\
+      00 & 01 & 01 & 0 & 1 & 1 & Y\\
+      01 & 10 & 11 & 1 & 1 & 2 & Y\\
+      01 & 11 & 10 & 2 & 3 & 5 & \\
+      10 & 00 & 10 & 2 & 3 & 5 & \\
+      10 & 01 & 10 & 2 & 1 & 3 & Y\\
+      11 & 10 & 00 & 1 & 1 & 2 & Y\\
+      11 & 11 & 01 & 0 & 3 & 3 & \\
+      \hline
+    \end{array}
+    \]
+  \item Frame: $11$
+    \[
+    \begin{array}{ccccccc}
+      \hline
+      \text{end} & \text{start} & \text{o/p} & \text{err} & i \text{ path } & f \text{ path} & \text{keep}\\
+      \hline
+      00 & 00 & 00 & 2 & 1 & 3 & \\
+      00 & 01 & 01 & 1 & 2 & 3 & Y\\
+      01 & 10 & 11 & 0 & 3 & 3 & \\
+      01 & 11 & 10 & 1 & 2 & 3 & Y\\
+      10 & 00 & 10 & 1 & 1 & 2 & Y\\
+      10 & 01 & 10 & 1 & 2 & 3 & \\
+      11 & 10 & 00 & 2 & 3 & 5 & \\
+      11 & 11 & 01 & 1 & 2 & 3 & Y\\
+      \hline
+    \end{array}
+    \]
+  \item Frame: $11$
+    \[
+    \begin{array}{ccccccc}
+      \hline
+      \text{end} & \text{start} & \text{o/p} & \text{err} & i \text{ path } & f \text{ path} & \text{keep}\\
+      \hline
+      00 & 00 & 00 & 2 & 3 & 5 & \\
+      00 & 01 & 01 & 1 & 3 & 4 & Y\\
+      01 & 10 & 11 & 0 & 2 & 2 & Y\\
+      01 & 11 & 10 & 1 & 3 & 4 & \\
+      10 & 00 & 10 & 1 & 3 & 4 & Y\\
+      10 & 01 & 10 & 1 & 3 & 4 & \\
+      11 & 10 & 00 & 2 & 2 & 4 & Y\\
+      11 & 11 & 01 & 1 & 3 & 4 & \\
+      \hline
+    \end{array}
+    \]
+  \item We zoeken het pad terug: $00$ $10$ $11$ $01$ $00$ $10$ $01$
+  \item Dit komt overeen met een informatiewoord $110010$.
+  \end{itemize}
+\end{itemize}
+
+
 
 
 
