@@ -204,6 +204,46 @@ Geef ook de karakteristieke veelterm en de minimale veelterm van $A$.
 \end{itemize}
 
 \newpage
+
+\section{De irreduceerbare veeltermen over een eindig veld bepalen}
+
+\subsection*{Abstract}
+\subsubsection*{Vraag}
+Geef de irreduceerbare veeltermen over een eindig veld $GF(p)$ met een priem aantal elementen.
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item Voor graad $0$ zijn alle veeltermen $a$ met $a\in GF(p)$ irreduceerbaar.
+\item Voor graad $1$ zijn alle veeltermen $x+a$ met $a\in GF(p)$ irreduceerbaar.
+\item Bereken alle producten van twee eerstegraadsveeltermen om de reduceerbare veeltermen van graad $2$ te vinden.
+  Wat er overblijft zijn de irreduceerbare veeltermen.
+\item Voor graad $3$ wordt het al moeilijker, maar het zal waarschijnlijk niet nodig zijn.
+\end{itemize}
+
+\subsection*{Voorbeeld}
+\subsubsection*{Vraag}
+Geef de irreduceerbare veeltermen over een $GF(3)$.
+\subsubsection*{Antwoord}
+\begin{itemize}
+\item graad $0$: $0$, $1$, $2$
+\item graad $1$: $x$, $x+1$, $x+2$
+\item graad $2$:
+  \begin{itemize}
+  \item De reduceerbare veeltermen:
+    \[
+    \begin{array}{ccl}
+      x & x &= x^{2}\\
+      x & (x+1) &= x^{2} + x\\
+      x & (x+2) &= x^{2} + 2x\\
+      (x+1) & (x+1) &= x^{2} + 2x + 1\\
+      (x+1) & (x+2) &= x^{2} + 2\\
+      (x+2) & (x+2) &= x^{2} + x + 1\\
+    \end{array}
+    \]
+    Wat er ovverblijft zijn de irreduceerbare veeltermen $(x^{2}+1)$ $(x^{2}+2x+2)$ en $(x^{2} +x + 2)$.
+  \end{itemize}
+\end{itemize}
+
+\newpage
 \section{Veelterm over veld ontbinden in priemfactoren}
 
 \subsection*{Abstract}
