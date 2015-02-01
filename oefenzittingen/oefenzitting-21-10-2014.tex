@@ -1,0 +1,182 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[dutch]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{todonotes}
+\usepackage{enumerate}\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Kevin Teugels}
+\title{Oefeningen TAI (21-10-2014)}
+\date{21 oktober 2014}
+
+
+
+\begin{document}
+\maketitle
+\section*{oefening 1}
+
+Bewijs dat $\mathbb{R}_0 \times \mathbb{R} $ voorzien van de samenstellingswet $((a,b),(c,d)) \rightarrow (ac,bc+d)$ een groep is. Is hij abels?
+\subsection*{oplossing}
+\begin{proof} 
+We bewijzen eerst de associativiteits vereiste:
+\[
+((a,b)*(c,d))\times (e,f)=(ac,bc+d)\times (e,f)=(ace,(bc+d)e+f))
+\]
+We verplaatsen nu de haakjes.
+\[
+(a,b) \times ((c,d) \times (e,f))=(a,b) \times (ce,de+f)=(ace,(bce)+(de+f))=(ace,(bc+d)e+f)
+\]
+Het neutraal element is $(1,0)$.
+Het invers element is $(\dfrac{1}{a},\dfrac{-b}{a})$.
+Aan alle voorwaarden voor een groep is voldaan dus het is een groep.
+\end{proof}
+Het is niet abels want de samenstellingswet is niet commutatief.
+\section*{oefening 2}
+
+$<S_n,0>$ is de groep van permutaties van een verzameling van n elementen. Stel de samenstellingstabel op voor $<S_3,0>$. Zijn er deelgroepen? Normaaldelers?
+\subsection*{oplossing}
+\subsubsection*{samenstellingstabel}
+\[
+\begin{array}{c| c c c c c c }
+0 & (1,2,3) &(3,1,2) & (2,3,1) & (1,3,2) & (3,2,1)& (2,1,3)\\
+\hline
+(1,2,3) &(1,2,3) &(3,1,2) & (2,3,1) & (1,3,2) &(3,2,1) &(2,1,3)\\
+(3,1,2)& (3,1,2) & (2,3,1) & (1,2,3) &(2,1,3) & (1,3,2) & (3,2,1)\\
+(2,3,1) & (1,3,1) & (1,2,3) & (3,1,2) & (3,2,1) & (2,1,3)&(1,3,2)\\
+(1,3,2) & (1,3,2) & (3,2,1) & (2,1,3) &(1,2,3) & (3,1,2)&(2,3,1)\\
+(3,2,1) & (3,2,1) & (2,1,3) & (1,3,2) & (2,3,1) &(1,2,3) & (3,1,2)\\
+(2,1,3) & (2,1,3) & (1,3,2) & (3,2,1) & (3,1,2) & (2,3,1) & (1,2,3)\\
+\end{array}
+\]
+\subsubsection*{deelgroepen}
+Definitie deelgroep p 94.
+\begin{itemize}
+\item Triviale deelgroepen: $\{(1,2,3)\},S_3$.
+\item Echte deelgroepen: $\{(1,2,3),(3,1,2),(2,3,1)\}$ en $\{(1,2,3),((1,3,2)\}$ en $\{(1,2,3),(3,2,1)\}$.
+\end{itemize}
+\subsubsection*{normaaldelers}
+Als $\forall_a \in G: a*D=D*a$ dan is $D$ een normaaldeler.
+\[
+D=\{e,r_1,r_2\}
+\]
+Rechtse nevental: $DS_1=\{s_1,s_3,s_2\},DS_2=\{s_1,s_2,s_3\}$.
+\\Linkse nevental= $S_1D=\{s_1,s_2,s_3\},S_2D=\{s_1,s_2,s_3\},s_3D=\{s1,s2s,3)\}$
+\\$\Rightarrow D$ is normaaldeler.
+\\Op zelfde manier kunnen we aantonen dat $D=\{e,s_1\}$ en $D=\{e,s_2\}$ en $D=\{e,s_3\}$ geen normaaldelers zijn.
+\section*{oefening 3}
+Zoek de generatoren van de additieve cyclische groepen $\mathbb{Z}_{10},\mathbb{Z}_{11},\mathbb{Z}_{12}$.
+\subsection*{oplossing}
+vb: $Z=\{\bar{1},\bar{2},...,\bar{6}\} \rightarrow$:
+\begin{itemize}
+\item $\bar{2} \rightarrow \bar{2}$.
+\item $2+\bar{2} \rightarrow \bar{4}$.
+\item $2+2+\bar{2} \rightarrow\bar{6}$.
+\item $2+2+2+\bar{2} \rightarrow \bar{1}$.
+\item ...
+\end{itemize}
+\pagebreak
+\section*{oefening 4}
+
+Genereer de groep voorgebracht onder vermenigvuldiging door de matrices.
+\[ \left( \begin{array}{cc}
+0 & 1 \\
+-1 & 0
+\end{array} \right)
+en
+\left( \begin{array}{cc}
+0 & 1 \\
+1 & 0
+\end{array} \right)
+\]
+Bewijs dat dit een niet abelse groep is van orde 8.
+\subsection*{oplossing}
+\[
+X=
+\begin{pmatrix}
+0 &1\\
+-1&0
+\end{pmatrix}
+, X^2=
+\begin{pmatrix}
+-1&0\\
+0&-1
+\end{pmatrix}
+,X^3=
+\begin{pmatrix}
+0 & -1\\
+1&0
+\end{pmatrix}
+,X^4=
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+\]
+\[
+Y=
+\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}
+,Y^2=
+\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}
+\]
+\[
+XY=
+\begin{pmatrix}
+1 &0\\
+0 &-1
+\end{pmatrix}
+=YX^3,X^2y=
+\begin{pmatrix}
+0 &- 1\\
+-1 &0
+\end{pmatrix}
+=YX^2,X^3Y=
+\begin{pmatrix}
+-1 & 0\\
+0&1
+\end{pmatrix}
+=YX
+\]
+$\rightarrow$ 8 verschillende elementen. Dus het is een groep van orde 8.
+\\$\{X,Y,X^2,X^3,X^4,XY,X^2Y,X^3Y\}$
+\\Het is geen abelse groep.
+\section*{oefening 5}
+
+Beschouw de groep $G=( \mathbb{Z}_7 /\{0\},.)$ van de gehele getallen modulo 7 zonder de nul en met vermenigvuldiging modulo 7.Bepaal de orde van al de elementen. Is de groep Commutatief?
+\subsection*{oplossing}
+Vb: $\bar{5} \rightarrow$
+\begin{itemize}
+\item $\bar{5}^2=\bar{25}=\bar{4}$ .
+\item $\bar(5)^3=\bar{4}*\bar{5}=\bar{20}=\bar{6}$.
+\item ...
+\item $\bar{5}^6=\bar{3}*\bar{5}=\bar{15}=\bar{1} \rightarrow$ Orde van 5 is 6.
+\end{itemize}
+De groep is commutatief want de maal is commutatief.
+\pagebreak
+\section*{oefening 6}
+
+Bewijs dat elke deelgroep van een cyclische groep cyclisch is.
+\subsection*{oplossing}
+\begin{proof}
+$G=<g>$ is een cyclische groep, met $g \in G$.
+\\Stel $H \subset G$.
+\\Als $h\{1\}$,dan is $H$ cyclisch met generator $1$ dus we nemen aan dat $H \neq \{1\}$.
+\\Bepaal generator van $H$. Omdat $G$ cyclisch is, is elk element een macht van $g$. 
+\\Stel het kleinste positieve getal zodat $g^m \in H$.
+\subsubsection*{te bewijzen}
+$g^n$ generator $H$ maw elke $h \varepsilon H$ is een macht van $g^n \rightarrow \varepsilon H \subset G \Rightarrow h=G^n$ voor een bepaalde n. Er zijn unieke q,r zodat $r=n*q+r,0\leqslant r \leqslant n$ zodat:
+\[
+h=g^{nq+r}=(g^n)^q*g^r \Rightarrow g^r=h(g^n)^-q
+\]
+$\rightarrow$ we weten $g^n \varepsilon H \Rightarrow (g^n)^-q \varepsilon H$ dus $h(q^n)^-q \varepsilon H \rightarrow g^r \varepsilon H$
+\\niet volledig
+
+\end{proof}
+\end{document}
