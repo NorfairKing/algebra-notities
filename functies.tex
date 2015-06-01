@@ -202,38 +202,13 @@
 \end{de}
 
 \begin{st}
-  \label{st:afb-inverse-asa-bijectief}
-  Een afbeelding is inverteerbaar als en slechts als ze bijectief is.
+  \label{st:afb-injectief-dan-inverteerbaar}
+  Een afbeelding is inverteerbaar als ze injectief is.
 \end{st}
 
 \begin{st}
   \label{st:afb+inverse=identieke}
   De samenstelling van een inverteerbare afbeelding en haar inverse is de identieke transformatie.
-\end{st}
-
-\begin{st}
-  Ontbindingsstelling voor afbeeldingen\\
-  Iedere afbeelding $f:A\rightarrow B$ valt te schrijven als een samenstelling:
-  \[ f = i \circ b \circ p \]
-  \begin{itemize}
-  \item $p$: de projectie van $f$ op $\{ (x,y) \mid f(x) = f(y) \}$.
-  \item $b$: een bijectie tussen $\{ (x,y) \mid f(x) = f(y) \}$ en $f(A)$,
-  \item $i$: de inlassing van $f(A)$ in $B$,
-  \end{itemize}
-  \begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-      \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-      {
-        A & B \\
-        G/Ker(\phi) & \phi(G) \\};
-      \path[-stealth]
-      (m-1-1) edge node [left] {$p$} (m-2-1)
-      edge node [above] {$f$} (m-1-2)
-      (m-2-1.east|-m-2-2) edge node [below] {$b$} (m-2-2)
-      (m-2-2) edge node [right] {$i$} (m-1-2);
-    \end{tikzpicture}
-  \end{figure}
 \end{st}
 
 \begin{st}
