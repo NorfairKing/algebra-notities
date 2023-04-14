@@ -20,7 +20,7 @@ stdenv.mkDerivation {
   buildInputs = [ (texlive.combine {
                     inherit
                         (texlive)
-                        scheme-basic
+                        scheme-full
                         latexmk
                         babel-dutch
                         subfiles
